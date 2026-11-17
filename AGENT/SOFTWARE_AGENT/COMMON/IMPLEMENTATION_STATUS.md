@@ -15,18 +15,18 @@
 | Google 공급자·JWT 키 | 미확인 | 공급자 설정, 키 종류, issuer/audience 검증 미실시 |
 | DB 연결·권한·네트워크 제한 | 미확인 | JDBC 연결, 전용 역할, 허용 IP를 확인하지 않음 |
 | Storage | 미확인 | 버킷·공개 여부·정책·실제 파일 작업 미확인 |
-| 프로젝트 파일 | AGENT·TODO 문서와 FE Goal 1 구성 | [Goal별 계획](../../../TODO/FE_GOALS.md), [Goal 1 결과](../../../TODO/FE_GOAL_01_RESULT.md) 참조 |
+| 프로젝트 파일 | AGENT·TODO 문서와 FE Goal 1~2 구성 | [Goal별 계획](../../../TODO/FE_GOALS.md), [Goal 2 결과](../../../TODO/FE_GOAL_02_RESULT.md) 참조 |
 | Git | 로컬 저장소 초기화 완료 (`main`) | 문서 작성 후 사용자 커밋 요청으로 초기화. 커밋 이력은 Git log로 확인하며 원격 push는 수행하지 않음 |
 | Backend 코드 | 미구현 | 이번 작업에서 변경하지 않음 |
-| 모바일 코드 | FE Goal 1 구현·자동 검증 완료 | Expo SDK 57, React Native, 최소 시작 화면, 타입·lint·테스트 환경. 기기 실행 미검증 |
+| 모바일 코드 | FE Goal 2 구현·자동 검증 완료 / 기기·원본 비교 검증 대기 | 공통 스타일·하단 4개 탭·탭별 임시 화면. 실제 피드·검색·프로필 기능은 미구현 |
 | 스키마·migration·API | 미구현 | 이 문서의 모델·계약은 계획이며 DB 적용 없음 |
 | Gummble·Medium 화면 | MCP 인증·선택 화면 조사 완료 | 흐름 6개 검색, 4개 흐름의 단계 참조 22개 조회, 서로 다른 iOS 화면 10장 시각 확인. 전체 200장·Android·실제 앱 조작은 미확인. [조사 기록](../../UXUI_AGENT/MEDIUM_REFERENCE.md) 참조 |
-| FE 자동 검증 | 통과 | npm ci 재설치, 타입·lint·기본 테스트 1개, Expo 진단 21/21, Android·iOS JS/Hermes 번들 생성 |
+| FE 자동 검증 | Goal 2 범위 통과 | 타입·lint, 행동 테스트 4개를 iOS·Android Jest에서 각각 실행해 8건 통과, Expo 진단 21/21, Android·iOS JS/Hermes 번들 생성 |
 | 모바일 실행·네이티브 빌드·배포 | 미실행 | 사용자 확인: 기기 없음. Android SDK·에뮬레이터 및 macOS/Xcode 없음. 번들 생성과 기기 실행을 구분 |
 
 ## 현재 작업 순서 — 프론트엔드 Goal 분리
 
-최신 사용자 요청에 따라 [FE Goal 계획](../../../TODO/FE_GOALS.md)의 Goal 1만 수행했다. 각 Goal은 구현·테스트 작성·코드 검토·검증 후 종료하고, 다음 Goal은 사용자의 별도 요청으로 시작한다. 현재 Goal 2~13은 미착수다. 프론트엔드 단계에서 실제 Supabase·백엔드·인증을 연결하지 않는다.
+최신 사용자 요청에 따라 [FE Goal 계획](../../../TODO/FE_GOALS.md)의 Goal 2까지 구현했다. Goal 2는 기기 실행·원본 비교 검증 대기이며, 구현·자동 검증과 구분한다. 각 Goal은 사용자가 요청한 범위의 구현·테스트 작성·코드 검토·검증·기록 후 종료하고, 다음 Goal은 별도 요청으로 시작한다. 현재 Goal 3~13은 미착수다. 프론트엔드 단계에서 실제 Supabase·백엔드·인증을 연결하지 않는다.
 
 ## 전체 서비스 구현 순서 — 이전 기본안
 
@@ -63,3 +63,11 @@
 - minimatch 간접 의존성의 npm audit moderate 항목 3개와 Expo SDK 57 lint 플러그인 호환성으로 유지한 ESLint 9의 지원 종료 경고를 기록했다.
 - Goal 2, 백엔드, 실제 Supabase·Google 인증, 배포는 수행하지 않았다.
 - Goal 1 종료 시 커밋하지 않았으며, 이후 별도 사용자 요청에 따라 이 산출물을 로컬 커밋으로 기록한다. 원격 push는 수행하지 않는다.
+
+## FE Goal 2 — 2026-11-17
+
+- 보관된 Gummble Medium iOS 홈·라이브러리·프로필 캡처 3장을 다시 열어 확인했다. 새 MCP 조회나 실제 앱 조작은 하지 않았다.
+- React Navigation을 사용해 홈·탐색·라이브러리·프로필 탭과 공통 스타일·임시 화면을 구현했다. 탭 내부의 서비스 기능은 후속 범위다.
+- 실제 navigator에서 접근성 이름으로 이동·선택 상태·재선택·모의 뒤로 가기를 테스트했다. iOS·Android Jest 설정에서 각각 4개 테스트가 통과했다.
+- 두 플랫폼 JS/Hermes 번들은 생성했지만 기기 실행·원본 대비 시각 검증은 대기 중이다. [Goal 2 결과](../../../TODO/FE_GOAL_02_RESULT.md)에 근거·수정 사항·검증 명령·미검증 항목을 기록했다.
+- Goal 2 구현 작업은 커밋 없이 종료했으며, 이후 별도 사용자 요청에 따라 산출물을 로컬 커밋으로 기록한다. 원격 push·배포·외부 연동은 수행하지 않았고 Goal 3는 시작하지 않는다.
