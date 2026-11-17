@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Kostolany",
+    "slug": "kostolany-mobile",
+    "version": "0.1.0",
+    "platforms": ["ios", "android"],
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false
+    }
+  }
+}
