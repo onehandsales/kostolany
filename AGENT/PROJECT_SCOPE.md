@@ -19,7 +19,7 @@
 | 로그인 | Google 로그인. 현재 인증 구성 방향은 Supabase Auth 사용 |
 | 반응 | 좋아요, 북마크, 조회수 |
 | 피드 | 최신순, 인기순, 추천순 |
-| UX 참고 | Medium 모바일. 화면 조사에는 사용자가 선택한 Gummble 활용 예정 |
+| UX 참고 | Medium 모바일. Gummble MCP로 iOS 선택 화면 조사 완료; [근거와 적용안](UXUI_AGENT/MEDIUM_REFERENCE.md) 참조 |
 | Backend | Kotlin + Spring Boot |
 | 데이터·파일 | Supabase PostgreSQL + Storage |
 | 트랜잭션 | Spring 코드에서 `@Transactional`로 업무 DB 트랜잭션 관리 |
