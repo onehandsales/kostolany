@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 개발·테스트 환경과 Goal 2의 공통 스타일·하단 탭을 구현했다. 홈·탐색·라이브러리·프로필은 각각 준비 중 안내만 표시한다. 실제 기기 실행과 Medium 원본 대비 시각 검증은 대기 중이다.
+React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 3의 홈 피드·기사 카드까지 구현했다. 홈에는 최신·인기·추천 예시 목록을 표시하고, 탐색·라이브러리·프로필은 준비 중 안내를 유지한다. 실제 기기 실행과 Medium 원본 대비 시각 검증은 대기 중이다.
 
 ## 환경과 기술 선택
 
@@ -57,7 +57,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 동일한 행동 테스트 4개를 iOS·Android Jest 설정에서 각각 실행한다. 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트 20개를 iOS·Android Jest 설정에서 각각 실행한다(총 40건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -76,7 +76,14 @@ App.tsx                              Safe Area provider와 탭 연결
 src/app/navigation/MainTabs.tsx      실제 navigator와 탭 등록
 src/app/navigation/BottomTabBar.tsx  접근 가능한 아이콘 탭과 Safe Area
 src/app/navigation/tabs.ts          타입이 지정된 경로·명칭·임시 안내
-src/app/TabPlaceholderScreen.tsx     각 탭의 임시 화면
+src/app/TabPlaceholderScreen.tsx     탐색·라이브러리·프로필 임시 화면
+src/features/feed/HomeFeedScreen.tsx 홈 피드·상태 표시와 기사 선택 경계
+src/features/feed/components/        기사 카드·정렬 탭·상태·자체 SVG 썸네일
+src/features/feed/useFeed.ts         조회·재시도·추가 요청·오래된 응답 처리
+src/features/feed/types.ts           fixture용 데이터 접근 계약
+src/features/feed/data/fixtures.ts   정렬별 고정 예시 기사
+src/features/feed/data/mockFeedSource.ts 페이지·지연·실패를 재현하는 공급부
+src/features/feed/data/feedPreview.ts 실행 화면의 mock 시나리오 선택
 src/shared/theme/tokens.ts           현재 화면에 필요한 색상·글자·간격
 src/shared/ui/Screen.tsx             제목·Safe Area·스크롤 공통 구성
 src/shared/ui/TabIcon.tsx            자체 SVG 아이콘
@@ -88,19 +95,35 @@ eslint.config.js                     Expo 기반 lint 설정
 tsconfig.json                        strict와 테스트 타입 검사
 ```
 
-테스트는 앱 루트의 첫 홈 화면, 접근성 이름으로 4개 탭 이동, 화면·선택 상태 일치, 비활성 화면의 접근성 노출 제외, 선택된 탭 재선택, 모의 뒤로 가기 이벤트를 검증한다. React Navigation과 앱 화면은 mock하지 않는다. 네이티브 환경이 없는 Jest에서는 Safe Area의 공식 mock과 jest-expo의 네이티브 대체 환경을 사용한다. 실제 여백·글자 확대·레이아웃·스크린리더를 검증한 것은 아니다.
+테스트는 앱 루트의 탭 이동·재선택·모의 뒤로 가기·홈 복귀 시 피드 선택 유지, 정렬과 표시 데이터의 일치, 기사 ID 전달, 빈 결과, 첫 조회·추가 조회 실패와 재시도, 동시 추가 요청 방지, 마지막 페이지, 중복 기사 ID 제거, 이전 정렬 응답 무시와 Strict Mode 재시작을 검증한다. React Navigation과 앱 화면은 mock하지 않는다. 네이티브 환경이 없는 Jest에서는 Safe Area의 공식 mock과 jest-expo의 네이티브 대체 환경을 사용한다. 실제 여백·글자 확대·레이아웃·스크린리더를 검증한 것은 아니다.
 
 새 테스트를 작성할 때는 설치된 `node_modules/@testing-library/react-native/docs/guides/llm-guidelines.md`를 확인한다. v14의 `render`와 사용자 이벤트는 비동기 API이므로 `await`로 완료를 기다린다. 테스트를 통과시키기 위해 실제 화면 컴포넌트 자체를 mock으로 대체하지 않는다.
+
+## 홈 피드 예시와 상태 재현
+
+최신 4개·인기 3개·추천 3개의 서로 다른 고정 예시 목록을 사용한다. 날짜·읽기 시간도 fixture 값이며 실제 집계·추천 결과가 아니다. 홈과 카드 출처에 예시임을 표시한다. 페이지당 2개를 제공하며, `기사 더 보기`로 다음 페이지를 요청한다. 정렬 변경 시 첫 페이지로 돌아가고, 하단 메뉴로 다른 화면을 방문했다 돌아오면 선택한 정렬과 목록 상태를 유지한다.
+
+[feedPreview.ts](src/features/feed/data/feedPreview.ts)의 `feedPreviewScenario`를 아래 값으로 바꾸고 앱을 완전히 Reload하면 상태를 재현할 수 있다. 기본값은 `normal`이며 별도 개발자 메뉴·ENV·외부 연결은 없다. 오류 재현 이력은 공급부 인스턴스에만 있으므로 같은 실패를 다시 보려면 전체 Reload가 필요하다.
+
+| 값 | 재현 상태 |
+| --- | --- |
+| `normal` | 약 250ms 지연 후 정상 목록, 추가 페이지, 마지막 페이지 안내 |
+| `empty` | 빈 결과 안내 |
+| `initial-error` | 각 정렬의 첫 요청이 한 번 실패하고 `다시 시도`로 성공 |
+| `page-error` | 각 정렬의 추가 페이지 요청이 한 번 실패하고 같은 cursor로 재시도 |
+| `slow` | 요청마다 약 10초 지연, 첫 로딩·추가 로딩 관찰 |
+
+실제 기기에서 위 시나리오를 실행한 결과는 아직 없다. 자동 테스트에서는 같은 공급부 또는 제어 가능한 응답을 주입해 상태와 행동을 검증했다. 카드를 누르면 `onSelectArticle(articleId)`에 ID만 전달한다. 앱의 기본 연결은 `기사 상세 준비 중` 안내이며 기사 상세 경로·화면은 아직 없다.
 
 ## 검증 범위와 남은 확인
 
 - 사용자 확인: 현재 사용할 수 있는 휴대폰이 없다.
 - 현재 Windows 환경: Android SDK·adb·에뮬레이터를 발견하지 못했다. macOS/Xcode 환경도 없다.
 - 따라서 실제 기기·시뮬레이터 실행, 화면 캡처, 원본과의 시각 비교, 네이티브 빌드·설치·출시는 미검증이다.
-- Medium iOS 캡처를 참고한 아이콘 탭 4개를 구현했다. 탭 내부는 임시 화면이며 피드·검색·저장 목록·프로필 기능은 후속 Goal이다.
+- 보관된 Medium iOS 홈 캡처를 참고해 하단 탭 4개와 홈 피드 배치를 구현했다. 검색·저장 목록·프로필 기능은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
 - 인증·API·DB·Storage·RSS·AI 호출은 구현하지 않았다.
 
-현재 구현과 검증은 [Goal 2 결과 기록](../TODO/FE_GOAL_02_RESULT.md)을 따른다. 초기화 이력은 [Goal 1 결과 기록](../TODO/FE_GOAL_01_RESULT.md)에 보존한다. Goal 3는 별도 요청 없이 시작하지 않는다.
+현재 구현과 검증은 [Goal 3 결과 기록](../TODO/FE_GOAL_03_RESULT.md)을 따른다. 초기화와 하단 탭 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)에 보존한다. Goal 4는 별도 요청 없이 시작하지 않는다.
 
 ## 적용 규칙
 

@@ -7,6 +7,7 @@ export function BottomTabBar({ state, descriptors, navigation, insets }: BottomT
   return (
     <View
       role="tablist"
+      accessibilityLabel="주요 메뉴"
       style={[
         styles.bar,
         {

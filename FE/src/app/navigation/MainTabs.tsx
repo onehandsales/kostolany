@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 
+import { HomeFeedScreen } from '../../features/feed/HomeFeedScreen';
 import { colors } from '../../shared/theme/tokens';
 import { TabIcon } from '../../shared/ui/TabIcon';
 import { TabPlaceholderScreen } from '../TabPlaceholderScreen';
@@ -38,7 +39,7 @@ export function MainTabs() {
           ),
         })}
       >
-        <Tab.Screen name="Home" component={TabPlaceholderScreen} />
+        <Tab.Screen name="Home" component={HomeFeedScreen} />
         <Tab.Screen name="Explore" component={TabPlaceholderScreen} />
         <Tab.Screen name="Library" component={TabPlaceholderScreen} />
         <Tab.Screen name="Profile" component={TabPlaceholderScreen} />
