@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-na
 
 import { colors } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
+import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import type { FeedArticle } from '../feed/types';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 
@@ -30,7 +31,10 @@ export function SearchCard({ article, first = false, onSelect }: SearchCardProps
         <Text style={styles.summary}>{article.summary}</Text>
         <Text style={styles.metadata}>{article.publishedLabel} · {article.readingMinutes}분 읽기</Text>
       </Pressable>
-      <View style={styles.reaction}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
+      <View style={styles.reaction}>
+        <View style={styles.like}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
+        <View style={styles.bookmark}><ArticleBookmarkControl articleId={article.id} articleTitle={article.title} /></View>
+      </View>
     </View>
   );
 }
@@ -39,7 +43,9 @@ const styles = StyleSheet.create({
   card: { paddingHorizontal: 24, paddingTop: 32, paddingBottom: 32,
     borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   firstCard: { paddingTop: 16 },
-  reaction: { marginTop: 8 },
+  reaction: { marginTop: 8, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 },
+  like: { flex: 1 },
+  bookmark: { maxWidth: '48%' },
   pressed: { opacity: 0.6 },
   byline: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   avatar: { width: 20, height: 20, borderRadius: 4, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'center' },

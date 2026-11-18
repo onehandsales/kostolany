@@ -10,7 +10,7 @@ import { createMockSearchSource } from '../../features/search/data/mockSearchSou
 import { AppNavigator } from './AppNavigator';
 
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
-const getLike = () => screen.getByRole('togglebutton', { name: new RegExp(title) });
+const getLike = () => screen.getByRole('togglebutton', { name: new RegExp(`^좋아요, ${title}`) });
 
 it('홈에서 처리 중 상세로 이동해 해제한 마지막 의도가 목록과 검색·상세 재진입까지 유지된다', async () => {
   const user = userEvent.setup();

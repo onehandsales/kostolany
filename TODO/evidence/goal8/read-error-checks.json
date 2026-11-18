@@ -1,0 +1,21 @@
+{
+  "mode": "read-error",
+  "date": "2026-11-18T11:37:51.892Z",
+  "browser": "157.0.8103.79",
+  "checks": [
+    "조회 실패는 빈 목록과 구분되고 라이브러리 재시도 후 홈 북마크도 활성화된다"
+  ],
+  "measurements": [
+    {
+      "name": "library-read-error-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "buttons": []
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

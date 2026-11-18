@@ -38,6 +38,8 @@ describe('App tab navigation', () => {
       } else if (title === '탐색') {
         expect(screen.getByRole('button', { name: '기사 검색 열기' })).toBeVisible();
         expect(screen.getByRole('heading', { name: '읽어볼 기사' })).toBeVisible();
+      } else if (title === '라이브러리') {
+        expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
       } else {
         expect(screen.getByText(`${title} 화면을 준비하고 있어요`)).toBeVisible();
       }

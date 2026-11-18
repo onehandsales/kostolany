@@ -1,6 +1,10 @@
 import { render as renderNative } from '@testing-library/react-native';
 import type { ReactElement, ReactNode } from 'react';
 
+import { BookmarkProvider } from '../src/features/bookmarks/BookmarkProvider';
+import { bookmarkArticles } from '../src/features/bookmarks/data/bookmarkFixtures';
+import type { BookmarkSource } from '../src/features/bookmarks/types';
+import { article } from '../src/features/feed/tests/helpers';
 import { LikeProvider } from '../src/features/likes/LikeProvider';
 import type { LikeSource } from '../src/features/likes/types';
 
@@ -11,8 +15,18 @@ const source: LikeSource = {
 };
 
 export function LikeTestProvider({ children }: { children: ReactNode }) {
-  return <LikeProvider source={source}>{children}</LikeProvider>;
+  return <LikeProvider source={source}><BookmarkProvider source={bookmarkSource} articles={testArticles}>
+    {children}
+  </BookmarkProvider></LikeProvider>;
 }
+
+// 피드와 검색의 응답 순서 검증에 쓰는 기사도 별도 북마크 오류 없이 표현한다.
+const testArticles = [...bookmarkArticles, ...['first', 'second', 'recovered', 'popular', 'obsolete',
+  'latest', 'current', 'retry', 'old', 'new-A', 'old-A', 'old-B', 'rates', 'wrong', 'replacement'].map(article)];
+const bookmarkSource: BookmarkSource = {
+  fetchReadingList: async (userId) => ({ userId, articleIds: [] }),
+  setArticleSaved: async (input) => ({ userId: input.userId, articleId: input.articleId, saved: input.saved }),
+};
 
 export function renderWithLikes(element: ReactElement) {
   return renderNative(element, { wrapper: LikeTestProvider });

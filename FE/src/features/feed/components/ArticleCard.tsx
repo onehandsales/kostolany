@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 import { colors, spacing, typography } from '../../../shared/theme/tokens';
+import { ArticleBookmarkControl } from '../../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../../likes/ArticleLikeControl';
 import type { FeedArticle } from '../types';
 import { FeedThumbnail } from './FeedThumbnail';
@@ -32,13 +33,19 @@ export function ArticleCard({ article, onSelect }: ArticleCardProps) {
         </View>
         <Text style={styles.metadata}>{article.publishedLabel} · {article.readingMinutes}분 읽기</Text>
       </Pressable>
-      <ArticleLikeControl articleId={article.id} articleTitle={article.title} />
+      <View style={styles.actions}>
+        <View style={styles.like}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
+        <View style={styles.bookmark}><ArticleBookmarkControl articleId={article.id} articleTitle={article.title} /></View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: { paddingHorizontal: spacing.page, paddingVertical: spacing.section, gap: spacing.medium },
+  actions: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 },
+  like: { flex: 1 },
+  bookmark: { maxWidth: '48%' },
   link: { gap: spacing.medium },
   source: { ...typography.caption, color: colors.text },
   body: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.medium },

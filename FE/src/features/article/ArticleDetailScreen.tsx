@@ -5,6 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 import { colors, sizes, spacing, typography } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
+import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 import { previewArticleSource } from './data/articlePreview';
 import { ExplanationSection } from './ExplanationSection';
@@ -47,7 +48,8 @@ function ArticleReader({ articleId, source, explanationSource }: {
       </ScrollView>
       {state.status === 'ready' && <View style={styles.reactionBar}>
         <View style={styles.reactionContent}>
-          <ArticleLikeControl articleId={state.article.id} articleTitle={state.article.title} />
+          <View style={styles.like}><ArticleLikeControl articleId={state.article.id} articleTitle={state.article.title} /></View>
+          <View style={styles.bookmark}><ArticleBookmarkControl articleId={state.article.id} articleTitle={state.article.title} /></View>
         </View>
       </View>}
     </View>
@@ -93,7 +95,10 @@ const styles = StyleSheet.create({
   reader: { flex: 1 },
   reactionBar: { borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth,
     paddingHorizontal: spacing.page, paddingVertical: 4 },
-  reactionContent: { width: '100%', maxWidth: 680, alignSelf: 'center' },
+  reactionContent: { width: '100%', maxWidth: 680, alignSelf: 'center', flexDirection: 'row',
+    alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 },
+  like: { flex: 1 },
+  bookmark: { maxWidth: '48%' },
   content: { flexGrow: 1, paddingHorizontal: spacing.page, paddingVertical: spacing.section },
   article: { width: '100%', maxWidth: 680, alignSelf: 'center', gap: spacing.section },
   intro: { gap: spacing.page },

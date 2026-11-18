@@ -7,12 +7,13 @@ import type { SearchSource } from '../../features/search/types';
 import { TabIcon } from '../../shared/ui/TabIcon';
 import { TabPlaceholderScreen } from '../TabPlaceholderScreen';
 import { BottomTabBar } from './BottomTabBar';
+import { LibraryNavigator } from './LibraryNavigator';
 import { type MainTabParamList, tabs } from './tabs';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export function MainTabs({ onSelectArticle, source, searchSource }: {
-  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore') => void;
+  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore' | 'Library') => void;
   source?: FeedSource; searchSource?: SearchSource;
 }) {
   return (
@@ -36,7 +37,10 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
       <Tab.Screen name="Explore">
         {() => <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />}
       </Tab.Screen>
-      <Tab.Screen name="Library" component={TabPlaceholderScreen} />
+      <Tab.Screen name="Library">
+        {({ navigation }) => <LibraryNavigator onSelectArticle={(id) => onSelectArticle(id, 'Library')}
+          onBrowseArticles={() => navigation.navigate('Home')} />}
+      </Tab.Screen>
       <Tab.Screen name="Profile" component={TabPlaceholderScreen} />
     </Tab.Navigator>
   );

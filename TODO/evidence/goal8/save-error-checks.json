@@ -1,0 +1,97 @@
+{
+  "mode": "save-error",
+  "date": "2026-11-18T11:37:58.282Z",
+  "browser": "157.0.8103.79",
+  "checks": [
+    "상세 변경 실패 복구 → 라이브러리 실패 안내·동일 목표 재시도 → 홈·상세 상태 일치"
+  ],
+  "measurements": [
+    {
+      "name": "save-error-detail-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "x": 201.84375,
+          "y": 692,
+          "width": 62.5,
+          "height": 48,
+          "pressed": "false",
+          "busy": "false"
+        }
+      ]
+    },
+    {
+      "name": "save-error-detail-narrow",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "x": 165.453125,
+          "y": 566,
+          "width": 62.5,
+          "height": 48,
+          "pressed": "false",
+          "busy": "false"
+        }
+      ]
+    },
+    {
+      "name": "save-error-detail-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "x": 165.453125,
+          "y": 404,
+          "width": 84.984375,
+          "height": 56,
+          "pressed": "false",
+          "busy": "false"
+        }
+      ]
+    },
+    {
+      "name": "save-error-detail-desktop",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "x": 741.453125,
+          "y": 770,
+          "width": 62.5,
+          "height": 48,
+          "pressed": "false",
+          "busy": "false"
+        }
+      ]
+    },
+    {
+      "name": "save-error-library-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "buttons": []
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

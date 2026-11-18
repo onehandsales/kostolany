@@ -1,0 +1,62 @@
+
+> kostolany-mobile@0.1.0 check
+> npm run typecheck && npm run lint && npm test
+
+
+> kostolany-mobile@0.1.0 typecheck
+> tsc --noEmit
+
+
+> kostolany-mobile@0.1.0 lint
+> eslint . --max-warnings=0
+
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand
+
+PASS iOS src/features/search/SearchScreen.test.tsx (7.78 s)
+PASS iOS src/app/navigation/LikeNavigation.test.tsx
+PASS iOS src/app/navigation/BookmarkNavigation.test.tsx (6.354 s)
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS Android src/features/article/ExplanationSection.test.tsx
+PASS Android src/features/bookmarks/createBookmarkStore.test.ts
+PASS Android src/features/likes/createLikeStore.test.ts
+PASS Android src/features/article/ArticleDetailScreen.test.tsx
+PASS Android src/features/likes/ArticleLikeControl.test.tsx
+PASS Android src/app/App.test.tsx
+PASS Android src/app/navigation/AppNavigator.test.tsx
+PASS Android src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/bookmarks/data/createMockBookmarkSource.test.ts
+PASS Android src/features/likes/data/createMockLikeSource.test.ts
+PASS Android src/features/article/data/mockExplanationSource.test.ts
+PASS Android src/features/search/data/mockSearchSource.test.ts
+PASS Android src/features/article/data/mockArticleSource.test.ts
+PASS Android src/features/feed/useFeed.test.ts
+PASS Android src/features/feed/data/mockFeedSource.test.ts
+PASS Android src/features/search/SearchScreen.test.tsx (6.924 s)
+PASS Android src/app/navigation/BookmarkNavigation.test.tsx (6.338 s)
+PASS iOS src/app/App.test.tsx
+PASS iOS src/features/article/ExplanationSection.test.tsx
+PASS Android src/app/navigation/LikeNavigation.test.tsx
+PASS iOS src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS Android src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/app/navigation/AppNavigator.test.tsx
+PASS iOS src/features/likes/ArticleLikeControl.test.tsx
+PASS iOS src/features/article/ArticleDetailScreen.test.tsx
+PASS iOS src/features/feed/data/mockFeedSource.test.ts
+PASS iOS src/features/article/data/mockExplanationSource.test.ts
+PASS iOS src/features/feed/useFeed.test.ts
+PASS iOS src/features/bookmarks/createBookmarkStore.test.ts
+PASS iOS src/features/likes/data/createMockLikeSource.test.ts
+PASS iOS src/features/bookmarks/data/createMockBookmarkSource.test.ts
+PASS iOS src/features/likes/createLikeStore.test.ts
+PASS iOS src/features/article/data/mockArticleSource.test.ts
+PASS iOS src/features/search/data/mockSearchSource.test.ts
+
+Test Suites: 40 passed, 40 total
+Tests:       266 passed, 266 total
+Snapshots:   0 total
+Time:        70.242 s
+Ran all test suites in 2 projects.
