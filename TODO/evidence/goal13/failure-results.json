@@ -1,0 +1,1226 @@
+{
+  "browser": "157.0.8103.79",
+  "date": "2026-11-18T15:12:59.118Z",
+  "checks": [
+    "홈 빈 상태·첫 조회 실패·추가 조회 실패·재시도",
+    "검색→기사→설명 각각 실패·재시도·검색어 보존",
+    "좋아요·기본 읽기 목록·사용자 목록 조회 실패와 북마크 통합 재시도",
+    "좋아요/북마크 저장·해제 실패 복구·원래 목표 재시도·목록 일치",
+    "사용자 목록 create-error·입력/소속 복구·재시도·삭제 후 복귀",
+    "사용자 목록 rename-error·입력/소속 복구·재시도·삭제 후 복귀",
+    "사용자 목록 add-error·입력/소속 복구·재시도·삭제 후 복귀",
+    "사용자 목록 list-remove-error·입력/소속 복구·재시도·삭제 후 복귀",
+    "사용자 목록 delete-error·입력/소속 복구·재시도·삭제 후 복귀",
+    "프로필/설정 조회·저장 실패·초안 보존·수정 후 재시도",
+    "처리 중 로그인 닫기·로그아웃 취소 뒤 늦은 성공 무시"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "measurements": [
+    {
+      "name": "failure-feed-empty",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-feed-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "다시 시도",
+          "width": 109.5625,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-feed-more-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요",
+          "width": 263.5,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188
+        },
+        {
+          "label": "좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요",
+          "width": 263.5,
+          "height": 48
+        },
+        {
+          "label": "북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "추가 불러오기 다시 시도",
+          "width": 200.96875,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-search-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "탐색 첫 화면으로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "기사 검색어",
+          "width": 224,
+          "height": 48
+        },
+        {
+          "label": "검색어 지우기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "검색 다시 시도",
+          "width": 141.421875,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-article-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "탐색으로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "다시 시도",
+          "width": 109.5625,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-explanation-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "탐색으로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요",
+          "width": 263.5,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요",
+          "width": 62.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-personal-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 수치 미확인, 선택 안 됨",
+          "width": 52.09375,
+          "height": 48
+        },
+        {
+          "label": "좋아요 조회 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 여부 미확인",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "북마크 조회 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-personal-write-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48
+        },
+        {
+          "label": "좋아요 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "북마크 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188
+        },
+        {
+          "label": "좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 0개, 선택 안 됨",
+          "width": 48.671875,
+          "height": 48
+        },
+        {
+          "label": "북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 저장 안 됨",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-personal-remove-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 25개, 선택됨",
+          "width": 56.8125,
+          "height": 48
+        },
+        {
+          "label": "좋아요 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "북마크 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188
+        },
+        {
+          "label": "좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 0개, 선택 안 됨",
+          "width": 48.671875,
+          "height": 48
+        },
+        {
+          "label": "북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 저장 안 됨",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-list-create-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "새 목록 만들기 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "목록 이름",
+          "width": 342,
+          "height": 52
+        },
+        {
+          "label": "목록 저장 다시 시도",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-save-targets",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-list-rename-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "목록 이름 수정 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "목록 이름",
+          "width": 342,
+          "height": 52
+        },
+        {
+          "label": "목록 저장 다시 시도",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-save-targets",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-save-targets",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-list-add-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "최신",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "인기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "추천",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "width": 62.5,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "북마크 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-save-targets",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-list-remove-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 56
+        },
+        {
+          "label": "목록 관리, 실패 복구 목록",
+          "width": 48,
+          "height": 56
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 342,
+          "height": 180
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "북마크 변경 다시 시도, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 68.234375,
+          "height": 48
+        },
+        {
+          "label": "이 목록에서 제거, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 92.359375,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-save-targets",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-list-delete-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48
+        },
+        {
+          "label": "목록 변경 다시 시도, 실패 복구 목록",
+          "width": 310,
+          "height": 48
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140
+        },
+        {
+          "label": "실패 복구 목록 열기, 저장한 기사 1개",
+          "width": 340,
+          "height": 140
+        },
+        {
+          "label": "목록 관리, 실패 복구 목록",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-profile-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "설정 열기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "프로필 조회 다시 시도",
+          "width": 342,
+          "height": 50
+        },
+        {
+          "label": "로그아웃",
+          "width": 342,
+          "height": 50
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-settings-read-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "프로필로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "설정 조회 다시 시도",
+          "width": 342,
+          "height": 52
+        },
+        {
+          "label": "로그아웃",
+          "width": 390,
+          "height": 64
+        },
+        {
+          "label": "홈",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 97.5,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 97.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "failure-profile-save-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "프로필 편집 닫기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "프로필 저장 다시 시도",
+          "width": 75.5625,
+          "height": 48
+        },
+        {
+          "label": "이름 · 필수",
+          "width": 342,
+          "height": 50
+        },
+        {
+          "label": "짧은 소개",
+          "width": 342,
+          "height": 120
+        },
+        {
+          "label": "프로필 편집 취소",
+          "width": 342,
+          "height": 50
+        }
+      ]
+    },
+    {
+      "name": "failure-settings-save-error",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "기본 설명 수준 닫기",
+          "width": 51.6875,
+          "height": 50
+        },
+        {
+          "label": "기본 수준 저장 다시 시도",
+          "width": 83.5625,
+          "height": 50
+        },
+        {
+          "label": "초등학생 기본 수준",
+          "width": 342,
+          "height": 60
+        },
+        {
+          "label": "중학생 기본 수준",
+          "width": 342,
+          "height": 60
+        },
+        {
+          "label": "고등학생 기본 수준",
+          "width": 342,
+          "height": 60
+        },
+        {
+          "label": "성인 기본 수준",
+          "width": 342,
+          "height": 60
+        },
+        {
+          "label": "기본 설명 수준 취소",
+          "width": 342,
+          "height": 52
+        }
+      ]
+    },
+    {
+      "name": "failure-login-pending",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "로그인 닫기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "예시 독자 A",
+          "width": 167,
+          "height": 50
+        },
+        {
+          "label": "예시 독자 B",
+          "width": 167,
+          "height": 50
+        },
+        {
+          "label": "Google로 로그인 (모의)",
+          "width": 342,
+          "height": 50
+        },
+        {
+          "label": "모의 동작 선택 접기",
+          "width": 342,
+          "height": 48
+        },
+        {
+          "label": "모의 결과: 성공",
+          "width": 167,
+          "height": 50
+        },
+        {
+          "label": "모의 결과: 사용자 취소",
+          "width": 167,
+          "height": 50
+        },
+        {
+          "label": "모의 결과: 실패",
+          "width": 167,
+          "height": 50
+        },
+        {
+          "label": "모의 결과: 느린 성공 (4초)",
+          "width": 167,
+          "height": 50
+        }
+      ]
+    },
+    {
+      "name": "failure-logout-pending",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "로그아웃 취소",
+          "width": 141,
+          "height": 50
+        },
+        {
+          "label": "로그아웃 확인",
+          "width": 141,
+          "height": 50
+        },
+        {
+          "label": "모의 동작 선택 접기",
+          "width": 294,
+          "height": 48
+        },
+        {
+          "label": "모의 결과: 성공",
+          "width": 143,
+          "height": 50
+        },
+        {
+          "label": "모의 결과: 실패",
+          "width": 143,
+          "height": 50
+        },
+        {
+          "label": "모의 결과: 느린 성공 (4초)",
+          "width": 294,
+          "height": 50
+        }
+      ]
+    }
+  ]
+}

@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
   body: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.medium },
   stacked: { flexDirection: 'column' },
   text: { flex: 1, gap: spacing.small },
-  stackedText: { flex: 0, width: '100%' },
+  // 웹의 flex: 0은 높이를 0으로 잡으므로 세로 배치에서는 내용의 높이를 그대로 사용한다.
+  stackedText: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
   title: { ...typography.sectionTitle, color: colors.text },
   summary: { ...typography.body, color: colors.secondaryText },
   metadata: { ...typography.caption, color: colors.secondaryText },

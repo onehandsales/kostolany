@@ -201,3 +201,33 @@ it('저장 대상에서 생성을 확정한 뒤 선택을 취소하면 새 목�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(screen.getByRole('button', { name: '빈 목록으로 보관 열기, 저장한 기사 0개' })).toBeVisible();
 });
+
+it('이름 수정 뒤 대기 중인 기사 추가는 홈·상세에서 처리 중이고 실패 복구 후 같은 목록으로 재시도된다', async () => {
+  const base = createMockUserListSource({ delayMs: 0 });
+  const rename = deferred<void>();
+  const addition = deferred<Awaited<ReturnType<UserListSource['setList']>>>();
+  const setList = jest.fn(base.setList);
+  const user = userEvent.setup(); await renderApp({ ...base, setList });
+  await user.press(screen.getByRole('tab', { name: '라이브러리' })); await createList(user, '경제');
+  setList.mockImplementationOnce(async (command) => { await rename.promise; return base.setList(command); })
+    .mockReturnValueOnce(addition.promise);
+  await user.press(screen.getByRole('button', { name: '목록 관리, 경제' }));
+  await user.press(screen.getByRole('button', { name: '이름 수정' }));
+  await user.clear(screen.getByLabelText('목록 이름 · 필수'));
+  await user.type(screen.getByLabelText('목록 이름 · 필수'), '경제 공부');
+  await user.press(screen.getByRole('button', { name: '목록 이름 저장' }));
+  await user.press(screen.getByRole('button', { name: '목록 이름 수정 닫기' }));
+  await user.press(screen.getByRole('tab', { name: '홈' })); await selectList(user, '경제 공부');
+  expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true, busy: true }));
+  await user.press(getArticle()); await screen.findByRole('heading', { name: title });
+  expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true, busy: true }));
+  await act(async () => { rename.resolve(); });
+  await act(async () => { addition.reject(new Error('queued addition failed')); });
+  expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: false, busy: false }));
+  await user.press(screen.getByRole('button', { name: `북마크 변경 다시 시도, ${title}` }));
+  await waitFor(() => expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true, busy: false })));
+  await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  expect(await screen.findByRole('button', { name: '경제 공부 열기, 저장한 기사 1개' })).toBeVisible();
+  expect(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
+});

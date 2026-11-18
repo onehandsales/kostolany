@@ -5,7 +5,9 @@
 
 현재 규칙 위치: `/Users/jaegeunsong/Desktop/workplace/kostolany/AGENT`
 
-현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~12는 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md), [Goal 8 결과](FE_GOAL_08_RESULT.md), [Goal 9 결과](FE_GOAL_09_RESULT.md), [Goal 10 결과](FE_GOAL_10_RESULT.md), [Goal 11 결과](FE_GOAL_11_RESULT.md), [Goal 12 결과](FE_GOAL_12_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
+현재 상태: Goal 1~12의 fixture·mock 구현에 대해 Goal 13에서 전체 연결·실패·회귀 검증과 기존 결함 3건 수정을 수행했다. 타입·lint·전체 테스트 608건(80 suites), iOS·Android JS/Hermes 번들, 8081 브라우저 흐름과 Medium 원본 비교를 확인했다. **구현·자동/브라우저 검증 완료 / 실제 기기·네이티브 검증 대기**다. Goal 2~5의 브라우저 원본 비교는 Goal 13에서 보완했으며 각 Goal의 당시 기록은 보존한다. 프론트엔드 mock 검증을 전체 서비스 MVP·출시 완료로 표현하지 않는다. 후속 작업은 자동 시작하지 않는다.
+
+결과: [Goal 1 결과](FE_GOAL_01_RESULT.md) · [Goal 2 결과](FE_GOAL_02_RESULT.md) · [Goal 3 결과](FE_GOAL_03_RESULT.md) · [Goal 4 결과](FE_GOAL_04_RESULT.md) · [Goal 5 결과](FE_GOAL_05_RESULT.md) · [Goal 6 결과](FE_GOAL_06_RESULT.md) · [Goal 7 결과](FE_GOAL_07_RESULT.md) · [Goal 8 결과](FE_GOAL_08_RESULT.md) · [Goal 9 결과](FE_GOAL_09_RESULT.md) · [Goal 10 결과](FE_GOAL_10_RESULT.md) · [Goal 11 결과](FE_GOAL_11_RESULT.md) · [Goal 12 결과](FE_GOAL_12_RESULT.md) · [Goal 13 결과](FE_GOAL_13_RESULT.md). 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
 
 ## 목표와 현재 범위
 
@@ -176,6 +178,7 @@
 - 테스트: 모의 로그인 → 기사 찾기 → 상세 → 설명 수준 전환 → 반응 → 목록 저장 → 다시 찾기 → 로그아웃을 연결해 검증한다. 기존 테스트를 활용하고 흐름 연결의 빈틈을 검증할 테스트를 보완한다.
 - 완료: 1차 FE 대상 화면 목록과 구현을 대조하고, 원본·자체 확장·후속 범위·미확인 항목을 구분했다. 타입 검사·lint·관련 테스트 및 플랫폼별 실행 결과를 기록한다.
 - 경계: 이 Goal의 결과는 프론트엔드 검증이다. 실제 RSS·AI·인증·DB 연결이나 스토어 출시 완료로 보고하지 않는다.
+- 현재 결과: [Goal 13 결과](FE_GOAL_13_RESULT.md). 기존 결함 수정·자동/브라우저 검증 완료, 실제 iOS·Android 실행·빌드·접근성 검증 대기.
 
 ## 검토·결과 기록 양식
 

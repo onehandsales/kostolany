@@ -1,0 +1,107 @@
+[
+  {
+    "title": "홈",
+    "original": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "analysis": "medium/flows/Home/ANALYSIS.md",
+    "actual": "home-guest.png",
+    "note": "제목·요약·출처·오른쪽 이미지·구분선·하단 4탭을 참고. 최신/인기/추천과 하트 좋아요는 자체 기능. For you의 원형 −를 북마크로 해석하지 않음."
+  },
+  {
+    "title": "검색",
+    "original": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "analysis": "medium/flows/Explore/Searching Medium/ANALYSIS.md",
+    "actual": "search-results.png",
+    "note": "검색창·뒤로·지우기·결과 유형 밑줄·기사 카드 참고. 기사만 검색하며 빈 결과/실패 재시도는 자체 설계."
+  },
+  {
+    "title": "기사 상세",
+    "original": "medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+    "analysis": "medium/flows/Home/Story detail/ANALYSIS.md",
+    "actual": "article-top.png",
+    "note": "큰 제목·출처·읽기 정보·본문 위계 참고. 사실/해석/4단계/예시는 자체 fixture. 원본 박수·댓글·공유·듣기·회원 제한은 제외."
+  },
+  {
+    "title": "저장 대상",
+    "original": "medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png",
+    "analysis": "medium/flows/Home/Story detail/Saving a story/ANALYSIS.md",
+    "actual": "save-targets.png",
+    "note": "하단 시트·새 목록·체크·완료 참고. 복수 소속·취소·기본 목록과 합집합 북마크·실패 정책은 자체 설계. 원본 Done 시점의 실제 서버 동작 미확인."
+  },
+  {
+    "title": "라이브러리",
+    "original": "medium/flows/Library/screens/03_sc_57450c38bf994be18d95fcaf712c56ba.png",
+    "analysis": "medium/flows/Library/ANALYSIS.md",
+    "actual": "library-lists.png",
+    "note": "새 목록 버튼·내 목록 구분선·기사 수·미리보기 카드 참고. Digest·Saved lists·Highlight·다운로드 제외."
+  },
+  {
+    "title": "생성",
+    "original": "medium/flows/Library/Creating a list/screens/02_sc_675e3eda08504708979533659dacdcf6.png",
+    "analysis": "medium/flows/Library/Creating a list/ANALYSIS.md",
+    "actual": "list-create.png",
+    "note": "제목·취소·회색 입력·60자 카운터·녹색 확인 참고. 이름만 입력하며 공개 여부/설명은 제외. 공백/중복/오류 정책은 자체 설계."
+  },
+  {
+    "title": "빈 목록",
+    "original": "medium/flows/Library/List detail/screens/02_sc_967232cfb5f845839053e0d371d78911.png",
+    "analysis": "medium/flows/Library/List detail/ANALYSIS.md",
+    "actual": "list-empty.png",
+    "note": "큰 목록 제목·빈 안내·둘러보기 참고. 나의 라이브러리 표기·직접 제거 행은 우리 앱 구성."
+  },
+  {
+    "title": "관리 메뉴",
+    "original": "medium/flows/Library/List detail/Deleting a list/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png",
+    "analysis": "medium/flows/Library/List detail/Deleting a list/ANALYSIS.md",
+    "actual": "list-menu.png",
+    "note": "Edit list info·Delete list 메뉴 존재 확인. 우리 앱은 하단 시트로 이름 수정·삭제만 제공. 원본의 편집 폼은 없으므로 list-rename.png는 자체 설계."
+  },
+  {
+    "title": "삭제 확인",
+    "original": "medium/flows/Library/List detail/Deleting a list/screens/03_sc_a1562b1931fc4650a544861094934588.png",
+    "analysis": "medium/flows/Library/List detail/Deleting a list/ANALYSIS.md",
+    "actual": "list-delete.png",
+    "note": "하단 삭제 시트·원문 보존 안내·붉은 버튼 참고. 다른 목록/좋아요 보존과 실패 복구 정책은 자체 설계."
+  },
+  {
+    "title": "기사 제거",
+    "original": "medium/flows/Library/List detail/Removing a story/screens/02_sc_a79a8c62cfd64776ae74f84e0d98b5c3.png",
+    "analysis": "medium/flows/Library/List detail/Removing a story/ANALYSIS.md",
+    "actual": "list-removed.png",
+    "note": "기사 제거 안내와 Undo 링크 존재만 관찰. 우리는 직접 제거 행·실패 시 재시도 제공. 성공 Undo 기능은 이번 범위에서 구현하지 않음."
+  },
+  {
+    "title": "로그인",
+    "original": "medium/flows/Logging in/screens/02_sc_e4d414380a1047a2b7970cf7869a0866.png",
+    "analysis": "medium/flows/Logging in/ANALYSIS.md",
+    "actual": "login-entry.png",
+    "note": "중앙 소개·테두리 Google 버튼 참고. Google 실제 성공/취소/실패·A/B 선택은 원본에 없음. 모의 인증 안내를 명시. 다른 공급자·이메일/코드 제외."
+  },
+  {
+    "title": "프로필",
+    "original": "medium/flows/Profile/screens/02_sc_1bd141b757934a88b4a003855e1794cc.png",
+    "analysis": "medium/flows/Profile/ANALYSIS.md",
+    "actual": "profile-saved.png",
+    "note": "이름·편집·설정 진입 참고. 이름/짧은 소개만 제공. 작성·통계·팔로우·공개 프로필 제외."
+  },
+  {
+    "title": "프로필 편집",
+    "original": "medium/flows/Profile/Editing profile information/screens/02_sc_a829121c47a444cd8a8fd0d9889edaed.png",
+    "analysis": "medium/flows/Profile/Editing profile information/ANALYSIS.md",
+    "actual": "profile-edit.png",
+    "note": "닫기·저장·이름 50/소개 160 카운터·회색 필드 참고. 검증/실패 보존/코드포인트 계산은 자체 정책. 사진·대명사·About Page 제외."
+  },
+  {
+    "title": "설정",
+    "original": "medium/flows/Profile/Settings/screens/02_sc_ddd51660cb8346a1b200ed970a2d5c45.png",
+    "analysis": "medium/flows/Profile/Settings/ANALYSIS.md",
+    "actual": "settings-saved.png",
+    "note": "뒤로·섹션·메뉴 행·구분선 참고. 4단계 기본 설명 수준은 우리 기능. 알림·다크 모드·결제·계정 삭제 등 제외."
+  },
+  {
+    "title": "로그아웃",
+    "original": "medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png",
+    "analysis": "medium/flows/Profile/Settings/Logging out/ANALYSIS.md",
+    "actual": "logout-confirm.png",
+    "note": "중앙 확인·취소/확인 참고. 메모리 보존 안내·오류/처리 중·재시도는 자체 mock 설계. 원본 실제 세션/캐시 정리는 미확인."
+  }
+]

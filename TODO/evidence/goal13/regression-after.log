@@ -1,0 +1,14 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=createLibraryStore.test|ListManagementNavigation.test
+
+PASS iOS src/features/bookmarks/createLibraryStore.test.ts
+PASS Android src/app/navigation/ListManagementNavigation.test.tsx (18.008 s)
+PASS Android src/features/bookmarks/createLibraryStore.test.ts
+PASS iOS src/app/navigation/ListManagementNavigation.test.tsx (17.227 s)
+
+Test Suites: 4 passed, 4 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        36.165 s
+Ran all test suites matching /createLibraryStore.test|ListManagementNavigation.test/i in 2 projects.

@@ -1,0 +1,358 @@
+{
+  "date": "2026-11-18T15:14:29.309Z",
+  "browser": "157.0.8103.79",
+  "checks": [
+    "320px 로그인·프로필·설정·로그아웃 CSS 2배·스크롤·Tab 가두기·Escape·프로필 진입 포커스 복귀",
+    "이름·소개·목록·검색 합성 composition/Enter 값 보존·자동 저장 없음·검색/기사/저장 시트 큰 글자·중학생 제목/본문/예시 일치"
+  ],
+  "measurements": [
+    {
+      "name": "login-large-text-top",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "로그인 닫기",
+          "width": 55.375,
+          "height": 72
+        }
+      ]
+    },
+    {
+      "name": "login-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "예시 독자 A",
+          "width": 132,
+          "height": 122
+        },
+        {
+          "label": "예시 독자 B",
+          "width": 132,
+          "height": 122
+        },
+        {
+          "label": "Google로 로그인 (모의)",
+          "width": 272,
+          "height": 122
+        },
+        {
+          "label": "모의 동작 선택 열기",
+          "width": 272,
+          "height": 68
+        }
+      ]
+    },
+    {
+      "name": "profile-large-text-top",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "프로필 편집 닫기",
+          "width": 71.375,
+          "height": 64
+        },
+        {
+          "label": "프로필 저장",
+          "width": 71.375,
+          "height": 64
+        },
+        {
+          "label": "이름 · 필수",
+          "width": 272,
+          "height": 76
+        },
+        {
+          "label": "짧은 소개",
+          "width": 272,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "name": "profile-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "프로필 편집 닫기",
+          "width": 71.375,
+          "height": 64
+        },
+        {
+          "label": "프로필 저장",
+          "width": 71.375,
+          "height": 64
+        },
+        {
+          "label": "짧은 소개",
+          "width": 272,
+          "height": 128
+        },
+        {
+          "label": "프로필 편집 취소",
+          "width": 272,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "name": "settings-editor-large-text-top",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "기본 설명 수준 닫기",
+          "width": 79.375,
+          "height": 76
+        },
+        {
+          "label": "기본 수준 저장",
+          "width": 79.375,
+          "height": 76
+        },
+        {
+          "label": "초등학생 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "중학생 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "고등학생 기본 수준",
+          "width": 272,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "name": "settings-editor-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "기본 설명 수준 닫기",
+          "width": 79.375,
+          "height": 76
+        },
+        {
+          "label": "기본 수준 저장",
+          "width": 79.375,
+          "height": 76
+        },
+        {
+          "label": "초등학생 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "중학생 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "고등학생 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "성인 기본 수준",
+          "width": 272,
+          "height": 86
+        },
+        {
+          "label": "기본 설명 수준 취소",
+          "width": 272,
+          "height": 78
+        }
+      ]
+    },
+    {
+      "name": "logout-large-text-top",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "로그아웃 취소",
+          "width": 224,
+          "height": 74
+        },
+        {
+          "label": "로그아웃 확인",
+          "width": 224,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "name": "logout-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "로그아웃 취소",
+          "width": 224,
+          "height": 74
+        },
+        {
+          "label": "로그아웃 확인",
+          "width": 224,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "name": "search-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "탐색 첫 화면으로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "기사 검색어",
+          "width": 154,
+          "height": 48
+        },
+        {
+          "label": "검색어 지우기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 272,
+          "height": 564
+        },
+        {
+          "label": "홈",
+          "width": 80,
+          "height": 48
+        },
+        {
+          "label": "탐색",
+          "width": 80,
+          "height": 48
+        },
+        {
+          "label": "라이브러리",
+          "width": 80,
+          "height": 48
+        },
+        {
+          "label": "프로필",
+          "width": 80,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "name": "article-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "탐색으로 돌아가기",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 72.859375,
+          "height": 60
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "width": 82.546875,
+          "height": 96
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "name": "save-targets-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "controls": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 55.375,
+          "height": 48
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 272,
+          "height": 72
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 272,
+          "height": 72
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "limitations": [
+    "CSS 글자 2배는 실제 OS 글자 확대 검증이 아님",
+    "합성 composition/Enter는 실제 한글 IME 입력·조합/후보창/키보드 검증이 아님",
+    "Safe Area·키보드 가림·VoiceOver/TalkBack·하드웨어 뒤로 가기·제스처는 네이티브 미검증"
+  ]
+}

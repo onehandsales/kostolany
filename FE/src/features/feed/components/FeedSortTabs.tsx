@@ -24,7 +24,7 @@ export function FeedSortTabs({ selected, onSelect }: {
 }
 
 const styles = StyleSheet.create({
-  container: { flexGrow: 0, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
+  container: { flexGrow: 0, flexShrink: 0, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   tabs: { paddingHorizontal: spacing.page, gap: spacing.section },
   tab: { minHeight: sizes.minimumTouchTarget, minWidth: sizes.minimumTouchTarget,
     justifyContent: 'center', alignItems: 'center', paddingVertical: spacing.small, borderBottomWidth: 2, borderBottomColor: 'transparent' },

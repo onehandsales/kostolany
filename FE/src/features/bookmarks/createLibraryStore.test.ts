@@ -7,6 +7,29 @@ import { DEFAULT_LIST_ID, type UserListSource } from './listTypes';
 const articleId = 'example-latest-rates';
 const flush = async () => { for (let i = 0; i < 12; i += 1) await Promise.resolve(); };
 
+it.each(['success', 'failure'] as const)('이름 변경 중 추가한 기사는 이전 요청의 %s 전후로 대기 상태를 유지한다', async (outcome) => {
+  const source = createMockBookmarkSource({ delayMs: 0 });
+  if (!source.lists) throw new Error('Missing source');
+  const setList = jest.fn(source.lists.setList);
+  const store = createLibraryStore({ ...source, lists: { ...source.lists, setList } }, 'reader-a', bookmarkArticles);
+  store.ensureReadingList(); await flush();
+  const result = store.userLists.createList('경제'); if (!result.ok) throw new Error(result.message); await flush();
+  const rename = deferred<Awaited<ReturnType<UserListSource['setList']>>>();
+  const add = deferred<Awaited<ReturnType<UserListSource['setList']>>>();
+  setList.mockReturnValueOnce(rename.promise).mockReturnValueOnce(add.promise);
+  store.userLists.renameList(result.listId, '경제 공부');
+  store.setArticleInList(result.listId, articleId, true);
+  expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: true, error: null });
+  if (outcome === 'success') rename.resolve({ userId: 'reader-a', listId: result.listId,
+    content: { name: '경제 공부', articleIds: [] } });
+  else rename.reject(new Error('old rename failed'));
+  await flush();
+  expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: true, error: null });
+  add.resolve({ userId: 'reader-a', listId: result.listId, content: { name: '경제 공부', articleIds: [articleId] } });
+  await flush();
+  expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: false, error: null });
+});
+
 it('북마크는 모든 목록의 합집합이며 한 목록 제거·삭제가 다른 목록을 지우지 않는다', async () => {
   const source = createMockBookmarkSource({ delayMs: 0 });
   const store = createLibraryStore(source, 'reader-a', bookmarkArticles);

@@ -170,7 +170,9 @@ export function createUserListStore(source: UserListSource, userId: string, arti
         && Boolean(entry.confirmed?.articleIds.includes(articleId)) !== Boolean(entry.failure.target?.articleIds.includes(articleId)));
     },
     isArticlePending(articleId: string): boolean {
-      return [...entries.values()].some((entry) => entry.isPending && entry.pendingArticleIds.includes(articleId));
+      // 전송 중인 명령 뒤에 추가한 기사도 최신 목표가 확정될 때까지 처리 중으로 표시한다.
+      return [...entries.values()].some((entry) => entry.isPending
+        && (entry.pendingArticleIds.includes(articleId) || entry.desired?.articleIds.includes(articleId)));
     },
   };
 }
