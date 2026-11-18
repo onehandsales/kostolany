@@ -13,7 +13,7 @@ import { type MainTabParamList, tabs } from './tabs';
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export function MainTabs({ onSelectArticle, source, searchSource }: {
-  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore' | 'Library') => void;
+  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore' | 'Library', listId?: string) => void;
   source?: FeedSource; searchSource?: SearchSource;
 }) {
   return (
@@ -38,7 +38,7 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
         {() => <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />}
       </Tab.Screen>
       <Tab.Screen name="Library">
-        {({ navigation }) => <LibraryNavigator onSelectArticle={(id) => onSelectArticle(id, 'Library')}
+        {({ navigation }) => <LibraryNavigator onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
           onBrowseArticles={() => navigation.navigate('Home')} />}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={TabPlaceholderScreen} />

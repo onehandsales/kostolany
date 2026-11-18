@@ -1,4 +1,5 @@
 import type { FeedArticle } from '../feed/types';
+import type { UserListSource } from './listTypes';
 
 export type BookmarkIdentity = Readonly<{ userId: string; articleId: string }>;
 export type ArticleBookmark = BookmarkIdentity & Readonly<{ saved: boolean }>;
@@ -6,6 +7,7 @@ export type ReadingList = Readonly<{ userId: string; articleIds: readonly string
 
 // 모의 변경 실패는 반영 전 실패이며 실제 서버의 결과 불명 상태를 뜻하지 않는다.
 export type BookmarkSource = Readonly<{
+  lists?: UserListSource;
   fetchReadingList: (userId: string) => Promise<ReadingList>;
   setArticleSaved: (input: ArticleBookmark & Readonly<{ commandId: number }>) => Promise<ArticleBookmark>;
 }>;

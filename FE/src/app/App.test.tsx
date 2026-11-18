@@ -5,7 +5,7 @@ import App from '../../App';
 
 async function renderApp() {
   await render(<App />);
-  await screen.findByRole('button', { name: /금리가 오르면 예금과 대출/ });
+  await screen.findByRole('button', { name: /^금리가 오르면 예금과 대출/ });
 }
 
 const mainMenu = () => within(screen.getByLabelText('주요 메뉴'));
@@ -95,12 +95,12 @@ describe('App tab navigation', () => {
     const user = userEvent.setup();
     await renderApp();
     await user.press(screen.getByRole('tab', { name: '인기' }));
-    await screen.findByRole('button', { name: /현금을 보유한다는 건/ });
+    await screen.findByRole('button', { name: /^현금을 보유한다는 건/ });
     await user.press(screen.getByRole('tab', { name: '탐색' }));
     await user.press(screen.getByRole('tab', { name: '홈' }));
 
     expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
-    expect(screen.getByRole('button', { name: /현금을 보유한다는 건/ })).toBeVisible();
+    expect(screen.getByRole('button', { name: /^현금을 보유한다는 건/ })).toBeVisible();
     expect(mainMenu().getByRole('tab', { name: '홈' })).toBeSelected();
   });
 });

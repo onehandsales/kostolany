@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 8의 북마크 저장·해제와 기본 읽기 목록까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 같은 기사의 좋아요·북마크를 공유한다. 라이브러리에서 읽기 목록과 저장한 기사를 다시 열 수 있으며 프로필은 준비 중 안내를 유지한다. 검색·좋아요·북마크는 PC 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기 검증은 대기 중이다.
+React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 9의 라이브러리 목록 관리까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 프로필은 준비 중 안내를 유지한다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
 
 ## 환경과 기술 선택
 
@@ -25,7 +25,7 @@ React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md
 
 2026-11-17 기준 Expo 공식 안내의 SDK 58 전환 기간에는 실기기 Expo Go용으로 SDK 57을 권장한다. 이 기준과 SDK 57의 의존성 검사 결과에 맞췄다. 최신 버전으로 일괄 갱신하지 말고 Expo·React Native·테스트 도구의 호환성을 함께 확인한다.
 
-`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 읽기 목록을 연결한다. 기사 ID와 진입 탭을 전달해 뒤로 가기 label을 구분한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
+`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID와 진입 탭을 전달해 뒤로 가기 label을 구분한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
 
 근거: [Expo 프로젝트 생성](https://docs.expo.dev/more/create-expo/), [Expo 테스트 구성](https://docs.expo.dev/develop/unit-testing/), [RNTL v14](https://oss.callstack.com/react-native-testing-library/docs/start/quick-start), [Google 인증](https://docs.expo.dev/guides/google-authentication/).
 
@@ -71,7 +71,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트 133개를 iOS·Android Jest 설정에서 각각 실행한다(총 266건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트 187개를 iOS·Android Jest 설정에서 각각 실행한다(총 374건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -89,7 +89,7 @@ index.ts                             앱 등록
 App.tsx                              Safe Area provider와 루트 이동 연결
 src/app/navigation/AppNavigator.tsx Main·Article stack과 기사 ID 전달
 src/app/navigation/MainTabs.tsx      4개 탭 등록
-src/app/navigation/LibraryNavigator.tsx 라이브러리·기본 읽기 목록 이동
+src/app/navigation/LibraryNavigator.tsx 라이브러리·기본/사용자 목록 이동
 src/app/navigation/BottomTabBar.tsx  접근 가능한 아이콘 탭과 Safe Area
 src/app/navigation/tabs.ts          타입이 지정된 경로·명칭·임시 안내
 src/app/TabPlaceholderScreen.tsx     프로필 임시 화면
@@ -115,10 +115,20 @@ src/features/likes/LikeProvider.tsx  앱 수명의 반응 상태 소유자
 src/features/likes/createLikeStore.ts 기사별 직렬 변경·최신 의도·낙관적 표시·복구
 src/features/likes/useArticleLike.ts 기사별 구독과 입력 연결
 src/features/bookmarks/BookmarkProvider.tsx 모의 공급부·사용자별 저장소 수명
-src/features/bookmarks/createBookmarkStore.ts 공유 선택·읽기 목록·직렬 쓰기·실패 복구
+src/features/bookmarks/createBookmarkStore.ts 기본 읽기 목록·기사별 직렬 쓰기·실패 복구
+src/features/bookmarks/createUserListStore.ts 사용자 목록·이름/소속/삭제·최신 목표·실패 복구
+src/features/bookmarks/createLibraryStore.ts 기본/사용자 목록 조합·기사별 합집합 선택
+src/features/bookmarks/listTypes.ts          사용자·목록·기사 ID와 목록 명령 계약
+src/features/bookmarks/validateListName.ts   제출용 이름 정규화·60자/중복 검증
+src/features/bookmarks/LibrarySheet.tsx      Modal·Safe Area·키보드 회피·스크롤
+src/features/bookmarks/ListEditorSheet.tsx   목록 생성·이름 수정·입력 보존·취소
+src/features/bookmarks/ListActions.tsx       관리 메뉴·이름 수정·삭제 확인
+src/features/bookmarks/SaveToListSheet.tsx   저장 대상 선택 초안·완료·취소
+src/features/bookmarks/LibraryListCard.tsx   목록별 카드·개수·미리보기
+src/features/bookmarks/UserListFeedback.tsx  목록 진행/실패·재시도
 src/features/bookmarks/useBookmarks.ts 기사별·목록별 구독과 입력 연결
 src/features/bookmarks/ArticleBookmarkControl.tsx 저장 상태·접근성·실패 재시도
-src/features/bookmarks/LibraryScreen.tsx 기본 읽기 목록 카드
+src/features/bookmarks/LibraryScreen.tsx 기본/사용자 목록 카드·생성 진입
 src/features/bookmarks/ReadingListScreen.tsx 저장 기사·빈 상태·상세 이동
 src/features/bookmarks/data/         기사 카탈로그·모의 사용자별 저장·상태 재현
 src/features/likes/ArticleLikeControl.tsx 하트·수치·처리/실패·접근성 표시
@@ -228,7 +238,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 
 ## 북마크와 읽기 목록
 
-홈·검색·상세·읽기 목록의 북마크는 같은 사용자와 기사의 상태를 공유한다. 기본 사용자는 `example-reader`이며 처음에는 저장한 기사가 없다. 저장 버튼은 기본 읽기 목록에 즉시 반영되고, 라이브러리 → 읽기 목록 → 기사 상세로 다시 읽을 수 있다. 해제는 목록 소속만 제거하며 기사 원문·좋아요를 삭제하지 않는다. 목록 순서는 기존 10개 fixture의 최신·인기·추천 배열 순서이며 실제 저장 시각 정렬 정책은 아니다.
+홈·검색·상세·읽기 목록의 북마크는 같은 사용자와 기사의 상태를 공유한다. 기본 사용자는 `example-reader`이며 처음에는 저장한 기사가 없다. 사용자 목록 소속이 없는 기사의 저장 버튼은 기본 읽기 목록에 즉시 반영되고, 라이브러리 → 읽기 목록 → 기사 상세로 다시 읽을 수 있다. 해제는 목록 소속만 제거하며 기사 원문·좋아요를 삭제하지 않는다. 목록 순서는 기존 10개 fixture의 최신·인기·추천 배열 순서이며 실제 저장 시각 정렬 정책은 아니다.
 
 사용자별 메모리 저장소에서 기사별 쓰기를 직렬 처리하고 마지막 목표를 유지한다. 저장 실패는 기존 미선택으로, 해제 실패는 기존 선택으로 복구하며 같은 목표로 재시도한다. 목록 상단은 화면 밖 기사의 실패도 안내한다. 같은 공급부에서 사용자 범위를 바꿨다가 돌아와도 진행 중 변경은 해당 사용자 저장소에서 완료된다. 로그인 UI·실제 인증은 아직 없다.
 
@@ -242,17 +252,42 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `remove-error` | 사용자·기사별 첫 저장 해제가 반영 전에 실패 |
 | `slow` | 조회·변경 1,800ms 지연, 연속 입력·화면 이동 확인 |
 
-[Goal 8 결과](../TODO/FE_GOAL_08_RESULT.md)와 [원본 비교](../TODO/evidence/goal8/COMPARISON.html)에 선택한 상태 수명·실패 계약·검증 한계를 기록했다. 목록 생성·이름 변경·삭제와 여러 목록 선택은 Goal 9 범위다.
+[Goal 8 결과](../TODO/FE_GOAL_08_RESULT.md)와 [원본 비교](../TODO/evidence/goal8/COMPARISON.html)는 기본 읽기 목록 구현 당시의 기록이다. 사용자 목록을 포함한 현재 동작은 아래 Goal 9 설명을 따른다.
+
+## 라이브러리 목록 관리
+
+라이브러리 → `새 목록`에서 생성하고 카드나 목록 상세의 `⋯`에서 이름 수정·삭제한다. 기사 북마크 옆 `⋯` → 목록 체크 → `완료`로 여러 목록에 저장한다. 사용자 목록에 이미 속한 기사는 북마크를 눌러도 이 시트가 열린다. 목록에서 기사를 읽고 뒤로 가면 원래 목록으로 돌아온다.
+
+기본 읽기 목록은 이름 수정·삭제할 수 없고 소속 기사만 바꿀 수 있다. 북마크는 하나 이상의 목록에 속하면 선택된다. `이 목록에서 제거`나 목록 삭제는 해당 소속만 지우며 다른 목록·원문·좋아요는 보존한다. 기본 목록으로 자동 이전하지 않는다. 이 동작은 fixture 단계의 기본안이다.
+
+이름은 제출 때 NFC·앞뒤/연속 공백을 정리하고 최대 60 Unicode 코드 포인트로 검증한다. 같은 사용자 안에서 대소문자를 무시한 중복과 기본 이름 `읽기 목록`은 거부한다. 입력 중 강제 정규화하지 않고 명시적인 버튼으로 제출한다. 제출 전 취소는 초안만 버린다. 요청 중 닫기는 진행 중 저장을 중단하지 않는다. 저장 대상 선택 취소는 기사 소속을 바꾸지 않지만 그 안에서 이미 생성 완료한 빈 목록은 유지한다.
+
+사용자별 공유 저장소가 목록 ID별 쓰기를 직렬화하고 최신 목표만 유지한다. 실패한 목록은 확정 상태로 복원하고 같은 목표를 재시도한다. 여러 목록의 적용은 목록 간 트랜잭션이 아니므로 성공한 다른 목록은 유지한다. 삭제 기록으로 늦은 응답의 부활을 막는다. 앱 재실행·전체 새로고침 시 메모리 초기화 정책은 Goal 8과 같다. 사용자/공급부 범위가 바뀌면 열린 폼·navigation을 정리한다.
+
+`src/features/bookmarks/data/userListPreview.ts`의 `userListPreviewScenario`를 바꾸고 전체 새로고침하면 재현한다. 전달 시 `normal`이다.
+
+| 값 | 사용자 목록 상태 |
+| --- | --- |
+| `normal` | 약 350ms 뒤 조회/변경 성공 |
+| `lists-read-error` | 사용자별 첫 조회 실패·재시도 |
+| `create-error` | 목록별 첫 생성 실패·입력 보존·같은 ID 재시도 |
+| `rename-error` | 첫 이름 수정 실패·확정 이름 복구·재시도 |
+| `delete-error` | 첫 삭제 실패·목록 복원·라이브러리 재시도 |
+| `add-error` | 첫 기사 추가 실패·기존 소속 복구·재시도 |
+| `list-remove-error` | 첫 기사 제거 실패·카드 복원·재시도 |
+| `slow` | 약 1,800ms 지연·연속 선택·수정 중 삭제 확인 |
+
+[Goal 9 결과](../TODO/FE_GOAL_09_RESULT.md)에 상태 소유자·취소/수명·삭제 경합·검증을 기록했다. [원본 비교](../TODO/evidence/goal9/COMPARISON.html)는 Medium PNG 11장과 실제 브라우저 화면을 연결한다. 이름 수정 폼은 원본 편집 캡처가 없는 자체 설계다. 공개 목록·공유·댓글·메모·다운로드·수동 순서·로그인 UI는 포함하지 않았다.
 
 ## 검증 범위와 남은 확인
 
 - 사용자 확인: 현재 사용할 수 있는 휴대폰이 없다.
-- Goal 8 실행 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
-- 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~8의 브라우저 모바일 폭 비교와 구분한다.
-- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리·로그인·프로필은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
+- Goal 9 실행 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
+- 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~9의 브라우저 모바일 폭 비교와 구분한다.
+- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리는 Goal 9에서 구현했고 로그인·프로필은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
 - 인증·API·DB·Storage·RSS·AI 호출은 구현하지 않았다.
 
-현재 구현과 검증은 [Goal 8 결과 기록](../TODO/FE_GOAL_08_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)에 보존한다. Goal 9는 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~8에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
+현재 구현과 검증은 [Goal 9 결과 기록](../TODO/FE_GOAL_09_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)·[Goal 8](../TODO/FE_GOAL_08_RESULT.md)에 보존한다. Goal 10은 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~9에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
 
 ## 적용 규칙
 

@@ -20,7 +20,7 @@ describe('Explore article search', () => {
     await changeQuery('금');
     await changeQuery('금리');
     await changeQuery(' 환율 ');
-    await screen.findByRole('button', { name: /환율 뉴스에서/ });
+    await screen.findByRole('button', { name: /^환율 뉴스에서/ });
     expect(source.mock.calls).toEqual([['환율']]);
     expect(screen.getByLabelText('기사 검색어')).toHaveDisplayValue(' 환율 ');
   });
@@ -49,7 +49,7 @@ describe('Explore article search', () => {
     await render(<SearchScreen source={source} onSelectArticle={select} />);
     await user.press(screen.getByRole('button', { name: '금리 검색' }));
     expect(screen.getByLabelText('기사 검색어')).toHaveDisplayValue('금리');
-    await user.press(await screen.findByRole('button', { name: /고정금리와 변동금리/ }));
+    await user.press(await screen.findByRole('button', { name: /^고정금리와 변동금리/ }));
     expect(screen.getByText('2개')).toBeVisible();
     expect(select).toHaveBeenCalledWith('example-popular-debt');
     expect(source.mock.calls).toEqual([['금리']]);
@@ -71,7 +71,7 @@ describe('Explore article search', () => {
     expect(source.mock.calls).toEqual([['금리'], ['금리']]);
     expect(screen.getByText('기사를 검색하고 있어요')).toBeVisible();
     await act(async () => pending.resolve({ query: '금리', items: [article('retry')] }));
-    expect(screen.getByRole('button', { name: /예시 기사 retry/ })).toBeVisible();
+    expect(screen.getByRole('button', { name: /^예시 기사 retry/ })).toBeVisible();
   });
 
   it.each(['resolve', 'reject'] as const)('ignores an older %s after the latest query finishes', async (completion) => {
@@ -82,12 +82,12 @@ describe('Explore article search', () => {
     await changeQuery('금리');
     await waitFor(() => expect(source).toHaveBeenCalledWith('금리'));
     await changeQuery('환율');
-    await screen.findByRole('button', { name: /예시 기사 latest/ });
+    await screen.findByRole('button', { name: /^예시 기사 latest/ });
     await act(async () => completion === 'resolve' ? old.resolve({ query: '금리', items: [article('old')] }) : old.reject(new Error('late')));
     expect(screen.getByLabelText('기사 검색어')).toHaveDisplayValue('환율');
-    expect(screen.getByRole('button', { name: /예시 기사 latest/ })).toBeVisible();
+    expect(screen.getByRole('button', { name: /^예시 기사 latest/ })).toBeVisible();
     expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
-    expect(screen.queryByRole('button', { name: /예시 기사 old/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사 old/ })).not.toBeOnTheScreen();
   });
 
   it('keeps the newest A response after A -> B -> A and discards pending work when cleared', async () => {
@@ -101,13 +101,13 @@ describe('Explore article search', () => {
     await changeQuery('환율');
     await waitFor(() => expect(source).toHaveBeenCalledTimes(2));
     await changeQuery('금리');
-    await screen.findByRole('button', { name: /예시 기사 new-A/ });
+    await screen.findByRole('button', { name: /^예시 기사 new-A/ });
     await act(async () => first.resolve({ query: '금리', items: [article('old-A')] }));
-    expect(screen.queryByRole('button', { name: /예시 기사 old-A/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사 old-A/ })).not.toBeOnTheScreen();
     await changeQuery('');
     await act(async () => second.resolve({ query: '환율', items: [article('old-B')] }));
     expect(screen.getByRole('heading', { name: '주제로 찾아보기' })).toBeVisible();
-    expect(screen.queryByRole('button', { name: /예시 기사/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사/ })).not.toBeOnTheScreen();
   });
 
   it('removes previous results immediately when the normalized query changes', async () => {
@@ -115,9 +115,9 @@ describe('Explore article search', () => {
     const source = jest.fn<ReturnType<SearchSource>, Parameters<SearchSource>>().mockResolvedValueOnce({ query: '금리', items: [article('rates')] }).mockReturnValue(pending.promise);
     await openSearch(source);
     await changeQuery('금리');
-    await screen.findByRole('button', { name: /예시 기사 rates/ });
+    await screen.findByRole('button', { name: /^예시 기사 rates/ });
     await changeQuery('환율');
-    expect(screen.queryByRole('button', { name: /예시 기사 rates/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사 rates/ })).not.toBeOnTheScreen();
     expect(screen.getByText('기사를 검색하고 있어요')).toBeVisible();
   });
 
@@ -128,7 +128,7 @@ describe('Explore article search', () => {
     await openSearch(source);
     await changeQuery('금리');
     expect(await screen.findByRole('alert')).toHaveTextContent('검색 결과를 불러오지 못했어요');
-    expect(screen.queryByRole('button', { name: /예시 기사 wrong/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사 wrong/ })).not.toBeOnTheScreen();
   });
 
   it('survives StrictMode cleanup and ignores an obsolete adapter', async () => {
@@ -140,8 +140,8 @@ describe('Explore article search', () => {
     await waitFor(() => expect(source).toHaveBeenCalledTimes(1));
     const replacement = jest.fn<ReturnType<SearchSource>, Parameters<SearchSource>>().mockResolvedValue({ query: '금리', items: [article('replacement')] });
     await screen.rerender(<StrictMode><SearchScreen source={replacement} onSelectArticle={select} /></StrictMode>);
-    await screen.findByRole('button', { name: /예시 기사 replacement/ });
+    await screen.findByRole('button', { name: /^예시 기사 replacement/ });
     await act(async () => pending.resolve({ query: '금리', items: [article('obsolete')] }));
-    expect(screen.queryByRole('button', { name: /예시 기사 obsolete/ })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: /^예시 기사 obsolete/ })).not.toBeOnTheScreen();
   });
 });

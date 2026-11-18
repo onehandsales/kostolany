@@ -1,5 +1,7 @@
 import type { BookmarkSource } from '../types';
 import { bookmarkArticles } from './bookmarkFixtures';
+import { createMockUserListSource } from './createMockUserListSource';
+import { userListPreviewScenario } from './userListPreview';
 
 export type BookmarkScenario = 'normal' | 'read-error' | 'save-error' | 'remove-error' | 'slow';
 
@@ -28,6 +30,8 @@ export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenar
   }
 
   return {
+    lists: createMockUserListSource({ scenario: userListPreviewScenario,
+      delayMs: userListPreviewScenario === 'slow' ? 1800 : delayMs }),
     async fetchReadingList(userId) {
       const snapshot = { userId, articleIds: [...getSaved(userId)] };
       await waitForResponse();

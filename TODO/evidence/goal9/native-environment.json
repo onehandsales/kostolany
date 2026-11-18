@@ -1,0 +1,38 @@
+{
+  "os": {
+    "exit": 0,
+    "output": "Darwin jaegeunsongui-noteubug.local 23.2.0 Darwin Kernel Version 23.2.0: Wed Nov 15 21:59:33 PST 2023; root:xnu-10002.61.3~2/RELEASE_ARM64_T8112 arm64"
+  },
+  "xcode-select": {
+    "exit": 0,
+    "output": "/Library/Developer/CommandLineTools"
+  },
+  "simctl": {
+    "exit": 72,
+    "output": "xcrun: error: unable to find utility \"simctl\", not a developer tool or in PATH"
+  },
+  "xcodebuild": {
+    "exit": 1,
+    "output": "xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance"
+  },
+  "java": {
+    "exit": 0,
+    "output": "openjdk version \"23.0.1\" 2024-10-15\nOpenJDK Runtime Environment Corretto-23.0.1.8.1 (build 23.0.1+8-FR)\nOpenJDK 64-Bit Server VM Corretto-23.0.1.8.1 (build 23.0.1+8-FR, mixed mode, sharing)"
+  },
+  "adb": {
+    "exit": 1,
+    "output": ""
+  },
+  "emulator": {
+    "exit": 1,
+    "output": ""
+  },
+  "android_sdk": {
+    "/Users/jaegeunsong/Library/Android/sdk": false,
+    "/opt/homebrew/share/android-commandlinetools": false
+  },
+  "android_env": {
+    "ANDROID_HOME": null,
+    "ANDROID_SDK_ROOT": null
+  }
+}

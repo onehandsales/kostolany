@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 import { colors } from '../../shared/theme/tokens';
@@ -13,9 +14,9 @@ export function SearchByline({ name }: { name: string }) {
   </View>;
 }
 
-type SearchCardProps = { article: FeedArticle; first?: boolean; onSelect: (articleId: string) => void };
+type SearchCardProps = { article: FeedArticle; first?: boolean; onSelect: (articleId: string) => void; footer?: ReactNode };
 
-export function SearchCard({ article, first = false, onSelect }: SearchCardProps) {
+export function SearchCard({ article, first = false, onSelect, footer }: SearchCardProps) {
   const { fontScale } = useWindowDimensions();
   return (
     <View style={[styles.card, first && styles.firstCard]}>
@@ -35,6 +36,7 @@ export function SearchCard({ article, first = false, onSelect }: SearchCardProps
         <View style={styles.like}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
         <View style={styles.bookmark}><ArticleBookmarkControl articleId={article.id} articleTitle={article.title} /></View>
       </View>
+      {footer}
     </View>
   );
 }

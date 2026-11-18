@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ArticleDetailScreen } from '../../features/article/ArticleDetailScreen';
 import type { ArticleSource } from '../../features/article/types';
 import { BookmarkProvider } from '../../features/bookmarks/BookmarkProvider';
+import { DEFAULT_LIST_ID } from '../../features/bookmarks/listTypes';
 import type { BookmarkSource } from '../../features/bookmarks/types';
 import type { FeedSource } from '../../features/feed/types';
 import { LikeProvider } from '../../features/likes/LikeProvider';
@@ -12,7 +13,8 @@ import type { SearchSource } from '../../features/search/types';
 import { colors } from '../../shared/theme/tokens';
 import { MainTabs } from './MainTabs';
 
-type RootStackParamList = { Main: undefined; Article: { articleId: string; origin: 'Home' | 'Explore' | 'Library' } };
+type RootStackParamList = { Main: undefined;
+  Article: { articleId: string; origin: 'Home' | 'Explore' | 'Library'; listId?: string } };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const theme = {
   ...DefaultTheme,
@@ -37,14 +39,15 @@ export function AppNavigator({ articleSource, feedSource, searchSource, likeSour
             <Stack.Screen name="Main">
               {({ navigation }) => (
                 <MainTabs source={feedSource} searchSource={searchSource}
-                  onSelectArticle={(articleId, origin) => navigation.navigate('Article', { articleId, origin })} />
+                  onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId })} />
               )}
             </Stack.Screen>
             <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
               {({ route, navigation }) => (
                 <ArticleDetailScreen articleId={route.params.articleId}
                   source={articleSource} onBack={() => navigation.goBack()}
-                  backLabel={route.params.origin === 'Library' ? '읽기 목록으로 돌아가기'
+                  backLabel={route.params.origin === 'Library'
+                    ? route.params.listId === DEFAULT_LIST_ID ? '읽기 목록으로 돌아가기' : '저장 목록으로 돌아가기'
                     : route.params.origin === 'Explore' ? '탐색으로 돌아가기' : '홈으로 돌아가기'} />
               )}
             </Stack.Screen>

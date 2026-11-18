@@ -1,0 +1,971 @@
+{
+  "date": "2026-11-18T12:33:22.595Z",
+  "browser": "157.0.8103.79",
+  "mode": "normal",
+  "checks": [
+    "목록 생성→다중 목록 저장→같은 상세 복귀→이름 수정→한 목록에서 제거→목록 삭제; 다른 목록·원문·좋아요 유지",
+    "공백·61자·정규화 중복 입력 거부, 명시적 제출, 합성 composition 이벤트, 모달 Esc 취소·포커스 복귀",
+    "320px·긴 한국어·CSS 글자/행간 2배·PC, 검색어·설명 수준·좋아요 회귀, 새로고침 후 메모리 초기화"
+  ],
+  "measurements": [
+    {
+      "name": "home-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기",
+          "width": 342,
+          "height": 214,
+          "x": 24,
+          "y": 182.921875
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 24,
+          "y": 412.921875
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장 안 됨",
+          "width": 62.5,
+          "height": 48,
+          "x": 255.5,
+          "y": 412.921875
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 412.921875
+        },
+        {
+          "label": "환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기",
+          "width": 342,
+          "height": 188,
+          "x": 24,
+          "y": 525.921875
+        },
+        {
+          "label": "좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 0개, 선택 안 됨",
+          "width": 48.671875,
+          "height": 48,
+          "x": 24,
+          "y": 729.921875
+        },
+        {
+          "label": "북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 저장 안 됨",
+          "width": 62.5,
+          "height": 48,
+          "x": 255.5,
+          "y": 729.921875
+        },
+        {
+          "label": "저장할 목록 선택, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 729.921875
+        }
+      ]
+    },
+    {
+      "name": "library-empty-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48,
+          "x": 272.28125,
+          "y": 24
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 171
+        }
+      ]
+    },
+    {
+      "name": "create-empty-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록 만들기 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 79.53125
+        },
+        {
+          "label": "목록 이름",
+          "width": 342,
+          "height": 52,
+          "x": 24,
+          "y": 202.53125
+        },
+        {
+          "label": "목록 만들기",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 358.53125
+        }
+      ]
+    },
+    {
+      "name": "create-invalid-narrow",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록 만들기 취소",
+          "width": 48,
+          "height": 48,
+          "x": 248,
+          "y": 71.203125
+        },
+        {
+          "label": "목록 이름",
+          "width": 272,
+          "height": 52,
+          "x": 24,
+          "y": 194.203125
+        },
+        {
+          "label": "목록 만들기",
+          "width": 272,
+          "height": 48,
+          "x": 24,
+          "y": 396.203125
+        }
+      ]
+    },
+    {
+      "name": "create-filled-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록 만들기 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 79.53125
+        },
+        {
+          "label": "목록 이름",
+          "width": 342,
+          "height": 52,
+          "x": 24,
+          "y": 202.53125
+        },
+        {
+          "label": "목록 만들기",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 358.53125
+        }
+      ]
+    },
+    {
+      "name": "library-created-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48,
+          "x": 272.28125,
+          "y": 24
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 171
+        },
+        {
+          "label": "경제 공부 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 393
+        },
+        {
+          "label": "목록 관리, 경제 공부",
+          "width": 48,
+          "height": 48,
+          "x": 293,
+          "y": 533
+        }
+      ]
+    },
+    {
+      "name": "custom-list-empty-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 56,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "label": "목록 관리, 경제 공부",
+          "width": 48,
+          "height": 56,
+          "x": 326,
+          "y": 0
+        },
+        {
+          "label": "기사 둘러보기",
+          "width": 151.234375,
+          "height": 48,
+          "x": 119.375,
+          "y": 531
+        }
+      ]
+    },
+    {
+      "name": "save-to-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 321
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 452
+        },
+        {
+          "label": "읽기 목록",
+          "width": 342,
+          "height": 56,
+          "x": 24,
+          "y": 524
+        },
+        {
+          "label": "경제 공부",
+          "width": 342,
+          "height": 56,
+          "x": 24,
+          "y": 604
+        },
+        {
+          "label": "다시 읽기",
+          "width": 342,
+          "height": 56,
+          "x": 24,
+          "y": 684
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 764
+        }
+      ]
+    },
+    {
+      "name": "save-to-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 55.375,
+          "height": 48,
+          "x": 240.625,
+          "y": 77.203125
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 272,
+          "height": 72,
+          "x": 24,
+          "y": 280.203125
+        },
+        {
+          "label": "읽기 목록",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 376.203125
+        },
+        {
+          "label": "경제 공부",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 481.203125
+        },
+        {
+          "label": "다시 읽기",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 586.203125
+        }
+      ]
+    },
+    {
+      "name": "save-to-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "저장할 목록 취소",
+          "width": 55.375,
+          "height": 48,
+          "x": 240.625,
+          "y": 77.203125
+        },
+        {
+          "label": "새 목록 만들기",
+          "width": 272,
+          "height": 72,
+          "x": 24,
+          "y": 257.203125
+        },
+        {
+          "label": "읽기 목록",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 353.203125
+        },
+        {
+          "label": "경제 공부",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 458.203125
+        },
+        {
+          "label": "다시 읽기",
+          "width": 272,
+          "height": 81,
+          "x": 24,
+          "y": 563.203125
+        },
+        {
+          "label": "저장할 목록 적용",
+          "width": 272,
+          "height": 72,
+          "x": 24,
+          "y": 668.203125
+        }
+      ]
+    },
+    {
+      "name": "custom-list-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 56,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "label": "목록 관리, 경제 공부",
+          "width": 48,
+          "height": 56,
+          "x": 326,
+          "y": 0
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 342,
+          "height": 180,
+          "x": 24,
+          "y": 251
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 24,
+          "y": 439
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48,
+          "x": 244.25,
+          "y": 439
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 439
+        },
+        {
+          "label": "이 목록에서 제거, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 92.359375,
+          "height": 48,
+          "x": 273.640625,
+          "y": 495
+        }
+      ]
+    },
+    {
+      "name": "custom-list-narrow",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 56,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "label": "목록 관리, 경제 공부",
+          "width": 48,
+          "height": 56,
+          "x": 256,
+          "y": 0
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 272,
+          "height": 204,
+          "x": 24,
+          "y": 251
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 24,
+          "y": 463
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48,
+          "x": 174.25,
+          "y": 463
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 248,
+          "y": 463
+        },
+        {
+          "label": "이 목록에서 제거, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 92.359375,
+          "height": 48,
+          "x": 203.640625,
+          "y": 519
+        }
+      ]
+    },
+    {
+      "name": "custom-list-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 64,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "label": "목록 관리, 경제 공부",
+          "width": 48,
+          "height": 64,
+          "x": 256,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "name": "article-from-list-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "저장 목록으로 돌아가기",
+          "width": 48,
+          "height": 48,
+          "x": 16,
+          "y": 3.5
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 24,
+          "y": 792
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48,
+          "x": 244.25,
+          "y": 792
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 792
+        }
+      ]
+    },
+    {
+      "name": "list-menu-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "목록 관리 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 553
+        },
+        {
+          "label": "이름 수정",
+          "width": 342,
+          "height": 50,
+          "x": 24,
+          "y": 688
+        },
+        {
+          "label": "목록 삭제",
+          "width": 342,
+          "height": 50,
+          "x": 24,
+          "y": 762
+        }
+      ]
+    },
+    {
+      "name": "rename-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "목록 이름 수정 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 79.53125
+        },
+        {
+          "label": "목록 이름",
+          "width": 342,
+          "height": 52,
+          "x": 24,
+          "y": 202.53125
+        },
+        {
+          "label": "목록 이름 저장",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 358.53125
+        }
+      ]
+    },
+    {
+      "name": "long-name-narrow",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "라이브러리로 돌아가기",
+          "width": 48,
+          "height": 56,
+          "x": 16,
+          "y": 0
+        },
+        {
+          "label": "목록 관리, 금리와 환율을 함께 읽으며 생활 속 경제 변화를 이해하는 공부 목록",
+          "width": 48,
+          "height": 56,
+          "x": 256,
+          "y": 0
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 272,
+          "height": 204,
+          "x": 24,
+          "y": 323
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 24,
+          "y": 535
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48,
+          "x": 174.25,
+          "y": 535
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 248,
+          "y": 535
+        },
+        {
+          "label": "이 목록에서 제거, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 92.359375,
+          "height": 48,
+          "x": 203.640625,
+          "y": 591
+        }
+      ]
+    },
+    {
+      "name": "delete-confirm-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "목록 삭제 취소",
+          "width": 48,
+          "height": 48,
+          "x": 318,
+          "y": 501
+        },
+        {
+          "label": "목록 삭제 확인",
+          "width": 342,
+          "height": 48,
+          "x": 24,
+          "y": 764
+        }
+      ]
+    },
+    {
+      "name": "delete-confirm-large-text",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "목록 삭제 취소",
+          "width": 55.375,
+          "height": 48,
+          "x": 240.625,
+          "y": 77.203125
+        }
+      ]
+    },
+    {
+      "name": "delete-confirm-large-text-bottom",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "목록 삭제 취소",
+          "width": 55.375,
+          "height": 48,
+          "x": 240.625,
+          "y": 77.203125
+        },
+        {
+          "label": "목록 삭제 확인",
+          "width": 272,
+          "height": 72,
+          "x": 24,
+          "y": 668.203125
+        }
+      ]
+    },
+    {
+      "name": "library-after-delete-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48,
+          "x": 272.28125,
+          "y": 24
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 1개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 171
+        },
+        {
+          "label": "다시 읽기 열기, 저장한 기사 1개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 497
+        },
+        {
+          "label": "목록 관리, 다시 읽기",
+          "width": 48,
+          "height": 48,
+          "x": 293,
+          "y": 637
+        }
+      ]
+    },
+    {
+      "name": "library-desktop",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48,
+          "x": 928.78125,
+          "y": 24
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 1개",
+          "width": 678,
+          "height": 140,
+          "x": 343.5,
+          "y": 171
+        },
+        {
+          "label": "다시 읽기 열기, 저장한 기사 1개",
+          "width": 678,
+          "height": 140,
+          "x": 343.5,
+          "y": 497
+        },
+        {
+          "label": "목록 관리, 다시 읽기",
+          "width": 48,
+          "height": 48,
+          "x": 949.5,
+          "y": 637
+        }
+      ]
+    },
+    {
+      "name": "search-desktop",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "탐색 첫 화면으로 돌아가기",
+          "width": 48,
+          "height": 48,
+          "x": 350.5,
+          "y": 0
+        },
+        {
+          "label": "기사 검색어",
+          "width": 514,
+          "height": 48,
+          "x": 436.5,
+          "y": 0
+        },
+        {
+          "label": "검색어 지우기",
+          "width": 48,
+          "height": 48,
+          "x": 950.5,
+          "y": 0
+        },
+        {
+          "label": "금리가 오르면 예금과 대출에는 어떤 일이 생길까, Kostolany · 예시, 2026.11.17",
+          "width": 632,
+          "height": 157,
+          "x": 366.5,
+          "y": 121
+        },
+        {
+          "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+          "width": 56.953125,
+          "height": 48,
+          "x": 366.5,
+          "y": 286
+        },
+        {
+          "label": "북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 저장됨",
+          "width": 73.75,
+          "height": 48,
+          "x": 876.75,
+          "y": 286
+        },
+        {
+          "label": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+          "width": 48,
+          "height": 48,
+          "x": 950.5,
+          "y": 286
+        },
+        {
+          "label": "고정금리와 변동금리 뉴스를 이해하는 첫걸음, Kostolany · 예시, 2026.11.09",
+          "width": 632,
+          "height": 129,
+          "x": 366.5,
+          "y": 399
+        },
+        {
+          "label": "좋아요, 고정금리와 변동금리 뉴스를 이해하는 첫걸음, 42개, 선택 안 됨",
+          "width": 57.171875,
+          "height": 48,
+          "x": 366.5,
+          "y": 536
+        },
+        {
+          "label": "북마크, 고정금리와 변동금리 뉴스를 이해하는 첫걸음, 저장 안 됨",
+          "width": 62.5,
+          "height": 48,
+          "x": 888,
+          "y": 536
+        },
+        {
+          "label": "저장할 목록 선택, 고정금리와 변동금리 뉴스를 이해하는 첫걸음",
+          "width": 48,
+          "height": 48,
+          "x": 950.5,
+          "y": 536
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "additionalFocusChecks": {
+    "nested-save focus": "저장할 목록 선택, 금리가 오르면 예금과 대출에는 어떤 일이 생길까",
+    "rename-cancel focus": "목록 관리, 경제 공부"
+  }
+}

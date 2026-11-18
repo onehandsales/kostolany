@@ -1,0 +1,12 @@
+{
+  "images": 23,
+  "loaded": true,
+  "pairs": 11,
+  "ownRenameForm": 1,
+  "comparedSections": [
+    "create",
+    "save",
+    "delete",
+    "detail"
+  ]
+}

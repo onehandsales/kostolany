@@ -1,0 +1,15 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --selectProjects iOS Android --runTestsByPath src/features/bookmarks/LibraryInteractions.test.tsx
+
+Running 2 projects:
+- Android
+- iOS
+PASS iOS src/features/bookmarks/LibraryInteractions.test.tsx
+PASS Android src/features/bookmarks/LibraryInteractions.test.tsx
+
+Test Suites: 2 passed, 2 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        6.1 s
+Ran all test suites within paths "src/features/bookmarks/LibraryInteractions.test.tsx" in 2 projects.

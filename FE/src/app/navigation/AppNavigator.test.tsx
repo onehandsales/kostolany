@@ -15,10 +15,10 @@ describe('Home to article navigation', () => {
     const articleSource = jest.fn(createMockArticleSource({ delayMs: 0 }));
     const user = userEvent.setup();
     await render(<SafeAreaProvider><AppNavigator feedSource={feedSource} articleSource={articleSource} /></SafeAreaProvider>);
-    await screen.findByRole('button', { name: /금리가 오르면/ });
+    await screen.findByRole('button', { name: /^금리가 오르면/ });
     await user.press(screen.getByRole('tab', { name: '인기' }));
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
-    await user.press(await screen.findByRole('button', { name: /고정금리와 변동금리/ }));
+    await user.press(await screen.findByRole('button', { name: /^고정금리와 변동금리/ }));
 
     expect(await screen.findByRole('heading', { name: '고정금리와 변동금리 뉴스를 이해하는 첫걸음' })).toBeVisible();
     expect(articleSource).toHaveBeenCalledWith('example-popular-debt');
@@ -28,7 +28,7 @@ describe('Home to article navigation', () => {
 
     expect(screen.getByRole('heading', { name: '홈' })).toBeVisible();
     expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
-    expect(screen.getByRole('button', { name: /고정금리와 변동금리/ })).toBeVisible();
+    expect(screen.getByRole('button', { name: /^고정금리와 변동금리/ })).toBeVisible();
     expect(screen.getByText('모든 기사를 확인했어요')).toBeVisible();
     expect(screen.queryByRole('button', { name: '홈으로 돌아가기' })).not.toBeOnTheScreen();
     expect(feedSource.mock.calls).toEqual([
@@ -42,10 +42,10 @@ describe('Home to article navigation', () => {
     const source = jest.fn(createMockArticleSource({ delayMs: 0 })).mockReturnValueOnce(pending.promise);
     const user = userEvent.setup();
     await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={source} /></SafeAreaProvider>);
-    await user.press(await screen.findByRole('button', { name: /금리가 오르면/ }));
+    await user.press(await screen.findByRole('button', { name: /^금리가 오르면/ }));
     expect(screen.getByText('기사 내용을 불러오고 있어요')).toBeVisible();
     await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
-    await user.press(screen.getByRole('button', { name: /환율 뉴스에서/ }));
+    await user.press(screen.getByRole('button', { name: /^환율 뉴스에서/ }));
     await screen.findByRole('heading', { name: '환율 뉴스에서 우리 생활까지 이어지는 연결 고리' });
     await act(async () => pending.resolve(rates));
     expect(screen.getByRole('heading', { name: '환율 뉴스에서 우리 생활까지 이어지는 연결 고리' })).toBeVisible();
@@ -58,7 +58,7 @@ describe('Home to article navigation', () => {
     try {
       await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })}
         articleSource={createMockArticleSource({ delayMs: 0 })} /></SafeAreaProvider>);
-      await user.press(await screen.findByRole('button', { name: /금리가 오르면/ }));
+      await user.press(await screen.findByRole('button', { name: /^금리가 오르면/ }));
       await screen.findByRole('heading', { name: '금리가 오르면 예금과 대출에는 어떤 일이 생길까' });
       const handleBack = subscription.mock.calls.find(([event]) => event === 'hardwareBackPress')?.[1];
       expect(handleBack).toBeDefined();

@@ -19,7 +19,7 @@ describe('search to detail and back', () => {
       await user.press(screen.getByRole('tab', { name: '탐색' }));
       await user.press(screen.getByRole('button', { name: '기사 검색 열기' }));
       await fireEvent.changeText(screen.getByLabelText('기사 검색어'), ' 금리 ');
-      await user.press(await screen.findByRole('button', { name: /고정금리와 변동금리/ }));
+      await user.press(await screen.findByRole('button', { name: /^고정금리와 변동금리/ }));
       expect(await screen.findByRole('heading', { name: '고정금리와 변동금리 뉴스를 이해하는 첫걸음' })).toBeVisible();
       expect(articleSource).toHaveBeenCalledWith('example-popular-debt');
       expect(screen.queryByLabelText('기사 검색어')).not.toBeOnTheScreen();
@@ -31,7 +31,7 @@ describe('search to detail and back', () => {
       }
       expect(screen.getByLabelText('기사 검색어')).toHaveDisplayValue(' 금리 ');
       expect(screen.getByText('2개')).toBeVisible();
-      expect(screen.getByRole('button', { name: /고정금리와 변동금리/ })).toBeVisible();
+      expect(screen.getByRole('button', { name: /^고정금리와 변동금리/ })).toBeVisible();
       expect(screen.getByRole('tab', { name: '탐색' })).toBeSelected();
       await user.press(screen.getByRole('tab', { name: '홈' }));
       await user.press(screen.getByRole('tab', { name: '탐색' }));

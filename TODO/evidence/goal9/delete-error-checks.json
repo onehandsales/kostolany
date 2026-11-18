@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-18T12:22:06.926Z",
+  "browser": "157.0.8103.79",
+  "mode": "delete-error",
+  "checks": [
+    "목록 상세에서 삭제 후 라이브러리 복귀·실패 복원·삭제 목표 재시도"
+  ],
+  "measurements": [
+    {
+      "name": "delete-error-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "dialogOverflow": false,
+      "buttons": [
+        {
+          "label": "새 목록",
+          "width": 93.71875,
+          "height": 48,
+          "x": 272.28125,
+          "y": 24
+        },
+        {
+          "label": "목록 변경 다시 시도, 경제",
+          "width": 310,
+          "height": 48,
+          "x": 40,
+          "y": 192
+        },
+        {
+          "label": "읽기 목록 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 289
+        },
+        {
+          "label": "경제 열기, 저장한 기사 0개",
+          "width": 340,
+          "height": 140,
+          "x": 25,
+          "y": 511
+        },
+        {
+          "label": "목록 관리, 경제",
+          "width": 48,
+          "height": 48,
+          "x": 293,
+          "y": 651
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

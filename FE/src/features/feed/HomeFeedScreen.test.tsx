@@ -29,16 +29,16 @@ describe('Home feed', () => {
     const user = userEvent.setup();
     await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     expect(screen.getByRole('tab', { name: '최신' })).toBeSelected();
-    expect(await screen.findByRole('button', { name: /금리가 오르면 예금과 대출/ })).toBeVisible();
+    expect(await screen.findByRole('button', { name: /^금리가 오르면 예금과 대출/ })).toBeVisible();
 
     await user.press(screen.getByRole('tab', { name: '인기' }));
-    expect(await screen.findByRole('button', { name: /현금을 보유한다는 건/ })).toBeVisible();
-    expect(screen.queryByRole('button', { name: /금리가 오르면 예금과 대출/ })).not.toBeOnTheScreen();
+    expect(await screen.findByRole('button', { name: /^현금을 보유한다는 건/ })).toBeVisible();
+    expect(screen.queryByRole('button', { name: /^금리가 오르면 예금과 대출/ })).not.toBeOnTheScreen();
     expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
 
     await user.press(screen.getByRole('tab', { name: '추천' }));
-    expect(await screen.findByRole('button', { name: /시장의 숫자 뒤에/ })).toBeVisible();
-    expect(screen.queryByRole('button', { name: /현금을 보유한다는 건/ })).not.toBeOnTheScreen();
+    expect(await screen.findByRole('button', { name: /^시장의 숫자 뒤에/ })).toBeVisible();
+    expect(screen.queryByRole('button', { name: /^현금을 보유한다는 건/ })).not.toBeOnTheScreen();
     const sortTabs = within(screen.getByLabelText('피드 정렬'));
     expect(sortTabs.getAllByRole('tab', { selected: true })).toHaveLength(1);
     expect(sortTabs.getByRole('tab', { name: '추천' })).toBeSelected();
