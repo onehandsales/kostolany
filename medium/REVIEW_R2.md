@@ -122,17 +122,10 @@
 | [Logging out](<flows/Profile/Settings/Logging out/ANALYSIS.md>) | 3/3 | 1 | 완료 — 각 문서 2·8절 |
 | [Logging in](<flows/Logging in/ANALYSIS.md>) | 7/7 | 5 | 완료 — 각 문서 2·8절 |
 
-## 5. 재검증과 수정 보존
+## 5. 검증 이력과 수정 보존
 
-- [이미지 재검토·교정 기록](_research/r2-image-review.json): 검토 인덱스 200개와 변경한 기존 필드·보완 내용.
-- [흐름별 재검토 기록](_research/r2-flow-review.json): 63개 흐름의 진입·종료·미수록 분기·교차 연결.
-- [MCP 재조회 대조](_research/r2-mcp-comparison.json) · [실시간 트리 대조](_research/r2-live-tree.json).
-- [검증 결과](_research/validation.json): 문서 구조·순서·링크·이미지 해시 및 R2 반영 범위. 외부 URL은 문서 참조 수이며 모두 HTTP 접속 검사한 수가 아니다.
+R2에서는 문서 구조·단계 순서·로컬 링크·이미지 해시와 교정 내용의 문서 반영을 검사했다. 외부 URL 수는 문서 참조 수이며 모두 HTTP 접속 검사한 수가 아니다. 이 검증은 문서 검증이며 앱 동작·실제 계정·API 테스트 통과를 의미하지 않는다.
 
-```powershell
-node medium/_research/generate-docs.mjs
-node medium/_research/write-review-r2.mjs
-node medium/_research/validate-docs.mjs
-```
+검토 결과는 위 흐름별 확인표와 각 Flow의 `ANALYSIS.md`에 반영되어 있다. 단계별 원본 URL·화면 ID·관찰 기록·미확인 사항과 공식 자료 대조는 해당 문서를 기준으로 확인한다. 원본 크기의 이미지는 각 Flow의 `screens/`에 보관한다.
 
-생성 문서의 교정은 `_research/observations`, `r2-flow-review.json`, `sources.json`, 생성기에 보존했다. 재생성해도 R2 보완이 유지된다. 이 검증은 문서 검증이며 앱 동작·실제 계정·API 테스트 통과를 의미하지 않는다.
+개발 참고 자료 정리 과정에서 조사 중간 자료와 문서 생성·검증 도구를 제거했다. 완성된 분석 문서와 이미지, [공식 자료](SOURCES.md)는 유지한다. 이후 교정은 해당 문서에 직접 반영하며, 이전 조사 기록과 도구는 Git 이력의 `956effd` 커밋에서 확인할 수 있다.

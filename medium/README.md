@@ -101,31 +101,14 @@ medium/flows/Home/
 | Profile/Settings/Logging out | 3 | [ANALYSIS.md](<flows/Profile/Settings/Logging out/ANALYSIS.md>) | [screens/](<flows/Profile/Settings/Logging out/screens/>) |
 | Logging in | 7 | [ANALYSIS.md](<flows/Logging in/ANALYSIS.md>) | [screens/](<flows/Logging in/screens/>) |
 
-## 근거와 재검증
+## 개발 시 참고할 자료
 
 - [공식 도움말·API 대조](SOURCES.md): 26개 공식 출처와 적용 범위. R2에서 차단·신고·응답 관리 3개 추가.
-- [R2 화면 검토 기록](_research/r2-image-review.json): 실제 재검토 인덱스와 보완·교정 내역.
-- [R2 흐름 검토 기록](_research/r2-flow-review.json): 63개 흐름의 진입·종료·미수록 분기·교차 연결.
-- [R2 MCP 대조](_research/r2-mcp-comparison.json) · [R2 트리 대조](_research/r2-live-tree.json): 전체 단계·최신 200개 화면 집합·부모/자식 구조 재확인.
-- [조회 카탈로그](_research/catalog.json): Flow ID·부모/자식·MCP 단계 순서·Screen ID·원본 URL.
-- [이미지 매니페스트](_research/image-manifest.json): 원본 PNG 크기·SHA-256·파일 경로.
-- [Flow 이미지 MCP 재조회](_research/flow-screens-source.json): 이미지 배치 시 다시 확인한 63개 Flow의 단계 순서·원본 URL·MCP 크기.
-- [Flow 이미지 매니페스트](_research/flow-image-manifest.json): 273개 파일의 단계·화면 ID·Flow 내 상대 경로·원본 파일·SHA-256.
-- [화면 관찰 기록](_research/observations): 시각 확인 후 작성한 200개 화면별 관찰.
-- [흐름별 해석](_research/flow-profiles.json): 목적·연결의 한계·공식 자료 매핑.
-- [검증 결과](_research/validation.json): 문서·단계·로컬 링크·원본 및 Flow 이미지 무결성·누락·초과 검사.
+- [재검토 결과](REVIEW_R2.md): 63개 흐름·200개 고유 화면의 검토 범위, 보완 내용과 남은 질문.
+- 각 Flow의 `ANALYSIS.md`: 목적·단계 순서·화면 ID·원본 URL·관찰 내용·공식 자료 대조·설계 후보·미확인 범위.
+- 각 Flow의 `screens/`: 문서의 단계 번호와 화면 ID에 대응하는 이미지. 위 탐색 표에서 바로 열 수 있다.
 
-```powershell
-node medium/_research/validate-docs.mjs
-```
-
-저장된 MCP 조회 결과와 원본으로 Flow 이미지와 문서를 다시 조립하려면 아래 순서로 실행한다. 이미지 동기화는 기존 파일이 일치하면 유지하고, 불일치·불필요한 파일이 있으면 중단한다. MCP를 새로 호출하는 명령은 아니다. 문서 생성은 63개 분석 문서와 이 색인·공식 자료 요약을 덮어쓰므로 수동 교정은 관찰 기록·흐름별 해석·생성기에도 반영해야 유지된다.
-
-```powershell
-node medium/_research/sync-flow-screens.mjs
-node medium/_research/generate-docs.mjs
-node medium/_research/validate-docs.mjs
-```
+조사 중간 자료와 문서 자동 생성·검증 도구는 정리했다. 분석 결과와 원본 링크는 완성된 문서에 보존했으며, 이후 수정은 해당 문서에 직접 반영한다. 이전 조사 자료와 도구가 필요하면 Git 이력의 `956effd` 커밋에서 확인할 수 있다.
 
 ## 남아 있는 검증
 
