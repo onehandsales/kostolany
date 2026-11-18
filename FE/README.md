@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 11의 프로필 조회·이름/소개 편집까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 비로그인으로 기사를 읽고, 예시 독자 A/B로 모의 로그인해 개인 기능을 사용한다. 프로필에서 이름·짧은 소개를 편집하고 저장·취소·실패 재시도를 할 수 있다. 이름 변경은 인증 ID·개인 데이터를 유지한다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
+React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 12의 설정·기본 설명 수준까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 비로그인으로 기사를 읽고, 예시 독자 A/B로 모의 로그인해 개인 기능을 사용한다. 프로필에서 이름·짧은 소개를 편집하고 저장·취소·실패 재시도를 할 수 있다. 이름 변경은 인증 ID·개인 데이터를 유지한다. 프로필의 설정에서 사용자별 기본 수준을 저장하면 다음 기사 진입에 적용된다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
 
 ## 환경과 기술 선택
 
@@ -25,7 +25,7 @@ React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md
 
 2026-11-17 기준 Expo 공식 안내의 SDK 58 전환 기간에는 실기기 Expo Go용으로 SDK 57을 권장한다. 이 기준과 SDK 57의 의존성 검사 결과에 맞췄다. 최신 버전으로 일괄 갱신하지 말고 Expo·React Native·테스트 도구의 호환성을 함께 확인한다.
 
-`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID·진입 탭·목록 소유자·인증 revision을 전달해 복귀를 구분한다. 로그인 Modal은 공개 화면을 유지하고 사용자 전환은 개인 Library stack과 시트·초안만 초기화한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
+`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID·진입 탭·목록 소유자·인증 revision을 전달해 복귀를 구분한다. 로그인 Modal은 공개 화면을 유지하고 사용자 전환은 개인 Library/Profile stack과 시트·초안을 정리하고, 공개 기사 경로를 유지한 채 설명 수준 하위 세션을 현재 계정 기준으로 시작한다. Profile 내부 stack은 프로필과 설정을 연결한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
 
 근거: [Expo 프로젝트 생성](https://docs.expo.dev/more/create-expo/), [Expo 테스트 구성](https://docs.expo.dev/develop/unit-testing/), [RNTL v14](https://oss.callstack.com/react-native-testing-library/docs/start/quick-start), [Google 인증](https://docs.expo.dev/guides/google-authentication/).
 
@@ -71,7 +71,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트 256개를 iOS·Android Jest 설정에서 각각 실행한다(총 512건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트 301개를 iOS·Android Jest 설정에서 각각 실행한다(총 602건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -101,6 +101,13 @@ src/features/auth/AccountScreen.tsx  비로그인 프로필·라이브러리 안
 src/features/auth/LoginRequestButton.tsx 개인 행동에서 로그인 진입
 src/features/auth/data/              예시 독자 A/B·모의 응답 공급부
 src/app/navigation/ProfileRouteScreen.tsx 인증 세션별 개인 프로필 진입
+src/app/navigation/ProfileNavigator.tsx 프로필·설정 내부 stack
+src/features/settings/ReadingSettingsProvider.tsx 사용자별 기본 수준 공급부·저장소·scope
+src/features/settings/createReadingSettingsStore.ts 조회 세대·직렬 최신 제출
+src/features/settings/SettingsScreen.tsx 설정 조회·변경 진입·로그아웃
+src/features/settings/DefaultLevelSheet.tsx 기본 수준 편집 선택·저장·취소
+src/features/settings/data/          메모리 설정·실패/지연 재현
+src/features/article/useEntryExplanationPreference.ts 기사 진입의 확정 기본값
 src/features/profile/ProfileProvider.tsx 사용자별 프로필 공급부·저장소·개인 UI 범위
 src/features/profile/createProfileStore.ts 조회 세대·확정 프로필·직렬 최신 제출
 src/features/profile/profileValidation.ts 이름/소개 정규화·코드 포인트 계산·검증
@@ -198,7 +205,7 @@ tsconfig.json                        strict와 테스트 타입 검사
 
 기사 상세의 **AI 해석 → 설명 수준**에서 초등학생·중학생·고등학생·성인을 선택한다. 홈의 10개 기사에 각각 4단계, 총 40개 설명·예시가 있다. 수준 선택은 해석의 표현과 예시만 바꾸며 공통 사실 요약·제목·출처는 유지한다. 기본 성인 설명은 Goal 4의 기존 해석 본문을 사용한다.
 
-초기값은 `성인`인 화면용 기본안이다. 현재 상세 화면을 나갔다 다시 열거나 다른 기사에 진입하면 초기값으로 돌아간다. 선택값은 계정·서버·기기 저장소에 보관하지 않으며 실제 나이를 묻거나 추정하지 않는다. 읽기 시간도 기존 고정 예시 값이며 수준별로 재계산하지 않는다.
+Goal 12부터 로그인한 사용자의 확정 기본 수준으로 새 기사를 시작하고 비로그인·최초 설정은 `성인`이다. 기사 안의 선택은 그 읽기 화면에만 남으며 계정의 기본 설정을 자동 변경하지 않는다. 자세한 재진입·뒤로 복귀·지연 조회 정책은 아래 설정 항목을 따른다. 서버·기기 영속 저장은 없고 실제 나이를 묻거나 추정하지 않는다. 읽기 시간도 기존 고정 예시 값이며 수준별로 재계산하지 않는다.
 
 새 수준을 선택하면 이전 설명·예시는 숨기고 현재 수준의 로딩 또는 오류를 표시한다. 사실 요약과 뒤로 가기는 계속 사용할 수 있다. 선택 컨트롤은 로딩·오류 중에도 동작하며, 재시도는 실패한 기사·수준 조합만 다시 요청한다. 같은 선택을 다시 누르면 추가 조회하지 않는다.
 
@@ -303,7 +310,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 
 A(`example-reader`)와 B(`example-reader-b`)는 좋아요·저장·사용자 목록을 서로 공유하지 않는다. 로그아웃은 개인 데이터 삭제가 아니므로 같은 실행 중 A→B→A로 돌아오면 A 데이터를 이어 받는다. 진행 중 개인 변경도 원래 사용자 저장소에서만 완료된다. 열린 개인 상세·입력 초안·저장 시트는 사용자 전환 시 정리한다. 앱 재실행·전체 새로고침은 인증과 개인 메모리를 초기화한다. 기기/서버 영속 저장·데이터 병합은 없다.
 
-Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회와 편집으로 확장했다. 설정 확장은 Goal 12 범위다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 [원본 비교](../TODO/evidence/goal10/COMPARISON.html)에 설계·검증·미검증을 기록했다.
+Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회와 편집으로 확장했다. 설정과 기본 설명 수준은 아래 Goal 12에서 연결했다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 [원본 비교](../TODO/evidence/goal10/COMPARISON.html)에 설계·검증·미검증을 기록했다.
 
 ## 프로필 조회·수정
 
@@ -315,15 +322,27 @@ Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회
 
 `src/features/profile/data/profilePreview.ts`의 `profilePreviewScenario`로 `read-error`·`save-error`·`slow`를 지정한 뒤 전체 새로고침하면 조회/저장 첫 실패·4초 처리를 재현한다. 재시도는 성공한다. 전달 기본값은 `normal`(약 350ms)이다. 실제 인증·Storage는 없다. [Goal 11 결과](../TODO/FE_GOAL_11_RESULT.md)와 [원본 비교](../TODO/evidence/goal11/COMPARISON.html)에 정책·검증·미검증을 기록했다.
 
+## 설정과 기본 설명 수준
+
+**프로필 → 설정 → 기본 설명 수준 변경**에서 초등학생·중학생·고등학생·성인 중 선택하고 저장한다. 최초 A/B 기본값은 성인이다. 설정의 뒤로 버튼은 프로필로 돌아가며 기존 편집을 유지한다. 로그아웃 행은 기존 확인·취소·실패·재시도와 연결한다.
+
+확정 기본값은 다음 기사 진입에 적용한다. 기사에서 직접 선택한 수준은 설정을 바꾸지 않는다. 기사에서 나간 뒤 같은 기사를 새로 열면 최신 기본값을 적용하고, 기존 기사 인스턴스로 뒤로 복귀하면 임시 선택을 유지한다. 설정 조회 중에는 성인으로 읽되 첫 성공 값을 한 번 적용하며, 직접 수준을 선택했다면 늦은 조회는 덮어쓰지 않는다. 본문 로딩 중에도 진입 시 확정한 수준을 유지한다.
+
+설정은 사용자 ID별 앱 메모리에 보관한다. 이름 변경·설정 저장은 인증 revision이나 개인 데이터/navigation을 초기화하지 않는다. 로그아웃·A→B→A·같은 A 재로그인은 확정 데이터를 유지하고 개인 화면·초안을 정리한다. 앱 재실행·전체 새로고침은 초기화한다. 비로그인은 개인 설정을 조회/변경하지 않고 성인 기본 읽기와 기사 내 수준 전환을 사용한다.
+
+취소·닫기·뒤로·탭 이탈은 미제출 선택만 버리며 제출한 저장은 계속된다. 저장 중 추가 선택/제출을 허용하고 마지막 제출을 직렬 처리한다. 실패하면 편집 선택을 보존하고 수정한 선택으로 재시도한다.
+
+`src/features/settings/data/settingsPreview.ts`의 `settingsPreviewScenario`를 `read-error`·`save-error`·`slow`로 바꾸고 전체 새로고침하면 최초 조회/저장 실패와 각 4초 처리를 재현한다. 전달 기본값은 `normal`(약 350ms)이다. 재현 뒤 normal로 복원한다. [Goal 12 결과](../TODO/FE_GOAL_12_RESULT.md)와 [원본 비교](../TODO/evidence/goal12/COMPARISON.html)에 정책·검증·미검증을 기록했다.
+
 ## 검증 범위와 남은 확인
 
 - 사용자 확인: 현재 사용할 수 있는 휴대폰이 없다.
-- Goal 11 최종 검사 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
-- 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~10의 브라우저 모바일 폭 비교와 구분한다.
-- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리는 Goal 9, 모의 로그인은 Goal 10에서 구현했다. 프로필 편집은 Goal 11에서 구현했고 설정 확장은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
+- Goal 12 최종 검사 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
+- 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~12의 브라우저 모바일 폭 비교와 구분한다.
+- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리는 Goal 9, 모의 로그인은 Goal 10에서 구현했다. 프로필 편집은 Goal 11, 설정과 기본 설명 수준은 Goal 12에서 구현했다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
 - 실제 인증·API·DB·Storage·RSS·AI 호출은 구현하지 않았다.
 
-현재 구현과 검증은 [Goal 11 결과 기록](../TODO/FE_GOAL_11_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)·[Goal 8](../TODO/FE_GOAL_08_RESULT.md)·[Goal 9](../TODO/FE_GOAL_09_RESULT.md)·[Goal 10](../TODO/FE_GOAL_10_RESULT.md)에 보존한다. Goal 12는 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~11에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
+현재 구현과 검증은 [Goal 12 결과 기록](../TODO/FE_GOAL_12_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)·[Goal 8](../TODO/FE_GOAL_08_RESULT.md)·[Goal 9](../TODO/FE_GOAL_09_RESULT.md)·[Goal 10](../TODO/FE_GOAL_10_RESULT.md)·[Goal 11](../TODO/FE_GOAL_11_RESULT.md)에 보존한다. Goal 13은 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~12에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
 
 ## 적용 규칙
 

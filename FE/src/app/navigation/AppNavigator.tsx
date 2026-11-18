@@ -1,6 +1,7 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import type { ExplanationSource } from '../../features/article/explanationTypes';
 import type { ArticleSource } from '../../features/article/types';
 import { AuthDialogs } from '../../features/auth/AuthDialogs';
 import { AuthProvider, useAuth } from '../../features/auth/AuthProvider';
@@ -13,6 +14,8 @@ import type { LikeSource } from '../../features/likes/types';
 import { ProfileProvider, useProfile } from '../../features/profile/ProfileProvider';
 import type { ProfileSource } from '../../features/profile/types';
 import type { SearchSource } from '../../features/search/types';
+import { ReadingSettingsProvider } from '../../features/settings/ReadingSettingsProvider';
+import type { ReadingSettingsSource } from '../../features/settings/types';
 import { colors } from '../../shared/theme/tokens';
 import { ArticleRouteScreen, type ArticleRouteParams } from './ArticleRouteScreen';
 import { MainTabs } from './MainTabs';
@@ -31,6 +34,7 @@ const theme = {
 type AppNavigatorProps = {
   articleSource?: ArticleSource; feedSource?: FeedSource; searchSource?: SearchSource; likeSource?: LikeSource;
   bookmarkSource?: BookmarkSource; profileSource?: ProfileSource;
+  settingsSource?: ReadingSettingsSource; explanationSource?: ExplanationSource;
   authSource?: AuthSource; initialUser?: AuthUser | null;
 };
 
@@ -38,33 +42,37 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
   return <AuthProvider source={authSource} initialUser={initialUser}><SessionNavigation {...sources} /></AuthProvider>;
 }
 
-export function SessionNavigation({ articleSource, feedSource, searchSource, likeSource, bookmarkSource, profileSource }: AppNavigatorProps) {
+export function SessionNavigation({ articleSource, feedSource, searchSource, likeSource, bookmarkSource,
+  profileSource, settingsSource, explanationSource }: AppNavigatorProps) {
   const { state } = useAuth();
   return (
-    <ProfileProvider source={profileSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
-      <LikeProvider source={likeSource} userId={state.user?.id ?? null}>
-        <BookmarkProvider source={bookmarkSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
-          <NavigationContainer theme={theme}>
-            <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="Main">
-                {({ navigation }) => (
-                  <MainTabs source={feedSource} searchSource={searchSource}
-                    onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId,
-                      ownerUserId: origin === 'Library' ? state.user?.id : undefined,
-                      sessionRevision: origin === 'Library' ? state.revision : undefined })} />
-                )}
-              </Stack.Screen>
-              <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
-                {({ route, navigation }) => (
-                  <ArticleRouteScreen params={route.params} source={articleSource} onBack={() => navigation.goBack()} />
-                )}
-              </Stack.Screen>
-            </Stack.Navigator>
-          </NavigationContainer>
-          <SessionAuthDialogs />
-        </BookmarkProvider>
-      </LikeProvider>
-    </ProfileProvider>
+    <ReadingSettingsProvider source={settingsSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+      <ProfileProvider source={profileSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+        <LikeProvider source={likeSource} userId={state.user?.id ?? null}>
+          <BookmarkProvider source={bookmarkSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+            <NavigationContainer theme={theme}>
+              <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Main">
+                  {({ navigation }) => (
+                    <MainTabs source={feedSource} searchSource={searchSource}
+                      onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId,
+                        ownerUserId: origin === 'Library' ? state.user?.id : undefined,
+                        sessionRevision: origin === 'Library' ? state.revision : undefined })} />
+                  )}
+                </Stack.Screen>
+                <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
+                  {({ route, navigation }) => (
+                    <ArticleRouteScreen params={route.params} source={articleSource}
+                      explanationSource={explanationSource} onBack={() => navigation.goBack()} />
+                  )}
+                </Stack.Screen>
+              </Stack.Navigator>
+            </NavigationContainer>
+            <SessionAuthDialogs />
+          </BookmarkProvider>
+        </LikeProvider>
+      </ProfileProvider>
+    </ReadingSettingsProvider>
   );
 }
 

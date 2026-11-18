@@ -5,6 +5,7 @@ import { colors, sizes } from '../../shared/theme/tokens';
 export const profileStyles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   page: { width: '100%', maxWidth: 680, alignSelf: 'center', padding: 24, gap: 24, paddingBottom: 40 },
+  grow: { flex: 1 },
   title: { fontSize: 28, lineHeight: 36, fontWeight: '700', color: colors.text },
   name: { fontSize: 26, lineHeight: 36, fontWeight: '700', color: colors.text, flexShrink: 1 },
   text: { fontSize: 16, lineHeight: 26, color: colors.text },

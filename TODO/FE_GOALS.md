@@ -5,7 +5,7 @@
 
 현재 규칙 위치: `/Users/jaegeunsong/Desktop/workplace/kostolany/AGENT`
 
-현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~11은 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 12~13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md), [Goal 8 결과](FE_GOAL_08_RESULT.md), [Goal 9 결과](FE_GOAL_09_RESULT.md), [Goal 10 결과](FE_GOAL_10_RESULT.md), [Goal 11 결과](FE_GOAL_11_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
+현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~12는 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md), [Goal 8 결과](FE_GOAL_08_RESULT.md), [Goal 9 결과](FE_GOAL_09_RESULT.md), [Goal 10 결과](FE_GOAL_10_RESULT.md), [Goal 11 결과](FE_GOAL_11_RESULT.md), [Goal 12 결과](FE_GOAL_12_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
 
 ## 목표와 현재 범위
 
@@ -88,7 +88,7 @@
 | 9 | 라이브러리 목록 생성·수정·삭제 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
 | 10 | 모의 로그인·취소·로그아웃 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
 | 11 | 프로필 조회·수정 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
-| 12 | 설명 수준 등 설정 화면 | 미착수 |
+| 12 | 설정과 기본 설명 수준 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
 | 13 | 화면 연결과 전체 흐름 검증 | 미착수 |
 
 ## Goal별 범위·테스트·완료 조건
@@ -163,6 +163,8 @@
 - 완료: 조회와 편집 화면의 모의 데이터가 일치하며, 편집 취소가 기존 값을 변경하지 않는다.
 
 ### Goal 12 — 설정
+
+현재 결과: 사용자별 메모리 기본 수준·선택/저장/취소/재시도·다음 기사 반영·기존 로그아웃을 연결했다. 타입·lint·602건 테스트·양 플랫폼 JS/Hermes 번들·8081 흐름과 원본 비교를 확인했으며 실제 iOS·Android 실행·네이티브 빌드는 검증 대기다. [Goal 12 결과](FE_GOAL_12_RESULT.md)를 확인한다.
 
 - 구현: 프로필에서 설정 진입, 기본 설명 수준 변경, 기존 로그아웃 흐름 연결. 해당 기능에 필요한 최소 설정만 구현한다.
 - 테스트: 설정한 수준이 다음 기사 진입에 반영되는지, 변경 취소·저장 실패 시 기존 상태가 보존되는지 검증한다.

@@ -9,14 +9,19 @@ import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 import { previewArticleSource } from './data/articlePreview';
 import { ExplanationSection } from './ExplanationSection';
-import type { ExplanationSource } from './explanationTypes';
+import type { ExplanationPreference, ExplanationSource } from './explanationTypes';
 import type { ArticleDetail, ArticleSource } from './types';
 import { useArticle } from './useArticle';
+import { useEntryExplanationPreference } from './useEntryExplanationPreference';
 
-export function ArticleDetailScreen({ articleId, onBack, source = previewArticleSource, explanationSource, backLabel = '홈으로 돌아가기' }: {
+type ArticleDetailScreenProps = {
   articleId: string; onBack: () => void; source?: ArticleSource; explanationSource?: ExplanationSource;
-  backLabel?: string;
-}) {
+  backLabel?: string; preference?: ExplanationPreference;
+};
+
+export function ArticleDetailScreen({ articleId, onBack, source = previewArticleSource,
+  explanationSource, preference, backLabel = '홈으로 돌아가기' }: ArticleDetailScreenProps) {
+  const entryPreference = useEntryExplanationPreference(articleId, preference);
   return (
     <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
       <View style={styles.header}>
@@ -29,14 +34,17 @@ export function ArticleDetailScreen({ articleId, onBack, source = previewArticle
         <Text style={styles.headerLabel}>기사 읽기</Text>
       </View>
       {/* 기사가 바뀌면 본문과 스크롤 세션만 새로 시작하고 공유 반응은 유지한다. */}
-      <ArticleReader key={articleId} articleId={articleId} source={source} explanationSource={explanationSource} />
+      <ArticleReader key={articleId} articleId={articleId} source={source}
+        explanationSource={explanationSource} preference={entryPreference} />
     </SafeAreaView>
   );
 }
 
-function ArticleReader({ articleId, source, explanationSource }: {
-  articleId: string; source: ArticleSource; explanationSource?: ExplanationSource;
-}) {
+type ArticleReaderProps = {
+  articleId: string; source: ArticleSource; explanationSource?: ExplanationSource; preference?: ExplanationPreference;
+};
+
+function ArticleReader({ articleId, source, explanationSource, preference }: ArticleReaderProps) {
   const { state, retry } = useArticle(articleId, source);
   return (
     <View style={styles.reader}>
@@ -44,7 +52,7 @@ function ArticleReader({ articleId, source, explanationSource }: {
         {state.status === 'loading' && <ContentStatus message="기사 내용을 불러오고 있어요" loading />}
         {state.status === 'error' && <ContentStatus message="기사 내용을 불러오지 못했어요" error
           actionLabel="다시 시도" onAction={retry} />}
-        {state.status === 'ready' && <ArticleBody article={state.article} explanationSource={explanationSource} />}
+        {state.status === 'ready' && <ArticleBody article={state.article} explanationSource={explanationSource} preference={preference} />}
       </ScrollView>
       {state.status === 'ready' && <View style={styles.reactionBar}>
         <View style={styles.reactionContent}>
@@ -56,7 +64,9 @@ function ArticleReader({ articleId, source, explanationSource }: {
   );
 }
 
-function ArticleBody({ article, explanationSource }: { article: ArticleDetail; explanationSource?: ExplanationSource }) {
+type ArticleBodyProps = { article: ArticleDetail; explanationSource?: ExplanationSource; preference?: ExplanationPreference };
+
+function ArticleBody({ article, explanationSource, preference }: ArticleBodyProps) {
   return (
     <View style={styles.article}>
       <View style={styles.intro}>
@@ -79,7 +89,7 @@ function ArticleBody({ article, explanationSource }: { article: ArticleDetail; e
         <Text style={styles.note}>아래 내용은 읽기 화면을 위한 가상 상황입니다.</Text>
         {article.facts.map((paragraph, index) => <Text selectable key={index} style={styles.paragraph}>{paragraph}</Text>)}
       </View>
-      <ExplanationSection key={article.id} articleId={article.id} source={explanationSource} />
+      <ExplanationSection key={article.id} articleId={article.id} source={explanationSource} preference={preference} />
     </View>
   );
 }

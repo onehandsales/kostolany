@@ -1,14 +1,12 @@
-import { useIsFocused } from '@react-navigation/native';
-
 import { AccountScreen } from '../../features/auth/AccountScreen';
 import { useAuth } from '../../features/auth/AuthProvider';
 import { useProfileScopeKey } from '../../features/profile/ProfileProvider';
-import { ProfileScreen } from '../../features/profile/ProfileScreen';
+import { useSettingsScopeKey } from '../../features/settings/ReadingSettingsProvider';
+import { ProfileNavigator } from './ProfileNavigator';
 
 export function ProfileRouteScreen() {
-  const { state, store } = useAuth();
+  const { state } = useAuth();
   const scopeKey = useProfileScopeKey();
-  const isFocused = useIsFocused();
-  return state.user ? <ProfileScreen key={scopeKey} accountLabel={state.user.name}
-    isFocused={isFocused} onLogout={store.openLogout} /> : <AccountScreen />;
+  const settingsScopeKey = useSettingsScopeKey();
+  return state.user ? <ProfileNavigator key={JSON.stringify([scopeKey, settingsScopeKey])} /> : <AccountScreen />;
 }

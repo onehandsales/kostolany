@@ -7,9 +7,9 @@ import { ProfileEditorSheet } from './ProfileEditorSheet';
 import { useProfile } from './ProfileProvider';
 import { profileStyles as styles } from './profileStyles';
 
-type ProfileScreenProps = { accountLabel: string; onLogout: () => void; isFocused: boolean };
+type ProfileScreenProps = { accountLabel: string; onLogout: () => void; isFocused: boolean; onOpenSettings?: () => void };
 
-export function ProfileScreen({ accountLabel, onLogout, isFocused }: ProfileScreenProps) {
+export function ProfileScreen({ accountLabel, onLogout, isFocused, onOpenSettings }: ProfileScreenProps) {
   const { state, store } = useProfile();
   const [isEditing, setIsEditing] = useState(false);
   const wasEditing = useRef(false);
@@ -25,7 +25,12 @@ export function ProfileScreen({ accountLabel, onLogout, isFocused }: ProfileScre
   const profile = state.profile;
   return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
     <ScrollView contentContainerStyle={styles.page}>
-      <Text role="heading" style={styles.title}>프로필</Text>
+      <View style={styles.header}>
+        <Text role="heading" style={[styles.title, styles.grow]}>프로필</Text>
+        {onOpenSettings && <Pressable role="button" accessibilityLabel="설정 열기" onPress={onOpenSettings} style={styles.headerAction}>
+          <Text style={styles.buttonText}>설정</Text>
+        </Pressable>}
+      </View>
       <Text style={styles.secondary}>모의 로그인 · 실제 Google 계정과 연결되지 않아요.</Text>
       <Text style={styles.secondary}>모의 계정: {accountLabel}</Text>
       {state.readStatus === 'loading' && <View style={styles.group}>
