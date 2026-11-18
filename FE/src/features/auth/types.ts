@@ -1,0 +1,18 @@
+export type AuthUser = Readonly<{ id: string; name: string }>;
+export type AuthScenario = 'success' | 'cancel' | 'failure' | 'slow';
+export type LogoutScenario = Exclude<AuthScenario, 'cancel'>;
+export type LoginContext =
+  | Readonly<{ kind: 'like' | 'bookmark'; articleId: string }>
+  | Readonly<{ kind: 'library' | 'profile' }>;
+export type AuthSource = {
+  signIn: (input: { userId: string; scenario: AuthScenario }) => Promise<
+    { status: 'success'; user: AuthUser } | { status: 'cancelled' }>;
+  signOut: (input: { userId: string; scenario: LogoutScenario }) => Promise<void>;
+};
+type LoginDialog = Readonly<{ kind: 'login'; context: LoginContext } & (
+  { status: 'idle'; userId: null } | { status: 'pending' | 'error'; userId: string }
+)>;
+type LogoutDialog = Readonly<{ kind: 'logout'; status: 'idle' | 'pending' | 'error' }>;
+export type AuthSnapshot = Readonly<{ revision: number } & (
+  { user: null; dialog: LoginDialog | null } | { user: AuthUser; dialog: LogoutDialog | null }
+)>;

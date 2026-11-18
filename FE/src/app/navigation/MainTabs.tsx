@@ -1,11 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { AccountScreen, LibraryLoginScreen } from '../../features/auth/AccountScreen';
+import { useAuth } from '../../features/auth/AuthProvider';
+import { useBookmarkScopeKey } from '../../features/bookmarks/useBookmarks';
 import { HomeFeedScreen } from '../../features/feed/HomeFeedScreen';
 import type { FeedSource } from '../../features/feed/types';
 import { SearchScreen } from '../../features/search/SearchScreen';
 import type { SearchSource } from '../../features/search/types';
 import { TabIcon } from '../../shared/ui/TabIcon';
-import { TabPlaceholderScreen } from '../TabPlaceholderScreen';
 import { BottomTabBar } from './BottomTabBar';
 import { LibraryNavigator } from './LibraryNavigator';
 import { type MainTabParamList, tabs } from './tabs';
@@ -16,6 +18,8 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
   onSelectArticle: (articleId: string, origin: 'Home' | 'Explore' | 'Library', listId?: string) => void;
   source?: FeedSource; searchSource?: SearchSource;
 }) {
+  const { state } = useAuth();
+  const scopeKey = useBookmarkScopeKey();
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -38,10 +42,11 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
         {() => <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />}
       </Tab.Screen>
       <Tab.Screen name="Library">
-        {({ navigation }) => <LibraryNavigator onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
-          onBrowseArticles={() => navigation.navigate('Home')} />}
+        {({ navigation }) => state.user ? <LibraryNavigator key={scopeKey}
+          onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
+          onBrowseArticles={() => navigation.navigate('Home')} /> : <LibraryLoginScreen />}
       </Tab.Screen>
-      <Tab.Screen name="Profile" component={TabPlaceholderScreen} />
+      <Tab.Screen name="Profile" component={AccountScreen} />
     </Tab.Navigator>
   );
 }

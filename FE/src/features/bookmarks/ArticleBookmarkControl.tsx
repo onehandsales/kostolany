@@ -1,12 +1,26 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors, sizes } from '../../shared/theme/tokens';
+import { LoginRequestButton } from '../auth/LoginRequestButton';
 import { BookmarkIcon } from './BookmarkIcon';
+import { BookmarkStoreContext } from './BookmarkProvider';
 import { SaveToListSheet } from './SaveToListSheet';
-import { useArticleBookmark, useBookmarkStore } from './useBookmarks';
+import { useArticleBookmark, useBookmarkScopeKey, useBookmarkStore } from './useBookmarks';
 
-export function ArticleBookmarkControl({ articleId, articleTitle }: { articleId: string; articleTitle: string }) {
+type ArticleBookmarkControlProps = { articleId: string; articleTitle: string };
+
+export function ArticleBookmarkControl(props: ArticleBookmarkControlProps) {
+  const store = useContext(BookmarkStoreContext);
+  const scopeKey = useBookmarkScopeKey();
+  if (store) return <SignedInBookmarkControl key={scopeKey} {...props} />;
+  return <LoginRequestButton context={{ kind: 'bookmark', articleId: props.articleId }}
+    label={`북마크, ${props.articleTitle}, 로그인 필요`} style={styles.button}>
+    <BookmarkIcon saved={false} /><Text style={styles.status}>저장</Text>
+  </LoginRequestButton>;
+}
+
+function SignedInBookmarkControl({ articleId, articleTitle }: ArticleBookmarkControlProps) {
   const { state, toggleBookmark, retryBookmark } = useArticleBookmark(articleId);
   const store = useBookmarkStore();
   const [selecting, setSelecting] = useState(false);

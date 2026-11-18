@@ -20,13 +20,13 @@ export const initialLikeCounts: Readonly<Record<string, number>> = {
 export function createMockLikeSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 1800 : 350 }: {
   scenario?: LikeScenario; delayMs?: number;
 } = {}): LikeSource {
-  const likesByArticleId = new Map<string, ArticleLike>();
+  const likesByUser = new Map<string, Map<string, ArticleLike>>();
   const failedRequests = new Set<string>();
 
   function getArticleLike(identity: LikeIdentity): ArticleLike {
     const count = initialLikeCounts[identity.articleId];
-    if (count === undefined || identity.userId !== MOCK_READER_ID) throw new Error('Unknown mock like identity');
-    return likesByArticleId.get(identity.articleId) ?? { ...identity, isLiked: false, count };
+    if (count === undefined || !identity.userId.trim()) throw new Error('Unknown mock like identity');
+    return likesByUser.get(identity.userId)?.get(identity.articleId) ?? { ...identity, isLiked: false, count };
   }
 
   async function waitForResponse(): Promise<void> {
@@ -44,19 +44,21 @@ export function createMockLikeSource({ scenario = 'normal', delayMs = scenario =
     async fetchArticleLike(identity) {
       const snapshot = getArticleLike(identity);
       await waitForResponse();
-      if (scenario === 'read-error') failOnce(`read:${identity.articleId}`);
+      if (scenario === 'read-error') failOnce(JSON.stringify(['read', identity.userId, identity.articleId]));
       return snapshot;
     },
     async setArticleLiked(input) {
       getArticleLike(input);
       await waitForResponse();
       if (scenario === 'write-error' || (scenario === 'unlike-error' && !input.liked)) {
-        failOnce(`write:${input.articleId}`);
+        failOnce(JSON.stringify(['write', input.userId, input.articleId]));
       }
       const previous = getArticleLike(input);
       const next = { ...previous, isLiked: input.liked,
         count: previous.count + Number(input.liked) - Number(previous.isLiked) };
-      likesByArticleId.set(input.articleId, next);
+      const likes = likesByUser.get(input.userId) ?? new Map<string, ArticleLike>();
+      likes.set(input.articleId, next);
+      likesByUser.set(input.userId, likes);
       return next;
     },
   };

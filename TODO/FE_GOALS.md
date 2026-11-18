@@ -5,7 +5,7 @@
 
 현재 규칙 위치: `/Users/jaegeunsong/Desktop/workplace/kostolany/AGENT`
 
-현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~9는 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 10~13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md), [Goal 8 결과](FE_GOAL_08_RESULT.md), [Goal 9 결과](FE_GOAL_09_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
+현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~10은 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 11~13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md), [Goal 8 결과](FE_GOAL_08_RESULT.md), [Goal 9 결과](FE_GOAL_09_RESULT.md), [Goal 10 결과](FE_GOAL_10_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
 
 ## 목표와 현재 범위
 
@@ -86,7 +86,7 @@
 | 7 | 좋아요 등록·해제 | 구현·자동 검증·PC 흐름·모바일 폭 원본 비교 완료 / 실제 기기 검증 대기 |
 | 8 | 북마크 저장·해제와 저장 목록 | 구현·자동 검증·PC 흐름·모바일 폭 원본 비교 완료 / 실제 기기 검증 대기 |
 | 9 | 라이브러리 목록 생성·수정·삭제 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
-| 10 | 모의 로그인·취소·로그아웃 | 미착수 |
+| 10 | 모의 로그인·취소·로그아웃 | 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 기기·네이티브 검증 대기 |
 | 11 | 프로필 조회·수정 | 미착수 |
 | 12 | 설명 수준 등 설정 화면 | 미착수 |
 | 13 | 화면 연결과 전체 흐름 검증 | 미착수 |

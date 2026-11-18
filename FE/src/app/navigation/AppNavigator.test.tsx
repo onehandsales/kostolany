@@ -7,6 +7,7 @@ import { createMockArticleSource } from '../../features/article/data/mockArticle
 import type { ArticleDetail } from '../../features/article/types';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
+import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
 describe('Home to article navigation', () => {
@@ -14,7 +15,7 @@ describe('Home to article navigation', () => {
     const feedSource = jest.fn(createMockFeedSource({ delayMs: 0 }));
     const articleSource = jest.fn(createMockArticleSource({ delayMs: 0 }));
     const user = userEvent.setup();
-    await render(<SafeAreaProvider><AppNavigator feedSource={feedSource} articleSource={articleSource} /></SafeAreaProvider>);
+    await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={feedSource} articleSource={articleSource} /></SafeAreaProvider>);
     await screen.findByRole('button', { name: /^금리가 오르면/ });
     await user.press(screen.getByRole('tab', { name: '인기' }));
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
@@ -41,7 +42,7 @@ describe('Home to article navigation', () => {
     const rates = articleFixtures.find((article) => article.id === 'example-latest-rates')!;
     const source = jest.fn(createMockArticleSource({ delayMs: 0 })).mockReturnValueOnce(pending.promise);
     const user = userEvent.setup();
-    await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={source} /></SafeAreaProvider>);
+    await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={source} /></SafeAreaProvider>);
     await user.press(await screen.findByRole('button', { name: /^금리가 오르면/ }));
     expect(screen.getByText('기사 내용을 불러오고 있어요')).toBeVisible();
     await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
@@ -56,7 +57,7 @@ describe('Home to article navigation', () => {
     const subscription = jest.spyOn(BackHandler, 'addEventListener');
     const user = userEvent.setup();
     try {
-      await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })}
+      await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })}
         articleSource={createMockArticleSource({ delayMs: 0 })} /></SafeAreaProvider>);
       await user.press(await screen.findByRole('button', { name: /^금리가 오르면/ }));
       await screen.findByRole('heading', { name: '금리가 오르면 예금과 대출에는 어떤 일이 생길까' });

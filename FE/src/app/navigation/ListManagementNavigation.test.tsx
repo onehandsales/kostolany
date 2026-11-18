@@ -9,6 +9,7 @@ import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
 import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
+import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
@@ -18,7 +19,7 @@ const getBookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^
 const getArticle = () => screen.getByRole('button', { name: new RegExp(`^${title}`) });
 
 async function renderApp(lists = createMockUserListSource({ delayMs: 0 })) {
-  await render(<SafeAreaProvider><AppNavigator bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}
     searchSource={createMockSearchSource({ delayMs: 0 })} likeSource={createMockLikeSource({ delayMs: 0 })} />
   </SafeAreaProvider>);

@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-18 KST",
+  "os": "macOS 14.2 arm64",
+  "finalNode": "24.10.0",
+  "finalNpm": "11.6.0",
+  "finalCommandPrefix": "env PATH=/opt/homebrew/opt/node@24/bin:$PATH",
+  "finalChecks": [
+    "npm run check",
+    "npm run export:ios",
+    "npm run export:android"
+  ],
+  "preliminaryShellNode": "22.21.1",
+  "preliminaryShellNpm": "11.6.2",
+  "previewUrl": "http://localhost:8081",
+  "preservedPreviewPid": 42833,
+  "gitStartHead": "110e764",
+  "committed": false
+}

@@ -1,12 +1,24 @@
+import { useContext } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { colors, sizes } from '../../shared/theme/tokens';
+import { LoginRequestButton } from '../auth/LoginRequestButton';
+import { LikeStoreContext } from './LikeProvider';
 import { useArticleLike } from './useArticleLike';
 
 type ArticleLikeControlProps = { articleId: string; articleTitle: string };
 
-export function ArticleLikeControl({ articleId, articleTitle }: ArticleLikeControlProps) {
+export function ArticleLikeControl(props: ArticleLikeControlProps) {
+  const store = useContext(LikeStoreContext);
+  if (store) return <SignedInLikeControl {...props} />;
+  return <LoginRequestButton context={{ kind: 'like', articleId: props.articleId }}
+    label={`좋아요, ${props.articleTitle}, 로그인 필요`} style={styles.button}>
+    <HeartIcon selected={false} /><Text style={styles.status}>좋아요</Text>
+  </LoginRequestButton>;
+}
+
+function SignedInLikeControl({ articleId, articleTitle }: ArticleLikeControlProps) {
   const { state, toggleLike, retryLike } = useArticleLike(articleId);
   const disabled = state.status !== 'ready';
   const busy = state.isPending || state.isRefreshing || state.status === 'loading';
@@ -24,10 +36,7 @@ export function ArticleLikeControl({ articleId, articleTitle }: ArticleLikeContr
           accessibilityHint={state.isLiked ? '누르면 좋아요 선택을 해제합니다' : '누르면 좋아요를 선택합니다'}
           disabled={disabled} onPress={toggleLike}
           style={({ pressed }) => [styles.button, pressed && styles.pressed, disabled && styles.disabled]}>
-          <Svg width={24} height={24} viewBox="0 0 24 24" aria-hidden accessible={Platform.OS === 'web' ? undefined : false}>
-            <Path d="M12 21 3.5 12.7C-2 7.3 5.7.2 12 6.5 18.3.2 26 7.3 20.5 12.7Z"
-              fill={state.isLiked ? colors.text : 'none'} stroke={colors.text} strokeWidth={1.5} strokeLinejoin="round" />
-          </Svg>
+          <HeartIcon selected={state.isLiked} />
           <Text style={styles.count}>{state.count ?? '—'}</Text>
         </Pressable>
         <Text aria-live="polite" style={styles.status}>{statusText}</Text>
@@ -42,6 +51,13 @@ export function ArticleLikeControl({ articleId, articleTitle }: ArticleLikeContr
       </View>}
     </View>
   );
+}
+
+function HeartIcon({ selected }: { selected: boolean }) {
+  return <Svg width={24} height={24} viewBox="0 0 24 24" aria-hidden accessible={Platform.OS === 'web' ? undefined : false}>
+    <Path d="M12 21 3.5 12.7C-2 7.3 5.7.2 12 6.5 18.3.2 26 7.3 20.5 12.7Z"
+      fill={selected ? colors.text : 'none'} stroke={colors.text} strokeWidth={1.5} strokeLinejoin="round" />
+  </Svg>;
 }
 
 const styles = StyleSheet.create({

@@ -7,6 +7,7 @@ import { deferred } from '../../features/feed/tests/helpers';
 import { createMockLikeSource, MOCK_READER_ID } from '../../features/likes/data/createMockLikeSource';
 import type { ArticleLike } from '../../features/likes/types';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
+import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
@@ -18,7 +19,7 @@ it('홈에서 처리 중 상세로 이동해 해제한 마지막 의도가 목�
   const source = createMockLikeSource({ delayMs: 0 });
   const setArticleLiked = jest.fn(source.setArticleLiked).mockReturnValueOnce(pending.promise);
   const fetchArticleLike = jest.fn(source.fetchArticleLike);
-  await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })}
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })}
     articleSource={createMockArticleSource({ delayMs: 0 })} searchSource={createMockSearchSource({ delayMs: 0 })}
     likeSource={{ fetchArticleLike, setArticleLiked }} /></SafeAreaProvider>);
   await waitFor(() => expect(getLike()).toBeEnabled());
@@ -64,7 +65,7 @@ it('상세를 떠난 뒤 실패해도 홈에서 상태가 복구되고 재시도
   const source = createMockLikeSource({ delayMs: 0 });
   const setArticleLiked = jest.fn(source.setArticleLiked).mockReturnValueOnce(pending.promise);
   const user = userEvent.setup();
-  await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })}
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })}
     articleSource={createMockArticleSource({ delayMs: 0 })} likeSource={{ ...source, setArticleLiked }} /></SafeAreaProvider>);
   await user.press(await screen.findByRole('button', { name: new RegExp(`^${title}`) }));
   await waitFor(() => expect(getLike()).toBeEnabled());

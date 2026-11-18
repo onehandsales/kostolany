@@ -39,9 +39,9 @@ describe('App tab navigation', () => {
         expect(screen.getByRole('button', { name: '기사 검색 열기' })).toBeVisible();
         expect(screen.getByRole('heading', { name: '읽어볼 기사' })).toBeVisible();
       } else if (title === '라이브러리') {
-        expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
+        expect(screen.getByRole('button', { name: '라이브러리 모의 로그인' })).toBeVisible();
       } else {
-        expect(screen.getByText(`${title} 화면을 준비하고 있어요`)).toBeVisible();
+        expect(screen.getByText('로그인하지 않은 상태예요.')).toBeVisible();
       }
       expect(screen.getByRole('tab', { name: title })).toBeSelected();
       expect(screen.getByRole('tab', { name: previousTitle })).not.toBeSelected();

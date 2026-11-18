@@ -30,6 +30,17 @@ it('공급부를 새로 만들면 초기화되고 모의 사용자와 없는 기
   await source.setArticleLiked({ ...identity, liked: true, commandId: 1 });
   const fresh = createMockLikeSource({ delayMs: 0 });
   expect(await fresh.fetchArticleLike(identity)).toMatchObject({ isLiked: false, count: 0 });
-  await expect(fresh.fetchArticleLike({ ...identity, userId: 'other' })).rejects.toThrow('identity');
+  await expect(fresh.fetchArticleLike({ ...identity, userId: ' ' })).rejects.toThrow('identity');
   await expect(fresh.fetchArticleLike({ ...identity, articleId: 'missing' })).rejects.toThrow('identity');
+});
+
+it('같은 기사의 선택과 실패 재현을 사용자 ID별로 격리한다', async () => {
+  const source = createMockLikeSource({ delayMs: 0, scenario: 'write-error' });
+  const other = { ...identity, userId: 'example-reader-b' };
+  for (const owner of [identity, other]) {
+    await expect(source.setArticleLiked({ ...owner, liked: true, commandId: 1 })).rejects.toThrow();
+  }
+  await source.setArticleLiked({ ...identity, liked: true, commandId: 2 });
+  expect(await source.fetchArticleLike(other)).toMatchObject({ ...other, isLiked: false, count: 0 });
+  expect(await source.fetchArticleLike(identity)).toMatchObject({ ...identity, isLiked: true, count: 1 });
 });

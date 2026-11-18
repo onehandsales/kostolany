@@ -1,0 +1,43 @@
+import { Pressable, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useAuth } from './AuthProvider';
+import { authStyles as styles } from './authStyles';
+import { LoginRequestButton } from './LoginRequestButton';
+
+export function AccountScreen() {
+  const { state, store } = useAuth();
+  return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
+    <ScrollView contentContainerStyle={styles.page}>
+      <Text role="heading" style={styles.title}>프로필</Text>
+      <Text style={styles.secondary}>모의 로그인 · 실제 Google 계정과 연결되지 않아요.</Text>
+      {state.user ? <View style={{ gap: 24 }}>
+        <Text style={styles.text}>{state.user.name} · 로그인됨</Text>
+        <Text style={styles.secondary}>좋아요와 저장 목록은 이 독자의 공간에 보관돼요.</Text>
+        <Pressable role="button" onPress={store.openLogout} style={styles.button}>
+          <Text style={styles.buttonText}>로그아웃</Text>
+        </Pressable>
+      </View> : <View style={{ gap: 24 }}>
+        <Text style={styles.text}>로그인하지 않은 상태예요.</Text>
+        <Text style={styles.secondary}>기사는 자유롭게 읽고, 로그인하면 좋아요와 저장 목록을 사용할 수 있어요.</Text>
+        <LoginRequestButton context={{ kind: 'profile' }} label="모의 로그인 시작" style={styles.button}>
+          <Text style={styles.buttonText}>로그인</Text>
+        </LoginRequestButton>
+      </View>}
+    </ScrollView>
+  </SafeAreaView>;
+}
+
+export function LibraryLoginScreen() {
+  return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
+    <ScrollView contentContainerStyle={styles.page}>
+      <Text role="heading" style={styles.title}>라이브러리</Text>
+      <Text style={styles.text}>내 읽기 목록을 만나보세요.</Text>
+      <Text style={styles.secondary}>로그인하면 다시 읽고 싶은 기사를 나만의 목록에 모을 수 있어요.</Text>
+      <LoginRequestButton context={{ kind: 'library' }} label="라이브러리 모의 로그인" style={styles.button}>
+        <Text style={styles.buttonText}>로그인</Text>
+      </LoginRequestButton>
+      <Text style={styles.secondary}>예시 독자만 사용하는 모의 로그인입니다.</Text>
+    </ScrollView>
+  </SafeAreaView>;
+}

@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createMockArticleSource } from '../../features/article/data/mockArticleSource';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
+import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
 describe('search to detail and back', () => {
@@ -14,7 +15,7 @@ describe('search to detail and back', () => {
     const subscription = jest.spyOn(BackHandler, 'addEventListener');
     const user = userEvent.setup();
     try {
-      await render(<SafeAreaProvider><AppNavigator feedSource={createMockFeedSource({ delayMs: 0 })}
+      await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })}
         articleSource={articleSource} searchSource={source} /></SafeAreaProvider>);
       await user.press(screen.getByRole('tab', { name: '탐색' }));
       await user.press(screen.getByRole('button', { name: '기사 검색 열기' }));

@@ -8,10 +8,15 @@ import { listFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { ReadingListFeedback } from './ReadingListFeedback';
-import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
+import { useBookmarkScopeKey, useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 
-export function LibraryScreen({ onOpenList }: { onOpenList: (listId: string) => void }) {
+export function LibraryScreen(props: { onOpenList: (listId: string) => void }) {
+  const scopeKey = useBookmarkScopeKey();
+  return <LibraryContent key={scopeKey} {...props} />;
+}
+
+function LibraryContent({ onOpenList }: { onOpenList: (listId: string) => void }) {
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
   const store = useBookmarkStore();

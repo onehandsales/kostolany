@@ -1,9 +1,19 @@
 import { useCallback, useContext, useEffect, useSyncExternalStore } from 'react';
 
-import { BookmarkStoreContext } from './BookmarkProvider';
+import { BookmarkScopeContext, BookmarkStoreContext } from './BookmarkProvider';
 import type { LibraryStore } from './createLibraryStore';
-import type { UserListsSnapshot } from './listTypes';
+import { DEFAULT_LIST_ID, type UserListsSnapshot } from './listTypes';
 import type { BookmarkSnapshot, ReadingListSnapshot } from './types';
+
+export function useBookmarkScopeKey(): string { return useContext(BookmarkScopeContext); }
+
+export function useHasLibraryList(listId: string | undefined): boolean {
+  const store = useContext(BookmarkStoreContext);
+  const subscribe = useCallback((listener: () => void) => store?.userLists.subscribe(listener) ?? (() => {}), [store]);
+  const getSnapshot = useCallback(() => !!store && (listId === DEFAULT_LIST_ID
+    || store.userLists.getSnapshot().entries.some((entry) => entry.listId === listId && entry.content !== null)), [store, listId]);
+  return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
+}
 
 export function useBookmarkStore(): LibraryStore {
   const store = useContext(BookmarkStoreContext);

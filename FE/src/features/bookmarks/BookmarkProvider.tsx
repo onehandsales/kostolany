@@ -8,13 +8,15 @@ import { createMockBookmarkSource } from './data/createMockBookmarkSource';
 import type { BookmarkSource } from './types';
 
 export const BookmarkStoreContext = createContext<LibraryStore | null>(null);
+export const BookmarkScopeContext = createContext('unprovided');
 
 type BookmarkProviderProps = {
-  children: ReactNode; source?: BookmarkSource; userId?: string; articles?: readonly FeedArticle[];
+  children: ReactNode; source?: BookmarkSource; userId?: string | null; articles?: readonly FeedArticle[];
+  sessionRevision?: number;
 };
 
 export function BookmarkProvider({ children, source, userId = MOCK_BOOKMARK_USER_ID,
-  articles = bookmarkArticles }: BookmarkProviderProps) {
+  articles = bookmarkArticles, sessionRevision = 0 }: BookmarkProviderProps) {
   const [defaultSource] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario }));
   const currentSource = source ?? defaultSource;
   const [scope, setScope] = useState(() => ({ source: currentSource, articles, version: 0,
@@ -25,9 +27,11 @@ export function BookmarkProvider({ children, source, userId = MOCK_BOOKMARK_USER
       getStore: createUserStores(currentSource, articles) });
     return null;
   }
-  const store = scope.getStore(userId);
-  // 사용자나 공급부가 바뀌면 이전 범위의 편집 초안과 열린 시트를 함께 정리한다.
-  return <BookmarkStoreContext.Provider key={`${scope.version}:${userId}`} value={store}>{children}</BookmarkStoreContext.Provider>;
+  const store = userId ? scope.getStore(userId) : null;
+  // 공개 화면은 유지하고 개인 화면과 시트만 이 범위 키를 사용해 이전 입력을 정리한다.
+  return <BookmarkScopeContext.Provider value={JSON.stringify([scope.version, userId, sessionRevision])}>
+    <BookmarkStoreContext.Provider value={store}>{children}</BookmarkStoreContext.Provider>
+  </BookmarkScopeContext.Provider>;
 }
 
 function createUserStores(source: BookmarkSource, articles: readonly FeedArticle[]): (userId: string) => LibraryStore {

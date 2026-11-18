@@ -1,0 +1,12 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=ArticleRouteScreen
+
+PASS Android src/app/navigation/ArticleRouteScreen.test.tsx
+PASS iOS src/app/navigation/ArticleRouteScreen.test.tsx
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.311 s
+Ran all test suites matching /ArticleRouteScreen/i in 2 projects.
