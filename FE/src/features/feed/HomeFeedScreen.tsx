@@ -10,9 +10,9 @@ import { previewFeedSource } from './data/feedPreview';
 import { type FeedSort, type FeedSource, feedSortLabels } from './types';
 import { useFeed } from './useFeed';
 
-type HomeFeedProps = { source?: FeedSource; onSelectArticle: (articleId: string) => void };
+type HomeFeedScreenProps = { source?: FeedSource; onSelectArticle: (articleId: string) => void };
 
-export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedProps) {
+export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedScreenProps) {
   const [sort, setSort] = useState<FeedSort>('latest');
 
   return (
@@ -22,7 +22,7 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
         <Text style={styles.previewLabel}>예시 콘텐츠</Text>
       </View>
       <FeedSortTabs selected={sort} onSelect={setSort} />
-      {/* A new sort starts a new list/scroll session; old responses cannot replace it. */}
+      {/* 정렬 변경은 목록과 스크롤 수명을 새로 시작하며 이전 응답을 적용하지 않는다. */}
       <FeedResults key={sort} sort={sort} source={source} onSelectArticle={onSelectArticle} />
     </SafeAreaView>
   );

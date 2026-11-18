@@ -3,7 +3,7 @@ import type { ArticleDetail } from '../types';
 
 type ArticleBody = Pick<ArticleDetail, 'facts' | 'interpretation'>;
 
-// Authored examples: no RSS, external article, book quotation or AI service is used.
+// 직접 작성한 예시이며 RSS·외부 기사·책 인용·AI 서비스를 사용하지 않는다.
 const bodies: Record<string, ArticleBody> = {
   'example-latest-rates': {
     facts: [

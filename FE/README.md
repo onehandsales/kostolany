@@ -4,6 +4,8 @@ React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md
 
 ## 환경과 기술 선택
 
+현재 후속 작업은 [Goal 14~21 연속 계획](../TODO/FE_MEDIUM_CLONE_GOALS.md)이다. Goal 14에서 FRONT_AGENT 규칙을 검토해 피드 공급부 교체의 이전 데이터 노출, 검색 카드 세로 배치 스타일, 주석·타입 계약·미사용 화면을 수정했다. 타입·lint·전체 614건(80 suites)·양 플랫폼 JS/Hermes·8081 회귀를 확인했다. [Goal 14 결과](../TODO/FE_GOAL_14_RESULT.md)에 두 검토와 증거를 기록했으며 실제 native 실행은 계속 대기다. Medium 클론 화면 구현은 Goal 15부터 이어간다.
+
 | 항목 | 고정 버전 |
 | --- | --- |
 | Node.js | 24.18.0 (`.nvmrc`, Node 24 계열) |
@@ -71,7 +73,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트 301개를 iOS·Android Jest 설정에서 각각 실행한다(총 602건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트를 iOS·Android Jest 설정에서 각각 실행한다. Goal 14 기준 논리 307개, 총 614건이며 이후 결과는 해당 Goal 결과 문서에서 확인한다. 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -92,8 +94,7 @@ src/app/navigation/ArticleRouteScreen.tsx 사용자·세션·목록 존재를 �
 src/app/navigation/MainTabs.tsx      4개 탭 등록
 src/app/navigation/LibraryNavigator.tsx 라이브러리·기본/사용자 목록 이동
 src/app/navigation/BottomTabBar.tsx  접근 가능한 아이콘 탭과 Safe Area
-src/app/navigation/tabs.ts          타입이 지정된 경로·명칭·임시 안내
-src/app/TabPlaceholderScreen.tsx     이전 임시 화면 모듈(현재 탭에서는 미사용)
+src/app/navigation/tabs.ts          타입이 지정된 경로·명칭·아이콘
 src/features/auth/AuthProvider.tsx   앱 수명의 모의 인증 소유자·공유 구독
 src/features/auth/createAuthStore.ts 로그인/로그아웃·취소·요청 세대·실패 재시도
 src/features/auth/AuthDialogs.tsx    로그인·로그아웃 Modal과 모의 결과 선택
@@ -157,7 +158,6 @@ src/features/likes/data/             모의 사용자·반응 수치·실패/지
 src/shared/theme/tokens.ts           현재 화면에 필요한 색상·글자·간격
 src/shared/ui/ContentIllustration.tsx 피드·상세가 공유하는 자체 SVG 삽화
 src/shared/ui/ContentStatus.tsx      로딩·오류·재시도 공통 표시
-src/shared/ui/Screen.tsx             제목·Safe Area·스크롤 공통 구성
 src/shared/ui/TabIcon.tsx            자체 SVG 아이콘
 src/app/App.test.tsx                 실제 앱 루트에서 탭 이동 테스트
 test/setup.ts                        Safe Area의 공식 Jest mock

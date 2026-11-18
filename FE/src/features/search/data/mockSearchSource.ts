@@ -26,7 +26,7 @@ export function createMockSearchSource({ scenario = 'normal', delayMs }: {
       throw new Error('Example search failed');
     }
     const terms = query.split(' ');
-    // Literal AND substring matching; preserve fixture order, no inferred ranking.
+    // 각 검색 조각의 부분 문자열을 모두 포함하는 기사를 예시 순서대로 반환한다.
     const items = catalog.filter((article) => {
       const text = normalizeQuery(`${article.title} ${article.summary} ${article.sourceName}`);
       return terms.every((term) => text.includes(term));

@@ -1,4 +1,4 @@
-// Local reading-screen data, not a backend API contract.
+// 읽기 화면의 로컬 데이터 계약이며 백엔드 API 계약을 확정하지 않는다.
 export type ArticleDetail = {
   id: string;
   title: string;

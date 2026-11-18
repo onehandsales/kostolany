@@ -4,7 +4,7 @@ import { articleFixtures } from './fixtures';
 type LevelText = { explanation: string; example: string };
 type Levels = Record<Exclude<ExplanationLevel, 'adult'>, LevelText> & { adult: Pick<LevelText, 'example'> };
 
-// All scenarios and analogies are authored fixtures, not financial news or AI output.
+// 모든 상황과 비유는 직접 작성한 예시이며 실제 금융 뉴스나 AI 생성 결과가 아니다.
 const content: Record<string, Levels> = {
   'example-latest-rates': {
     elementary: {

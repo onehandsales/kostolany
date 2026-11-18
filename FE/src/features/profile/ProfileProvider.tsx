@@ -31,7 +31,7 @@ export function ProfileProvider({ children, userId, sessionRevision, source }: P
   </ProfileScopeContext.Provider>;
 }
 
-export function useProfile() {
+export function useProfile(): { state: ProfileSnapshot; store: ProfileStore | null } {
   const store = useContext(ProfileContext);
   const state = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
   useEffect(() => { store?.ensureLoaded(); }, [store]);

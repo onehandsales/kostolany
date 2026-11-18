@@ -10,7 +10,7 @@ export type FeedArticle = {
   thumbnail: 'city' | 'coins' | null;
 };
 
-// Local UI contract only; this does not define a future server API.
+// 로컬 UI 계약이며 향후 서버 API를 확정하지 않는다.
 export type FeedPage = { items: FeedArticle[]; nextCursor: string | null };
 export type FeedRequest = { sort: FeedSort; cursor: string | null };
 export type FeedSource = (request: FeedRequest) => Promise<FeedPage>;

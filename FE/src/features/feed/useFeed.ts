@@ -9,21 +9,30 @@ type FeedState = {
   moreStatus: 'idle' | 'loading' | 'error';
 };
 type Session = { active: boolean; inFlight: boolean };
+type FeedResult = FeedState & { retry: () => void; loadMore: () => void };
 
 const initialState: FeedState = {
   status: 'loading', articles: [], nextCursor: null, moreStatus: 'idle',
 };
 
-export function useFeed(sort: FeedSort, source: FeedSource) {
-  const [state, setState] = useState<FeedState>(initialState);
+export function useFeed(sort: FeedSort, source: FeedSource): FeedResult {
+  const [result, setResult] = useState({ sort, source, value: initialState });
+  const matchesRequest = result.sort === sort && result.source === source;
+  const state = matchesRequest ? result.value : initialState;
+  // 새 조회 범위는 렌더부터 구분해 이전 기사와 커서가 교체된 공급부에 섞이지 않게 한다.
+  if (!matchesRequest) setResult({ sort, source, value: initialState });
+  const setState = useCallback((update: (previous: FeedState) => FeedState) => {
+    setResult((previous) => previous.sort === sort && previous.source === source
+      ? { ...previous, value: update(previous.value) } : previous);
+  }, [sort, source]);
   const sessionRef = useRef<Session>({ active: false, inFlight: false });
 
   const requestPage = useCallback((cursor: string | null, session: Session) => {
-    // A synchronous guard also covers two load-more events in the same render.
+    // 같은 렌더에서 여러 번 요청해도 한 페이지 요청만 전송한다.
     if (!session.active || session.inFlight) return;
     session.inFlight = true;
 
-    // Normalize a synchronous adapter throw to a rejection as well as awaiting its result.
+    // 공급부의 동기 예외도 비동기 실패와 같은 경계에서 처리한다.
     void Promise.resolve().then(() => source({ sort, cursor })).then((page) => {
       if (!session.active) return;
       setState((previous) => {
@@ -50,10 +59,10 @@ export function useFeed(sort: FeedSort, source: FeedSource) {
     }).finally(() => {
       session.inFlight = false;
     });
-  }, [sort, source]);
+  }, [sort, source, setState]);
 
   useEffect(() => {
-    // Each effect owns its lifetime, including Strict Mode cleanup/restart.
+    // Strict Mode의 정리와 재실행도 각각 별도의 요청 수명으로 구분한다.
     const session: Session = { active: true, inFlight: false };
     sessionRef.current = session;
     requestPage(null, session);
@@ -62,7 +71,7 @@ export function useFeed(sort: FeedSort, source: FeedSource) {
 
   const retry = () => {
     if (state.status === 'error' && !sessionRef.current.inFlight) {
-      setState(initialState);
+      setState(() => initialState);
       requestPage(null, sessionRef.current);
     }
   };

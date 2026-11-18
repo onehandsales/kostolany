@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checkpoints": [
+    "home",
+    "search",
+    "article",
+    "reading-list",
+    "settings",
+    "home-320",
+    "home-desktop"
+  ],
+  "errors": []
+}

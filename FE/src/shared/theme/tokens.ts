@@ -1,6 +1,6 @@
 import type { TextStyle } from 'react-native';
 
-// Values chosen for this app from the reference's visual hierarchy, not Medium source tokens.
+// 원본의 시각적 위계를 참고한 앱 기본값이며 Medium의 실제 디자인 토큰은 아니다.
 export const colors = {
   background: '#ffffff',
   text: '#242424',

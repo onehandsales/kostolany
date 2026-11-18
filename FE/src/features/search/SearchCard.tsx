@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
   headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 16, marginTop: 16 },
   stacked: { flexDirection: 'column' },
   title: { fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text, flex: 1 },
-  fullTitle: { flex: 0, width: '100%' },
+  // 큰 글자의 세로 배치에서도 웹 flex 축약으로 제목 높이가 사라지지 않게 한다.
+  fullTitle: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
   thumbnail: { width: 80, height: 54, overflow: 'hidden', justifyContent: 'center' },
   summary: { fontSize: 16, lineHeight: 23, color: colors.secondaryText, marginTop: 4 },
   metadata: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, marginTop: 20 },

@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { ExplanationLevel, ExplanationSource, ExplanationState } from './explanationTypes';
 
-export function useExplanation(articleId: string, level: ExplanationLevel, source: ExplanationSource) {
+export function useExplanation(articleId: string, level: ExplanationLevel, source: ExplanationSource): {
+  state: ExplanationState; retry: () => void;
+} {
   const [attempt, setAttempt] = useState(0);
   const [result, setResult] = useState<{
     articleId: string; level: ExplanationLevel; source: ExplanationSource; value: ExplanationState;

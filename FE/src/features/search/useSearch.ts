@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { SearchSource, SearchState } from './types';
 
-// Mounted with key=normalized query by SearchResults: A -> B -> A gets a new lifetime.
-export function useSearch(query: string, source: SearchSource) {
+// SearchResults의 정규화 검색어 키가 A→B→A에서도 새 요청 수명을 만든다.
+export function useSearch(query: string, source: SearchSource): { state: SearchState; retry: () => void } {
   const [attempt, setAttempt] = useState(0);
   const [result, setResult] = useState<{ source: SearchSource; value: SearchState }>({
     source, value: { status: 'loading' },
