@@ -1,0 +1,102 @@
+[
+  {
+    "index": 58,
+    "id": "sc_92624aea551d44a7bbcf71d7d78aff4c",
+    "title": "같은 작가의 추가 기사",
+    "layout": "More from Jordan Gibbs 아래 큰 이미지 카드",
+    "fields": "기사별 날짜·박수·응답",
+    "controls": "저장, 더보기, 기사 카드",
+    "state": "읽기 후 작가 콘텐츠 추천",
+    "unknown": "추천 정렬·무한 스크롤",
+    "model": "현재 기사와 후속 추천 목록",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 59,
+    "id": "sc_0629a27b99a645cabe6e110b5d3d3d57",
+    "title": "박수 전송 피드백",
+    "layout": "기사 하단 박수 위 녹색 +16 애니메이션",
+    "fields": "18K 집계, 응답 832",
+    "controls": "검게 채워진 박수 아이콘",
+    "state": "박수 입력 피드백 표시",
+    "unknown": "+16의 누적 범위·실제 요청 수·서버 저장은 미확인. 공식 문서의 1인당 최대 50회 규칙은 6절에서 별도 확인했다.",
+    "model": "개인 박수 수와 전체 집계 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "18K는 축약된 집계라 +16 반응 후 숫자가 같아도 미반영으로 판단할 수 없다. +16 애니메이션을 개별 탭 16회의 실행 기록으로 환산하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 60,
+    "id": "sc_e3b85b46c655483eb954e6f953d0b7f6",
+    "title": "박수 피드백 종료",
+    "layout": "기사 상단과 고정 반응 바",
+    "fields": "박수 아이콘 검정, 18K, 응답 832",
+    "controls": "박수·응답·저장·공유",
+    "state": "일시적 +16 배지 사라짐",
+    "unknown": "재진입 시 박수 수·취소 동작",
+    "model": "일시 애니메이션과 영속 반응 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 61,
+    "id": "sc_915888473ac24e8987c996b8954f54c6",
+    "title": "응답 시트와 중첩 답글",
+    "layout": "Responses 834 시트, Most Relevant 필터, 들여쓴 답글",
+    "fields": "하단 빈 작성창",
+    "controls": "Hide replies, Reply, 더보기, 정책, 닫기",
+    "state": "복수 깊이 답글 표시",
+    "unknown": "최대 깊이·전체 수 집계 규칙",
+    "model": "부모 응답 ID 기반 답글 관계",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "응답은 들여쓰기·세로선으로 부모와 답글을 구분한다. Hide replies는 접기, Read more는 본문 펼치기이므로 답글 더 보기와 서로 다른 상태로 다룬다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 62,
+    "id": "sc_9c9af2f5f8ad43c193c0c30ef0974156",
+    "title": "응답 스크롤과 추가 답글",
+    "layout": "edited 표시·대명사·답글 1개·추가 답글 링크",
+    "fields": "See more replies (4)",
+    "controls": "Read more, Reply, See more replies, 더보기",
+    "state": "접힌 본문·부분 로딩 답글",
+    "unknown": "페이지 크기·edited 시각 정책",
+    "model": "답글 페이지네이션과 수정 표시",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 63,
+    "id": "sc_cebfd0ad696f4e20a1c7d99da1dc1cef",
+    "title": "기사 응답 입력",
+    "layout": "시트 하단 작성창과 키보드",
+    "fields": "Loved this kind of story 입력, Responses 832",
+    "controls": "상향 전송 버튼",
+    "state": "응답 제출 전",
+    "unknown": "문자 제한·중복 전송·빈값 검증",
+    "model": "응답 초안과 전송 상태",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "index": 10,
+    "id": "sc_301ef788e5514bb5b8e9c1fc9afcfa61",
+    "title": "관심사 기반 작가·발행물 추천",
+    "layout": "상단 환영 제목 아래 아바타·소개·Follow 행, 하단 고정 Finish",
+    "fields": "별도 입력란 없음. 작가와 Publication이 함께 표시됨",
+    "controls": "Follow, Finish, 뒤로",
+    "state": "팔로우 전 추천 목록",
+    "unknown": "팔로우 없이 완료 가능한지, 추천 정렬 기준",
+    "model": "추천 대상 타입과 팔로우 관계를 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "작가와 Publication을 같은 목록에서 구분해 표시한다. 보이는 네 항목이 모두 Follow 상태여도 Finish는 녹색으로 표시된다. 팔로우 필수 조건은 이 캡처에서 입증되지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 11,
+    "id": "sc_e9f4c426cfb3426d9ca05121dea00ce3",
+    "title": "알림 활성화 안내",
+    "layout": "중앙 Stay up to date 안내와 하단 두 행동",
+    "fields": "입력란 없음",
+    "controls": "Skip this step, Enable Notifications",
+    "state": "알림 권한 요청 전 앱 안내",
+    "unknown": "OS 권한 팝업 및 실제 허용 결과 미수록",
+    "model": "앱 알림 안내 완료와 OS 권한 상태 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 12,
+    "id": "sc_b4e85416681544c9b996826eefa22432",
+    "title": "월간 멤버십 선택",
+    "layout": "닫기 가능한 시트, 결제 주기 탭과 Member 카드",
+    "fields": "Pay monthly 선택. 캡처 금액 $6.98 SGD/month",
+    "controls": "Pay monthly, Pay annually, Select, 닫기",
+    "state": "월간 플랜 소개와 혜택 목록",
+    "unknown": "실제 청구·세금·지역·현재 가격은 미확인",
+    "model": "결제 주기·통화·표시 가격과 구매 상태 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "연간 옵션 안내는 Save up to $39이다. 39% 할인이 아니며 월간 SGD 표기와 별개로 기호 $의 통화를 추가 확정하지 않는다. 닫기 X로 이탈할 수 있는 UI가 보인다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

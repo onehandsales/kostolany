@@ -1,0 +1,102 @@
+[
+  {
+    "index": 136,
+    "id": "sc_57450c38bf994be18d95fcaf712c56ba",
+    "title": "저장 글 있는 읽기 목록",
+    "layout": "Your lists의 Reading list 카드·3개 썸네일",
+    "fields": "3 stories·자물쇠",
+    "controls": "다운로드, 더보기, 카드",
+    "state": "기본 목록에 글 존재",
+    "unknown": "글 추가 경로·정렬",
+    "model": "리스트 기사 수와 커버 이미지 모음",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 137,
+    "id": "sc_bafbf7b80b154e25aec15e120a13f72a",
+    "title": "Digest 일자별 추천",
+    "layout": "Digest 탭·날짜 선택·설정·Today's highlights",
+    "fields": "June 12 2025",
+    "controls": "날짜 필터, 설정, 기사 저장·더보기",
+    "state": "특정 날짜 다이제스트",
+    "unknown": "화면 날짜는 캡처일이 아님·생성 기준 미확인",
+    "model": "다이제스트 발행일과 기사 목록",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 138,
+    "id": "sc_c37aefd0916548dda3cb46d61cc25193",
+    "title": "저장한 하이라이트 목록",
+    "layout": "Highlighted 탭·강조 구절·원문 제목·작성자",
+    "fields": "Alex Smith highlighted",
+    "controls": "원문 항목",
+    "state": "여러 글의 개인 하이라이트 모음",
+    "unknown": "정렬·원문 삭제 시 처리",
+    "model": "사용자 강조를 기사와 연결",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "가로 탭에는 Reading history도 보인다. 이 라이브러리 탭의 본문은 수록되지 않았으며 Home 아래 Refine recommendations의 Reading history 화면과 같다고 단정하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 139,
+    "id": "sc_675e3eda08504708979533659dacdcf6",
+    "title": "리스트 생성 빈 폼",
+    "layout": "Create new list 시트·이름·선택 설명·비공개 토글",
+    "fields": "이름0/60, 설명0/280, Private 꺼짐",
+    "controls": "Create 비활성, Cancel",
+    "state": "생성 전 입력",
+    "unknown": "이름 공백·중복 검증",
+    "model": "리스트 이름·설명·공개 범위",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Description에 optional이 명시된다. Private 아래 Only you can see the list라는 설명이 있지만 토글은 Off다. 생성된 모든 리스트가 비공개라는 의미가 아니다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 140,
+    "id": "sc_ca3b32e4373a40fc84405838671eab27",
+    "title": "리스트 이름 입력",
+    "layout": "동일 생성 폼",
+    "fields": "About mindfulness 17/60, 설명 없음, Private 꺼짐",
+    "controls": "Create 활성, Cancel",
+    "state": "이름만 입력해 생성 가능 표시",
+    "unknown": "서버 필수값·초과 검증",
+    "model": "선택 설명과 필수 이름 검증 후보",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 141,
+    "id": "sc_35dcbd9d4308404b9f11ecd03f893eb8",
+    "title": "새 리스트 생성 표시",
+    "layout": "Your lists에 기본 목록과 새 카드",
+    "fields": "About mindfulness, No stories, 자물쇠 없음",
+    "controls": "새 카드·다운로드·더보기",
+    "state": "새 목록 생성 결과",
+    "unknown": "공개 조회·영속성",
+    "model": "빈 리스트와 구성 항목 별도 생성",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

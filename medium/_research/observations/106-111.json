@@ -1,0 +1,102 @@
+[
+  {
+    "index": 106,
+    "id": "sc_ca2321d6dc9142e5a97e2734260c2b0f",
+    "title": "언어별 음성 목록 스크롤",
+    "layout": "GERMAN·ITALIAN·KOREAN·PORTUGUESE 섹션",
+    "fields": "한국어 Seoyeon 등",
+    "controls": "음성 행, Done",
+    "state": "다국어 음성 선택지 표시",
+    "unknown": "선택 음성이 기사 번역을 의미하는지는 미확인",
+    "model": "음성 언어와 기사 언어·번역 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 107,
+    "id": "sc_78bee192bd2041a98f6721240f2352d5",
+    "title": "Hans 음성 선택",
+    "layout": "독일어 Hans 행 회색·녹색 체크",
+    "fields": "Hans 선택",
+    "controls": "Done, 다른 음성",
+    "state": "음성 선택 변경",
+    "unknown": "실제 오디오 발화·설정 영속성",
+    "model": "선택 음성 ID 변경",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 108,
+    "id": "sc_f637c648d6ec470a81cf77e5594e02da",
+    "title": "음성 선택 후 플레이어",
+    "layout": "확장 재생 화면 복귀",
+    "fields": "1x, 00:20, -04:27",
+    "controls": "재생 조작",
+    "state": "재생 UI 복귀",
+    "unknown": "선택 음성 이름이 안 보여 실제 적용은 청취 필요",
+    "model": "음성 선택 결과와 재생 상태 연계",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "플레이어는 1x로 표시된다. 별도 Changing playback speed의 2.5x를 음성 변경이 자동 초기화한 것으로 연결하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 109,
+    "id": "sc_d62e32234117483b85b4c73ed63249cd",
+    "title": "기사 더보기 메뉴",
+    "layout": "상단 팝오버 5행",
+    "fields": "추가 입력 없음",
+    "controls": "Show less like this, Display settings, Follow author, Mute author, Report story",
+    "state": "읽기·추천·작가·신고 행동",
+    "unknown": "각 행동 결과·권한",
+    "model": "기사 관련 사용자 행동의 별도 상태",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 110,
+    "id": "sc_557c1fb7c6bf4dcc82ba1d6aba677f94",
+    "title": "읽기 표시 설정 기본",
+    "layout": "상단 크기 조절과 3개 설정 행",
+    "fields": "100%, Font Default, System default (Light), Highlights from others 켜짐",
+    "controls": "작은/큰 A, 글꼴, Appearance, 토글",
+    "state": "이 캡처의 현재 표시 설정: 100%, Default 글꼴, System default (Light), 타인 하이라이트 On. 제품 전체 초기 기본값 여부는 미확인.",
+    "unknown": "기기·계정 동기화 범위",
+    "model": "읽기 환경 설정과 본문 데이터 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "글꼴 선택 컨트롤은 있으나 펼친 글꼴 목록은 수록되지 않았다. 별도 Save 버튼은 보이지 않으며 설정 변경 뒤 화면 반영만 관찰했다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 111,
+    "id": "sc_ad140eae0b7e409aa2204c1f36bfa385",
+    "title": "글자 크기 확대",
+    "layout": "설정 유지·배경 제목 줄바꿈 증가",
+    "fields": "120%",
+    "controls": "작은/큰 A",
+    "state": "크기 변경이 화면에 반영",
+    "unknown": "최대·최소·접근성 OS 글자 크기와 관계",
+    "model": "배율 값과 읽기 위치 보존",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "index": 199,
+    "id": "sc_1d3dc01005c343c18427fe2c199e4075",
+    "title": "이메일 로그인 입력 완료",
+    "layout": "동일 로그인 폼",
+    "fields": "샘플 계정 이메일 입력",
+    "controls": "Continue, 뒤로",
+    "state": "로그인 요청 전",
+    "unknown": "전송 성공·이메일 소유권 미확인",
+    "model": "인증 요청 대상 이메일",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 200,
+    "id": "sc_bc8c0aff71644874a42b97e6c7fd4ce2",
+    "title": "로그인 인증 코드 입력",
+    "layout": "Check your inbox 시트·6칸 코드·하단 행동",
+    "fields": "6자리 코드 채워짐. 인증값은 문서에 재기록하지 않음",
+    "controls": "Validate 활성, Resend code, 닫기",
+    "state": "이메일 코드 검증 준비",
+    "unknown": "만료·오입력·재전송 제한·세션 생성 결과",
+    "model": "일회용 인증 도전과 로그인 세션 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "코드가 채워진 로그인 화면의 안내는 to sign in이다. 같은 흐름의 앞선 빈 코드 화면은 to sign up이므로 문구 불일치를 명시한다. 코드 입력 완료 자체가 검증 성공은 아니며 후속 Home 캡처와 구분한다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

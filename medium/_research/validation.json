@@ -1,0 +1,19 @@
+{
+  "checkedDate": "2026-11-18",
+  "reviewRound": "R2",
+  "checks": "Document structure, flow tree, step order, source IDs, UTF-8, local links and anchors, PNG dimensions and SHA-256, R2 live inventory/order/source metadata comparison and review propagation",
+  "flows": 63,
+  "stepReferences": 273,
+  "uniqueImages": 200,
+  "observations": 200,
+  "r2ReviewedImages": 200,
+  "r2CorrectedOrExpandedScreens": 79,
+  "r2FlowReviews": 63,
+  "officialSources": 26,
+  "localLinks": 802,
+  "externalLinkReferences": 996,
+  "imageBytes": 23647252,
+  "errors": [],
+  "passed": true,
+  "scope": "Static documentation and original image integrity only; no live account or app behavior test"
+}

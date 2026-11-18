@@ -1,0 +1,70 @@
+[
+  {
+    "index": 171,
+    "id": "sc_c8fa56a2dd5b4e959c333ea3e6d334e2",
+    "title": "통계 그래프 날짜 선택",
+    "layout": "그래프에 수직선·두 지점 강조",
+    "fields": "Jun 12 2025, Views11·Reads2",
+    "controls": "그래프 지점, 월 선택",
+    "state": "특정 날짜 선택",
+    "unknown": "선택한 일자 집계·전체 합계 라벨 관계",
+    "model": "선택 날짜와 그래프 시계열",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "MCP URL로 내려받은 로컬 원본 이미지 시각 확인",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 172,
+    "id": "sc_c6580d2d071a4f079981013ccc658af4",
+    "title": "글별 Lifetime 통계",
+    "layout": "월간 그래프 아래 Lifetime·정렬·글 행",
+    "fields": "Latest, The Silence between Notes, Views0·Reads0",
+    "controls": "정렬 드롭다운, 글 행",
+    "state": "글별 누적 통계 표시",
+    "unknown": "월간11/2와 글별0/0 차이 원인 미확인",
+    "model": "서로 다른 집계 범위·갱신 시점 검증",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Lifetime에는 별도 기간·Updated daily·Latest 필터가 있다. 월간 전체 집계 11/2와 이 글 행의 0/0 차이는 범위·시점·캐시 어느 원인인지 확인되지 않았다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 173,
+    "id": "sc_a829121c47a444cd8a8fd0d9889edaed",
+    "title": "프로필 편집 폼",
+    "layout": "사진·Name*·Pronouns·Short bio·About Page 안내",
+    "fields": "Alex Smith10/50, Pronouns0/4, Short bio0/160",
+    "controls": "Update photo, Save, 닫기",
+    "state": "이름 필수 표시·소개 선택",
+    "unknown": "이름의 공백·중복·50자 초과 처리, 프로필 Save 실패와 취소 복원은 미수록.",
+    "model": "이름·사진·대명사 목록·짧은 소개·About 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Name만 별표로 필수임을 표시한다. 0/4는 대명사 선택 개수이며, 0/160은 Short bio 문자 카운터다. About Page는 데스크톱 웹의 medium.com/me/about에서 편집하라는 별도 안내다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 174,
+    "id": "sc_cba29e82e4364a239d3e5423213fa670",
+    "title": "프로필 사진 소스 선택",
+    "layout": "편집 폼 위 하단 액션 시트",
+    "fields": "기존 폼 유지",
+    "controls": "Camera, Choose from library, Cancel",
+    "state": "사진 추가 방식 선택",
+    "unknown": "사진 권한·크롭·업로드 실패",
+    "model": "사진 선택과 프로필 저장 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

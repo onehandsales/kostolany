@@ -1,0 +1,104 @@
+[
+  {
+    "index": 118,
+    "id": "sc_0da01c48dbc9483798e4c2286a11237f",
+    "title": "구절 하이라이트 반영",
+    "layout": "선택 핸들·메뉴 없이 연녹색 강조 유지",
+    "fields": "선택했던 구절 강조",
+    "controls": "기존 읽기 행동",
+    "state": "하이라이트 적용 표시",
+    "unknown": "타 기기 동기화·삭제·공개 범위",
+    "model": "사용자 강조와 텍스트 범위",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 119,
+    "id": "sc_8accfd977771416a89329576c7ba48d8",
+    "title": "구절 인용 응답 작성 시작",
+    "layout": "응답 시트 하단 인용 카드·입력창·키보드",
+    "fields": "인용 문구 자동 포함, 본문 빈값",
+    "controls": "회색 전송 버튼",
+    "state": "인용 포함 응답 초안",
+    "unknown": "인용 길이·편집·원문 연결 방식",
+    "model": "응답 본문과 인용 앵커 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "원문 인용이 이미 포함되어 있어도 응답 본문이 비어 있을 때 전송 화살표는 회색이다. 다음 캡처에서 본문을 입력하면 검게 바뀌므로 인용 포함 여부와 본문 입력 여부를 별도 상태로 기록한다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 120,
+    "id": "sc_1b7c2e5f28d5419d889919fc0c9e3980",
+    "title": "구절 응답 입력",
+    "layout": "인용 카드 아래 문장 입력",
+    "fields": "Can't agree more!",
+    "controls": "전송 활성",
+    "state": "인용 응답 제출 준비",
+    "unknown": "입력 제한·인용 삭제 가능 여부",
+    "model": "인용 참조와 응답 텍스트 저장",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 121,
+    "id": "sc_fcdcd471caeb41b8bfa89273d8e29a8d",
+    "title": "구절 인용 응답 등록",
+    "layout": "YOU 응답에 인용 상자와 본문",
+    "fields": "Now, 총수 834 유지",
+    "controls": "Reply, 더보기",
+    "state": "인용 응답 목록에 표시",
+    "unknown": "총수 갱신·원문 이동 동작",
+    "model": "인용 응답과 일반 응답의 공통·선택 필드",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "인용 블록과 본인 응답이 함께 나타나지만 총수 834는 입력 전후 동일하다. 등록 성공 UI와 총수 집계 규칙을 분리하고, 단순히 +1이어야 한다고 교정하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 122,
+    "id": "sc_5d1c7181dea04ba59b57242abbc19fee",
+    "title": "알림 목록",
+    "layout": "행별 아바타·이벤트 문장·날짜, 일부 왼쪽 녹색선",
+    "fields": "새 팔로워·저장 리스트 새 글·박수 이벤트",
+    "controls": "Follow, 알림 행, 뒤로",
+    "state": "여러 종류 알림 존재",
+    "unknown": "녹색선이 읽음 여부인지·이벤트 날짜는 캡처일 아님",
+    "model": "행위자·이벤트 타입·대상·읽음 상태 후보",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "새 팔로워 행은 Follow를 제공하지만 리스트 갱신·박수 행에는 같은 버튼이 없다. 행별 대상이 사용자·리스트·글로 달라 알림 클릭의 목적지와 읽음 처리를 이벤트 유형별로 확인해야 한다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 123,
+    "id": "sc_1c3e4349171248378eada528f7942269",
+    "title": "Explore 첫 화면",
+    "layout": "검색창·가로 토픽 칩·번호 매긴 Trending",
+    "fields": "Search Medium 빈값",
+    "controls": "검색, 토픽, 인기 기사, 작성",
+    "state": "발견 탐색",
+    "unknown": "인기 집계 기간·정렬 알고리즘",
+    "model": "검색·토픽·트렌드 탐색 경로 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "index": 25,
+    "id": "sc_ae30c2a2ca504522b03f98f11d59c429",
+    "title": "본문 이미지 로딩",
+    "layout": "본문 아래 사진 위 어두운 덮개·스피너·녹색 선택 테두리",
+    "fields": "사진 블록 선택",
+    "controls": "사진 우상단 X, 서식 도구, Next",
+    "state": "이미지 삽입 처리 중",
+    "unknown": "업로드인지 다운로드인지 미확인",
+    "model": "이미지 블록의 로딩·실패·완료 상태",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 26,
+    "id": "sc_bed3857c8edc4a02b07af1e095ad7fba",
+    "title": "이미지 삽입 후 편집기",
+    "layout": "제목·본문 아래 산과 호수 사진, 키보드 숨김",
+    "fields": "제목·본문·사진 표시",
+    "controls": "Close, 더보기, Next, 서식 도구",
+    "state": "이미지 로딩 표시 사라짐",
+    "unknown": "자동 저장 성공 여부",
+    "model": "텍스트와 이미지 블록 순서 보존",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 27,
+    "id": "sc_1ceed9061b86476ebc7eb5acb9dd89c7",
+    "title": "발행 전 Story preview",
+    "layout": "예상 기사 카드와 Topics·Publication 행, 하단 Publish now",
+    "fields": "No topics added, No publication selected, Unlisted 꺼짐",
+    "controls": "Edit, Topics, Publication, Publish now, 닫기",
+    "state": "공개 전 설정",
+    "unknown": "발행 권한·입력 검증·공개 범위 실제 정책",
+    "model": "본문과 공개 카드 요약·발행 대상·가시성 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "미리보기 안내는 홈페이지·구독자 받은편지함 등 공개 영역에서의 노출 형태를 설명한다. 토픽·Publication 미지정 상태에서도 Publish now는 어두운 활성형으로 보이지만 실제 제출 허용 여부는 미검증이다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

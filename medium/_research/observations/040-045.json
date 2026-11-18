@@ -1,0 +1,106 @@
+[
+  {
+    "index": 40,
+    "id": "sc_a51d0e5d058b47809e1c299e1c28ff0e",
+    "title": "토픽 추가 초기 상태",
+    "layout": "설명·검색·Your topics 목록·하단 Save",
+    "fields": "0/5, 최대 5개 안내",
+    "controls": "검색, 토픽 행, Save",
+    "state": "미선택",
+    "unknown": "최대 초과 시 UI·저장 실패",
+    "model": "선택 토픽 집합에 최대값 검증 후보",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "0/5인 미선택 상태에서도 Save 버튼은 어두운 활성형이다. 최소 1개 토픽을 필수로 요구한다는 근거는 없다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 41,
+    "id": "sc_234fd58378fc447ba6bc2e6c0033f9c2",
+    "title": "Music 토픽 검색",
+    "layout": "검색어 아래 유사 이름과 팔로워 수 목록",
+    "fields": "Music 입력",
+    "controls": "검색 지우기 X, 결과, Save",
+    "state": "유사 철자·다른 토픽 결과",
+    "unknown": "검색 일치 규칙·동일 표시명 처리",
+    "model": "토픽 고유 ID 필요",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 42,
+    "id": "sc_57162331e2334952b5da8676e4de3c22",
+    "title": "Music 선택",
+    "layout": "검색 아래 삭제 가능한 칩과 결과 체크",
+    "fields": "Music 1개 선택",
+    "controls": "칩 X, 결과 체크, Save",
+    "state": "선택 상태 표시",
+    "unknown": "중복 추가 처리",
+    "model": "임시 선택 집합과 저장된 연결 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "검색어 지우기 X와 선택된 토픽 칩의 X는 서로 다른 컨트롤이다. 선택 행의 체크와 칩이 동시에 보이며 Save로 편집을 반영하는 경로가 표시된다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 43,
+    "id": "sc_a4216c4ff1f64bb59bc982a8d0067b6e",
+    "title": "3개 토픽 선택",
+    "layout": "검색창 3/5와 Music·Culture·Art 칩",
+    "fields": "검색어 비움, 3개 선택",
+    "controls": "각 칩 X, Save",
+    "state": "최대 5개 중 3개",
+    "unknown": "저장 취소 시 유지 여부",
+    "model": "선택 개수·토픽 참조 검증",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 44,
+    "id": "sc_90bc6a79e86d436e89d94d7dc82b624c",
+    "title": "추천 조정의 Suggestions",
+    "layout": "상단 설명과 Following·Reading history·Muted·Suggestions 탭",
+    "fields": "Suggestions 활성, Topics 필터",
+    "controls": "Follow, 유형 드롭다운, 뒤로",
+    "state": "추천 토픽과 기사·팔로워 집계",
+    "unknown": "추천 산출·팔로우 즉시 반영 범위",
+    "model": "추천 입력 신호와 팔로우 대상을 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Refine recommendations에는 Following·Reading history·Muted·Suggestions 네 탭이 있다. Muted 탭의 존재는 확인되지만 해당 탭 내용은 이 흐름에 수록되지 않았다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 45,
+    "id": "sc_f4bb3fa34f32466b9bd12eea57ea518f",
+    "title": "읽기 기록 목록",
+    "layout": "Reading history 탭, 전체 삭제 안내, 기사 카드",
+    "fields": "읽은 글·날짜·집계 표시",
+    "controls": "Clear history, 개별 휴지통, 더보기",
+    "state": "읽기 기록 존재",
+    "unknown": "읽음 판정 기준·기록 보존 기간",
+    "model": "사용자-기사 읽기 이벤트와 추천 반영",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "전체 Clear history와 개별 글 휴지통은 삭제 범위가 다르다. 안내는 기록을 지워 새롭게 시작할 수 있다는 설명이며, 추천 모델 데이터까지 완전히 삭제한다는 증거는 아니다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

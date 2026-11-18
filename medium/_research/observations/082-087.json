@@ -1,0 +1,104 @@
+[
+  {
+    "index": 82,
+    "id": "sc_3de359a1c13340968c4b733188faa6d1",
+    "title": "작가 프로필 Stories",
+    "layout": "프로필·관계 집계·Friend 배지·팔로우 버튼·탭",
+    "fields": "Jordan Gibbs, 10.2K followers·25 following",
+    "controls": "Follow, Stories, Lists, About, 더보기",
+    "state": "고정 글 Pinned 표시",
+    "unknown": "프로필 내 정렬·배지 현재 조건",
+    "model": "작가 프로필·고정 기사·멤버십 배지",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 83,
+    "id": "sc_334d50df678445baaa7ba445c96861ba",
+    "title": "작가 공개 리스트",
+    "layout": "Lists 탭에 AAA AI 카드",
+    "fields": "2 stories·이미지 모음",
+    "controls": "리스트 저장, 더보기, 리스트 카드",
+    "state": "작가 목록 탐색",
+    "unknown": "비공개 리스트 누락 범위",
+    "model": "리스트 소유자·가시성·저장 관계",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 84,
+    "id": "sc_74429222aa3d45a89f1980b3aa0b6f9e",
+    "title": "작가 About",
+    "layout": "About 탭에 소개 단락·회원 기간",
+    "fields": "Medium member since October 2023, Friend since December 2023",
+    "controls": "Follow, 탭",
+    "state": "소개·회원 이력 표시",
+    "unknown": "작성 가능한 소개 형식·이력 공개 조건",
+    "model": "프로필 소개와 구독 이력 공개값",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "일반 멤버 시작 월과 Friend 시작 월은 별도로 표시된다. 계정 최초 생성일·과거 결제 내역을 이 두 날짜에서 역산하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 85,
+    "id": "sc_7c89f4496e7f4cb0b5c23b776080b6bf",
+    "title": "팔로잉 계정 목록",
+    "layout": "아바타·이름·소개·Follow 반복 행",
+    "fields": "여러 사용자와 The Medium Blog 표시",
+    "controls": "Follow, 계정 행, 뒤로",
+    "state": "관계 목록 표시",
+    "unknown": "누구의 목록인지 단독 화면에 제목 없음·진입 맥락 필요",
+    "model": "관계 소유자와 각 대상에 대한 내 팔로우 상태 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "사용자와 The Medium Blog가 함께 보이는 관계 목록이다. 직전 작가 화면에서는 Home, 이 캡처에서는 Explore 하단 탭이 선택되어 있어 단일 연속 이동으로 단정하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 86,
+    "id": "sc_3ecf6d2988a6418fa4d2006fa4497b23",
+    "title": "작가 팔로우 성공과 알림 메뉴",
+    "layout": "성공 토스트 위에 Following 메뉴",
+    "fields": "Email notifications on 체크",
+    "controls": "Email notifications on/off, Unfollow",
+    "state": "팔로우 성공 안내",
+    "unknown": "이메일 발송·기존 기본값 유지 정책",
+    "model": "팔로우 관계와 작가별 이메일 구독 설정",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "성공 토스트와 함께 이메일 알림 On이 체크된 메뉴가 열려 있다. 이것이 모든 신규 팔로우의 기본값인지, 기존 사용자 설정이 반영된 것인지는 미확인이다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 87,
+    "id": "sc_937a1fdc91724d1ca5cc41b1d43d5132",
+    "title": "팔로우 설정 메뉴",
+    "layout": "프로필 Following 팝오버",
+    "fields": "Email notifications on 체크",
+    "controls": "Email notifications off, Unfollow",
+    "state": "팔로우 해제 진입점",
+    "unknown": "해제 확인·알림 설정 보존",
+    "model": "팔로우 제거와 알림 해제 연동 검증",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

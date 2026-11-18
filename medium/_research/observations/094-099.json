@@ -1,0 +1,104 @@
+[
+  {
+    "index": 94,
+    "id": "sc_d07b03740ecc44328719d4d21703bb06",
+    "title": "사용자 신고 사유 선택",
+    "layout": "Report user 시트, 라디오 사유·추가 차단 체크·정책 링크",
+    "fields": "Spam·Harassment·Rules violation·AI-generated 모두 미선택, 차단 미체크",
+    "controls": "Report 비활성, 정책·권리침해 링크, 닫기",
+    "state": "신고 입력 전",
+    "unknown": "사유별 추가 입력·신고 기준",
+    "model": "신고 사유와 차단 부가 행동 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "사유 선택용 원형 항목과 Also block this user 사각 체크박스를 구분한다. 신고 사유와 추가 차단은 별도 입력이며, 권리 침해 신고는 별도 링크로 분기한다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 95,
+    "id": "sc_af0ecdded03643ca8cea85ec5341d906",
+    "title": "신고 사유 선택 완료",
+    "layout": "Spam 라디오 선택, 하단 빨간 버튼",
+    "fields": "Spam 선택·차단 미체크",
+    "controls": "Report 활성",
+    "state": "신고 제출 준비",
+    "unknown": "필수값 서버 검증·중복 신고",
+    "model": "선택 사유와 제출 가능 상태",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Spam 선택 후에도 Also block this user는 미체크다. 이후 성공 화면을 신고와 차단이 모두 실행된 결과로 해석하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 96,
+    "id": "sc_d9ba56fa632249c7908f15a8e3082d97",
+    "title": "사용자 신고 성공 안내",
+    "layout": "프로필에 검정 토스트",
+    "fields": "Successfully reported user",
+    "controls": "Follow, 더보기",
+    "state": "신고 접수 성공 표시",
+    "unknown": "운영 검토·제재 결과는 미수록",
+    "model": "신고 접수와 조치 상태 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 97,
+    "id": "sc_b43c7474098746baa684870217c28927",
+    "title": "오디오 로딩",
+    "layout": "기사 상단과 하단 미니 플레이어에 스피너",
+    "fields": "작가·기사 제목·커버",
+    "controls": "미니 플레이어 닫기 X",
+    "state": "오디오 준비 중",
+    "unknown": "음원 생성·다운로드·권한 단계",
+    "model": "오디오 로딩 상태와 선택 기사",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 98,
+    "id": "sc_40448a752ea64391a724af01b1e050f1",
+    "title": "미니 플레이어 재생 상태",
+    "layout": "상단 및 미니 플레이어 일시정지 아이콘",
+    "fields": "동일 기사",
+    "controls": "일시정지, 닫기, 플레이어 확장 영역",
+    "state": "재생 중을 나타내는 UI",
+    "unknown": "실제 음성 출력·백그라운드 지속",
+    "model": "전역 재생 상태와 기사 화면 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 99,
+    "id": "sc_45ddcc1f43a54523a1314ce563abf5ee",
+    "title": "확장 오디오 플레이어",
+    "layout": "커버·작가·제목·진행 바·조작 버튼·Speechify 표시",
+    "fields": "00:05, -04:35, 1x",
+    "controls": "일시정지, 10초 뒤로, 30초 앞으로, 속도, 공유, 더보기",
+    "state": "확장 재생 화면",
+    "unknown": "음원 실제 길이·탐색·다음 기사 조건",
+    "model": "현재 위치·속도·음성·재생 큐",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "이전·다음 트랙 아이콘은 연하게 보이고 중앙 일시정지·10초 뒤로·30초 앞으로는 선명하다. 상단 손잡이, 공유, Powered by Speechify 표시도 있다. 이전·다음 아이콘의 실제 비활성 여부와 재생 큐는 미확인이다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "index": 124,
+    "id": "sc_602f368bf00a46b8b57d68f964ed6c16",
+    "title": "Explore 토픽 가로 이동",
+    "layout": "가로 칩 영역에 다른 주제",
+    "fields": "Health·Science·Business·Life 등",
+    "controls": "토픽 칩",
+    "state": "가로 탐색 상태",
+    "unknown": "토픽 전체 목록·개인화 순서",
+    "model": "가로 목록 위치와 선택 토픽",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 125,
+    "id": "sc_4352273aa0654f939705613dfa224e75",
+    "title": "편집 추천과 개인 추천",
+    "layout": "Staff Picks 가로 큰 카드·Recommended for you 세로 목록",
+    "fields": "기사 읽기 시간·날짜·집계",
+    "controls": "기사 카드",
+    "state": "발견 페이지 중간",
+    "unknown": "편집 추천 선정 근거·개인 추천 로직",
+    "model": "편집 큐레이션과 개인화 추천 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "Staff Picks는 팀이 직접 고른다는 안내가 있고 Recommended for you는 별도 섹션이다. 편집 선정과 개인 추천을 같은 기준으로 설명하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 126,
+    "id": "sc_6bc604f45031400d9cebd252cd89e7a2",
+    "title": "팔로우 추천 카드",
+    "layout": "Who to follow 가로 카드",
+    "fields": "작가와 Publication·소개·팔로워",
+    "controls": "Follow",
+    "state": "팔로우 대상 추천",
+    "unknown": "노출·추천 이유",
+    "model": "작성자·발행물 공통 추천 카드",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 127,
+    "id": "sc_dfdd5f6377a848c59b3512417cb47490",
+    "title": "팔로우 추천 가로 스크롤",
+    "layout": "다른 추천 카드 노출",
+    "fields": "The Daily Dollar·Alex Mathers",
+    "controls": "Follow",
+    "state": "캐러셀 이동",
+    "unknown": "추가 페이지 로딩 방식",
+    "model": "추천 목록 순서와 스크롤 상태",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 128,
+    "id": "sc_047c91d900aa47448d61e4faacd68ad5",
+    "title": "검색 진입과 토픽 탐색",
+    "layout": "검색창 아래 Explore topics 세로 목록",
+    "fields": "Life·Self Improvement·Work·Technology 등",
+    "controls": "검색, 토픽 행, 뒤로",
+    "state": "검색어 없는 탐색 화면",
+    "unknown": "카테고리 하위 구조",
+    "model": "검색 입력 전 카테고리 브라우징",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 129,
+    "id": "sc_8dc9eeb5f9d244ca9fa6fb7a973de82f",
+    "title": "Medium 검색 결과",
+    "layout": "검색창·유형 탭·기사 카드",
+    "fields": "Mindfulness 검색, Stories 활성",
+    "controls": "Stories, People, Publications, Topics, Lists, 지우기",
+    "state": "기사 검색 결과",
+    "unknown": "다른 유형 결과·정렬·검색 없음 상태",
+    "model": "검색어·대상 타입·페이지네이션",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "검색어 오른쪽 X와 다섯 결과 유형 탭이 있다. 이 흐름은 Stories 결과만 보여주며 People·Publications·Topics·Lists 결과 내용과 검색 실패·0건 상태는 수록되지 않았다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

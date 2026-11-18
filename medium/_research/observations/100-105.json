@@ -1,0 +1,102 @@
+[
+  {
+    "index": 100,
+    "id": "sc_d035c7d2bcfe4d0f99df80fddecebdcd",
+    "title": "재생 진행 상태",
+    "layout": "확장 플레이어 진행 바 이동",
+    "fields": "00:40, -04:00, 1x",
+    "controls": "일시정지·10초·30초·속도",
+    "state": "재생 위치 증가",
+    "unknown": "경과가 자연 재생인지 탐색 입력인지",
+    "model": "재생 시간 변화의 원인은 별도 이벤트 확인",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 101,
+    "id": "sc_1965b9529b534e1597968039af1415b1",
+    "title": "재생 속도 선택 초기",
+    "layout": "Select Speed 시트, 세로 슬라이더·등급 안내",
+    "fields": "1x, 200 WPM",
+    "controls": "세로 슬라이더, Done",
+    "state": "현재 속도 표시",
+    "unknown": "최소·최대·증분·WPM 계산",
+    "model": "배속과 표시 읽기 속도 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 102,
+    "id": "sc_b6f46f91fdc549b790b4e9c1a434afae",
+    "title": "재생 속도 2.5배 선택",
+    "layout": "슬라이더 손잡이 위로 이동",
+    "fields": "2.5x, 490 WPM, 145% productivity boost",
+    "controls": "슬라이더, Done",
+    "state": "변경값 표시",
+    "unknown": "안내 수치 근거·즉시 적용 여부",
+    "model": "임시 배속 값과 확정 설정",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "2.5x 옆 490 WPM은 1x의 200 WPM을 단순 2.5배 한 값과 다르다. 표시값을 그대로 기록하고 정확한 계산식·생산성 향상 효과로 확정하지 않는다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 103,
+    "id": "sc_c0fd5f5f29594fb997865177863b9482",
+    "title": "2.5배 재생 표시",
+    "layout": "플레이어 하단 속도 변경",
+    "fields": "2.5x, 00:10, -01:44",
+    "controls": "재생 조작·속도",
+    "state": "배속 변경 반영",
+    "unknown": "남은 시간 계산·위치 재설정 원인",
+    "model": "원문 위치와 배속 환산 시간 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 104,
+    "id": "sc_0414c81870534989959d677ecede926c",
+    "title": "플레이어 더보기",
+    "layout": "재생기 위 6행 팝오버",
+    "fields": "현재 1x",
+    "controls": "AirPlay, Select a voice, View story, Show less like this, Mute author, Report story",
+    "state": "음성·출력·콘텐츠 행동 메뉴",
+    "unknown": "AirPlay 연결·음성 전환 결과",
+    "model": "재생 설정과 콘텐츠 피드백 작업 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 105,
+    "id": "sc_3b3db04094fe4a189b31e66c28971bcd",
+    "title": "음성 선택 목록",
+    "layout": "검색·FEATURED·ENGLISH 섹션과 국기·이름·성별·국가",
+    "fields": "Emma 선택, Matthew·Salli 등",
+    "controls": "검색, 음성 행, Done",
+    "state": "Emma가 현재 선택된 음성 목록. 모든 계정의 기본 음성이라는 의미는 아니다.",
+    "unknown": "실제 전환 후 음성·언어 지원 범위",
+    "model": "음성 ID·언어/지역·선택 설정",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "음성마다 이름·성별 표기·국가를 보여주고 Featured와 English 섹션으로 나눈다. 검색창은 있으나 음성 검색어 입력·빈 결과는 미수록이다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

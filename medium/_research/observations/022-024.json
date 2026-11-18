@@ -1,0 +1,50 @@
+[
+  {
+    "index": 22,
+    "id": "sc_4db886af7d024100a72b9e02fa3c1ee8",
+    "title": "제목과 본문 입력",
+    "layout": "굵은 제목과 세리프 본문, 키보드 위 편집 도구",
+    "fields": "The Silence between Notes 제목과 음악 관련 단락 입력",
+    "controls": "Close, 더보기, Next, 서식·이미지 도구",
+    "state": "본문 끝 커서",
+    "unknown": "저장 완료·글자 제한·제목 필수 검증",
+    "model": "문서 제목과 블록형 본문 후보",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 23,
+    "id": "sc_c609f8fa87b84b76bea6f312df2e3e0f",
+    "title": "이미지 추가 방식 선택",
+    "layout": "편집기 위 하단 액션 시트",
+    "fields": "추가 입력 없음",
+    "controls": "Take photo, Choose from library, Search photos on Unsplash, Cancel",
+    "state": "이미지 소스 선택",
+    "unknown": "카메라·사진 권한 처리",
+    "model": "외부 사진·기기 사진 입력 경로 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 24,
+    "id": "sc_785431954ec4405eb0a3b22debce165a",
+    "title": "Unsplash 사진 선택",
+    "layout": "검색 필드 아래 2열 가변 높이 사진과 작가 이름",
+    "fields": "Search photos 빈값",
+    "controls": "사진 항목, Cancel",
+    "state": "외부 사진 탐색 시트",
+    "unknown": "검색 요청·사용권·출처 보존 계약",
+    "model": "이미지 자산과 제공자·크레딧 메타데이터",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]

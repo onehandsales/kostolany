@@ -1,0 +1,104 @@
+[
+  {
+    "index": 64,
+    "id": "sc_500793b8306c411585ba54ddaf6a8f25",
+    "title": "새 응답 표시",
+    "layout": "응답 목록 맨 위 Alex Smith YOU",
+    "fields": "Responses 833, 2 seconds ago, 입력한 문장",
+    "controls": "본인 더보기, Reply",
+    "state": "Responses 833 및 본인 새 응답 표시. Commenting a story 흐름의 직전 입력 화면에서는 832였다",
+    "unknown": "서버 생성·다른 사용자 가시성",
+    "model": "응답 생성 후 목록·집계 갱신",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "YOU 표식과 본인 응답의 연한 박수 아이콘이 함께 보인다. 타인의 검은 박수 아이콘과 시각적 차이는 있으나 본인 박수 차단 API 규칙은 별도 검증 대상이다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 65,
+    "id": "sc_e4b254a2635b47069e314a1462c985d6",
+    "title": "본인 응답 관리 메뉴",
+    "layout": "본인 응답 더보기 팝오버",
+    "fields": "응답 유지",
+    "controls": "Edit response, 빨간 Delete response",
+    "state": "수정·삭제 선택 가능",
+    "unknown": "타인 메뉴·서버 소유권 검증",
+    "model": "작성자별 관리 권한",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 66,
+    "id": "sc_0817971af7f14028a36fd2a233dd5ee7",
+    "title": "기존 응답 편집 입력",
+    "layout": "기존 응답 회색 강조, 키보드·기존 문장 입력창",
+    "fields": "Replying to Alex Smith 표시, 기존 내용 채움",
+    "controls": "Cancel, 전송",
+    "state": "편집 흐름이나 UI 문구는 Replying",
+    "unknown": "문구 재사용 이유·실제 편집 모드 계약",
+    "model": "작성 모드와 편집 대상 ID 명시",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 67,
+    "id": "sc_0950e3a03f7e4b02b9db0d98f818bdea",
+    "title": "응답 수정 내용 입력",
+    "layout": "같은 입력창·키보드",
+    "fields": "기존 문장 끝 하트 3개 추가",
+    "controls": "Cancel, 전송",
+    "state": "수정 제출 전",
+    "unknown": "취소 시 기존 내용 복원",
+    "model": "편집 초안과 저장 본문 분리",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 68,
+    "id": "sc_c1a6af7cef31436a9cdd090eae87479f",
+    "title": "응답 수정 반영",
+    "layout": "YOU 응답에 하트 3개·edited 표시",
+    "fields": "Responses 833 유지",
+    "controls": "더보기, Reply",
+    "state": "내용 변경과 edited 확인",
+    "unknown": "수정 이력·수정 제한",
+    "model": "수정 시각과 생성 시각 구분",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "수정 뒤 표시 시각은 1 second ago (edited)로 바뀐다. 작성 시각과 수정 시각 중 무엇을 정렬에 사용하는지는 이 표시만으로 확정할 수 없다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  },
+  {
+    "index": 69,
+    "id": "sc_aa1b32e30ce5436b8ca8fcc4c7d74d1b",
+    "title": "응답 삭제 성공 표시",
+    "layout": "상단 검정 토스트·본인 응답 사라진 목록",
+    "fields": "Successfully deleted response",
+    "controls": "다른 응답 Reply·더보기",
+    "state": "삭제 성공 안내",
+    "unknown": "삭제 확인 단계·복구·자식 답글 영향 미수록",
+    "model": "삭제 결과와 부모·자식 처리 정책",
+    "reviewedDate": "2026-11-18",
+    "reviewMethod": "Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관",
+    "r2Notes": [
+      "삭제 토스트가 상단 응답 총수를 가리므로 이 캡처로 삭제 후 총수의 정확한 값을 읽지 않는다. 본인 응답이 사라진 결과와 성공 안내만 확인했다."
+    ],
+    "r2ReviewedDate": "2026-11-18",
+    "r2ReviewMethod": "로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토"
+  }
+]
