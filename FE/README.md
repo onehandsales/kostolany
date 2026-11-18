@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 10의 모의 로그인·취소·로그아웃까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 비로그인으로 기사를 읽고, 예시 독자 A/B로 모의 로그인해 개인 기능을 사용한다. 프로필에는 현재 사용자·로그인 상태·로그아웃만 표시한다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
+React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 11의 프로필 조회·이름/소개 편집까지 구현했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 비로그인으로 기사를 읽고, 예시 독자 A/B로 모의 로그인해 개인 기능을 사용한다. 프로필에서 이름·짧은 소개를 편집하고 저장·취소·실패 재시도를 할 수 있다. 이름 변경은 인증 ID·개인 데이터를 유지한다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
 
 ## 환경과 기술 선택
 
@@ -71,7 +71,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트 216개를 iOS·Android Jest 설정에서 각각 실행한다(총 432건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트 256개를 iOS·Android Jest 설정에서 각각 실행한다(총 512건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -97,9 +97,16 @@ src/app/TabPlaceholderScreen.tsx     이전 임시 화면 모듈(현재 탭에�
 src/features/auth/AuthProvider.tsx   앱 수명의 모의 인증 소유자·공유 구독
 src/features/auth/createAuthStore.ts 로그인/로그아웃·취소·요청 세대·실패 재시도
 src/features/auth/AuthDialogs.tsx    로그인·로그아웃 Modal과 모의 결과 선택
-src/features/auth/AccountScreen.tsx  최소 계정 표시·비로그인 라이브러리
+src/features/auth/AccountScreen.tsx  비로그인 프로필·라이브러리 안내
 src/features/auth/LoginRequestButton.tsx 개인 행동에서 로그인 진입
 src/features/auth/data/              예시 독자 A/B·모의 응답 공급부
+src/app/navigation/ProfileRouteScreen.tsx 인증 세션별 개인 프로필 진입
+src/features/profile/ProfileProvider.tsx 사용자별 프로필 공급부·저장소·개인 UI 범위
+src/features/profile/createProfileStore.ts 조회 세대·확정 프로필·직렬 최신 제출
+src/features/profile/profileValidation.ts 이름/소개 정규화·코드 포인트 계산·검증
+src/features/profile/ProfileScreen.tsx 프로필 조회·빈 소개·편집 진입·오류/재시도
+src/features/profile/ProfileEditorSheet.tsx 이름/소개 초안·저장·취소·입력 보존
+src/features/profile/data/           사용자별 모의 프로필·실패/지연 시나리오
 src/features/feed/HomeFeedScreen.tsx 홈 피드·상태 표시와 기사 선택 경계
 src/features/feed/components/        기사 카드·정렬 탭·상태·자체 SVG 썸네일
 src/features/feed/useFeed.ts         조회·재시도·추가 요청·오래된 응답 처리
@@ -296,17 +303,27 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 
 A(`example-reader`)와 B(`example-reader-b`)는 좋아요·저장·사용자 목록을 서로 공유하지 않는다. 로그아웃은 개인 데이터 삭제가 아니므로 같은 실행 중 A→B→A로 돌아오면 A 데이터를 이어 받는다. 진행 중 개인 변경도 원래 사용자 저장소에서만 완료된다. 열린 개인 상세·입력 초안·저장 시트는 사용자 전환 시 정리한다. 앱 재실행·전체 새로고침은 인증과 개인 메모리를 초기화한다. 기기/서버 영속 저장·데이터 병합은 없다.
 
-프로필은 현재 인증 상태·가상 독자 이름·로그아웃에 필요한 최소 화면이다. 프로필 편집은 Goal 11, 설정 확장은 Goal 12 범위다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 [원본 비교](../TODO/evidence/goal10/COMPARISON.html)에 설계·검증·미검증을 기록했다.
+Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회와 편집으로 확장했다. 설정 확장은 Goal 12 범위다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 [원본 비교](../TODO/evidence/goal10/COMPARISON.html)에 설계·검증·미검증을 기록했다.
+
+## 프로필 조회·수정
+
+**프로필 → 로그인 → 예시 독자 A/B → 프로필 편집**에서 이름·소개를 저장한다. 저장한 이름은 프로필과 로그아웃 확인에 함께 반영된다. 계정 선택의 `예시 독자 A/B`는 고정된 모의 계정 표시다. 사용자 ID·인증 revision·좋아요·북마크·목록은 이름 변경으로 초기화하지 않는다.
+
+이름은 필수 50자, 소개는 선택 160자이며 소개 삭제를 허용한다. 입력 중 원문을 유지하고 제출 때 NFC·공백을 정리한다. 코드 포인트 기준으로 한글·단일 이모지는 1자이며 조합형 이모지는 여러 자일 수 있다. 이름 중복을 허용한다. Enter는 저장하지 않고 명시적인 저장 버튼을 사용한다.
+
+취소·닫기·화면 이탈은 미제출 초안을 버린다. 이미 제출한 저장은 계속된다. 저장 중 추가 입력은 이전 응답이 덮지 않고, 추가 저장의 마지막 목표를 직렬 처리한다. 실패한 열린 폼은 입력을 보존하고 수정 후 다시 시도할 수 있다. 로그아웃/A→B→A에서는 사용자별 확정 값을 유지하고 개인 편집 UI는 정리한다. 전체 새로고침·앱 재실행은 메모리를 초기화한다.
+
+`src/features/profile/data/profilePreview.ts`의 `profilePreviewScenario`로 `read-error`·`save-error`·`slow`를 지정한 뒤 전체 새로고침하면 조회/저장 첫 실패·4초 처리를 재현한다. 재시도는 성공한다. 전달 기본값은 `normal`(약 350ms)이다. 실제 인증·Storage는 없다. [Goal 11 결과](../TODO/FE_GOAL_11_RESULT.md)와 [원본 비교](../TODO/evidence/goal11/COMPARISON.html)에 정책·검증·미검증을 기록했다.
 
 ## 검증 범위와 남은 확인
 
 - 사용자 확인: 현재 사용할 수 있는 휴대폰이 없다.
-- Goal 10 최종 검사 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
+- Goal 11 최종 검사 환경: macOS 14.2 arm64, Node 24.10.0·npm 11.6.0으로 검사했다. 위 고정 도구 버전과 차이를 기록하며 패키지·lockfile은 변경하지 않았다. Xcode 대신 Command Line Tools만 있고 `xcrun simctl`·`xcodebuild`를 사용할 수 없다. Android SDK·adb·에뮬레이터도 발견하지 못했다.
 - 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~10의 브라우저 모바일 폭 비교와 구분한다.
-- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리는 Goal 9, 모의 로그인은 Goal 10에서 구현했다. 프로필 편집·설정 확장은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
+- 보관된 Medium iOS 홈·기사 상세·검색·저장·라이브러리·목록 상세·기사 제거 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 목록 관리는 Goal 9, 모의 로그인은 Goal 10에서 구현했다. 프로필 편집은 Goal 11에서 구현했고 설정 확장은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
 - 실제 인증·API·DB·Storage·RSS·AI 호출은 구현하지 않았다.
 
-현재 구현과 검증은 [Goal 10 결과 기록](../TODO/FE_GOAL_10_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)·[Goal 8](../TODO/FE_GOAL_08_RESULT.md)·[Goal 9](../TODO/FE_GOAL_09_RESULT.md)에 보존한다. Goal 11은 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~10에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
+현재 구현과 검증은 [Goal 11 결과 기록](../TODO/FE_GOAL_11_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)·[Goal 7](../TODO/FE_GOAL_07_RESULT.md)·[Goal 8](../TODO/FE_GOAL_08_RESULT.md)·[Goal 9](../TODO/FE_GOAL_09_RESULT.md)·[Goal 10](../TODO/FE_GOAL_10_RESULT.md)에 보존한다. Goal 12는 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~11에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
 
 ## 적용 규칙
 

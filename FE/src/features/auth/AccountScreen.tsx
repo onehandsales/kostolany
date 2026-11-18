@@ -1,29 +1,21 @@
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useAuth } from './AuthProvider';
 import { authStyles as styles } from './authStyles';
 import { LoginRequestButton } from './LoginRequestButton';
 
 export function AccountScreen() {
-  const { state, store } = useAuth();
   return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
     <ScrollView contentContainerStyle={styles.page}>
       <Text role="heading" style={styles.title}>프로필</Text>
       <Text style={styles.secondary}>모의 로그인 · 실제 Google 계정과 연결되지 않아요.</Text>
-      {state.user ? <View style={{ gap: 24 }}>
-        <Text style={styles.text}>{state.user.name} · 로그인됨</Text>
-        <Text style={styles.secondary}>좋아요와 저장 목록은 이 독자의 공간에 보관돼요.</Text>
-        <Pressable role="button" onPress={store.openLogout} style={styles.button}>
-          <Text style={styles.buttonText}>로그아웃</Text>
-        </Pressable>
-      </View> : <View style={{ gap: 24 }}>
+      <View style={{ gap: 24 }}>
         <Text style={styles.text}>로그인하지 않은 상태예요.</Text>
         <Text style={styles.secondary}>기사는 자유롭게 읽고, 로그인하면 좋아요와 저장 목록을 사용할 수 있어요.</Text>
         <LoginRequestButton context={{ kind: 'profile' }} label="모의 로그인 시작" style={styles.button}>
           <Text style={styles.buttonText}>로그인</Text>
         </LoginRequestButton>
-      </View>}
+      </View>
     </ScrollView>
   </SafeAreaView>;
 }

@@ -35,7 +35,7 @@ async function logIn(user: ReturnType<typeof userEvent.setup>, name = mockUserA.
   await user.press(screen.getByRole('button', { name: '모의 로그인 시작' }));
   await user.press(screen.getByRole('radio', { name }));
   await user.press(screen.getByRole('button', { name: 'Google로 로그인 (모의)' }));
-  expect(screen.getByText(`${name} · 로그인됨`)).toBeVisible();
+  expect(await screen.findByText(`${name} · 로그인됨`)).toBeVisible();
 }
 
 async function logOut(user: ReturnType<typeof userEvent.setup>) {

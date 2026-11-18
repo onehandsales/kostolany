@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { AccountScreen, LibraryLoginScreen } from '../../features/auth/AccountScreen';
+import { LibraryLoginScreen } from '../../features/auth/AccountScreen';
 import { useAuth } from '../../features/auth/AuthProvider';
 import { useBookmarkScopeKey } from '../../features/bookmarks/useBookmarks';
 import { HomeFeedScreen } from '../../features/feed/HomeFeedScreen';
@@ -10,6 +10,7 @@ import type { SearchSource } from '../../features/search/types';
 import { TabIcon } from '../../shared/ui/TabIcon';
 import { BottomTabBar } from './BottomTabBar';
 import { LibraryNavigator } from './LibraryNavigator';
+import { ProfileRouteScreen } from './ProfileRouteScreen';
 import { type MainTabParamList, tabs } from './tabs';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -46,7 +47,7 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
           onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
           onBrowseArticles={() => navigation.navigate('Home')} /> : <LibraryLoginScreen />}
       </Tab.Screen>
-      <Tab.Screen name="Profile" component={AccountScreen} />
+      <Tab.Screen name="Profile" component={ProfileRouteScreen} />
     </Tab.Navigator>
   );
 }

@@ -14,7 +14,10 @@ const scenarios: readonly { value: AuthScenario; label: string }[] = [
   { value: 'failure', label: '실패' }, { value: 'slow', label: '느린 성공 (4초)' },
 ];
 
-export function AuthDialogs() {
+type AuthDialogsProps = { profileName?: string };
+type LogoutDialogProps = { profileName?: string };
+
+export function AuthDialogs({ profileName }: AuthDialogsProps) {
   const { state } = useAuth();
   const wasOpen = useRef(false);
   useEffect(() => {
@@ -25,7 +28,7 @@ export function AuthDialogs() {
     return () => cancelAnimationFrame(frame);
   }, [state.dialog]);
   if (state.dialog?.kind === 'login') return <LoginDialog />;
-  if (state.dialog?.kind === 'logout') return <LogoutDialog />;
+  if (state.dialog?.kind === 'logout') return <LogoutDialog profileName={profileName} />;
   return null;
 }
 
@@ -79,7 +82,7 @@ function LoginDialog() {
   </Modal>;
 }
 
-function LogoutDialog() {
+function LogoutDialog({ profileName }: LogoutDialogProps) {
   const { state, store } = useAuth();
   const [scenario, setScenario] = useState<LogoutScenario>('success');
   const dialog = state.dialog;
@@ -91,7 +94,7 @@ function LogoutDialog() {
       <View accessibilityViewIsModal style={styles.confirmation}>
         <ScrollView contentContainerStyle={styles.confirmContent}>
           <Text role="heading" style={styles.confirmTitle}>로그아웃할까요?</Text>
-          <Text style={authStyles.text}>{state.user?.name}의 좋아요와 저장 목록은 이 앱을 새로고침하거나 종료하기 전까지 남아 있어요.</Text>
+          <Text style={authStyles.text}>{profileName ?? '로그인한 독자'}의 프로필·좋아요와 저장 목록은 이 앱을 새로고침하거나 종료하기 전까지 남아 있어요.</Text>
           {isPending && <View style={styles.feedback}><ActivityIndicator color={colors.text} />
             <Text aria-live="polite" style={authStyles.secondary}>로그아웃 처리 중… 취소하면 로그인 상태를 유지해요.</Text></View>}
           {hasError && <Text role="alert" style={authStyles.error}>로그아웃하지 못했어요. 로그인 상태를 유지했어요.</Text>}

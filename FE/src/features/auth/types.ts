@@ -1,3 +1,4 @@
+// 인증 이름은 모의 계정 선택용 고정 표시이며 수정 가능한 이름은 프로필 저장소가 소유한다.
 export type AuthUser = Readonly<{ id: string; name: string }>;
 export type AuthScenario = 'success' | 'cancel' | 'failure' | 'slow';
 export type LogoutScenario = Exclude<AuthScenario, 'cancel'>;

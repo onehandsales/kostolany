@@ -10,6 +10,8 @@ import type { BookmarkSource } from '../../features/bookmarks/types';
 import type { FeedSource } from '../../features/feed/types';
 import { LikeProvider } from '../../features/likes/LikeProvider';
 import type { LikeSource } from '../../features/likes/types';
+import { ProfileProvider, useProfile } from '../../features/profile/ProfileProvider';
+import type { ProfileSource } from '../../features/profile/types';
 import type { SearchSource } from '../../features/search/types';
 import { colors } from '../../shared/theme/tokens';
 import { ArticleRouteScreen, type ArticleRouteParams } from './ArticleRouteScreen';
@@ -28,7 +30,7 @@ const theme = {
 
 type AppNavigatorProps = {
   articleSource?: ArticleSource; feedSource?: FeedSource; searchSource?: SearchSource; likeSource?: LikeSource;
-  bookmarkSource?: BookmarkSource;
+  bookmarkSource?: BookmarkSource; profileSource?: ProfileSource;
   authSource?: AuthSource; initialUser?: AuthUser | null;
 };
 
@@ -36,30 +38,37 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
   return <AuthProvider source={authSource} initialUser={initialUser}><SessionNavigation {...sources} /></AuthProvider>;
 }
 
-export function SessionNavigation({ articleSource, feedSource, searchSource, likeSource, bookmarkSource }: AppNavigatorProps) {
+export function SessionNavigation({ articleSource, feedSource, searchSource, likeSource, bookmarkSource, profileSource }: AppNavigatorProps) {
   const { state } = useAuth();
   return (
-    <LikeProvider source={likeSource} userId={state.user?.id ?? null}>
-      <BookmarkProvider source={bookmarkSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
-        <NavigationContainer theme={theme}>
-          <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Main">
-              {({ navigation }) => (
-                <MainTabs source={feedSource} searchSource={searchSource}
-                  onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId,
-                    ownerUserId: origin === 'Library' ? state.user?.id : undefined,
-                    sessionRevision: origin === 'Library' ? state.revision : undefined })} />
-              )}
-            </Stack.Screen>
-            <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
-              {({ route, navigation }) => (
-                <ArticleRouteScreen params={route.params} source={articleSource} onBack={() => navigation.goBack()} />
-              )}
-            </Stack.Screen>
-          </Stack.Navigator>
-        </NavigationContainer>
-        <AuthDialogs />
-      </BookmarkProvider>
-    </LikeProvider>
+    <ProfileProvider source={profileSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+      <LikeProvider source={likeSource} userId={state.user?.id ?? null}>
+        <BookmarkProvider source={bookmarkSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+          <NavigationContainer theme={theme}>
+            <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Main">
+                {({ navigation }) => (
+                  <MainTabs source={feedSource} searchSource={searchSource}
+                    onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId,
+                      ownerUserId: origin === 'Library' ? state.user?.id : undefined,
+                      sessionRevision: origin === 'Library' ? state.revision : undefined })} />
+                )}
+              </Stack.Screen>
+              <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
+                {({ route, navigation }) => (
+                  <ArticleRouteScreen params={route.params} source={articleSource} onBack={() => navigation.goBack()} />
+                )}
+              </Stack.Screen>
+            </Stack.Navigator>
+          </NavigationContainer>
+          <SessionAuthDialogs />
+        </BookmarkProvider>
+      </LikeProvider>
+    </ProfileProvider>
   );
+}
+
+function SessionAuthDialogs() {
+  const { state } = useProfile();
+  return <AuthDialogs profileName={state.profile?.name} />;
 }
