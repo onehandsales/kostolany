@@ -1,6 +1,5 @@
 import { act, render, screen, userEvent, within } from '@testing-library/react-native';
 import { StrictMode } from 'react';
-import { Alert } from 'react-native';
 
 import { createMockFeedSource } from './data/mockFeedSource';
 import { HomeFeedScreen } from './HomeFeedScreen';
@@ -27,7 +26,7 @@ describe('Home feed', () => {
   it('matches latest, popular and recommended fixture data to the selected tab', async () => {
     const source = jest.fn(createMockFeedSource({ delayMs: 0 }));
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     expect(screen.getByRole('tab', { name: '최신' })).toBeSelected();
     expect(await screen.findByRole('button', { name: /금리가 오르면 예금과 대출/ })).toBeVisible();
 
@@ -53,7 +52,7 @@ describe('Home feed', () => {
       .mockRejectedValueOnce(new Error('offline'))
       .mockResolvedValueOnce({ items: [article('recovered')], nextCursor: null });
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
 
     expect(await screen.findByRole('alert')).toHaveTextContent('기사를 불러오지 못했어요');
     await user.press(screen.getByRole('button', { name: '다시 시도' }));
@@ -65,7 +64,7 @@ describe('Home feed', () => {
   });
 
   it('distinguishes an empty result from an error and offers no pagination', async () => {
-    await render(<HomeFeedScreen source={createMockFeedSource({ scenario: 'empty', delayMs: 0 })} />);
+    await render(<HomeFeedScreen source={createMockFeedSource({ scenario: 'empty', delayMs: 0 })} onSelectArticle={jest.fn()} />);
     expect(await screen.findByText('아직 표시할 기사가 없어요')).toBeVisible();
     expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
     expect(screen.queryByRole('button')).not.toBeOnTheScreen();
@@ -77,7 +76,7 @@ describe('Home feed', () => {
       .mockResolvedValueOnce({ items: [article('first')], nextCursor: 'next' })
       .mockReturnValueOnce(nextPage.promise);
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
 
     expect(screen.getByText('다음 기사를 불러오고 있어요')).toBeVisible();
@@ -97,7 +96,7 @@ describe('Home feed', () => {
       .mockRejectedValueOnce(new Error('offline'))
       .mockResolvedValueOnce({ items: [article('second')], nextCursor: null });
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent('다음 기사를 불러오지 못했어요');
@@ -113,7 +112,7 @@ describe('Home feed', () => {
     const source: FeedSource = ({ sort }) => sort === 'latest'
       ? previousPage.promise : Promise.resolve({ items: [article('popular')], nextCursor: null });
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     await user.press(screen.getByRole('tab', { name: '인기' }));
     await screen.findByRole('button', { name: /^예시 기사 popular/ });
 
@@ -135,7 +134,7 @@ describe('Home feed', () => {
       return Promise.resolve({ items: [article('latest')], nextCursor: 'next' });
     };
     const user = userEvent.setup();
-    await render(<HomeFeedScreen source={source} />);
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
     await user.press(screen.getByRole('tab', { name: '인기' }));
     await screen.findByRole('button', { name: /^예시 기사 popular/ });
@@ -151,7 +150,7 @@ describe('Home feed', () => {
     const source = jest.fn<Promise<FeedPage>, [FeedRequest]>()
       .mockReturnValueOnce(abandoned.promise)
       .mockResolvedValue({ items: [article('current')], nextCursor: null });
-    await render(<StrictMode><HomeFeedScreen source={source} /></StrictMode>);
+    await render(<StrictMode><HomeFeedScreen source={source} onSelectArticle={jest.fn()} /></StrictMode>);
 
     expect(await screen.findByRole('button', { name: /^예시 기사 current/ })).toBeVisible();
     await act(async () => abandoned.reject(new Error('abandoned')));
@@ -159,16 +158,4 @@ describe('Home feed', () => {
     expect(screen.getByRole('button', { name: /^예시 기사 current/ })).toBeVisible();
   });
 
-  it('shows an honest pending message when the app has no detail route yet', async () => {
-    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
-    const user = userEvent.setup();
-    try {
-      await render(<HomeFeedScreen source={async () => ({ items: [article('first')], nextCursor: null })} />);
-      await user.press(await screen.findByRole('button', { name: /^예시 기사 first/ }));
-      expect(alert).toHaveBeenCalledWith('기사 상세 준비 중', '읽기 화면을 준비하고 있어요.');
-      expect(screen.getByRole('heading', { name: '홈' })).toBeVisible();
-    } finally {
-      alert.mockRestore();
-    }
-  });
 });

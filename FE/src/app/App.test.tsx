@@ -35,6 +35,9 @@ describe('App tab navigation', () => {
       expect(screen.getByRole('heading', { name: title })).toBeVisible();
       if (title === '홈') {
         expect(screen.getByText('예시 콘텐츠')).toBeVisible();
+      } else if (title === '탐색') {
+        expect(screen.getByRole('button', { name: '기사 검색 열기' })).toBeVisible();
+        expect(screen.getByRole('heading', { name: '읽어볼 기사' })).toBeVisible();
       } else {
         expect(screen.getByText(`${title} 화면을 준비하고 있어요`)).toBeVisible();
       }

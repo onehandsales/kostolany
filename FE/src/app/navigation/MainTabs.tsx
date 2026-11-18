@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 
 import { HomeFeedScreen } from '../../features/feed/HomeFeedScreen';
-import { colors } from '../../shared/theme/tokens';
+import type { FeedSource } from '../../features/feed/types';
+import { SearchScreen } from '../../features/search/SearchScreen';
+import type { SearchSource } from '../../features/search/types';
 import { TabIcon } from '../../shared/ui/TabIcon';
 import { TabPlaceholderScreen } from '../TabPlaceholderScreen';
 import { BottomTabBar } from './BottomTabBar';
@@ -10,40 +11,33 @@ import { type MainTabParamList, tabs } from './tabs';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: colors.text,
-    background: colors.background,
-    card: colors.background,
-    text: colors.text,
-    border: colors.border,
-  },
-};
-
-export function MainTabs() {
+export function MainTabs({ onSelectArticle, source, searchSource }: {
+  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore') => void;
+  source?: FeedSource; searchSource?: SearchSource;
+}) {
   return (
-    <NavigationContainer theme={theme}>
-      <Tab.Navigator
-        initialRouteName="Home"
-        backBehavior="history"
-        tabBar={BottomTabBar}
-        screenOptions={({ route }) => ({
-          headerShown: false,
-          animation: 'none',
-          title: tabs[route.name].title,
-          tabBarAccessibilityLabel: tabs[route.name].title,
-          tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon name={tabs[route.name].icon} focused={focused} color={color} size={size} />
-          ),
-        })}
-      >
-        <Tab.Screen name="Home" component={HomeFeedScreen} />
-        <Tab.Screen name="Explore" component={TabPlaceholderScreen} />
-        <Tab.Screen name="Library" component={TabPlaceholderScreen} />
-        <Tab.Screen name="Profile" component={TabPlaceholderScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator
+      initialRouteName="Home"
+      backBehavior="history"
+      tabBar={BottomTabBar}
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        animation: 'none',
+        title: tabs[route.name].title,
+        tabBarAccessibilityLabel: tabs[route.name].title,
+        tabBarIcon: ({ focused, color, size }) => (
+          <TabIcon name={tabs[route.name].icon} focused={focused} color={color} size={size} />
+        ),
+      })}
+    >
+      <Tab.Screen name="Home">
+        {() => <HomeFeedScreen source={source} onSelectArticle={(id) => onSelectArticle(id, 'Home')} />}
+      </Tab.Screen>
+      <Tab.Screen name="Explore">
+        {() => <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />}
+      </Tab.Screen>
+      <Tab.Screen name="Library" component={TabPlaceholderScreen} />
+      <Tab.Screen name="Profile" component={TabPlaceholderScreen} />
+    </Tab.Navigator>
   );
 }

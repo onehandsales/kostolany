@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors, spacing, typography } from '../../shared/theme/tokens';
@@ -10,13 +10,9 @@ import { previewFeedSource } from './data/feedPreview';
 import { type FeedSort, type FeedSource, feedSortLabels } from './types';
 import { useFeed } from './useFeed';
 
-type HomeFeedProps = { source?: FeedSource; onSelectArticle?: (articleId: string) => void };
+type HomeFeedProps = { source?: FeedSource; onSelectArticle: (articleId: string) => void };
 
-function showDetailPending() {
-  Alert.alert('기사 상세 준비 중', '읽기 화면을 준비하고 있어요.');
-}
-
-export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle = showDetailPending }: HomeFeedProps) {
+export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedProps) {
   const [sort, setSort] = useState<FeedSort>('latest');
 
   return (

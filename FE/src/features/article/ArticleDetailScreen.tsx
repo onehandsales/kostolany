@@ -1,0 +1,100 @@
+import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
+
+import { colors, sizes, spacing, typography } from '../../shared/theme/tokens';
+import { ContentIllustration } from '../../shared/ui/ContentIllustration';
+import { ContentStatus } from '../../shared/ui/ContentStatus';
+import { previewArticleSource } from './data/articlePreview';
+import { ExplanationSection } from './ExplanationSection';
+import type { ExplanationSource } from './explanationTypes';
+import type { ArticleDetail, ArticleSource } from './types';
+import { useArticle } from './useArticle';
+
+export function ArticleDetailScreen({ articleId, onBack, source = previewArticleSource, explanationSource, backLabel = '홈으로 돌아가기' }: {
+  articleId: string; onBack: () => void; source?: ArticleSource; explanationSource?: ExplanationSource;
+  backLabel?: string;
+}) {
+  return (
+    <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
+      <View style={styles.header}>
+        <Pressable role="button" accessibilityLabel={backLabel} onPress={onBack}
+          style={({ pressed }) => [styles.back, pressed && styles.pressed]}>
+          <Svg width={24} height={24} viewBox="0 0 24 24" aria-hidden accessible={Platform.OS === 'web' ? undefined : false}>
+            <Path d="M15 4 7 12 15 20" fill="none" stroke={colors.secondaryText} strokeWidth={2} />
+          </Svg>
+        </Pressable>
+        <Text style={styles.headerLabel}>기사 읽기</Text>
+      </View>
+      {/* Changing the article starts a new reading/scroll session. */}
+      <ArticleReader key={articleId} articleId={articleId} source={source} explanationSource={explanationSource} />
+    </SafeAreaView>
+  );
+}
+
+function ArticleReader({ articleId, source, explanationSource }: {
+  articleId: string; source: ArticleSource; explanationSource?: ExplanationSource;
+}) {
+  const { state, retry } = useArticle(articleId, source);
+  return (
+    <ScrollView accessibilityLabel="기사 본문" style={styles.scroll} contentContainerStyle={styles.content}>
+      {state.status === 'loading' && <ContentStatus message="기사 내용을 불러오고 있어요" loading />}
+      {state.status === 'error' && <ContentStatus message="기사 내용을 불러오지 못했어요" error
+        actionLabel="다시 시도" onAction={retry} />}
+      {state.status === 'ready' && <ArticleBody article={state.article} explanationSource={explanationSource} />}
+    </ScrollView>
+  );
+}
+
+function ArticleBody({ article, explanationSource }: { article: ArticleDetail; explanationSource?: ExplanationSource }) {
+  return (
+    <View style={styles.article}>
+      <View style={styles.intro}>
+        <Text style={styles.exampleBadge}>예시 콘텐츠 · 실제 보도 아님</Text>
+        <Text role="heading" style={styles.title}>{article.title}</Text>
+        <Text style={styles.subtitle}>{article.subtitle}</Text>
+        <Text style={styles.metadata}>{article.readingMinutes}분 읽기 · {article.publishedLabel}</Text>
+        <Text style={styles.source}>출처 · {article.sourceName}</Text>
+      </View>
+      {article.image !== null && (
+        <View style={styles.figure}>
+          <View accessible role="img" accessibilityLabel={article.image.description} style={styles.image}>
+            <ContentIllustration variant={article.image.variant} width="100%" height="100%" />
+          </View>
+          <Text style={styles.caption}>{article.image.caption}</Text>
+        </View>
+      )}
+      <View style={styles.section}>
+        <Text role="heading" style={styles.sectionTitle}>사실 요약</Text>
+        <Text style={styles.note}>아래 내용은 읽기 화면을 위한 가상 상황입니다.</Text>
+        {article.facts.map((paragraph, index) => <Text selectable key={index} style={styles.paragraph}>{paragraph}</Text>)}
+      </View>
+      <ExplanationSection key={article.id} articleId={article.id} source={explanationSource} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: colors.background },
+  header: { flexDirection: 'row', alignItems: 'center', minHeight: 56, paddingHorizontal: spacing.medium,
+    borderBottomColor: colors.border, borderBottomWidth: StyleSheet.hairlineWidth },
+  back: { width: sizes.minimumTouchTarget, minHeight: sizes.minimumTouchTarget, alignItems: 'center', justifyContent: 'center' },
+  pressed: { opacity: 0.6 },
+  headerLabel: { ...typography.caption, color: colors.secondaryText, flex: 1, paddingVertical: spacing.small },
+  scroll: { flex: 1 },
+  content: { flexGrow: 1, paddingHorizontal: spacing.page, paddingVertical: spacing.section },
+  article: { width: '100%', maxWidth: 680, alignSelf: 'center', gap: spacing.section },
+  intro: { gap: spacing.page },
+  exampleBadge: { ...typography.caption, color: colors.secondaryText },
+  title: { fontSize: 32, lineHeight: 42, fontWeight: '700', color: colors.text },
+  subtitle: { fontSize: 20, lineHeight: 30, color: colors.secondaryText },
+  metadata: { ...typography.caption, color: colors.secondaryText },
+  source: { ...typography.body, color: colors.text },
+  figure: { gap: spacing.small },
+  image: { width: '100%', aspectRatio: 80 / 64 },
+  caption: { ...typography.caption, color: colors.secondaryText, textAlign: 'center' },
+  section: { gap: spacing.page },
+  sectionTitle: { ...typography.sectionTitle, color: colors.text },
+  note: { ...typography.caption, color: colors.secondaryText },
+  paragraph: { fontSize: 18, lineHeight: 31, color: colors.text },
+});

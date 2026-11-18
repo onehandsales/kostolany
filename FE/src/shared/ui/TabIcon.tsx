@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { colors } from '../theme/tokens';
@@ -23,7 +24,7 @@ export function TabIcon({ name, focused, color, size }: TabIconProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      accessible={false}
+      accessible={Platform.OS === 'web' ? undefined : false}
     >
       {name === 'home' && (
         <>
