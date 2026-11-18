@@ -42,6 +42,22 @@ check(flowImages.sourceCheckedAt === flowSource.checkedAt, 'Flow image source ti
 const originalById = new Map(manifest.map(s => [s.id, s]));
 const sourceByFlow = new Map(flowSource.flows.map(f => [f.flowId, f]));
 const imagesByFlow = new Map(flowImages.flows.map(f => [f.flowId, f]));
+const retainedFilesById = new Map();
+for (const flow of flowImages.flows) for (const image of flow.screens) {
+  if (!retainedFilesById.has(image.screenId)) retainedFilesById.set(image.screenId, new Set());
+  retainedFilesById.get(image.screenId).add('flows/' + flow.path + '/' + image.file);
+}
+const standaloneImageFiles = (await fs.readdir(path.join(root, 'screens')).catch(error => {
+  if (error.code === 'ENOENT') return [];
+  throw error;
+})).filter(name => /\.png$/i.test(name)).length;
+if (flowImages.storageMode === 'flow-folders') {
+  check(standaloneImageFiles === 0, 'Duplicate standalone screens remain');
+  for (const item of manifest) {
+    check(retainedFilesById.get(item.id)?.has(item.file), 'Canonical image is not retained in its Flow: ' + item.id);
+    check(item.originalFile === 'screens/' + item.id + '.png', 'Missing original image provenance: ' + item.id);
+  }
+}
 const expectedFlowImageFiles = [], expectedFlowImageDirectories = [];
 let flowImageFiles = 0, flowImageBytes = 0, flowImageFolders = 0;
 const observations = [];
@@ -108,6 +124,7 @@ for (const flow of catalog.flows) {
     const fresh = current?.screens[i], image = placed?.screens[i], original = originalById.get(screen.id);
     check(fresh?.screenUrl === screen.screenUrl && fresh?.width === screen.width && fresh?.height === screen.height, 'Image placement MCP metadata mismatch: ' + screen.id);
     check(image?.step === i + 1 && image?.file === expectedFiles[i] && image?.sourceFile === original?.file && image?.sourceUrl === screen.screenUrl, 'Image placement mapping mismatch: ' + flow.path + ' step ' + (i + 1));
+    if (flowImages.storageMode === 'flow-folders') check(image?.originalSourceFile === original?.originalFile, 'Original source provenance mismatch: ' + screen.id);
     check(!!original && image?.width === original.width && image?.height === original.height && image?.bytes === original.bytes && image?.sha256 === original.sha256, 'Image placement manifest metadata mismatch: ' + screen.id);
     const target = path.join(path.dirname(file), expectedFiles[i]);
     try {
@@ -167,6 +184,9 @@ for (const item of manifest) {
   bytes += data.length;
 }
 const result = { checkedDate: '2026-11-18', reviewRound:'R2 + flow image placement integrity review', checks: 'Document structure, flow tree, step order, source IDs, UTF-8, local links and anchors, PNG dimensions and SHA-256, R2 live inventory/order/source metadata comparison and review propagation; fresh MCP flow order/source comparison, exact per-flow file sets, regular files, ordered document image links, original/copy metadata and SHA-256 equality', flows: actualDocs.length, stepReferences: stepCount, uniqueImages: manifest.length, observations: notes.size, r2ReviewedImages:r2Audit.reviewedIndexes.length, r2CorrectedOrExpandedScreens:r2Audit.patches.length, r2FlowReviews:r2Profiles.length, officialSources: sources.length, localLinks, externalLinkReferences: sourceLinks, imageBytes: bytes, flowImageSourceCheckedAt: flowSource.checkedAt, flowImageFolders, flowImageFiles, flowImageBytes, errors, passed: errors.length === 0, scope: 'Static documentation and original/flow image integrity only; image placement does not add a visual content review; no live account or app behavior test' };
+result.storageMode = flowImages.storageMode || 'standalone-originals';
+result.standaloneImageFiles = standaloneImageFiles;
+result.checks += '; current canonical Flow image paths and original path provenance, standalone duplicate removal';
 await fs.writeFile(path.join(research, 'validation.json'), JSON.stringify(result, null, 2) + '\n', 'utf8');
 console.log(JSON.stringify(result, null, 2));
 if (errors.length) process.exitCode = 1;

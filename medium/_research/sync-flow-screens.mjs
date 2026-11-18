@@ -54,7 +54,7 @@ for (const flow of catalog.flows) {
       exists = true;
     } catch (e) { if (e.code !== 'ENOENT') throw e; }
     pending.push({from,to,exists});
-    screens.push({step:i+1,screenId:s.id,file:'screens/'+filename,sourceFile:original.file,sourceUrl:s.screenUrl,width:original.width,height:original.height,bytes:original.bytes,sha256:original.sha256});
+    screens.push({step:i+1,screenId:s.id,file:'screens/'+filename,sourceFile:original.file,sourceUrl:s.screenUrl,width:original.width,height:original.height,bytes:original.bytes,sha256:original.sha256,...(original.originalFile ? {originalSourceFile:original.originalFile} : {})});
   }
   const names = new Set(screens.map(s => path.basename(s.file)));
   if (existing.some(name => !names.has(name))) throw Error('Unexpected files in screens; kept unchanged: ' + screenDir);
@@ -72,7 +72,8 @@ const result = {
   method:'MCP flow screen order and source URLs re-queried; verified original PNGs copied as regular files without resizing',
   flows:manifestFlows, flowCount:manifestFlows.length, imageFiles:pending.length,
   uniqueScreenIds:new Set(manifestFlows.flatMap(f => f.screens.map(s => s.screenId))).size,
-  imageBytes:manifestFlows.reduce((sum,f) => sum + f.screens.reduce((n,s) => n+s.bytes,0),0)
+  imageBytes:manifestFlows.reduce((sum,f) => sum + f.screens.reduce((n,s) => n+s.bytes,0),0),
+  storageMode:[...originals.values()].every(s => s.file.startsWith('flows/')) ? 'flow-folders' : 'standalone-originals'
 };
 await fs.writeFile(path.join(research, 'flow-image-manifest.json'), JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({flows:result.flowCount,images:result.imageFiles,uniqueImages:result.uniqueScreenIds,copied,reused:pending.length-copied,bytes:result.imageBytes}));

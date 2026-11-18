@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw
 
 root = Path(__file__).resolve().parent.parent
 catalog = json.loads((root / '_research/catalog.json').read_text(encoding='utf-8'))
+images = {item['id']: item for item in json.loads((root / '_research/image-manifest.json').read_text(encoding='utf-8'))}
 dest = root / '_research/review-sheets'
 dest.mkdir(exist_ok=True)
 for start in range(0, len(catalog['screens']), 6):
@@ -14,7 +15,7 @@ for start in range(0, len(catalog['screens']), 6):
     for slot, item in enumerate(batch):
         x, y = (slot % 3) * 390, (slot // 3) * 874
         draw.text((x + 8, y + 6), f"{item['index']:03d}  {item['id']}", fill='black')
-        with Image.open(root / 'screens' / (item['id'] + '.png')) as original:
+        with Image.open(root / images[item['id']]['file']) as original:
             sheet.paste(original.resize((390, 844), Image.Resampling.LANCZOS), (x, y + 30))
     sheet.save(dest / f'{start + 1:03d}-{start + len(batch):03d}.png')
 print(f'{len(list(dest.glob("*.png")))} review sheets created')
