@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-na
 import { colors } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import type { FeedArticle } from '../feed/types';
+import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 
 export function SearchByline({ name }: { name: string }) {
   return <View style={styles.byline}>
@@ -11,21 +12,26 @@ export function SearchByline({ name }: { name: string }) {
   </View>;
 }
 
-export function SearchCard({ article, first = false, onSelect }: { article: FeedArticle; first?: boolean; onSelect: (id: string) => void }) {
+type SearchCardProps = { article: FeedArticle; first?: boolean; onSelect: (articleId: string) => void };
+
+export function SearchCard({ article, first = false, onSelect }: SearchCardProps) {
   const { fontScale } = useWindowDimensions();
   return (
-    <Pressable role="button" accessibilityLabel={`${article.title}, ${article.sourceName}, ${article.publishedLabel}`}
-      onPress={() => onSelect(article.id)} style={({ pressed }) => [styles.card, first && styles.firstCard, pressed && styles.pressed]}>
-      <SearchByline name={article.sourceName} />
-      <View style={[styles.headline, fontScale > 1.3 && styles.stacked]}>
-        <Text style={[styles.title, fontScale > 1.3 && styles.fullTitle]}>{article.title}</Text>
-        {article.thumbnail !== null && <View style={styles.thumbnail}>
-          <ContentIllustration variant={article.thumbnail} width={80} height={64} />
-        </View>}
-      </View>
-      <Text style={styles.summary}>{article.summary}</Text>
-      <Text style={styles.metadata}>{article.publishedLabel} · {article.readingMinutes}분 읽기</Text>
-    </Pressable>
+    <View style={[styles.card, first && styles.firstCard]}>
+      <Pressable role="button" accessibilityLabel={`${article.title}, ${article.sourceName}, ${article.publishedLabel}`}
+        onPress={() => onSelect(article.id)} style={({ pressed }) => [pressed && styles.pressed]}>
+        <SearchByline name={article.sourceName} />
+        <View style={[styles.headline, fontScale > 1.3 && styles.stacked]}>
+          <Text style={[styles.title, fontScale > 1.3 && styles.fullTitle]}>{article.title}</Text>
+          {article.thumbnail !== null && <View style={styles.thumbnail}>
+            <ContentIllustration variant={article.thumbnail} width={80} height={64} />
+          </View>}
+        </View>
+        <Text style={styles.summary}>{article.summary}</Text>
+        <Text style={styles.metadata}>{article.publishedLabel} · {article.readingMinutes}분 읽기</Text>
+      </Pressable>
+      <View style={styles.reaction}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
+    </View>
   );
 }
 
@@ -33,6 +39,7 @@ const styles = StyleSheet.create({
   card: { paddingHorizontal: 24, paddingTop: 32, paddingBottom: 32,
     borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   firstCard: { paddingTop: 16 },
+  reaction: { marginTop: 8 },
   pressed: { opacity: 0.6 },
   byline: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   avatar: { width: 20, height: 20, borderRadius: 4, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'center' },

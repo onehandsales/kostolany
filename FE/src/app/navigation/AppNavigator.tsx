@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ArticleDetailScreen } from '../../features/article/ArticleDetailScreen';
 import type { ArticleSource } from '../../features/article/types';
 import type { FeedSource } from '../../features/feed/types';
+import { LikeProvider } from '../../features/likes/LikeProvider';
+import type { LikeSource } from '../../features/likes/types';
 import type { SearchSource } from '../../features/search/types';
 import { colors } from '../../shared/theme/tokens';
 import { MainTabs } from './MainTabs';
@@ -19,26 +21,30 @@ const theme = {
   },
 };
 
-export function AppNavigator({ articleSource, feedSource, searchSource }: {
-  articleSource?: ArticleSource; feedSource?: FeedSource; searchSource?: SearchSource;
-}) {
+type AppNavigatorProps = {
+  articleSource?: ArticleSource; feedSource?: FeedSource; searchSource?: SearchSource; likeSource?: LikeSource;
+};
+
+export function AppNavigator({ articleSource, feedSource, searchSource, likeSource }: AppNavigatorProps) {
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main">
-          {({ navigation }) => (
-            <MainTabs source={feedSource} searchSource={searchSource}
-              onSelectArticle={(articleId, origin) => navigation.navigate('Article', { articleId, origin })} />
-          )}
-        </Stack.Screen>
-        <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
-          {({ route, navigation }) => (
-            <ArticleDetailScreen articleId={route.params.articleId}
-              source={articleSource} onBack={() => navigation.goBack()}
-              backLabel={route.params.origin === 'Explore' ? '탐색으로 돌아가기' : '홈으로 돌아가기'} />
-          )}
-        </Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <LikeProvider source={likeSource}>
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Main">
+            {({ navigation }) => (
+              <MainTabs source={feedSource} searchSource={searchSource}
+                onSelectArticle={(articleId, origin) => navigation.navigate('Article', { articleId, origin })} />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
+            {({ route, navigation }) => (
+              <ArticleDetailScreen articleId={route.params.articleId}
+                source={articleSource} onBack={() => navigation.goBack()}
+                backLabel={route.params.origin === 'Explore' ? '탐색으로 돌아가기' : '홈으로 돌아가기'} />
+            )}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </LikeProvider>
   );
 }

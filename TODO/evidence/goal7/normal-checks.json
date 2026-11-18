@@ -1,0 +1,12 @@
+{
+  "mode": "normal",
+  "date": "2026-11-18T08:32:12.725Z",
+  "browser": "Chrome/158.0.8127.36",
+  "checks": [
+    "desktop home like -> detail unlike -> home -> search like -> detail -> results -> home consistent",
+    "390px original comparison; 48px touch; final paragraph above bar; 320px and CSS 2x text no horizontal overflow",
+    "full reload resets fixed mock user likes"
+  ],
+  "errors": [],
+  "externalRequests": []
+}

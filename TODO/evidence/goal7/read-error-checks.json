@@ -1,0 +1,10 @@
+{
+  "mode": "read-error",
+  "date": "2026-11-18T08:31:32.628Z",
+  "browser": "Chrome/158.0.8127.36",
+  "checks": [
+    "initial read error, unknown count, disabled action, read retry"
+  ],
+  "errors": [],
+  "externalRequests": []
+}

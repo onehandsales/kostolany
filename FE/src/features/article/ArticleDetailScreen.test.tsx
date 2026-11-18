@@ -1,5 +1,6 @@
-import { act, render, screen, userEvent, within } from '@testing-library/react-native';
+import { act, render as renderNative, screen, userEvent, within } from '@testing-library/react-native';
 import { StrictMode } from 'react';
+import { LikeTestProvider, renderWithLikes as render } from '../../../test/renderWithLikes';
 
 import { deferred } from '../feed/tests/helpers';
 import { ArticleDetailScreen } from './ArticleDetailScreen';
@@ -107,7 +108,7 @@ describe('Article detail', () => {
     const abandoned = deferred<ArticleDetail>();
     const source = jest.fn<Promise<ArticleDetail>, [string]>()
       .mockReturnValueOnce(abandoned.promise).mockResolvedValue(illustrated);
-    await render(<StrictMode><ArticleDetailScreen articleId={illustrated.id} source={source} onBack={jest.fn()} /></StrictMode>);
+    await renderNative(<StrictMode><LikeTestProvider><ArticleDetailScreen articleId={illustrated.id} source={source} onBack={jest.fn()} /></LikeTestProvider></StrictMode>);
     await screen.findByRole('heading', { name: illustrated.title });
     await act(async () => abandoned.reject(new Error('abandoned')));
     expect(screen.getByRole('heading', { name: illustrated.title })).toBeVisible();

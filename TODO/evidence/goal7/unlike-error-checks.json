@@ -1,0 +1,10 @@
+{
+  "mode": "unlike-error",
+  "date": "2026-11-18T08:31:27.652Z",
+  "browser": "Chrome/158.0.8127.36",
+  "checks": [
+    "unlike-error: desktop rollback, mobile retry, home shares result"
+  ],
+  "errors": [],
+  "externalRequests": []
+}

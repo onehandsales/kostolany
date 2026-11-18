@@ -1,5 +1,6 @@
-import { act, render, screen, userEvent, within } from '@testing-library/react-native';
+import { act, render as renderNative, screen, userEvent, within } from '@testing-library/react-native';
 import { StrictMode } from 'react';
+import { LikeTestProvider, renderWithLikes as render } from '../../../test/renderWithLikes';
 
 import { createMockFeedSource } from './data/mockFeedSource';
 import { HomeFeedScreen } from './HomeFeedScreen';
@@ -150,7 +151,7 @@ describe('Home feed', () => {
     const source = jest.fn<Promise<FeedPage>, [FeedRequest]>()
       .mockReturnValueOnce(abandoned.promise)
       .mockResolvedValue({ items: [article('current')], nextCursor: null });
-    await render(<StrictMode><HomeFeedScreen source={source} onSelectArticle={jest.fn()} /></StrictMode>);
+    await renderNative(<StrictMode><LikeTestProvider><HomeFeedScreen source={source} onSelectArticle={jest.fn()} /></LikeTestProvider></StrictMode>);
 
     expect(await screen.findByRole('button', { name: /^예시 기사 current/ })).toBeVisible();
     await act(async () => abandoned.reject(new Error('abandoned')));

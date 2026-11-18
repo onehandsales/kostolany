@@ -1,0 +1,13 @@
+{
+  "button": {
+    "x": 24,
+    "y": 792,
+    "width": 55.09375,
+    "height": 48
+  },
+  "label": "좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 24개, 선택 안 됨",
+  "role": "button",
+  "pressed": "false",
+  "busy": "false",
+  "horizontalOverflow": false
+}

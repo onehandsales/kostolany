@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 6의 기사 검색까지 구현했다. 홈·탐색에서 예시 기사의 상세를 읽고 초등학생·중학생·고등학생·성인 수준의 설명과 예시를 선택할 수 있다. 라이브러리·프로필은 준비 중 안내를 유지한다. 검색 화면은 PC 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기 검증은 대기 중이다.
+React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 7의 좋아요 등록·해제까지 구현했다. 홈·탐색에서 예시 기사의 상세를 읽고 4단계 설명과 예시를 선택하며, 같은 기사의 좋아요 상태를 목록·상세에서 공유한다. 라이브러리·프로필은 준비 중 안내를 유지한다. 검색·좋아요는 PC 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기 검증은 대기 중이다.
 
 ## 환경과 기술 선택
 
@@ -71,7 +71,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트 67개를 iOS·Android Jest 설정에서 각각 실행한다(총 134건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트 97개를 iOS·Android Jest 설정에서 각각 실행한다(총 194건). 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -110,6 +110,11 @@ src/features/search/SearchScreen.tsx 탐색·검색 입력·빈 입력·결과·
 src/features/search/SearchCard.tsx   검색 전용 카드·출처·전체 폭 요약
 src/features/search/useSearch.ts     debounce·재시도·이전 응답 차단
 src/features/search/data/            예시 검색 규칙·주제 바로가기·상태 재현
+src/features/likes/LikeProvider.tsx  앱 수명의 반응 상태 소유자
+src/features/likes/createLikeStore.ts 기사별 직렬 변경·최신 의도·낙관적 표시·복구
+src/features/likes/useArticleLike.ts 기사별 구독과 입력 연결
+src/features/likes/ArticleLikeControl.tsx 하트·수치·처리/실패·접근성 표시
+src/features/likes/data/             모의 사용자·반응 수치·실패/지연 시나리오
 src/shared/theme/tokens.ts           현재 화면에 필요한 색상·글자·간격
 src/shared/ui/ContentIllustration.tsx 피드·상세가 공유하는 자체 SVG 삽화
 src/shared/ui/ContentStatus.tsx      로딩·오류·재시도 공통 표시
@@ -193,17 +198,35 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `slow` | 10초 지연; 요청 중 지운 검색어의 늦은 결과 무시 |
 | `out-of-order` | 금리 1,200ms·나머지 200ms. 금리 입력 후 250ms 이상 기다려 요청을 시작하고 환율로 바꾸면 늦은 금리 응답 무시 |
 
-원본의 검색창·주제 행·유형 밑줄·출처/제목/썸네일/전체 폭 요약/메타데이터 배치를 반영했다. 기사 외 유형, 반응·저장·글쓰기는 이번 범위에서 제외했다. [원본/구현 비교](../TODO/evidence/goal6/COMPARISON.html)와 [Goal 6 검증 기록](../TODO/FE_GOAL_06_RESULT.md)에 원본 대비 차이를 기록했다.
+원본의 검색창·주제 행·유형 밑줄·출처/제목/썸네일/전체 폭 요약/메타데이터 배치를 반영했다. 기사 외 유형·저장·글쓰기는 제외하며 검색 카드의 좋아요는 Goal 7에서 추가했다. [검색 원본/구현 비교](../TODO/evidence/goal6/COMPARISON.html)와 [Goal 6 검증 기록](../TODO/FE_GOAL_06_RESULT.md)은 반응 추가 전 이력이다.
+
+## 좋아요 예시와 상태 재현
+
+홈·검색 결과의 하트와 상세 하단의 하트는 같은 기사 반응을 공유한다. 고정 모의 사용자 `example-reader`가 1좋아요를 등록·해제하는 화면용 기본안이다. 처음에는 모든 기사 미선택이며 수치는 0~128의 임의 예시다. 저장소는 앱 실행 동안 유지되고 전체 새로고침·앱 재실행 시 초기화한다. 기기에 영속 저장하지 않는다.
+
+기사별 요청은 직렬 처리하며 가장 최근 선택만 대기한다. 수치와 선택을 먼저 보여주고 최신 변경이 실패하면 확정 상태로 복구한다. 재시도는 실패했던 목표를 그대로 사용한다. 이전 조회 응답과 이전 범위의 응답이 최신 상태를 덮지 않도록 처리한다.
+
+`src/features/likes/data/likePreview.ts`의 `likePreviewScenario`를 변경하고 전체 새로고침하면 아래 상태를 확인할 수 있다. 결과 전달 시 기본값은 `normal`이다.
+
+| 시나리오 | 동작 |
+| --- | --- |
+| `normal` | 조회·쓰기 각각 350ms 뒤 성공 |
+| `write-error` | 기사별 첫 변경 실패, 상태·수치 복구 후 재시도 |
+| `unlike-error` | 등록 성공 후 첫 해제 실패, 선택·수치 복구 후 해제 재시도 |
+| `read-error` | 첫 조회 실패, 수치 미확인 표시 후 조회 재시도 |
+| `slow` | 조회·쓰기 1,800ms 지연, 연속 입력·이동 중 마지막 선택 확인 |
+
+[Goal 7 결과](../TODO/FE_GOAL_07_RESULT.md)에 상태 소유자·수명·동시성·초기 수치·실패 계약을 기록했다. [Medium 반응 비교](../TODO/evidence/goal7/COMPARISON.html)는 원본 박수와 우리 단일 좋아요의 차이를 포함한다.
 
 ## 검증 범위와 남은 확인
 
 - 사용자 확인: 현재 사용할 수 있는 휴대폰이 없다.
 - 현재 Windows 환경: Android SDK·adb·에뮬레이터를 발견하지 못했다. macOS/Xcode 환경도 없다.
-- 따라서 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6 검색 화면의 브라우저 모바일 폭 비교와 구분한다.
-- 보관된 Medium iOS 홈·Story detail·Explore/Searching Medium 캡처를 참고했다. 4단계 설명 선택은 우리 앱의 자체 확장이다. 반응·저장 목록·프로필 기능은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
+- 따라서 실제 기기·시뮬레이터 실행, 네이티브 화면 캡처와 원본 비교, 네이티브 빌드·설치·출시는 미검증이다. Goal 6~7의 브라우저 모바일 폭 비교와 구분한다.
+- 보관된 Medium iOS 홈·Story detail/Sending claps·Explore/Searching Medium 캡처를 참고했다. 4단계 설명과 단일 좋아요는 우리 앱의 기본안이다. 저장 목록·로그인·프로필 기능은 후속 Goal이다. Medium 원본의 탭 의미·글·이미지를 그대로 사용한 것은 아니다.
 - 인증·API·DB·Storage·RSS·AI 호출은 구현하지 않았다.
 
-현재 구현과 검증은 [Goal 6 결과 기록](../TODO/FE_GOAL_06_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)에 보존한다. Goal 7은 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~6에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
+현재 구현과 검증은 [Goal 7 결과 기록](../TODO/FE_GOAL_07_RESULT.md)을 따른다. 이전 이력은 [Goal 1](../TODO/FE_GOAL_01_RESULT.md)·[Goal 2](../TODO/FE_GOAL_02_RESULT.md)·[Goal 3](../TODO/FE_GOAL_03_RESULT.md)·[Goal 4](../TODO/FE_GOAL_04_RESULT.md)·[Goal 5](../TODO/FE_GOAL_05_RESULT.md)·[Goal 6](../TODO/FE_GOAL_06_RESULT.md)에 보존한다. Goal 8은 별도 요청 없이 시작하지 않는다. Goal 4 당시 npm audit는 67건(높음 65·보통 2)을 보고했으며 미해결이다. Goal 5~7에서 의존성·lockfile은 변경하지 않았고 audit를 재실행하지 않았다.
 
 ## 적용 규칙
 

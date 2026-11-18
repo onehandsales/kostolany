@@ -1,0 +1,10 @@
+{
+  "mode": "slow",
+  "date": "2026-11-18T08:31:42.396Z",
+  "browser": "Chrome/158.0.8127.36",
+  "checks": [
+    "rapid like/unlike/like -> pending detail -> unlike -> home retains final intent"
+  ],
+  "errors": [],
+  "externalRequests": []
+}

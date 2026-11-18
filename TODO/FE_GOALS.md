@@ -3,7 +3,7 @@
 작성일: 2026-11-17  
 작업 위치: `D:\git_repository\kostolany_project\FE`  
 규칙 위치: `D:\git_repository\kostolany_project\AGENT`  
-현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6은 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 7~13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다.
+현재 상태: Goal 1의 구현·자동 검증 완료, 기기 실행은 미검증. Goal 2~5는 구현·자동 검증 완료, 기기 실행·원본 비교 검증 대기다. Goal 5의 PC 브라우저 흐름은 확인했다. Goal 6~7은 구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교를 수행했고, 실제 기기 검증은 대기다. Goal 8~13은 미착수다. [Goal 1 결과](FE_GOAL_01_RESULT.md), [Goal 2 결과](FE_GOAL_02_RESULT.md), [Goal 3 결과](FE_GOAL_03_RESULT.md), [Goal 4 결과](FE_GOAL_04_RESULT.md), [Goal 5 결과](FE_GOAL_05_RESULT.md), [Goal 6 결과](FE_GOAL_06_RESULT.md), [Goal 7 결과](FE_GOAL_07_RESULT.md)를 확인한다. 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다.
 
 ## 목표와 현재 범위
 
@@ -81,7 +81,7 @@
 | 4 | 기사 상세 화면 | 구현·자동 검증 완료 / 기기·원본 비교 검증 대기 |
 | 5 | 4단계 설명 선택과 본문 전환 | 구현·자동 검증·PC 브라우저 확인 / 기기·원본 비교 검증 대기 |
 | 6 | 기사 검색과 검색 결과 | 구현·자동 검증·PC 흐름·모바일 폭 원본 비교 완료 / 실제 기기 검증 대기 |
-| 7 | 좋아요 등록·해제 | 미착수 |
+| 7 | 좋아요 등록·해제 | 구현·자동 검증·PC 흐름·모바일 폭 원본 비교 완료 / 실제 기기 검증 대기 |
 | 8 | 북마크 저장·해제와 저장 목록 | 미착수 |
 | 9 | 라이브러리 목록 생성·수정·삭제 | 미착수 |
 | 10 | 모의 로그인·취소·로그아웃 | 미착수 |

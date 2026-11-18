@@ -5,6 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 import { colors, sizes, spacing, typography } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
+import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 import { previewArticleSource } from './data/articlePreview';
 import { ExplanationSection } from './ExplanationSection';
 import type { ExplanationSource } from './explanationTypes';
@@ -26,7 +27,7 @@ export function ArticleDetailScreen({ articleId, onBack, source = previewArticle
         </Pressable>
         <Text style={styles.headerLabel}>기사 읽기</Text>
       </View>
-      {/* Changing the article starts a new reading/scroll session. */}
+      {/* 기사가 바뀌면 본문과 스크롤 세션만 새로 시작하고 공유 반응은 유지한다. */}
       <ArticleReader key={articleId} articleId={articleId} source={source} explanationSource={explanationSource} />
     </SafeAreaView>
   );
@@ -37,12 +38,19 @@ function ArticleReader({ articleId, source, explanationSource }: {
 }) {
   const { state, retry } = useArticle(articleId, source);
   return (
-    <ScrollView accessibilityLabel="기사 본문" style={styles.scroll} contentContainerStyle={styles.content}>
-      {state.status === 'loading' && <ContentStatus message="기사 내용을 불러오고 있어요" loading />}
-      {state.status === 'error' && <ContentStatus message="기사 내용을 불러오지 못했어요" error
-        actionLabel="다시 시도" onAction={retry} />}
-      {state.status === 'ready' && <ArticleBody article={state.article} explanationSource={explanationSource} />}
-    </ScrollView>
+    <View style={styles.reader}>
+      <ScrollView accessibilityLabel="기사 본문" style={styles.scroll} contentContainerStyle={styles.content}>
+        {state.status === 'loading' && <ContentStatus message="기사 내용을 불러오고 있어요" loading />}
+        {state.status === 'error' && <ContentStatus message="기사 내용을 불러오지 못했어요" error
+          actionLabel="다시 시도" onAction={retry} />}
+        {state.status === 'ready' && <ArticleBody article={state.article} explanationSource={explanationSource} />}
+      </ScrollView>
+      {state.status === 'ready' && <View style={styles.reactionBar}>
+        <View style={styles.reactionContent}>
+          <ArticleLikeControl articleId={state.article.id} articleTitle={state.article.title} />
+        </View>
+      </View>}
+    </View>
   );
 }
 
@@ -82,6 +90,10 @@ const styles = StyleSheet.create({
   pressed: { opacity: 0.6 },
   headerLabel: { ...typography.caption, color: colors.secondaryText, flex: 1, paddingVertical: spacing.small },
   scroll: { flex: 1 },
+  reader: { flex: 1 },
+  reactionBar: { borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: spacing.page, paddingVertical: 4 },
+  reactionContent: { width: '100%', maxWidth: 680, alignSelf: 'center' },
   content: { flexGrow: 1, paddingHorizontal: spacing.page, paddingVertical: spacing.section },
   article: { width: '100%', maxWidth: 680, alignSelf: 'center', gap: spacing.section },
   intro: { gap: spacing.page },

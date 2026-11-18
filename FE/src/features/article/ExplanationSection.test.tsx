@@ -1,5 +1,6 @@
-import { act, render, screen, userEvent, within } from '@testing-library/react-native';
+import { act, render as renderNative, screen, userEvent, within } from '@testing-library/react-native';
 import { StrictMode } from 'react';
+import { renderWithLikes as render } from '../../../test/renderWithLikes';
 
 import { deferred } from '../feed/tests/helpers';
 import { ArticleDetailScreen } from './ArticleDetailScreen';
@@ -163,7 +164,7 @@ describe('Explanation levels', () => {
     const abandoned = deferred<ArticleExplanation>();
     const source = jest.fn<Promise<ArticleExplanation>, [ExplanationRequest]>()
       .mockReturnValueOnce(abandoned.promise).mockResolvedValue(fixture('adult'));
-    await render(<StrictMode><ExplanationSection articleId={article.id} source={source} /></StrictMode>);
+    await renderNative(<StrictMode><ExplanationSection articleId={article.id} source={source} /></StrictMode>);
     await screen.findByText(fixture('adult').example);
     await act(async () => abandoned.reject(new Error('abandoned')));
     expect(body().getByText(fixture('adult').example)).toBeVisible();

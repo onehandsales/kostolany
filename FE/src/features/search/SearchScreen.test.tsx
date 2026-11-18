@@ -1,5 +1,6 @@
-import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { StrictMode } from 'react';
+import { renderWithLikes as render } from '../../../test/renderWithLikes';
 
 import { article, deferred } from '../feed/tests/helpers';
 import { createMockSearchSource } from './data/mockSearchSource';
