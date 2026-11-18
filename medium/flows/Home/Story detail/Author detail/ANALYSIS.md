@@ -45,10 +45,10 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 | 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |
 | --- | --- | --- | --- |
-| 01 | [`sc_332d5b0923e546fcbf6a8fc613cda6a4`](https://gummble.com/screens/sc_332d5b0923e546fcbf6a8fc613cda6a4?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 기사 상세 상단 | 작가 프로필 Stories — 고정 글 Pinned 표시 |
-| 02 | [`sc_3de359a1c13340968c4b733188faa6d1`](https://gummble.com/screens/sc_3de359a1c13340968c4b733188faa6d1?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 작가 프로필 Stories | 작가 공개 리스트 — 작가 목록 탐색 |
-| 03 | [`sc_334d50df678445baaa7ba445c96861ba`](https://gummble.com/screens/sc_334d50df678445baaa7ba445c96861ba?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 작가 공개 리스트 | 작가 About — 소개·회원 이력 표시 |
-| 04 | [`sc_74429222aa3d45a89f1980b3aa0b6f9e`](https://gummble.com/screens/sc_74429222aa3d45a89f1980b3aa0b6f9e?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 작가 About | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
+| 01 | [`sc_332d5b0923e546fcbf6a8fc613cda6a4`](https://gummble.com/screens/sc_332d5b0923e546fcbf6a8fc613cda6a4?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [기사 상세 상단](<screens/01_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>) | 작가 프로필 Stories — 고정 글 Pinned 표시 |
+| 02 | [`sc_3de359a1c13340968c4b733188faa6d1`](https://gummble.com/screens/sc_3de359a1c13340968c4b733188faa6d1?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [작가 프로필 Stories](<screens/02_sc_3de359a1c13340968c4b733188faa6d1.png>) | 작가 공개 리스트 — 작가 목록 탐색 |
+| 03 | [`sc_334d50df678445baaa7ba445c96861ba`](https://gummble.com/screens/sc_334d50df678445baaa7ba445c96861ba?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [작가 공개 리스트](<screens/03_sc_334d50df678445baaa7ba445c96861ba.png>) | 작가 About — 소개·회원 이력 표시 |
+| 04 | [`sc_74429222aa3d45a89f1980b3aa0b6f9e`](https://gummble.com/screens/sc_74429222aa3d45a89f1980b3aa0b6f9e?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [작가 About](<screens/04_sc_74429222aa3d45a89f1980b3aa0b6f9e.png>) | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
 
 ## 4. 화면별 상세 분석
 
@@ -56,7 +56,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_332d5b0923e546fcbf6a8fc613cda6a4`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_332d5b0923e546fcbf6a8fc613cda6a4?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/13453844-2b66-4c67-bc3b-83e90116cd49.png)
-- 로컬 이미지: [sc_332d5b0923e546fcbf6a8fc613cda6a4.png](<../../../../screens/sc_332d5b0923e546fcbf6a8fc613cda6a4.png>)
+- 로컬 이미지: [01_sc_332d5b0923e546fcbf6a8fc613cda6a4.png](<screens/01_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -87,7 +87,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_3de359a1c13340968c4b733188faa6d1`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_3de359a1c13340968c4b733188faa6d1?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/5f5a2b22-7784-4f14-b72d-88ec4ad97ff9.png)
-- 로컬 이미지: [sc_3de359a1c13340968c4b733188faa6d1.png](<../../../../screens/sc_3de359a1c13340968c4b733188faa6d1.png>)
+- 로컬 이미지: [02_sc_3de359a1c13340968c4b733188faa6d1.png](<screens/02_sc_3de359a1c13340968c4b733188faa6d1.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -117,7 +117,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_334d50df678445baaa7ba445c96861ba`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_334d50df678445baaa7ba445c96861ba?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/4ebf28e8-7afe-4339-b662-85e48087a4bf.png)
-- 로컬 이미지: [sc_334d50df678445baaa7ba445c96861ba.png](<../../../../screens/sc_334d50df678445baaa7ba445c96861ba.png>)
+- 로컬 이미지: [03_sc_334d50df678445baaa7ba445c96861ba.png](<screens/03_sc_334d50df678445baaa7ba445c96861ba.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -147,7 +147,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_74429222aa3d45a89f1980b3aa0b6f9e`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_74429222aa3d45a89f1980b3aa0b6f9e?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/3d84e55d-4266-4146-98d5-d28e40e328c4.png)
-- 로컬 이미지: [sc_74429222aa3d45a89f1980b3aa0b6f9e.png](<../../../../screens/sc_74429222aa3d45a89f1980b3aa0b6f9e.png>)
+- 로컬 이미지: [04_sc_74429222aa3d45a89f1980b3aa0b6f9e.png](<screens/04_sc_74429222aa3d45a89f1980b3aa0b6f9e.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -224,3 +224,4 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 | R1 | 2026-11-18 KST | MCP 4단계와 실제 이미지 4단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |
 | R2 | 2026-11-18 KST | MCP 4단계 순서 재조회 및 이미지 재검토. 2개 단계의 관찰·표현 보완. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |
 | 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |
+| 이미지 배치 | 2026-11-18 KST | MCP 단계 목록 재조회 후 이 흐름의 원본 4개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |

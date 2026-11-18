@@ -45,10 +45,10 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 | 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |
 | --- | --- | --- | --- |
-| 01 | [`sc_0b1e7b64b9f14f2cb5358161e0f67a94`](https://gummble.com/screens/sc_0b1e7b64b9f14f2cb5358161e0f67a94?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 내 리스트 상세 항목 | 내 리스트 관리 메뉴 — 목록 관리 작업 선택 |
-| 02 | [`sc_71f31ac7803a47f89b2e76b6a9355a7c`](https://gummble.com/screens/sc_71f31ac7803a47f89b2e76b6a9355a7c?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 내 리스트 관리 메뉴 | 리스트 삭제 확인 시트 — 삭제 전 영향 확인 |
-| 03 | [`sc_a1562b1931fc4650a544861094934588`](https://gummble.com/screens/sc_a1562b1931fc4650a544861094934588?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 삭제 확인 시트 | 리스트 삭제 후 라이브러리 — 대상 리스트 제거 표시 |
-| 04 | [`sc_7749ef5c35474c229a2515a9c2a53878`](https://gummble.com/screens/sc_7749ef5c35474c229a2515a9c2a53878?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 삭제 후 라이브러리 | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
+| 01 | [`sc_0b1e7b64b9f14f2cb5358161e0f67a94`](https://gummble.com/screens/sc_0b1e7b64b9f14f2cb5358161e0f67a94?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [내 리스트 상세 항목](<screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>) | 내 리스트 관리 메뉴 — 목록 관리 작업 선택 |
+| 02 | [`sc_71f31ac7803a47f89b2e76b6a9355a7c`](https://gummble.com/screens/sc_71f31ac7803a47f89b2e76b6a9355a7c?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [내 리스트 관리 메뉴](<screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png>) | 리스트 삭제 확인 시트 — 삭제 전 영향 확인 |
+| 03 | [`sc_a1562b1931fc4650a544861094934588`](https://gummble.com/screens/sc_a1562b1931fc4650a544861094934588?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 삭제 확인 시트](<screens/03_sc_a1562b1931fc4650a544861094934588.png>) | 리스트 삭제 후 라이브러리 — 대상 리스트 제거 표시 |
+| 04 | [`sc_7749ef5c35474c229a2515a9c2a53878`](https://gummble.com/screens/sc_7749ef5c35474c229a2515a9c2a53878?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 삭제 후 라이브러리](<screens/04_sc_7749ef5c35474c229a2515a9c2a53878.png>) | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
 
 ## 4. 화면별 상세 분석
 
@@ -56,7 +56,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_0b1e7b64b9f14f2cb5358161e0f67a94`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_0b1e7b64b9f14f2cb5358161e0f67a94?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/f3a0926a-65c5-4dd0-af48-c8e9e508f734.png)
-- 로컬 이미지: [sc_0b1e7b64b9f14f2cb5358161e0f67a94.png](<../../../../screens/sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>)
+- 로컬 이미지: [01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png](<screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -87,7 +87,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_71f31ac7803a47f89b2e76b6a9355a7c`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_71f31ac7803a47f89b2e76b6a9355a7c?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/2f2403ea-b72c-4701-a9f2-afbeba4175f8.png)
-- 로컬 이미지: [sc_71f31ac7803a47f89b2e76b6a9355a7c.png](<../../../../screens/sc_71f31ac7803a47f89b2e76b6a9355a7c.png>)
+- 로컬 이미지: [02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png](<screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -118,7 +118,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_a1562b1931fc4650a544861094934588`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_a1562b1931fc4650a544861094934588?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/510d463a-de46-4da2-8dff-ed182010d4f1.png)
-- 로컬 이미지: [sc_a1562b1931fc4650a544861094934588.png](<../../../../screens/sc_a1562b1931fc4650a544861094934588.png>)
+- 로컬 이미지: [03_sc_a1562b1931fc4650a544861094934588.png](<screens/03_sc_a1562b1931fc4650a544861094934588.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -148,7 +148,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_7749ef5c35474c229a2515a9c2a53878`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_7749ef5c35474c229a2515a9c2a53878?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/e86cfdc6-225e-44e0-9fd7-03bfd115389c.png)
-- 로컬 이미지: [sc_7749ef5c35474c229a2515a9c2a53878.png](<../../../../screens/sc_7749ef5c35474c229a2515a9c2a53878.png>)
+- 로컬 이미지: [04_sc_7749ef5c35474c229a2515a9c2a53878.png](<screens/04_sc_7749ef5c35474c229a2515a9c2a53878.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -224,3 +224,4 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 | R1 | 2026-11-18 KST | MCP 4단계와 실제 이미지 4단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |
 | R2 | 2026-11-18 KST | MCP 4단계 순서 재조회 및 이미지 재검토. 3개 단계의 관찰·표현 보완. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |
 | 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |
+| 이미지 배치 | 2026-11-18 KST | MCP 단계 목록 재조회 후 이 흐름의 원본 4개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |

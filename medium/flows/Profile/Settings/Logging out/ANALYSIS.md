@@ -45,9 +45,9 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 | 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |
 | --- | --- | --- | --- |
-| 01 | [`sc_c653047933aa40b2be7a8f281643d41d`](https://gummble.com/screens/sc_c653047933aa40b2be7a8f281643d41d?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 설정 하단 | 로그아웃 확인 — 세션 종료 전 확인 |
-| 02 | [`sc_2d1afd7a02a347868564f9757753d077`](https://gummble.com/screens/sc_2d1afd7a02a347868564f9757753d077?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 로그아웃 확인 | 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다. |
-| 03 | [`sc_d55739aa2ac1495da026006235e7c0a7`](https://gummble.com/screens/sc_d55739aa2ac1495da026006235e7c0a7?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 가입 공급자 선택 | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
+| 01 | [`sc_c653047933aa40b2be7a8f281643d41d`](https://gummble.com/screens/sc_c653047933aa40b2be7a8f281643d41d?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [설정 하단](<screens/01_sc_c653047933aa40b2be7a8f281643d41d.png>) | 로그아웃 확인 — 세션 종료 전 확인 |
+| 02 | [`sc_2d1afd7a02a347868564f9757753d077`](https://gummble.com/screens/sc_2d1afd7a02a347868564f9757753d077?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [로그아웃 확인](<screens/02_sc_2d1afd7a02a347868564f9757753d077.png>) | 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다. |
+| 03 | [`sc_d55739aa2ac1495da026006235e7c0a7`](https://gummble.com/screens/sc_d55739aa2ac1495da026006235e7c0a7?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [가입 공급자 선택](<screens/03_sc_d55739aa2ac1495da026006235e7c0a7.png>) | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
 
 ## 4. 화면별 상세 분석
 
@@ -55,7 +55,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_c653047933aa40b2be7a8f281643d41d`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_c653047933aa40b2be7a8f281643d41d?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/b962cd25-aeba-418a-b57f-d184b97c1516.png)
-- 로컬 이미지: [sc_c653047933aa40b2be7a8f281643d41d.png](<../../../../screens/sc_c653047933aa40b2be7a8f281643d41d.png>)
+- 로컬 이미지: [01_sc_c653047933aa40b2be7a8f281643d41d.png](<screens/01_sc_c653047933aa40b2be7a8f281643d41d.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -86,7 +86,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_2d1afd7a02a347868564f9757753d077`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_2d1afd7a02a347868564f9757753d077?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/750409d6-a8aa-47aa-b932-ec2fb7a1a1d4.png)
-- 로컬 이미지: [sc_2d1afd7a02a347868564f9757753d077.png](<../../../../screens/sc_2d1afd7a02a347868564f9757753d077.png>)
+- 로컬 이미지: [02_sc_2d1afd7a02a347868564f9757753d077.png](<screens/02_sc_2d1afd7a02a347868564f9757753d077.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -116,7 +116,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_d55739aa2ac1495da026006235e7c0a7`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_d55739aa2ac1495da026006235e7c0a7?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/06daa1db-d838-42a5-b94b-d2abef826642.png)
-- 로컬 이미지: [sc_d55739aa2ac1495da026006235e7c0a7.png](<../../../../screens/sc_d55739aa2ac1495da026006235e7c0a7.png>)
+- 로컬 이미지: [03_sc_d55739aa2ac1495da026006235e7c0a7.png](<screens/03_sc_d55739aa2ac1495da026006235e7c0a7.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP 고화질 이미지 시각 확인
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -188,3 +188,4 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 | R1 | 2026-11-18 KST | MCP 3단계와 실제 이미지 3단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |
 | R2 | 2026-11-18 KST | MCP 3단계 순서 재조회 및 이미지 재검토. 1개 단계의 관찰·표현 보완. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |
 | 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |
+| 이미지 배치 | 2026-11-18 KST | MCP 단계 목록 재조회 후 이 흐름의 원본 3개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |

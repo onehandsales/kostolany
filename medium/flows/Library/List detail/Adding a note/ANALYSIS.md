@@ -45,11 +45,11 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 | 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |
 | --- | --- | --- | --- |
-| 01 | [`sc_e20e59ee459b4a0d9a0a0302091962bd`](https://gummble.com/screens/sc_e20e59ee459b4a0d9a0a0302091962bd?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 상세 스크롤 | 리스트 항목 메뉴 — 항목별 관리 |
-| 02 | [`sc_fa4e79f0bed747d698ae44e23f9223f9`](https://gummble.com/screens/sc_fa4e79f0bed747d698ae44e23f9223f9?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 항목 메뉴 | 리스트 항목 메모 폼 — 메모 입력 전 |
-| 03 | [`sc_ffa4d0c8f01440e1a0842a4e1a59708a`](https://gummble.com/screens/sc_ffa4d0c8f01440e1a0842a4e1a59708a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 항목 메모 폼 | 메모 내용 입력 — 메모 제출 준비 |
-| 04 | [`sc_f4f970015d6743538664901310d2c17b`](https://gummble.com/screens/sc_f4f970015d6743538664901310d2c17b?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 메모 내용 입력 | 리스트 메모 반영 — 메모 저장 결과 표시 |
-| 05 | [`sc_02d96a649c7a461b9c07155d33c1dbfc`](https://gummble.com/screens/sc_02d96a649c7a461b9c07155d33c1dbfc?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 리스트 메모 반영 | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
+| 01 | [`sc_e20e59ee459b4a0d9a0a0302091962bd`](https://gummble.com/screens/sc_e20e59ee459b4a0d9a0a0302091962bd?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 상세 스크롤](<screens/01_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) | 리스트 항목 메뉴 — 항목별 관리 |
+| 02 | [`sc_fa4e79f0bed747d698ae44e23f9223f9`](https://gummble.com/screens/sc_fa4e79f0bed747d698ae44e23f9223f9?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 항목 메뉴](<screens/02_sc_fa4e79f0bed747d698ae44e23f9223f9.png>) | 리스트 항목 메모 폼 — 메모 입력 전 |
+| 03 | [`sc_ffa4d0c8f01440e1a0842a4e1a59708a`](https://gummble.com/screens/sc_ffa4d0c8f01440e1a0842a4e1a59708a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 항목 메모 폼](<screens/03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png>) | 메모 내용 입력 — 메모 제출 준비 |
+| 04 | [`sc_f4f970015d6743538664901310d2c17b`](https://gummble.com/screens/sc_f4f970015d6743538664901310d2c17b?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [메모 내용 입력](<screens/04_sc_f4f970015d6743538664901310d2c17b.png>) | 리스트 메모 반영 — 메모 저장 결과 표시 |
+| 05 | [`sc_02d96a649c7a461b9c07155d33c1dbfc`](https://gummble.com/screens/sc_02d96a649c7a461b9c07155d33c1dbfc?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [리스트 메모 반영](<screens/05_sc_02d96a649c7a461b9c07155d33c1dbfc.png>) | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
 
 ## 4. 화면별 상세 분석
 
@@ -57,7 +57,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_e20e59ee459b4a0d9a0a0302091962bd`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_e20e59ee459b4a0d9a0a0302091962bd?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/65d2e54d-701a-4d10-97cd-a9e51b874a70.png)
-- 로컬 이미지: [sc_e20e59ee459b4a0d9a0a0302091962bd.png](<../../../../screens/sc_e20e59ee459b4a0d9a0a0302091962bd.png>)
+- 로컬 이미지: [01_sc_e20e59ee459b4a0d9a0a0302091962bd.png](<screens/01_sc_e20e59ee459b4a0d9a0a0302091962bd.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -87,7 +87,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_fa4e79f0bed747d698ae44e23f9223f9`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_fa4e79f0bed747d698ae44e23f9223f9?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/81e94554-b0e7-4acd-8b4c-fece36212eac.png)
-- 로컬 이미지: [sc_fa4e79f0bed747d698ae44e23f9223f9.png](<../../../../screens/sc_fa4e79f0bed747d698ae44e23f9223f9.png>)
+- 로컬 이미지: [02_sc_fa4e79f0bed747d698ae44e23f9223f9.png](<screens/02_sc_fa4e79f0bed747d698ae44e23f9223f9.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -118,7 +118,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_ffa4d0c8f01440e1a0842a4e1a59708a`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_ffa4d0c8f01440e1a0842a4e1a59708a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/42995965-37b0-4827-8c07-a3a58d163043.png)
-- 로컬 이미지: [sc_ffa4d0c8f01440e1a0842a4e1a59708a.png](<../../../../screens/sc_ffa4d0c8f01440e1a0842a4e1a59708a.png>)
+- 로컬 이미지: [03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png](<screens/03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -149,7 +149,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_f4f970015d6743538664901310d2c17b`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_f4f970015d6743538664901310d2c17b?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/ab5852eb-3f01-4080-8a31-4c9f92b78d57.png)
-- 로컬 이미지: [sc_f4f970015d6743538664901310d2c17b.png](<../../../../screens/sc_f4f970015d6743538664901310d2c17b.png>)
+- 로컬 이미지: [04_sc_f4f970015d6743538664901310d2c17b.png](<screens/04_sc_f4f970015d6743538664901310d2c17b.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -179,7 +179,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_02d96a649c7a461b9c07155d33c1dbfc`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_02d96a649c7a461b9c07155d33c1dbfc?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/a34f0d94-5fe9-4a84-9bd1-57f842c4d02b.png)
-- 로컬 이미지: [sc_02d96a649c7a461b9c07155d33c1dbfc.png](<../../../../screens/sc_02d96a649c7a461b9c07155d33c1dbfc.png>)
+- 로컬 이미지: [05_sc_02d96a649c7a461b9c07155d33c1dbfc.png](<screens/05_sc_02d96a649c7a461b9c07155d33c1dbfc.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -258,3 +258,4 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 | R1 | 2026-11-18 KST | MCP 5단계와 실제 이미지 5단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |
 | R2 | 2026-11-18 KST | MCP 5단계 순서 재조회 및 이미지 재검토. 3개 단계의 관찰·표현 보완. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |
 | 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |
+| 이미지 배치 | 2026-11-18 KST | MCP 단계 목록 재조회 후 이 흐름의 원본 5개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |

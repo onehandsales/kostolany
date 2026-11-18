@@ -7,6 +7,7 @@ const root = path.dirname(research);
 const read = async name => JSON.parse(await fs.readFile(path.join(research, name), 'utf8'));
 const catalog = await read('catalog.json');
 const manifest = new Map((await read('image-manifest.json')).map(x => [x.id, x]));
+const flowImages = await read('flow-image-manifest.json');
 const sources = await read('sources.json');
 const profiles = new Map((await read('flow-profiles.json')).map(x => [x.name, x]));
 const r2Profiles = new Map((await read('r2-flow-review.json')).map(x => [x.name, x]));
@@ -32,6 +33,7 @@ function visit(nodes) { for (const n of nodes) { tree.set(n.id, n); visit(n.chil
 visit(catalog.tree.flows);
 const flowById = new Map(catalog.flows.map(x => [x.flowId, x]));
 const pad = n => String(n).padStart(2, '0');
+const flowImageFile = (screen, index) => `screens/${pad(index + 1)}_${screen.id}.png`;
 const fragment = s => String(s).replace(/[.。]+$/, '');
 const clean = s => String(s).replaceAll('|', '\\|').replaceAll('\n', ' ');
 const relative = (from, to) => path.relative(from, to).split(path.sep).join('/');
@@ -74,6 +76,10 @@ for (const flow of catalog.flows) {
     return notes.get(s.id);
   });
   const count = observations.length;
+  const placed = flowImages.flows.find(f => f.flowId === flow.flowId);
+  if (placed?.path !== flow.path || JSON.stringify(placed?.screens.map(s => s.file)) !== JSON.stringify(flow.screens.map(flowImageFile))) {
+    throw new Error('Flow images must be synchronized first: ' + flow.path);
+  }
   if (observations.some(n => !n.r2ReviewedDate)) throw new Error('Missing R2 review: ' + flow.flowName);
   const correctedCount = observations.filter(n => r2Audit.patches.some(p => p.index === n.index)).length;
   totalSteps += count;
@@ -116,7 +122,7 @@ for (const flow of catalog.flows) {
     '## 3. 전체 단계표', '',
     'MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단계이며 캡처 사이의 클릭·저장·네트워크가 모두 기록되었다는 뜻은 아니다.', '',
     '| 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |', '| --- | --- | --- | --- |',
-    ...flow.screens.map((s, i) => `| ${pad(i + 1)} | [\`${s.id}\`](${s.webUrl}) | ${clean(observations[i].title)} | ${i + 1 < count ? clean(observations[i + 1].title) + ' — ' + clean(observations[i + 1].state) : '이 흐름의 기록 종료; 2절의 종료 범위 참조'} |`), '',
+    ...flow.screens.map((s, i) => `| ${pad(i + 1)} | [\`${s.id}\`](${s.webUrl}) | ${link(clean(observations[i].title), flowImageFile(s, i))} | ${i + 1 < count ? clean(observations[i + 1].title) + ' — ' + clean(observations[i + 1].state) : '이 흐름의 기록 종료; 2절의 종료 범위 참조'} |`), '',
     '## 4. 화면별 상세 분석', ''
   ];
   for (let i = 0; i < count; i++) {
@@ -124,7 +130,7 @@ for (const flow of catalog.flows) {
     out.push(`### 단계 ${pad(i + 1)} — ${n.title}`, '',
       `- Screen ID: \`${s.id}\``,
       `- 원본: [화면 페이지](${s.webUrl}) · [원본 이미지](${s.screenUrl})`,
-      `- 로컬 이미지: ${link(s.id + '.png', relative(dir, path.join(root, im.file)))}`,
+      `- 로컬 이미지: ${link(path.posix.basename(flowImageFile(s, i)), flowImageFile(s, i))}`,
       `- 실제 이미지 확인일: ${n.reviewedDate} KST · ${n.reviewMethod}`,
       `- R2 이미지 재검토: ${n.r2ReviewedDate} KST · ${n.r2ReviewMethod}`,
       `- 이미지 크기: MCP 메타데이터 **${s.width} × ${s.height}** / 원본 PNG **${im.width} × ${im.height} px**. DPR을 역산해 확정하지 않음`,
@@ -164,7 +170,8 @@ for (const flow of catalog.flows) {
     '| 차수 | 날짜 | 확인·작성 내용 | 남은 범위 |', '| --- | --- | --- | --- |',
     `| R1 | 2026-11-18 KST | MCP ${count}단계와 실제 이미지 ${count}단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |`,
     `| R2 | 2026-11-18 KST | MCP ${count}단계 순서 재조회 및 이미지 재검토. ${correctedCount ? correctedCount + '개 단계의 관찰·표현 보완' : '기존 화면 관찰 기록 일치 확인'}. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |`,
-    '| 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |', ''
+    '| 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |',
+    `| 이미지 배치 | ${flowImages.checkedDate} KST | MCP 단계 목록 재조회 후 이 흐름의 원본 ${count}개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |`, ''
   );
   await fs.writeFile(path.join(dir, 'ANALYSIS.md'), out.join('\n'), 'utf8');
 }
@@ -190,9 +197,28 @@ const intro = ['# Medium iOS 플로우 분석', '',
   '- R1 검토 방식: 원본/고화질 10장, MCP optimized 190장. 모두 원본 PNG를 함께 보관했다.',
   `- R2 검토 방식: 원본을 390×844로 축소한 비교 시트 34개에서 고유 이미지 200장을 다시 확인했다. ${r2Audit.patches.length}개 화면 기록을 보완·교정하고 63개 흐름의 진입·종료·미수록 분기를 대조했다.`,
   '- 관찰·공식 설명·설계 가정·미확인을 문서에서 구분했다. 이 연구는 Kostolany 구현 범위를 자동으로 확정하지 않는다.', '',
+  '## 흐름별 이미지', '',
+  `각 Flow 폴더의 \`screens/\`에 해당 흐름 자체의 이미지를 배치했다. **${flowImages.flowCount}개 폴더 · ${flowImages.imageFiles}개 PNG**이며, 부모 폴더에 자식 Flow 이미지를 합치지 않는다.`, '',
+  '- 파일명: `01_<Screen ID>.png`, `02_<Screen ID>.png` 순서. 단계 번호는 MCP가 반환한 캡처 순서다.',
+  '- 분석 문서의 전체 단계표에서 화면 이름을 누르거나, 상세 분석의 로컬 이미지 링크로 해당 PNG를 열 수 있다.',
+  '- `medium/screens/`의 고유 원본 200장은 유지한다. 공통 화면도 각 Flow에 일반 파일로 복사했으며 원본 크기·내용을 그대로 보존했다.',
+  `- 배치 근거: ${flowImages.sourceCheckedAt}에 MCP에서 63개 Flow의 단계 ID·순서·이미지 URL·메타데이터를 다시 조회했다. 기존 원본과 동일하여 보관된 PNG를 사용했다.`,
+  '- 배치 재검토는 파일 누락·초과·순서·문서 링크·원본 해시 대조다. R2 이후의 추가 시각 검토 횟수로 계산하지 않는다.', '',
+  '```text',
+  'medium/flows/Home/',
+  '├── ANALYSIS.md',
+  '├── screens/',
+  '│   ├── 01_<Screen ID>.png',
+  '│   └── ...',
+  '└── Story detail/',
+  '    ├── ANALYSIS.md',
+  '    └── screens/',
+  '        ├── 01_<Screen ID>.png',
+  '        └── ...',
+  '```', '',
   '## 탐색', '',
-  '| 흐름 경로 | 자체 단계 | 분석 문서 |', '| --- | ---: | --- |',
-  ...catalog.flows.map(f => `| ${clean(f.path)} | ${f.screens.length} | ${link('ANALYSIS.md', 'flows/' + f.path + '/ANALYSIS.md')} |`), '',
+  '| 흐름 경로 | 자체 단계 | 분석 문서 | 이미지 |', '| --- | ---: | --- | --- |',
+  ...catalog.flows.map(f => `| ${clean(f.path)} | ${f.screens.length} | ${link('ANALYSIS.md', 'flows/' + f.path + '/ANALYSIS.md')} | ${link('screens/', 'flows/' + f.path + '/screens/')} |`), '',
   '## 근거와 재검증', '',
   `- [공식 도움말·API 대조](SOURCES.md): ${sources.length}개 공식 출처와 적용 범위. R2에서 차단·신고·응답 관리 3개 추가.`,
   '- [R2 화면 검토 기록](_research/r2-image-review.json): 실제 재검토 인덱스와 보완·교정 내역.',
@@ -200,11 +226,18 @@ const intro = ['# Medium iOS 플로우 분석', '',
   '- [R2 MCP 대조](_research/r2-mcp-comparison.json) · [R2 트리 대조](_research/r2-live-tree.json): 전체 단계·최신 200개 화면 집합·부모/자식 구조 재확인.',
   '- [조회 카탈로그](_research/catalog.json): Flow ID·부모/자식·MCP 단계 순서·Screen ID·원본 URL.',
   '- [이미지 매니페스트](_research/image-manifest.json): 원본 PNG 크기·SHA-256·파일 경로.',
+  '- [Flow 이미지 MCP 재조회](_research/flow-screens-source.json): 이미지 배치 시 다시 확인한 63개 Flow의 단계 순서·원본 URL·MCP 크기.',
+  '- [Flow 이미지 매니페스트](_research/flow-image-manifest.json): 273개 파일의 단계·화면 ID·Flow 내 상대 경로·원본 파일·SHA-256.',
   '- [화면 관찰 기록](_research/observations): 시각 확인 후 작성한 200개 화면별 관찰.',
   '- [흐름별 해석](_research/flow-profiles.json): 목적·연결의 한계·공식 자료 매핑.',
-  '- [검증 결과](_research/validation.json): 문서·단계·로컬 링크·이미지 무결성 검사.', '',
+  '- [검증 결과](_research/validation.json): 문서·단계·로컬 링크·원본 및 Flow 이미지 무결성·누락·초과 검사.', '',
   '```powershell', 'node medium/_research/validate-docs.mjs', '```', '',
-  '문서를 다시 조립하려면 `node medium/_research/generate-docs.mjs`를 실행한다. 이 명령은 63개 분석 문서와 이 색인·공식 자료 요약을 덮어쓴다. 수동 교정은 관찰 기록·흐름별 해석·생성기에도 반영해야 유지된다.', '',
+  '저장된 MCP 조회 결과와 원본으로 Flow 이미지와 문서를 다시 조립하려면 아래 순서로 실행한다. 이미지 동기화는 기존 파일이 일치하면 유지하고, 불일치·불필요한 파일이 있으면 중단한다. MCP를 새로 호출하는 명령은 아니다. 문서 생성은 63개 분석 문서와 이 색인·공식 자료 요약을 덮어쓰므로 수동 교정은 관찰 기록·흐름별 해석·생성기에도 반영해야 유지된다.', '',
+  '```powershell',
+  'node medium/_research/sync-flow-screens.mjs',
+  'node medium/_research/generate-docs.mjs',
+  'node medium/_research/validate-docs.mjs',
+  '```', '',
   '## 남아 있는 검증', '',
   '실제 로그인·구매·발행·삭제·신고·공유를 실행하지 않았다. 실패·취소·권한 거부·오프라인·다른 계정·다른 기기 동기화는 각 문서 8절의 확인 항목이다. 현재 도움말과 과거 화면의 차이는 기존 캡처를 수정하지 않고 기록했다.', ''];
 await fs.writeFile(path.join(root, 'README.md'), intro.join('\n'), 'utf8');

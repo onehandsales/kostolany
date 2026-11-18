@@ -45,10 +45,10 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 | 단계 | Screen ID와 원본 | 확인된 화면 | 다음 캡처와의 관계 |
 | --- | --- | --- | --- |
-| 01 | [`sc_bafbf7b80b154e25aec15e120a13f72a`](https://gummble.com/screens/sc_bafbf7b80b154e25aec15e120a13f72a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | Digest 일자별 추천 | 다이제스트 날짜 선택 — 최근 10개까지 볼 수 있다는 안내 |
-| 02 | [`sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe`](https://gummble.com/screens/sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 다이제스트 날짜 선택 | 과거 다이제스트 선택 — 다른 날짜 임시 선택 |
-| 03 | [`sc_8866044a55164824903265c3b8b97337`](https://gummble.com/screens/sc_8866044a55164824903265c3b8b97337?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 과거 다이제스트 선택 | 선택 날짜 다이제스트 — 선택한 날짜 콘텐츠 표시 |
-| 04 | [`sc_a42fffc3afb34954bc5e4afcc2e08e04`](https://gummble.com/screens/sc_a42fffc3afb34954bc5e4afcc2e08e04?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | 선택 날짜 다이제스트 | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
+| 01 | [`sc_bafbf7b80b154e25aec15e120a13f72a`](https://gummble.com/screens/sc_bafbf7b80b154e25aec15e120a13f72a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [Digest 일자별 추천](<screens/01_sc_bafbf7b80b154e25aec15e120a13f72a.png>) | 다이제스트 날짜 선택 — 최근 10개까지 볼 수 있다는 안내 |
+| 02 | [`sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe`](https://gummble.com/screens/sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [다이제스트 날짜 선택](<screens/02_sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png>) | 과거 다이제스트 선택 — 다른 날짜 임시 선택 |
+| 03 | [`sc_8866044a55164824903265c3b8b97337`](https://gummble.com/screens/sc_8866044a55164824903265c3b8b97337?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [과거 다이제스트 선택](<screens/03_sc_8866044a55164824903265c3b8b97337.png>) | 선택 날짜 다이제스트 — 선택한 날짜 콘텐츠 표시 |
+| 04 | [`sc_a42fffc3afb34954bc5e4afcc2e08e04`](https://gummble.com/screens/sc_a42fffc3afb34954bc5e4afcc2e08e04?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) | [선택 날짜 다이제스트](<screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>) | 이 흐름의 기록 종료; 2절의 종료 범위 참조 |
 
 ## 4. 화면별 상세 분석
 
@@ -56,7 +56,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_bafbf7b80b154e25aec15e120a13f72a`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_bafbf7b80b154e25aec15e120a13f72a?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/c874cfa3-e3ba-4d91-937e-1d0b7a076b4a.png)
-- 로컬 이미지: [sc_bafbf7b80b154e25aec15e120a13f72a.png](<../../../screens/sc_bafbf7b80b154e25aec15e120a13f72a.png>)
+- 로컬 이미지: [01_sc_bafbf7b80b154e25aec15e120a13f72a.png](<screens/01_sc_bafbf7b80b154e25aec15e120a13f72a.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -86,7 +86,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/94607b8e-10f9-4edb-8bce-7c74e5864ab9.png)
-- 로컬 이미지: [sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png](<../../../screens/sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png>)
+- 로컬 이미지: [02_sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png](<screens/02_sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -117,7 +117,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_8866044a55164824903265c3b8b97337`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_8866044a55164824903265c3b8b97337?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/62ab5220-c23a-48c1-9554-cd03932b655c.png)
-- 로컬 이미지: [sc_8866044a55164824903265c3b8b97337.png](<../../../screens/sc_8866044a55164824903265c3b8b97337.png>)
+- 로컬 이미지: [03_sc_8866044a55164824903265c3b8b97337.png](<screens/03_sc_8866044a55164824903265c3b8b97337.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -147,7 +147,7 @@ MCP가 반환한 순서다. 스크롤·메뉴·입력·로딩도 각각 한 단�
 
 - Screen ID: `sc_a42fffc3afb34954bc5e4afcc2e08e04`
 - 원본: [화면 페이지](https://gummble.com/screens/sc_a42fffc3afb34954bc5e4afcc2e08e04?source=mcp_result&utm_source=mcp&utm_medium=mcp_tool&utm_campaign=screen_result) · [원본 이미지](https://storage.gummble.com/prod/content/app_screens/cbf26c10-5ca2-4e72-8f40-4ce6a6385fe1.png)
-- 로컬 이미지: [sc_a42fffc3afb34954bc5e4afcc2e08e04.png](<../../../screens/sc_a42fffc3afb34954bc5e4afcc2e08e04.png>)
+- 로컬 이미지: [04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png](<screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>)
 - 실제 이미지 확인일: 2026-11-18 KST · Gummble MCP optimized 이미지 시각 확인; 원본 파일 별도 보관
 - R2 이미지 재검토: 2026-11-18 KST · 로컬 원본을 390×844로 축소한 번호 포함 비교 시트에서 시각 재검토
 - 이미지 크기: MCP 메타데이터 **390 × 844** / 원본 PNG **1179 × 2556 px**. DPR을 역산해 확정하지 않음
@@ -222,3 +222,4 @@ June 12→June 8 변화는 선택한 다이제스트 날짜다. Today's highligh
 | R1 | 2026-11-18 KST | MCP 4단계와 실제 이미지 4단계 대조. 원본·로컬 파일 연결, 관찰·문서·가정 분리 | 실제 계정 재현·미수록 상태·8절 항목 |
 | R2 | 2026-11-18 KST | MCP 4단계 순서 재조회 및 이미지 재검토. 1개 단계의 관찰·표현 보완. 진입·종료·미수록 분기·관련 흐름 및 공식 규칙 대조 추가 | 원본에 없는 8절 분기·실제 계정 동작 |
 | 문서 점검 | 2026-11-18 KST | 전체 63개 문서의 단계 순서·이미지 ID·로컬 링크·필수 절 구조를 검증 스크립트로 점검 | 이미지 2차 검토로 계산하지 않음 |
+| 이미지 배치 | 2026-11-18 KST | MCP 단계 목록 재조회 후 이 흐름의 원본 4개를 screens/에 단계 순서대로 복사. 문서 링크·화면 ID·순서·크기·SHA-256 대조 | 파일 배치·무결성 점검이며 추가 시각 검토나 계정 재현은 아님 |
