@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { colors, typography, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { recommendedStories, staffPicks, suggestedProfiles } from '../feed/data/mediumExploreExtras';
@@ -11,6 +12,8 @@ import { SearchByline } from './SearchCard';
 type ExploreSectionsProps = { onSelect: (id: string) => void };
 
 export function ExploreSections({ onSelect }: ExploreSectionsProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [notice, setNotice] = useState<string | null>(null);
   return (
     <>
@@ -110,11 +113,11 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   section: { paddingVertical: 40, borderTopWidth: 2, borderTopColor: colors.input },
   staffSection: { paddingBottom: 56 },
   staffHeading: { marginBottom: 8 },
-  heading: { ...typography.sectionTitle, marginHorizontal: 24, marginBottom: 24 },
+  heading: { ...typography.sectionTitle, color: colors.text, marginHorizontal: 24, marginBottom: 24 },
   description: { ...typography.caption, color: colors.secondaryText, marginHorizontal: 24, marginBottom: 20 },
   carousel: { paddingHorizontal: 24, gap: 24 },
   staff: { width: 272, gap: 10 },

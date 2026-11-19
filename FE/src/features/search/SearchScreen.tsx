@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { BackHandler, FlatList, Keyboard, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
@@ -52,6 +53,8 @@ export function SearchScreen({
   source = previewSearchSource,
   isFocused = false,
 }: SearchScreenProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [isSearching, setIsSearching] = useState(false);
   const [query, setQuery] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
@@ -253,6 +256,7 @@ function SearchResults({
   source: SearchSource;
   onSelect: (id: string) => void;
 }) {
+  const styles = useThemeStyles(createStyles);
   const { state, retry } = useSearch(query, source);
   const [notice, setNotice] = useState<string | null>(null);
   return (
@@ -325,7 +329,7 @@ function SearchResults({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   frame: { flex: 1, width: '100%', maxWidth: 680, alignSelf: 'center' },
   landing: { paddingTop: 24, paddingBottom: 24 },
@@ -339,7 +343,7 @@ const styles = StyleSheet.create({
   },
   searchEntry: { minHeight: 48, marginHorizontal: 24, justifyContent: 'center' },
   entrySurface: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.input,
     borderRadius: 4,
     minHeight: 36,
     flexDirection: 'row',
@@ -377,7 +381,7 @@ const styles = StyleSheet.create({
     bottom: 6,
     left: 0,
     right: 0,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.input,
     borderRadius: 4,
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',

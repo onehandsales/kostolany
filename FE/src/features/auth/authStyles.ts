@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { colors, sizes, typography, fonts } from '../../shared/theme/tokens';
+import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 
-export const authStyles = StyleSheet.create({
+export const authStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   page: { flexGrow: 1, width: '100%', maxWidth: 560, alignSelf: 'center', padding: 24, gap: 24 },
   title: { ...typography.pageTitle, color: colors.text },
@@ -15,5 +15,5 @@ export const authStyles = StyleSheet.create({
   link: { minHeight: sizes.minimumTouchTarget, minWidth: sizes.minimumTouchTarget,
     paddingVertical: 12, justifyContent: 'center' },
   disabled: { opacity: 0.45 },
-  error: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.destructive },
 });

@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 
 type LibrarySheetProps = {
@@ -46,6 +47,8 @@ export function LibrarySheet({
   contentStyle,
   contentMode = 'scroll',
 }: LibrarySheetProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   return (
     <Modal
@@ -101,7 +104,7 @@ export function LibrarySheet({
   );
 }
 
-export const listFormStyles = StyleSheet.create({
+export const listFormStyles = (colors: ThemeColors) => StyleSheet.create({
   text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.text },
   secondary: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
   primary: {
@@ -113,13 +116,13 @@ export const listFormStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  primaryText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.background, textAlign: 'center' },
+  primaryText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.onAccent, textAlign: 'center' },
   disabled: { opacity: 0.45 },
   row: { minHeight: sizes.minimumTouchTarget, paddingVertical: 12, justifyContent: 'center' },
-  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.destructive },
 });
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.12)' },
   avoidKeyboard: { flex: 1, justifyContent: 'flex-end' },
   sheet: {

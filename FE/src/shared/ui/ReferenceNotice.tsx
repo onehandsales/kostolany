@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography } from '../theme/tokens';
+import { useThemeStyles } from '../theme/ThemeProvider';
+import { sizes, spacing, typography, type ThemeColors } from '../theme/tokens';
 import { restoreModalFocus } from './restoreModalFocus';
 
 type ReferenceNoticeProps = { title: string | null; onClose: () => void };
 
 // 외부 기능을 실행하지 않는 원본 메뉴는 실제 처리 결과와 구분한 로컬 안내를 연다.
 export function ReferenceNotice({ title, onClose }: ReferenceNoticeProps) {
+  const styles = useThemeStyles(createStyles);
   useEffect(() => {
     if (title) return restoreModalFocus;
   }, [title]);
@@ -29,7 +31,7 @@ export function ReferenceNotice({ title, onClose }: ReferenceNoticeProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'center',
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     borderRadius: 12,
   },
-  title: { ...typography.sectionTitle, textAlign: 'center' },
+  title: { ...typography.sectionTitle, color: colors.text, textAlign: 'center' },
   body: { ...typography.body, color: colors.secondaryText, textAlign: 'center' },
   button: { minHeight: sizes.minimumTouchTarget, alignItems: 'center', justifyContent: 'center' },
   action: { ...typography.body, color: colors.green },

@@ -1,15 +1,17 @@
 # Kostolany Mobile
 
-로컬 웹 미리보기는 `FE`에서 `npm.cmd run web`으로 실행하고 [http://localhost:8081](http://localhost:8081)에서 확인한다. 이미 실행 중이면 해당 주소를 그대로 사용한다. 최신 확인은 [Goal23 결과·8081 확인 순서](../TODO/FE_GOAL_23_RESULT.md)를 따른다. Goal23에서 공통 폰트·아이콘·카드/시트/입력/메뉴/설정 배치를 보정하고 두 차례 자체 검토, 현재 타입/lint/전체 테스트, 양 플랫폼 JS/Hermes, 대표11쌍과 실제 사용자 흐름을 검증했다. 정확한 실행 수치는 결과 문서에 기록한다. 기존8081과 원본·ENV·인증/개인 데이터/navigation 계약을 보존했다. **구현 완료·검증 잔여**이며 원본 font/vector·일부 위치 차이·실제 native 검증은 미완료다. Goal24는 시작하지 않았고 후속 사용자 요청에 따라 Goal23 변경을 로컬 커밋으로 보관한다. push·배포는 하지 않는다. 별도 캡처/로그/스크립트는 저장소 밖 임시 경로에만 두었다. 아래 Goal별 수치는 당시 이력이다.
+로컬 미리보기는 기존 [http://localhost:8081](http://localhost:8081)을 사용한다. 실행 중이면 중복 서버를 시작하지 않는다.
+
+**최신 상태(2026-11-19):** [Goal24 결과·8081 확인 순서](../TODO/FE_GOAL_24_RESULT.md). Goal24 전역 Light/Dark/System과 기사 표시 설정 구현·두 차례 자체 검토/수정을 마쳤다. 현재 타입/lint·98 suites/690 tests, 8081 흐름·부분 시각 대조와 양 플랫폼 JS/Hermes가 통과했다. 원본 font/vector·시각/native 잔여는 계속 추적한다. 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료하고 Goal25 이후는 미착수·별도 요청 대기다. push·배포는 하지 않는다. 실제 인증/결제/메일/서버/DB는 연결하지 않는다. 기존8081 PID17148·medium·ENV와 기존 계약을 보존한다. 캡처/로그/일회성 스크립트는 저장소 밖 임시 경로만 사용하며 TODO/evidence에는 쓰지 않는다. 아래 이전 Goal 승인·수치·중단 문구는 당시 이력이다.
 
 Goal 21 완료 당시 기록: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 
 후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
-React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본을 기준으로 Home·Explore/Search·기사·저장·Library/목록·로그인·Profile·Settings 화면을 구현했다. 원본 사진/영어 콘텐츠 fixture와 기존 금융 fixture를 함께 사용한다. 모의 A/B 계정별 좋아요·저장·목록·이름/소개·기본 설명 수준은 메모리에 보관하며 전체 Reload 시 초기화한다. 실제 외부 서비스는 연결하지 않았다. [최종 결과와8081 확인 순서](../TODO/FE_GOAL_21_RESULT.md), [31쌍 원본 비교](../TODO/evidence/goal21/COMPARISON.html)는 Goal21 시점의 기록이다. 현재 기준은 위 Goal23 링크를 따른다.
+React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본을 기준으로 Home·Explore/Search·기사·저장·Library/목록·로그인·Profile·Settings 화면을 구현했다. 원본 사진/영어 콘텐츠 fixture와 기존 금융 fixture를 함께 사용한다. 모의 A/B 계정별 좋아요·저장·목록·이름/소개·기본 설명 수준은 메모리에 보관하며 전체 Reload 시 초기화한다. 실제 외부 서비스는 연결하지 않았다. [최종 결과와8081 확인 순서](../TODO/FE_GOAL_21_RESULT.md), 31쌍 원본 비교(과거 임시 산출물·현재 미보관; [Goal21 결과](../TODO/FE_GOAL_21_RESULT.md) 참조)는 Goal21 시점의 기록이다. 현재 기준은 위 최신 Goal 결과를 따른다.
 
 ## 환경과 기술 선택
 
-[Goal14~21 연속 작업](../TODO/FE_MEDIUM_CLONE_GOALS.md)의 당시 환경은 Node24.10.0, 결과는638 tests/84 suites였다. Goal14 커밋은 `d016c06`이다. 현재 환경과 검증은 위 Goal23 기록을 따르며 실제 native 실행 환경은 없다. 남은 차이를100% 클론 완료로 표현하지 않는다.
+[Goal14~21 연속 작업](../TODO/FE_MEDIUM_CLONE_GOALS.md)의 당시 환경은 Node24.10.0, 결과는638 tests/84 suites였다. Goal14 커밋은 `d016c06`이다. 현재 환경과 검증은 위 최신 Goal 결과를 따르며 실제 native 실행 환경은 없다. 남은 차이를100% 클론 완료로 표현하지 않는다.
 
 | 항목 | 고정 버전 |
 | --- | --- |
@@ -242,7 +244,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `slow` | 10초 지연; 요청 중 지운 검색어의 늦은 결과 무시 |
 | `out-of-order` | 금리 1,200ms·나머지 200ms. 금리 입력 후 250ms 이상 기다려 요청을 시작하고 환율로 바꾸면 늦은 금리 응답 무시 |
 
-원본의 검색창·주제 행·유형 밑줄·출처/제목/썸네일/전체 폭 요약/메타데이터 배치를 반영했다. 기사 외 유형·글쓰기는 제외하며 검색 카드의 좋아요는 Goal 7, 북마크는 Goal 8에서 추가했다. [검색 원본/구현 비교](../TODO/evidence/goal6/COMPARISON.html)와 [Goal 6 검증 기록](../TODO/FE_GOAL_06_RESULT.md)은 반응 추가 전 이력이다.
+원본의 검색창·주제 행·유형 밑줄·출처/제목/썸네일/전체 폭 요약/메타데이터 배치를 반영했다. 기사 외 유형·글쓰기는 제외하며 검색 카드의 좋아요는 Goal 7, 북마크는 Goal 8에서 추가했다. 검색 원본/구현 비교(과거 임시 산출물·현재 미보관; [Goal6 결과](../TODO/FE_GOAL_06_RESULT.md) 참조)와 [Goal 6 검증 기록](../TODO/FE_GOAL_06_RESULT.md)은 반응 추가 전 이력이다.
 
 ## 좋아요 예시와 상태 재현
 
@@ -260,7 +262,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `read-error` | 첫 조회 실패, 수치 미확인 표시 후 조회 재시도 |
 | `slow` | 조회·쓰기 1,800ms 지연, 연속 입력·이동 중 마지막 선택 확인 |
 
-[Goal 7 결과](../TODO/FE_GOAL_07_RESULT.md)에 상태 소유자·수명·동시성·초기 수치·실패 계약을 기록했다. [Medium 반응 비교](../TODO/evidence/goal7/COMPARISON.html)는 원본 박수와 우리 단일 좋아요의 차이를 포함한다.
+[Goal 7 결과](../TODO/FE_GOAL_07_RESULT.md)에 상태 소유자·수명·동시성·초기 수치·실패 계약을 기록했다. Medium 반응 비교(과거 임시 산출물·현재 미보관; [Goal7 결과](../TODO/FE_GOAL_07_RESULT.md) 참조)는 원본 박수와 우리 단일 좋아요의 차이를 포함한다.
 
 ## 북마크와 읽기 목록
 
@@ -278,7 +280,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `remove-error` | 사용자·기사별 첫 저장 해제가 반영 전에 실패 |
 | `slow` | 조회·변경 1,800ms 지연, 연속 입력·화면 이동 확인 |
 
-[Goal 8 결과](../TODO/FE_GOAL_08_RESULT.md)와 [원본 비교](../TODO/evidence/goal8/COMPARISON.html)는 기본 읽기 목록 구현 당시의 기록이다. 사용자 목록을 포함한 현재 동작은 아래 Goal 9 설명을 따른다.
+[Goal 8 결과](../TODO/FE_GOAL_08_RESULT.md)와 원본 비교(과거 임시 산출물·현재 미보관; [Goal8 결과](../TODO/FE_GOAL_08_RESULT.md) 참조)는 기본 읽기 목록 구현 당시의 기록이다. 사용자 목록을 포함한 현재 동작은 아래 Goal 9 설명을 따른다.
 
 ## 라이브러리 목록 관리
 
@@ -303,7 +305,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 | `list-remove-error` | 첫 기사 제거 실패·카드 복원·재시도 |
 | `slow` | 약 1,800ms 지연·연속 선택·수정 중 삭제 확인 |
 
-[Goal 9 결과](../TODO/FE_GOAL_09_RESULT.md)에 상태 소유자·취소/수명·삭제 경합·검증을 기록했다. [원본 비교](../TODO/evidence/goal9/COMPARISON.html)는 Medium PNG 11장과 실제 브라우저 화면을 연결한다. 이름 수정 폼은 원본 편집 캡처가 없는 자체 설계다. 공개 목록·공유·댓글·메모·다운로드·수동 순서는 포함하지 않았다. Goal 9 당시 제외한 로그인 UI는 아래 Goal 10에서 추가했다.
+[Goal 9 결과](../TODO/FE_GOAL_09_RESULT.md)에 상태 소유자·취소/수명·삭제 경합·검증을 기록했다. 원본 비교(과거 임시 산출물·현재 미보관; [Goal9 결과](../TODO/FE_GOAL_09_RESULT.md) 참조)는 Medium PNG 11장과 실제 브라우저 화면을 연결한다. 이름 수정 폼은 원본 편집 캡처가 없는 자체 설계다. 공개 목록·공유·댓글·메모·다운로드·수동 순서는 포함하지 않았다. Goal 9 당시 제외한 로그인 UI는 아래 Goal 10에서 추가했다.
 
 ## 모의 로그인·취소·로그아웃
 
@@ -315,7 +317,7 @@ Chrome에서 네 수준의 본문·예시·선택 일치, 오류·재시도, 느
 
 A(`example-reader`)와 B(`example-reader-b`)는 좋아요·저장·사용자 목록을 서로 공유하지 않는다. 로그아웃은 개인 데이터 삭제가 아니므로 같은 실행 중 A→B→A로 돌아오면 A 데이터를 이어 받는다. 진행 중 개인 변경도 원래 사용자 저장소에서만 완료된다. 열린 개인 상세·입력 초안·저장 시트는 사용자 전환 시 정리한다. 앱 재실행·전체 새로고침은 인증과 개인 메모리를 초기화한다. 기기/서버 영속 저장·데이터 병합은 없다.
 
-Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회와 편집으로 확장했다. 설정과 기본 설명 수준은 아래 Goal 12에서 연결했다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 [원본 비교](../TODO/evidence/goal10/COMPARISON.html)에 설계·검증·미검증을 기록했다.
+Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회와 편집으로 확장했다. 설정과 기본 설명 수준은 아래 Goal 12에서 연결했다. [Goal 10 결과](../TODO/FE_GOAL_10_RESULT.md)와 원본 비교(과거 임시 산출물·현재 미보관; [Goal10 결과](../TODO/FE_GOAL_10_RESULT.md) 참조)에 설계·검증·미검증을 기록했다.
 
 ## 프로필 조회·수정
 
@@ -325,7 +327,7 @@ Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회
 
 취소·닫기·화면 이탈은 미제출 초안을 버린다. 이미 제출한 저장은 계속된다. 저장 중 추가 입력은 이전 응답이 덮지 않고, 추가 저장의 마지막 목표를 직렬 처리한다. 실패한 열린 폼은 입력을 보존하고 수정 후 다시 시도할 수 있다. 로그아웃/A→B→A에서는 사용자별 확정 값을 유지하고 개인 편집 UI는 정리한다. 전체 새로고침·앱 재실행은 메모리를 초기화한다.
 
-`src/features/profile/data/profilePreview.ts`의 `profilePreviewScenario`로 `read-error`·`save-error`·`slow`를 지정한 뒤 전체 새로고침하면 조회/저장 첫 실패·4초 처리를 재현한다. 재시도는 성공한다. 전달 기본값은 `normal`(약 350ms)이다. 실제 인증·Storage는 없다. [Goal 11 결과](../TODO/FE_GOAL_11_RESULT.md)와 [원본 비교](../TODO/evidence/goal11/COMPARISON.html)에 정책·검증·미검증을 기록했다.
+`src/features/profile/data/profilePreview.ts`의 `profilePreviewScenario`로 `read-error`·`save-error`·`slow`를 지정한 뒤 전체 새로고침하면 조회/저장 첫 실패·4초 처리를 재현한다. 재시도는 성공한다. 전달 기본값은 `normal`(약 350ms)이다. 실제 인증·Storage는 없다. [Goal 11 결과](../TODO/FE_GOAL_11_RESULT.md)와 원본 비교(과거 임시 산출물·현재 미보관; [Goal11 결과](../TODO/FE_GOAL_11_RESULT.md) 참조)에 정책·검증·미검증을 기록했다.
 
 ## 설정과 기본 설명 수준
 
@@ -337,7 +339,7 @@ Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회
 
 취소·닫기·뒤로·탭 이탈은 미제출 선택만 버리며 제출한 저장은 계속된다. 저장 중 추가 선택/제출을 허용하고 마지막 제출을 직렬 처리한다. 실패하면 편집 선택을 보존하고 수정한 선택으로 재시도한다.
 
-`src/features/settings/data/settingsPreview.ts`의 `settingsPreviewScenario`를 `read-error`·`save-error`·`slow`로 바꾸고 전체 새로고침하면 최초 조회/저장 실패와 각 4초 처리를 재현한다. 전달 기본값은 `normal`(약 350ms)이다. 재현 뒤 normal로 복원한다. [Goal 12 결과](../TODO/FE_GOAL_12_RESULT.md)와 [원본 비교](../TODO/evidence/goal12/COMPARISON.html)에 정책·검증·미검증을 기록했다.
+`src/features/settings/data/settingsPreview.ts`의 `settingsPreviewScenario`를 `read-error`·`save-error`·`slow`로 바꾸고 전체 새로고침하면 최초 조회/저장 실패와 각 4초 처리를 재현한다. 전달 기본값은 `normal`(약 350ms)이다. 재현 뒤 normal로 복원한다. [Goal 12 결과](../TODO/FE_GOAL_12_RESULT.md)와 원본 비교(과거 임시 산출물·현재 미보관; [Goal12 결과](../TODO/FE_GOAL_12_RESULT.md) 참조)에 정책·검증·미검증을 기록했다.
 
 ## Goal 13 전체 흐름 검증
 
@@ -345,7 +347,7 @@ Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회
 
 - 현재 실행 결과: 타입·lint 통과, 전체 테스트 608건(304개 × iOS/Android, 80 suites). React Navigation 자체를 mock하지 않은 통합 테스트를 포함한다.
 - iOS·Android JS/Hermes 번들 생성 성공. 브라우저 검증 19묶음, 최종 캡처 64장과 수정 전 2장, Medium 원본 15장 비교. 실제 네이티브 실행·빌드와 구분한다.
-- [최종 확인 순서와 검증 결과](../TODO/FE_GOAL_13_RESULT.md#8081-최종-확인-순서) · [원본/구현 비교](../TODO/evidence/goal13/COMPARISON.html) · [전체 검사 로그](../TODO/evidence/goal13/check.log).
+- [최종 확인 순서와 검증 결과](../TODO/FE_GOAL_13_RESULT.md#8081-최종-확인-순서) · 원본/구현 비교(과거 임시 산출물·현재 미보관; [Goal13 결과](../TODO/FE_GOAL_13_RESULT.md) 참조) · 전체 검사 로그(과거 임시 산출물·현재 미보관; [Goal13 결과](../TODO/FE_GOAL_13_RESULT.md) 참조).
 - 장애용 `*Preview.ts`는 모두 `normal`로 복원했다. localhost:8081 서버를 유지했다. 검증 후 별도 사용자 요청에 따라 Goal 13 산출물을 로컬 커밋으로 기록하며 원격 push·배포는 하지 않는다.
 
 ## 검증 범위와 남은 확인

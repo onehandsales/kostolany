@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { useProfile } from '../profile/ProfileProvider';
@@ -37,6 +38,8 @@ const responses = [
 type ReferenceArticleFooterProps = { onNotice: (title: string) => void };
 
 export function ReferenceArticleFooter({ onNotice }: ReferenceArticleFooterProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { width } = useWindowDimensions();
   const profile = useProfile();
   return (
@@ -184,7 +187,7 @@ export function ReferenceArticleFooter({ onNotice }: ReferenceArticleFooterProps
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   responses: { marginTop: 48 },
   heading: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text },
   text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },

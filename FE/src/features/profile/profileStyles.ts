@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 
-export const profileStyles = StyleSheet.create({
+export const profileStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   page: { width: '100%', maxWidth: 680, alignSelf: 'center', padding: 24, gap: 24, paddingBottom: 40 },
   grow: { flex: 1 },
@@ -13,18 +13,18 @@ export const profileStyles = StyleSheet.create({
   bio: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 32, color: colors.text },
   group: { gap: 12 },
   identity: { flexDirection: 'row', alignItems: 'center', gap: 16 },
-  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#e5e5e5' },
+  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: colors.border },
   button: { minWidth: sizes.minimumTouchTarget, minHeight: sizes.minimumTouchTarget,
     paddingHorizontal: 16, paddingVertical: 12, justifyContent: 'center', alignItems: 'center',
     borderWidth: 1, borderColor: colors.text, borderRadius: 28 },
   buttonText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text, textAlign: 'center' },
   section: { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: 24, gap: 16 },
   label: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, fontWeight: '600', color: colors.text },
-  input: { minHeight: 48, borderRadius: 4, padding: 12, backgroundColor: '#f2f2f2',
+  input: { minHeight: 48, borderRadius: 4, padding: 12, backgroundColor: colors.input,
     color: colors.text, fontFamily: fonts.sans, fontSize: 16, lineHeight: 26 },
   bioInput: { minHeight: 120, textAlignVertical: 'top' },
   counter: { textAlign: 'right', color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22 },
-  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.destructive },
   disabled: { opacity: 0.45 },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.18)' },
   keyboard: { flex: 1, justifyContent: 'flex-end' },

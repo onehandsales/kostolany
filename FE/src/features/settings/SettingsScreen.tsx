@@ -2,22 +2,29 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ProviderIcon } from '../../shared/ui/ProviderIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
 import { useProfile } from '../profile/ProfileProvider';
-import { colors, fonts } from '../../shared/theme/tokens';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { explanationLevelLabels } from '../article/explanationTypes';
 import { DefaultLevelSheet } from './DefaultLevelSheet';
 import { useReadingSettings } from './ReadingSettingsProvider';
-import { settingsStyles as styles } from './settingsStyles';
+import { useDisplaySettings } from './DisplaySettingsProvider';
+import { DisplaySettingsFeedback } from './DisplaySettingsFeedback';
+import { settingsStyles as createStyles } from './settingsStyles';
 
 type SettingsScreenProps = { onBack: () => void; onLogout: () => void; isFocused: boolean };
 
 export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenProps) {
+  const display = useDisplaySettings();
+  const visual = useThemeStyles(createVisual);
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { state, store } = useReadingSettings();
   const profile = useProfile();
   const [editing, setEditing] = useState<'level' | 'profile' | null>(null);
@@ -79,7 +86,7 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
               }}
               style={styles.button}
             >
-              <Text>프로필 조회 다시 시도</Text>
+              <Text style={styles.text}>프로필 조회 다시 시도</Text>
             </Pressable>
           </View>
         )}
@@ -96,19 +103,20 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
               <Pressable
                 key={option}
                 role="button"
-                accessibilityLabel={`Appearance: ${option}`}
-                aria-pressed={index === 0}
-                accessibilityState={{ selected: index === 0 }}
-                onPress={() => setNotice('Appearance')}
+                accessibilityLabel={`앱 테마: ${option}`}
+                aria-pressed={display.state.settings.appTheme === ['system', 'light', 'dark'][index]}
+                accessibilityState={{ selected: display.state.settings.appTheme === ['system', 'light', 'dark'][index] }}
+                onPress={() => display.store?.update({ appTheme: (['system', 'light', 'dark'] as const)[index] })}
                 style={visual.segmentTarget}
               >
-                <View style={[visual.segment, index === 0 && visual.selectedSegment]}>
-                  <Text style={[visual.segmentText, index === 0 && visual.selectedText]}>{option}</Text>
+                <View style={[visual.segment, display.state.settings.appTheme === ['system', 'light', 'dark'][index] && visual.selectedSegment]}>
+                  <Text style={[visual.segmentText, display.state.settings.appTheme === ['system', 'light', 'dark'][index] && visual.selectedText]}>{option}</Text>
                 </View>
               </Pressable>
             ))}
           </View>
         </View>
+        <DisplaySettingsFeedback />
         <SettingsRow title="Push notifications" onPress={() => setNotice('Push notifications')} chevron />
         <SettingsRow title="Email notifications" onPress={() => setNotice('Email notifications')} chevron />
         <SettingsRow title="Custom app icon" onPress={() => setNotice('Custom app icon')} chevron />
@@ -239,6 +247,8 @@ function SettingsRow({
   disabled?: boolean;
   trailing?: ReactNode;
 }) {
+  const { colors } = useTheme();
+  const visual = useThemeStyles(createVisual);
   return (
     <Pressable
       role="button"
@@ -250,11 +260,11 @@ function SettingsRow({
     >
       <Text style={[visual.text, visual.grow]}>{title}</Text>
       {trailing}
-      {chevron && <AppIcon name="chevron" size={16} color="#bcbcbc" />}
+      {chevron && <AppIcon name="chevron" size={16} color={colors.secondaryText} />}
     </Pressable>
   );
 }
-const visual = StyleSheet.create({
+const createVisual = (colors: ThemeColors) => StyleSheet.create({
   header: {
     minHeight: 48,
     flexDirection: 'row',
@@ -279,7 +289,7 @@ const visual = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 25,
     paddingBottom: 13,
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.section,
     fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 22,
     fontWeight: '600',
@@ -309,19 +319,19 @@ const visual = StyleSheet.create({
     bottom: 9,
     left: 0,
     right: 0,
-    backgroundColor: '#eeeef0',
+    backgroundColor: colors.segment,
     borderRadius: 8,
   },
   segmentTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   segment: { minHeight: 30, paddingHorizontal: 8, justifyContent: 'center', borderRadius: 6 },
-  selectedSegment: { backgroundColor: 'white', borderWidth: 1, borderColor: '#dddddd' },
-  segmentText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: 'black' },
+  selectedSegment: { backgroundColor: colors.selectedSurface, borderWidth: 1, borderColor: colors.border },
+  segmentText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.text },
   selectedText: { fontWeight: '600' },
   socialHint: {
     fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     color: colors.secondaryText,
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.section,
     paddingHorizontal: 16,
     paddingTop: 8,
   },
@@ -329,7 +339,7 @@ const visual = StyleSheet.create({
     fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     color: colors.secondaryText,
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.section,
     padding: 16,
   },
 });

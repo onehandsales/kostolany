@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors, spacing, typography } from '../../../shared/theme/tokens';
+import { useThemeStyles } from '../../../shared/theme/ThemeProvider';
+import { spacing, typography, type ThemeColors } from '../../../shared/theme/tokens';
 import { ArticleBookmarkControl } from '../../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../../likes/ArticleLikeControl';
 import type { FeedArticle } from '../types';
@@ -13,6 +14,7 @@ type ArticleCardProps = {
 };
 
 export function ArticleCard({ article, onSelect }: ArticleCardProps) {
+  const styles = useThemeStyles(createStyles);
   const { width, fontScale } = useWindowDimensions();
   const stacked = width < 360 || fontScale > 1.3;
 
@@ -50,7 +52,7 @@ export function ArticleCard({ article, onSelect }: ArticleCardProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   card: { paddingHorizontal: spacing.page, paddingVertical: spacing.section, gap: spacing.medium },
   actions: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 },
   like: { flex: 1 },

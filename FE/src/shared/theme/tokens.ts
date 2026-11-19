@@ -14,7 +14,27 @@ export const colors = {
   saveGreen: '#41872c',
   gold: '#ffc017',
   destructive: '#c94a4a',
+  section: '#fafafa',
+  segment: '#eeeef0',
+  selectedSurface: '#ffffff',
+  highlight: '#e8f3e8',
+  onAccent: '#ffffff',
+  onInverse: '#ffffff',
+  inverse: '#242424',
+  popup: '#ffffff',
 } as const;
+
+export type ThemeColors = { [Key in keyof typeof colors]: string };
+
+// 어두운 색은 F58 원본의 평면 영역을 기준으로 하며 글꼴 가장자리의 혼합색은 제외한다.
+export const darkColors: ThemeColors = {
+  background: '#121212', text: '#d2d2d2', secondaryText: '#a8a8a8',
+  border: '#333333', divider: '#292929', avatar: '#808080',
+  surface: '#191919', input: '#29292c', green: '#1a8917', saveGreen: '#41872c',
+  gold: '#ffc017', destructive: '#f08080', section: '#191919',
+  segment: '#29292c', selectedSurface: '#66666a', highlight: '#28472a',
+  onAccent: '#ffffff', onInverse: '#121212', inverse: '#d2d2d2', popup: '#1c1c1d',
+};
 
 export const spacing = {
   small: 8,

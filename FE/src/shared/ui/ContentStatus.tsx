@@ -1,6 +1,7 @@
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography } from '../theme/tokens';
+import { useThemeStyles, useTheme } from '../theme/ThemeProvider';
+import { sizes, spacing, typography, type ThemeColors } from '../theme/tokens';
 
 type ContentStatusProps = {
   message: string;
@@ -11,6 +12,8 @@ type ContentStatusProps = {
 };
 
 export function ContentStatus({ message, loading = false, error = false, actionLabel, onAction }: ContentStatusProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   return (
     <View style={styles.container}>
       {loading && <ActivityIndicator color={colors.secondaryText} aria-label={message} />}
@@ -24,7 +27,7 @@ export function ContentStatus({ message, loading = false, error = false, actionL
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: { alignItems: 'center', padding: spacing.page, gap: spacing.medium },
   message: { ...typography.body, color: colors.secondaryText, textAlign: 'center' },
   button: { minHeight: sizes.minimumTouchTarget, minWidth: sizes.minimumTouchTarget,

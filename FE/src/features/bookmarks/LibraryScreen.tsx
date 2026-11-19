@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { BookmarkIcon } from './BookmarkIcon';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { colors, typography, fonts } from '../../shared/theme/tokens';
+import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
+
+import { BookmarkIcon } from './BookmarkIcon';
 import { LibraryListCard } from './LibraryListCard';
-import { listFormStyles } from './LibrarySheet';
+import { listFormStyles as createListFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { ReadingListFeedback } from './ReadingListFeedback';
@@ -22,6 +24,8 @@ export function LibraryScreen(props: LibraryScreenProps) {
 }
 
 function LibraryContent({ onOpenList }: { onOpenList: (listId: string) => void }) {
+  const styles = useThemeStyles(createStyles);
+  const listFormStyles = useThemeStyles(createListFormStyles);
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
   const store = useBookmarkStore();
@@ -138,7 +142,7 @@ function LibraryContent({ onOpenList }: { onOpenList: (listId: string) => void }
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   content: { flexGrow: 1, width: '100%', maxWidth: 728, alignSelf: 'center', paddingBottom: 24 },
   header: {
@@ -157,7 +161,7 @@ const styles = StyleSheet.create({
   badge: {
     fontFamily: fonts.sans, fontSize: 10,
     lineHeight: 14,
-    color: 'white',
+    color: colors.onAccent,
     backgroundColor: colors.green,
     paddingHorizontal: 3,
     borderRadius: 2,
@@ -181,7 +185,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.green,
     borderRadius: 24,
   },
-  newText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: 'white' },
+  newText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.onAccent },
   banner: {
     marginHorizontal: 24,
     marginTop: 24,
@@ -194,7 +198,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     overflow: 'hidden',
   },
-  bannerText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '600', color: 'white' },
+  bannerText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '600', color: colors.onAccent },
   start: { minHeight: 48, justifyContent: 'center', alignSelf: 'flex-start', zIndex: 1 },
   startPill: {
     minHeight: 32,
@@ -220,7 +224,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
   },

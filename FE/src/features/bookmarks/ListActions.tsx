@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { LibrarySheet, listFormStyles } from './LibrarySheet';
+import { LibrarySheet, listFormStyles as createListFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
@@ -27,6 +28,8 @@ function ListActionControls({
   name: string;
   isPrivate: boolean;
 }) {
+  const styles = useThemeStyles(createStyles);
+  const listFormStyles = useThemeStyles(createListFormStyles);
   const [mode, setMode] = useState<'rename' | 'delete' | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const store = useBookmarkStore().userLists;
@@ -86,10 +89,10 @@ function ListActionControls({
     </>
   );
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   content: { gap: 24, paddingTop: 0, paddingBottom: 16 },
-  description: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: '#242424', textAlign: 'center' },
-  local: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: '#6b6b6b', textAlign: 'center' },
+  description: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: colors.text, textAlign: 'center' },
+  local: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText, textAlign: 'center' },
   deleteTarget: { minHeight: 48, justifyContent: 'center', marginHorizontal: 8 },
   danger: { minHeight: 42, padding: 9, backgroundColor: '#ce4747', borderRadius: 24, justifyContent: 'center' },
 });

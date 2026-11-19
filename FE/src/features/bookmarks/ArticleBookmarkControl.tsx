@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { LoginRequestButton } from '../auth/LoginRequestButton';
 import { BookmarkIcon } from './BookmarkIcon';
 import { BookmarkStoreContext } from './BookmarkProvider';
@@ -16,6 +17,7 @@ type ArticleBookmarkControlProps = {
 };
 
 export function ArticleBookmarkControl(props: ArticleBookmarkControlProps) {
+  const styles = useThemeStyles(createStyles);
   const store = useContext(BookmarkStoreContext);
   const scopeKey = useBookmarkScopeKey();
   if (store) return <SignedInBookmarkControl key={scopeKey} {...props} />;
@@ -37,6 +39,7 @@ function SignedInBookmarkControl({
   compact = false,
   iconSize,
 }: ArticleBookmarkControlProps) {
+  const styles = useThemeStyles(createStyles);
   const { state, toggleBookmark, retryBookmark } = useArticleBookmark(articleId);
   const store = useBookmarkStore();
   const [selecting, setSelecting] = useState(false);
@@ -132,7 +135,7 @@ function SignedInBookmarkControl({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: { gap: 4, flexShrink: 1 },
   controls: { flexDirection: 'row', alignItems: 'center' },
   more: {

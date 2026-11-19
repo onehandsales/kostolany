@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
-import { colors } from '../../shared/theme/tokens';
+import { useTheme } from '../../shared/theme/ThemeProvider';
 
 type BookmarkIconProps = {
   saved?: boolean;
@@ -14,6 +14,7 @@ export function BookmarkIcon({
   size = 24,
   plus = false,
 }: BookmarkIconProps) {
+  const { colors } = useTheme();
   return (
     <Svg
       width={size}

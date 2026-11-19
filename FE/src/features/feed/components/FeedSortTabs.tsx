@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography, fonts } from '../../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../../shared/theme/ThemeProvider';
+import { sizes, spacing, typography, fonts, type ThemeColors } from '../../../shared/theme/tokens';
 import { IconButton } from '../../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../../shared/ui/ReferenceNotice';
 import { type FeedSort, feedSortLabels } from '../types';
@@ -17,6 +18,8 @@ export function FeedSortTabs({
   selected,
   onSelect,
 }: FeedSortTabsProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [notice, setNotice] = useState<string | null>(null);
   const scroll = useRef<ScrollView>(null);
   return (
@@ -76,7 +79,7 @@ export function FeedSortTabs({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flexGrow: 0,
     flexShrink: 0,
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     paddingHorizontal: 4,
     borderRadius: 4,
-    color: colors.background,
+    color: colors.onAccent,
     backgroundColor: colors.green,
   },
 });

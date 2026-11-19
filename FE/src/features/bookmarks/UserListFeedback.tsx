@@ -1,8 +1,9 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
-import { listFormStyles } from './LibrarySheet';
+import { listFormStyles as createListFormStyles } from './LibrarySheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
 type UserListFeedbackProps = {
@@ -10,6 +11,8 @@ type UserListFeedbackProps = {
 };
 
 export function UserListFeedback({ listId, hideVisibleMembershipFailures = false }: UserListFeedbackProps) {
+  const styles = useThemeStyles(createStyles);
+  const listFormStyles = useThemeStyles(createListFormStyles);
   const state = useUserLists();
   const store = useBookmarkStore().userLists;
   return <View>
@@ -35,8 +38,8 @@ export function UserListFeedback({ listId, hideVisibleMembershipFailures = false
   </View>;
 }
 
-const styles = StyleSheet.create({
-  feedback: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: '#f7f7f7' },
-  pending: { marginHorizontal: 24, marginVertical: 8, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#6b6b6b' },
-  retry: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, textDecorationLine: 'underline', color: '#242424' },
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
+  feedback: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: colors.surface },
+  pending: { marginHorizontal: 24, marginVertical: 8, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
+  retry: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, textDecorationLine: 'underline', color: colors.text },
 });

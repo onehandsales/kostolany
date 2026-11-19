@@ -11,13 +11,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ProviderIcon, type ProviderName } from '../../shared/ui/ProviderIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { colors, fonts } from '../../shared/theme/tokens';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { useAuth } from './AuthProvider';
-import { authStyles } from './authStyles';
+import { authStyles as createAuthStyles } from './authStyles';
 import { mockUserA, mockUsers } from './data/mockUsers';
 import type { AuthScenario, LogoutScenario } from './types';
 
@@ -50,6 +51,9 @@ export function AuthDialogs({ profileName }: AuthDialogsProps) {
 }
 
 function LoginDialog() {
+  const styles = useThemeStyles(createStyles);
+  const authStyles = useThemeStyles(createAuthStyles);
+  const { colors } = useTheme();
   const { state, store } = useAuth();
   const { width } = useWindowDimensions();
   const [isJoining, setJoining] = useState(false);
@@ -181,6 +185,9 @@ function LoginDialog() {
 }
 
 function LogoutDialog({ profileName }: LogoutDialogProps) {
+  const styles = useThemeStyles(createStyles);
+  const authStyles = useThemeStyles(createAuthStyles);
+  const { colors } = useTheme();
   const { state, store } = useAuth();
   const [scenario, setScenario] = useState<LogoutScenario>('success');
   const dialog = state.dialog;
@@ -270,6 +277,8 @@ function ScenarioPicker({
   disabled: boolean;
   logout?: boolean;
 }) {
+  const styles = useThemeStyles(createStyles);
+  const authStyles = useThemeStyles(createAuthStyles);
   const [expanded, setExpanded] = useState(false);
   return (
     <View>
@@ -313,7 +322,7 @@ function ScenarioPicker({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   authHeader: { minHeight: 72, paddingTop: 32, backgroundColor: colors.background },
   loginTop: {
     position: 'absolute',
@@ -325,7 +334,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  mockBadge: { fontFamily: fonts.sans, fontSize: 10, lineHeight: 14, color: '#6b6b6b' },
+  mockBadge: { fontFamily: fonts.sans, fontSize: 10, lineHeight: 14, color: colors.secondaryText },
   login: {
     flexGrow: 1,
     width: '100%',
@@ -341,7 +350,7 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     fontWeight: '700',
     letterSpacing: -1.5,
-    color: 'black',
+    color: colors.text,
     textAlign: 'center',
   },
   headline: {
@@ -377,7 +386,7 @@ const styles = StyleSheet.create({
   joinText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
   green: { color: colors.green },
   mockPanel: { marginTop: 24, gap: 16, padding: 16, backgroundColor: colors.surface, borderRadius: 8 },
-  mockLabel: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#146b0d', textAlign: 'center' },
+  mockLabel: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.green, textAlign: 'center' },
   choices: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   choice: {
     flexGrow: 1,
@@ -389,7 +398,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: 'center',
   },
-  selected: { borderColor: colors.text, backgroundColor: '#f2f2f2' },
+  selected: { borderColor: colors.text, backgroundColor: colors.input },
   feedback: { gap: 16, padding: 16 },
   scenarioLink: {
     fontFamily: fonts.sans, fontSize: 14,
@@ -404,32 +413,32 @@ const styles = StyleSheet.create({
     maxWidth: 270,
     alignSelf: 'center',
     borderRadius: 14,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.input,
     overflow: 'hidden',
   },
   confirmContent: { paddingTop: 20 },
-  confirmTitle: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, fontWeight: '700', color: 'black', textAlign: 'center' },
+  confirmTitle: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, fontWeight: '700', color: colors.text, textAlign: 'center' },
   confirmDescription: {
     fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 17,
-    color: 'black',
+    color: colors.text,
     textAlign: 'center',
     paddingHorizontal: 16,
     marginTop: 4,
     marginBottom: 20,
   },
-  actions: { flexDirection: 'row', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#bbbbbb' },
+  actions: { flexDirection: 'row', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border },
   action: { flex: 1, minHeight: 48, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
-  cancelAction: { borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: '#bbbbbb' },
+  cancelAction: { borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: colors.border },
   cancelLabel: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, color: '#007aff', fontWeight: '600' },
-  destructive: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, color: '#ff453a' },
+  destructive: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, color: colors.destructive },
   logoutMock: {
     position: 'absolute',
     left: 16,
     right: 16,
     bottom: 16,
     maxHeight: '35%',
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
     borderRadius: 8,
     paddingHorizontal: 16,
   },

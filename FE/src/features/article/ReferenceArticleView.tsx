@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors, typography, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
-import { LibrarySheet } from '../bookmarks/LibrarySheet';
+import { TopPopover } from '../../shared/ui/TopPopover';
+import { ArticleDisplayPopover } from '../settings/ArticleDisplayPopover';
+import { useReaderTypography } from '../settings/useReaderTypography';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 import { ReferenceArticleFooter } from './ReferenceArticleFooter';
 import { ExplanationSection } from './ExplanationSection';
@@ -28,21 +31,26 @@ export function ReferenceArticleView({
   explanationSource,
   preference,
 }: ReferenceArticleViewProps) {
+  const reader = useReaderTypography();
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { width } = useWindowDimensions();
   const scope = preference?.scopeKey ?? 'guest';
   const [ui, setUi] = useState<{
     scope: string;
     isMenuOpen: boolean;
+    isDisplayOpen: boolean;
     isToolsOpen: boolean;
     notice: string | null;
   }>({
     scope,
     isMenuOpen: false,
+    isDisplayOpen: false,
     isToolsOpen: false,
     notice: null,
   });
   const matchesScope = ui.scope === scope;
-  if (!matchesScope) setUi({ scope, isMenuOpen: false, isToolsOpen: false, notice: null });
+  if (!matchesScope) setUi({ scope, isMenuOpen: false, isDisplayOpen: false, isToolsOpen: false, notice: null });
   const toolsVisible = matchesScope && ui.isToolsOpen;
   const scroll = useRef<ScrollView>(null);
   const notice = (value: string) => setUi((previous) => ({ ...previous, scope, notice: value }));
@@ -80,10 +88,10 @@ export function ReferenceArticleView({
               <Text style={styles.memberLabel}>Member-only story</Text>
             </View>
           )}
-          <Text role="heading" style={styles.title}>
+          <Text role="heading" style={[styles.title, reader.title]}>
             {article.title}
           </Text>
-          {Boolean(article.subtitle) && <Text style={styles.subtitle}>{article.subtitle}</Text>}
+          {Boolean(article.subtitle) && <Text style={[styles.subtitle, reader.subtitle]}>{article.subtitle}</Text>}
           <Text style={styles.metadata}>
             {article.readingMinutes > 0 ? `${article.readingMinutes} min read · ` : ''}
             {content?.publishedLabel ?? article.publishedLabel}
@@ -109,7 +117,7 @@ export function ReferenceArticleView({
               content.blocks.map((block, index) => <ReferenceParagraph key={index} block={block} />)
             ) : (
               <>
-                <Text style={styles.paragraph}>{article.subtitle || article.title}</Text>
+                <Text style={[styles.paragraph, reader.body]}>{article.subtitle || article.title}</Text>
                 <Text style={styles.missing}>
                   The complete story is not included in the reference screenshots. This local prototype shows
                   the captured title and image.
@@ -196,11 +204,15 @@ export function ReferenceArticleView({
         <IconButton icon="share" label="Share story" onPress={() => notice('Share story')} size={24} />
       </View>
       {matchesScope && ui.isMenuOpen && (
-        <LibrarySheet
+        <TopPopover
           title="Story options"
-          closeLabel="Close"
+          width={250}
           onClose={() => setUi((previous) => ({ ...previous, isMenuOpen: false }))}
         >
+          <Pressable role="button" accessibilityLabel="기사 표시 설정" style={styles.menuRow}
+            onPress={() => setUi((previous) => ({ ...previous, isMenuOpen: false, isDisplayOpen: true }))}>
+            <Text style={styles.topicText}>Display settings...</Text>
+          </Pressable>
           <Pressable
             role="button"
             accessibilityLabel="Open reading tools"
@@ -212,8 +224,9 @@ export function ReferenceArticleView({
             <Text style={styles.topicText}>Reading tools · local example</Text>
           </Pressable>
           <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} />
-        </LibrarySheet>
+        </TopPopover>
       )}
+      {matchesScope && ui.isDisplayOpen && <ArticleDisplayPopover onClose={() => setUi((previous) => ({ ...previous, isDisplayOpen: false }))} />}
       <ReferenceNotice
         title={matchesScope ? ui.notice : null}
         onClose={() => setUi((previous) => ({ ...previous, notice: null }))}
@@ -223,6 +236,7 @@ export function ReferenceArticleView({
 }
 
 function FollowButton({ onPress }: { onPress: () => void }) {
+  const styles = useThemeStyles(createStyles);
   return (
     <Pressable role="button" accessibilityLabel="Follow author" onPress={onPress} style={styles.followTarget}>
       <View style={styles.follow}>
@@ -233,6 +247,8 @@ function FollowButton({ onPress }: { onPress: () => void }) {
 }
 
 function ReferenceParagraph({ block }: { block: ReferenceBlock }) {
+  const reader = useReaderTypography();
+  const styles = useThemeStyles(createStyles);
   if (block.kind === 'divider')
     return (
       <Text aria-hidden style={styles.divider}>
@@ -240,9 +256,9 @@ function ReferenceParagraph({ block }: { block: ReferenceBlock }) {
       </Text>
     );
   if (block.kind === 'missing') return <Text style={styles.missing}>[Uncaptured paragraphs omitted]</Text>;
-  const start = block.highlight ? block.text.indexOf(block.highlight) : -1;
+  const start = block.highlight && reader.showHighlights ? block.text.indexOf(block.highlight) : -1;
   return (
-    <Text selectable style={[styles.paragraph, block.bold && styles.bold]}>
+    <Text selectable style={[styles.paragraph, reader.body, block.bold && styles.bold]}>
       {start < 0 || !block.highlight ? (
         block.text
       ) : (
@@ -256,7 +272,7 @@ function ReferenceParagraph({ block }: { block: ReferenceBlock }) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
   header: {
@@ -312,8 +328,8 @@ const styles = StyleSheet.create({
   paragraphs: { gap: 28, marginTop: 32 },
   paragraph: { ...typography.storyBody, fontSize: 18, color: colors.text },
   bold: { fontWeight: '700' },
-  highlight: { backgroundColor: '#e8f3e8' },
-  divider: { color: '#777777', fontFamily: fonts.sans, fontSize: 24, lineHeight: 32, textAlign: 'center' },
+  highlight: { backgroundColor: colors.highlight },
+  divider: { color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 24, lineHeight: 32, textAlign: 'center' },
   missing: { ...typography.caption, color: colors.secondaryText },
   topics: { marginTop: 48, flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   topicTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
@@ -342,7 +358,7 @@ const styles = StyleSheet.create({
   },
   toolsEntry: { marginVertical: 32 },
   hidden: { display: 'none' },
-  menuRow: { minHeight: 48, justifyContent: 'center' },
+  menuRow: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 16 },
   reactionBar: {
     minHeight: 48,
     paddingHorizontal: 24,

@@ -3,12 +3,14 @@ import { FlatList, Platform, Pressable, StyleSheet, Text, View } from 'react-nat
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { useProfile } from '../profile/ProfileProvider';
-import { ListStoryCard } from './ListStoryCard';
-import { colors, sizes, typography, fonts } from '../../shared/theme/tokens';
+import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { SearchCard } from '../search/SearchCard';
+
+import { ListStoryCard } from './ListStoryCard';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { ReadingListFeedback } from './ReadingListFeedback';
@@ -30,6 +32,8 @@ export function ReadingListScreen({
   onSelectArticle,
   backLabel = '라이브러리로 돌아가기',
 }: ReadingListScreenProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const profile = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
   const [removed, setRemoved] = useState<string | null>(null);
@@ -194,7 +198,7 @@ export function ReadingListScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: { minHeight: 48, paddingLeft: 0, paddingRight: 4, flexDirection: 'row', alignItems: 'center' },
   remove: { minHeight: 48, minWidth: 48, alignSelf: 'flex-end', justifyContent: 'center', marginTop: 8 },
@@ -224,7 +228,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     paddingVertical: 110,
     gap: 8,
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.section,
   },
   emptyTitle: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '600', color: colors.text, textAlign: 'center' },
   emptyDescription: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.text, textAlign: 'center' },
@@ -237,7 +241,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 56,
   },
-  browseText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.background, textAlign: 'center' },
+  browseText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.onAccent, textAlign: 'center' },
   headerTitle: { flex: 1, fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '600', color: colors.text },
   ownerRow: { flexDirection: 'row', gap: 12, alignItems: 'center' },
   avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.input },
@@ -250,7 +254,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     paddingHorizontal: 12,
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
     borderRadius: 32,
     boxShadow: '0px 2px 24px rgba(0,0,0,0.08)',
   },
@@ -259,9 +263,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    backgroundColor: '#242424',
+    backgroundColor: colors.text,
   },
-  toastText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: 'white' },
+  toastText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.onInverse },
   undo: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   pressed: { opacity: 0.6 },
 });

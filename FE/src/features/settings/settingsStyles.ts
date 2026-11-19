@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 
-export const settingsStyles = StyleSheet.create({
+export const settingsStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   page: { width: '100%', maxWidth: 680, alignSelf: 'center', paddingBottom: 32 },
   header: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8, paddingHorizontal: 16,
@@ -14,13 +14,13 @@ export const settingsStyles = StyleSheet.create({
     padding: 12, alignItems: 'center', justifyContent: 'center' },
   text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.text, flexShrink: 1 },
   secondary: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
-  section: { paddingHorizontal: 24, paddingVertical: 18, backgroundColor: '#f5f5f5',
+  section: { paddingHorizontal: 24, paddingVertical: 18, backgroundColor: colors.surface,
     fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, fontWeight: '600', color: colors.text },
   row: { minHeight: 64, paddingHorizontal: 24, paddingVertical: 16, flexDirection: 'row',
     alignItems: 'center', gap: 16, borderBottomWidth: 1, borderBottomColor: colors.border },
   rowContent: { flex: 1, gap: 4 },
   group: { padding: 24, gap: 16 },
-  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.destructive },
   button: { minHeight: 48, minWidth: 48, borderWidth: 1, borderColor: colors.text, borderRadius: 28,
     padding: 12, justifyContent: 'center', alignItems: 'center' },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.18)', justifyContent: 'flex-end' },
@@ -29,6 +29,6 @@ export const settingsStyles = StyleSheet.create({
   choices: { gap: 12 },
   choice: { minHeight: 56, borderWidth: 1, borderColor: colors.border, borderRadius: 8,
     padding: 16, flexDirection: 'row', alignItems: 'center', gap: 12 },
-  selected: { borderColor: colors.text, backgroundColor: '#f2f2f2' },
+  selected: { borderColor: colors.text, backgroundColor: colors.input },
   disabled: { opacity: 0.45 },
 });

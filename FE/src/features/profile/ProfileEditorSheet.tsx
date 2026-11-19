@@ -12,12 +12,13 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import type { ProfileStore } from './createProfileStore';
-import { profileStyles as styles } from './profileStyles';
+import { profileStyles as createStyles } from './profileStyles';
 import {
   areProfileFieldsEqual,
   countProfileCharacters,
@@ -29,6 +30,8 @@ import type { Profile, ProfileFields } from './types';
 type ProfileEditorSheetProps = { initialProfile: Profile; store: ProfileStore; onClose: () => void };
 
 export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEditorSheetProps) {
+  const visual = useThemeStyles(createVisual);
+  const styles = useThemeStyles(createStyles);
   const [unavailableFeature, setUnavailableFeature] = useState<string | null>(null);
   const [fields, setFields] = useState<ProfileFields>({ name: initialProfile.name, bio: initialProfile.bio });
   const [error, setError] = useState<string | null>(null);
@@ -238,7 +241,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
   );
 }
 
-const visual = StyleSheet.create({
+const createVisual = (colors: ThemeColors) => StyleSheet.create({
   sheet: { height: '98.7%', borderTopLeftRadius: 10, borderTopRightRadius: 10 },
   header: {
     minHeight: 54,
@@ -254,27 +257,27 @@ const visual = StyleSheet.create({
   content: { gap: 8 },
   photoRow: { flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 24 },
   updatePhoto: { minHeight: 48, justifyContent: 'center' },
-  photoLink: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, textDecorationLine: 'underline', color: '#242424' },
+  photoLink: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, textDecorationLine: 'underline', color: colors.text },
   field: { gap: 2 },
-  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   inputTarget: { minHeight: 48, justifyContent: 'center' },
   inputSurface: {
     minHeight: 38,
     paddingHorizontal: 12,
     paddingVertical: 9,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.input,
     borderRadius: 4,
     justifyContent: 'center',
   },
-  placeholder: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#6b6b6b' },
+  placeholder: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   counter: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20 },
   about: {
     marginTop: 34,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#e5e5e5',
+    borderTopColor: colors.border,
     paddingTop: 36,
     gap: 8,
   },
-  aboutText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: '#6b6b6b' },
+  aboutText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText },
   localInfo: { marginTop: 120, gap: 16 },
 });

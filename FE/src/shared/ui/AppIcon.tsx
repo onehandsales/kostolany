@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
 
-import { colors } from '../theme/tokens';
+import { useTheme } from '../theme/ThemeProvider';
 
 export type AppIconName =
   | 'back'
@@ -26,7 +26,9 @@ export type AppIconName =
 type AppIconProps = { name: AppIconName; size?: number; color?: string; filled?: boolean };
 
 // 원본 PNG의 윤곽을 참고한 벡터 대체이며 Medium의 원본 아이콘 경로는 확보하지 못했다.
-export function AppIcon({ name, size = 24, color = colors.text, filled = false }: AppIconProps) {
+export function AppIcon({ name, size = 24, color: requestedColor, filled = false }: AppIconProps) {
+  const { colors } = useTheme();
+  const color = requestedColor ?? colors.text;
   return (
     <Svg
       width={size}

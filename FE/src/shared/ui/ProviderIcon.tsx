@@ -1,11 +1,14 @@
 import { Platform } from 'react-native';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
 
+import { useTheme } from '../theme/ThemeProvider';
+
 export type ProviderName = 'Google' | 'Facebook' | 'Apple' | 'X' | 'Email';
 
 type ProviderIconProps = { provider: ProviderName; size?: number };
 
 export function ProviderIcon({ provider, size = 20 }: ProviderIconProps) {
+  const { colors } = useTheme();
   return (
     <Svg
       width={size}
@@ -42,17 +45,17 @@ export function ProviderIcon({ provider, size = 20 }: ProviderIconProps) {
       )}
       {provider === 'Apple' && (
         <Path
-          fill="black"
+          fill={colors.text}
           d="M17 1c.2 2-1.3 4-3 4.2-.3-1.8 1.2-3.9 3-4.2M20.7 17.6c-.6 1.4-.9 2-1.7 3.2-1 1.4-2.4 3.2-4 3.2-1.4 0-1.8-.9-3.8-.9-1.9 0-2.4.9-3.8.9-1.6 0-2.8-1.6-3.8-3-2.8-4-3.2-9.2-1.5-11.9 1.2-1.9 3-3 4.8-3 1.7 0 2.8.9 4.2.9 1.4 0 2.3-.9 4.2-.9 1.6 0 3.4.9 4.6 2.4-4 2.2-3.4 7.3.8 9.1Z"
         />
       )}
       {provider === 'X' && (
-        <Path fill="none" stroke="#242424" strokeWidth={1.2} d="M3 2h4l14 20h-4ZM20 2 4 22" />
+        <Path fill="none" stroke={colors.text} strokeWidth={1.2} d="M3 2h4l14 20h-4ZM20 2 4 22" />
       )}
       {provider === 'Email' && (
         <>
-          <Rect x={2} y={4} width={20} height={16} rx={1} fill="none" stroke="black" strokeWidth={1.2} />
-          <Path d="m2 6 10 7L22 6" fill="none" stroke="black" strokeWidth={1.2} />
+          <Rect x={2} y={4} width={20} height={16} rx={1} fill="none" stroke={colors.text} strokeWidth={1.2} />
+          <Path d="m2 6 10 7L22 6" fill="none" stroke={colors.text} strokeWidth={1.2} />
         </>
       )}
     </Svg>

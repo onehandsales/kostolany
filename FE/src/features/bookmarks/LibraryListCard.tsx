@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
@@ -28,6 +29,8 @@ export function LibraryListCard({
   isPrivate = false,
   afterIntroduction = false,
 }: LibraryListCardProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { state } = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
   const thumbnails = articles.filter((article) => article.reference?.image || article.thumbnail).slice(0, 3);
@@ -98,7 +101,7 @@ export function LibraryListCard({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   card: {
     marginHorizontal: 24,
     marginTop: 32,
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 3,
     overflow: 'hidden',
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.section,
   },
   link: { paddingHorizontal: 24, paddingTop: 24, gap: 12 },
   owner: { flexDirection: 'row', gap: 10, alignItems: 'center' },

@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import type { ReadingListSnapshot } from './types';
 
@@ -10,6 +11,7 @@ type ReadingListFeedbackProps = {
 };
 
 export function ReadingListFeedback({ state, onRetry, onRetryBookmark, showSavedFailures = true }: ReadingListFeedbackProps) {
+  const styles = useThemeStyles(createStyles);
   return <View>
     {state.isRefreshing && <ContentStatus message="읽기 목록을 불러오고 있어요" loading />}
     {state.hasReadError && <ContentStatus message="읽기 목록을 불러오지 못했어요" error
@@ -25,8 +27,8 @@ export function ReadingListFeedback({ state, onRetry, onRetryBookmark, showSaved
   </View>;
 }
 
-const styles = StyleSheet.create({
-  failure: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: '#f7f7f7' },
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
+  failure: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: colors.surface },
   text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
   retry: { minHeight: sizes.minimumTouchTarget, minWidth: sizes.minimumTouchTarget,
     alignSelf: 'flex-start', justifyContent: 'center' },

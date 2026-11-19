@@ -2,7 +2,7 @@
 
 작성일: 2026-11-19 KST · [Goal 22~53 실행 계획](FE_MEDIUM_FULL_CLONE_GOALS.md).
 
-**63개 흐름 / 273단계 / 200개 고유 화면 / 43개 UI 중복 / 72개 작업 묶음. Goal23은 구현 완료·검증 잔여, Goal24~53은 미착수다.** [Goal23 실측·검토·현재 실행 결과](FE_GOAL_23_RESULT.md) · [Goal22 실제 코드의 동작/부분/정적/안내/미구현](FE_GOAL_22_CODE_AUDIT.md) · [Goal22 기준선](FE_GOAL_22_BASELINE.md). 아래 담당 번호는 구현 완료 표시가 아니다.
+**63개 흐름 / 273단계 / 고유200장 / UI중복43장 / 작업묶음72개.** Goal24 구현·두 차례 자체 검토/수정과 현재 자동/브라우저/JS-Hermes 검증을 마쳤으며 시각/native 잔여가 있다. [Goal24 표시 설정·비교·잔여](FE_GOAL_24_RESULT.md). 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료한다. Goal25~53은 미착수·별도 요청 대기다. 담당 번호만으로 기능 완료를 뜻하지 않는다.
 
 ## 원본과 사용 방법
 
@@ -11,7 +11,7 @@
 - 63개 흐름의 진입/종료·상세 분석·미수록 분기를 읽고, 200개 고유 화면 기록의 입력·표시 데이터·메뉴·상태·R2 보완·미확인을 대조해 이 표를 만들었다. 과거 R2의 이미지 검토와 이번 문서 작업을 구분한다. 이번에 200개 구현 캡처를 새로 검증한 것은 아니다.
 - 흐름 F01~F63은 **이 문서의 인덱스**다. 원본 flow ID/실제 단계표는 연결된 ANALYSIS를 따른다. 화면 S001~S200도 인덱스이며 안정 식별자는 `sc_...`다.
 - **공통 담당:** Goal 22 원본/현황, 23 공통 시각, 24 테마, 51 통합 상태, 52 실제 플랫폼, 53 최종 대조. 아래 기능별 담당에 이 공통 책임이 추가된다.
-- 모든 메뉴·상태는 해당 Goal 결과에 `구현/자동 검사/시각/native`를 나누어 업데이트한다. Goal22에서 원본200장을 축소 시트로 전수 관찰했고 Goal23에서는 기존 화면 공통 표현을 보정해 대표11쌍과 추가 목록 메뉴/삭제를 비교했다. Goal24 이후 기능과 전체200장 구현 비교는 미착수다. 기능별 근거와 기존 계약은 FE_GOAL_22_CODE_AUDIT.md, Goal23의 표현 변경·실측·잔여는 FE_GOAL_23_RESULT.md를 따른다.
+- 모든 메뉴·상태는 해당 Goal 결과에 `구현/자동 검사/시각/native`를 나누어 업데이트한다. Goal22에서 원본200장을 축소 시트로 전수 관찰했고 Goal23에서는 기존 화면 공통 표현을 보정해 대표11쌍과 추가 목록 메뉴/삭제를 비교했다. Goal24에서 C02/C13을 연결했으며 전체200장 구현 비교는 아직 미완료다. 기능별 근거와 기존 계약은 FE_GOAL_22_CODE_AUDIT.md, Goal23의 표현 변경·실측·잔여는 FE_GOAL_23_RESULT.md를 따른다.
 
 ## 현재 구현과 후속 범위
 
@@ -26,7 +26,7 @@
 | Write | 작성 진입이 안내 상태다. 편집·미디어·멘션·초안·발행 전체가 후속 범위다. | 36~39 |
 | 인증 | 가입/로그인 제공자 버튼은 이미 있다. Google mock 계정 중심이며 나머지 제공자/이메일 단계·온보딩·intro 복귀를 연결한다. | 40,41 |
 | 프로필 | 이름/short bio·기본 수준 등의 편집이 있다. 사진·대명사·Public 필터·통계/관계에 안내가 남아 있다. | 28,39,42,43 |
-| 설정 | 행/선택 외형과 안내가 있다. 전역 테마·알림·계정/구독·아이콘·외부 목적지를 실제 mock/UI 상태로 연결한다. | 24,44,48,49 |
+| 설정 | Goal24에서 전역 System/Light/Dark·OS 추종과 기사 표시 설정을 계정별 메모리 상태에 연결했다. 알림·계정/구독·아이콘·외부 목적지에 안내가 남아 있다. | 24 구현,44,48,49 |
 | 알림·오디오·공유·멤버십 | 진입/아이콘 또는 안내가 있어도 해당 전체 흐름의 동작 완료로 볼 수 없다. | 44~49 |
 | 원본 동일성·native | 과거 부분 비교와 번들 검증이 있다. 전체 고유 200장 비교·63흐름 행동·실제 플랫폼 검증은 별개다. | 22,23,51~53 |
 
@@ -37,7 +37,7 @@
 | 항목 | 영역 | 세부 구현·검토 대상 | 주 담당 Goal | 근거·연결·주의 |
 | --- | --- | --- | --- | --- |
 | C01 | 공통 | 글꼴·본문 serif·아이콘·토큰·좌표·행간·줄바꿈·이미지 crop | [23](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-23) | Goal23에서 공통 표현 보정·11쌍 실측과 추가 목록 메뉴/삭제 비교 수행. [남은 차이](FE_GOAL_23_RESULT.md)의 원본 font/vector·폼/카드/OS 차이는 미완료이며 대체품을 동일로 판정하지 않는다. |
-| C02 | 공통 | Light/Dark/System·OS 추종·시트/입력/카드 테마 | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | F24,F62; 전역 설정과 기사 Display의 영향 범위를 확인한다. |
+| C02 | 공통 | Light/Dark/System·OS 추종·시트/입력/카드 테마 | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | [Goal24](FE_GOAL_24_RESULT.md): 구현·현재 자동/8081/JS-Hermes 검증 완료, 시각/native 잔여. 기사 System 상속은 명시적 mock 정책이며 원본 영향은 미확인. |
 | C03 | 공통 | 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | Goal23에서 web320px/긴 한글/CSS160%·48px hit test·폼/선택 접근성 보정. 실제 OS 글자 확대·IME·Safe Area·스크린리더는 미검증이다. |
 | C04 | 홈 | For you/Following/Featured·+·알림·Write·하단 탭 | [50](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-50) | F05; 기존 탭 외형을 관계/작성/알림 데이터와 연결한다. |
 | C05 | 홈 | For you 카드 −·더보기·Show less·관심사 편집 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F05,F12; Featured의 bookmark와 혼동하지 않는다. |
@@ -48,7 +48,7 @@
 | C10 | 기사 | 누적 claps·내 기여·피드백 수·다른 카드 수 동기화·Undo claps·박수 사용자 목록 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | F38; +16은 터치 횟수 증거가 아니다. Goal22의 현재 공식 설명은 기사/목록 최대50이며 댓글로 일반화하지 않는다. 취소/사용자 목록 펼친 UI는 추가 확인한다. |
 | C11 | 기사 | Viewed·읽은 제목 색·읽기 이력 발생 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | F62; sc_45fd4ac6da2148968fab1446df649f7f의 회색 제목/Viewed를 포함한다. |
 | C12 | 기사 메뉴 | Show less / Display / Follow / Mute / Report story | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F24; 처리 담당은 31/24/28/29/29이며 29가 미연결 잔여를 확인한다. |
-| C13 | 읽기 설정 | Font size 100%/120%·Font·Theme·Show highlights | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | F24; 폰트 선택 목록·전역 영향은 미수록이며 내 highlight 삭제와 다르다. |
+| C13 | 읽기 설정 | Font size 100%/120%·Font·Theme·Show highlights | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | [Goal24](FE_GOAL_24_RESULT.md):100/120·font·기사 Theme·타인 강조 표시 연결과 현재 자동/8081 검증 완료, 시각/native 잔여. 폰트 목록/범위/전역 영향의 미수록 정책을 명시했고 내 highlight 삭제 명령은 없다. |
 | C14 | 응답 | Responses 열기·수/목록·Most relevant/Most recent·policy | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F30,F34,F36; 정적 수를 동작 결과와 연결한다. |
 | C15 | 응답 | 작성·수정·삭제 확인·Cancel/Save/Publish·실패 입력 유지 | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F31,F32,F33; 기사/댓글/사용자 식별과 확정 시점을 구분한다. |
 | C16 | 응답 | 부모 댓글·답글 작성·Hide replies·See more replies | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F35; 답글 펼침과 댓글 본문 Read more를 구분한다. |

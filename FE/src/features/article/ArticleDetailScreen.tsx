@@ -2,11 +2,14 @@ import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-n
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
-import { colors, sizes, spacing, typography, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { sizes, spacing, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
+import { ArticleDisplayControl } from '../settings/ArticleDisplayControl';
+import { useReaderTypography } from '../settings/useReaderTypography';
 import { previewArticleSource } from './data/articlePreview';
 import { ExplanationSection } from './ExplanationSection';
 import { ReferenceArticleView } from './ReferenceArticleView';
@@ -32,6 +35,8 @@ export function ArticleDetailScreen({
   preference,
   backLabel = '홈으로 돌아가기',
 }: ArticleDetailScreenProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const entryPreference = useEntryExplanationPreference(articleId, preference);
   const { state, retry } = useArticle(articleId, source);
   if (state.status === 'ready' && state.article.reference)
@@ -66,6 +71,8 @@ export function ArticleDetailScreen({
             <Path d="M15 4 7 12 15 20" fill="none" stroke={colors.secondaryText} strokeWidth={2} />
           </Svg>
         </Pressable>
+        <View style={styles.headerSpace} />
+        <ArticleDisplayControl />
       </View>
       {/* 기사가 바뀌면 본문과 스크롤 세션만 새로 시작하고 공유 반응은 유지한다. */}
       <ArticleReader
@@ -87,6 +94,7 @@ type ArticleReaderProps = {
 };
 
 function ArticleReader({ state, retry, explanationSource, preference }: ArticleReaderProps) {
+  const styles = useThemeStyles(createStyles);
   return (
     <View style={styles.reader}>
       <ScrollView accessibilityLabel="기사 본문" style={styles.scroll} contentContainerStyle={styles.content}>
@@ -130,14 +138,16 @@ type ArticleBodyProps = {
 };
 
 function ArticleBody({ article, explanationSource, preference }: ArticleBodyProps) {
+  const reader = useReaderTypography();
+  const styles = useThemeStyles(createStyles);
   return (
     <View style={styles.article}>
       <View style={styles.intro}>
         <Text style={styles.exampleBadge}>예시 콘텐츠 · 실제 보도 아님</Text>
-        <Text role="heading" style={styles.title}>
+        <Text role="heading" style={[styles.title, reader.title]}>
           {article.title}
         </Text>
-        <Text style={styles.subtitle}>{article.subtitle}</Text>
+        <Text style={[styles.subtitle, reader.subtitle]}>{article.subtitle}</Text>
         <Text style={styles.metadata}>
           {article.readingMinutes > 0 ? `${article.readingMinutes}분 읽기 · ` : ''}
           {article.publishedLabel}
@@ -158,7 +168,7 @@ function ArticleBody({ article, explanationSource, preference }: ArticleBodyProp
         </Text>
         <Text style={styles.note}>아래 내용은 읽기 화면을 위한 가상 상황입니다.</Text>
         {article.facts.map((paragraph, index) => (
-          <Text selectable key={index} style={styles.paragraph}>
+          <Text selectable key={index} style={[styles.paragraph, reader.body]}>
             {paragraph}
           </Text>
         ))}
@@ -173,8 +183,9 @@ function ArticleBody({ article, explanationSource, preference }: ArticleBodyProp
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
+  headerSpace: { flex: 1 },
   header: {
     flexDirection: 'row',
     alignItems: 'center',

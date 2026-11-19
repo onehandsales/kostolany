@@ -1,6 +1,6 @@
 # FE 규칙 검토와 Medium 클론 Goal 계획
 
-**최신 상태(2026-11-19):** [Goal23 결과](FE_GOAL_23_RESULT.md) · [전체 Medium 후속 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). Goal23 공통 표현 보정·두 차례 자체 검토·현재 검사/8081 비교를 수행했다. 구현 완료·검증 잔여이며 폰트/아이콘·시각/native 잔여는 결과 문서를 따른다. Goal24~53은 미착수이며 후속 사용자 요청에 따라 Goal23 변경을 로컬 커밋으로 보관한다. push·배포는 하지 않는다. 새 문서의 Windows 경로를 사용하며 아래 Goal14~21 승인과 결과는 당시 이력이다.
+**최신 상태(2026-11-19):** [Goal24 결과·8081 확인 순서](FE_GOAL_24_RESULT.md). Goal24 전역 Light/Dark/System과 기사 표시 설정 구현·두 차례 자체 검토/수정을 마쳤다. 현재 타입/lint·98 suites/690 tests, 8081 흐름·부분 시각 대조와 양 플랫폼 JS/Hermes가 통과했다. 원본 font/vector·시각/native 잔여는 계속 추적한다. 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료하고 Goal25 이후는 미착수·별도 요청 대기다. push·배포는 하지 않는다. 실제 인증/결제/메일/서버/DB는 연결하지 않는다. 기존8081 PID17148·medium·ENV와 기존 계약을 보존한다. 캡처/로그/일회성 스크립트는 저장소 밖 임시 경로만 사용하며 TODO/evidence에는 쓰지 않는다. 아래 이전 Goal 승인·수치·중단 문구는 당시 이력이다.
 
 작성일: 2026-11-19 KST.
 

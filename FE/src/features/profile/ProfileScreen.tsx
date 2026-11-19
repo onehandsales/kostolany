@@ -2,16 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
-import { ProfileLists } from './ProfileLists';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
+
+import { ProfileLists } from './ProfileLists';
 import { ProfileEditorSheet } from './ProfileEditorSheet';
 import { useProfile } from './ProfileProvider';
-import { profileStyles as styles } from './profileStyles';
+import { profileStyles as createStyles } from './profileStyles';
 
 type ProfileScreenProps = {
   accountLabel: string;
@@ -28,6 +30,8 @@ export function ProfileScreen({
   onOpenSettings,
   onOpenList,
 }: ProfileScreenProps) {
+  const visual = useThemeStyles(createVisual);
+  const styles = useThemeStyles(createStyles);
   const { state, store } = useProfile();
   const [section, setSection] = useState<'Stories' | 'Lists' | 'About'>('Stories');
   const [notice, setNotice] = useState<string | null>(null);
@@ -228,7 +232,7 @@ export function ProfileScreen({
   );
 }
 
-const visual = StyleSheet.create({
+const createVisual = (colors: ThemeColors) => StyleSheet.create({
   page: { flexGrow: 1, width: '100%', maxWidth: 680, alignSelf: 'center', paddingBottom: 32 },
   // 설정 버튼의 부모도 전체 터치 높이를 확보하고 본문 시작 위치는 유지한다.
   header: { minHeight: 48, marginBottom: -24, zIndex: 1 },
@@ -259,7 +263,7 @@ const visual = StyleSheet.create({
     paddingVertical: 6,
   },
   dark: { backgroundColor: colors.text },
-  white: { color: 'white' },
+  white: { color: colors.onInverse },
   buttonText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
   tabs: {
     flexDirection: 'row',

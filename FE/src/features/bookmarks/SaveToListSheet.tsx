@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 
-import { LibrarySheet, listFormStyles } from './LibrarySheet';
+import { LibrarySheet, listFormStyles as createListFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { ReadingListFeedback } from './ReadingListFeedback';
@@ -21,6 +22,8 @@ export function SaveToListSheet({
   articleTitle,
   onClose,
 }: SaveToListSheetProps) {
+  const styles = useThemeStyles(createStyles);
+  const listFormStyles = useThemeStyles(createListFormStyles);
   const store = useBookmarkStore();
   const reading = useReadingList();
   const custom = useUserLists();
@@ -145,7 +148,7 @@ export function SaveToListSheet({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   list: { flexGrow: 0, flexShrink: 1 },
   content: { paddingHorizontal: 24, paddingTop: 0, paddingBottom: 3, gap: 0, minHeight: 228 },
   create: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.saveGreen },
@@ -163,13 +166,13 @@ const styles = StyleSheet.create({
     height: 18,
     borderRadius: 9,
     borderWidth: 1,
-    borderColor: '#6b6b6b',
+    borderColor: colors.secondaryText,
     alignItems: 'center',
     justifyContent: 'center',
   },
   checked: { backgroundColor: colors.saveGreen, borderColor: colors.saveGreen },
-  checkText: { color: '#fff', fontFamily: fonts.sans, fontSize: 14, lineHeight: 16 },
-  name: { flex: 1, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  checkText: { color: colors.background, fontFamily: fonts.sans, fontSize: 14, lineHeight: 16 },
+  name: { flex: 1, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   spacer: { minHeight: 81, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
   spacerDivider: { position: 'absolute', top: 48, left: -8, right: -24, height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
   doneTarget: { minHeight: 48, justifyContent: 'center' },
@@ -180,5 +183,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.saveGreen,
     borderRadius: 24,
   },
-  doneText: { color: colors.background, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, padding: 8 },
+  doneText: { color: colors.onAccent, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, padding: 8 },
 });

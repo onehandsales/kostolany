@@ -1,7 +1,8 @@
 import { useState, type Ref } from 'react';
 import { StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
 
-import { colors, fonts, sizes } from '../theme/tokens';
+import { useThemeStyles, useTheme } from '../theme/ThemeProvider';
+import { fonts, sizes, type ThemeColors } from '../theme/tokens';
 
 type FormTextInputProps = TextInputProps & { ref?: Ref<TextInput> };
 
@@ -9,6 +10,8 @@ type FormTextInputProps = TextInputProps & { ref?: Ref<TextInput> };
 export function FormTextInput({
   ref, style, onFocus, onBlur, onContentSizeChange, ...props
 }: FormTextInputProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [focused, setFocused] = useState(false);
   const [contentHeight, setContentHeight] = useState<number>(sizes.minimumTouchTarget);
   return (
@@ -39,7 +42,7 @@ export function FormTextInput({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   surface: {
     position: 'absolute',
     top: sizes.fieldSurfaceInset,

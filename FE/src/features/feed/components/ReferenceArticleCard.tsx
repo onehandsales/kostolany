@@ -10,7 +10,8 @@ import {
   type TextStyle,
 } from 'react-native';
 
-import { colors, typography, fonts } from '../../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../../shared/theme/ThemeProvider';
+import { typography, fonts, type ThemeColors } from '../../../shared/theme/tokens';
 import { AppIcon } from '../../../shared/ui/AppIcon';
 import { IconButton } from '../../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../../shared/ui/ReferenceNotice';
@@ -33,6 +34,8 @@ export function ReferenceArticleCard({
   variant = 'home',
   first = false,
 }: ReferenceArticleCardProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const { fontScale, width } = useWindowDimensions();
@@ -132,7 +135,7 @@ export function ReferenceArticleCard({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   card: {
     paddingHorizontal: 24,
     paddingTop: 32,

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { sizes, spacing, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { previewExplanationSource } from './data/explanationPreview';
 import {
@@ -18,6 +19,7 @@ export function ExplanationSection({ articleId, source = previewExplanationSourc
 }
 
 function ExplanationSession({ articleId, source = previewExplanationSource, preference }: ExplanationSectionProps) {
+  const styles = useThemeStyles(createStyles);
   const [selection, setSelection] = useState(() => ({
     level: preference?.status === 'ready' ? preference.level : defaultExplanationLevel,
     resolved: !preference || preference.status === 'ready',
@@ -57,6 +59,7 @@ function ExplanationSession({ articleId, source = previewExplanationSource, pref
 function ExplanationContent({ articleId, level, source }: {
   articleId: string; level: ExplanationLevel; source: ExplanationSource;
 }) {
+  const styles = useThemeStyles(createStyles);
   const { state, retry } = useExplanation(articleId, level, source);
   const label = explanationLevelLabels[level];
   return (
@@ -77,7 +80,7 @@ function ExplanationContent({ articleId, level, source }: {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   section: { gap: spacing.page, paddingTop: spacing.section, borderTopWidth: 1, borderTopColor: colors.border },
   heading: { ...typography.sectionTitle, color: colors.text },
   label: { ...typography.body, fontWeight: '600', color: colors.text },
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: colors.border, borderRadius: 24, justifyContent: 'center', alignItems: 'center' },
   selected: { backgroundColor: colors.text, borderColor: colors.text },
   choiceLabel: { ...typography.body, color: colors.text, textAlign: 'center' },
-  selectedLabel: { color: colors.background, fontWeight: '600' },
+  selectedLabel: { color: colors.onInverse, fontWeight: '600' },
   pressed: { opacity: 0.65 },
   body: { gap: spacing.page },
   paragraph: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 31, color: colors.text },

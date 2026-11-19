@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, spacing, typography } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { spacing, typography, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
@@ -16,6 +17,8 @@ import { useFeed } from './useFeed';
 type HomeFeedScreenProps = { source?: FeedSource; onSelectArticle: (articleId: string) => void };
 
 export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedScreenProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [sort, setSort] = useState<FeedSort>('latest');
   const [notice, setNotice] = useState<string | null>(null);
   const [collapsed, setCollapsed] = useState(false);
@@ -68,6 +71,7 @@ function FeedResults({
   onSelectArticle: (articleId: string) => void;
   onScrollChange: (collapsed: boolean) => void;
 }) {
+  const styles = useThemeStyles(createStyles);
   const feed = useFeed(sort, source);
   const [notice, setNotice] = useState<string | null>(null);
 
@@ -135,10 +139,11 @@ function FeedFooter({ feed }: { feed: ReturnType<typeof useFeed> }) {
 }
 
 function ArticleSeparator() {
+  const styles = useThemeStyles(createStyles);
   return <View style={styles.separator} />;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: {
     paddingHorizontal: spacing.page,

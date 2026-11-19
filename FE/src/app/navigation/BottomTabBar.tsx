@@ -1,9 +1,12 @@
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { sizes, type ThemeColors } from '../../shared/theme/tokens';
 
 export function BottomTabBar({ state, descriptors, navigation, insets }: BottomTabBarProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   return (
     <View
       role="tablist"
@@ -50,7 +53,7 @@ export function BottomTabBar({ state, descriptors, navigation, insets }: BottomT
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   bar: {
     flexDirection: 'row',
     backgroundColor: colors.background,

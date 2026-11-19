@@ -11,10 +11,12 @@ import { createMockBookmarkSource } from '../../features/bookmarks/data/createMo
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
 import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockDisplaySettingsSource } from '../../features/settings/data/createMockDisplaySettingsSource';
 import { SessionNavigation } from './AppNavigator';
 
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
 const articleId = 'example-latest-rates';
+
 
 function AuthProbe({ onStore }: { onStore: (store: AuthStore) => void }) {
   const { store } = useAuth(); useEffect(() => onStore(store), [onStore, store]); return null;
@@ -30,6 +32,7 @@ async function renderSession() {
   let auth: AuthStore | undefined;
   await render(<SafeAreaProvider><AuthProvider source={createMockAuthSource({ delayMs: 0 })} initialUser={mockUserA}>
     <SessionNavigation bookmarkSource={bookmarks} likeSource={createMockLikeSource({ delayMs: 0 })}
+      displaySource={createMockDisplaySettingsSource({ delayMs: 0 })}
       feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })} />
     <AuthProbe onStore={(store) => { auth = store; }} />
   </AuthProvider></SafeAreaProvider>);
@@ -54,7 +57,6 @@ describe('저장 시트의 사용자 전환', () => {
       jest.useRealTimers();
     }
   });
-
   it('저장 시트 안의 미제출 생성 초안은 A→B→A 전환에서 즉시 사라지고 다른 목록을 노출하지 않는다', async () => {
     const { auth, user } = await renderSession();
     await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
@@ -107,7 +109,7 @@ it.each(['success', 'failure'] as const)('로그인 Modal의 native 닫기 후 �
   const response = deferred<Awaited<ReturnType<typeof source.signIn>>>();
   const signIn = jest.fn(() => response.promise); const user = userEvent.setup();
   await render(<SafeAreaProvider><AuthProvider source={{ ...source, signIn }}>
-    <SessionNavigation feedSource={createMockFeedSource({ delayMs: 0 })} />
+    <SessionNavigation feedSource={createMockFeedSource({ delayMs: 0 })} displaySource={createMockDisplaySettingsSource({ delayMs: 0 })} />
   </AuthProvider></SafeAreaProvider>);
   await user.press(await screen.findByRole('button', { name: `좋아요, ${title}, 로그인 필요` }));
   await user.press(screen.getByRole('button', { name: 'Google로 로그인 (모의)' }));

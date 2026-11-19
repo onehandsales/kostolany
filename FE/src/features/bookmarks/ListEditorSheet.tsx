@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { Keyboard, Pressable, StyleSheet, Text, View, type TextInput } from 'react-native';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
 
-import { LibrarySheet, listFormStyles } from './LibrarySheet';
+import { LibrarySheet, listFormStyles as createListFormStyles } from './LibrarySheet';
 import { MAX_LIST_NAME_LENGTH } from './listTypes';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 import { normalizeListName } from './validateListName';
@@ -22,6 +23,8 @@ export function ListEditorSheet({
   onClose,
   onSaved,
 }: ListEditorSheetProps) {
+  const styles = useThemeStyles(createStyles);
+  const listFormStyles = useThemeStyles(createListFormStyles);
   const store = useBookmarkStore().userLists;
   const state = useUserLists();
   const initial = state.entries.find((item) => item.listId === listId)?.content;
@@ -171,20 +174,20 @@ export function ListEditorSheet({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   content: { paddingTop: 24, gap: 19 },
   field: { gap: 2 },
-  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   counter: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'right' },
   submitTarget: { minHeight: 48, justifyContent: 'center' },
   submitSurface: { minHeight: 38, padding: 8, backgroundColor: colors.green, borderRadius: 24, justifyContent: 'center' },
-  submitText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.background, textAlign: 'center' },
+  submitText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.onAccent, textAlign: 'center' },
   switchTarget: { minHeight: 48, minWidth: 52, justifyContent: 'center' },
-  track: { width: 52, height: 32, borderRadius: 16, backgroundColor: '#dedee0', padding: 2 },
+  track: { width: 52, height: 32, borderRadius: 16, backgroundColor: colors.segment, padding: 2 },
   privateTrack: { backgroundColor: colors.green },
-  thumb: { width: 28, height: 28, borderRadius: 14, backgroundColor: 'white' },
+  thumb: { width: 28, height: 28, borderRadius: 14, backgroundColor: '#ffffff' },
   privateThumb: { alignSelf: 'flex-end' },
   privacy: { flexDirection: 'row', alignItems: 'center', minHeight: 48, gap: 16, marginBottom: 4 },
   flex: { flex: 1 },
-  hint: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: '#6b6b6b' },
+  hint: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText },
 });

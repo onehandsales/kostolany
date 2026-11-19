@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
-import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { formatReactionCount, mediumArticles } from '../feed/data/mediumFixtures';
 import { LoginRequestButton } from '../auth/LoginRequestButton';
@@ -17,6 +18,8 @@ type ArticleLikeControlProps = {
 };
 
 export function ArticleLikeControl(props: ArticleLikeControlProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const store = useContext(LikeStoreContext);
   if (store) return <SignedInLikeControl {...props} />;
   return (
@@ -50,6 +53,8 @@ function SignedInLikeControl({
   compact = false,
   iconSize = 16,
 }: ArticleLikeControlProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { state, toggleLike, retryLike } = useArticleLike(articleId);
   const disabled = state.status !== 'ready';
   const busy = state.isPending || state.isRefreshing || state.status === 'loading';
@@ -128,6 +133,7 @@ function SignedInLikeControl({
 }
 
 function HeartIcon({ selected }: { selected: boolean }) {
+  const { colors } = useTheme();
   return (
     <Svg
       width={24}
@@ -147,7 +153,7 @@ function HeartIcon({ selected }: { selected: boolean }) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: { gap: 4 },
   row: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: 16 },
   button: {

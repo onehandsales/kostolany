@@ -1,10 +1,12 @@
 import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { authStyles as styles } from './authStyles';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { authStyles as createStyles } from './authStyles';
 import { LoginRequestButton } from './LoginRequestButton';
 
 export function AccountScreen() {
+  const styles = useThemeStyles(createStyles);
   return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
     <ScrollView contentContainerStyle={styles.page}>
       <Text role="heading" style={styles.title}>프로필</Text>
@@ -21,6 +23,7 @@ export function AccountScreen() {
 }
 
 export function LibraryLoginScreen() {
+  const styles = useThemeStyles(createStyles);
   return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
     <ScrollView contentContainerStyle={styles.page}>
       <Text role="heading" style={styles.title}>라이브러리</Text>

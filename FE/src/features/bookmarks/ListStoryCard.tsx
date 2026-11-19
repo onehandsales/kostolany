@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import type { FeedArticle } from '../feed/types';
@@ -20,6 +21,8 @@ export function ListStoryCard({
   onRemove,
   onNotice,
 }: ListStoryCardProps) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const { width, fontScale } = useWindowDimensions();
   return (
     <View style={styles.card}>
@@ -67,7 +70,7 @@ export function ListStoryCard({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   card: {
     paddingHorizontal: 24,
     paddingBottom: 20,

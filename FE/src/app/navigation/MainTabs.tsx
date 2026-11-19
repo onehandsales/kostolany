@@ -36,7 +36,7 @@ export function MainTabs({
     <Tab.Navigator
       initialRouteName="Home"
       backBehavior="history"
-      tabBar={BottomTabBar}
+      tabBar={(props) => <BottomTabBar {...props} />}
       screenOptions={({ route }) => ({
         headerShown: false,
         animation: 'none',

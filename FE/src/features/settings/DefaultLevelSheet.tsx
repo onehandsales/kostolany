@@ -3,12 +3,15 @@ import { Modal, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { explanationLevelLabels, explanationLevels, type ExplanationLevel } from '../article/explanationTypes';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+
 import type { ReadingSettingsStore } from './createReadingSettingsStore';
-import { settingsStyles as styles } from './settingsStyles';
+import { settingsStyles as createStyles } from './settingsStyles';
 
 type DefaultLevelSheetProps = { initialLevel: ExplanationLevel; store: ReadingSettingsStore; onClose: () => void };
 
 export function DefaultLevelSheet({ initialLevel, store, onClose }: DefaultLevelSheetProps) {
+  const styles = useThemeStyles(createStyles);
   const [level, setLevel] = useState(initialLevel);
   const [pendingLevel, setPendingLevel] = useState<ExplanationLevel | null>(null);
   const [hasError, setHasError] = useState(false);

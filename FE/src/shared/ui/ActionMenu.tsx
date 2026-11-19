@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors, fonts } from '../theme/tokens';
+import { useThemeStyles } from '../theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../theme/tokens';
 import { IconButton } from './IconButton';
 import { restoreModalFocus } from './restoreModalFocus';
 
@@ -10,6 +11,7 @@ type MenuItem = { label: string; accessibilityLabel?: string; destructive?: bool
 type ActionMenuProps = { label: string; items: readonly MenuItem[] };
 
 export function ActionMenu({ label, items }: ActionMenuProps) {
+  const styles = useThemeStyles(createStyles);
   const anchor = useRef<View>(null);
   const measurementRevision = useRef(0);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
@@ -94,16 +96,16 @@ export function ActionMenu({ label, items }: ActionMenuProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1 },
   menu: {
     position: 'absolute',
     borderRadius: 14,
-    backgroundColor: '#f7f7f7',
+    backgroundColor: colors.surface,
     overflow: 'hidden',
     boxShadow: '0px 8px 60px rgba(0,0,0,0.18)',
   },
   row: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 16, paddingVertical: 10 },
   text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text },
-  destructive: { color: '#ff453a' },
+  destructive: { color: colors.destructive },
 });

@@ -9,7 +9,8 @@ import {
   type ImageSourcePropType,
 } from 'react-native';
 
-import { colors, fonts } from '../../shared/theme/tokens';
+import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
@@ -20,6 +21,7 @@ import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 type SearchBylineProps = { name: string; avatar?: ImageSourcePropType; emphasized?: boolean; verified?: boolean };
 
 export function SearchByline({ name, avatar, emphasized = false, verified = false }: SearchBylineProps) {
+  const styles = useThemeStyles(createStyles);
   const publication = /^In (.+) by (.+)$/.exec(name);
   return (
     <View style={styles.byline}>
@@ -48,6 +50,7 @@ type SearchCardProps = {
 };
 
 export function SearchCard({ article, first = false, onSelect, footer }: SearchCardProps) {
+  const styles = useThemeStyles(createStyles);
   const { fontScale } = useWindowDimensions();
   if (article.reference)
     return (
@@ -91,7 +94,7 @@ export function SearchCard({ article, first = false, onSelect, footer }: SearchC
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   card: {
     paddingHorizontal: 24,
     paddingTop: 32,
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
   photo: { width: 20, height: 20, borderRadius: 10 },
   publication: { borderRadius: 2 },
   emphasis: { fontWeight: '600' },
-  initial: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 16, color: colors.background, fontWeight: '700' },
+  initial: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 16, color: colors.onInverse, fontWeight: '700' },
   source: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.text, flexShrink: 1 },
   headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 16, marginTop: 16 },
   stacked: { flexDirection: 'column' },

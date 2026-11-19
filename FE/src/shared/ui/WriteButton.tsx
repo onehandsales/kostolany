@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { colors } from '../theme/tokens';
+import { useThemeStyles, useTheme } from '../theme/ThemeProvider';
+import { type ThemeColors } from '../theme/tokens';
 import { IconButton } from './IconButton';
 import { ReferenceNotice } from './ReferenceNotice';
 
 export function WriteButton() {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const [visible, setVisible] = useState(false);
   return (
     <>
       <IconButton
         icon="write"
         label="Write a story"
-        color={colors.background}
+        color={colors.onAccent}
         size={24}
         onPress={() => setVisible(true)}
         style={styles.button}
@@ -22,7 +25,7 @@ export function WriteButton() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   button: {
     position: 'absolute',
     bottom: 20,
