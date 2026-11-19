@@ -1,8 +1,0 @@
-from pathlib import Path
-from PIL import Image
-root=Path(__file__).resolve().parents[3];out=Path(__file__).parent
-pairs=[('profile','Profile','02_sc_1bd141b757934a88b4a003855e1794cc'),('about-empty','Profile','05_sc_d55f02281f894078a734269d60de79c4'),('edit-empty','Profile/Editing profile information','02_sc_a829121c47a444cd8a8fd0d9889edaed'),('edit-filled','Profile/Editing profile information','06_sc_befb6fde38cc48f3827ea389caed11de'),('settings','Profile/Settings','02_sc_ddd51660cb8346a1b200ed970a2d5c45'),('settings-bottom','Profile/Settings','03_sc_c653047933aa40b2be7a8f281643d41d'),('settings-logout','Profile/Settings/Logging out','02_sc_2d1afd7a02a347868564f9757753d077')]
-html='<!doctype html><meta charset="utf-8"><title>Goal20 comparison</title><style>body{font:16px sans-serif;background:#eee}section{display:flex;gap:20px}img{width:393px}figure{margin:0}p{max-width:900px}</style><h1>Goal20: original / implementation</h1><p>Original1179×2556 normalized393×852; top59/bottom34 removed. Actual web393×759. Source font/assets unknown. 48pt targets, mock controls, keyboard/focus, scroll position and editable account contents differ. No100%claim.</p>'
-for name,flow,id in pairs:
- source=root/'medium/flows'/flow/'screens'/f'{id}.png';ref=Image.open(source).resize((393,852)).crop((0,59,393,818));ref.save(out/f'{name}-reference.png');combo=Image.new('RGB',(806,759),'#ddd');combo.paste(ref,(0,0));combo.paste(Image.open(out/f'{name}.png'),(413,0));combo.save(out/f'{name}-comparison.png');html+=f'<h2>{name}</h2><p>{flow} / {id}</p><section><figure><figcaption>Reference</figcaption><img src="{name}-reference.png"></figure><figure><figcaption>Implementation</figcaption><img src="{name}.png"></figure></section>'
-(out/'COMPARISON.html').write_text(html)
