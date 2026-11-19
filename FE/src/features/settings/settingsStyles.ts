@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { colors, sizes, fonts } from '../../shared/theme/tokens';
 
 export const settingsStyles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
@@ -9,18 +9,18 @@ export const settingsStyles = StyleSheet.create({
     paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: colors.border,
     width: '100%', maxWidth: 680, alignSelf: 'center' },
   headerSpace: { width: 48 },
-  title: { flex: 1, fontSize: 22, lineHeight: 30, fontWeight: '600', color: colors.text, textAlign: 'center' },
+  title: { flex: 1, fontFamily: fonts.sans, fontSize: 22, lineHeight: 30, fontWeight: '600', color: colors.text, textAlign: 'center' },
   action: { minWidth: sizes.minimumTouchTarget, minHeight: sizes.minimumTouchTarget,
     padding: 12, alignItems: 'center', justifyContent: 'center' },
-  text: { fontSize: 16, lineHeight: 26, color: colors.text, flexShrink: 1 },
-  secondary: { fontSize: 14, lineHeight: 22, color: colors.secondaryText },
+  text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.text, flexShrink: 1 },
+  secondary: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
   section: { paddingHorizontal: 24, paddingVertical: 18, backgroundColor: '#f5f5f5',
-    fontSize: 16, lineHeight: 24, fontWeight: '600', color: colors.text },
+    fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, fontWeight: '600', color: colors.text },
   row: { minHeight: 64, paddingHorizontal: 24, paddingVertical: 16, flexDirection: 'row',
     alignItems: 'center', gap: 16, borderBottomWidth: 1, borderBottomColor: colors.border },
   rowContent: { flex: 1, gap: 4 },
   group: { padding: 24, gap: 16 },
-  error: { fontSize: 14, lineHeight: 22, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#a52a2a' },
   button: { minHeight: 48, minWidth: 48, borderWidth: 1, borderColor: colors.text, borderRadius: 28,
     padding: 12, justifyContent: 'center', alignItems: 'center' },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.18)', justifyContent: 'flex-end' },

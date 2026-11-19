@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Keyboard, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Keyboard, Pressable, StyleSheet, Text, View, type TextInput } from 'react-native';
+
+import { colors, fonts } from '../../shared/theme/tokens';
+import { FormTextInput } from '../../shared/ui/FormTextInput';
 
 import { LibrarySheet, listFormStyles } from './LibrarySheet';
 import { MAX_LIST_NAME_LENGTH } from './listTypes';
@@ -81,7 +84,7 @@ export function ListEditorSheet({
     >
       <View style={styles.field}>
         <Text style={styles.label}>List name</Text>
-        <TextInput
+        <FormTextInput
           ref={input}
           accessibilityLabel="목록 이름 · 필수"
           value={name}
@@ -91,7 +94,6 @@ export function ListEditorSheet({
           }}
           editable={!pending}
           placeholder="Add a name"
-          style={styles.input}
           autoCorrect={false}
           autoCapitalize="none"
           returnKeyType="done"
@@ -103,7 +105,7 @@ export function ListEditorSheet({
       </View>
       <View style={styles.field}>
         <Text style={styles.label}>Description (optional)</Text>
-        <TextInput
+        <FormTextInput
           accessibilityLabel="목록 설명"
           value={description}
           onChangeText={setDescription}
@@ -111,7 +113,6 @@ export function ListEditorSheet({
           placeholder="Add a description"
           multiline
           numberOfLines={1}
-          style={styles.input}
         />
         <Text style={styles.counter}>{[...description.normalize('NFC')].length} / 280</Text>
       </View>
@@ -123,6 +124,8 @@ export function ListEditorSheet({
         <Pressable
           role="switch"
           accessibilityLabel="Private"
+          aria-checked={isPrivate}
+          aria-disabled={pending}
           accessibilityState={{ checked: isPrivate, disabled: pending }}
           disabled={pending}
           onPress={() => setPrivate(!isPrivate)}
@@ -156,37 +159,32 @@ export function ListEditorSheet({
         disabled={pending || Boolean(validation)}
         accessibilityState={{ disabled: pending || Boolean(validation), busy: pending }}
         onPress={handleSubmit}
-        style={[listFormStyles.primary, (pending || Boolean(validation)) && listFormStyles.disabled]}
+        style={[styles.submitTarget, (pending || Boolean(validation)) && listFormStyles.disabled]}
       >
-        <Text style={listFormStyles.primaryText}>
-          {pending ? 'Saving…' : entry?.failure ? 'Retry' : listId ? 'Save' : 'Create'}
-        </Text>
+        <View style={styles.submitSurface}>
+          <Text style={styles.submitText}>
+            {pending ? 'Saving…' : entry?.failure ? 'Retry' : listId ? 'Save' : 'Create'}
+          </Text>
+        </View>
       </Pressable>
     </LibrarySheet>
   );
 }
 
 const styles = StyleSheet.create({
-  content: { paddingTop: 40, gap: 24 },
-  field: { gap: 6 },
-  label: { fontSize: 14, lineHeight: 20, color: '#242424' },
-  input: {
-    minHeight: 48,
-    paddingHorizontal: 12,
-    paddingVertical: 12,
-    fontSize: 14,
-    lineHeight: 20,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 4,
-    color: '#242424',
-  },
-  counter: { fontSize: 12, lineHeight: 18, color: '#6b6b6b', textAlign: 'right' },
+  content: { paddingTop: 24, gap: 19 },
+  field: { gap: 2 },
+  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  counter: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'right' },
+  submitTarget: { minHeight: 48, justifyContent: 'center' },
+  submitSurface: { minHeight: 38, padding: 8, backgroundColor: colors.green, borderRadius: 24, justifyContent: 'center' },
+  submitText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.background, textAlign: 'center' },
   switchTarget: { minHeight: 48, minWidth: 52, justifyContent: 'center' },
   track: { width: 52, height: 32, borderRadius: 16, backgroundColor: '#dedee0', padding: 2 },
-  privateTrack: { backgroundColor: '#18820f' },
+  privateTrack: { backgroundColor: colors.green },
   thumb: { width: 28, height: 28, borderRadius: 14, backgroundColor: 'white' },
   privateThumb: { alignSelf: 'flex-end' },
-  privacy: { flexDirection: 'row', alignItems: 'center', minHeight: 48, gap: 16, marginBottom: 8 },
+  privacy: { flexDirection: 'row', alignItems: 'center', minHeight: 48, gap: 16, marginBottom: 4 },
   flex: { flex: 1 },
-  hint: { fontSize: 12, lineHeight: 18, color: '#6b6b6b' },
+  hint: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: '#6b6b6b' },
 });

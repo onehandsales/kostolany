@@ -1,6 +1,6 @@
 # 프론트엔드 Goal별 작업 계획
 
-**최신 상태(2026-11-19):** [Goal22 기준선 결과](FE_GOAL_22_RESULT.md) · [Medium 전체 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). 원본63흐름/273단계/200장·43중복과 현재 코드·비교 환경을 검토했다. 현재662 tests/90 suites·타입/lint·양 플랫폼 JS/Hermes 통과. 원본 동일성·native 검증은 잔여이며 Goal23~53은 미착수다. 아래 Goal1~21의 승인·커밋·검증 결과는 당시 이력이다.
+**최신 상태(2026-11-19):** [Goal23 결과](FE_GOAL_23_RESULT.md) · [Medium 전체 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). Goal23의 공통 폰트·아이콘·레이아웃 보정과 두 차례 자체 검토·현재 자동/브라우저 검증을 수행했다. 구현 완료·검증 잔여이며 원본 font/vector·일부 시각 차이·실제 native 검증은 남아 있다. Goal24~53은 미착수, 후속 사용자 요청에 따라 Goal23 변경을 로컬 커밋으로 보관한다. 아래 Goal1~22의 승인·커밋·검증 결과는 당시 이력이다.
 
 2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 

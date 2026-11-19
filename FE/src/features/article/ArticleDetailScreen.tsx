@@ -2,7 +2,7 @@ import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-n
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
-import { colors, sizes, spacing, typography } from '../../shared/theme/tokens';
+import { colors, sizes, spacing, typography, fonts } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
   article: { width: '100%', maxWidth: 680, alignSelf: 'center', gap: spacing.section },
   intro: { gap: spacing.page },
   exampleBadge: { ...typography.caption, color: colors.secondaryText },
-  title: { fontSize: 32, lineHeight: 42, fontWeight: '700', color: colors.text },
-  subtitle: { fontSize: 20, lineHeight: 30, color: colors.secondaryText },
+  title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 42, fontWeight: '700', color: colors.text },
+  subtitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 30, color: colors.secondaryText },
   metadata: { ...typography.caption, color: colors.secondaryText },
   source: { ...typography.body, color: colors.text },
   figure: { gap: spacing.small },
@@ -223,5 +223,5 @@ const styles = StyleSheet.create({
   section: { gap: spacing.page },
   sectionTitle: { ...typography.sectionTitle, color: colors.text },
   note: { ...typography.caption, color: colors.secondaryText },
-  paragraph: { fontSize: 18, lineHeight: 31, color: colors.text },
+  paragraph: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 31, color: colors.text },
 });

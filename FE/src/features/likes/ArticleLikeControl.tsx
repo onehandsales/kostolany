@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { colors, sizes, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { formatReactionCount, mediumArticles } from '../feed/data/mediumFixtures';
 import { LoginRequestButton } from '../auth/LoginRequestButton';
@@ -23,11 +23,11 @@ export function ArticleLikeControl(props: ArticleLikeControlProps) {
     <LoginRequestButton
       context={{ kind: 'like', articleId: props.articleId }}
       label={`좋아요, ${props.articleTitle}, 로그인 필요`}
-      style={styles.button}
+      style={[styles.button, props.compact && styles.compactButton]}
     >
       {props.compact ? (
         <>
-          <AppIcon name="clap" size={props.iconSize ?? 16} color={colors.secondaryText} />
+          <AppIcon name="clap" size={props.iconSize ?? 16} color={colors.secondaryText} filled={(props.iconSize ?? 16) <= 16} />
           <Text style={[styles.compactCount, (props.iconSize ?? 16) > 20 && styles.toolbarCount]}>
             {formatReactionCount(
               mediumArticles.find((article) => article.id === props.articleId)?.reference?.applause ?? 0,
@@ -84,12 +84,13 @@ function SignedInLikeControl({
           accessibilityHint={state.isLiked ? '누르면 좋아요 선택을 해제합니다' : '누르면 좋아요를 선택합니다'}
           disabled={disabled}
           onPress={toggleLike}
-          style={({ pressed }) => [styles.button, pressed && styles.pressed, disabled && styles.disabled]}
+          style={({ pressed }) => [styles.button, compact && styles.compactButton, pressed && styles.pressed, disabled && styles.disabled]}
         >
           {compact ? (
             <AppIcon
               name="clap"
               size={iconSize}
+              filled={iconSize <= 16}
               color={state.isLiked ? colors.green : colors.secondaryText}
             />
           ) : (
@@ -158,14 +159,15 @@ const styles = StyleSheet.create({
     gap: 8,
     paddingHorizontal: 4,
   },
-  count: { fontSize: 14, lineHeight: 22, color: colors.text },
-  compactCount: { fontSize: 12, lineHeight: 18, color: colors.secondaryText },
-  toolbarCount: { fontSize: 14, lineHeight: 20, color: colors.text },
-  status: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, flexShrink: 1, paddingVertical: 4 },
+  count: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
+  compactButton: { gap: 2, paddingHorizontal: 0 },
+  compactCount: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.secondaryText },
+  toolbarCount: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
+  status: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, flexShrink: 1, paddingVertical: 4 },
   pressed: { opacity: 0.6 },
   disabled: { opacity: 0.5 },
   failure: { gap: 4 },
-  message: { fontSize: 14, lineHeight: 22, color: colors.text },
+  message: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
   retry: {
     minHeight: sizes.minimumTouchTarget,
     minWidth: sizes.minimumTouchTarget,
@@ -173,5 +175,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 8,
   },
-  retryLabel: { color: colors.text, fontSize: 14, lineHeight: 22, textDecorationLine: 'underline' },
+  retryLabel: { color: colors.text, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, textDecorationLine: 'underline' },
 });

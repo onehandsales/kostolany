@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { BookmarkIcon } from './BookmarkIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { colors, typography } from '../../shared/theme/tokens';
+import { colors, typography, fonts } from '../../shared/theme/tokens';
 import { LibraryListCard } from './LibraryListCard';
 import { listFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
@@ -155,10 +155,10 @@ const styles = StyleSheet.create({
   section: { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   tabLabel: { minHeight: 48, flexDirection: 'row', alignItems: 'center', gap: 4 },
   badge: {
-    fontSize: 10,
+    fontFamily: fonts.sans, fontSize: 10,
     lineHeight: 14,
     color: 'white',
-    backgroundColor: '#18820f',
+    backgroundColor: colors.green,
     paddingHorizontal: 3,
     borderRadius: 2,
   },
@@ -171,21 +171,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   activeTab: { borderBottomWidth: 1, borderBottomColor: colors.text },
-  tabText: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  tabText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   activeText: { color: colors.text },
   newTarget: { minHeight: 48, justifyContent: 'center' },
   newPill: {
     paddingHorizontal: 16,
     minHeight: 38,
     justifyContent: 'center',
-    backgroundColor: '#18820f',
+    backgroundColor: colors.green,
     borderRadius: 24,
   },
-  newText: { fontSize: 14, lineHeight: 20, color: 'white' },
+  newText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: 'white' },
   banner: {
     marginHorizontal: 24,
     marginTop: 24,
-    backgroundColor: '#18820f',
+    backgroundColor: colors.green,
     paddingTop: 24,
     paddingBottom: 10,
     paddingRight: 24,
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     overflow: 'hidden',
   },
-  bannerText: { fontSize: 16, lineHeight: 21, fontWeight: '600', color: 'white' },
+  bannerText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '600', color: 'white' },
   start: { minHeight: 48, justifyContent: 'center', alignSelf: 'flex-start', zIndex: 1 },
   startPill: {
     minHeight: 32,

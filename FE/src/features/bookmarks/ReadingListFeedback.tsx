@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { colors, sizes, fonts } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import type { ReadingListSnapshot } from './types';
 
@@ -27,8 +27,8 @@ export function ReadingListFeedback({ state, onRetry, onRetryBookmark, showSaved
 
 const styles = StyleSheet.create({
   failure: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: '#f7f7f7' },
-  text: { fontSize: 14, lineHeight: 22, color: colors.text },
+  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
   retry: { minHeight: sizes.minimumTouchTarget, minWidth: sizes.minimumTouchTarget,
     alignSelf: 'flex-start', justifyContent: 'center' },
-  retryText: { fontSize: 14, lineHeight: 22, color: colors.text, textDecorationLine: 'underline' },
+  retryText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text, textDecorationLine: 'underline' },
 });

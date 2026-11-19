@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { colors, sizes, fonts } from '../../shared/theme/tokens';
+import { AppIcon } from '../../shared/ui/AppIcon';
 
 type LibrarySheetProps = {
   title: string;
@@ -25,6 +26,7 @@ type LibrarySheetProps = {
   titleLabel?: string;
   closeText?: string;
   hideClose?: boolean;
+  variant?: 'standard' | 'confirmation';
 } & (
   | { contentMode?: 'scroll'; contentStyle?: StyleProp<ViewStyle> }
   | { contentMode: 'list'; contentStyle?: never }
@@ -40,6 +42,7 @@ export function LibrarySheet({
   closeLabel = '취소',
   closeText = closeLabel,
   hideClose = false,
+  variant = 'standard',
   contentStyle,
   contentMode = 'scroll',
 }: LibrarySheetProps) {
@@ -67,8 +70,9 @@ export function LibrarySheet({
           style={styles.avoidKeyboard}
         >
           <View style={[styles.sheet, expanded && styles.expanded, { paddingBottom: insets.bottom }]}>
-            <View style={styles.header}>
-              <Text role="heading" style={styles.title}>
+            <View style={[styles.header, variant === 'confirmation' && styles.confirmationHeader]}>
+              {variant === 'confirmation' && <View pointerEvents="none" style={styles.handle} />}
+              <Text role="heading" style={[styles.title, variant === 'confirmation' && styles.confirmationTitle]}>
                 {title}
               </Text>
               {!hideClose && (
@@ -76,9 +80,9 @@ export function LibrarySheet({
                   role="button"
                   accessibilityLabel={`${titleLabel} ${closeLabel}`}
                   onPress={onClose}
-                  style={styles.close}
+                  style={[styles.close, variant === 'confirmation' && styles.confirmationClose]}
                 >
-                  <Text style={styles.closeText}>{closeText}</Text>
+                  {variant === 'confirmation' ? <AppIcon name="close" size={18} color={colors.secondaryText} /> : <Text style={styles.closeText}>{closeText}</Text>}
                 </Pressable>
               )}
             </View>
@@ -98,25 +102,25 @@ export function LibrarySheet({
 }
 
 export const listFormStyles = StyleSheet.create({
-  text: { fontSize: 16, lineHeight: 26, color: colors.text },
-  secondary: { fontSize: 14, lineHeight: 22, color: colors.secondaryText },
+  text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.text },
+  secondary: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
   primary: {
     minHeight: sizes.minimumTouchTarget,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    backgroundColor: '#18820f',
+    backgroundColor: colors.green,
     borderRadius: 28,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  primaryText: { fontSize: 16, lineHeight: 24, color: colors.background, textAlign: 'center' },
+  primaryText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.background, textAlign: 'center' },
   disabled: { opacity: 0.45 },
   row: { minHeight: sizes.minimumTouchTarget, paddingVertical: 12, justifyContent: 'center' },
-  error: { fontSize: 14, lineHeight: 22, color: '#a52a2a' },
+  error: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#a52a2a' },
 });
 
 const styles = StyleSheet.create({
-  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.18)' },
+  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.12)' },
   avoidKeyboard: { flex: 1, justifyContent: 'flex-end' },
   sheet: {
     maxHeight: '92%',
@@ -124,22 +128,22 @@ const styles = StyleSheet.create({
     maxWidth: 680,
     alignSelf: 'center',
     backgroundColor: colors.background,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
+    borderTopLeftRadius: sizes.sheetRadius,
+    borderTopRightRadius: sizes.sheetRadius,
     overflow: 'hidden',
   },
-  expanded: { height: '98%', maxHeight: '98%' },
+  expanded: { height: '98.7%', maxHeight: '98.7%' },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    minHeight: 56,
-    paddingHorizontal: 64,
+    minHeight: 54,
+    paddingHorizontal: 80,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    borderBottomColor: colors.divider,
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 22,
     fontWeight: '600',
     textAlign: 'center',
@@ -147,11 +151,15 @@ const styles = StyleSheet.create({
   },
   close: {
     position: 'absolute',
-    right: 12,
+    right: 20,
     minHeight: sizes.minimumTouchTarget,
     minWidth: sizes.minimumTouchTarget,
     justifyContent: 'center',
   },
-  closeText: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'center' },
+  closeText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'center' },
+  confirmationHeader: { paddingTop: 38, paddingBottom: 10, borderBottomWidth: 0 },
+  confirmationTitle: { fontSize: 20, lineHeight: 26 },
+  confirmationClose: { top: 0, right: 0, alignItems: 'center' },
+  handle: { position: 'absolute', top: 8, left: '50%', marginLeft: -18, width: 36, height: 4, borderRadius: 2, backgroundColor: colors.divider },
   content: { padding: 24, gap: 24, paddingBottom: 32 },
 });

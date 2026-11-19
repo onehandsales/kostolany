@@ -2,7 +2,7 @@
 
 작성일: 2026-11-19 KST · [Goal 22~53 실행 계획](FE_MEDIUM_FULL_CLONE_GOALS.md).
 
-**Goal22 기준선 대조: 63개 흐름 / 273단계 / 200개 고유 화면 / 43개 UI 중복 / 72개 작업 묶음. Goal23~53은 미착수다.** [결과](FE_GOAL_22_RESULT.md) · [실제 코드의 동작/부분/정적/안내/미구현](FE_GOAL_22_CODE_AUDIT.md) · [비교 조건·추가 조사·잔여](FE_GOAL_22_BASELINE.md). 아래 담당 번호는 구현 완료 표시가 아니다.
+**63개 흐름 / 273단계 / 200개 고유 화면 / 43개 UI 중복 / 72개 작업 묶음. Goal23은 구현 완료·검증 잔여, Goal24~53은 미착수다.** [Goal23 실측·검토·현재 실행 결과](FE_GOAL_23_RESULT.md) · [Goal22 실제 코드의 동작/부분/정적/안내/미구현](FE_GOAL_22_CODE_AUDIT.md) · [Goal22 기준선](FE_GOAL_22_BASELINE.md). 아래 담당 번호는 구현 완료 표시가 아니다.
 
 ## 원본과 사용 방법
 
@@ -11,7 +11,7 @@
 - 63개 흐름의 진입/종료·상세 분석·미수록 분기를 읽고, 200개 고유 화면 기록의 입력·표시 데이터·메뉴·상태·R2 보완·미확인을 대조해 이 표를 만들었다. 과거 R2의 이미지 검토와 이번 문서 작업을 구분한다. 이번에 200개 구현 캡처를 새로 검증한 것은 아니다.
 - 흐름 F01~F63은 **이 문서의 인덱스**다. 원본 flow ID/실제 단계표는 연결된 ANALYSIS를 따른다. 화면 S001~S200도 인덱스이며 안정 식별자는 `sc_...`다.
 - **공통 담당:** Goal 22 원본/현황, 23 공통 시각, 24 테마, 51 통합 상태, 52 실제 플랫폼, 53 최종 대조. 아래 기능별 담당에 이 공통 책임이 추가된다.
-- 모든 메뉴·상태는 해당 Goal 결과에 `구현/자동 검사/시각/native`를 나누어 업데이트한다. Goal22에서 원본200장을 축소 시트로 전수 관찰하고 실제 구현11쌍을 비교했다. 후속 화면 구현·전체200장 구현 비교는 미착수다. 현재 기능별 근거와 공개 계약은 FE_GOAL_22_CODE_AUDIT.md를 따른다.
+- 모든 메뉴·상태는 해당 Goal 결과에 `구현/자동 검사/시각/native`를 나누어 업데이트한다. Goal22에서 원본200장을 축소 시트로 전수 관찰했고 Goal23에서는 기존 화면 공통 표현을 보정해 대표11쌍과 추가 목록 메뉴/삭제를 비교했다. Goal24 이후 기능과 전체200장 구현 비교는 미착수다. 기능별 근거와 기존 계약은 FE_GOAL_22_CODE_AUDIT.md, Goal23의 표현 변경·실측·잔여는 FE_GOAL_23_RESULT.md를 따른다.
 
 ## 현재 구현과 후속 범위
 
@@ -36,9 +36,9 @@
 
 | 항목 | 영역 | 세부 구현·검토 대상 | 주 담당 Goal | 근거·연결·주의 |
 | --- | --- | --- | --- | --- |
-| C01 | 공통 | 글꼴·본문 serif·아이콘·토큰·좌표·행간·줄바꿈·이미지 crop | [23](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-23) | 전체 원본; 현재 대체 폰트/추정값은 원본 동일로 판정하지 않는다. |
+| C01 | 공통 | 글꼴·본문 serif·아이콘·토큰·좌표·행간·줄바꿈·이미지 crop | [23](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-23) | Goal23에서 공통 표현 보정·11쌍 실측과 추가 목록 메뉴/삭제 비교 수행. [남은 차이](FE_GOAL_23_RESULT.md)의 원본 font/vector·폼/카드/OS 차이는 미완료이며 대체품을 동일로 판정하지 않는다. |
 | C02 | 공통 | Light/Dark/System·OS 추종·시트/입력/카드 테마 | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | F24,F62; 전역 설정과 기사 Display의 영향 범위를 확인한다. |
-| C03 | 공통 | 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | 원본 시각과 접근성/OS 영역을 구분해 검증한다. |
+| C03 | 공통 | 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | Goal23에서 web320px/긴 한글/CSS160%·48px hit test·폼/선택 접근성 보정. 실제 OS 글자 확대·IME·Safe Area·스크린리더는 미검증이다. |
 | C04 | 홈 | For you/Following/Featured·+·알림·Write·하단 탭 | [50](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-50) | F05; 기존 탭 외형을 관계/작성/알림 데이터와 연결한다. |
 | C05 | 홈 | For you 카드 −·더보기·Show less·관심사 편집 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F05,F12; Featured의 bookmark와 혼동하지 않는다. |
 | C06 | 탐색 | 토픽 가로 이동·Trending·Staff Picks·Recommended for you·Who to follow | [30](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-30) | F01; See all/See more 및 publication 추천 진입을 포함한다. |

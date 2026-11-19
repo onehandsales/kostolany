@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { BackHandler, FlatList, Keyboard, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
@@ -54,6 +54,7 @@ export function SearchScreen({
 }: SearchScreenProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [query, setQuery] = useState('');
+  const [inputFocused, setInputFocused] = useState(false);
   const input = useRef<TextInput>(null);
   const normalized = normalizeQuery(query);
   const handleCloseSearch = useCallback(() => {
@@ -131,7 +132,7 @@ export function SearchScreen({
                 >
                   <Text style={styles.rank}>{index + 1}</Text>
                   <View style={styles.rankedBody}>
-                    <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+                    <SearchByline name={article.sourceName} avatar={article.reference?.avatar} emphasized verified={article.reference?.verifiedAuthor} />
                     <Text style={styles.rankedTitle}>{article.title}</Text>
                     <View style={styles.dateRow}>
                       {article.reference?.memberOnly && <AppIcon name="star" color={colors.gold} size={16} />}
@@ -178,7 +179,7 @@ export function SearchScreen({
                 <SearchIcon name="back" />
               </Pressable>
               <View style={styles.inputSurface}>
-                <View pointerEvents="none" style={styles.inputBackground} />
+                <View pointerEvents="none" style={[styles.inputBackground, inputFocused && styles.inputFocused]} />
                 <View style={styles.searchIcon}>
                   <SearchIcon name="search" />
                 </View>
@@ -189,6 +190,8 @@ export function SearchScreen({
                   placeholderTextColor={colors.secondaryText}
                   value={query}
                   onChangeText={setQuery}
+                  onFocus={() => setInputFocused(true)}
+                  onBlur={() => setInputFocused(false)}
                   autoFocus={!query}
                   autoCorrect={false}
                   autoCapitalize="none"
@@ -279,7 +282,7 @@ function SearchResults({
             onPress={() => setNotice(category)}
             style={styles.categoryTarget}
           >
-            <Text style={styles.category}>{category}</Text>
+            <Text style={[styles.category, styles.inactiveCategory]}>{category}</Text>
           </Pressable>
         ))}
       </ScrollView>
@@ -327,7 +330,7 @@ const styles = StyleSheet.create({
   frame: { flex: 1, width: '100%', maxWidth: 680, alignSelf: 'center' },
   landing: { paddingTop: 24, paddingBottom: 24 },
   title: {
-    fontSize: 24,
+    fontFamily: fonts.sans, fontSize: 24,
     lineHeight: 32,
     fontWeight: '600',
     color: colors.text,
@@ -344,19 +347,19 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingHorizontal: 12,
   },
-  placeholder: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  placeholder: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   chips: { paddingHorizontal: 24, paddingTop: 8, paddingBottom: 10, gap: 8 },
   chipTarget: { minHeight: 48, justifyContent: 'center' },
-  chip: { paddingHorizontal: 14, paddingVertical: 8, backgroundColor: '#f2f2f2', borderRadius: 24 },
-  topic: { fontSize: 14, lineHeight: 20, color: colors.text },
+  chip: { paddingHorizontal: 14, paddingVertical: 6, backgroundColor: colors.input, borderRadius: 24 },
+  topic: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   reading: { borderTopColor: colors.input, borderTopWidth: 2, paddingHorizontal: 24, paddingTop: 32 },
-  sectionTitle: { fontSize: 20, lineHeight: 28, fontWeight: '600', color: colors.text },
-  ranked: { flexDirection: 'row', gap: 16, paddingTop: 28, paddingBottom: 16 },
-  rank: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  sectionTitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 28, fontWeight: '600', color: colors.text },
+  ranked: { flexDirection: 'row', gap: 14, paddingTop: 31, paddingBottom: 15 },
+  rank: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   rankedBody: { flex: 1, gap: 8 },
-  rankedTitle: { fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
+  rankedTitle: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
   dateRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  metadata: { fontSize: 13, lineHeight: 20, color: colors.secondaryText },
+  metadata: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText },
   pressed: { opacity: 0.6 },
   searchHeader: {
     flexDirection: 'row',
@@ -376,14 +379,20 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: '#f2f2f2',
     borderRadius: 4,
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
   },
+  inputFocused: { borderBottomColor: colors.green },
   searchIcon: { paddingLeft: 16, paddingRight: 12, zIndex: 1 },
   input: {
+    outlineStyle: 'solid',
+    outlineWidth: 0,
+    outlineColor: 'transparent',
     flex: 1,
     minWidth: 0,
     minHeight: 48,
     padding: 0,
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     color: colors.text,
     position: 'relative',
@@ -391,7 +400,7 @@ const styles = StyleSheet.create({
   },
   clear: { width: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center', zIndex: 1 },
   empty: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 24 },
-  emptyHint: { fontSize: 14, lineHeight: 22, color: colors.secondaryText, marginTop: 8 },
+  emptyHint: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText, marginTop: 8 },
   topicRow: {
     minHeight: 48,
     flexDirection: 'row',
@@ -407,7 +416,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   resultHeader: {
-    minHeight: 56,
+    minHeight: 54,
     flexDirection: 'row',
     alignItems: 'stretch',
     paddingHorizontal: 24,
@@ -420,7 +429,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.text,
   },
-  category: { fontSize: 14, lineHeight: 20, color: colors.text, paddingVertical: 16 },
-  count: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, alignSelf: 'center' },
+  category: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text, paddingVertical: 16 },
+  inactiveCategory: { color: colors.secondaryText },
+  count: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, alignSelf: 'center' },
   noResults: { padding: 24 },
 });

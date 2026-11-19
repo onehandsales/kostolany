@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes } from '../../shared/theme/tokens';
+import { colors, sizes, fonts } from '../../shared/theme/tokens';
 import { LoginRequestButton } from '../auth/LoginRequestButton';
 import { BookmarkIcon } from './BookmarkIcon';
 import { BookmarkStoreContext } from './BookmarkProvider';
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  moreText: { fontSize: 24, lineHeight: 28, color: colors.secondaryText },
+  moreText: { fontFamily: fonts.sans, fontSize: 24, lineHeight: 28, color: colors.secondaryText },
   button: {
     minHeight: sizes.minimumTouchTarget,
     minWidth: sizes.minimumTouchTarget,
@@ -153,11 +153,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     flexShrink: 1,
   },
-  status: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, flexShrink: 1 },
+  status: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, flexShrink: 1 },
   pressed: { opacity: 0.6 },
   disabled: { opacity: 0.5 },
   failure: { gap: 4 },
-  message: { fontSize: 14, lineHeight: 22, color: colors.text },
+  message: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
   retry: {
     minHeight: sizes.minimumTouchTarget,
     minWidth: sizes.minimumTouchTarget,
@@ -165,5 +165,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 8,
   },
-  retryLabel: { fontSize: 14, lineHeight: 22, color: colors.text, textDecorationLine: 'underline' },
+  retryLabel: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text, textDecorationLine: 'underline' },
 });

@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   title: { ...typography.pageTitle, color: colors.text },
   notification: { marginRight: -10 },
   list: { flexGrow: 1, paddingBottom: spacing.small },
-  separator: { height: StyleSheet.hairlineWidth, backgroundColor: colors.border },
+  separator: { height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
   emptyFeatured: { margin: 24, padding: 24, backgroundColor: colors.surface, alignItems: 'center', gap: 8 },
   emptyTitle: { ...typography.caption, fontWeight: '600', color: colors.text },
   emptyText: { ...typography.caption, textAlign: 'center', color: colors.text },

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
@@ -230,7 +230,8 @@ export function ProfileScreen({
 
 const visual = StyleSheet.create({
   page: { flexGrow: 1, width: '100%', maxWidth: 680, alignSelf: 'center', paddingBottom: 32 },
-  header: { height: 24 },
+  // 설정 버튼의 부모도 전체 터치 높이를 확보하고 본문 시작 위치는 유지한다.
+  header: { minHeight: 48, marginBottom: -24, zIndex: 1 },
   settings: { position: 'absolute', right: 12, top: 0 },
   identity: { marginHorizontal: 24, marginTop: 12, flexDirection: 'row', gap: 16, alignItems: 'center' },
   avatar: {
@@ -242,9 +243,9 @@ const visual = StyleSheet.create({
     borderColor: colors.border,
   },
   grow: { flex: 1 },
-  name: { fontSize: 24, lineHeight: 30, fontWeight: '600', color: colors.text },
+  name: { fontFamily: fonts.sans, fontSize: 24, lineHeight: 30, fontWeight: '600', color: colors.text },
   followers: { minHeight: 48, justifyContent: 'center', marginVertical: -8 },
-  caption: { fontSize: 14, lineHeight: 20, color: colors.text },
+  caption: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   actions: { marginHorizontal: 24, marginTop: 16, flexDirection: 'row', gap: 8 },
   action: { flex: 1, minHeight: 48, justifyContent: 'center' },
   pill: {
@@ -259,7 +260,7 @@ const visual = StyleSheet.create({
   },
   dark: { backgroundColor: colors.text },
   white: { color: 'white' },
-  buttonText: { fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
+  buttonText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
   tabs: {
     flexDirection: 'row',
     gap: 24,
@@ -300,9 +301,9 @@ const visual = StyleSheet.create({
     borderRadius: 2,
   },
   textAction: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
-  green: { fontSize: 14, lineHeight: 20, color: '#18820f' },
+  green: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
   about: { marginHorizontal: 24, marginTop: 24 },
-  bio: { fontSize: 16, lineHeight: 24, color: colors.text },
-  member: { fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 8 },
+  bio: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text },
+  member: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 8 },
   mockInfo: { marginTop: 360, paddingHorizontal: 24, gap: 16 },
 });

@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { fonts } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { listFormStyles } from './LibrarySheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
@@ -36,6 +37,6 @@ export function UserListFeedback({ listId, hideVisibleMembershipFailures = false
 
 const styles = StyleSheet.create({
   feedback: { marginHorizontal: 24, marginVertical: 8, padding: 16, backgroundColor: '#f7f7f7' },
-  pending: { marginHorizontal: 24, marginVertical: 8, fontSize: 14, lineHeight: 22, color: '#6b6b6b' },
-  retry: { fontSize: 14, lineHeight: 22, textDecorationLine: 'underline', color: '#242424' },
+  pending: { marginHorizontal: 24, marginVertical: 8, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#6b6b6b' },
+  retry: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, textDecorationLine: 'underline', color: '#242424' },
 });

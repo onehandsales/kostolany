@@ -26,7 +26,7 @@ export function BookmarkIcon({
         d={plus && !saved ? 'M13 4H5v18l6-4 6 4V12' : 'M5 4h12v18l-6-4-6 4Z'}
         fill={saved ? colors.text : 'none'}
         stroke={colors.text}
-        strokeWidth={1.5}
+        strokeWidth={1}
         strokeLinejoin="round"
       />
       {plus && !saved && (
@@ -34,7 +34,7 @@ export function BookmarkIcon({
           d="M19 1v8m-4-4h8"
           fill="none"
           stroke={colors.secondaryText}
-          strokeWidth={1.5}
+          strokeWidth={1}
           strokeLinecap="round"
         />
       )}

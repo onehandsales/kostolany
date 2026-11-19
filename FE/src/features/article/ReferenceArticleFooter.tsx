@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { useProfile } from '../profile/ProfileProvider';
@@ -186,10 +186,10 @@ export function ReferenceArticleFooter({ onNotice }: ReferenceArticleFooterProps
 
 const styles = StyleSheet.create({
   responses: { marginTop: 48 },
-  heading: { fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text },
-  text: { fontSize: 14, lineHeight: 20, color: colors.text },
-  responseText: { fontSize: 14, lineHeight: 18, color: colors.text },
-  muted: { fontSize: 12, lineHeight: 18, color: colors.secondaryText },
+  heading: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text },
+  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
+  responseText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: colors.text },
+  muted: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText },
   composer: { marginLeft: 44, marginTop: 32, marginBottom: 32, gap: 0 },
   inputTarget: { minHeight: 48, justifyContent: 'center' },
   input: {
@@ -211,8 +211,8 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   actions: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
   target: { flexDirection: 'row', gap: 8, alignItems: 'center', minHeight: 48, minWidth: 48 },
-  reply: { fontSize: 14, color: colors.text, textDecorationLine: 'underline' },
-  green: { fontSize: 16, color: colors.green },
+  reply: { fontFamily: fonts.sans, fontSize: 14, color: colors.text, textDecorationLine: 'underline' },
+  green: { fontFamily: fonts.sans, fontSize: 16, color: colors.green },
   all: {
     minHeight: 48,
     alignItems: 'center',
@@ -233,5 +233,5 @@ const styles = StyleSheet.create({
   cover: { width: '100%', aspectRatio: 2, borderRadius: 2 },
   storyByline: { flexDirection: 'row', alignItems: 'center', gap: 8, marginVertical: 24 },
   smallAvatar: { width: 20, height: 20, borderRadius: 10 },
-  subtitle: { fontSize: 16, lineHeight: 21, color: colors.secondaryText, marginTop: 12, marginBottom: 16 },
+  subtitle: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, color: colors.secondaryText, marginTop: 12, marginBottom: 16 },
 });

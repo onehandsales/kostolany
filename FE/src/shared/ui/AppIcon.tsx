@@ -18,12 +18,15 @@ export type AppIconName =
   | 'lock'
   | 'download'
   | 'settings'
+  | 'friend'
+  | 'verified'
   | 'star'
   | 'check'
   | 'clap';
-type AppIconProps = { name: AppIconName; size?: number; color?: string };
+type AppIconProps = { name: AppIconName; size?: number; color?: string; filled?: boolean };
 
-export function AppIcon({ name, size = 24, color = colors.text }: AppIconProps) {
+// 원본 PNG의 윤곽을 참고한 벡터 대체이며 Medium의 원본 아이콘 경로는 확보하지 못했다.
+export function AppIcon({ name, size = 24, color = colors.text, filled = false }: AppIconProps) {
   return (
     <Svg
       width={size}
@@ -50,8 +53,8 @@ export function AppIcon({ name, size = 24, color = colors.text }: AppIconProps) 
       )}
       {name === 'bell' && (
         <>
-          <Path d="M5 17h14l-2-4V8a5 5 0 0 0-10 0v5ZM10 20h4" />
-          <Path d="M12 1v2" />
+          <Path d="M4 18c1.7-2 2-3.4 2-6V8a6 6 0 0 1 12 0v4c0 2.6.3 4 2 6H4Z" />
+          <Path d="M10 20a2.2 2.2 0 0 0 4 0" />
         </>
       )}
       {name === 'write' && (
@@ -65,7 +68,9 @@ export function AppIcon({ name, size = 24, color = colors.text }: AppIconProps) 
           <Path d="M8 12h8" />
         </>
       )}
-      {name === 'comment' && <Path d="M20 19 15 17a8 8 0 1 1 5-5Z" />}
+      {name === 'comment' && (
+        <Path d="M21 12a9 9 0 1 0-5.1 8.1L22 22l-1.8-6.1A9 9 0 0 0 21 12Z" fill={filled ? color : 'none'} />
+      )}
       {name === 'share' && (
         <>
           <Path d="M7 8H4v13h16V8h-3M12 15V1m-4 4 4-4 4 4" />
@@ -91,8 +96,20 @@ export function AppIcon({ name, size = 24, color = colors.text }: AppIconProps) 
       )}
       {name === 'settings' && (
         <>
-          <Path d="m12 1 3 3 4 1 1 4 3 3-3 3-1 4-4 1-3 3-3-3-4-1-1-4-3-3 3-3 1-4 4-1Z" />
-          <Circle cx={12} cy={12} r={4} />
+          <Path d="M10 2h4l1 3 2 .9 3-.5 2 3.5-2 2.3v2.6l2 2.3-2 3.5-3-.5-2 .9-1 3h-4l-1-3-2-.9-3 .5-2-3.5 2-2.3v-2.6L2 8.5 4 5l3 .5L9 5Z" />
+          <Circle cx={12} cy={12} r={3.5} />
+        </>
+      )}
+      {name === 'friend' && (
+        <>
+          <Path d="m12 1 3 2 3 .5 1.5 3L22 9v4l-2 3-1 3-4 1-3 3-3-3-4-1-1-3-2-3V9l2.5-2.5 1.5-3L9 3Z" fill={color} stroke="none" />
+          <Path d="M12 16.5 7.8 12c-3-3 1-6.1 4.2-3 3.2-3.1 7.2 0 4.2 3Z" fill="white" stroke="none" />
+        </>
+      )}
+      {name === 'verified' && (
+        <>
+          <Path d="m12 1 3 3h4v4l3 4-3 3v4h-4l-3 3-3-3H5v-4l-3-3 3-4V4h4Z" fill="#437aff" stroke="none" />
+          <Path d="m8 12 3 3 5-6" stroke="white" strokeWidth={2} />
         </>
       )}
       {name === 'star' && (
@@ -101,8 +118,9 @@ export function AppIcon({ name, size = 24, color = colors.text }: AppIconProps) 
       {name === 'check' && <Path d="m5 12 4 4L19 6" strokeWidth={2} />}
       {name === 'clap' && (
         <>
-          <Path d="m8 13-4-5q-1-2 1-2l5 5-4-7q0-2 2-1l5 7-3-7q0-2 2-1l5 9 1-5q1-2 2 0v9q-1 6-6 7-4 0-7-4l-4-4q-1-2 1-2Z" />
-          <Path d="M3 3 1 1M17 2l1-2M21 4l2-1" />
+          <Path d="m13 7-2-3q-.8-1.5.4-2l1.7 1.5 5.4 6.8.3-2.4q.2-1.6 1.3-1.6 1 0 1 1.6l-.3 7.1q-.1 3.1-2.8 4.9" fill={filled ? color : 'none'} />
+          <Path d="m8.6 11-4-5q-1-1.2-1.9-.3-.7.8.2 1.9l5.3 6.5-5.7-4.9q-1.3-.9-2 .1-.6.9.5 1.9l6.1 5.6 2.5 3.3q2.4 3.3 5.8 2.1 3.6-1.3 3.2-5.6l-.6-5.8q-.2-1.4-1.4-1.2-1.1.2-1 1.6l.1 2.2-7.4-9q-1-1.2-1.9-.4-.8.8.1 1.9l5.4 6.7-6.8-7.2q-1.1-1.1-1.9-.2-.7.8.3 1.9Z" fill={filled ? color : 'none'} />
+          <Path d="M5 1 4 0M17 2l1-2M21 4l2-1" />
         </>
       )}
     </Svg>

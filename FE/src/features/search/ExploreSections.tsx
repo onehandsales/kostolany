@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { colors, typography } from '../../shared/theme/tokens';
+import { colors, typography, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { recommendedStories, staffPicks, suggestedProfiles } from '../feed/data/mediumExploreExtras';
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
   staff: { width: 272, gap: 10 },
   cover: { width: 272, height: 164 },
   fragment: { width: 73, height: 164 },
-  title: { fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
-  meta: { fontSize: 13, lineHeight: 20, color: colors.secondaryText },
+  title: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
+  meta: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText },
   metadata: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
   recommended: { marginHorizontal: 24, paddingBottom: 32, gap: 10, minHeight: 48 },
   person: { width: 235, borderWidth: 1, borderColor: colors.border, borderRadius: 4, padding: 24, gap: 12 },

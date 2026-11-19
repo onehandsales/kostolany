@@ -50,6 +50,29 @@ function TestLibrary({ source, userId = 'reader-a', onStore }: {
   </BookmarkProvider></SafeAreaProvider>;
 }
 
+it('비공개 선택은 접근성 상태와 저장 명령에 함께 반영되고 저장 중에는 바뀌지 않는다', async () => {
+  const mock = createMockBookmarkSource({ delayMs: 0 });
+  if (!mock.lists) throw new Error('Missing source');
+  const pending = deferred<Awaited<ReturnType<UserListSource['setList']>>>();
+  const setList = jest.fn(mock.lists.setList).mockReturnValueOnce(pending.promise);
+  const user = userEvent.setup();
+  await render(<TestLibrary source={{ ...mock, lists: { ...mock.lists, setList } }} />);
+  await user.press(screen.getByRole('button', { name: '새 목록' }));
+  await fireEvent.changeText(screen.getByLabelText('목록 이름 · 필수'), '비공개 목록');
+  expect(screen.getByRole('switch', { name: 'Private' })).not.toBeChecked();
+  await user.press(screen.getByRole('switch', { name: 'Private' }));
+  expect(screen.getByRole('switch', { name: 'Private' })).toBeChecked();
+  await user.press(screen.getByRole('button', { name: '목록 만들기' }));
+  const command = setList.mock.calls[0]?.[0];
+  if (!command?.content) throw new Error('Missing command');
+  expect(command.content.isPrivate).toBe(true);
+  expect(screen.getByRole('switch', { name: 'Private' })).toBeDisabled();
+  await user.press(screen.getByRole('switch', { name: 'Private' }));
+  expect(screen.getByRole('switch', { name: 'Private' })).toBeChecked();
+  await act(async () => pending.resolve(command));
+  expect(screen.getByRole('button', { name: '비공개 목록 열기, 저장한 기사 0개' })).toBeVisible();
+});
+
 it('사용자 전환은 열린 초안을 지우고 A로 복귀하면 A의 진행 중 생성 결과를 이어 받는다', async () => {
   const mock = createMockBookmarkSource({ delayMs: 0 }); if (!mock.lists) throw new Error('Missing source');
   const pending = deferred<Awaited<ReturnType<UserListSource['setList']>>>();

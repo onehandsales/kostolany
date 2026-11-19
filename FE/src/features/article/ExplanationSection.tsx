@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography } from '../../shared/theme/tokens';
+import { colors, sizes, spacing, typography, fonts } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { previewExplanationSource } from './data/explanationPreview';
 import {
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   selectedLabel: { color: colors.background, fontWeight: '600' },
   pressed: { opacity: 0.65 },
   body: { gap: spacing.page },
-  paragraph: { fontSize: 18, lineHeight: 31, color: colors.text },
+  paragraph: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 31, color: colors.text },
   example: { gap: spacing.medium, borderLeftWidth: 2, borderLeftColor: colors.border, paddingLeft: spacing.medium },
   end: { ...typography.caption, color: colors.secondaryText, textAlign: 'center', paddingVertical: spacing.medium },
 });

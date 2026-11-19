@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 
 import { LibrarySheet, listFormStyles } from './LibrarySheet';
@@ -84,7 +84,7 @@ export function SaveToListSheet({
               disabled={!ready}
               accessibilityState={{ disabled: !ready }}
               onPress={() => setCreating(true)}
-              style={listFormStyles.row}
+              style={[listFormStyles.row, styles.createRow]}
             >
               <Text style={styles.create}>Create new list...</Text>
             </Pressable>
@@ -116,12 +116,15 @@ export function SaveToListSheet({
               </View>
               <Text style={styles.name}>{list.listId === DEFAULT_LIST_ID ? 'Reading list' : list.name}</Text>
               {list.listId === DEFAULT_LIST_ID && <AppIcon name="lock" size={16} color="#aaaaaa" />}
+              <View pointerEvents="none" style={styles.choiceDivider} />
             </Pressable>
           );
         }}
         ListFooterComponent={
           <View>
-            <View style={styles.spacer} />
+            <View style={styles.spacer}>
+              <View style={styles.spacerDivider} />
+            </View>
             <Pressable
               role="button"
               accessibilityLabel="저장할 목록 적용"
@@ -144,17 +147,17 @@ export function SaveToListSheet({
 
 const styles = StyleSheet.create({
   list: { flexGrow: 0, flexShrink: 1 },
-  content: { paddingHorizontal: 24, paddingTop: 0, paddingBottom: 16, gap: 0, minHeight: 226 },
-  create: { fontSize: 14, lineHeight: 20, color: '#438b2b' },
+  content: { paddingHorizontal: 24, paddingTop: 0, paddingBottom: 3, gap: 0, minHeight: 228 },
+  create: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.saveGreen },
+  createRow: { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
   choice: {
     minHeight: 48,
     paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#e6e6e6',
   },
+  choiceDivider: { position: 'absolute', left: 30, right: 0, bottom: 0, height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
   check: {
     width: 18,
     height: 18,
@@ -164,17 +167,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  checked: { backgroundColor: '#438b2b', borderColor: '#438b2b' },
-  checkText: { color: '#fff', fontSize: 14, lineHeight: 16 },
-  name: { flex: 1, fontSize: 14, lineHeight: 20, color: '#242424' },
-  spacer: { minHeight: 64 },
+  checked: { backgroundColor: colors.saveGreen, borderColor: colors.saveGreen },
+  checkText: { color: '#fff', fontFamily: fonts.sans, fontSize: 14, lineHeight: 16 },
+  name: { flex: 1, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  spacer: { minHeight: 81, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
+  spacerDivider: { position: 'absolute', top: 48, left: -8, right: -24, height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
   doneTarget: { minHeight: 48, justifyContent: 'center' },
   done: {
     minHeight: 36,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#438b2b',
+    backgroundColor: colors.saveGreen,
     borderRadius: 24,
   },
-  doneText: { color: colors.background, fontSize: 14, lineHeight: 20, padding: 8 },
+  doneText: { color: colors.background, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, padding: 8 },
 });

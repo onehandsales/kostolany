@@ -9,26 +9,33 @@ import {
   type ImageSourcePropType,
 } from 'react-native';
 
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
+import { AppIcon } from '../../shared/ui/AppIcon';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import type { FeedArticle } from '../feed/types';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 
-type SearchBylineProps = { name: string; avatar?: ImageSourcePropType };
+type SearchBylineProps = { name: string; avatar?: ImageSourcePropType; emphasized?: boolean; verified?: boolean };
 
-export function SearchByline({ name, avatar }: SearchBylineProps) {
+export function SearchByline({ name, avatar, emphasized = false, verified = false }: SearchBylineProps) {
+  const publication = /^In (.+) by (.+)$/.exec(name);
   return (
     <View style={styles.byline}>
       {avatar ? (
-        <Image source={avatar} style={styles.photo} accessible={false} />
+        <Image source={avatar} style={[styles.photo, publication && styles.publication]} accessible={false} />
       ) : (
         <View aria-hidden style={styles.avatar}>
           <Text style={styles.initial}>K</Text>
         </View>
       )}
-      <Text style={styles.source}>{name}</Text>
+      <Text style={styles.source} accessibilityLabel={verified ? `${name}, Verified` : undefined}>
+        {emphasized && publication ? (
+          <>In <Text style={styles.emphasis}>{publication[1]}</Text> by <Text style={styles.emphasis}>{publication[2]}</Text></>
+        ) : <Text style={emphasized && styles.emphasis}>{name}</Text>}
+      </Text>
+      {verified && <AppIcon name="verified" size={14} />}
     </View>
   );
 }
@@ -113,14 +120,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   photo: { width: 20, height: 20, borderRadius: 10 },
-  initial: { fontSize: 12, lineHeight: 16, color: colors.background, fontWeight: '700' },
-  source: { fontSize: 13, lineHeight: 20, color: colors.text, flexShrink: 1 },
+  publication: { borderRadius: 2 },
+  emphasis: { fontWeight: '600' },
+  initial: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 16, color: colors.background, fontWeight: '700' },
+  source: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.text, flexShrink: 1 },
   headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 16, marginTop: 16 },
   stacked: { flexDirection: 'column' },
-  title: { fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text, flex: 1 },
+  title: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text, flex: 1 },
   // 큰 글자의 세로 배치에서도 웹 flex 축약으로 제목 높이가 사라지지 않게 한다.
   fullTitle: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
   thumbnail: { width: 80, height: 54, overflow: 'hidden', justifyContent: 'center' },
-  summary: { fontSize: 16, lineHeight: 23, color: colors.secondaryText, marginTop: 4 },
-  metadata: { fontSize: 13, lineHeight: 20, color: colors.secondaryText, marginTop: 20 },
+  summary: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 23, color: colors.secondaryText, marginTop: 4 },
+  metadata: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, marginTop: 20 },
 });

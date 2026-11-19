@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors } from '../theme/tokens';
+import { colors, fonts } from '../theme/tokens';
 import { IconButton } from './IconButton';
 import { restoreModalFocus } from './restoreModalFocus';
 
@@ -15,7 +15,7 @@ export function ActionMenu({ label, items }: ActionMenuProps) {
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
-  const menuWidth = Math.min(250, width - 32);
+  const menuWidth = Math.min(250, width - 16);
   useEffect(
     () => () => {
       measurementRevision.current += 1;
@@ -58,7 +58,7 @@ export function ActionMenu({ label, items }: ActionMenuProps) {
                 styles.menu,
                 {
                   width: menuWidth,
-                  left: Math.max(16, Math.min(width - menuWidth - 16, position.x - menuWidth)),
+                  left: Math.max(8, Math.min(width - menuWidth - 8, position.x - menuWidth)),
                   top: Math.max(
                     insets.top,
                     Math.min(
@@ -104,6 +104,6 @@ const styles = StyleSheet.create({
     boxShadow: '0px 8px 60px rgba(0,0,0,0.18)',
   },
   row: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 16, paddingVertical: 10 },
-  text: { fontSize: 16, lineHeight: 22, color: colors.text },
+  text: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text },
   destructive: { color: '#ff453a' },
 });

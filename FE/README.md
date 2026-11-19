@@ -1,15 +1,15 @@
 # Kostolany Mobile
 
-로컬 웹 미리보기는 `FE`에서 `npm.cmd run web`으로 실행하고 [http://localhost:8081](http://localhost:8081)에서 확인한다. 이미 실행 중이면 해당 주소를 그대로 사용한다. 최신 확인은 [Goal22 결과](../TODO/FE_GOAL_22_RESULT.md), [현재 기능/공개 계약](../TODO/FE_GOAL_22_CODE_AUDIT.md), [원본11쌍 비교](../TODO/FE_GOAL_22_BASELINE.md)를 따른다. 2026-11-19 Windows/Node24.18.0/npm10.9.0에서 타입·lint·90 suites/662 tests·양 플랫폼 JS/Hermes export를 새로 통과했다. 기존8081을 보존했고 FE 소스·fixture·ENV는 변경하지 않았다. 원본200장의 전수 관찰과 실제 구현11쌍 비교는 별개이며 정확한 폰트/전체 시각 일치/native 검증은 남아 있다. Goal23 이후 구현·push·배포는 수행하지 않았다. Goal22 문서는 후속 사용자 요청에 따라 로컬 커밋하며 별도 evidence 산출물은 제외한다. 아래 [규칙 검토 보완](#2026-11-19-소프트웨어-규칙-검토-보완)과 Goal별 수치는 이력이다.
+로컬 웹 미리보기는 `FE`에서 `npm.cmd run web`으로 실행하고 [http://localhost:8081](http://localhost:8081)에서 확인한다. 이미 실행 중이면 해당 주소를 그대로 사용한다. 최신 확인은 [Goal23 결과·8081 확인 순서](../TODO/FE_GOAL_23_RESULT.md)를 따른다. Goal23에서 공통 폰트·아이콘·카드/시트/입력/메뉴/설정 배치를 보정하고 두 차례 자체 검토, 현재 타입/lint/전체 테스트, 양 플랫폼 JS/Hermes, 대표11쌍과 실제 사용자 흐름을 검증했다. 정확한 실행 수치는 결과 문서에 기록한다. 기존8081과 원본·ENV·인증/개인 데이터/navigation 계약을 보존했다. **구현 완료·검증 잔여**이며 원본 font/vector·일부 위치 차이·실제 native 검증은 미완료다. Goal24는 시작하지 않았고 후속 사용자 요청에 따라 Goal23 변경을 로컬 커밋으로 보관한다. push·배포는 하지 않는다. 별도 캡처/로그/스크립트는 저장소 밖 임시 경로에만 두었다. 아래 Goal별 수치는 당시 이력이다.
 
 Goal 21 완료 당시 기록: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 
 후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
-React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본을 기준으로 Home·Explore/Search·기사·저장·Library/목록·로그인·Profile·Settings 화면을 구현했다. 원본 사진/영어 콘텐츠 fixture와 기존 금융 fixture를 함께 사용한다. 모의 A/B 계정별 좋아요·저장·목록·이름/소개·기본 설명 수준은 메모리에 보관하며 전체 Reload 시 초기화한다. 실제 외부 서비스는 연결하지 않았다. [최종 결과와8081 확인 순서](../TODO/FE_GOAL_21_RESULT.md), [31쌍 원본 비교](../TODO/evidence/goal21/COMPARISON.html)는 Goal21 시점의 기록이다. 현재 기준은 위 Goal22 링크를 따른다.
+React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본을 기준으로 Home·Explore/Search·기사·저장·Library/목록·로그인·Profile·Settings 화면을 구현했다. 원본 사진/영어 콘텐츠 fixture와 기존 금융 fixture를 함께 사용한다. 모의 A/B 계정별 좋아요·저장·목록·이름/소개·기본 설명 수준은 메모리에 보관하며 전체 Reload 시 초기화한다. 실제 외부 서비스는 연결하지 않았다. [최종 결과와8081 확인 순서](../TODO/FE_GOAL_21_RESULT.md), [31쌍 원본 비교](../TODO/evidence/goal21/COMPARISON.html)는 Goal21 시점의 기록이다. 현재 기준은 위 Goal23 링크를 따른다.
 
 ## 환경과 기술 선택
 
-[Goal14~21 연속 작업](../TODO/FE_MEDIUM_CLONE_GOALS.md)의 당시 환경은 Node24.10.0, 결과는638 tests/84 suites였다. Goal14 커밋은 `d016c06`이다. 현재 환경과 검증은 위 Goal22 기록을 따르며 실제 native 실행 환경은 없다. 남은 차이를100% 클론 완료로 표현하지 않는다.
+[Goal14~21 연속 작업](../TODO/FE_MEDIUM_CLONE_GOALS.md)의 당시 환경은 Node24.10.0, 결과는638 tests/84 suites였다. Goal14 커밋은 `d016c06`이다. 현재 환경과 검증은 위 Goal23 기록을 따르며 실제 native 실행 환경은 없다. 남은 차이를100% 클론 완료로 표현하지 않는다.
 
 | 항목 | 고정 버전 |
 | --- | --- |

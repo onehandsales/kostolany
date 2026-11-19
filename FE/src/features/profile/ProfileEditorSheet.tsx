@@ -7,12 +7,14 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
+  type TextInput,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
+import { FormTextInput } from '../../shared/ui/FormTextInput';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import type { ProfileStore } from './createProfileStore';
 import { profileStyles as styles } from './profileStyles';
@@ -95,7 +97,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                 role="button"
                 accessibilityLabel="프로필 편집 닫기"
                 onPress={onClose}
-                style={styles.headerAction}
+                style={[styles.headerAction, visual.headerAction, visual.close]}
               >
                 <AppIcon name="close" size={20} />
               </Pressable>
@@ -110,7 +112,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                 onPress={() => {
                   void save();
                 }}
-                style={[styles.headerAction, styles.saveAction, isDuplicate && styles.disabled]}
+                style={[styles.headerAction, visual.headerAction, visual.saveAction, isDuplicate && styles.disabled]}
               >
                 <Text style={[styles.link, visual.save]}>
                   {hasSaveError ? 'Retry' : isDuplicate ? 'Saving…' : pendingFields ? 'Save again' : 'Save'}
@@ -133,13 +135,12 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
               </View>
               <View style={visual.field}>
                 <Text style={visual.label}>Name*</Text>
-                <TextInput
+                <FormTextInput
                   ref={nameInput}
                   accessibilityLabel="이름 · 필수"
                   accessibilityHint="50자까지 입력할 수 있어요."
                   value={fields.name}
                   onChangeText={(value) => change('name', value)}
-                  style={[styles.input, visual.input]}
                   submitBehavior="blurAndSubmit"
                   returnKeyType="done"
                 />
@@ -159,20 +160,21 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                   role="button"
                   accessibilityLabel="Add pronouns"
                   onPress={() => setUnavailableFeature('Pronouns')}
-                  style={visual.input}
+                  style={visual.inputTarget}
                 >
-                  <Text style={visual.placeholder}>Add...</Text>
+                  <View style={visual.inputSurface}>
+                    <Text style={visual.placeholder}>Add...</Text>
+                  </View>
                 </Pressable>
                 <Text style={[styles.counter, visual.counter]}>0 / 4</Text>
               </View>
               <View style={visual.field}>
                 <Text style={visual.label}>Short bio</Text>
-                <TextInput
+                <FormTextInput
                   accessibilityLabel="짧은 소개"
                   accessibilityHint="선택 입력이며 160자까지 입력할 수 있어요."
                   value={fields.bio}
                   onChangeText={(value) => change('bio', value)}
-                  style={[styles.input, visual.input]}
                   multiline
                   numberOfLines={1}
                   submitBehavior="newline"
@@ -244,34 +246,35 @@ const visual = StyleSheet.create({
     paddingVertical: 0,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  title: { fontSize: 16, lineHeight: 22, fontWeight: '600' },
-  save: { fontSize: 14, lineHeight: 20 },
+  title: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '600' },
+  headerAction: { width: 72, paddingHorizontal: 0 },
+  close: { alignItems: 'flex-start', paddingLeft: 10 },
+  saveAction: { alignItems: 'flex-end', paddingRight: 24 },
+  save: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20 },
   content: { gap: 8 },
   photoRow: { flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 24 },
   updatePhoto: { minHeight: 48, justifyContent: 'center' },
-  photoLink: { fontSize: 14, lineHeight: 20, textDecorationLine: 'underline', color: '#242424' },
-  field: { gap: 6 },
-  label: { fontSize: 14, lineHeight: 20, color: '#242424' },
-  input: {
-    minHeight: 48,
+  photoLink: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, textDecorationLine: 'underline', color: '#242424' },
+  field: { gap: 2 },
+  label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#242424' },
+  inputTarget: { minHeight: 48, justifyContent: 'center' },
+  inputSurface: {
+    minHeight: 38,
     paddingHorizontal: 12,
-    paddingVertical: 12,
-    fontSize: 14,
-    lineHeight: 20,
+    paddingVertical: 9,
     backgroundColor: '#f2f2f2',
     borderRadius: 4,
     justifyContent: 'center',
-    color: '#242424',
   },
-  placeholder: { fontSize: 14, lineHeight: 20, color: '#6b6b6b' },
-  counter: { fontSize: 12, lineHeight: 18 },
+  placeholder: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: '#6b6b6b' },
+  counter: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20 },
   about: {
-    marginTop: 16,
+    marginTop: 34,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: '#e5e5e5',
     paddingTop: 36,
     gap: 8,
   },
-  aboutText: { fontSize: 13, lineHeight: 20, color: '#6b6b6b' },
+  aboutText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: '#6b6b6b' },
   localInfo: { marginTop: 120, gap: 16 },
 });

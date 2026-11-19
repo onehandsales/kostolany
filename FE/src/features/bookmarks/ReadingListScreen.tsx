@@ -7,7 +7,7 @@ import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { useProfile } from '../profile/ProfileProvider';
 import { ListStoryCard } from './ListStoryCard';
-import { colors, sizes, typography } from '../../shared/theme/tokens';
+import { colors, sizes, typography, fonts } from '../../shared/theme/tokens';
 import { SearchCard } from '../search/SearchCard';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID } from './listTypes';
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: { minHeight: 48, paddingLeft: 0, paddingRight: 4, flexDirection: 'row', alignItems: 'center' },
   remove: { minHeight: 48, minWidth: 48, alignSelf: 'flex-end', justifyContent: 'center', marginTop: 8 },
-  removeText: { fontSize: 14, lineHeight: 22, color: colors.secondaryText, textDecorationLine: 'underline' },
+  removeText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText, textDecorationLine: 'underline' },
   back: {
     width: sizes.minimumTouchTarget,
     minHeight: sizes.minimumTouchTarget,
@@ -214,9 +214,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
   },
-  owner: { fontSize: 16, lineHeight: 22, color: colors.text },
+  owner: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text },
   title: { ...typography.pageTitle, color: colors.text },
-  count: { fontSize: 14, lineHeight: 22, color: colors.secondaryText },
+  count: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.secondaryText },
   empty: {
     flex: 1,
     alignItems: 'center',
@@ -226,23 +226,23 @@ const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: '#fafafa',
   },
-  emptyTitle: { fontSize: 16, lineHeight: 21, fontWeight: '600', color: colors.text, textAlign: 'center' },
-  emptyDescription: { fontSize: 13, lineHeight: 20, color: colors.text, textAlign: 'center' },
+  emptyTitle: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '600', color: colors.text, textAlign: 'center' },
+  emptyDescription: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.text, textAlign: 'center' },
   browse: {
     minHeight: sizes.minimumTouchTarget,
     minWidth: sizes.minimumTouchTarget,
-    backgroundColor: '#18820f',
+    backgroundColor: colors.green,
     borderRadius: 28,
     marginTop: 16,
     paddingVertical: 12,
     paddingHorizontal: 56,
   },
-  browseText: { fontSize: 14, lineHeight: 20, color: colors.background, textAlign: 'center' },
-  headerTitle: { flex: 1, fontSize: 16, lineHeight: 22, fontWeight: '600', color: colors.text },
+  browseText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.background, textAlign: 'center' },
+  headerTitle: { flex: 1, fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '600', color: colors.text },
   ownerRow: { flexDirection: 'row', gap: 12, alignItems: 'center' },
   avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.input },
   ownerInfo: { flex: 1, gap: 4 },
-  description: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  description: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   listBar: {
     position: 'absolute',
     bottom: 16,
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: '#242424',
   },
-  toastText: { fontSize: 14, lineHeight: 20, color: 'white' },
+  toastText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: 'white' },
   undo: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   pressed: { opacity: 0.6 },
 });

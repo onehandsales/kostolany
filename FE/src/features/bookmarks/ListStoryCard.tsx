@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import type { FeedArticle } from '../feed/types';
@@ -79,15 +79,15 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     borderLeftWidth: 3,
     borderLeftColor: colors.border,
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     fontStyle: 'italic',
     color: colors.secondaryText,
   },
   headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 24, marginTop: 12, minHeight: 56 },
   stack: { flexDirection: 'column' },
-  title: { flex: 1, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
+  title: { flex: 1, fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
   image: { width: 80, height: 56, borderRadius: 2 },
   actions: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
-  metadata: { flex: 1, fontSize: 12, lineHeight: 18, color: colors.secondaryText },
+  metadata: { flex: 1, fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText },
 });

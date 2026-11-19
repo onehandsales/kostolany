@@ -9,6 +9,7 @@ export type ReferenceStory = {
   responses: string;
   memberOnly: boolean;
   balancedHeadline?: boolean;
+  verifiedAuthor?: boolean;
 };
 
 export type FeedArticle = {

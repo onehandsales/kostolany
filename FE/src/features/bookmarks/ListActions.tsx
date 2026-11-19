@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { fonts } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { LibrarySheet, listFormStyles } from './LibrarySheet';
@@ -57,6 +58,7 @@ function ListActionControls({
         <LibrarySheet
           title="Delete list"
           titleLabel="목록 삭제"
+          variant="confirmation"
           closeText="×"
           onClose={() => setMode(null)}
           contentStyle={styles.content}
@@ -72,9 +74,11 @@ function ListActionControls({
               store.deleteList(listId);
               setMode(null);
             }}
-            style={[listFormStyles.primary, styles.danger]}
+            style={styles.deleteTarget}
           >
-            <Text style={listFormStyles.primaryText}>Delete</Text>
+            <View style={styles.danger}>
+              <Text style={listFormStyles.primaryText}>Delete</Text>
+            </View>
           </Pressable>
         </LibrarySheet>
       )}
@@ -84,7 +88,8 @@ function ListActionControls({
 }
 const styles = StyleSheet.create({
   content: { gap: 24, paddingTop: 0, paddingBottom: 16 },
-  description: { fontSize: 14, lineHeight: 18, color: '#242424', textAlign: 'center' },
-  local: { fontSize: 12, lineHeight: 18, color: '#6b6b6b', textAlign: 'center' },
-  danger: { backgroundColor: '#c64848' },
+  description: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: '#242424', textAlign: 'center' },
+  local: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: '#6b6b6b', textAlign: 'center' },
+  deleteTarget: { minHeight: 48, justifyContent: 'center', marginHorizontal: 8 },
+  danger: { minHeight: 42, padding: 9, backgroundColor: '#ce4747', borderRadius: 24, justifyContent: 'center' },
 });

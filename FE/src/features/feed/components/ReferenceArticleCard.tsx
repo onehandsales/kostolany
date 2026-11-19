@@ -10,7 +10,7 @@ import {
   type TextStyle,
 } from 'react-native';
 
-import { colors, typography } from '../../../shared/theme/tokens';
+import { colors, typography, fonts } from '../../../shared/theme/tokens';
 import { AppIcon } from '../../../shared/ui/AppIcon';
 import { IconButton } from '../../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../../shared/ui/ReferenceNotice';
@@ -39,7 +39,7 @@ export function ReferenceArticleCard({
   const stacked = fontScale > 1.3 || width < 340;
   const reference = article.reference;
   return (
-    <View style={[styles.card, first && styles.first]}>
+    <View style={[styles.card, variant === 'home' ? styles.home : styles.search, first && styles.first]}>
       <Pressable
         role="button"
         accessibilityLabel={`${article.title}. ${article.sourceName}. ${article.publishedLabel}`}
@@ -97,7 +97,7 @@ export function ReferenceArticleCard({
             onPress={() => setNotice('Responses')}
             style={styles.comment}
           >
-            <AppIcon name="comment" size={14} color={colors.secondaryText} />
+            <AppIcon name="comment" size={14} color={colors.secondaryText} filled />
             <Text style={styles.date}>{reference?.responses}</Text>
           </Pressable>
         </View>
@@ -138,9 +138,11 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 24,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    borderBottomColor: colors.divider,
   },
-  first: { paddingTop: 16 },
+  home: { borderBottomWidth: 0, paddingBottom: 23 },
+  search: { paddingBottom: 22 },
+  first: { paddingTop: 14 },
   pressed: { opacity: 0.6 },
   byline: { minHeight: 20, flexDirection: 'row', alignItems: 'center', gap: 8 },
   avatar: { width: 20, height: 20, borderRadius: 10 },
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
   image: { width: 80, height: 54, borderRadius: 2 },
   stacked: { flexDirection: 'column' },
   stackedTitle: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
-  summary: { fontSize: 16, lineHeight: 21, color: colors.secondaryText, marginTop: 6 },
+  summary: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, color: colors.secondaryText, marginTop: 6 },
   summaryWithImage: { marginRight: 96 },
   searchSummary: { marginRight: 84 },
   star: { width: 24 },
@@ -163,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   counts: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: 8 },
-  date: { fontSize: 12, lineHeight: 18, color: colors.secondaryText },
+  date: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.secondaryText },
   comment: { minHeight: 48, minWidth: 48, flexDirection: 'row', alignItems: 'center', gap: 4 },
   actions: { flexDirection: 'row', alignItems: 'center', marginRight: -12 },
 });

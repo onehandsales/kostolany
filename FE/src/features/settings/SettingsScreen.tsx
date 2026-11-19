@@ -8,7 +8,7 @@ import { ProviderIcon } from '../../shared/ui/ProviderIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
 import { useProfile } from '../profile/ProfileProvider';
-import { colors } from '../../shared/theme/tokens';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { explanationLevelLabels } from '../article/explanationTypes';
 import { DefaultLevelSheet } from './DefaultLevelSheet';
@@ -40,20 +40,20 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
       <View style={visual.header}>
-        <IconButton icon="back" label="프로필로 돌아가기" onPress={onBack} size={20} />
+        <IconButton icon="back" label="프로필로 돌아가기" onPress={onBack} size={20} style={visual.back} />
         <Text role="heading" accessibilityLabel="설정" style={visual.title}>
           Settings
         </Text>
         <View style={visual.headerSpace} />
       </View>
       <ScrollView contentContainerStyle={styles.page}>
-        <Text role="heading" style={visual.section}>
+        <Text role="heading" style={[visual.section, visual.firstSection]}>
           Account
         </Text>
         <SettingsRow
           title="Become a Friend of Medium"
           onPress={() => setNotice('Membership')}
-          trailing={<AppIcon name="star" size={20} color={colors.gold} />}
+          trailing={<AppIcon name="friend" size={20} color={colors.gold} />}
         />
         <SettingsRow title="Story stats" onPress={() => setNotice('Story stats')} chevron />
         <SettingsRow title="Account" onPress={() => setNotice('Account')} />
@@ -264,23 +264,28 @@ const visual = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    alignSelf: 'flex-start',
+    paddingTop: 8,
+    fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 22,
     fontWeight: '700',
     textAlign: 'center',
     color: colors.text,
   },
   headerSpace: { width: 48 },
+  back: { paddingBottom: 14 },
+  firstSection: { paddingTop: 17, paddingBottom: 11 },
   section: {
     paddingHorizontal: 16,
-    paddingVertical: 20,
+    paddingTop: 25,
+    paddingBottom: 13,
     backgroundColor: '#fafafa',
-    fontSize: 16,
+    fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 22,
     fontWeight: '600',
     color: colors.text,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    borderBottomColor: colors.divider,
   },
   row: {
     minHeight: 51,
@@ -292,11 +297,11 @@ const visual = StyleSheet.create({
     alignContent: 'center',
     gap: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    borderBottomColor: colors.divider,
   },
   grow: { flexGrow: 1, flexShrink: 1 },
-  text: { fontSize: 14, lineHeight: 20, color: colors.text },
-  green: { fontSize: 14, lineHeight: 20, color: '#18820f' },
+  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
+  green: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
   segments: { flexDirection: 'row', position: 'relative', borderRadius: 8, flexWrap: 'wrap' },
   segmentBackground: {
     position: 'absolute',
@@ -310,10 +315,10 @@ const visual = StyleSheet.create({
   segmentTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   segment: { minHeight: 30, paddingHorizontal: 8, justifyContent: 'center', borderRadius: 6 },
   selectedSegment: { backgroundColor: 'white', borderWidth: 1, borderColor: '#dddddd' },
-  segmentText: { fontSize: 13, lineHeight: 18, color: 'black' },
+  segmentText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: 'black' },
   selectedText: { fontWeight: '600' },
   socialHint: {
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     color: colors.secondaryText,
     backgroundColor: '#fafafa',
@@ -321,7 +326,7 @@ const visual = StyleSheet.create({
     paddingTop: 8,
   },
   version: {
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 20,
     color: colors.secondaryText,
     backgroundColor: '#fafafa',

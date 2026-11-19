@@ -61,11 +61,13 @@ it('검색 기사에서 닫기·공급자 취소·실패·재시도 후 원래 �
   await user.press(getGuestBookmark());
   await user.press(screen.getByRole('button', { name: '모의 동작 선택 열기' }));
   await user.press(screen.getByRole('radio', { name: '모의 결과: 사용자 취소' }));
+  expect(screen.getByRole('radio', { name: '모의 결과: 사용자 취소' })).toBeChecked();
   await user.press(screen.getByRole('button', { name: 'Google로 로그인 (모의)' }));
   expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
   expect(getGuestBookmark()).toBeVisible();
   await user.press(getGuestBookmark());
   await user.press(screen.getByRole('radio', { name: mockUserB.name }));
+  expect(screen.getByRole('radio', { name: mockUserB.name })).toBeChecked();
   await user.press(screen.getByRole('button', { name: '모의 동작 선택 열기' }));
   await user.press(screen.getByRole('radio', { name: '모의 결과: 실패' }));
   await user.press(screen.getByRole('button', { name: 'Google로 로그인 (모의)' }));

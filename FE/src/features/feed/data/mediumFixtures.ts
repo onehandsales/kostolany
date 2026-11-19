@@ -44,6 +44,7 @@ export const mediumExploreArticles: FeedArticle[] = [
     thumbnail: null,
     reference: {
       avatar: require('../../../../assets/medium/scott.png'),
+      verifiedAuthor: true,
       applause: 0,
       responses: '—',
       memberOnly: false,

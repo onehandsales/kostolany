@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { colors, sizes, spacing, typography } from '../../../shared/theme/tokens';
+import { colors, sizes, spacing, typography, fonts } from '../../../shared/theme/tokens';
 import { IconButton } from '../../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../../shared/ui/ReferenceNotice';
 import { type FeedSort, feedSortLabels } from '../types';
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: spacing.small,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     borderBottomColor: 'transparent',
   },
   selected: { borderBottomColor: colors.text },
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   selectedLabel: { color: colors.text },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   badge: {
-    fontSize: 11,
+    fontFamily: fonts.sans, fontSize: 11,
     lineHeight: 16,
     paddingHorizontal: 4,
     borderRadius: 4,

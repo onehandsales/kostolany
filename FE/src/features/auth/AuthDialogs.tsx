@@ -149,6 +149,8 @@ function LoginDialog() {
                   key={user.id}
                   accessibilityRole="radio"
                   accessibilityLabel={user.name}
+                  aria-checked={userId === user.id}
+                  aria-disabled={isLocked}
                   accessibilityState={{ checked: userId === user.id, disabled: isLocked }}
                   disabled={isLocked}
                   onPress={() => setUserId(user.id)}
@@ -290,6 +292,8 @@ function ScenarioPicker({
                   key={item.value}
                   accessibilityRole="radio"
                   accessibilityLabel={`모의 결과: ${item.label}`}
+                  aria-checked={selected === item.value}
+                  aria-disabled={disabled}
                   disabled={disabled}
                   accessibilityState={{ checked: selected === item.value, disabled }}
                   onPress={() => onSelect(item.value)}
@@ -321,7 +325,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  mockBadge: { fontSize: 10, lineHeight: 14, color: '#6b6b6b' },
+  mockBadge: { fontFamily: fonts.sans, fontSize: 10, lineHeight: 14, color: '#6b6b6b' },
   login: {
     flexGrow: 1,
     width: '100%',
@@ -350,7 +354,7 @@ const styles = StyleSheet.create({
   },
   smallHeadline: { fontSize: 60, lineHeight: 70, letterSpacing: -3 },
   description: {
-    fontSize: 16,
+    fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 24,
     color: colors.secondaryText,
     textAlign: 'center',
@@ -368,12 +372,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   providerIcon: { position: 'absolute', left: 14 },
-  providerLabel: { fontSize: 16, lineHeight: 24, color: colors.text, textAlign: 'center' },
+  providerLabel: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text, textAlign: 'center' },
   joinLink: { minHeight: 48, justifyContent: 'center', marginTop: 24 },
-  joinText: { fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
-  green: { color: '#18820f' },
+  joinText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
+  green: { color: colors.green },
   mockPanel: { marginTop: 24, gap: 16, padding: 16, backgroundColor: colors.surface, borderRadius: 8 },
-  mockLabel: { fontSize: 14, lineHeight: 22, color: '#146b0d', textAlign: 'center' },
+  mockLabel: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: '#146b0d', textAlign: 'center' },
   choices: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   choice: {
     flexGrow: 1,
@@ -388,7 +392,7 @@ const styles = StyleSheet.create({
   selected: { borderColor: colors.text, backgroundColor: '#f2f2f2' },
   feedback: { gap: 16, padding: 16 },
   scenarioLink: {
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 22,
     color: colors.secondaryText,
     textDecorationLine: 'underline',
@@ -404,9 +408,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   confirmContent: { paddingTop: 20 },
-  confirmTitle: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: 'black', textAlign: 'center' },
+  confirmTitle: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, fontWeight: '700', color: 'black', textAlign: 'center' },
   confirmDescription: {
-    fontSize: 14,
+    fontFamily: fonts.sans, fontSize: 14,
     lineHeight: 17,
     color: 'black',
     textAlign: 'center',
@@ -417,8 +421,8 @@ const styles = StyleSheet.create({
   actions: { flexDirection: 'row', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#bbbbbb' },
   action: { flex: 1, minHeight: 48, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
   cancelAction: { borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: '#bbbbbb' },
-  cancelLabel: { fontSize: 18, lineHeight: 24, color: '#007aff', fontWeight: '600' },
-  destructive: { fontSize: 18, lineHeight: 24, color: '#ff453a' },
+  cancelLabel: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, color: '#007aff', fontWeight: '600' },
+  destructive: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 24, color: '#ff453a' },
   logoutMock: {
     position: 'absolute',
     left: 16,

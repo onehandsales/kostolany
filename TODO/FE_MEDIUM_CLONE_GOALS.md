@@ -1,6 +1,6 @@
 # FE 규칙 검토와 Medium 클론 Goal 계획
 
-**최신 상태(2026-11-19):** [Goal22 기준선 결과](FE_GOAL_22_RESULT.md) · [전체 Medium 후속 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). Goal22에서 전수 대응·실제 코드·비교 환경을 검토했고 Goal23~53은 미착수다. 새 문서의 Windows 경로를 사용하며 아래 Goal14~21 승인과 결과는 당시 이력이다.
+**최신 상태(2026-11-19):** [Goal23 결과](FE_GOAL_23_RESULT.md) · [전체 Medium 후속 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). Goal23 공통 표현 보정·두 차례 자체 검토·현재 검사/8081 비교를 수행했다. 구현 완료·검증 잔여이며 폰트/아이콘·시각/native 잔여는 결과 문서를 따른다. Goal24~53은 미착수이며 후속 사용자 요청에 따라 Goal23 변경을 로컬 커밋으로 보관한다. push·배포는 하지 않는다. 새 문서의 Windows 경로를 사용하며 아래 Goal14~21 승인과 결과는 당시 이력이다.
 
 작성일: 2026-11-19 KST.
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { colors, typography } from '../../shared/theme/tokens';
+import { colors, typography, fonts } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.border,
   },
   listen: { alignItems: 'flex-end', paddingRight: 4 },
-  scroll: { paddingHorizontal: 24, paddingTop: 28, paddingBottom: 32 },
+  scroll: { paddingHorizontal: 24, paddingTop: 27, paddingBottom: 32 },
   body: { width: '100%', maxWidth: 680, alignSelf: 'center' },
   memberBadge: {
     alignSelf: 'flex-start',
@@ -282,10 +282,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     minHeight: 32,
   },
-  memberLabel: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
-  title: { fontSize: 32, lineHeight: 38, fontWeight: '700', color: colors.text, marginTop: 16 },
-  subtitle: { fontSize: 18, lineHeight: 26, color: colors.secondaryText, marginTop: 16 },
-  metadata: { fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 24 },
+  memberLabel: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 38, fontWeight: '700', letterSpacing: -0.6, color: colors.text, marginTop: 16 },
+  subtitle: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 26, color: colors.secondaryText, marginTop: 16 },
+  metadata: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 24 },
   author: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   authorAvatar: { width: 32, height: 32, borderRadius: 16 },
-  authorName: { fontSize: 16, lineHeight: 24, color: colors.text, flexShrink: 1 },
+  authorName: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text, flexShrink: 1 },
   followTarget: { minHeight: 48, minWidth: 64, justifyContent: 'center' },
   follow: {
     minHeight: 32,
@@ -306,19 +306,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  followText: { fontSize: 14, lineHeight: 20, color: colors.text },
+  followText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   cover: { width: '100%', aspectRatio: 1.5, marginTop: 24 },
-  caption: { fontSize: 12, lineHeight: 18, color: colors.secondaryText, textAlign: 'center', marginTop: 16 },
+  caption: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText, textAlign: 'center', marginTop: 16 },
   paragraphs: { gap: 28, marginTop: 32 },
   paragraph: { ...typography.storyBody, fontSize: 18, color: colors.text },
   bold: { fontWeight: '700' },
   highlight: { backgroundColor: '#e8f3e8' },
-  divider: { color: '#777777', fontSize: 24, lineHeight: 32, textAlign: 'center' },
+  divider: { color: '#777777', fontFamily: fonts.sans, fontSize: 24, lineHeight: 32, textAlign: 'center' },
   missing: { ...typography.caption, color: colors.secondaryText },
   topics: { marginTop: 48, flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   topicTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   topicPill: { backgroundColor: colors.input, borderRadius: 24, paddingHorizontal: 14, paddingVertical: 8 },
-  topicText: { fontSize: 14, lineHeight: 20, color: colors.text },
+  topicText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   authorCard: { marginTop: 56, gap: 12 },
   authorCardTop: {
     flexDirection: 'row',
@@ -327,8 +327,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   largeAvatar: { width: 64, height: 64, borderRadius: 32 },
-  authorHeading: { fontSize: 16, lineHeight: 24, fontWeight: '700', color: colors.text },
-  followers: { fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  authorHeading: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, fontWeight: '700', color: colors.text },
+  followers: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   authorLink: { minHeight: 48, paddingVertical: 16 },
   bio: { ...typography.body, color: colors.text },
   responseButton: {
@@ -354,5 +354,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   responseControl: { minHeight: 48, minWidth: 48, flexDirection: 'row', alignItems: 'center', gap: 8 },
-  reactionCount: { fontSize: 14, lineHeight: 20, color: colors.text },
+  reactionCount: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
 });
