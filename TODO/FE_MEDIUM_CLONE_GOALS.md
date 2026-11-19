@@ -1,6 +1,6 @@
 # FE 규칙 검토와 Medium 클론 Goal 계획
 
-**최신 후속 계획(2026-11-19):** [전체 Medium 후속 Goal 22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). 후속 Goal은 미착수이며 새 문서의 범위·Windows 작업 경로·실행 요청문을 사용한다. 아래 Goal 14~21 승인과 결과는 당시 이력이다.
+**최신 상태(2026-11-19):** [Goal22 기준선 결과](FE_GOAL_22_RESULT.md) · [전체 Medium 후속 Goal22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). Goal22에서 전수 대응·실제 코드·비교 환경을 검토했고 Goal23~53은 미착수다. 새 문서의 Windows 경로를 사용하며 아래 Goal14~21 승인과 결과는 당시 이력이다.
 
 작성일: 2026-11-19 KST.
 

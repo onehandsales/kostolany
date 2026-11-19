@@ -2,7 +2,7 @@
 
 작성일: 2026-11-19 KST · 작업 위치: `D:\git_repository\kostolany_project`.
 
-**현재 상태: 계획 문서 작성. Goal 22~53은 모두 미착수이며, 이 문서 작성으로 구현을 실행한 것은 아니다.** 이번 사용자 요청은 후속 범위를 먼저 문서화하는 것이다. 아래 요청문을 사용해 단일 Goal 또는 지정 범위를 별도로 실행한다.
+**현재 상태: Goal 22의 원본·현재 코드·비교 환경 기준선 작업을 수행했다. Goal 23~53은 미착수다.** [Goal 22 결과](FE_GOAL_22_RESULT.md), [기준선](FE_GOAL_22_BASELINE.md), [C01~C72 현재 코드·계약](FE_GOAL_22_CODE_AUDIT.md)을 다음 실행의 출발점으로 사용한다. 정확한 폰트·전체 시각 일치·실제 native 검증은 미완료다.
 
 목표는 보관된 **Medium iOS 화면·문구·폰트·텍스트 크기·픽셀 위치·상태·이동 흐름을 그대로 재현하는 FE**다. 1차 MVP에 없던 기능뿐 아니라 기존 화면의 차이와 미연결 메뉴까지 포함한다. 백엔드 구축 전에 화면과 mock 동작을 완성하고, 마지막에 실제 구현을 근거로 API/DB 설계에 필요한 계약을 인계한다.
 
@@ -16,12 +16,12 @@
 | 기준 | 확인 내용 |
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
-| 현재 Git 기준 | 문서 작성 전 HEAD `234b224` · `fix(fe): enforce frontend lifecycle and architecture rules`. 실행할 때 실제 HEAD/사용자 변경을 다시 확인한다. |
-| 기존 검증의 범위 | Goal 21 기록은 84 suites/638 tests·원본 31쌍 비교다. 이후 [FE README](../FE/README.md)의 소프트웨어 재검토 기록은 90 suites/662 tests다. 둘 다 과거 실행 기록이며 이번 문서 작업에서 앱 검사를 재실행하지 않았다. |
+| 현재 Git 기준 | Goal 22 시작 HEAD `5ff91ea`, 작업 트리 clean. 소스 기준 `234b224` 이후 FE 코드 변경 없음. Goal22 실행에서는 문서·검증 자료만 변경했고, 후속 사용자 요청에 따라 문서를 로컬 커밋한다. 다음 실행도 실제 Git을 확인한다. |
+| 현재 검증의 범위 | Goal 22에서 Node24.18.0/npm10.9.0으로 typecheck·lint·90 suites/662 tests를 새로 통과했다. 양 플랫폼 JS/Hermes export·8081 대표 흐름·실제11쌍 비교도 수행했다. Goal21의638건/31쌍 및 이후 규칙 검토 기록은 별도 이력이다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
-| 승인 경계 | 현재는 문서 작업. 미래 Goal 실행도 FE와 필요한 local/mock adapter 범위다. 실제 OAuth·메일/push 발송·결제·Supabase/서버/Storage·DDL·배포·Git 커밋은 포함하지 않는다. |
+| 승인 경계 | 현재 요청은 Goal22만이다. Goal23 이후 실행은 별도 요청이 필요하다. FE와 필요한 local/mock adapter 범위를 유지하며 실제 OAuth·메일/push 발송·결제·Supabase/서버/Storage·DDL·배포·Git 커밋은 포함하지 않는다. |
 
 기존 문서의 macOS 경로·MVP 제외 범위·Goal 21 뒤 종료 문구는 당시 실행의 이력이다. **현재 후속 계획은 Windows 경로와 이 문서의 범위를 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
 
@@ -39,7 +39,7 @@
 | [PERFORMANCE_AND_SECURITY](../AGENT/SOFTWARE_AGENT/FRONT_AGENT/PERFORMANCE_AND_SECURITY.md) | 긴 동적 목록 가상화·안정 키·같은 축 ScrollView 중첩 금지·좁은 구독·이미지 비용·자원 정리. 세션/사용자 데이터·민감 로그·저장소·native 경계를 확인한다. |
 | [TESTING_AND_DELIVERY](../AGENT/SOFTWARE_AGENT/FRONT_AGENT/TESTING_AND_DELIVERY.md) | 의미 있는 실패/회귀 검사·두 차례 실제 검토·증거·미검증 전달. 문서·자동 테스트·브라우저·번들·native 결과를 구분한다. |
 
-- `medium`의 문서/PNG는 원본으로 보존한다. 새 조사·측정·비교는 `TODO/evidence/goalNN/`에 생성하고 출처/조건을 기록한다. 새 경로는 실제 생성 후에만 결과 문서에서 링크한다.
+- `medium`의 문서/PNG는 원본으로 보존한다. 사용자 후속 지시에 따라 `TODO/evidence` 폴더와 별도 비교HTML·로그·검증스크립트 산출물을 새로 만들지 않는다. 실제 캡처/비교·명령 검증은 수행하되 필요한 파일은 저장소 밖 임시 경로를 사용하고, 출처/조건/실측값/실행 결과/차이는 `TODO/FE_GOAL_NN_RESULT.md`와 필요한 TODO 문서에 기록한다.
 - Git 상태·기존 사용자 변경·삭제·ENV·8081 프로세스를 확인하고 보존한다. 이 계획이 중복 서버 실행·재시작·패키지 전체 갱신의 이유가 되지 않는다. 실행 환경이 필요할 때 기존 8081을 먼저 확인한다.
 - 앞 Goal의 공통 계약을 확장하고 테스트 가능한 mock source/native adapter 경계를 사용한다. 후반 Goal의 실제 인증/멤버십 입력이 필요한 앞 Goal은 기존 mock 세션과 명시적 fixture 입력으로 구현한 뒤 담당 Goal에서 연결한다.
 - 폼의 초안/확정 상태·Cancel/Done/Save 시점·실패 입력 보존·국소 롤백을 구분한다. 공유 숫자/목록/관계는 화면별 복제 상태로 관리하지 않는다.
@@ -55,7 +55,7 @@
 | 폰트/텍스트 | family·파일/출처·weight·size·lineHeight·letterSpacing·baseline·줄바꿈·정렬·문구/대소문자·말줄임·강조 범위. 시스템 sans/Georgia/serif 대체는 동일 판정 근거가 아니다. |
 | 위치/형태 | 요소 bounds·x/y·폭/높이·패딩/마진/간격·터치 영역·border/radius·색·그림자·아이콘 형태/크기·사진 crop·시트 높이·고정/스크롤 동작 |
 | 행동/상태 | 진입→선택/입력→확정/취소→결과→복귀, 활성/비활성/선택 표시·숫자·로딩·오류·권한·빈 상태·OS UI와 앱 UI의 경계 |
-| 실제 비교 증거 | 실제 앱 렌더 캡처와 원본을 나란히/overlay/diff로 비교한다. 원본·원본 crop·실제 캡처·비교 결과를 보존하고 좌표/텍스트 차이 및 원인을 남긴다. 생성 이미지나 화면 전체 배경으로 구현을 대체하지 않는다. |
+| 실제 비교 증거 | 실제 앱 렌더 캡처와 원본을 나란히/overlay/diff로 비교한다. 검증 중 원본 crop·실제 캡처·비교 결과는 저장소 밖 임시 경로를 사용하고, 문서에는 원본ID·조건·좌표/텍스트 차이와 원인을 남긴다. 생성 이미지나 화면 전체 배경으로 구현을 대체하지 않는다. |
 | 차이 허용 해석 | 폰트 미확보·OS 안티앨리어싱·접근성·Safe Area 차이를 숨기거나 임의 점수 99%로 동일 판정하지 않는다. 측정 가능한 배치/타이포 차이는 수정하고 불가피/미확인 차이는 항목별 공개한다. 기본 배율 비교와 큰 글자/Android 적응 검증은 별도다. |
 
 영어 원문·사진·같은 사용자/기사·선택 상태를 비교용 fixture로 재현한다. 원본의 Alex/카운트 등 비교 데이터는 명시적으로 선택하고 실제 사용자 상태를 조작해 캡처를 맞추지 않는다. 원본에 없는 전체 본문을 원문처럼 만들어 넣지 않는다. 보관 자산을 로컬 비교에 쓰는 것과 외부 서비스로 공개하는 것은 별개다.
@@ -78,7 +78,7 @@
 
 | Goal | 작업 | 최소 선행 | 초기 상태 |
 | --- | --- | --- | --- |
-| [22](#goal-22) | 원본 전수 대응·현재 코드·비교 환경 기준선 | 기존 Goal 21 이후 코드 | 미착수 |
+| [22](#goal-22) | 원본 전수 대응·현재 코드·비교 환경 기준선 | 기존 Goal 21 이후 코드 | 기준선 완료 / 원본 동일성·native 잔여 별도 |
 | [23](#goal-23) | 공통 글꼴·아이콘·레이아웃과 기존 화면 보정 | 22 | 미착수 |
 | [24](#goal-24) | 전역 Light·Dark·System과 기사 표시 설정 | 23 | 미착수 |
 | [25](#goal-25) | 기사 본문·박수·읽음 표시·상세 메뉴 | 24 | 미착수 |
@@ -118,7 +118,7 @@
 3. **1차 검토:** 최종 후보의 코드 경계/상태/모든 진입점/화면·메뉴·복귀를 실제 원본과 대조한다. 문제별 파일·규칙/화면 ID·재현·기대/실제·영향을 남긴다.
 4. **수정·검증:** 발견된 결함을 고치고 관련 검사와 실제 캡처를 다시 수행한다.
 5. **2차 재검토:** 수정된 코드와 사용처·동작·캡처를 새로 검토한다. 첫 검토 표를 복사해서 두 차례 검토로 세지 않는다. 새 결함은 수정 후 영향 범위를 다시 검증한다.
-6. **결과 기록:** `TODO/FE_GOAL_NN_RESULT.md`와 필요한 `TODO/evidence/goalNN/`를 만들고 이 계획/대응표의 실제 상태를 갱신한다. 자기 검토인지 독립 검토인지 구분한다.
+6. **결과 기록:** `TODO/FE_GOAL_NN_RESULT.md`에 검토·측정·명령 실행 결과와 미검증 항목을 기록하고 이 계획/대응표의 실제 상태를 갱신한다. 별도 `TODO/evidence` 폴더는 만들지 않는다. 자기 검토인지 독립 검토인지 구분한다.
 7. **다음 단계:** 단일 Goal 요청이면 종료한다. 범위 연속 실행 요청이면 검토/결과를 남긴 뒤 다음 Goal로 진행한다. 해결되지 않은 의존 결함은 먼저 해결한다.
 
 각 Goal은 성공뿐 아니라 해당되는 loading/empty/error/retry/cancel·권한 거절·제한·긴 데이터·계정 교체를 검증한다. 관찰되지 않은 상태는 자체 보완이라고 기록한다.
@@ -139,7 +139,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 22 — 원본 전수 대응·현재 코드·비교 환경 기준선
 
-- **상태/선행:** 미착수 / 기존 구현·현재 Git 확인.
+- **상태/선행:** 기준선 작업 완료 / 기존 구현·현재 Git 확인. [결과](FE_GOAL_22_RESULT.md)의 구현·자동 검사·시각·native 상태를 각각 적용한다. 원본 폰트 확보·미수록 메뉴·실제 native 검증을 완료로 처리한 것은 아니다.
 - **원본:** [전체 흐름·화면](FE_MEDIUM_FULL_CLONE_MAP.md). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 대응표의 63개 흐름·273단계·200개 고유 화면과 43개 UI 요소 중복을 다시 대조한다. 현재 FE의 실제 화면·상태 소유자·ReferenceNotice 진입점·미동작 메뉴를 추적한다. 8081 상태, 실제 기기/시뮬레이터 사용 가능 여부, 폰트·자산·화면 측정 조건을 기록한다. 미수록 분기는 읽기 전용 Gummble 조회와 필요한 공식 문서로 보완하고 확보한 버전·일시·증거를 별도 보관한다.
 - **시각 비교:** 원본 PNG·단계·계정·테마·스크롤·키보드·선택값을 캡처 시나리오로 고정한다. 폰트 후보의 출처와 실측 여부, 색상·좌표·텍스트 기준점을 정리한다. 출처가 다른 값은 덮어쓰지 않는다.
@@ -185,7 +185,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 - **원본:** [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36), [F38](FE_MEDIUM_FULL_CLONE_MAP.md#f38), [F62](FE_MEDIUM_FULL_CLONE_MAP.md#f62). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 기사 본문·유료 배지·하단 관련 기사/토픽/작성자 구성을 보정하고 누적 박수와 내 반응을 구현한다. 더보기의 Show less like this/Display/Follow/Mute/Report story 진입 계약, 읽음 이력과 목록의 Viewed/제목 색 상태를 마련한다.
 - **시각 비교:** 박수 피드백·숫자·기사 머리/꼬리·읽음 색을 원본 상태별로 비교한다. 기존 하트의 boolean like를 누적 박수로 이름만 바꾸지 않는다.
-- **상태·계약:** 기사 반응·댓글 반응·목록 반응의 대상 식별과 담당 feature를 분리한다. 읽음 이력 발생 조건과 원본에서 미확인인 정책을 표시한다. 메뉴의 후속 처리 담당은 28/29/31/47이다.
+- **상태·계약:** 기사 반응·댓글 반응·목록 반응의 대상 식별과 담당 feature를 분리한다. 읽음 이력 발생 조건과 원본에서 미확인인 정책을 표시한다. 메뉴의 후속 처리 담당은 28/29/31/47이다. 현재 공식 설명의 기사/목록 최대50·Undo claps·박수 사용자 목록은 Goal22 근거를 확인하고 target별 계약으로 반영한다. 펼친 UI와 댓글 한도는 미확인이다.
 - **검증 시나리오:** 연속 입력·중복 완료·실패 복구·이전 조회의 새 반응 덮어쓰기·기사 전환·계정 격리·읽음 재진입을 검사한다.
 - **완료 조건:** 본문과 반응/읽음 상태가 관련 카드에 일관되게 표시된다. 후속 메뉴의 미연결은 담당 Goal로 추적하며 전체 메뉴 완성을 선행 주장하지 않는다.
 - **미확인·경계:** +16 캡처는 16회 터치 증거가 아니다. 박수 상한 등 공식 정책은 실행 시 공식 자료로 확인하고 +50 등을 임의 가정하지 않는다.
@@ -238,7 +238,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 ### Goal 29 — Mute·Block·신고·응답 관리
 
 - **상태/선행:** 미착수 / Goal 26, Goal 28.
-- **원본:** [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F17](FE_MEDIUM_FULL_CLONE_MAP.md#f17), [F18](FE_MEDIUM_FULL_CLONE_MAP.md#f18), [F19](FE_MEDIUM_FULL_CLONE_MAP.md#f19), [F20](FE_MEDIUM_FULL_CLONE_MAP.md#f20), [F21](FE_MEDIUM_FULL_CLONE_MAP.md#f21), [F22](FE_MEDIUM_FULL_CLONE_MAP.md#f22), [F23](FE_MEDIUM_FULL_CLONE_MAP.md#f23), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F28](FE_MEDIUM_FULL_CLONE_MAP.md#f28), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
+- **원본:** [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F17](FE_MEDIUM_FULL_CLONE_MAP.md#f17), [F18](FE_MEDIUM_FULL_CLONE_MAP.md#f18), [F19](FE_MEDIUM_FULL_CLONE_MAP.md#f19), [F20](FE_MEDIUM_FULL_CLONE_MAP.md#f20), [F21](FE_MEDIUM_FULL_CLONE_MAP.md#f21), [F22](FE_MEDIUM_FULL_CLONE_MAP.md#f22), [F23](FE_MEDIUM_FULL_CLONE_MAP.md#f23), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F28](FE_MEDIUM_FULL_CLONE_MAP.md#f28), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36). [F45](FE_MEDIUM_FULL_CLONE_MAP.md#f45), [F46](FE_MEDIUM_FULL_CLONE_MAP.md#f46), [F50](FE_MEDIUM_FULL_CLONE_MAP.md#f50). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 작성자 Mute/Block/Report author와 기사 Report story, 목록 내 기사 메뉴의 동일 대상 처리를 구현한다. 이유 선택·추가 설명·선택적 Also block·권리/정책 링크·성공/취소 상태, 응답 숨김/토론 종료의 확인된 범위를 다룬다.
 - **시각 비교:** 작가 더보기의 Share/Mute/Block/Report/Cancel, 차단/신고 시트의 문구·선택·경고를 원본별로 맞춘다.
 - **상태·계약:** mute·block·report를 서로 다른 상태/명령으로 관리한다. 기사/작가/응답 대상 ID를 보존하고 노출·추천·응답 권한에 대한 mock 정책과 관찰 근거를 구분한다.
@@ -283,7 +283,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 - **원본:** [F02](FE_MEDIUM_FULL_CLONE_MAP.md#f02), [F03](FE_MEDIUM_FULL_CLONE_MAP.md#f03), [F04](FE_MEDIUM_FULL_CLONE_MAP.md#f04), [F17](FE_MEDIUM_FULL_CLONE_MAP.md#f17), [F19](FE_MEDIUM_FULL_CLONE_MAP.md#f19), [F20](FE_MEDIUM_FULL_CLONE_MAP.md#f20), [F21](FE_MEDIUM_FULL_CLONE_MAP.md#f21), [F37](FE_MEDIUM_FULL_CLONE_MAP.md#f37), [F38](FE_MEDIUM_FULL_CLONE_MAP.md#f38), [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41), [F42](FE_MEDIUM_FULL_CLONE_MAP.md#f42), [F45](FE_MEDIUM_FULL_CLONE_MAP.md#f45), [F46](FE_MEDIUM_FULL_CLONE_MAP.md#f46), [F47](FE_MEDIUM_FULL_CLONE_MAP.md#f47), [F49](FE_MEDIUM_FULL_CLONE_MAP.md#f49), [F50](FE_MEDIUM_FULL_CLONE_MAP.md#f50), [F51](FE_MEDIUM_FULL_CLONE_MAP.md#f51), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 다른 사용자의 공개 목록, 전체 목록 Save/해제, Library Saved lists, 목록 박수/응답·작성자 Follow·공유 진입을 구현한다. 개별 기사 북마크와 목록 전체 저장을 분리한다.
 - **시각 비교:** 목록 소개·소유자/방문자 메뉴·기사 행·Save 수·목록 반응 영역을 원본과 비교한다.
-- **상태·계약:** 목록 ID·소유자·공개 상태·목록 저장 관계·목록 반응을 명확히 구분한다. 108 저장/98 박수/1 응답 같은 비교 fixture와 실행 중 변경값을 구분한다. 목록 응답은 대상 계약으로 26과 연동한다.
+- **상태·계약:** 목록 ID·소유자·공개 상태·목록 저장 관계·목록 반응을 명확히 구분한다. 108 저장/98 박수/1 응답 같은 비교 fixture와 실행 중 변경값을 구분한다. 목록 응답은 대상 계약으로 26과 연동한다. 현재 공식 설명의 기사/목록 최대50·Undo claps·박수 사용자 목록은 Goal22 근거를 확인하고 target별 계약으로 반영한다. 펼친 UI와 댓글 한도는 미확인이다.
 - **검증 시나리오:** 저장/해제 중복·역전, 비공개/삭제된 원본 목록, 소유자와 방문자 권한, 목록 박수와 기사 박수 격리, Saved lists 재진입을 검사한다.
 - **완료 조건:** 공개 목록 탐색→전체 저장→Saved lists→상세 복귀가 작동하고 목록 반응/응답이 기사와 섞이지 않는다.
 - **미확인·경계:** Saved lists 내용·목록 응답 펼친 화면은 원본 확보가 필요하다. 기사 댓글 UI를 근거 없이 동일하다고 복제하지 않는다.
@@ -356,7 +356,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 - **상태·계약:** 선택 미완료 자산과 문서 확정 자산, 작업 ID·출처 메타데이터·취소/해제를 구분한다. 실제 업로드와 Unsplash API 호출은 연결하지 않는다.
 - **검증 시나리오:** 권한 거절/제한/취소, 검색 지연 역전, 이미지 삽입 중 문서 전환, 삭제 후 늦은 완료, 큰 사진/해제와 접근성 이름을 검사한다.
 - **완료 조건:** 로컬/mock 사진 선택→삽입→삭제가 편집/초안 계약에 반영되며 native picker의 실검증 상태가 별도 기록된다.
-- **미확인·경계:** 카메라·앨범 OS 화면과 원격 검색 실패는 원본 미수록이다. OS 소유 화면은 Medium 고유 픽셀 재현으로 주장하지 않는다.
+- **미확인·경계:** 프로필 사진 흐름에는 기기 갤러리 원본 S113(`sc_9fd133df622e4ddd859bbbeb845ba4da`)이 있다. 편집기에서 같은 선택기를 사용하는지, 촬영·권한 거절·원격 검색 실패는 미확인이다. Goal42/52와 연결하고 OS 소유 화면을 Medium 고유 픽셀 재현으로 주장하지 않는다.
 - **산출물:** 실제 구현/검증 증거와 `TODO/FE_GOAL_37_RESULT.md`, 대응표 상태·차이 갱신. 위 공통 절차의 **1차 검토→수정→2차 재검토**를 모두 수행한다.
 
 <a id="goal-38"></a>
@@ -519,7 +519,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 - **상태/선행:** 미착수 / Goal 42, Goal 44, Goal 48.
 - **원본:** [F54](FE_MEDIUM_FULL_CLONE_MAP.md#f54), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55), [F58](FE_MEDIUM_FULL_CLONE_MAP.md#f58), [F60](FE_MEDIUM_FULL_CLONE_MAP.md#f60). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
-- **구현 범위:** Account/Membership & payment/Email/Facebook 연결·Help/Terms/Privacy/Rate/More controls 등 모든 보이는 설정 행의 목적지를 확인하고 적합한 화면 또는 외부 링크를 연결한다. Custom app icon의 변형·선택·Friend gate를 구현한다.
+- **구현 범위:** Account/Membership & payment/Email/Facebook 연결·Help/Terms/Privacy/Rate/More controls 등 모든 보이는 설정 행의 목적지를 확인하고 적합한 화면 또는 외부 링크를 연결한다. Custom app icon의 변형·선택·Friend gate를 구현한다. Account의 Blocked users는29의 상태 계약에 연결하며 현재 공식 설명과 보관 캡처의 차이를 먼저 확인한다.
 - **시각 비교:** Wordmark/Founders/Friend/Throwback 연도별 아이콘·선택 테두리·잘린 항목, 계정/설정 구역·외부 링크 표식을 원본에 맞춘다.
 - **상태·계약:** 선택 중 아이콘·적용 결과·tier·OS 지원 상태를 분리한다. 연결 여부/구독/이메일은 해당 feature 계약으로 읽고 설정 화면에 별도 사실 상태를 만들지 않는다.
 - **검증 시나리오:** 미지원 플랫폼·외부 URL 실패·설정 복귀·아이콘 변경 취소/실패·tier 변경·계정 전환과 미연결 메뉴 잔여 검색을 검사한다.

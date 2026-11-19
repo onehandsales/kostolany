@@ -1,5 +1,9 @@
 # 현재 상태와 다음 작업
 
+**2026-11-19 최신 확인: [Goal22 결과](../../../TODO/FE_GOAL_22_RESULT.md).** 원본63흐름/273단계/200장·UI중복43장을 대조하고 [현재 기능72묶음과 상태 계약](../../../TODO/FE_GOAL_22_CODE_AUDIT.md), [비교 환경·미확인 담당](../../../TODO/FE_GOAL_22_BASELINE.md)을 작성했다. Windows Node24.18.0/npm10.9.0의 현재 타입/lint·90 suites/662 tests·Android/iOS JS/Hermes export 통과, 기존8081 PID17148 보존·대표14캡처/11쌍 비교를 수행했다. FE 소스 변경이나 실제 서비스 연결은 없으며 원본 font·전체 동일성·실제 native 검증은 미완료다. Goal23~53은 미착수이고 Goal22 문서는 후속 요청에 따라 로컬 커밋한다. 별도 `TODO/evidence` 산출물은 만들지 않고 기존 자료는 커밋에서 제외한다.
+
+아래 Goal21/13의 수치·macOS/PID·커밋 요청·실행 순서는 **당시 이력**이다. 현재 후속 범위와 실행 판단은 [전체 Goal 계획](../../../TODO/FE_MEDIUM_FULL_CLONE_GOALS.md)을 따른다.
+
 2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 
 후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
@@ -7,7 +11,7 @@
 
 ## 상태
 
-최신 FE 결과: [Goal21 보고](../../../TODO/FE_GOAL_21_RESULT.md). Goal14~21을 연속 수행했고 최종638 tests/84 suites·typecheck·lint·JS/Hermes·8081 사용자 흐름과 원본31쌍 비교를 확인했다. Goal14 로컬 커밋 `d016c06`;15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 원본 폰트/아이콘/일부 배치 차이와 실제 Xcode/Android SDK 검증은 대기다. 아래 Goal13 등 수치와 단계별 진행 메모는 당시 이력이다. 외부 인증/서비스 연결·배포는 수행하지 않았다.
+Goal21 당시 FE 결과: [Goal21 보고](../../../TODO/FE_GOAL_21_RESULT.md). Goal14~21을 연속 수행했고 최종638 tests/84 suites·typecheck·lint·JS/Hermes·8081 사용자 흐름과 원본31쌍 비교를 확인했다. Goal14 로컬 커밋 `d016c06`;15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 원본 폰트/아이콘/일부 배치 차이와 실제 Xcode/Android SDK 검증은 대기다. 아래 Goal13 등 수치와 단계별 진행 메모는 당시 이력이다. 외부 인증/서비스 연결·배포는 수행하지 않았다.
 
 | 항목 | 상태 | 근거·한계 |
 | --- | --- | --- |
@@ -30,7 +34,7 @@
 | 모바일 실행·네이티브 빌드·배포 | 실행·빌드 미검증, 배포 미수행 | Goal 13에서 macOS 14.2 CLT만 있고 Xcode·simctl 없음 재확인. Android SDK·adb·emulator도 없음. Safe Area·OS 큰 글자·실제 IME·스크린리더·기기 뒤로 가기는 대기. 번들 생성과 구분 |
 | PC 브라우저 로컬 미리보기 | 8081 보존·전체 흐름/실패 검증 | PID 42833·HTTP 200 유지. Chrome 검증 19묶음·최종 캡처 64장+수정 전 2장·원본 15장 비교. 320/390/1365px·CSS 글자 2배·합성 composition·포커스/스크롤 확인. console 오류 0. 네이티브/실제 IME와 구분 |
 
-## 현재 작업 순서 — 프론트엔드 Goal 분리
+## Goal14~21 당시 작업 순서 — 프론트엔드 Goal 분리
 
 현재는 [FE 클론 계획](../../../TODO/FE_MEDIUM_CLONE_GOALS.md)의 Goal 14~21을 순차 실행한다. Goal 13의 기존 연결·실패 검증 위에 Goal 14 규칙 검토·수정을 마쳤다. 각 단계의 1·2차 검토와 결과를 별도로 기록하고 Goal 21 뒤 종료한다. 구현 완료와 실제 iOS·Android 검증 대기를 구분한다. 실제 Supabase·백엔드·인증·RSS·AI를 연결하지 않으며 전체 서비스 MVP·출시 완료가 아니다.
 
