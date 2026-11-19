@@ -14,7 +14,9 @@ import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkScopeKey, useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 
-export function LibraryScreen(props: { onOpenList: (listId: string) => void }) {
+type LibraryScreenProps = { onOpenList: (listId: string) => void };
+
+export function LibraryScreen(props: LibraryScreenProps) {
   const scopeKey = useBookmarkScopeKey();
   return <LibraryContent key={scopeKey} {...props} />;
 }

@@ -16,7 +16,9 @@ import type { FeedArticle } from '../feed/types';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { ArticleLikeControl } from '../likes/ArticleLikeControl';
 
-export function SearchByline({ name, avatar }: { name: string; avatar?: ImageSourcePropType }) {
+type SearchBylineProps = { name: string; avatar?: ImageSourcePropType };
+
+export function SearchByline({ name, avatar }: SearchBylineProps) {
   return (
     <View style={styles.byline}>
       {avatar ? (

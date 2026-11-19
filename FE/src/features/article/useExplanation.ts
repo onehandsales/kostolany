@@ -10,8 +10,10 @@ export function useExplanation(articleId: string, level: ExplanationLevel, sourc
     articleId: string; level: ExplanationLevel; source: ExplanationSource; value: ExplanationState;
   }>({ articleId, level, source, value: { status: 'loading' } });
   const inFlight = useRef(true);
-  const state: ExplanationState = result.articleId === articleId && result.level === level && result.source === source
-    ? result.value : { status: 'loading' };
+  const matchesRequest = result.articleId === articleId && result.level === level && result.source === source;
+  const state: ExplanationState = matchesRequest ? result.value : { status: 'loading' };
+  // 기사·수준·공급부가 바뀌면 이전 결과와 오류를 새 요청에 재사용하지 않는다.
+  if (!matchesRequest) setResult({ articleId, level, source, value: { status: 'loading' } });
 
   useEffect(() => {
     let active = true;

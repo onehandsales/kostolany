@@ -6,17 +6,19 @@ import { MAX_LIST_NAME_LENGTH } from './listTypes';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 import { normalizeListName } from './validateListName';
 
+type ListEditorSheetProps = {
+  listId?: string;
+  initialName?: string;
+  onClose: () => void;
+  onSaved?: (listId: string) => void;
+};
+
 export function ListEditorSheet({
   listId,
   initialName = '',
   onClose,
   onSaved,
-}: {
-  listId?: string;
-  initialName?: string;
-  onClose: () => void;
-  onSaved?: (listId: string) => void;
-}) {
+}: ListEditorSheetProps) {
   const store = useBookmarkStore().userLists;
   const state = useUserLists();
   const initial = state.entries.find((item) => item.listId === listId)?.content;

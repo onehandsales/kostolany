@@ -3,7 +3,9 @@ import Svg, { Circle, Path, Rect } from 'react-native-svg';
 
 export type ProviderName = 'Google' | 'Facebook' | 'Apple' | 'X' | 'Email';
 
-export function ProviderIcon({ provider, size = 20 }: { provider: ProviderName; size?: number }) {
+type ProviderIconProps = { provider: ProviderName; size?: number };
+
+export function ProviderIcon({ provider, size = 20 }: ProviderIconProps) {
   return (
     <Svg
       width={size}

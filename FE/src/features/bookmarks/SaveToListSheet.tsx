@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 
@@ -10,15 +10,17 @@ import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 
+type SaveToListSheetProps = {
+  articleId: string;
+  articleTitle: string;
+  onClose: () => void;
+};
+
 export function SaveToListSheet({
   articleId,
   articleTitle,
   onClose,
-}: {
-  articleId: string;
-  articleTitle: string;
-  onClose: () => void;
-}) {
+}: SaveToListSheetProps) {
   const store = useBookmarkStore();
   const reading = useReadingList();
   const custom = useUserLists();
@@ -64,30 +66,41 @@ export function SaveToListSheet({
       titleLabel="저장할 목록"
       onClose={onClose}
       hideClose
-      contentStyle={styles.content}
+      contentMode="list"
     >
-      <Pressable
-        role="button"
-        accessibilityLabel="새 목록 만들기"
-        disabled={!ready}
-        accessibilityState={{ disabled: !ready }}
-        onPress={() => setCreating(true)}
-        style={listFormStyles.row}
-      >
-        <Text style={styles.create}>Create new list...</Text>
-      </Pressable>
-      {!ready && (
-        <>
-          <ReadingListFeedback
-            state={reading.state}
-            onRetry={reading.retryReadingList}
-            onRetryBookmark={reading.retryBookmark}
-          />
-          <UserListFeedback />
-        </>
-      )}
-      {ready &&
-        lists.map((list) => {
+      <FlatList
+        accessibilityLabel="저장 대상 목록"
+        data={ready ? lists : []}
+        extraData={changes}
+        keyExtractor={(list) => list.listId}
+        style={styles.list}
+        contentContainerStyle={styles.content}
+        keyboardShouldPersistTaps="handled"
+        ListHeaderComponent={
+          <View>
+            <Pressable
+              role="button"
+              accessibilityLabel="새 목록 만들기"
+              disabled={!ready}
+              accessibilityState={{ disabled: !ready }}
+              onPress={() => setCreating(true)}
+              style={listFormStyles.row}
+            >
+              <Text style={styles.create}>Create new list...</Text>
+            </Pressable>
+            {!ready && (
+              <>
+                <ReadingListFeedback
+                  state={reading.state}
+                  onRetry={reading.retryReadingList}
+                  onRetryBookmark={reading.retryBookmark}
+                />
+                <UserListFeedback />
+              </>
+            )}
+          </View>
+        }
+        renderItem={({ item: list }) => {
           const checked = changes[list.listId] ?? list.saved;
           return (
             <Pressable
@@ -105,27 +118,33 @@ export function SaveToListSheet({
               {list.listId === DEFAULT_LIST_ID && <AppIcon name="lock" size={16} color="#aaaaaa" />}
             </Pressable>
           );
-        })}
-      <View style={styles.spacer} />
-      <Pressable
-        role="button"
-        accessibilityLabel="저장할 목록 적용"
-        accessibilityHint={articleTitle}
-        onPress={handleSave}
-        disabled={!ready}
-        accessibilityState={{ disabled: !ready }}
-        style={[styles.doneTarget, !ready && listFormStyles.disabled]}
-      >
-        <View style={styles.done}>
-          <Text style={styles.doneText}>Done</Text>
-        </View>
-      </Pressable>
+        }}
+        ListFooterComponent={
+          <View>
+            <View style={styles.spacer} />
+            <Pressable
+              role="button"
+              accessibilityLabel="저장할 목록 적용"
+              accessibilityHint={articleTitle}
+              onPress={handleSave}
+              disabled={!ready}
+              accessibilityState={{ disabled: !ready }}
+              style={[styles.doneTarget, !ready && listFormStyles.disabled]}
+            >
+              <View style={styles.done}>
+                <Text style={styles.doneText}>Done</Text>
+              </View>
+            </Pressable>
+          </View>
+        }
+      />
     </LibrarySheet>
   );
 }
 
 const styles = StyleSheet.create({
-  content: { paddingTop: 0, paddingBottom: 16, gap: 0, minHeight: 226 },
+  list: { flexGrow: 0, flexShrink: 1 },
+  content: { paddingHorizontal: 24, paddingTop: 0, paddingBottom: 16, gap: 0, minHeight: 226 },
   create: { fontSize: 14, lineHeight: 20, color: '#438b2b' },
   choice: {
     minHeight: 48,

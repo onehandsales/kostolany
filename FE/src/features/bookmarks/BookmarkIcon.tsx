@@ -3,15 +3,17 @@ import Svg, { Path } from 'react-native-svg';
 
 import { colors } from '../../shared/theme/tokens';
 
+type BookmarkIconProps = {
+  saved?: boolean;
+  size?: number;
+  plus?: boolean;
+};
+
 export function BookmarkIcon({
   saved = false,
   size = 24,
   plus = false,
-}: {
-  saved?: boolean;
-  size?: number;
-  plus?: boolean;
-}) {
+}: BookmarkIconProps) {
   return (
     <Svg
       width={size}

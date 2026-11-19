@@ -4,9 +4,11 @@ import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { listFormStyles } from './LibrarySheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
-export function UserListFeedback({ listId, hideVisibleMembershipFailures = false }: {
+type UserListFeedbackProps = {
   listId?: string; hideVisibleMembershipFailures?: boolean;
-}) {
+};
+
+export function UserListFeedback({ listId, hideVisibleMembershipFailures = false }: UserListFeedbackProps) {
   const state = useUserLists();
   const store = useBookmarkStore().userLists;
   return <View>

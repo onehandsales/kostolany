@@ -44,22 +44,34 @@ async function changeUser(auth: AuthStore, userId: string) {
   });
 }
 
-it('저장 시트 안의 미제출 생성 초안은 A→B→A 전환에서 즉시 사라지고 다른 목록을 노출하지 않는다', async () => {
-  const { auth, user } = await renderSession();
-  await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
-  await user.press(screen.getByRole('button', { name: '새 목록 만들기' }));
-  await user.type(screen.getByLabelText('목록 이름 · 필수'), '이전 사용자의 비밀 초안');
-  await changeUser(auth, mockUserB.id);
-  expect(screen.queryByLabelText('목록 이름 · 필수', { includeHiddenElements: true })).not.toBeOnTheScreen();
-  expect(screen.queryByText('이전 사용자의 비밀 초안', { includeHiddenElements: true })).not.toBeOnTheScreen();
-  await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
-  expect(screen.getByRole('checkbox', { name: `${mockUserB.name}의 비공개 목록` })).toBeVisible();
-  expect(screen.queryByRole('checkbox', { name: `${mockUserA.name}의 비공개 목록` })).not.toBeOnTheScreen();
-  await changeUser(auth, mockUserA.id);
-  expect(screen.queryByRole('checkbox', { name: `${mockUserB.name}의 비공개 목록` })).not.toBeOnTheScreen();
-  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
-  await user.press(screen.getByRole('button', { name: '새 목록' }));
-  expect(screen.getByLabelText('목록 이름 · 필수')).toHaveDisplayValue('');
+describe('저장 시트의 사용자 전환', () => {
+  // 가상화 목록의 예약 갱신도 사용자 이벤트와 같은 제어된 시간 안에서 검증한다.
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(async () => {
+    try {
+      await act(async () => { await jest.runOnlyPendingTimersAsync(); });
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('저장 시트 안의 미제출 생성 초안은 A→B→A 전환에서 즉시 사라지고 다른 목록을 노출하지 않는다', async () => {
+    const { auth, user } = await renderSession();
+    await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
+    await user.press(screen.getByRole('button', { name: '새 목록 만들기' }));
+    await user.type(screen.getByLabelText('목록 이름 · 필수'), '이전 사용자의 비밀 초안');
+    await changeUser(auth, mockUserB.id);
+    expect(screen.queryByLabelText('목록 이름 · 필수', { includeHiddenElements: true })).not.toBeOnTheScreen();
+    expect(screen.queryByText('이전 사용자의 비밀 초안', { includeHiddenElements: true })).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
+    expect(screen.getByRole('checkbox', { name: `${mockUserB.name}의 비공개 목록` })).toBeVisible();
+    expect(screen.queryByRole('checkbox', { name: `${mockUserA.name}의 비공개 목록` })).not.toBeOnTheScreen();
+    await changeUser(auth, mockUserA.id);
+    expect(screen.queryByRole('checkbox', { name: `${mockUserB.name}의 비공개 목록` })).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+    await user.press(screen.getByRole('button', { name: '새 목록' }));
+    expect(screen.getByLabelText('목록 이름 · 필수')).toHaveDisplayValue('');
+  });
 });
 
 it('A 목록의 기사에서 B로 바뀌면 동일한 목록 ID가 있어도 B 목록 상세 대신 라이브러리 처음으로 돌아간다', async () => {
@@ -72,7 +84,7 @@ it('A 목록의 기사에서 B로 바뀌면 동일한 목록 ID가 있어도 B �
   expect(screen.getByRole('heading', { name: title })).toBeVisible();
   expect(screen.queryByRole('button', { name: '저장 목록으로 돌아가기' })).not.toBeOnTheScreen();
   await user.press(screen.getByRole('button', { name: '라이브러리로 돌아가기' }));
-  expect(screen.getByRole('heading', { name: '라이브러리' })).toBeVisible();
+  expect(await screen.findByRole('heading', { name: '라이브러리' })).toBeVisible();
   expect(screen.queryByRole('heading', { name: `${mockUserA.name}의 비공개 목록` })).not.toBeOnTheScreen();
   expect(screen.queryByRole('heading', { name: `${mockUserB.name}의 비공개 목록` })).not.toBeOnTheScreen();
   expect(screen.getByRole('button', { name: `${mockUserB.name}의 비공개 목록 열기, 저장한 기사 1개` })).toBeVisible();
@@ -87,7 +99,7 @@ it('동일한 A 계정으로 즉시 재로그인해도 이전 개인 화면과 �
   await user.type(screen.getByLabelText('목록 이름 · 필수'), ' 초안');
   await changeUser(auth, mockUserA.id);
   expect(screen.queryByLabelText('목록 이름 · 필수', { includeHiddenElements: true })).not.toBeOnTheScreen();
-  expect(screen.getByRole('heading', { name: '라이브러리' })).toBeVisible();
+  expect(await screen.findByRole('heading', { name: '라이브러리' })).toBeVisible();
 });
 
 it.each(['success', 'failure'] as const)('로그인 Modal의 native 닫기 후 늦은 %s는 공개 화면에 영향을 주지 않는다', async (outcome) => {

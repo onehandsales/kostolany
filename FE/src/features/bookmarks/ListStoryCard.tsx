@@ -7,17 +7,19 @@ import type { FeedArticle } from '../feed/types';
 import { SearchByline } from '../search/SearchCard';
 import { ArticleBookmarkControl } from './ArticleBookmarkControl';
 
+type ListStoryCardProps = {
+  article: FeedArticle;
+  onOpen: (id: string) => void;
+  onRemove: () => void;
+  onNotice: (label: string) => void;
+};
+
 export function ListStoryCard({
   article,
   onOpen,
   onRemove,
   onNotice,
-}: {
-  article: FeedArticle;
-  onOpen: (id: string) => void;
-  onRemove: () => void;
-  onNotice: (label: string) => void;
-}) {
+}: ListStoryCardProps) {
   const { width, fontScale } = useWindowDimensions();
   return (
     <View style={styles.card}>

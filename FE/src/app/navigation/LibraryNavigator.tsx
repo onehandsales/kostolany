@@ -6,9 +6,11 @@ import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
 type LibraryStackParamList = { LibraryHome: undefined; ReadingList: { listId: string } };
 const Stack = createNativeStackNavigator<LibraryStackParamList>();
 
-export function LibraryNavigator({ onSelectArticle, onBrowseArticles }: {
+type LibraryNavigatorProps = {
   onSelectArticle: (articleId: string, listId: string) => void; onBrowseArticles: () => void;
-}) {
+};
+
+export function LibraryNavigator({ onSelectArticle, onBrowseArticles }: LibraryNavigatorProps) {
   return <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="LibraryHome">
       {({ navigation }) => <LibraryScreen onOpenList={(listId) => navigation.navigate('ReadingList', { listId })} />}

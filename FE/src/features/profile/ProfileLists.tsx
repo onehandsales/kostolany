@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+import type { ReactNode } from 'react';
+import { FlatList, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { LibraryListCard } from '../bookmarks/LibraryListCard';
 import { DEFAULT_LIST_ID } from '../bookmarks/listTypes';
@@ -6,37 +7,50 @@ import { ReadingListFeedback } from '../bookmarks/ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from '../bookmarks/useBookmarks';
 import { UserListFeedback } from '../bookmarks/UserListFeedback';
 
-type ProfileListsProps = { onOpenList: (listId: string) => void };
+type ProfileListsProps = {
+  onOpenList: (listId: string) => void;
+  header: ReactNode;
+  footer: ReactNode;
+  contentContainerStyle: StyleProp<ViewStyle>;
+};
 
-export function ProfileLists({ onOpenList }: ProfileListsProps) {
+export function ProfileLists({ onOpenList, header, footer, contentContainerStyle }: ProfileListsProps) {
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const lists = useUserLists();
   const store = useBookmarkStore();
   return (
-    <View>
-      <ReadingListFeedback state={state} onRetry={retryReadingList} onRetryBookmark={retryBookmark} />
-      <UserListFeedback />
-      {state.status === 'ready' && (
-        <LibraryListCard
-          listId={DEFAULT_LIST_ID}
-          name="읽기 목록"
-          articles={state.articles}
-          onOpen={onOpenList}
-        />
-      )}
-      {lists.entries.map(
-        (entry) =>
-          entry.content && (
+    <FlatList
+      accessibilityLabel="프로필 저장 목록"
+      data={lists.entries.filter((entry) => entry.content !== null)}
+      keyExtractor={(entry) => entry.listId}
+      contentContainerStyle={contentContainerStyle}
+      ListHeaderComponent={
+        <View>
+          {header}
+          <ReadingListFeedback state={state} onRetry={retryReadingList} onRetryBookmark={retryBookmark} />
+          <UserListFeedback />
+          {state.status === 'ready' && (
             <LibraryListCard
-              key={entry.listId}
-              listId={entry.listId}
-              name={entry.content.name}
-              isPrivate={entry.content.isPrivate}
+              listId={DEFAULT_LIST_ID}
+              name="읽기 목록"
+              articles={state.articles}
               onOpen={onOpenList}
-              articles={store.articles.filter((article) => entry.content?.articleIds.includes(article.id))}
             />
-          ),
-      )}
-    </View>
+          )}
+        </View>
+      }
+      ListFooterComponent={<>{footer}</>}
+      renderItem={({ item: entry }) =>
+        entry.content ? (
+          <LibraryListCard
+            listId={entry.listId}
+            name={entry.content.name}
+            isPrivate={entry.content.isPrivate}
+            onOpen={onOpenList}
+            articles={store.articles.filter((article) => entry.content?.articleIds.includes(article.id))}
+          />
+        ) : null
+      }
+    />
   );
 }

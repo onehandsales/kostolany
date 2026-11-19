@@ -8,8 +8,10 @@ export function useArticle(articleId: string, source: ArticleSource): { state: A
     articleId, source, value: { status: 'loading' },
   });
   const inFlight = useRef(true);
-  const state: ArticleLoadState = result.articleId === articleId && result.source === source
-    ? result.value : { status: 'loading' };
+  const matchesRequest = result.articleId === articleId && result.source === source;
+  const state: ArticleLoadState = matchesRequest ? result.value : { status: 'loading' };
+  // 조회 범위가 바뀌면 이전 결과를 버려 같은 범위로 복귀해도 새 요청 상태로 시작한다.
+  if (!matchesRequest) setResult({ articleId, source, value: { status: 'loading' } });
 
   useEffect(() => {
     let active = true;

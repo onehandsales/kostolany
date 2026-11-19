@@ -7,7 +7,9 @@ import { LibrarySheet, listFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
-export function ListActions({ listId, name }: { listId: string; name: string }) {
+type ListActionsProps = { listId: string; name: string };
+
+export function ListActions({ listId, name }: ListActionsProps) {
   const state = useUserLists();
   const selected = state.entries.find((entry) => entry.listId === listId && entry.content);
   return selected?.content ? (

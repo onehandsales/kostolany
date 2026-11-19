@@ -4,10 +4,12 @@ import { colors, sizes } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import type { ReadingListSnapshot } from './types';
 
-export function ReadingListFeedback({ state, onRetry, onRetryBookmark, showSavedFailures = true }: {
+type ReadingListFeedbackProps = {
   state: ReadingListSnapshot; onRetry: () => void; onRetryBookmark: (articleId: string) => void;
   showSavedFailures?: boolean;
-}) {
+};
+
+export function ReadingListFeedback({ state, onRetry, onRetryBookmark, showSavedFailures = true }: ReadingListFeedbackProps) {
   return <View>
     {state.isRefreshing && <ContentStatus message="읽기 목록을 불러오고 있어요" loading />}
     {state.hasReadError && <ContentStatus message="읽기 목록을 불러오지 못했어요" error

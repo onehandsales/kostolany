@@ -8,13 +8,15 @@ import { type FeedSort, feedSortLabels } from '../types';
 
 const sortOrder: FeedSort[] = ['latest', 'popular', 'recommended'];
 
+type FeedSortTabsProps = {
+  selected: FeedSort;
+  onSelect: (sort: FeedSort) => void;
+};
+
 export function FeedSortTabs({
   selected,
   onSelect,
-}: {
-  selected: FeedSort;
-  onSelect: (sort: FeedSort) => void;
-}) {
+}: FeedSortTabsProps) {
   const [notice, setNotice] = useState<string | null>(null);
   const scroll = useRef<ScrollView>(null);
   return (

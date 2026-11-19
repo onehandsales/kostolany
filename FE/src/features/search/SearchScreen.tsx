@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { FlatList, Keyboard, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { BackHandler, FlatList, Keyboard, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '../../shared/theme/tokens';
@@ -41,23 +41,40 @@ const topicDirectory = [
   ...searchTopics,
 ];
 
+type SearchScreenProps = {
+  onSelectArticle: (id: string) => void;
+  source?: SearchSource;
+  isFocused?: boolean;
+};
+
 export function SearchScreen({
   onSelectArticle,
   source = previewSearchSource,
-}: {
-  onSelectArticle: (id: string) => void;
-  source?: SearchSource;
-}) {
-  const [searching, setSearching] = useState(false);
+  isFocused = false,
+}: SearchScreenProps) {
+  const [isSearching, setIsSearching] = useState(false);
   const [query, setQuery] = useState('');
   const input = useRef<TextInput>(null);
   const normalized = normalizeQuery(query);
-  const chooseTopic = (topic: string) => {
+  const handleCloseSearch = useCallback(() => {
+    Keyboard.dismiss();
+    setQuery('');
+    setIsSearching(false);
+  }, []);
+  useEffect(() => {
+    if (!isFocused || !isSearching) return;
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      handleCloseSearch();
+      return true;
+    });
+    return () => subscription.remove();
+  }, [isFocused, isSearching, handleCloseSearch]);
+  const handleChooseTopic = (topic: string) => {
     Keyboard.dismiss();
     setQuery(topic);
-    setSearching(true);
+    setIsSearching(true);
   };
-  const selectArticle = (id: string) => {
+  const handleSelectArticle = (id: string) => {
     Keyboard.dismiss();
     onSelectArticle(id);
   };
@@ -65,7 +82,7 @@ export function SearchScreen({
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
       <View style={styles.frame}>
-        {!searching ? (
+        {!isSearching ? (
           <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.landing}>
             <Text role="heading" accessibilityLabel="탐색" style={styles.title}>
               Explore
@@ -73,7 +90,7 @@ export function SearchScreen({
             <Pressable
               role="button"
               accessibilityLabel="기사 검색 열기"
-              onPress={() => setSearching(true)}
+              onPress={() => setIsSearching(true)}
               style={styles.searchEntry}
             >
               <View style={styles.entrySurface}>
@@ -91,7 +108,7 @@ export function SearchScreen({
                   key={topic}
                   role="button"
                   accessibilityLabel={`${topic} 검색`}
-                  onPress={() => chooseTopic(topic)}
+                  onPress={() => handleChooseTopic(topic)}
                   style={styles.chipTarget}
                 >
                   <View style={styles.chip}>
@@ -109,7 +126,7 @@ export function SearchScreen({
                   key={article.id}
                   role="button"
                   accessibilityLabel={article.title}
-                  onPress={() => selectArticle(article.id)}
+                  onPress={() => handleSelectArticle(article.id)}
                   style={({ pressed }) => [styles.ranked, pressed && styles.pressed]}
                 >
                   <Text style={styles.rank}>{index + 1}</Text>
@@ -124,7 +141,7 @@ export function SearchScreen({
                 </Pressable>
               ))}
             </View>
-            <ExploreSections onSelect={selectArticle} />
+            <ExploreSections onSelect={handleSelectArticle} />
             <View style={styles.reading}>
               <Text role="heading" style={styles.sectionTitle}>
                 읽어볼 기사
@@ -134,7 +151,7 @@ export function SearchScreen({
                   key={article.id}
                   role="button"
                   accessibilityLabel={article.title}
-                  onPress={() => selectArticle(article.id)}
+                  onPress={() => handleSelectArticle(article.id)}
                   style={({ pressed }) => [styles.ranked, pressed && styles.pressed]}
                 >
                   <Text style={styles.rank}>{index + 1}</Text>
@@ -156,11 +173,7 @@ export function SearchScreen({
                 role="button"
                 accessibilityLabel="탐색 첫 화면으로 돌아가기"
                 style={styles.iconButton}
-                onPress={() => {
-                  Keyboard.dismiss();
-                  setQuery('');
-                  setSearching(false);
-                }}
+                onPress={handleCloseSearch}
               >
                 <SearchIcon name="back" />
               </Pressable>
@@ -209,7 +222,7 @@ export function SearchScreen({
                     key={topic}
                     role="button"
                     accessibilityLabel={`${topic} 검색`}
-                    onPress={() => chooseTopic(topic)}
+                    onPress={() => handleChooseTopic(topic)}
                     style={styles.topicRow}
                   >
                     <Text style={styles.topic}>{topic}</Text>
@@ -218,12 +231,12 @@ export function SearchScreen({
                 ))}
               </ScrollView>
             ) : (
-              <SearchResults key={normalized} query={normalized} source={source} onSelect={selectArticle} />
+              <SearchResults key={normalized} query={normalized} source={source} onSelect={handleSelectArticle} />
             )}
           </>
         )}
       </View>
-      {!searching && <WriteButton />}
+      {!isSearching && <WriteButton />}
     </SafeAreaView>
   );
 }

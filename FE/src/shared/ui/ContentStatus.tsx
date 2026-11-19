@@ -2,13 +2,15 @@ import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-nati
 
 import { colors, sizes, spacing, typography } from '../theme/tokens';
 
-export function ContentStatus({ message, loading = false, error = false, actionLabel, onAction }: {
+type ContentStatusProps = {
   message: string;
   loading?: boolean;
   error?: boolean;
   actionLabel?: string;
   onAction?: () => void;
-}) {
+};
+
+export function ContentStatus({ message, loading = false, error = false, actionLabel, onAction }: ContentStatusProps) {
   return (
     <View style={styles.container}>
       {loading && <ActivityIndicator color={colors.secondaryText} aria-label={message} />}

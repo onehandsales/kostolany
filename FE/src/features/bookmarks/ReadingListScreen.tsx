@@ -15,19 +15,21 @@ import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 
+type ReadingListScreenProps = {
+  listId?: string;
+  backLabel?: string;
+  onBack: () => void;
+  onBrowseArticles: () => void;
+  onSelectArticle: (articleId: string) => void;
+};
+
 export function ReadingListScreen({
   listId = DEFAULT_LIST_ID,
   onBack,
   onBrowseArticles,
   onSelectArticle,
   backLabel = '라이브러리로 돌아가기',
-}: {
-  listId?: string;
-  backLabel?: string;
-  onBack: () => void;
-  onBrowseArticles: () => void;
-  onSelectArticle: (articleId: string) => void;
-}) {
+}: ReadingListScreenProps) {
   const profile = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
   const [removed, setRemoved] = useState<string | null>(null);

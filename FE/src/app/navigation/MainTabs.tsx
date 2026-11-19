@@ -5,21 +5,17 @@ import { useAuth } from '../../features/auth/AuthProvider';
 import { useBookmarkScopeKey } from '../../features/bookmarks/useBookmarks';
 import { HomeFeedScreen } from '../../features/feed/HomeFeedScreen';
 import type { FeedSource } from '../../features/feed/types';
-import { SearchScreen } from '../../features/search/SearchScreen';
 import type { SearchSource } from '../../features/search/types';
 import { TabIcon } from '../../shared/ui/TabIcon';
 import { BottomTabBar } from './BottomTabBar';
 import { LibraryNavigator } from './LibraryNavigator';
 import { ProfileRouteScreen } from './ProfileRouteScreen';
+import { SearchRouteScreen } from './SearchRouteScreen';
 import { type MainTabParamList, tabs } from './tabs';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-export function MainTabs({
-  onSelectArticle,
-  source,
-  searchSource,
-}: {
+type MainTabsProps = {
   onSelectArticle: (
     articleId: string,
     origin: 'Home' | 'Explore' | 'Library' | 'Profile',
@@ -27,7 +23,13 @@ export function MainTabs({
   ) => void;
   source?: FeedSource;
   searchSource?: SearchSource;
-}) {
+};
+
+export function MainTabs({
+  onSelectArticle,
+  source,
+  searchSource,
+}: MainTabsProps) {
   const { state } = useAuth();
   const scopeKey = useBookmarkScopeKey();
   return (
@@ -50,7 +52,7 @@ export function MainTabs({
       </Tab.Screen>
       <Tab.Screen name="Explore">
         {() => (
-          <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />
+          <SearchRouteScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />
         )}
       </Tab.Screen>
       <Tab.Screen name="Library">

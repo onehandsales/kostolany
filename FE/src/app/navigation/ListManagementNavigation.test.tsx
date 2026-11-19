@@ -18,6 +18,12 @@ const userId = 'example-reader';
 const getBookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^북마크, ${title}`) });
 const getArticle = () => screen.getByRole('button', { name: new RegExp(`^${title}`) });
 
+beforeEach(() => jest.useFakeTimers());
+afterEach(async () => {
+  await act(async () => { await jest.runOnlyPendingTimersAsync(); });
+  jest.useRealTimers();
+});
+
 async function renderApp(lists = createMockUserListSource({ delayMs: 0 })) {
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}

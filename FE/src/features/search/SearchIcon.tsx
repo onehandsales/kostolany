@@ -3,7 +3,9 @@ import Svg, { Circle, Path } from 'react-native-svg';
 
 import { colors } from '../../shared/theme/tokens';
 
-export function SearchIcon({ name }: { name: 'search' | 'back' | 'clear' | 'next' }) {
+type SearchIconProps = { name: 'search' | 'back' | 'clear' | 'next' };
+
+export function SearchIcon({ name }: SearchIconProps) {
   return (
     <Svg width={20} height={20} viewBox="0 0 24 24" aria-hidden accessible={Platform.OS === 'web' ? undefined : false}>
       {name === 'search' && <Circle cx={10} cy={10} r={6.5} fill="none" stroke={colors.secondaryText} strokeWidth={1.5} />}

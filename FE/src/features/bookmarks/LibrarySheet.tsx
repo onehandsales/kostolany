@@ -15,6 +15,21 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { colors, sizes } from '../../shared/theme/tokens';
 
+type LibrarySheetProps = {
+  title: string;
+  children: ReactNode;
+  onClose: () => void;
+  onShow?: () => void;
+  expanded?: boolean;
+  closeLabel?: string;
+  titleLabel?: string;
+  closeText?: string;
+  hideClose?: boolean;
+} & (
+  | { contentMode?: 'scroll'; contentStyle?: StyleProp<ViewStyle> }
+  | { contentMode: 'list'; contentStyle?: never }
+);
+
 export function LibrarySheet({
   title,
   titleLabel = title,
@@ -26,18 +41,8 @@ export function LibrarySheet({
   closeText = closeLabel,
   hideClose = false,
   contentStyle,
-}: {
-  title: string;
-  children: ReactNode;
-  onClose: () => void;
-  onShow?: () => void;
-  expanded?: boolean;
-  closeLabel?: string;
-  titleLabel?: string;
-  closeText?: string;
-  hideClose?: boolean;
-  contentStyle?: StyleProp<ViewStyle>;
-}) {
+  contentMode = 'scroll',
+}: LibrarySheetProps) {
   const insets = useSafeAreaInsets();
   return (
     <Modal
@@ -77,12 +82,14 @@ export function LibrarySheet({
                 </Pressable>
               )}
             </View>
-            <ScrollView
-              keyboardShouldPersistTaps="handled"
-              contentContainerStyle={[styles.content, contentStyle]}
-            >
-              {children}
-            </ScrollView>
+            {contentMode === 'list' ? children : (
+              <ScrollView
+                keyboardShouldPersistTaps="handled"
+                contentContainerStyle={[styles.content, contentStyle]}
+              >
+                {children}
+              </ScrollView>
+            )}
           </View>
         </KeyboardAvoidingView>
       </SafeAreaView>

@@ -11,6 +11,15 @@ import { useProfile } from '../profile/ProfileProvider';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID } from './listTypes';
 
+type LibraryListCardProps = {
+  listId: string;
+  name: string;
+  articles: readonly FeedArticle[];
+  onOpen: (listId: string) => void;
+  isPrivate?: boolean;
+  afterIntroduction?: boolean;
+};
+
 export function LibraryListCard({
   listId,
   name,
@@ -18,14 +27,7 @@ export function LibraryListCard({
   onOpen,
   isPrivate = false,
   afterIntroduction = false,
-}: {
-  listId: string;
-  name: string;
-  articles: readonly FeedArticle[];
-  onOpen: (listId: string) => void;
-  isPrivate?: boolean;
-  afterIntroduction?: boolean;
-}) {
+}: LibraryListCardProps) {
   const { state } = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
   const thumbnails = articles.filter((article) => article.reference?.image || article.thumbnail).slice(0, 3);
