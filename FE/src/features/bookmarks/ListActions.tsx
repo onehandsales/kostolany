@@ -1,47 +1,88 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+import { ActionMenu } from '../../shared/ui/ActionMenu';
+import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { LibrarySheet, listFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
 export function ListActions({ listId, name }: { listId: string; name: string }) {
   const state = useUserLists();
-  const exists = state.entries.some((entry) => entry.listId === listId && entry.content);
-  return exists ? <ListActionControls listId={listId} name={name} /> : null;
+  const selected = state.entries.find((entry) => entry.listId === listId && entry.content);
+  return selected?.content ? (
+    <ListActionControls listId={listId} name={name} isPrivate={selected.content.isPrivate ?? false} />
+  ) : null;
 }
 
-function ListActionControls({ listId, name }: { listId: string; name: string }) {
-  const [mode, setMode] = useState<'menu' | 'rename' | 'delete' | null>(null);
+function ListActionControls({
+  listId,
+  name,
+  isPrivate,
+}: {
+  listId: string;
+  name: string;
+  isPrivate: boolean;
+}) {
+  const [mode, setMode] = useState<'rename' | 'delete' | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const store = useBookmarkStore().userLists;
-  return <>
-    <Pressable role="button" accessibilityLabel={`목록 관리, ${name}`} onPress={() => setMode('menu')} style={styles.more}>
-      <Text aria-hidden style={styles.moreText}>⋯</Text>
-    </Pressable>
-    {mode === 'menu' && <LibrarySheet title="목록 관리" onClose={() => setMode(null)}>
-      <Text style={listFormStyles.text}>{name}</Text>
-      <Pressable role="button" onPress={() => setMode('rename')} style={listFormStyles.row}>
-        <Text style={listFormStyles.text}>이름 수정</Text>
-      </Pressable>
-      <Pressable role="button" onPress={() => setMode('delete')} style={listFormStyles.row}>
-        <Text style={styles.dangerText}>목록 삭제</Text>
-      </Pressable>
-    </LibrarySheet>}
-    {mode === 'rename' && <ListEditorSheet listId={listId} initialName={name} onClose={() => setMode(null)} />}
-    {mode === 'delete' && <LibrarySheet title="목록 삭제" onClose={() => setMode(null)}>
-      <Text style={listFormStyles.text}>‘{name}’ 목록을 삭제할까요?</Text>
-      <Text style={listFormStyles.text}>이 목록과 목록 안의 저장 표시만 제거돼요. 기사 원문과 좋아요, 다른 목록에 저장한 기사는 그대로 유지돼요.</Text>
-      <Pressable role="button" accessibilityLabel="목록 삭제 확인" onPress={() => { store.deleteList(listId); setMode(null); }}
-        style={[listFormStyles.primary, styles.danger]}>
-        <Text style={listFormStyles.primaryText}>삭제</Text>
-      </Pressable>
-    </LibrarySheet>}
-  </>;
+  return (
+    <>
+      <ActionMenu
+        label={`목록 관리, ${name}`}
+        items={[
+          { label: 'Edit list info', accessibilityLabel: '이름 수정', onPress: () => setMode('rename') },
+          {
+            label: isPrivate ? 'Make list public' : 'Make list private',
+            onPress: () => {
+              store.renameList(listId, name, { isPrivate: !isPrivate });
+            },
+          },
+          { label: 'Reorder items', onPress: () => setNotice('Reorder items') },
+          {
+            label: 'Delete list',
+            accessibilityLabel: '목록 삭제',
+            destructive: true,
+            onPress: () => setMode('delete'),
+          },
+        ]}
+      />
+      {mode === 'rename' && (
+        <ListEditorSheet listId={listId} initialName={name} onClose={() => setMode(null)} />
+      )}
+      {mode === 'delete' && (
+        <LibrarySheet
+          title="Delete list"
+          titleLabel="목록 삭제"
+          closeText="×"
+          onClose={() => setMode(null)}
+          contentStyle={styles.content}
+        >
+          <Text style={styles.description}>
+            Deleting this list will remove it from Your library. If others have saved this list, it will also
+            be deleted and removed from their library. Deleting this list will not delete any stories in it.
+          </Text>
+          <Pressable
+            role="button"
+            accessibilityLabel="목록 삭제 확인"
+            onPress={() => {
+              store.deleteList(listId);
+              setMode(null);
+            }}
+            style={[listFormStyles.primary, styles.danger]}
+          >
+            <Text style={listFormStyles.primaryText}>Delete</Text>
+          </Pressable>
+        </LibrarySheet>
+      )}
+      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+    </>
+  );
 }
-
 const styles = StyleSheet.create({
-  more: { minHeight: 48, minWidth: 48, alignItems: 'center', justifyContent: 'center' },
-  moreText: { fontSize: 26, lineHeight: 32, color: '#6b6b6b' },
+  content: { gap: 24, paddingTop: 0, paddingBottom: 16 },
+  description: { fontSize: 14, lineHeight: 18, color: '#242424', textAlign: 'center' },
+  local: { fontSize: 12, lineHeight: 18, color: '#6b6b6b', textAlign: 'center' },
   danger: { backgroundColor: '#c64848' },
-  dangerText: { fontSize: 16, lineHeight: 26, color: '#a52a2a' },
 });

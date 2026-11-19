@@ -1,0 +1,7 @@
+{
+  "viewport": "320x740",
+  "cssTextScale": 1.3,
+  "horizontalOverflow": false,
+  "longKoreanClear": true,
+  "limits": "CSS font enlargement, not OS Dynamic Type; desktop text input, not native IME/keyboard"
+}

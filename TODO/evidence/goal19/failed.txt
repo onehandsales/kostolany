@@ -1,0 +1,34 @@
+Member-only story
+How to *really* know you’re in love
+Because most of “the signs” they tell you are garbage
+3 min read · Aug 3, 2017
+Kris Gage
+Follow
+Because most of “the signs” they tell you are garbage
+The complete story is not included in the reference screenshots. This local prototype shows the captured title and image.
+Reading tools · local example
+157K
+1.3K
+MOCK · no real authentication
+Medium
+Human
+stories and
+ideas.
+Discover perspectives that deepen
+understanding.
+Signing in…
+Sign in with Facebook
+Sign in with Apple
+Sign in with X
+Sign in with Email
+New here?  Create account.
+모의 로그인 · 실제 Google 인증이 아닙니다
+예시 독자 A
+예시 독자 B
+닫기를 누르면 로그인 요청을 취소해요.
+모의 동작 선택 접기
+실패 뒤 ‘다시 시도’는 성공하도록 구성한 예시입니다.
+성공
+사용자 취소
+실패
+느린 성공 (4초)

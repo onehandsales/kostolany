@@ -57,7 +57,7 @@ it('생성부터 기사 추가·상세 복귀·이름 수정·제거·삭제까�
   await user.press(screen.getByRole('button', { name: '목록 이름 저장' }));
   await screen.findByRole('heading', { name: '금리 공부' });
   await user.press(screen.getByRole('button', { name: `이 목록에서 제거, ${title}` }));
-  expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
   await user.press(screen.getByRole('button', { name: '목록 관리, 금리 공부' }));
   await user.press(screen.getByRole('button', { name: '목록 삭제' }));
   await user.press(screen.getByRole('button', { name: '목록 삭제 취소' }));
@@ -186,7 +186,7 @@ it('사용자 목록의 마지막 기사 제거 실패는 카드와 하나의 �
   expect(getArticle()).toBeVisible();
   expect(screen.getAllByRole('alert')).toHaveLength(1);
   await user.press(screen.getByRole('button', { name: `북마크 변경 다시 시도, ${title}` }));
-  expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
 });
 
 it('저장 대상에서 생성을 확정한 뒤 선택을 취소하면 새 목록은 남고 기사는 추가하지 않는다', async () => {
@@ -230,4 +230,27 @@ it('이름 수정 뒤 대기 중인 기사 추가는 홈·상세에서 처리 �
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(await screen.findByRole('button', { name: '경제 공부 열기, 저장한 기사 1개' })).toBeVisible();
   expect(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
+});
+
+it('목록 메타데이터 저장 실패는 초안을 보존하고 재시도·취소·다른 사용자 조회를 격리한다', async () => {
+  const source = createMockUserListSource({ scenario: 'create-error', delayMs: 0 });
+  const user = userEvent.setup(); await renderApp(source);
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  await user.press(screen.getByRole('button', { name: '새 목록' }));
+  await user.type(screen.getByLabelText('목록 이름 · 필수'), 'Metadata list');
+  await user.type(screen.getByLabelText('목록 설명'), '한글 설명 😀');
+  await user.press(screen.getByRole('switch', { name: 'Private' }));
+  await user.press(screen.getByRole('button', { name: '목록 만들기' }));
+  await screen.findByText('목록을 저장하지 못했어요. 입력한 이름을 확인하고 다시 시도해 주세요.');
+  expect(screen.getByLabelText('목록 설명')).toHaveDisplayValue('한글 설명 😀');
+  await user.press(screen.getByRole('button', { name: '목록 저장 다시 시도' }));
+  await screen.findByRole('button', { name: 'Metadata list 열기, 저장한 기사 0개' });
+  await user.press(screen.getByRole('button', { name: '목록 관리, Metadata list' }));
+  await user.press(screen.getByRole('button', { name: '이름 수정' }));
+  expect(screen.getByLabelText('목록 설명')).toHaveDisplayValue('한글 설명 😀');
+  expect(screen.getByRole('switch', { name: 'Private' })).toBeChecked();
+  await user.clear(screen.getByLabelText('목록 설명'));
+  await user.press(screen.getByRole('button', { name: '목록 이름 수정 취소' }));
+  expect((await source.fetchLists(userId)).lists[0]).toMatchObject({ description: '한글 설명 😀', isPrivate: true });
+  expect((await source.fetchLists('reader-b')).lists).toEqual([]);
 });

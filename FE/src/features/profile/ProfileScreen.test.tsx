@@ -19,8 +19,10 @@ function Subject({ source, isFocused = true }: { source: ProfileSource; isFocuse
 }
 async function setup(source = createMockProfileSource({ delayMs: 0 })) {
   const view = await render(<Subject source={source} />);
-  await screen.findByText('아직 짧은 소개가 없어요.');
+  await screen.findByRole('heading', { name: initial.name });
   const user = userEvent.setup();
+  await user.press(screen.getByRole('tab', { name: 'About' }));
+  expect(screen.getByLabelText('아직 짧은 소개가 없어요.')).toBeVisible();
   await user.press(button('프로필 편집'));
   return { user, view, source };
 }
@@ -44,7 +46,7 @@ it('기존 값·빈 소개를 열고 한글 조합 원문을 유지하며 입력
   await user.press(button('프로필 편집'));
   await user.clear(screen.getByLabelText('짧은 소개'));
   await user.press(button('프로필 저장'));
-  expect(await screen.findByText('아직 짧은 소개가 없어요.')).toBeVisible();
+  expect(await screen.findByLabelText('아직 짧은 소개가 없어요.')).toBeVisible();
 });
 
 it.each(['취소', '닫기', '뒤로', '화면 이탈'] as const)('편집 %s는 확정 값을 바꾸지 않고 재진입에서 미제출 초안을 버린다', async (action) => {
@@ -52,7 +54,7 @@ it.each(['취소', '닫기', '뒤로', '화면 이탈'] as const)('편집 %s는 
   const save = jest.spyOn(source, 'saveProfile');
   await fireEvent.changeText(nameInput(), '버릴 초안');
   if (action === '취소' || action === '닫기') await user.press(button(`프로필 편집 ${action}`));
-  else if (action === '뒤로') await fireEvent(screen.getByLabelText('프로필 편집'), 'requestClose');
+  else if (action === '뒤로') await fireEvent(screen.getByLabelText('프로필 편집 창'), 'requestClose');
   else {
     await view.rerender(<Subject source={source} isFocused={false} />);
     await view.rerender(<Subject source={source} />);

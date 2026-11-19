@@ -15,6 +15,25 @@ import { useBookmarkStore } from './useBookmarks';
 const articleId = 'example-latest-rates';
 const onOpen = jest.fn();
 
+it('원본 카드의 작은 저장 버튼은 선택 시트를 열고 취소는 저장하지 않으며 완료만 반영한다', async () => {
+  const mock = createMockBookmarkSource({ delayMs: 0 });
+  const write = jest.fn(mock.setArticleSaved);
+  const user = userEvent.setup();
+  await render(<SafeAreaProvider><BookmarkProvider userId="reader-a" source={{ ...mock, setArticleSaved: write }}>
+    <ArticleBookmarkControl articleId="medium-love" articleTitle="원본 기사" compact />
+  </BookmarkProvider></SafeAreaProvider>);
+  await user.press(await screen.findByLabelText('북마크, 원본 기사, 저장 안 됨'));
+  await user.press(await screen.findByRole('checkbox', { name: '읽기 목록' }));
+  await user.press(screen.getByRole('button', { name: '저장할 목록 취소' }));
+  expect(write).not.toHaveBeenCalled();
+  await user.press(screen.getByLabelText('북마크, 원본 기사, 저장 안 됨'));
+  expect(await screen.findByRole('checkbox', { name: '읽기 목록' })).not.toBeChecked();
+  await user.press(screen.getByRole('checkbox', { name: '읽기 목록' }));
+  await user.press(screen.getByRole('button', { name: '저장할 목록 적용' }));
+  await waitFor(() => expect(write).toHaveBeenCalledTimes(1));
+  expect(await screen.findByLabelText('북마크, 원본 기사, 저장됨')).toBeVisible();
+});
+
 function StoreProbe({ onStore }: { onStore: (store: LibraryStore) => void }) {
   const store = useBookmarkStore();
   useEffect(() => onStore(store), [onStore, store]);

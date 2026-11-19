@@ -1,0 +1,12 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=BookmarkNavigation
+
+PASS iOS src/app/navigation/BookmarkNavigation.test.tsx (7.624 s)
+PASS Android src/app/navigation/BookmarkNavigation.test.tsx (7.189 s)
+
+Test Suites: 2 passed, 2 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        14.971 s, estimated 885 s
+Ran all test suites matching /BookmarkNavigation/i in 2 projects.

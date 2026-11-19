@@ -36,7 +36,7 @@ it('홈에서 저장한 기사를 목록·상세·검색에서 다시 찾고 해
   expect(await screen.findByRole('heading', { name: title })).toBeVisible();
   await user.press(getBookmark());
   await user.press(screen.getByRole('button', { name: '읽기 목록으로 돌아가기' }));
-  expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
   await user.press(screen.getByRole('button', { name: '라이브러리로 돌아가기' }));
   expect(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '탐색' }));
@@ -77,13 +77,13 @@ it('목록의 마지막 기사를 해제하다 실패하면 카드와 재시도�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' }));
   await user.press(getBookmark());
-  expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
   await act(async () => pending.reject(new Error('not applied')));
   expect(getArticle()).toBeVisible();
   expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
   expect(screen.getAllByRole('alert')).toHaveLength(1);
   await user.press(screen.getByRole('button', { name: `북마크 변경 다시 시도, ${title}` }));
-  expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
   await user.press(screen.getByRole('button', { name: '기사 둘러보기' }));
   await user.press(getArticle());
   expect(await screen.findByRole('heading', { name: title })).toBeVisible();
@@ -110,5 +110,5 @@ it.each([true, false])('화면을 떠난 뒤 목표 %s가 실패해도 목록에
     await user.press(getArticle());
     await screen.findByRole('heading', { name: title });
     expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
-  } else expect(screen.getByText('아직 저장한 기사가 없어요.')).toBeVisible();
+  } else expect(screen.getByLabelText('아직 저장한 기사가 없어요.')).toBeVisible();
 });

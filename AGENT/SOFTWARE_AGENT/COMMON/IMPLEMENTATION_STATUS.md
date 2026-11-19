@@ -1,10 +1,13 @@
 # 현재 상태와 다음 작업
 
+2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
+
+후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
 기준일: 2026-11-19
 
 ## 상태
 
-최신 후속 실행: 사용자가 Goal 14~21의 연속 진행을 승인했다. [Goal 14 결과](../../../TODO/FE_GOAL_14_RESULT.md)의 규칙 검토·수정·2차 재검토를 마쳤고 타입·lint·614건(80 suites)·JS/Hermes·8081 흐름이 통과했다. Goal 14만 로컬 커밋하고 이후 Medium 클론 단계로 진행한다. 실제 Xcode·Android SDK 실행 환경은 없어 native 검증 대기다. 아래 Goal 13 수치·화면 기록은 당시 이력이며 최신 실행 결과와 구분한다.
+최신 FE 결과: [Goal21 보고](../../../TODO/FE_GOAL_21_RESULT.md). Goal14~21을 연속 수행했고 최종638 tests/84 suites·typecheck·lint·JS/Hermes·8081 사용자 흐름과 원본31쌍 비교를 확인했다. Goal14 로컬 커밋 `d016c06`;15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 원본 폰트/아이콘/일부 배치 차이와 실제 Xcode/Android SDK 검증은 대기다. 아래 Goal13 등 수치와 단계별 진행 메모는 당시 이력이다. 외부 인증/서비스 연결·배포는 수행하지 않았다.
 
 | 항목 | 상태 | 근거·한계 |
 | --- | --- | --- |
@@ -145,3 +148,9 @@
 - Xcode·Android SDK가 없어 실제 두 플랫폼 실행·네이티브 빌드·기기 화면 원본 비교·Safe Area·OS 글자 확대·스크린리더·native 포커스/뒤로/제스처는 검증 대기다. 브라우저·Jest·JS 번들 통과로 이를 대체하지 않는다.
 - 기존 8081·패키지·lockfile·ENV·Medium 원본·개발 규칙을 보존했다. 실제 외부 연동·커밋·push·배포·Goal 13 시작은 수행하지 않았다.
 - 구현 보고 후 별도 사용자 요청에 따라 Goal 12 코드·테스트·결과 문서·화면 증거를 로컬 커밋으로 기록한다. 기존 602건 테스트·양 플랫폼 JS 번들·브라우저 검증 기록을 확인하고 기능 코드는 변경하지 않았다. 기존 8081의 PID·HTTP 200을 재확인했으며 원격 push·배포와 Goal 13 구현은 수행하지 않는다.
+
+- Medium clone Goal 17: 기사/저장 시트 구현과 두 검토, 관련 84 tests 및 8081 검증 완료. 폰트·아이콘 차이/native 대기. [결과](../../../TODO/FE_GOAL_17_RESULT.md). 연속 Goal 18 진행; 15 이후 미커밋.
+
+- Medium clone Goal 18: 라이브러리/목록 UI·로컬 설명/Private·두 검토·관련 자동/브라우저 검증 완료. 원본 차이와 native 대기는 TODO/FE_GOAL_18_RESULT.md 참조. 연속 Goal 19 진행; 15 이후 미커밋.
+
+- Medium clone Goal 19: 소개/모의 인증/로그아웃 UI와 두 검토·관련 자동/브라우저 검증 완료. TODO/FE_GOAL_19_RESULT.md 참조. 연속 Goal20 진행, 원본 차이/native 대기, 미커밋.

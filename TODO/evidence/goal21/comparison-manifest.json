@@ -1,0 +1,219 @@
+[
+  {
+    "goal": 16,
+    "screen": "home",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "actual": "TODO/evidence/goal21/screens16/home.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "featured",
+    "source": "medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png",
+    "actual": "TODO/evidence/goal21/screens16/featured.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "featured-empty",
+    "source": "medium/flows/Home/screens/03_sc_e1cf4be8210f432098943d8a233d9d72.png",
+    "actual": "TODO/evidence/goal21/screens16/featured-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "explore",
+    "source": "medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png",
+    "actual": "TODO/evidence/goal21/screens16/explore.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "topics",
+    "source": "medium/flows/Explore/Searching Medium/screens/02_sc_047c91d900aa47448d61e4faacd68ad5.png",
+    "actual": "TODO/evidence/goal21/screens16/topics.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "search",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "actual": "TODO/evidence/goal21/screens16/search.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "staff-picks",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "actual": "TODO/evidence/goal21/screens16/staff-picks.png",
+    "captured": true
+  },
+  {
+    "goal": 16,
+    "screen": "who-to-follow",
+    "source": "medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png",
+    "actual": "TODO/evidence/goal21/screens16/who-to-follow.png",
+    "captured": true
+  },
+  {
+    "goal": 17,
+    "screen": "article-top",
+    "source": "medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+    "actual": "TODO/evidence/goal21/screens17/article-top.png",
+    "captured": true
+  },
+  {
+    "goal": 17,
+    "screen": "save-selected",
+    "source": "medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png",
+    "actual": "TODO/evidence/goal21/screens17/save-selected.png",
+    "captured": true
+  },
+  {
+    "goal": 17,
+    "screen": "responses",
+    "source": "medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png",
+    "actual": "TODO/evidence/goal21/screens17/responses.png",
+    "captured": true
+  },
+  {
+    "goal": 17,
+    "screen": "more-from",
+    "source": "medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png",
+    "actual": "TODO/evidence/goal21/screens17/more-from.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "library-empty",
+    "source": "medium/flows/Library/screens/02_sc_84e0421de98041bbb014822fc05dd3fb.png",
+    "actual": "TODO/evidence/goal21/screens18/library-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "library-filled",
+    "source": "medium/flows/Library/screens/03_sc_57450c38bf994be18d95fcaf712c56ba.png",
+    "actual": "TODO/evidence/goal21/screens18/library-filled.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "create-empty",
+    "source": "medium/flows/Library/Creating a list/screens/02_sc_675e3eda08504708979533659dacdcf6.png",
+    "actual": "TODO/evidence/goal21/screens18/create-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "create-filled",
+    "source": "medium/flows/Library/Creating a list/screens/03_sc_ca3b32e4373a40fc84405838671eab27.png",
+    "actual": "TODO/evidence/goal21/screens18/create-filled.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "list-empty",
+    "source": "medium/flows/Library/List detail/screens/02_sc_967232cfb5f845839053e0d371d78911.png",
+    "actual": "TODO/evidence/goal21/screens18/list-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "list-filled",
+    "source": "medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
+    "actual": "TODO/evidence/goal21/screens18/list-filled.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "list-menu",
+    "source": "medium/flows/Library/List detail/Deleting a list/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png",
+    "actual": "TODO/evidence/goal21/screens18/list-menu.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "delete",
+    "source": "medium/flows/Library/List detail/Deleting a list/screens/03_sc_a1562b1931fc4650a544861094934588.png",
+    "actual": "TODO/evidence/goal21/screens18/delete.png",
+    "captured": true
+  },
+  {
+    "goal": 18,
+    "screen": "remove-menu",
+    "source": "medium/flows/Library/List detail/Removing a story/screens/01_sc_fa4e79f0bed747d698ae44e23f9223f9.png",
+    "actual": "TODO/evidence/goal21/screens18/remove-menu.png",
+    "captured": true
+  },
+  {
+    "goal": 19,
+    "screen": "signin",
+    "source": "medium/flows/Logging in/screens/02_sc_e4d414380a1047a2b7970cf7869a0866.png",
+    "actual": "TODO/evidence/goal21/screens19/signin.png",
+    "captured": true
+  },
+  {
+    "goal": 19,
+    "screen": "signup",
+    "source": "medium/flows/Logging in/screens/01_sc_d55739aa2ac1495da026006235e7c0a7.png",
+    "actual": "TODO/evidence/goal21/screens19/signup.png",
+    "captured": true
+  },
+  {
+    "goal": 19,
+    "screen": "logout",
+    "source": "medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png",
+    "actual": "TODO/evidence/goal21/screens19/logout.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "profile",
+    "source": "medium/flows/Profile/screens/02_sc_1bd141b757934a88b4a003855e1794cc.png",
+    "actual": "TODO/evidence/goal21/screens20/profile.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "about-empty",
+    "source": "medium/flows/Profile/screens/05_sc_d55f02281f894078a734269d60de79c4.png",
+    "actual": "TODO/evidence/goal21/screens20/about-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "edit-empty",
+    "source": "medium/flows/Profile/Editing profile information/screens/02_sc_a829121c47a444cd8a8fd0d9889edaed.png",
+    "actual": "TODO/evidence/goal21/screens20/edit-empty.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "edit-filled",
+    "source": "medium/flows/Profile/Editing profile information/screens/06_sc_befb6fde38cc48f3827ea389caed11de.png",
+    "actual": "TODO/evidence/goal21/screens20/edit-filled.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "settings",
+    "source": "medium/flows/Profile/Settings/screens/02_sc_ddd51660cb8346a1b200ed970a2d5c45.png",
+    "actual": "TODO/evidence/goal21/screens20/settings.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "settings-bottom",
+    "source": "medium/flows/Profile/Settings/screens/03_sc_c653047933aa40b2be7a8f281643d41d.png",
+    "actual": "TODO/evidence/goal21/screens20/settings-bottom.png",
+    "captured": true
+  },
+  {
+    "goal": 20,
+    "screen": "settings-logout",
+    "source": "medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png",
+    "actual": "TODO/evidence/goal21/screens20/settings-logout.png",
+    "captured": true
+  }
+]

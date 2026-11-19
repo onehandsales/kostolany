@@ -1,10 +1,13 @@
 # Kostolany Mobile
 
-React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md)에 따라 Goal 12의 설정·기본 설명 수준까지 구현하고 Goal 13에서 전체 연결·실패 검증과 결함 수정을 수행했다. 홈·탐색에서 예시 기사의 상세와 4단계 설명을 읽고, 좋아요·북마크를 공유한다. 라이브러리에서 목록을 생성·이름 수정·삭제하고 같은 기사를 여러 목록에 저장할 수 있다. 비로그인으로 기사를 읽고, 예시 독자 A/B로 모의 로그인해 개인 기능을 사용한다. 프로필에서 이름·짧은 소개를 편집하고 저장·취소·실패 재시도를 할 수 있다. 이름 변경은 인증 ID·개인 데이터를 유지한다. 프로필의 설정에서 사용자별 기본 수준을 저장하면 다음 기사 진입에 적용된다. 브라우저 흐름과 모바일 폭의 Medium 원본 비교를 수행했으며 실제 기기·네이티브 검증은 대기 중이다.
+2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
+
+후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
+React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본을 기준으로 Home·Explore/Search·기사·저장·Library/목록·로그인·Profile·Settings 화면을 구현했다. 원본 사진/영어 콘텐츠 fixture와 기존 금융 fixture를 함께 사용한다. 모의 A/B 계정별 좋아요·저장·목록·이름/소개·기본 설명 수준은 메모리에 보관하며 전체 Reload 시 초기화한다. 실제 외부 서비스는 연결하지 않았다. [최종 결과와8081 확인 순서](../TODO/FE_GOAL_21_RESULT.md), [31쌍 원본 비교](../TODO/evidence/goal21/COMPARISON.html)를 현재 기준으로 확인한다.
 
 ## 환경과 기술 선택
 
-현재 후속 작업은 [Goal 14~21 연속 계획](../TODO/FE_MEDIUM_CLONE_GOALS.md)이다. Goal 14에서 FRONT_AGENT 규칙을 검토해 피드 공급부 교체의 이전 데이터 노출, 검색 카드 세로 배치 스타일, 주석·타입 계약·미사용 화면을 수정했다. 타입·lint·전체 614건(80 suites)·양 플랫폼 JS/Hermes·8081 회귀를 확인했다. [Goal 14 결과](../TODO/FE_GOAL_14_RESULT.md)에 두 검토와 증거를 기록했으며 실제 native 실행은 계속 대기다. Medium 클론 화면 구현은 Goal 15부터 이어간다.
+[Goal14~21 연속 작업](../TODO/FE_MEDIUM_CLONE_GOALS.md)을 마쳤다. Goal14의 규칙 수정은 `d016c06`으로 커밋했고15~21 변경은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 현재 Node24.10.0에서638 tests/84 suites와 타입/lint·두 플랫폼 JS/Hermes export를 확인했다. 실제 native 실행 환경은 없으며 남은 차이를100% 클론 완료로 표현하지 않는다.
 
 | 항목 | 고정 버전 |
 | --- | --- |
@@ -27,7 +30,7 @@ React Native 기반 iOS·Android 앱이다. [FE Goal 계획](../TODO/FE_GOALS.md
 
 2026-11-17 기준 Expo 공식 안내의 SDK 58 전환 기간에는 실기기 Expo Go용으로 SDK 57을 권장한다. 이 기준과 SDK 57의 의존성 검사 결과에 맞췄다. 최신 버전으로 일괄 갱신하지 말고 Expo·React Native·테스트 도구의 호환성을 함께 확인한다.
 
-`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID·진입 탭·목록 소유자·인증 revision을 전달해 복귀를 구분한다. 로그인 Modal은 공개 화면을 유지하고 사용자 전환은 개인 Library/Profile stack과 시트·초안을 정리하고, 공개 기사 경로를 유지한 채 설명 수준 하위 세션을 현재 계정 기준으로 시작한다. Profile 내부 stack은 프로필과 설정을 연결한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
+`index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID·진입 탭·목록 소유자·인증 revision을 전달해 복귀를 구분한다. 로그인 Modal은 공개 화면을 유지하고 사용자 전환은 개인 Library/Profile stack과 시트·초안을 정리하고, 공개 기사 경로를 유지한 채 설명 수준 하위 세션을 현재 계정 기준으로 시작한다. Profile 내부 stack은 프로필·설정·Profile Lists에서 연 목록을 연결한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
 
 근거: [Expo 프로젝트 생성](https://docs.expo.dev/more/create-expo/), [Expo 테스트 구성](https://docs.expo.dev/develop/unit-testing/), [RNTL v14](https://oss.callstack.com/react-native-testing-library/docs/start/quick-start), [Google 인증](https://docs.expo.dev/guides/google-authentication/).
 
@@ -73,7 +76,7 @@ npm.cmd test
 
 세 검사를 순서대로 실행하려면 `npm.cmd run check`, 테스트 수정 중에는 `npm.cmd run test:watch`를 사용한다. 타입 검사에는 테스트 파일도 포함된다.
 
-`npm.cmd test`는 테스트를 iOS·Android Jest 설정에서 각각 실행한다. Goal 14 기준 논리 307개, 총 614건이며 이후 결과는 해당 Goal 결과 문서에서 확인한다. 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
+`npm.cmd test`는 테스트를 iOS·Android Jest 설정에서 각각 실행한다. Goal21 최종 기준 논리319개, 양 플랫폼 합계638건(84 suites)이다. Goal14의614건 등 이전 수치는 당시 결과다. 특정 설정만 확인하려면 `npm.cmd test -- --selectProjects iOS` 또는 `npm.cmd test -- --selectProjects Android`를 사용한다. 이 결과는 JS 컴포넌트·hook·mock 데이터 테스트이며 실기기 실행 결과가 아니다.
 
 ```powershell
 npx.cmd expo install --check
@@ -358,3 +361,13 @@ Goal 10의 최소 프로필 화면은 아래 Goal 11에서 이름·소개 조회
 [AGENT](../AGENT/README.md), [React Native 규칙](../AGENT/SOFTWARE_AGENT/FRONT_AGENT/README.md), [검증 규칙](../AGENT/SOFTWARE_AGENT/COMMON/QUALITY_AND_WORKFLOW.md), [FE Goal 계획](../TODO/FE_GOALS.md)을 따른다.
 
 기본 프로젝트는 `create-expo-app@5.0.0`과 `expo-template-blank-typescript@57.0.35`에서 시작했다. 템플릿의 Expo 라이선스와 초기 이미지 파일은 보존했다. 현재 앱은 해당 이미지를 참조하지 않는다.
+
+- Medium clone Goal 17: 기사/저장 시트 구현과 두 검토, 관련 84 tests 및 8081 검증 완료. 폰트·아이콘 차이/native 대기. [결과](../TODO/FE_GOAL_17_RESULT.md). 연속 Goal 18 진행; 15 이후 미커밋.
+
+- Medium clone Goal 18: 라이브러리/목록 UI·로컬 설명/Private·두 검토·관련 자동/브라우저 검증 완료. 원본 차이와 native 대기는 TODO/FE_GOAL_18_RESULT.md 참조. 연속 Goal 19 진행; 15 이후 미커밋.
+
+- Medium clone Goal 19: 소개/모의 인증/로그아웃 UI와 두 검토·관련 자동/브라우저 검증 완료. TODO/FE_GOAL_19_RESULT.md 참조. 연속 Goal20 진행, 원본 차이/native 대기, 미커밋.
+
+## Goal21 최종 화면 기준
+
+기능별 이전 기록의 한국어 화면 이름/초기 카드 구성은 Goal1~13 이력이며, 현재 UI는 원본 영어 문구와 자체 읽기 도구/모의 안내를 구분한다. [화면 대응표](../TODO/FE_MEDIUM_SCREEN_MAP.md)·[검증/남은 차이/실행 순서](../TODO/FE_GOAL_21_RESULT.md)를 우선 확인한다.

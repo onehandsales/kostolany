@@ -1,4 +1,15 @@
+import type { ImageSourcePropType } from 'react-native';
+
 export type FeedSort = 'latest' | 'popular' | 'recommended';
+
+export type ReferenceStory = {
+  image?: ImageSourcePropType;
+  avatar?: ImageSourcePropType;
+  applause: number;
+  responses: string;
+  memberOnly: boolean;
+  balancedHeadline?: boolean;
+};
 
 export type FeedArticle = {
   id: string;
@@ -8,6 +19,7 @@ export type FeedArticle = {
   publishedLabel: string;
   readingMinutes: number;
   thumbnail: 'city' | 'coins' | null;
+  reference?: ReferenceStory;
 };
 
 // 로컬 UI 계약이며 향후 서버 API를 확정하지 않는다.
@@ -16,7 +28,7 @@ export type FeedRequest = { sort: FeedSort; cursor: string | null };
 export type FeedSource = (request: FeedRequest) => Promise<FeedPage>;
 
 export const feedSortLabels: Record<FeedSort, string> = {
-  latest: '최신',
-  popular: '인기',
-  recommended: '추천',
+  latest: 'For you',
+  popular: 'Following',
+  recommended: 'Featured',
 };

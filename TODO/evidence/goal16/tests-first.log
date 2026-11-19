@@ -1,0 +1,70 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=HomeFeedScreen|SearchScreen|mockFeedSource|mockSearchSource|mockArticleSource|mockExplanationSource|ArticleLikeControl|ArticleBookmarkControl|SearchNavigation
+
+PASS iOS src/features/search/SearchScreen.test.tsx (8.596 s)
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/likes/ArticleLikeControl.test.tsx
+FAIL Android src/features/article/data/mockExplanationSource.test.ts
+  ● Example explanations › has distinct explanations and examples at all four levels for every article
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 1
+
+      11 |       expect(results.every(item => item.articleId === article.id && item.paragraphs.every(text => text.trim()) && item.example.trim())).toBe(true);
+      12 |       expect(new Set(results.map(item => item.paragraphs.join('\n'))).size).toBe(4);
+    > 13 |       expect(new Set(results.map(item => item.example)).size).toBe(4);
+         |                                                               ^
+      14 |     }
+      15 |   });
+      16 |
+
+      at toBe (src/features/article/data/mockExplanationSource.test.ts:13:63)
+          at _loop.next (<anonymous>)
+      at Object._loop (src/features/article/data/mockExplanationSource.test.ts:8:42)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS Android src/features/search/data/mockSearchSource.test.ts
+PASS Android src/features/article/data/mockArticleSource.test.ts
+PASS Android src/features/feed/data/mockFeedSource.test.ts
+PASS Android src/features/search/SearchScreen.test.tsx (7.495 s)
+PASS Android src/features/feed/HomeFeedScreen.test.tsx
+PASS Android src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS iOS src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS iOS src/features/likes/ArticleLikeControl.test.tsx
+FAIL iOS src/features/article/data/mockExplanationSource.test.ts
+  ● Example explanations › has distinct explanations and examples at all four levels for every article
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 1
+
+      11 |       expect(results.every(item => item.articleId === article.id && item.paragraphs.every(text => text.trim()) && item.example.trim())).toBe(true);
+      12 |       expect(new Set(results.map(item => item.paragraphs.join('\n'))).size).toBe(4);
+    > 13 |       expect(new Set(results.map(item => item.example)).size).toBe(4);
+         |                                                               ^
+      14 |     }
+      15 |   });
+      16 |
+
+      at toBe (src/features/article/data/mockExplanationSource.test.ts:13:63)
+          at _loop.next (<anonymous>)
+      at Object._loop (src/features/article/data/mockExplanationSource.test.ts:8:42)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS iOS src/features/article/data/mockArticleSource.test.ts
+PASS iOS src/features/search/data/mockSearchSource.test.ts
+PASS iOS src/features/feed/data/mockFeedSource.test.ts
+
+Test Suites: 2 failed, 16 passed, 18 total
+Tests:       2 failed, 96 passed, 98 total
+Snapshots:   0 total
+Time:        35.19 s, estimated 36 s
+Ran all test suites matching /HomeFeedScreen|SearchScreen|mockFeedSource|mockSearchSource|mockArticleSource|mockExplanationSource|ArticleLikeControl|ArticleBookmarkControl|SearchNavigation/i in 2 projects.

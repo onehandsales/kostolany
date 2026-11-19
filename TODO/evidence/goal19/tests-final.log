@@ -1,0 +1,22 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=AuthNavigation|AuthBoundaryNavigation|createAuthStore|createMockAuthSource|ProfileNavigation|LibraryInteractions
+
+PASS Android src/app/navigation/AuthNavigation.test.tsx (21.775 s)
+PASS iOS src/app/navigation/AuthNavigation.test.tsx (21.006 s)
+PASS Android src/features/bookmarks/LibraryInteractions.test.tsx
+PASS iOS src/features/auth/createAuthStore.test.ts
+PASS Android src/app/navigation/ProfileNavigation.test.tsx (5.964 s)
+PASS Android src/app/navigation/AuthBoundaryNavigation.test.tsx
+PASS Android src/features/auth/data/createMockAuthSource.test.ts
+PASS iOS src/app/navigation/ProfileNavigation.test.tsx (6.06 s)
+PASS iOS src/app/navigation/AuthBoundaryNavigation.test.tsx
+PASS iOS src/features/bookmarks/LibraryInteractions.test.tsx
+PASS iOS src/features/auth/data/createMockAuthSource.test.ts
+PASS Android src/features/auth/createAuthStore.test.ts
+
+Test Suites: 12 passed, 12 total
+Tests:       80 passed, 80 total
+Snapshots:   0 total
+Time:        69.663 s
+Ran all test suites matching /AuthNavigation|AuthBoundaryNavigation|createAuthStore|createMockAuthSource|ProfileNavigation|LibraryInteractions/i in 2 projects.

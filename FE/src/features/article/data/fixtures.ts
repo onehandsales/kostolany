@@ -1,5 +1,7 @@
 import { feedFixtures } from '../../feed/data/fixtures';
+import { mediumArticles } from '../../feed/data/mediumFixtures';
 import type { ArticleDetail } from '../types';
+import { referenceArticleContent } from './referenceArticleContent';
 
 type ArticleBody = Pick<ArticleDetail, 'facts' | 'interpretation'>;
 
@@ -28,50 +30,130 @@ const bodies: Record<string, ArticleBody> = {
     ],
   },
   'example-latest-housing': {
-    facts: ['가상 도시가 새로운 주택 공급 계획을 공개했다는 예시입니다. 계획에는 지역과 예정 시점이 따로 표시되어 있습니다.', '착공이나 입주 완료를 확인한 실제 뉴스가 아니며, 특정 지역의 공급량이나 주택 가격은 제시하지 않습니다.'],
-    interpretation: ['계획 발표와 실제 공급 완료를 서로 다른 사건으로 읽는 관점입니다. 같은 숫자라도 지역과 시점이 다르면 해석에 필요한 정보도 달라질 수 있습니다.', '계획만으로 가격 변화를 확정할 수는 없습니다. 이 문단은 사실 구역과 의견 구역을 구분하기 위한 해석 예시입니다.'],
+    facts: [
+      '가상 도시가 새로운 주택 공급 계획을 공개했다는 예시입니다. 계획에는 지역과 예정 시점이 따로 표시되어 있습니다.',
+      '착공이나 입주 완료를 확인한 실제 뉴스가 아니며, 특정 지역의 공급량이나 주택 가격은 제시하지 않습니다.',
+    ],
+    interpretation: [
+      '계획 발표와 실제 공급 완료를 서로 다른 사건으로 읽는 관점입니다. 같은 숫자라도 지역과 시점이 다르면 해석에 필요한 정보도 달라질 수 있습니다.',
+      '계획만으로 가격 변화를 확정할 수는 없습니다. 이 문단은 사실 구역과 의견 구역을 구분하기 위한 해석 예시입니다.',
+    ],
   },
   'example-latest-prices': {
-    facts: ['가상 장바구니에서 지난달과 이번 달의 품목별 가격을 기록했다는 예시입니다. 실제 물가 통계를 대신하지 않습니다.', '이 예시에서는 가격의 수준과 기간 사이의 변화를 서로 다른 열에 적었습니다. 비교 대상과 기간을 함께 확인할 수 있습니다.'],
-    interpretation: ['가격이 얼마인지와 얼마나 변했는지를 나누어 읽는 연습입니다. 한 품목의 변화가 모든 가계의 체감을 대표한다고 단정하지 않습니다.', '제목에 나온 수치만 보기보다 무엇과 무엇을 비교한 것인지 살펴본다는 해석 예시입니다.'],
+    facts: [
+      '가상 장바구니에서 지난달과 이번 달의 품목별 가격을 기록했다는 예시입니다. 실제 물가 통계를 대신하지 않습니다.',
+      '이 예시에서는 가격의 수준과 기간 사이의 변화를 서로 다른 열에 적었습니다. 비교 대상과 기간을 함께 확인할 수 있습니다.',
+    ],
+    interpretation: [
+      '가격이 얼마인지와 얼마나 변했는지를 나누어 읽는 연습입니다. 한 품목의 변화가 모든 가계의 체감을 대표한다고 단정하지 않습니다.',
+      '제목에 나온 수치만 보기보다 무엇과 무엇을 비교한 것인지 살펴본다는 해석 예시입니다.',
+    ],
   },
   'example-popular-cash': {
-    facts: ['가상 인물 두 명이 앞으로 사용할 돈의 시점을 서로 다르게 기록했다는 예시입니다. 실제 자산 배분이나 투자 성과를 제시하지 않습니다.', '한 사람은 가까운 시점의 지출을 적었고 다른 사람은 더 긴 계획을 적었습니다. 보유 금액과 구체적인 금융 상품은 이 사례에 없습니다.'],
-    interpretation: ['현금을 보유하는 선택을 읽을 때 계획의 시간 범위도 함께 생각할 수 있다는 관점입니다. 한 사람의 선택을 모든 사람에게 적용하는 결론은 아닙니다.', '이 사례는 기다림에 관한 해석을 사실 설명과 나누어 표시하기 위해 작성했습니다. 코스톨라니의 인용문은 아닙니다.'],
+    facts: [
+      '가상 인물 두 명이 앞으로 사용할 돈의 시점을 서로 다르게 기록했다는 예시입니다. 실제 자산 배분이나 투자 성과를 제시하지 않습니다.',
+      '한 사람은 가까운 시점의 지출을 적었고 다른 사람은 더 긴 계획을 적었습니다. 보유 금액과 구체적인 금융 상품은 이 사례에 없습니다.',
+    ],
+    interpretation: [
+      '현금을 보유하는 선택을 읽을 때 계획의 시간 범위도 함께 생각할 수 있다는 관점입니다. 한 사람의 선택을 모든 사람에게 적용하는 결론은 아닙니다.',
+      '이 사례는 기다림에 관한 해석을 사실 설명과 나누어 표시하기 위해 작성했습니다. 코스톨라니의 인용문은 아닙니다.',
+    ],
   },
   'example-popular-market': {
-    facts: ['가상 기사에 기업의 지난 분기 실적과 앞으로의 계획이 함께 소개되어 있다는 예시입니다. 실제 주가나 기업의 발표를 사용하지 않았습니다.', '이미 지나간 기간의 기록과 미래 계획에는 서로 다른 시점이 표시되어 있습니다. 두 내용을 같은 종류의 확정된 사실로 묶지 않습니다.'],
-    interpretation: ['현재를 설명하는 정보와 미래에 대한 기대가 함께 읽힐 수 있다는 해석입니다. 이 예시로 주식시장의 방향을 예측하지 않습니다.', '같은 제목 안에서도 어떤 문장은 기록이고 어떤 문장은 예상인지 구분하는 것이 이 화면의 읽기 맥락입니다.'],
+    facts: [
+      '가상 기사에 기업의 지난 분기 실적과 앞으로의 계획이 함께 소개되어 있다는 예시입니다. 실제 주가나 기업의 발표를 사용하지 않았습니다.',
+      '이미 지나간 기간의 기록과 미래 계획에는 서로 다른 시점이 표시되어 있습니다. 두 내용을 같은 종류의 확정된 사실로 묶지 않습니다.',
+    ],
+    interpretation: [
+      '현재를 설명하는 정보와 미래에 대한 기대가 함께 읽힐 수 있다는 해석입니다. 이 예시로 주식시장의 방향을 예측하지 않습니다.',
+      '같은 제목 안에서도 어떤 문장은 기록이고 어떤 문장은 예상인지 구분하는 것이 이 화면의 읽기 맥락입니다.',
+    ],
   },
   'example-popular-debt': {
-    facts: ['가상의 두 계약서에 금리를 확인하는 시점이 서로 다르게 적혀 있다는 예시입니다. 실제 대출 조건을 안내하는 자료는 아닙니다.', '이 사례는 계약 기간과 변경 시점이라는 항목을 구분해 적었습니다. 수수료나 구체적인 금액은 포함하지 않습니다.'],
-    interpretation: ['뉴스의 일반적인 표현과 개별 계약의 적용 조건을 나누어 읽는 관점입니다. 제목만으로 어떤 계약이 더 유리한지 결정하지 않습니다.', '이 문단은 설명의 구획을 확인하기 위한 예시이며 실제 금융 상담을 제공하는 화면은 아닙니다.'],
+    facts: [
+      '가상의 두 계약서에 금리를 확인하는 시점이 서로 다르게 적혀 있다는 예시입니다. 실제 대출 조건을 안내하는 자료는 아닙니다.',
+      '이 사례는 계약 기간과 변경 시점이라는 항목을 구분해 적었습니다. 수수료나 구체적인 금액은 포함하지 않습니다.',
+    ],
+    interpretation: [
+      '뉴스의 일반적인 표현과 개별 계약의 적용 조건을 나누어 읽는 관점입니다. 제목만으로 어떤 계약이 더 유리한지 결정하지 않습니다.',
+      '이 문단은 설명의 구획을 확인하기 위한 예시이며 실제 금융 상담을 제공하는 화면은 아닙니다.',
+    ],
   },
   'example-recommended-psychology': {
-    facts: ['가상의 두 독자가 같은 경제 제목을 보고 서로 다른 감상을 남겼다는 예시입니다. 실제 설문이나 시장 심리 지표는 아닙니다.', '기사에 적힌 사건과 독자가 덧붙인 감상은 각각 다른 구역에 기록되어 있습니다.'],
-    interpretation: ['기대와 불안을 표현한 의견을 사건 자체와 구분해서 읽는 관점입니다. 독자의 반응만으로 시장 전체의 생각을 알 수는 없습니다.', '이 예시는 사실과 해석을 분리하는 읽기 경험을 보여주며 특정 저자의 실제 발언을 인용하지 않습니다.'],
+    facts: [
+      '가상의 두 독자가 같은 경제 제목을 보고 서로 다른 감상을 남겼다는 예시입니다. 실제 설문이나 시장 심리 지표는 아닙니다.',
+      '기사에 적힌 사건과 독자가 덧붙인 감상은 각각 다른 구역에 기록되어 있습니다.',
+    ],
+    interpretation: [
+      '기대와 불안을 표현한 의견을 사건 자체와 구분해서 읽는 관점입니다. 독자의 반응만으로 시장 전체의 생각을 알 수는 없습니다.',
+      '이 예시는 사실과 해석을 분리하는 읽기 경험을 보여주며 특정 저자의 실제 발언을 인용하지 않습니다.',
+    ],
   },
   'example-recommended-news': {
-    facts: ['가상 기사에 발표 날짜와 발표 주체가 적혀 있다는 예시입니다. 별도의 의견 문단에는 앞으로 가능할 일을 예상하는 표현이 있습니다.', '실제 발표문을 인용하지 않았으며, 사실 설명과 해석을 구분하는 화면을 위해 직접 작성한 내용입니다.'],
-    interpretation: ['확인한 내용과 가능성을 말하는 문장을 나누어 읽을 수 있습니다. 출처와 시점이 같아 보이더라도 근거의 성격은 다를 수 있습니다.', '해석이 여러 개일 수 있다는 점을 남겨두고, 예상을 이미 일어난 일처럼 표시하지 않는 것이 이 예시의 목적입니다.'],
+    facts: [
+      '가상 기사에 발표 날짜와 발표 주체가 적혀 있다는 예시입니다. 별도의 의견 문단에는 앞으로 가능할 일을 예상하는 표현이 있습니다.',
+      '실제 발표문을 인용하지 않았으며, 사실 설명과 해석을 구분하는 화면을 위해 직접 작성한 내용입니다.',
+    ],
+    interpretation: [
+      '확인한 내용과 가능성을 말하는 문장을 나누어 읽을 수 있습니다. 출처와 시점이 같아 보이더라도 근거의 성격은 다를 수 있습니다.',
+      '해석이 여러 개일 수 있다는 점을 남겨두고, 예상을 이미 일어난 일처럼 표시하지 않는 것이 이 예시의 목적입니다.',
+    ],
   },
   'example-recommended-time': {
-    facts: ['가상의 뉴스는 하루 동안의 변화를 다루고, 독자의 메모는 더 긴 계획을 다룬다는 예시입니다. 실제 시장 수치는 없습니다.', '두 기록에 표시된 기간은 서로 다르며, 어느 하나를 다른 기간의 결과로 바꾸어 적지 않았습니다.'],
-    interpretation: ['뉴스와 자신의 계획이 같은 시간 범위를 다루는지 살펴보는 관점입니다. 짧은 기간의 사건이 긴 기간의 결과를 보장하지는 않습니다.', '이 문단은 화면 확인용 해석 예시이며 실제 AI 서비스의 생성 결과나 책의 인용문이 아닙니다.'],
+    facts: [
+      '가상의 뉴스는 하루 동안의 변화를 다루고, 독자의 메모는 더 긴 계획을 다룬다는 예시입니다. 실제 시장 수치는 없습니다.',
+      '두 기록에 표시된 기간은 서로 다르며, 어느 하나를 다른 기간의 결과로 바꾸어 적지 않았습니다.',
+    ],
+    interpretation: [
+      '뉴스와 자신의 계획이 같은 시간 범위를 다루는지 살펴보는 관점입니다. 짧은 기간의 사건이 긴 기간의 결과를 보장하지는 않습니다.',
+      '이 문단은 화면 확인용 해석 예시이며 실제 AI 서비스의 생성 결과나 책의 인용문이 아닙니다.',
+    ],
   },
 };
 
-export const articleFixtures: ArticleDetail[] = Object.values(feedFixtures).flat().map((item) => {
-  const body = bodies[item.id];
-  if (!body) throw new Error('Missing article fixture: ' + item.id);
-  return {
-    id: item.id, title: item.title, subtitle: item.summary, sourceName: item.sourceName,
-    publishedLabel: item.publishedLabel + ' 09:00', readingMinutes: item.readingMinutes,
-    image: item.thumbnail === null ? null : {
-      variant: item.thumbnail,
-      description: item.thumbnail === 'coins' ? '동전을 표현한 예시 삽화' : '도시 건물을 표현한 예시 삽화',
-      caption: 'Kostolany에서 만든 예시 삽화',
-    },
-    ...body,
-  };
-});
+const financialArticles: ArticleDetail[] = Object.values(feedFixtures)
+  .flat()
+  .map((item) => {
+    const body = bodies[item.id];
+    if (!body) throw new Error('Missing article fixture: ' + item.id);
+    return {
+      id: item.id,
+      title: item.title,
+      subtitle: item.summary,
+      sourceName: item.sourceName,
+      publishedLabel: item.publishedLabel + ' 09:00',
+      readingMinutes: item.readingMinutes,
+      image:
+        item.thumbnail === null
+          ? null
+          : {
+              variant: item.thumbnail,
+              description:
+                item.thumbnail === 'coins' ? '동전을 표현한 예시 삽화' : '도시 건물을 표현한 예시 삽화',
+              caption: 'Kostolany에서 만든 예시 삽화',
+            },
+      ...body,
+    };
+  });
+
+export const articleFixtures: ArticleDetail[] = [
+  ...financialArticles,
+  ...mediumArticles.map((item) => ({
+    id: item.id,
+    title: item.title,
+    subtitle: item.summary,
+    sourceName: item.sourceName,
+    publishedLabel: item.publishedLabel,
+    readingMinutes: item.readingMinutes,
+    image: null,
+    reference: item.reference,
+    referenceContent: referenceArticleContent[item.id],
+    facts: [
+      item.summary ||
+        'Only the title is available in the reference capture. The complete story is not included in this local prototype.',
+    ],
+    interpretation: [
+      'This local reading example is separate from the Medium article. The captured screens do not provide the complete story.',
+    ],
+  })),
+];

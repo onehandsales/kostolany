@@ -1,0 +1,1124 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --runInBand --testPathPatterns=HomeFeedScreen|AppNavigator|LibraryNavigation
+
+PASS Android src/app/navigation/AuthNavigation.test.tsx (21.45 s)
+PASS iOS src/features/search/SearchScreen.test.tsx (7.4 s)
+PASS iOS src/features/profile/ProfileScreen.test.tsx (5.49 s)
+FAIL iOS src/app/App.test.tsx
+  ● App tab navigation › opens Home with four named tabs and exactly one selected tab
+
+    Unable to find an element with text: 예시 콘텐츠
+
+    [36m<View>[39m
+      [36m<RNSScreenStack>[39m
+        [36m<RNSScreen[39m
+          [33maria-hidden[39m=[32m{false}[39m
+        [36m>[39m
+          [36m<RNSScreenContentWrapper>[39m
+            [36m<View>[39m
+              [36m<RNSScreenNavigationContainer>[39m
+                [36m<RNSScreen[39m
+                  [33mpointerEvents[39m=[32m"box-none"[39m
+                [36m>[39m
+                  [36m<View[39m
+                    [33maria-hidden[39m=[32m{false}[39m
+                  [36m>[39m
+                    [36m<View>[39m
+                      [36m<RNCSafeAreaView>[39m
+                        [36m<View>[39m
+                          [36m<Text[39m
+                            [33maccessibilityLabel[39m=[32m"홈"[39m
+                            [33mrole[39m=[32m"heading"[39m
+                          [36m>[39m
+                            [0mHome[0m
+                          [36m</Text>[39m
+                          [36m<View[39m
+                            [33maccessibilityLabel[39m=[32m"Notifications"[39m
+                            [33maccessible[39m=[32m{true}[39m
+                            [33mrole[39m=[32m"button"[39m
+                          [36m>[39m
+                            [36m<RNSVGSvgView[39m
+                              [33maccessible[39m=[32m{false}[39m
+                              [33maria-hidden[39m=[32m{true}[39m
+                            [36m>[39m
+                              [36m<RNSVGGroup>[39m
+                                [36m<RNSVGPath />[39m
+                                [36m<RNSVGPath />[39m
+                              [36m</RNSVGGroup>[39m
+                            [36m</RNSVGSvgView>[39m
+                          [36m</View>[39m
+                        [36m</View>[39m
+                        [36m<RCTScrollView[39m
+                          [33maccessibilityLabel[39m=[32m"피드 정렬"[39m
+                          [33mrole[39m=[32m"tablist"[39m
+                        [36m>[39m
+                          [36m<View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"최신"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": true,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m최신[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"인기"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": false,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m인기[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"추천"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": false,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m추천[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                        [36m<RCTScrollView[39m
+                          [33maccessibilityLabel[39m=[32m"최신 기사 목록"[39m
+                        [36m>[39m
+                          [36m<View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0mKostolany · 예시[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m금리가 오르면 예금과 대출에는 어떤 일이 생길까[0m
+                                      [36m</Text>[39m
+                                      [36m<Text>[39m
+                                        [0m같은 금리 소식도 저축하는 사람과 돈을 빌린 사람에게 다르게 다가올 수 있어요.[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                    [36m<RNSVGSvgView[39m
+                                      [33maccessible[39m=[32m{false}[39m
+                                      [33maria-hidden[39m=[32m{true}[39m
+                                    [36m>[39m
+                                      [36m<RNSVGGroup>[39m
+                                        [36m<RNSVGRect />[39m
+                                        [36m<RNSVGRect />[39m
+                                        [36m<RNSVGPath />[39m
+                                        [36m<RNSVGCircle />[39m
+                                        [36m<RNSVGCircle />[39m
+                                        [36m<RNSVGPath />[39m
+                                      [36m</RNSVGGroup>[39m
+                                    [36m</RNSVGSvgView>[39m
+                                  [36m</View>[39m
+                                  [36m<Text>[39m
+                                    [0m2026.11.17[0m
+                                    [0m · [0m
+                                    [0m3[0m
+                                    [0m분 읽기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                                [36m<View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m좋아요[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m저장[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                              [36m<View />[39m
+                            [36m</View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0mKostolany · 예시[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m환율 뉴스에서 우리 생활까지 이어지는 연결 고리[0m
+                                      [36m</Text>[39m
+                                      [36m<Text>[39m
+                                        [0m해외여행 경비부터 수입 물건의 가격까지, 환율을 읽는 출발점을 살펴봐요.[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<Text>[39m
+                                    [0m2026.11.16[0m
+                                    [0m · [0m
+                                    [0m4[0m
+                                    [0m분 읽기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                                [36m<View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m좋아요[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m저장[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<Text>[39m
+                                  [0m더 많은 이야기를 읽어보세요[0m
+                                [36m</Text>[39m
+                                [36m<View[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0m기사 더 보기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                      [36m</RNCSafeAreaView>[39m
+                    [36m</View>[39m
+                  [36m</View>[39m
+                [36m</RNSScreen>[39m
+              [36m</RNSScreenNavigationContainer>[39m
+              [36m<View[39m
+                [33maccessibilityLabel[39m=[32m"주요 메뉴"[39m
+                [33mrole[39m=[32m"tablist"[39m
+              [36m>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"홈"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": true,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGPath />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"탐색"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGCircle />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"라이브러리"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGPath />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"프로필"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGCircle />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+              [36m</View>[39m
+            [36m</View>[39m
+          [36m</RNSScreenContentWrapper>[39m
+          [36m<RNSScreenStackHeaderConfig[39m
+            [33mpointerEvents[39m=[32m"box-none"[39m
+            [33mtitle[39m=[32m"Main"[39m
+          [36m/>[39m
+        [36m</RNSScreen>[39m
+      [36m</RNSScreenStack>[39m
+    [36m</View>[39m
+
+      16 |
+      17 |     expect(screen.getByRole('heading', { name: '홈' })).toBeVisible();
+    > 18 |     expect(screen.getByText('예시 콘텐츠')).toBeVisible();
+         |                   ^
+      19 |     expect(mainMenu().getAllByRole('tab')).toHaveLength(4);
+      20 |     for (const name of ['홈', '탐색', '라이브러리', '프로필']) {
+      21 |       expect(screen.getByRole('tab', { name })).toBeVisible();
+
+      at Object.getByText (src/app/App.test.tsx:18:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● App tab navigation › switches all four tabs by accessible name and hides the previous screen
+
+    Unable to find an element with text: 예시 콘텐츠
+
+    [36m<View>[39m
+      [36m<RNSScreenStack>[39m
+        [36m<RNSScreen[39m
+          [33maria-hidden[39m=[32m{false}[39m
+        [36m>[39m
+          [36m<RNSScreenContentWrapper>[39m
+            [36m<View>[39m
+              [36m<RNSScreenNavigationContainer>[39m
+                [36m<RNSScreen[39m
+                  [33mpointerEvents[39m=[32m"box-none"[39m
+                [36m>[39m
+                  [36m<View[39m
+                    [33maria-hidden[39m=[32m{false}[39m
+                  [36m>[39m
+                    [36m<View>[39m
+                      [36m<RNCSafeAreaView>[39m
+                        [36m<View>[39m
+                          [36m<Text[39m
+                            [33maccessibilityLabel[39m=[32m"홈"[39m
+                            [33mrole[39m=[32m"heading"[39m
+                          [36m>[39m
+                            [0mHome[0m
+                          [36m</Text>[39m
+                          [36m<View[39m
+                            [33maccessibilityLabel[39m=[32m"Notifications"[39m
+                            [33maccessible[39m=[32m{true}[39m
+                            [33mrole[39m=[32m"button"[39m
+                          [36m>[39m
+                            [36m<RNSVGSvgView[39m
+                              [33maccessible[39m=[32m{false}[39m
+                              [33maria-hidden[39m=[32m{true}[39m
+                            [36m>[39m
+                              [36m<RNSVGGroup>[39m
+                                [36m<RNSVGPath />[39m
+                                [36m<RNSVGPath />[39m
+                              [36m</RNSVGGroup>[39m
+                            [36m</RNSVGSvgView>[39m
+                          [36m</View>[39m
+                        [36m</View>[39m
+                        [36m<RCTScrollView[39m
+                          [33maccessibilityLabel[39m=[32m"피드 정렬"[39m
+                          [33mrole[39m=[32m"tablist"[39m
+                        [36m>[39m
+                          [36m<View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"최신"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": true,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m최신[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"인기"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": false,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m인기[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                            [36m<View[39m
+                              [33maccessibilityLabel[39m=[32m"추천"[39m
+                              [33maccessibilityState[39m=[32m{
+                                {
+                                  "selected": false,
+                                }
+                              }[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"tab"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m추천[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                        [36m<RCTScrollView[39m
+                          [33maccessibilityLabel[39m=[32m"최신 기사 목록"[39m
+                        [36m>[39m
+                          [36m<View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17. 3분 읽기"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0mKostolany · 예시[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m금리가 오르면 예금과 대출에는 어떤 일이 생길까[0m
+                                      [36m</Text>[39m
+                                      [36m<Text>[39m
+                                        [0m같은 금리 소식도 저축하는 사람과 돈을 빌린 사람에게 다르게 다가올 수 있어요.[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                    [36m<RNSVGSvgView[39m
+                                      [33maccessible[39m=[32m{false}[39m
+                                      [33maria-hidden[39m=[32m{true}[39m
+                                    [36m>[39m
+                                      [36m<RNSVGGroup>[39m
+                                        [36m<RNSVGRect />[39m
+                                        [36m<RNSVGRect />[39m
+                                        [36m<RNSVGPath />[39m
+                                        [36m<RNSVGCircle />[39m
+                                        [36m<RNSVGCircle />[39m
+                                        [36m<RNSVGPath />[39m
+                                      [36m</RNSVGGroup>[39m
+                                    [36m</RNSVGSvgView>[39m
+                                  [36m</View>[39m
+                                  [36m<Text>[39m
+                                    [0m2026.11.17[0m
+                                    [0m · [0m
+                                    [0m3[0m
+                                    [0m분 읽기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                                [36m<View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"좋아요, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m좋아요[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"북마크, 금리가 오르면 예금과 대출에는 어떤 일이 생길까, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m저장[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                              [36m<View />[39m
+                            [36m</View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"환율 뉴스에서 우리 생활까지 이어지는 연결 고리. Kostolany · 예시. 2026.11.16. 4분 읽기"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0mKostolany · 예시[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m환율 뉴스에서 우리 생활까지 이어지는 연결 고리[0m
+                                      [36m</Text>[39m
+                                      [36m<Text>[39m
+                                        [0m해외여행 경비부터 수입 물건의 가격까지, 환율을 읽는 출발점을 살펴봐요.[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<Text>[39m
+                                    [0m2026.11.16[0m
+                                    [0m · [0m
+                                    [0m4[0m
+                                    [0m분 읽기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                                [36m<View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"좋아요, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m좋아요[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View>[39m
+                                    [36m<View[39m
+                                      [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                      [33maccessibilityLabel[39m=[32m"북마크, 환율 뉴스에서 우리 생활까지 이어지는 연결 고리, 로그인 필요"[39m
+                                      [33maccessible[39m=[32m{true}[39m
+                                      [33mrole[39m=[32m"button"[39m
+                                    [36m>[39m
+                                      [36m<RNSVGSvgView[39m
+                                        [33maccessible[39m=[32m{false}[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<RNSVGGroup>[39m
+                                          [36m<RNSVGPath />[39m
+                                        [36m</RNSVGGroup>[39m
+                                      [36m</RNSVGSvgView>[39m
+                                      [36m<Text>[39m
+                                        [0m저장[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                            [36m<View>[39m
+                              [36m<View>[39m
+                                [36m<Text>[39m
+                                  [0m더 많은 이야기를 읽어보세요[0m
+                                [36m</Text>[39m
+                                [36m<View[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0m기사 더 보기[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                      [36m</RNCSafeAreaView>[39m
+                    [36m</View>[39m
+                  [36m</View>[39m
+                [36m</RNSScreen>[39m
+                [36m<RNSScreen[39m
+                  [33mpointerEvents[39m=[32m"none"[39m
+                [36m>[39m
+                  [36m<View[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<View>[39m
+                      [36m<RNCSafeAreaView>[39m
+                        [36m<View>[39m
+                          [36m<RCTScrollView>[39m
+                            [36m<View>[39m
+                              [36m<Text[39m
+                                [33mrole[39m=[32m"heading"[39m
+                              [36m>[39m
+                                [0m탐색[0m
+                              [36m</Text>[39m
+                              [36m<View[39m
+                                [33maccessibilityLabel[39m=[32m"기사 검색 열기"[39m
+                                [33maccessible[39m=[32m{true}[39m
+                                [33mrole[39m=[32m"button"[39m
+                              [36m>[39m
+                                [36m<View>[39m
+                                  [36m<RNSVGSvgView[39m
+                                    [33maccessible[39m=[32m{false}[39m
+                                    [33maria-hidden[39m=[32m{true}[39m
+                                  [36m>[39m
+                                    [36m<RNSVGGroup>[39m
+                                      [36m<RNSVGCircle />[39m
+                                      [36m<RNSVGPath />[39m
+                                    [36m</RNSVGGroup>[39m
+                                  [36m</RNSVGSvgView>[39m
+                                  [36m<Text>[39m
+                                    [0m기사 검색[0m
+                                  [36m</Text>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                              [36m<RCTScrollView>[39m
+                                [36m<View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"금리 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m금리[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"환율 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m환율[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"물가 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m물가[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"주택 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m주택[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"현금 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m현금[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"심리 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m심리[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                  [36m<View[39m
+                                    [33maccessibilityLabel[39m=[32m"뉴스 검색"[39m
+                                    [33maccessible[39m=[32m{true}[39m
+                                    [33mrole[39m=[32m"button"[39m
+                                  [36m>[39m
+                                    [36m<View>[39m
+                                      [36m<Text>[39m
+                                        [0m뉴스[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</RCTScrollView>[39m
+                              [36m<View>[39m
+                                [36m<Text[39m
+                                  [33mrole[39m=[32m"heading"[39m
+                                [36m>[39m
+                                  [0m읽어볼 기사[0m
+                                [36m</Text>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"현금을 보유한다는 건 어떤 선택일까"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0m1[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<View[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<Text>[39m
+                                          [0mK[0m
+                                        [36m</Text>[39m
+                                      [36m</View>[39m
+                                      [36m<Text>[39m
+                                        [0mKostolany · 예시[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                    [36m<Text>[39m
+                                      [0m현금을 보유한다는 건 어떤 선택일까[0m
+                                    [36m</Text>[39m
+                                    [36m<Text>[39m
+                                      [0m2026.11.12[0m
+                                      [0m · [0m
+                                      [0m4[0m
+                                      [0m분 읽기[0m
+                                    [36m</Text>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"주식시장과 실물경제가 늘 같은 방향으로 움직이지 않는 이유"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0m2[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<View[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<Text>[39m
+                                          [0mK[0m
+                                        [36m</Text>[39m
+                                      [36m</View>[39m
+                                      [36m<Text>[39m
+                                        [0mKostolany · 예시[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                    [36m<Text>[39m
+                                      [0m주식시장과 실물경제가 늘 같은 방향으로 움직이지 않는 이유[0m
+                                    [36m</Text>[39m
+                                    [36m<Text>[39m
+                                      [0m2026.11.10[0m
+                                      [0m · [0m
+                                      [0m5[0m
+                                      [0m분 읽기[0m
+                                    [36m</Text>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                                [36m<View[39m
+                                  [33maccessibilityLabel[39m=[32m"고정금리와 변동금리 뉴스를 이해하는 첫걸음"[39m
+                                  [33maccessible[39m=[32m{true}[39m
+                                  [33mrole[39m=[32m"button"[39m
+                                [36m>[39m
+                                  [36m<Text>[39m
+                                    [0m3[0m
+                                  [36m</Text>[39m
+                                  [36m<View>[39m
+                                    [36m<View>[39m
+                                      [36m<View[39m
+                                        [33maria-hidden[39m=[32m{true}[39m
+                                      [36m>[39m
+                                        [36m<Text>[39m
+                                          [0mK[0m
+                                        [36m</Text>[39m
+                                      [36m</View>[39m
+                                      [36m<Text>[39m
+                                        [0mKostolany · 예시[0m
+                                      [36m</Text>[39m
+                                    [36m</View>[39m
+                                    [36m<Text>[39m
+                                      [0m고정금리와 변동금리 뉴스를 이해하는 첫걸음[0m
+                                    [36m</Text>[39m
+                                    [36m<Text>[39m
+                                      [0m2026.11.09[0m
+                                      [0m · [0m
+                                      [0m3[0m
+                                      [0m분 읽기[0m
+                                    [36m</Text>[39m
+                                  [36m</View>[39m
+                                [36m</View>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                          [36m</RCTScrollView>[39m
+                        [36m</View>[39m
+                      [36m</RNCSafeAreaView>[39m
+                    [36m</View>[39m
+                  [36m</View>[39m
+                [36m</RNSScreen>[39m
+                [36m<RNSScreen[39m
+                  [33mpointerEvents[39m=[32m"none"[39m
+                [36m>[39m
+                  [36m<View[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<View>[39m
+                      [36m<RNCSafeAreaView>[39m
+                        [36m<RCTScrollView>[39m
+                          [36m<View>[39m
+                            [36m<Text[39m
+                              [33mrole[39m=[32m"heading"[39m
+                            [36m>[39m
+                              [0m라이브러리[0m
+                            [36m</Text>[39m
+                            [36m<Text>[39m
+                              [0m내 읽기 목록을 만나보세요.[0m
+                            [36m</Text>[39m
+                            [36m<Text>[39m
+                              [0m로그인하면 다시 읽고 싶은 기사를 나만의 목록에 모을 수 있어요.[0m
+                            [36m</Text>[39m
+                            [36m<View[39m
+                              [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                              [33maccessibilityLabel[39m=[32m"라이브러리 모의 로그인"[39m
+                              [33maccessible[39m=[32m{true}[39m
+                              [33mrole[39m=[32m"button"[39m
+                            [36m>[39m
+                              [36m<Text>[39m
+                                [0m로그인[0m
+                              [36m</Text>[39m
+                            [36m</View>[39m
+                            [36m<Text>[39m
+                              [0m예시 독자만 사용하는 모의 로그인입니다.[0m
+                            [36m</Text>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                      [36m</RNCSafeAreaView>[39m
+                    [36m</View>[39m
+                  [36m</View>[39m
+                [36m</RNSScreen>[39m
+                [36m<RNSScreen[39m
+                  [33mpointerEvents[39m=[32m"none"[39m
+                [36m>[39m
+                  [36m<View[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<View>[39m
+                      [36m<RNCSafeAreaView>[39m
+                        [36m<RCTScrollView>[39m
+                          [36m<View>[39m
+                            [36m<Text[39m
+                              [33mrole[39m=[32m"heading"[39m
+                            [36m>[39m
+                              [0m프로필[0m
+                            [36m</Text>[39m
+                            [36m<Text>[39m
+                              [0m모의 로그인 · 실제 Google 계정과 연결되지 않아요.[0m
+                            [36m</Text>[39m
+                            [36m<View>[39m
+                              [36m<Text>[39m
+                                [0m로그인하지 않은 상태예요.[0m
+                              [36m</Text>[39m
+                              [36m<Text>[39m
+                                [0m기사는 자유롭게 읽고, 로그인하면 좋아요와 저장 목록을 사용할 수 있어요.[0m
+                              [36m</Text>[39m
+                              [36m<View[39m
+                                [33maccessibilityHint[39m=[32m"모의 로그인 화면을 엽니다"[39m
+                                [33maccessibilityLabel[39m=[32m"모의 로그인 시작"[39m
+                                [33maccessible[39m=[32m{true}[39m
+                                [33mrole[39m=[32m"button"[39m
+                              [36m>[39m
+                                [36m<Text>[39m
+                                  [0m로그인[0m
+                                [36m</Text>[39m
+                              [36m</View>[39m
+                            [36m</View>[39m
+                          [36m</View>[39m
+                        [36m</RCTScrollView>[39m
+                      [36m</RNCSafeAreaView>[39m
+                    [36m</View>[39m
+                  [36m</View>[39m
+                [36m</RNSScreen>[39m
+              [36m</RNSScreenNavigationContainer>[39m
+              [36m<View[39m
+                [33maccessibilityLabel[39m=[32m"주요 메뉴"[39m
+                [33mrole[39m=[32m"tablist"[39m
+              [36m>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"홈"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": true,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGPath />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"탐색"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGCircle />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"라이브러리"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGPath />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+                [36m<View[39m
+                  [33maccessibilityLabel[39m=[32m"프로필"[39m
+                  [33maccessibilityState[39m=[32m{
+                    {
+                      "selected": false,
+                    }
+                  }[39m
+                  [33maccessible[39m=[32m{true}[39m
+                  [33mrole[39m=[32m"tab"[39m
+                [36m>[39m
+                  [36m<RNSVGSvgView[39m
+                    [33maccessible[39m=[32m{false}[39m
+                    [33maria-hidden[39m=[32m{true}[39m
+                  [36m>[39m
+                    [36m<RNSVGGroup>[39m
+                      [36m<RNSVGCircle />[39m
+                      [36m<RNSVGPath />[39m
+                    [36m</RNSVGGroup>[39m
+                  [36m</RNSVGSvgView>[39m
+                [36m</View>[39m
+              [36m</View>[39m
+            [36m</View>[39m
+          [36m</RNSScreenContentWrapper>[39m
+          [36m<RNSScreenStackHeaderConfig[39m
+            [33mpointerEvents[39m=[32m"box-none"[39m
+            [33mtitle[39m=[32m"Main"[39m
+          [36m/>[39m
+        [36m</RNSScreen>[39m
+      [36m</RNSScreenStack>[39m
+    [36m</View>[39m
+
+      35 |       expect(screen.getByRole('heading', { name: title })).toBeVisible();
+      36 |       if (title === '홈') {
+    > 37 |         expect(screen.getByText('예시 콘텐츠')).toBeVisible();
+         |                       ^
+      38 |       } else if (title === '탐색') {
+      39 |         expect(screen.getByRole('button', { name: '기사 검색 열기' })).toBeVisible();
+      40 |         expect(screen.getByRole('heading', { name: '읽어볼 기사' })).toBeVisible();
+
+      at Object.getByText (src/app/App.test.tsx:37:23)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS iOS src/app/navigation/LikeNavigation.test.tsx
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/app/navigation/SearchNavigation.test.tsx
+PASS iOS src/features/bookmarks/LibraryInteractions.test.tsx
+PASS iOS src/app/navigation/ArticleRouteScreen.test.tsx
+PASS iOS src/features/feed/useFeed.test.ts
+PASS iOS src/features/bookmarks/createLibraryStore.test.ts
+PASS iOS src/features/auth/createAuthStore.test.ts
+PASS Android src/app/navigation/ListManagementNavigation.test.tsx (17.381 s)
+PASS Android src/app/navigation/SettingsNavigation.test.tsx (18.625 s)
+PASS Android src/features/bookmarks/createUserListStore.test.ts
+PASS Android src/features/article/ExplanationSection.test.tsx
+PASS Android src/features/bookmarks/createBookmarkStore.test.ts
+PASS Android src/app/navigation/ProfileNavigation.test.tsx (5.796 s)
+PASS Android src/features/settings/SettingsScreen.test.tsx (9.026 s)
+PASS Android src/features/likes/createLikeStore.test.ts
+PASS Android src/features/profile/createProfileStore.test.ts
+PASS Android src/app/navigation/AuthBoundaryNavigation.test.tsx
+PASS Android src/features/article/ArticleDetailScreen.test.tsx
+PASS Android src/features/likes/ArticleLikeControl.test.tsx
+PASS Android src/features/settings/createReadingSettingsStore.test.ts
+PASS Android src/app/navigation/AppNavigator.test.tsx
+PASS Android src/features/article/ExplanationPreference.test.tsx
+PASS Android src/features/profile/ProfileProvider.test.tsx
+PASS Android src/features/likes/data/createMockLikeSource.test.ts
+PASS Android src/features/bookmarks/data/createMockUserListSource.test.ts
+PASS Android src/features/bookmarks/data/createMockBookmarkSource.test.ts
+PASS Android src/app/navigation/ExplanationBackStack.test.tsx
+PASS Android src/features/profile/profileValidation.test.ts
+PASS Android src/features/article/data/mockExplanationSource.test.ts
+PASS Android src/features/search/data/mockSearchSource.test.ts
+PASS Android src/features/auth/data/createMockAuthSource.test.ts
+PASS Android src/features/article/data/mockArticleSource.test.ts
+PASS Android src/features/feed/data/mockFeedSource.test.ts
+PASS iOS src/app/navigation/AuthNavigation.test.tsx (19.881 s)
+PASS iOS src/app/navigation/SettingsNavigation.test.tsx (18.334 s)
+PASS iOS src/app/navigation/ListManagementNavigation.test.tsx (17.038 s)
+PASS iOS src/features/settings/SettingsScreen.test.tsx (8.711 s)
+PASS iOS src/app/navigation/BookmarkNavigation.test.tsx (6.546 s)
+PASS Android src/features/search/SearchScreen.test.tsx (7.067 s)
+PASS Android src/app/navigation/BookmarkNavigation.test.tsx (6.561 s)
+PASS iOS src/app/navigation/ProfileNavigation.test.tsx (5.755 s)
+PASS Android src/features/profile/ProfileScreen.test.tsx (5.48 s)
+PASS Android src/app/App.test.tsx
+PASS iOS src/app/navigation/AuthBoundaryNavigation.test.tsx

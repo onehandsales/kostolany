@@ -1,0 +1,57 @@
+FE/src/app/navigation/AppNavigator.tsx 64ms
+FE/src/app/navigation/ArticleRouteScreen.tsx 12ms
+FE/src/app/navigation/BottomTabBar.tsx 11ms (unchanged)
+FE/src/app/navigation/MainTabs.tsx 10ms
+FE/src/app/navigation/ProfileNavigator.tsx 7ms (unchanged)
+FE/src/app/navigation/ProfileRouteScreen.tsx 3ms
+FE/src/features/article/ArticleDetailScreen.tsx 27ms
+FE/src/features/article/ReferenceArticleFooter.tsx 30ms
+FE/src/features/article/ReferenceArticleView.tsx 45ms
+FE/src/features/article/data/explanationFixtures.ts 19ms
+FE/src/features/article/data/fixtures.ts 10ms
+FE/src/features/article/data/referenceArticleContent.ts 5ms
+FE/src/features/article/types.ts 3ms (unchanged)
+FE/src/features/auth/AuthDialogs.tsx 44ms
+FE/src/features/bookmarks/ArticleBookmarkControl.tsx 17ms
+FE/src/features/bookmarks/BookmarkIcon.tsx 4ms
+FE/src/features/bookmarks/LibraryListCard.tsx 18ms
+FE/src/features/bookmarks/LibraryScreen.tsx 26ms
+FE/src/features/bookmarks/LibrarySheet.tsx 14ms
+FE/src/features/bookmarks/ListActions.tsx 15ms
+FE/src/features/bookmarks/ListEditorSheet.tsx 26ms
+FE/src/features/bookmarks/ListStoryCard.tsx 52ms
+FE/src/features/bookmarks/ReadingListScreen.tsx 42ms
+FE/src/features/bookmarks/SaveToListSheet.tsx 97ms
+FE/src/features/bookmarks/createUserListStore.ts 153ms
+FE/src/features/bookmarks/data/bookmarkFixtures.ts 16ms
+FE/src/features/bookmarks/data/createMockUserListSource.ts 54ms
+FE/src/features/bookmarks/hasInvalidListMetadata.ts 3ms
+FE/src/features/bookmarks/listTypes.ts 10ms
+FE/src/features/feed/HomeFeedScreen.tsx 32ms
+FE/src/features/feed/components/ArticleCard.tsx 27ms
+FE/src/features/feed/components/FeedSortTabs.tsx 73ms
+FE/src/features/feed/components/ReferenceArticleCard.tsx 25ms
+FE/src/features/feed/data/feedPreview.ts 9ms
+FE/src/features/feed/data/mediumExploreExtras.ts 16ms
+FE/src/features/feed/data/mediumFixtures.ts 21ms
+FE/src/features/feed/data/mediumLibraryFixtures.ts 8ms
+FE/src/features/feed/data/mockFeedSource.ts 11ms
+FE/src/features/feed/types.ts 3ms (unchanged)
+FE/src/features/likes/ArticleLikeControl.tsx 24ms
+FE/src/features/likes/data/createMockLikeSource.ts 9ms
+FE/src/features/profile/ProfileEditorSheet.tsx 54ms (unchanged)
+FE/src/features/profile/ProfileLists.tsx 15ms (unchanged)
+FE/src/features/profile/ProfileScreen.tsx 54ms (unchanged)
+FE/src/features/search/ExploreSections.tsx 21ms
+FE/src/features/search/SearchCard.tsx 12ms
+FE/src/features/search/SearchScreen.tsx 34ms
+FE/src/features/search/data/mockSearchSource.ts 11ms
+FE/src/features/settings/SettingsScreen.tsx 36ms
+FE/src/shared/theme/tokens.ts 5ms
+FE/src/shared/ui/ActionMenu.tsx 11ms
+FE/src/shared/ui/AppIcon.tsx 7ms
+FE/src/shared/ui/IconButton.tsx 5ms
+FE/src/shared/ui/ProviderIcon.tsx 4ms
+FE/src/shared/ui/ReferenceNotice.tsx 5ms
+FE/src/shared/ui/TabIcon.tsx 5ms
+FE/src/shared/ui/WriteButton.tsx 5ms

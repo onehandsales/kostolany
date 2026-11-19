@@ -1,11 +1,14 @@
 # 프론트엔드 Goal별 작업 계획
 
+2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
+
+후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.
 작성일: 2026-11-17  
 현재 작업 위치: `/Users/jaegeunsong/Desktop/workplace/kostolany/FE`
 
 현재 규칙 위치: `/Users/jaegeunsong/Desktop/workplace/kostolany/AGENT`
 
-현재 상태: [Goal 14](FE_GOAL_14_RESULT.md)의 규칙 검토·수정·재검토를 수행했다. 타입·lint·전체 테스트 614건(80 suites), 양 플랫폼 JS/Hermes 번들·8081 실제 흐름을 확인했다. **코드·자동/브라우저 검증 완료 / 실제 기기·네이티브 검증 대기**다. Goal 13 당시 608건과 기존 결과 기록은 보존하며 이번 실행 결과와 구분한다. 프론트엔드 mock 검증을 전체 서비스 MVP·출시 완료로 표현하지 않는다.
+현재 결과: [Goal21 최종 보고](FE_GOAL_21_RESULT.md) · [Goal14~21 계획/상태](FE_MEDIUM_CLONE_GOALS.md) · [최종 원본/구현 비교](evidence/goal21/COMPARISON.html). 아래 Goal1~13과 이후 단계별 진행 메모는 당시 이력이며 현재 실행 결과와 구분한다. 프론트엔드 mock 검증을 전체 서비스 MVP·출시 완료로 표현하지 않는다.
 
 결과: [Goal 1 결과](FE_GOAL_01_RESULT.md) · [Goal 2 결과](FE_GOAL_02_RESULT.md) · [Goal 3 결과](FE_GOAL_03_RESULT.md) · [Goal 4 결과](FE_GOAL_04_RESULT.md) · [Goal 5 결과](FE_GOAL_05_RESULT.md) · [Goal 6 결과](FE_GOAL_06_RESULT.md) · [Goal 7 결과](FE_GOAL_07_RESULT.md) · [Goal 8 결과](FE_GOAL_08_RESULT.md) · [Goal 9 결과](FE_GOAL_09_RESULT.md) · [Goal 10 결과](FE_GOAL_10_RESULT.md) · [Goal 11 결과](FE_GOAL_11_RESULT.md) · [Goal 12 결과](FE_GOAL_12_RESULT.md) · [Goal 13 결과](FE_GOAL_13_RESULT.md). 문서 최초 작성 시 FE 폴더에는 실행 코드가 없었다. 아래 최초 작성 이력과 Goal 1 요청문의 Windows 경로는 당시 기록이다.
 
@@ -252,3 +255,9 @@ Goal 2는 자동으로 시작하지 마.
 - Goal 생성, 패키지 설치, 앱 코드 작성, 앱 테스트·빌드·실행은 수행하지 않았다.
 - 앞선 Medium 조사 결과는 참고 근거이며, 이 계획 문서 작성 과정에서 새 화면을 조회했다고 주장하지 않는다.
 - 2026-11-19: Goal 14~21의 후속 계획과 각 Goal의 두 차례 검토 절차·요청문을 문서화했다. FE 코드 수정·Goal 실행·커밋은 수행하지 않았다. Goal 13 목록의 남아 있던 미착수 표기는 기존 결과 문서의 상태와 맞췄다.
+
+- Medium clone Goal 17: 기사/저장 시트 구현과 두 검토, 관련 84 tests 및 8081 검증 완료. 폰트·아이콘 차이/native 대기. [결과](FE_GOAL_17_RESULT.md). 연속 Goal 18 진행; 15 이후 미커밋.
+
+- Medium clone Goal 18: 라이브러리/목록 UI·로컬 설명/Private·두 검토·관련 자동/브라우저 검증 완료. 원본 차이와 native 대기는 TODO/FE_GOAL_18_RESULT.md 참조. 연속 Goal 19 진행; 15 이후 미커밋.
+
+- Medium clone Goal 19: 소개/모의 인증/로그아웃 UI와 두 검토·관련 자동/브라우저 검증 완료. TODO/FE_GOAL_19_RESULT.md 참조. 연속 Goal20 진행, 원본 차이/native 대기, 미커밋.

@@ -1,0 +1,30 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=HomeFeedScreen|SearchScreen|mockFeedSource|mockSearchSource|mockArticleSource|mockExplanationSource|mediumCatalog|ArticleLikeControl|ArticleBookmarkControl|SearchNavigation
+
+PASS iOS src/features/search/SearchScreen.test.tsx (8.314 s)
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/app/navigation/SearchNavigation.test.tsx
+PASS iOS src/features/article/data/mockExplanationSource.test.ts
+PASS Android src/features/likes/ArticleLikeControl.test.tsx
+PASS Android src/features/feed/data/mediumCatalog.test.ts
+PASS iOS src/features/feed/data/mediumCatalog.test.ts
+PASS Android src/features/article/data/mockExplanationSource.test.ts
+PASS Android src/features/search/data/mockSearchSource.test.ts
+PASS Android src/features/article/data/mockArticleSource.test.ts
+PASS Android src/features/feed/data/mockFeedSource.test.ts
+PASS Android src/features/search/SearchScreen.test.tsx (7.413 s)
+PASS Android src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/feed/HomeFeedScreen.test.tsx
+PASS Android src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS iOS src/features/bookmarks/ArticleBookmarkControl.test.tsx
+PASS iOS src/features/likes/ArticleLikeControl.test.tsx
+PASS iOS src/features/search/data/mockSearchSource.test.ts
+PASS iOS src/features/article/data/mockArticleSource.test.ts
+PASS iOS src/features/feed/data/mockFeedSource.test.ts
+
+Test Suites: 20 passed, 20 total
+Tests:       102 passed, 102 total
+Snapshots:   0 total
+Time:        34.562 s, estimated 36 s
+Ran all test suites matching /HomeFeedScreen|SearchScreen|mockFeedSource|mockSearchSource|mockArticleSource|mockExplanationSource|mediumCatalog|ArticleLikeControl|ArticleBookmarkControl|SearchNavigation/i in 2 projects.

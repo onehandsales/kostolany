@@ -1,0 +1,10 @@
+{
+  "passed": [
+    "profile read-error retry",
+    "profile save-error retry",
+    "settings read-error retry",
+    "settings save-error retry"
+  ],
+  "errors": [],
+  "configsRestored": true
+}

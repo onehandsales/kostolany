@@ -1,0 +1,44 @@
+{
+  "audit": [
+    {
+      "screen": "Home320",
+      "small": []
+    },
+    {
+      "screen": "Search320",
+      "small": []
+    },
+    {
+      "screen": "Profile320",
+      "small": []
+    },
+    {
+      "screen": "Settings320",
+      "small": []
+    },
+    {
+      "screen": "ListEditor320",
+      "small": []
+    },
+    {
+      "screen": "Library320",
+      "small": []
+    },
+    {
+      "screen": "ArticleTopics320",
+      "small": []
+    },
+    {
+      "screen": "ArticleResponses320",
+      "small": []
+    }
+  ],
+  "errors": [],
+  "passed": [
+    "Escape profile/settings/list editor/menu",
+    "web focus after close",
+    "synthetic composition search",
+    "320 CSS150 Korean emoji/multiline/close"
+  ],
+  "limits": "Desktop DOM/CSS/synthetic input only; not OS Dynamic Type, native keyboard/IME, VoiceOver or TalkBack"
+}

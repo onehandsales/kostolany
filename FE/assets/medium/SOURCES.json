@@ -1,0 +1,452 @@
+[
+  {
+    "asset": "FE/assets/medium/chimichurri.png",
+    "source": "medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
+    "cropPhysicalPixels": [
+      867,
+      981,
+      1107,
+      1149
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/challenged.png",
+    "source": "medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
+    "cropPhysicalPixels": [
+      72,
+      885,
+      144,
+      957
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mind-flower.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      867,
+      462,
+      1107,
+      630
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mind-logo.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      72,
+      367,
+      144,
+      439
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/horse.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      867,
+      1131,
+      1107,
+      1299
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/caroline.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      72,
+      1035,
+      144,
+      1107
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/sunset.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      867,
+      1800,
+      1107,
+      1968
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/know-thyself.png",
+    "source": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
+    "cropPhysicalPixels": [
+      72,
+      1704,
+      144,
+      1776
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/bernie.png",
+    "source": "medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png",
+    "cropPhysicalPixels": [
+      72,
+      845,
+      168,
+      941
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/alfred.png",
+    "source": "medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png",
+    "cropPhysicalPixels": [
+      72,
+      2105,
+      168,
+      2201
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/prompt-bible.png",
+    "source": "medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png",
+    "cropPhysicalPixels": [
+      72,
+      430,
+      1107,
+      949
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/gemini.png",
+    "source": "medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png",
+    "cropPhysicalPixels": [
+      72,
+      1635,
+      1107,
+      2154
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/love.png",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "cropPhysicalPixels": [
+      867,
+      773,
+      1107,
+      933
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/evening.png",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "cropPhysicalPixels": [
+      867,
+      1516,
+      1107,
+      1676
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/kris.png",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "cropPhysicalPixels": [
+      72,
+      662,
+      132,
+      722
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/advice.png",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "cropPhysicalPixels": [
+      72,
+      1404,
+      132,
+      1464
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/jeremiah.png",
+    "source": "medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+    "cropPhysicalPixels": [
+      72,
+      2224,
+      132,
+      2284
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/brain.png",
+    "source": "medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+    "cropPhysicalPixels": [
+      72,
+      1269,
+      1107,
+      1959
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/jordan.png",
+    "source": "medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+    "cropPhysicalPixels": [
+      72,
+      1077,
+      168,
+      1173
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/ide.png",
+    "source": "medium/flows/Home/screens/02_sc_1ef4e2f769774d2c958fcb38b96dc94f.png",
+    "cropPhysicalPixels": [
+      867,
+      1258,
+      1107,
+      1418
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/coding.png",
+    "source": "medium/flows/Home/screens/02_sc_1ef4e2f769774d2c958fcb38b96dc94f.png",
+    "cropPhysicalPixels": [
+      72,
+      1146,
+      132,
+      1206
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/trauma.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      867,
+      649,
+      1107,
+      809
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/awareness.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      867,
+      1331,
+      1107,
+      1491
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/vinyl.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      867,
+      2042,
+      1107,
+      2202
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mitch.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      72,
+      537,
+      132,
+      597
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/lalithaa.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      72,
+      1219,
+      132,
+      1279
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/ironkeel.png",
+    "source": "medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png",
+    "cropPhysicalPixels": [
+      72,
+      1962,
+      132,
+      2022
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/ux.png",
+    "source": "medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png",
+    "cropPhysicalPixels": [
+      138,
+      1001,
+      198,
+      1061
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/thomas.png",
+    "source": "medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png",
+    "cropPhysicalPixels": [
+      138,
+      1431,
+      198,
+      1491
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/scott.png",
+    "source": "medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png",
+    "cropPhysicalPixels": [
+      138,
+      1799,
+      198,
+      1859
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/eh.png",
+    "source": "medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png",
+    "cropPhysicalPixels": [
+      138,
+      2167,
+      198,
+      2227
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/curious.png",
+    "source": "medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png",
+    "cropPhysicalPixels": [
+      867,
+      773,
+      1107,
+      933
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/forgiven.png",
+    "source": "medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png",
+    "cropPhysicalPixels": [
+      867,
+      1516,
+      1107,
+      1676
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/thinkers.png",
+    "source": "medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png",
+    "cropPhysicalPixels": [
+      72,
+      662,
+      132,
+      722
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/podcast.png",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "cropPhysicalPixels": [
+      72,
+      525,
+      888,
+      1017
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/staff-fragment.png",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "cropPhysicalPixels": [
+      960,
+      525,
+      1179,
+      1017
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/colin.png",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "cropPhysicalPixels": [
+      72,
+      1053,
+      132,
+      1113
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/wilson.png",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "cropPhysicalPixels": [
+      72,
+      1779,
+      132,
+      1839
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/ronan.png",
+    "source": "medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png",
+    "cropPhysicalPixels": [
+      72,
+      2179,
+      132,
+      2239
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mcp.png",
+    "source": "medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png",
+    "cropPhysicalPixels": [
+      72,
+      1,
+      132,
+      61
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/obsidian.png",
+    "source": "medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png",
+    "cropPhysicalPixels": [
+      72,
+      432,
+      132,
+      492
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/iris.png",
+    "source": "medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png",
+    "cropPhysicalPixels": [
+      144,
+      1173,
+      336,
+      1365
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/coinmonks.png",
+    "source": "medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png",
+    "cropPhysicalPixels": [
+      904,
+      1173,
+      1096,
+      1365
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/daily-dollar.png",
+    "source": "medium/flows/Explore/screens/06_sc_dfdd5f6377a848c59b3512417cb47490.png",
+    "cropPhysicalPixels": [
+      93,
+      1173,
+      285,
+      1365
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/alex-mathers.png",
+    "source": "medium/flows/Explore/screens/06_sc_dfdd5f6377a848c59b3512417cb47490.png",
+    "cropPhysicalPixels": [
+      847,
+      1173,
+      1039,
+      1365
+    ]
+  }
+]

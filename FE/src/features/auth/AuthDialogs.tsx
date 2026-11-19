@@ -1,8 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Modal,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors } from '../../shared/theme/tokens';
+import { IconButton } from '../../shared/ui/IconButton';
+import { ProviderIcon, type ProviderName } from '../../shared/ui/ProviderIcon';
+import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { colors, fonts } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { useAuth } from './AuthProvider';
 import { authStyles } from './authStyles';
@@ -10,8 +22,10 @@ import { mockUserA, mockUsers } from './data/mockUsers';
 import type { AuthScenario, LogoutScenario } from './types';
 
 const scenarios: readonly { value: AuthScenario; label: string }[] = [
-  { value: 'success', label: '성공' }, { value: 'cancel', label: '사용자 취소' },
-  { value: 'failure', label: '실패' }, { value: 'slow', label: '느린 성공 (4초)' },
+  { value: 'success', label: '성공' },
+  { value: 'cancel', label: '사용자 취소' },
+  { value: 'failure', label: '실패' },
+  { value: 'slow', label: '느린 성공 (4초)' },
 ];
 
 type AuthDialogsProps = { profileName?: string };
@@ -21,7 +35,10 @@ export function AuthDialogs({ profileName }: AuthDialogsProps) {
   const { state } = useAuth();
   const wasOpen = useRef(false);
   useEffect(() => {
-    if (state.dialog) { wasOpen.current = true; return; }
+    if (state.dialog) {
+      wasOpen.current = true;
+      return;
+    }
     if (!wasOpen.current) return;
     wasOpen.current = false;
     const frame = requestAnimationFrame(restoreModalFocus);
@@ -34,6 +51,9 @@ export function AuthDialogs({ profileName }: AuthDialogsProps) {
 
 function LoginDialog() {
   const { state, store } = useAuth();
+  const { width } = useWindowDimensions();
+  const [isJoining, setJoining] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const [userId, setUserId] = useState(mockUserA.id);
   const [scenario, setScenario] = useState<AuthScenario>('success');
   const dialog = state.dialog;
@@ -41,45 +61,121 @@ function LoginDialog() {
   const isPending = dialog.status === 'pending';
   const hasError = dialog.status === 'error';
   const isLocked = isPending || hasError;
-  return <Modal animationType="fade" accessibilityLabel="모의 로그인" onRequestClose={store.closeDialog}>
-    <SafeAreaView style={authStyles.screen}>
-      <ScrollView contentContainerStyle={styles.login}>
-        <Pressable role="button" accessibilityLabel="로그인 닫기" onPress={store.closeDialog}
-          style={[authStyles.link, styles.close]}><Text style={authStyles.buttonText}>닫기</Text></Pressable>
-        <Text style={styles.brand}>Kostolany</Text>
-        <View style={styles.intro}>
-          <Text role="heading" style={styles.headline}>읽고, 이해하고,{'\n'}나의 생각으로.</Text>
-          <Text style={styles.description}>나의 독서와 관심을 이어가세요.</Text>
+  const providers: readonly ProviderName[] = isJoining
+    ? ['Google', 'Facebook', 'Apple', 'Email']
+    : ['Google', 'Facebook', 'Apple', 'X', 'Email'];
+  function handleProviderPress(provider: ProviderName): void {
+    if (provider !== 'Google') {
+      setNotice(`${provider} authentication`);
+      return;
+    }
+    if (hasError) store.retry();
+    else void store.signIn(userId, scenario);
+  }
+  return (
+    <Modal animationType="fade" accessibilityLabel="모의 로그인" onRequestClose={store.closeDialog}>
+      <SafeAreaView style={authStyles.screen}>
+        <View style={styles.authHeader}>
+          <Text style={styles.brand}>Medium</Text>
+          <View style={styles.loginTop}>
+            <Text style={styles.mockBadge}>MOCK · no real authentication</Text>
+            <IconButton icon="close" label="로그인 닫기" onPress={store.closeDialog} size={20} />
+          </View>
         </View>
-        <Text style={styles.mockLabel}>모의 로그인 · 실제 Google 인증이 아닙니다</Text>
-        <View style={styles.choices}>
-          {mockUsers.map((user) => <Pressable key={user.id} accessibilityRole="radio"
-            accessibilityLabel={user.name} accessibilityState={{ checked: userId === user.id, disabled: isLocked }}
-            disabled={isLocked} onPress={() => setUserId(user.id)}
-            style={[styles.choice, userId === user.id && styles.selected, isLocked && authStyles.disabled]}>
-            <Text style={authStyles.buttonText}>{user.name}</Text>
-          </Pressable>)}
-        </View>
-        {hasError ? <View style={styles.feedback}>
-          <Text role="alert" style={authStyles.error}>로그인하지 못했어요. 선택한 독자로 다시 시도해 주세요.</Text>
-          <Pressable role="button" onPress={store.retry} style={authStyles.button}>
-            <Text style={authStyles.buttonText}>로그인 다시 시도</Text>
+        <ScrollView contentContainerStyle={styles.login}>
+          <Text role="heading" style={[styles.headline, width < 360 && styles.smallHeadline]}>
+            Human{'\n'}stories and{'\n'}ideas.
+          </Text>
+          <Text style={styles.description}>Discover perspectives that deepen{'\n'}understanding.</Text>
+          <View style={styles.providers}>
+            {hasError && (
+              <Text role="alert" style={authStyles.error}>
+                로그인하지 못했어요. 선택한 독자로 다시 시도해 주세요.
+              </Text>
+            )}
+            {providers.map((provider) => (
+              <Pressable
+                key={provider}
+                role="button"
+                accessibilityLabel={
+                  provider === 'Google'
+                    ? hasError
+                      ? '로그인 다시 시도'
+                      : 'Google로 로그인 (모의)'
+                    : `Sign ${isJoining ? 'up' : 'in'} with ${provider}`
+                }
+                accessibilityState={{ disabled: isPending, busy: provider === 'Google' && isPending }}
+                disabled={isPending}
+                onPress={() => handleProviderPress(provider)}
+                style={styles.providerTarget}
+              >
+                <View style={styles.providerPill}>
+                  <View style={styles.providerIcon}>
+                    {provider === 'Google' && isPending ? (
+                      <ActivityIndicator color={colors.text} />
+                    ) : (
+                      <ProviderIcon provider={provider} />
+                    )}
+                  </View>
+                  <Text style={styles.providerLabel}>
+                    {provider === 'Google' && isPending
+                      ? 'Signing in…'
+                      : provider === 'Google' && hasError
+                        ? 'Try again with Google'
+                        : `Sign ${isJoining ? 'up' : 'in'} with ${provider}`}
+                  </Text>
+                </View>
+              </Pressable>
+            ))}
+          </View>
+          <Pressable
+            role="button"
+            accessibilityLabel={isJoining ? 'Sign in' : 'Create account'}
+            disabled={isLocked}
+            accessibilityState={{ disabled: isLocked }}
+            onPress={() => setJoining(!isJoining)}
+            style={styles.joinLink}
+          >
+            <Text style={styles.joinText}>
+              {isJoining ? 'Already have an account?  ' : 'New here?  '}
+              <Text style={styles.green}>{isJoining ? 'Sign in.' : 'Create account.'}</Text>
+            </Text>
           </Pressable>
-        </View> : <Pressable role="button" accessibilityLabel="Google로 로그인 (모의)"
-          accessibilityState={{ disabled: isPending, busy: isPending }} disabled={isPending}
-          onPress={() => { void store.signIn(userId, scenario); }}
-          style={[authStyles.button, styles.google, isPending && authStyles.disabled]}>
-          {isPending ? <ActivityIndicator color={colors.text} /> : <Text aria-hidden style={styles.googleMark}>G</Text>}
-          <Text style={[authStyles.buttonText, styles.flexText]}>{isPending ? '로그인 처리 중…' : 'Google로 로그인 (모의)'}</Text>
-        </Pressable>}
-        <Text aria-live="polite" style={authStyles.secondary}>{isPending ? '닫기를 누르면 로그인 요청을 취소해요.'
-          : dialog.context.kind === 'like' || dialog.context.kind === 'bookmark'
-            ? '로그인 후 읽던 화면으로 돌아가요. 좋아요나 저장은 다시 눌러 주세요.'
-            : '로그인 후 이 화면으로 돌아가요.'}</Text>
-        <ScenarioPicker selected={scenario} onSelect={setScenario} disabled={isLocked} />
-      </ScrollView>
-    </SafeAreaView>
-  </Modal>;
+          <View style={styles.mockPanel}>
+            <Text style={styles.mockLabel}>모의 로그인 · 실제 Google 인증이 아닙니다</Text>
+            <View style={styles.choices}>
+              {mockUsers.map((user) => (
+                <Pressable
+                  key={user.id}
+                  accessibilityRole="radio"
+                  accessibilityLabel={user.name}
+                  accessibilityState={{ checked: userId === user.id, disabled: isLocked }}
+                  disabled={isLocked}
+                  onPress={() => setUserId(user.id)}
+                  style={[
+                    styles.choice,
+                    userId === user.id && styles.selected,
+                    isLocked && authStyles.disabled,
+                  ]}
+                >
+                  <Text style={authStyles.buttonText}>{user.name}</Text>
+                </Pressable>
+              ))}
+            </View>
+            <Text aria-live="polite" style={authStyles.secondary}>
+              {isPending
+                ? '닫기를 누르면 로그인 요청을 취소해요.'
+                : dialog.context.kind === 'like' || dialog.context.kind === 'bookmark'
+                  ? '로그인 후 읽던 화면으로 돌아가요. 좋아요나 저장은 다시 눌러 주세요.'
+                  : '로그인 후 이 화면으로 돌아가요.'}
+            </Text>
+            <ScenarioPicker selected={scenario} onSelect={setScenario} disabled={isLocked} />
+          </View>
+        </ScrollView>
+        <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+      </SafeAreaView>
+    </Modal>
+  );
 }
 
 function LogoutDialog({ profileName }: LogoutDialogProps) {
@@ -89,79 +185,248 @@ function LogoutDialog({ profileName }: LogoutDialogProps) {
   if (dialog?.kind !== 'logout') return null;
   const isPending = dialog.status === 'pending';
   const hasError = dialog.status === 'error';
-  return <Modal transparent animationType="fade" accessibilityLabel="로그아웃 확인" onRequestClose={store.closeDialog}>
-    <SafeAreaView style={styles.backdrop}>
-      <View accessibilityViewIsModal style={styles.confirmation}>
-        <ScrollView contentContainerStyle={styles.confirmContent}>
-          <Text role="heading" style={styles.confirmTitle}>로그아웃할까요?</Text>
-          <Text style={authStyles.text}>{profileName ?? '로그인한 독자'}의 프로필·좋아요와 저장 목록은 이 앱을 새로고침하거나 종료하기 전까지 남아 있어요.</Text>
-          {isPending && <View style={styles.feedback}><ActivityIndicator color={colors.text} />
-            <Text aria-live="polite" style={authStyles.secondary}>로그아웃 처리 중… 취소하면 로그인 상태를 유지해요.</Text></View>}
-          {hasError && <Text role="alert" style={authStyles.error}>로그아웃하지 못했어요. 로그인 상태를 유지했어요.</Text>}
-          <View style={styles.actions}>
-            <Pressable role="button" onPress={store.closeDialog} style={[authStyles.button, styles.action]}>
-              <Text style={authStyles.buttonText}>로그아웃 취소</Text>
-            </Pressable>
-            <Pressable role="button" disabled={isPending} accessibilityState={{ disabled: isPending, busy: isPending }}
-              onPress={() => { if (hasError) store.retry(); else void store.signOut(scenario); }}
-              style={[authStyles.button, styles.action, isPending && authStyles.disabled]}>
-              <Text style={[authStyles.buttonText, styles.destructive]}>{hasError ? '로그아웃 다시 시도' : '로그아웃 확인'}</Text>
-            </Pressable>
-          </View>
-          <ScenarioPicker logout selected={scenario} disabled={isPending || hasError}
-            onSelect={(next) => { if (next !== 'cancel') setScenario(next); }} />
+  return (
+    <Modal
+      transparent
+      animationType="fade"
+      accessibilityLabel="로그아웃 확인"
+      onRequestClose={store.closeDialog}
+    >
+      <SafeAreaView accessibilityViewIsModal style={styles.backdrop}>
+        <View style={styles.confirmation}>
+          <ScrollView contentContainerStyle={styles.confirmContent}>
+            <Text role="heading" accessibilityLabel="로그아웃할까요?" style={styles.confirmTitle}>
+              Sign out
+            </Text>
+            <Text
+              accessibilityHint={`${profileName ?? 'Reader'} · local mock session`}
+              style={styles.confirmDescription}
+            >
+              Do you really want to sign out from the Medium app?
+            </Text>
+            {isPending && (
+              <View style={styles.feedback}>
+                <ActivityIndicator color={colors.text} />
+                <Text aria-live="polite" style={authStyles.secondary}>
+                  로그아웃 처리 중… 취소하면 로그인 상태를 유지해요.
+                </Text>
+              </View>
+            )}
+            {hasError && (
+              <Text role="alert" style={authStyles.error}>
+                로그아웃하지 못했어요. 로그인 상태를 유지했어요.
+              </Text>
+            )}
+            <View style={styles.actions}>
+              <Pressable
+                role="button"
+                accessibilityLabel="로그아웃 취소"
+                onPress={store.closeDialog}
+                style={[styles.action, styles.cancelAction]}
+              >
+                <Text style={styles.cancelLabel}>Cancel</Text>
+              </Pressable>
+              <Pressable
+                role="button"
+                accessibilityLabel={hasError ? '로그아웃 다시 시도' : '로그아웃 확인'}
+                disabled={isPending}
+                accessibilityState={{ disabled: isPending, busy: isPending }}
+                onPress={() => {
+                  if (hasError) store.retry();
+                  else void store.signOut(scenario);
+                }}
+                style={[styles.action, isPending && authStyles.disabled]}
+              >
+                <Text style={styles.destructive}>{hasError ? 'Retry' : 'Confirm'}</Text>
+              </Pressable>
+            </View>
+          </ScrollView>
+        </View>
+        <ScrollView style={styles.logoutMock}>
+          <ScenarioPicker
+            logout
+            selected={scenario}
+            disabled={isPending || hasError}
+            onSelect={(next) => {
+              if (next !== 'cancel') setScenario(next);
+            }}
+          />
         </ScrollView>
-      </View>
-    </SafeAreaView>
-  </Modal>;
+      </SafeAreaView>
+    </Modal>
+  );
 }
 
-function ScenarioPicker({ selected, onSelect, disabled, logout = false }: {
-  selected: AuthScenario; onSelect: (value: AuthScenario) => void; disabled: boolean; logout?: boolean;
+function ScenarioPicker({
+  selected,
+  onSelect,
+  disabled,
+  logout = false,
+}: {
+  selected: AuthScenario;
+  onSelect: (value: AuthScenario) => void;
+  disabled: boolean;
+  logout?: boolean;
 }) {
   const [expanded, setExpanded] = useState(false);
-  return <View>
-    <Pressable role="button" accessibilityState={{ expanded }} onPress={() => setExpanded(!expanded)} style={authStyles.link}>
-      <Text style={styles.scenarioLink}>모의 동작 선택 {expanded ? '접기' : '열기'}</Text>
-    </Pressable>
-    {expanded && <View style={styles.feedback}>
-      <Text style={authStyles.secondary}>실패 뒤 ‘다시 시도’는 성공하도록 구성한 예시입니다.</Text>
-      <View style={styles.choices}>
-        {scenarios.filter((item) => !logout || item.value !== 'cancel').map((item) => (
-          <Pressable key={item.value} accessibilityRole="radio" accessibilityLabel={`모의 결과: ${item.label}`}
-            disabled={disabled} accessibilityState={{ checked: selected === item.value, disabled }}
-            onPress={() => onSelect(item.value)} style={[styles.choice, selected === item.value && styles.selected,
-              disabled && authStyles.disabled]}><Text style={authStyles.buttonText}>{item.label}</Text></Pressable>
-        ))}
-      </View>
-    </View>}
-  </View>;
+  return (
+    <View>
+      <Pressable
+        role="button"
+        accessibilityState={{ expanded }}
+        onPress={() => setExpanded(!expanded)}
+        style={authStyles.link}
+      >
+        <Text style={styles.scenarioLink}>모의 동작 선택 {expanded ? '접기' : '열기'}</Text>
+      </Pressable>
+      {expanded && (
+        <View style={styles.feedback}>
+          <Text style={authStyles.secondary}>실패 뒤 ‘다시 시도’는 성공하도록 구성한 예시입니다.</Text>
+          <View style={styles.choices}>
+            {scenarios
+              .filter((item) => !logout || item.value !== 'cancel')
+              .map((item) => (
+                <Pressable
+                  key={item.value}
+                  accessibilityRole="radio"
+                  accessibilityLabel={`모의 결과: ${item.label}`}
+                  disabled={disabled}
+                  accessibilityState={{ checked: selected === item.value, disabled }}
+                  onPress={() => onSelect(item.value)}
+                  style={[
+                    styles.choice,
+                    selected === item.value && styles.selected,
+                    disabled && authStyles.disabled,
+                  ]}
+                >
+                  <Text style={authStyles.buttonText}>{item.label}</Text>
+                </Pressable>
+              ))}
+          </View>
+        </View>
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  login: { flexGrow: 1, width: '100%', maxWidth: 520, alignSelf: 'center', paddingHorizontal: 24,
-    paddingTop: 8, paddingBottom: 32, gap: 20 },
-  close: { alignSelf: 'flex-end', alignItems: 'center' },
-  brand: { fontSize: 30, lineHeight: 40, fontWeight: '700', color: colors.text, textAlign: 'center' },
-  intro: { paddingVertical: 24, gap: 20 },
-  headline: { fontSize: 36, lineHeight: 50, fontWeight: '600', color: colors.text, textAlign: 'center' },
-  description: { fontSize: 18, lineHeight: 28, color: colors.secondaryText, textAlign: 'center' },
+  authHeader: { minHeight: 72, paddingTop: 32, backgroundColor: colors.background },
+  loginTop: {
+    position: 'absolute',
+    top: 0,
+    right: 4,
+    left: 24,
+    zIndex: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  mockBadge: { fontSize: 10, lineHeight: 14, color: '#6b6b6b' },
+  login: {
+    flexGrow: 1,
+    width: '100%',
+    maxWidth: 520,
+    alignSelf: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 56,
+    paddingBottom: 32,
+  },
+  brand: {
+    fontFamily: fonts.wordmark,
+    fontSize: 30,
+    lineHeight: 40,
+    fontWeight: '700',
+    letterSpacing: -1.5,
+    color: 'black',
+    textAlign: 'center',
+  },
+  headline: {
+    fontFamily: fonts.serif,
+    fontSize: 72,
+    lineHeight: 80,
+    letterSpacing: -4,
+    color: colors.text,
+    textAlign: 'center',
+  },
+  smallHeadline: { fontSize: 60, lineHeight: 70, letterSpacing: -3 },
+  description: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: colors.secondaryText,
+    textAlign: 'center',
+    marginTop: 16,
+  },
+  providers: { marginTop: 43, gap: 10 },
+  providerTarget: { minHeight: 48, justifyContent: 'center' },
+  providerPill: {
+    minHeight: 42,
+    paddingHorizontal: 40,
+    paddingVertical: 8,
+    borderRadius: 32,
+    borderWidth: 1,
+    borderColor: colors.text,
+    justifyContent: 'center',
+  },
+  providerIcon: { position: 'absolute', left: 14 },
+  providerLabel: { fontSize: 16, lineHeight: 24, color: colors.text, textAlign: 'center' },
+  joinLink: { minHeight: 48, justifyContent: 'center', marginTop: 24 },
+  joinText: { fontSize: 14, lineHeight: 20, color: colors.text, textAlign: 'center' },
+  green: { color: '#18820f' },
+  mockPanel: { marginTop: 24, gap: 16, padding: 16, backgroundColor: colors.surface, borderRadius: 8 },
   mockLabel: { fontSize: 14, lineHeight: 22, color: '#146b0d', textAlign: 'center' },
-  google: { flexDirection: 'row', gap: 12 },
-  googleMark: { fontSize: 22, lineHeight: 28, fontWeight: '700', color: colors.text },
-  flexText: { flexShrink: 1 },
   choices: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  choice: { flexGrow: 1, flexBasis: 120, minHeight: 48, padding: 12, borderWidth: 1,
-    borderColor: colors.border, borderRadius: 12, justifyContent: 'center' },
+  choice: {
+    flexGrow: 1,
+    flexBasis: 120,
+    minHeight: 48,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    justifyContent: 'center',
+  },
   selected: { borderColor: colors.text, backgroundColor: '#f2f2f2' },
-  feedback: { gap: 16 },
-  scenarioLink: { fontSize: 14, lineHeight: 22, color: colors.secondaryText, textDecorationLine: 'underline' },
+  feedback: { gap: 16, padding: 16 },
+  scenarioLink: {
+    fontSize: 14,
+    lineHeight: 22,
+    color: colors.secondaryText,
+    textDecorationLine: 'underline',
+  },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.2)', justifyContent: 'center', padding: 24 },
-  confirmation: { maxHeight: '92%', width: '100%', maxWidth: 420, alignSelf: 'center',
-    borderRadius: 16, backgroundColor: colors.background, overflow: 'hidden' },
-  confirmContent: { padding: 24, gap: 24 },
-  confirmTitle: { fontSize: 22, lineHeight: 30, fontWeight: '700', color: colors.text, textAlign: 'center' },
-  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
-  action: { flexGrow: 1, flexBasis: 120 },
-  destructive: { color: '#a52a2a' },
+  confirmation: {
+    maxHeight: '70%',
+    width: '100%',
+    maxWidth: 270,
+    alignSelf: 'center',
+    borderRadius: 14,
+    backgroundColor: '#f2f2f2',
+    overflow: 'hidden',
+  },
+  confirmContent: { paddingTop: 20 },
+  confirmTitle: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: 'black', textAlign: 'center' },
+  confirmDescription: {
+    fontSize: 14,
+    lineHeight: 17,
+    color: 'black',
+    textAlign: 'center',
+    paddingHorizontal: 16,
+    marginTop: 4,
+    marginBottom: 20,
+  },
+  actions: { flexDirection: 'row', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#bbbbbb' },
+  action: { flex: 1, minHeight: 48, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
+  cancelAction: { borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: '#bbbbbb' },
+  cancelLabel: { fontSize: 18, lineHeight: 24, color: '#007aff', fontWeight: '600' },
+  destructive: { fontSize: 18, lineHeight: 24, color: '#ff453a' },
+  logoutMock: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+    bottom: 16,
+    maxHeight: '35%',
+    backgroundColor: 'white',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+  },
 });

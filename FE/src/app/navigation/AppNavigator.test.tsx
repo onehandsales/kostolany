@@ -17,7 +17,7 @@ describe('Home to article navigation', () => {
     const user = userEvent.setup();
     await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={feedSource} articleSource={articleSource} /></SafeAreaProvider>);
     await screen.findByRole('button', { name: /^금리가 오르면/ });
-    await user.press(screen.getByRole('tab', { name: '인기' }));
+    await user.press(screen.getByRole('tab', { name: 'Following' }));
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
     await user.press(await screen.findByRole('button', { name: /^고정금리와 변동금리/ }));
 
@@ -28,7 +28,7 @@ describe('Home to article navigation', () => {
     await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
 
     expect(screen.getByRole('heading', { name: '홈' })).toBeVisible();
-    expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Following' })).toBeSelected();
     expect(screen.getByRole('button', { name: /^고정금리와 변동금리/ })).toBeVisible();
     expect(screen.getByText('모든 기사를 확인했어요')).toBeVisible();
     expect(screen.queryByRole('button', { name: '홈으로 돌아가기' })).not.toBeOnTheScreen();

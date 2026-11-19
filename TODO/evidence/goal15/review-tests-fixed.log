@@ -1,0 +1,14 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=HomeFeedScreen|app/App.test
+
+PASS iOS src/app/App.test.tsx
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS Android src/features/feed/HomeFeedScreen.test.tsx
+PASS Android src/app/App.test.tsx
+
+Test Suites: 4 passed, 4 total
+Tests:       32 passed, 32 total
+Snapshots:   0 total
+Time:        14.199 s, estimated 15 s
+Ran all test suites matching /HomeFeedScreen|app\/App.test/i in 2 projects.

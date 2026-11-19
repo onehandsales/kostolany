@@ -5,7 +5,7 @@ import App from '../../App';
 
 async function renderApp() {
   await render(<App />);
-  await screen.findByRole('button', { name: /^금리가 오르면 예금과 대출/ });
+  await screen.findByRole('button', { name: /^How to \*really\*/ });
 }
 
 const mainMenu = () => within(screen.getByLabelText('주요 메뉴'));
@@ -15,7 +15,7 @@ describe('App tab navigation', () => {
     await renderApp();
 
     expect(screen.getByRole('heading', { name: '홈' })).toBeVisible();
-    expect(screen.getByText('예시 콘텐츠')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Notifications' })).toBeVisible();
     expect(mainMenu().getAllByRole('tab')).toHaveLength(4);
     for (const name of ['홈', '탐색', '라이브러리', '프로필']) {
       expect(screen.getByRole('tab', { name })).toBeVisible();
@@ -34,7 +34,7 @@ describe('App tab navigation', () => {
 
       expect(screen.getByRole('heading', { name: title })).toBeVisible();
       if (title === '홈') {
-        expect(screen.getByText('예시 콘텐츠')).toBeVisible();
+        expect(screen.getByRole('button', { name: 'Notifications' })).toBeVisible();
       } else if (title === '탐색') {
         expect(screen.getByRole('button', { name: '기사 검색 열기' })).toBeVisible();
         expect(screen.getByRole('heading', { name: '읽어볼 기사' })).toBeVisible();
@@ -94,13 +94,13 @@ describe('App tab navigation', () => {
   it('keeps the chosen feed when leaving Home and returning through the bottom tabs', async () => {
     const user = userEvent.setup();
     await renderApp();
-    await user.press(screen.getByRole('tab', { name: '인기' }));
-    await screen.findByRole('button', { name: /^현금을 보유한다는 건/ });
+    await user.press(screen.getByRole('tab', { name: 'Featured' }));
+    await screen.findByRole('button', { name: /^I Don’t Want/ });
     await user.press(screen.getByRole('tab', { name: '탐색' }));
     await user.press(screen.getByRole('tab', { name: '홈' }));
 
-    expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
-    expect(screen.getByRole('button', { name: /^현금을 보유한다는 건/ })).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'Featured' })).toBeSelected();
+    expect(screen.getByRole('button', { name: /^I Don’t Want/ })).toBeVisible();
     expect(mainMenu().getByRole('tab', { name: '홈' })).toBeSelected();
   });
 });

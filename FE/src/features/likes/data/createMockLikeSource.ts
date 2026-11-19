@@ -1,3 +1,4 @@
+import { mediumArticles } from '../../feed/data/mediumFixtures';
 import type { ArticleLike, LikeIdentity, LikeSource } from '../types';
 
 export const MOCK_READER_ID = 'example-reader';
@@ -5,6 +6,7 @@ export type LikeScenario = 'normal' | 'write-error' | 'unlike-error' | 'read-err
 
 // 수치는 다른 모의 독자의 반응을 나타내는 화면용 기본안이다.
 export const initialLikeCounts: Readonly<Record<string, number>> = {
+  ...Object.fromEntries(mediumArticles.map((article) => [article.id, article.reference?.applause ?? 0])),
   'example-latest-rates': 24,
   'example-latest-exchange': 0,
   'example-latest-housing': 8,
@@ -17,8 +19,12 @@ export const initialLikeCounts: Readonly<Record<string, number>> = {
   'example-recommended-time': 6,
 };
 
-export function createMockLikeSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 1800 : 350 }: {
-  scenario?: LikeScenario; delayMs?: number;
+export function createMockLikeSource({
+  scenario = 'normal',
+  delayMs = scenario === 'slow' ? 1800 : 350,
+}: {
+  scenario?: LikeScenario;
+  delayMs?: number;
 } = {}): LikeSource {
   const likesByUser = new Map<string, Map<string, ArticleLike>>();
   const failedRequests = new Set<string>();
@@ -26,7 +32,9 @@ export function createMockLikeSource({ scenario = 'normal', delayMs = scenario =
   function getArticleLike(identity: LikeIdentity): ArticleLike {
     const count = initialLikeCounts[identity.articleId];
     if (count === undefined || !identity.userId.trim()) throw new Error('Unknown mock like identity');
-    return likesByUser.get(identity.userId)?.get(identity.articleId) ?? { ...identity, isLiked: false, count };
+    return (
+      likesByUser.get(identity.userId)?.get(identity.articleId) ?? { ...identity, isLiked: false, count }
+    );
   }
 
   async function waitForResponse(): Promise<void> {
@@ -54,8 +62,11 @@ export function createMockLikeSource({ scenario = 'normal', delayMs = scenario =
         failOnce(JSON.stringify(['write', input.userId, input.articleId]));
       }
       const previous = getArticleLike(input);
-      const next = { ...previous, isLiked: input.liked,
-        count: previous.count + Number(input.liked) - Number(previous.isLiked) };
+      const next = {
+        ...previous,
+        isLiked: input.liked,
+        count: previous.count + Number(input.liked) - Number(previous.isLiked),
+      };
       const likes = likesByUser.get(input.userId) ?? new Map<string, ArticleLike>();
       likes.set(input.articleId, next);
       likesByUser.set(input.userId, likes);

@@ -1,0 +1,19 @@
+{
+  "previewScenarios": {
+    "FE/src/features/settings/data/settingsPreview.ts": "normal",
+    "FE/src/features/likes/data/likePreview.ts": "normal",
+    "FE/src/features/search/data/searchPreview.ts": "normal",
+    "FE/src/features/bookmarks/data/bookmarkPreview.ts": "normal",
+    "FE/src/features/bookmarks/data/userListPreview.ts": "normal",
+    "FE/src/features/profile/data/profilePreview.ts": "normal",
+    "FE/src/features/feed/data/feedPreview.ts": "normal",
+    "FE/src/features/article/data/explanationPreview.ts": "normal",
+    "FE/src/features/article/data/articlePreview.ts": "normal"
+  },
+  "allNormal": true,
+  "http8081": 200,
+  "portProcess": "COMMAND   PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    42833 jaegeunsong   34u  IPv4 0x2e0b2e9239e42c9b      0t0  TCP 127.0.0.1:8081 (LISTEN)\n",
+  "head": "d016c066c188c58a84a4bc0e438164dfe6b88cc4",
+  "stagedFiles": [],
+  "referenceEdits": []
+}

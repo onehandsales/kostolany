@@ -26,44 +26,92 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: colors.text, background: colors.background,
-    card: colors.background, text: colors.text, border: colors.border,
+    primary: colors.text,
+    background: colors.background,
+    card: colors.background,
+    text: colors.text,
+    border: colors.border,
   },
 };
 
 type AppNavigatorProps = {
-  articleSource?: ArticleSource; feedSource?: FeedSource; searchSource?: SearchSource; likeSource?: LikeSource;
-  bookmarkSource?: BookmarkSource; profileSource?: ProfileSource;
-  settingsSource?: ReadingSettingsSource; explanationSource?: ExplanationSource;
-  authSource?: AuthSource; initialUser?: AuthUser | null;
+  articleSource?: ArticleSource;
+  feedSource?: FeedSource;
+  searchSource?: SearchSource;
+  likeSource?: LikeSource;
+  bookmarkSource?: BookmarkSource;
+  profileSource?: ProfileSource;
+  settingsSource?: ReadingSettingsSource;
+  explanationSource?: ExplanationSource;
+  authSource?: AuthSource;
+  initialUser?: AuthUser | null;
 };
 
 export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigatorProps) {
-  return <AuthProvider source={authSource} initialUser={initialUser}><SessionNavigation {...sources} /></AuthProvider>;
+  return (
+    <AuthProvider source={authSource} initialUser={initialUser}>
+      <SessionNavigation {...sources} />
+    </AuthProvider>
+  );
 }
 
-export function SessionNavigation({ articleSource, feedSource, searchSource, likeSource, bookmarkSource,
-  profileSource, settingsSource, explanationSource }: AppNavigatorProps) {
+export function SessionNavigation({
+  articleSource,
+  feedSource,
+  searchSource,
+  likeSource,
+  bookmarkSource,
+  profileSource,
+  settingsSource,
+  explanationSource,
+}: AppNavigatorProps) {
   const { state } = useAuth();
   return (
-    <ReadingSettingsProvider source={settingsSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
-      <ProfileProvider source={profileSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+    <ReadingSettingsProvider
+      source={settingsSource}
+      userId={state.user?.id ?? null}
+      sessionRevision={state.revision}
+    >
+      <ProfileProvider
+        source={profileSource}
+        userId={state.user?.id ?? null}
+        sessionRevision={state.revision}
+      >
         <LikeProvider source={likeSource} userId={state.user?.id ?? null}>
-          <BookmarkProvider source={bookmarkSource} userId={state.user?.id ?? null} sessionRevision={state.revision}>
+          <BookmarkProvider
+            source={bookmarkSource}
+            userId={state.user?.id ?? null}
+            sessionRevision={state.revision}
+          >
             <NavigationContainer theme={theme}>
               <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Main">
                   {({ navigation }) => (
-                    <MainTabs source={feedSource} searchSource={searchSource}
-                      onSelectArticle={(articleId, origin, listId) => navigation.navigate('Article', { articleId, origin, listId,
-                        ownerUserId: origin === 'Library' ? state.user?.id : undefined,
-                        sessionRevision: origin === 'Library' ? state.revision : undefined })} />
+                    <MainTabs
+                      source={feedSource}
+                      searchSource={searchSource}
+                      onSelectArticle={(articleId, origin, listId) =>
+                        navigation.navigate('Article', {
+                          articleId,
+                          origin,
+                          listId,
+                          ownerUserId:
+                            origin === 'Library' || origin === 'Profile' ? state.user?.id : undefined,
+                          sessionRevision:
+                            origin === 'Library' || origin === 'Profile' ? state.revision : undefined,
+                        })
+                      }
+                    />
                   )}
                 </Stack.Screen>
                 <Stack.Screen name="Article" getId={({ params }) => params.articleId}>
                   {({ route, navigation }) => (
-                    <ArticleRouteScreen params={route.params} source={articleSource}
-                      explanationSource={explanationSource} onBack={() => navigation.goBack()} />
+                    <ArticleRouteScreen
+                      params={route.params}
+                      source={articleSource}
+                      explanationSource={explanationSource}
+                      onBack={() => navigation.goBack()}
+                    />
                   )}
                 </Stack.Screen>
               </Stack.Navigator>

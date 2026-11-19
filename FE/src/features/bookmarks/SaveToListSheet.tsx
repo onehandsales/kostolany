@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../shared/theme/tokens';
+import { AppIcon } from '../../shared/ui/AppIcon';
 
 import { LibrarySheet, listFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
@@ -8,8 +10,14 @@ import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 
-export function SaveToListSheet({ articleId, articleTitle, onClose }: {
-  articleId: string; articleTitle: string; onClose: () => void;
+export function SaveToListSheet({
+  articleId,
+  articleTitle,
+  onClose,
+}: {
+  articleId: string;
+  articleTitle: string;
+  onClose: () => void;
 }) {
   const store = useBookmarkStore();
   const reading = useReadingList();
@@ -17,9 +25,20 @@ export function SaveToListSheet({ articleId, articleTitle, onClose }: {
   const [changes, setChanges] = useState<Readonly<Record<string, boolean>>>({});
   const [creating, setCreating] = useState(false);
   const ready = reading.state.status === 'ready' && custom.status === 'ready';
-  const lists = [{ listId: DEFAULT_LIST_ID, name: '읽기 목록', saved: store.readingList.getSnapshot(articleId).isSaved },
-    ...custom.entries.flatMap((entry) => entry.content ? [{ listId: entry.listId,
-      name: entry.content.name, saved: entry.content.articleIds.includes(articleId) }] : [])];
+  const lists = [
+    { listId: DEFAULT_LIST_ID, name: '읽기 목록', saved: store.readingList.getSnapshot(articleId).isSaved },
+    ...custom.entries.flatMap((entry) =>
+      entry.content
+        ? [
+            {
+              listId: entry.listId,
+              name: entry.content.name,
+              saved: entry.content.articleIds.includes(articleId),
+            },
+          ]
+        : [],
+    ),
+  ];
 
   function handleSave(): void {
     if (!ready) return;
@@ -31,43 +50,112 @@ export function SaveToListSheet({ articleId, articleTitle, onClose }: {
     onClose();
   }
 
-  if (creating) return <ListEditorSheet onClose={() => setCreating(false)}
-    onSaved={(listId) => setChanges((previous) => ({ ...previous, [listId]: true }))} />;
+  if (creating)
+    return (
+      <ListEditorSheet
+        onClose={() => setCreating(false)}
+        onSaved={(listId) => setChanges((previous) => ({ ...previous, [listId]: true }))}
+      />
+    );
 
-  return <LibrarySheet title="저장할 목록" onClose={onClose}>
-    <Text style={listFormStyles.secondary}>{articleTitle}</Text>
-    <Pressable role="button" disabled={!ready} accessibilityState={{ disabled: !ready }}
-      onPress={() => setCreating(true)} style={listFormStyles.row}>
-      <Text style={styles.create}>새 목록 만들기</Text>
-    </Pressable>
-    {!ready && <>
-      <ReadingListFeedback state={reading.state} onRetry={reading.retryReadingList} onRetryBookmark={reading.retryBookmark} />
-      <UserListFeedback />
-    </>}
-    {ready && lists.map((list) => {
-      const checked = changes[list.listId] ?? list.saved;
-      return <Pressable key={list.listId} role="checkbox" accessibilityLabel={list.name} aria-checked={checked}
-        onPress={() => setChanges((previous) => ({ ...previous, [list.listId]: !checked }))} style={styles.choice}>
-        <View aria-hidden style={[styles.check, checked && styles.checked]}>
-          <Text style={styles.checkText}>{checked ? '✓' : ''}</Text>
+  return (
+    <LibrarySheet
+      title="Save to"
+      titleLabel="저장할 목록"
+      onClose={onClose}
+      hideClose
+      contentStyle={styles.content}
+    >
+      <Pressable
+        role="button"
+        accessibilityLabel="새 목록 만들기"
+        disabled={!ready}
+        accessibilityState={{ disabled: !ready }}
+        onPress={() => setCreating(true)}
+        style={listFormStyles.row}
+      >
+        <Text style={styles.create}>Create new list...</Text>
+      </Pressable>
+      {!ready && (
+        <>
+          <ReadingListFeedback
+            state={reading.state}
+            onRetry={reading.retryReadingList}
+            onRetryBookmark={reading.retryBookmark}
+          />
+          <UserListFeedback />
+        </>
+      )}
+      {ready &&
+        lists.map((list) => {
+          const checked = changes[list.listId] ?? list.saved;
+          return (
+            <Pressable
+              key={list.listId}
+              role="checkbox"
+              accessibilityLabel={list.name}
+              aria-checked={checked}
+              onPress={() => setChanges((previous) => ({ ...previous, [list.listId]: !checked }))}
+              style={styles.choice}
+            >
+              <View aria-hidden style={[styles.check, checked && styles.checked]}>
+                <Text style={styles.checkText}>{checked ? '✓' : ''}</Text>
+              </View>
+              <Text style={styles.name}>{list.listId === DEFAULT_LIST_ID ? 'Reading list' : list.name}</Text>
+              {list.listId === DEFAULT_LIST_ID && <AppIcon name="lock" size={16} color="#aaaaaa" />}
+            </Pressable>
+          );
+        })}
+      <View style={styles.spacer} />
+      <Pressable
+        role="button"
+        accessibilityLabel="저장할 목록 적용"
+        accessibilityHint={articleTitle}
+        onPress={handleSave}
+        disabled={!ready}
+        accessibilityState={{ disabled: !ready }}
+        style={[styles.doneTarget, !ready && listFormStyles.disabled]}
+      >
+        <View style={styles.done}>
+          <Text style={styles.doneText}>Done</Text>
         </View>
-        <Text style={styles.name}>{list.name}</Text>
-      </Pressable>;
-    })}
-    <Pressable role="button" accessibilityLabel="저장할 목록 적용" onPress={handleSave} disabled={!ready}
-      accessibilityState={{ disabled: !ready }} style={[listFormStyles.primary, !ready && listFormStyles.disabled]}>
-      <Text style={listFormStyles.primaryText}>완료</Text>
-    </Pressable>
-  </LibrarySheet>;
+      </Pressable>
+    </LibrarySheet>
+  );
 }
 
 const styles = StyleSheet.create({
-  create: { fontSize: 16, lineHeight: 24, color: '#18820f' },
-  choice: { minHeight: 56, paddingVertical: 12, flexDirection: 'row', alignItems: 'center', gap: 16,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: '#e6e6e6' },
-  check: { width: 24, height: 24, borderRadius: 12, borderWidth: 1, borderColor: '#6b6b6b',
-    alignItems: 'center', justifyContent: 'center' },
-  checked: { backgroundColor: '#18820f', borderColor: '#18820f' },
-  checkText: { color: '#fff', fontSize: 16, lineHeight: 20 },
-  name: { flex: 1, fontSize: 18, lineHeight: 28, color: '#242424' },
+  content: { paddingTop: 0, paddingBottom: 16, gap: 0, minHeight: 226 },
+  create: { fontSize: 14, lineHeight: 20, color: '#438b2b' },
+  choice: {
+    minHeight: 48,
+    paddingVertical: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#e6e6e6',
+  },
+  check: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 1,
+    borderColor: '#6b6b6b',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checked: { backgroundColor: '#438b2b', borderColor: '#438b2b' },
+  checkText: { color: '#fff', fontSize: 14, lineHeight: 16 },
+  name: { flex: 1, fontSize: 14, lineHeight: 20, color: '#242424' },
+  spacer: { minHeight: 64 },
+  doneTarget: { minHeight: 48, justifyContent: 'center' },
+  done: {
+    minHeight: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#438b2b',
+    borderRadius: 24,
+  },
+  doneText: { color: colors.background, fontSize: 14, lineHeight: 20, padding: 8 },
 });

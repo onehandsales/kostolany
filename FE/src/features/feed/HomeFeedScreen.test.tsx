@@ -8,6 +8,19 @@ import { article, deferred } from './tests/helpers';
 import type { FeedPage, FeedRequest, FeedSource } from './types';
 
 describe('Home feed', () => {
+  it('알림 안내를 닫아도 선택한 피드와 기사를 유지한다', async () => {
+    const user = userEvent.setup();
+    const source = jest.fn(createMockFeedSource({ delayMs: 0 }));
+    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
+    await screen.findByRole('button', { name: /^금리가 오르면/ });
+    await user.press(screen.getByRole('button', { name: 'Notifications' }));
+    expect(screen.getByRole('heading', { name: 'Notifications' })).toBeVisible();
+    await user.press(screen.getByRole('button', { name: 'Got it' }));
+    expect(screen.queryByRole('heading', { name: 'Notifications' })).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: /^금리가 오르면/ })).toBeVisible();
+    expect(source).toHaveBeenCalledTimes(1);
+  });
+
   it('shows loading then passes only the chosen article ID, including cards without images', async () => {
     const firstPage = deferred<FeedPage>();
     const selectArticle = jest.fn();
@@ -28,22 +41,22 @@ describe('Home feed', () => {
     const source = jest.fn(createMockFeedSource({ delayMs: 0 }));
     const user = userEvent.setup();
     await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
-    expect(screen.getByRole('tab', { name: '최신' })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'For you' })).toBeSelected();
     expect(await screen.findByRole('button', { name: /^금리가 오르면 예금과 대출/ })).toBeVisible();
 
-    await user.press(screen.getByRole('tab', { name: '인기' }));
+    await user.press(screen.getByRole('tab', { name: 'Following' }));
     expect(await screen.findByRole('button', { name: /^현금을 보유한다는 건/ })).toBeVisible();
     expect(screen.queryByRole('button', { name: /^금리가 오르면 예금과 대출/ })).not.toBeOnTheScreen();
-    expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Following' })).toBeSelected();
 
-    await user.press(screen.getByRole('tab', { name: '추천' }));
+    await user.press(screen.getByRole('tab', { name: 'Featured' }));
     expect(await screen.findByRole('button', { name: /^시장의 숫자 뒤에/ })).toBeVisible();
     expect(screen.queryByRole('button', { name: /^현금을 보유한다는 건/ })).not.toBeOnTheScreen();
     const sortTabs = within(screen.getByLabelText('피드 정렬'));
     expect(sortTabs.getAllByRole('tab', { selected: true })).toHaveLength(1);
-    expect(sortTabs.getByRole('tab', { name: '추천' })).toBeSelected();
+    expect(sortTabs.getByRole('tab', { name: 'Featured' })).toBeSelected();
 
-    await user.press(screen.getByRole('tab', { name: '추천' }));
+    await user.press(screen.getByRole('tab', { name: 'Featured' }));
     expect(source).toHaveBeenCalledTimes(3);
     expect(source.mock.calls.map(([request]) => request.sort)).toEqual(['latest', 'popular', 'recommended']);
   });
@@ -68,7 +81,7 @@ describe('Home feed', () => {
     await render(<HomeFeedScreen source={createMockFeedSource({ scenario: 'empty', delayMs: 0 })} onSelectArticle={jest.fn()} />);
     expect(await screen.findByText('아직 표시할 기사가 없어요')).toBeVisible();
     expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
-    expect(screen.queryByRole('button')).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: '기사 더 보기' })).not.toBeOnTheScreen();
   });
 
   it('keeps existing cards during pagination, removes overlapping IDs and stops at the last page', async () => {
@@ -114,14 +127,14 @@ describe('Home feed', () => {
       ? previousPage.promise : Promise.resolve({ items: [article('popular')], nextCursor: null });
     const user = userEvent.setup();
     await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
-    await user.press(screen.getByRole('tab', { name: '인기' }));
+    await user.press(screen.getByRole('tab', { name: 'Following' }));
     await screen.findByRole('button', { name: /^예시 기사 popular/ });
 
     await act(async () => {
       if (outcome === 'resolve') previousPage.resolve({ items: [article('obsolete')], nextCursor: null });
       else previousPage.reject(new Error('obsolete failure'));
     });
-    expect(screen.getByRole('tab', { name: '인기' })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Following' })).toBeSelected();
     expect(screen.getByRole('button', { name: /^예시 기사 popular/ })).toBeVisible();
     expect(screen.queryByRole('button', { name: /^예시 기사 obsolete/ })).not.toBeOnTheScreen();
     expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
@@ -137,7 +150,7 @@ describe('Home feed', () => {
     const user = userEvent.setup();
     await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
     await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
-    await user.press(screen.getByRole('tab', { name: '인기' }));
+    await user.press(screen.getByRole('tab', { name: 'Following' }));
     await screen.findByRole('button', { name: /^예시 기사 popular/ });
     await act(async () => nextPage.resolve({ items: [article('obsolete')], nextCursor: 'third' }));
 

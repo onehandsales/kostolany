@@ -5,6 +5,7 @@ import { ArticleBookmarkControl } from '../../bookmarks/ArticleBookmarkControl';
 import { ArticleLikeControl } from '../../likes/ArticleLikeControl';
 import type { FeedArticle } from '../types';
 import { FeedThumbnail } from './FeedThumbnail';
+import { ReferenceArticleCard } from './ReferenceArticleCard';
 
 type ArticleCardProps = {
   article: FeedArticle;
@@ -14,6 +15,8 @@ type ArticleCardProps = {
 export function ArticleCard({ article, onSelect }: ArticleCardProps) {
   const { width, fontScale } = useWindowDimensions();
   const stacked = width < 360 || fontScale > 1.3;
+
+  if (article.reference) return <ReferenceArticleCard article={article} onSelect={onSelect} />;
 
   return (
     <View style={styles.card}>
@@ -31,11 +34,17 @@ export function ArticleCard({ article, onSelect }: ArticleCardProps) {
           </View>
           {article.thumbnail && <FeedThumbnail variant={article.thumbnail} />}
         </View>
-        <Text style={styles.metadata}>{article.publishedLabel} · {article.readingMinutes}분 읽기</Text>
+        <Text style={styles.metadata}>
+          {article.publishedLabel} · {article.readingMinutes}분 읽기
+        </Text>
       </Pressable>
       <View style={styles.actions}>
-        <View style={styles.like}><ArticleLikeControl articleId={article.id} articleTitle={article.title} /></View>
-        <View style={styles.bookmark}><ArticleBookmarkControl articleId={article.id} articleTitle={article.title} /></View>
+        <View style={styles.like}>
+          <ArticleLikeControl articleId={article.id} articleTitle={article.title} />
+        </View>
+        <View style={styles.bookmark}>
+          <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} />
+        </View>
       </View>
     </View>
   );

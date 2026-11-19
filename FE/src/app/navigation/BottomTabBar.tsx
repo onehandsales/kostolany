@@ -1,7 +1,7 @@
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { colors, sizes, spacing } from '../../shared/theme/tokens';
+import { colors, sizes } from '../../shared/theme/tokens';
 
 export function BottomTabBar({ state, descriptors, navigation, insets }: BottomTabBarProps) {
   return (
@@ -11,7 +11,7 @@ export function BottomTabBar({ state, descriptors, navigation, insets }: BottomT
       style={[
         styles.bar,
         {
-          paddingBottom: Math.max(insets.bottom, spacing.small),
+          paddingBottom: insets.bottom,
           paddingLeft: insets.left,
           paddingRight: insets.right,
         },

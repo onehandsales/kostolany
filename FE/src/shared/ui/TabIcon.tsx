@@ -29,10 +29,7 @@ export function TabIcon({ name, focused, color, size }: TabIconProps) {
       {name === 'home' && (
         <>
           <Path d="M2 10 12 2 22 10" />
-          <Path
-            d="M4 10 12 4 20 10V22H14V15H10V22H4Z"
-            fill={focused ? color : 'none'}
-          />
+          <Path d="M4 10 12 4 20 10V22H14V15H10V22H4Z" fill={focused ? color : 'none'} />
         </>
       )}
       {name === 'search' && (
@@ -44,16 +41,14 @@ export function TabIcon({ name, focused, color, size }: TabIconProps) {
       {name === 'library' && (
         <>
           <Path d="M4 18V4Q4 2 6 2H15" />
-          <Path
-            d="M8 6H20V22L14 17 8 22Z"
-            fill={focused ? color : 'none'}
-          />
+          <Path d="M8 6H20V22L14 17 8 22Z" fill={focused ? color : 'none'} />
         </>
       )}
       {name === 'profile' && (
         <>
-          <Circle cx={12} cy={12} r={8} fill={colors.avatar} stroke="none" />
+          <Circle cx={12} cy={12} r={9} fill={colors.avatar} stroke="none" />
           {focused && <Circle cx={12} cy={12} r={11} />}
+          <Path d="m20 0 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z" fill={colors.gold} stroke="none" />
         </>
       )}
     </Svg>

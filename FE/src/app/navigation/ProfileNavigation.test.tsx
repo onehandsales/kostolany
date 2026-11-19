@@ -60,7 +60,7 @@ it('이름 저장은 인증 ID·revision·좋아요·북마크·목록을 보존
   expect(await screen.findByText('새로운 독자 이름 · 로그인됨')).toBeVisible();
   expect(auth.getSnapshot()).toMatchObject({ user: { id: mockUserA.id }, revision });
   await user.press(button('로그아웃'));
-  expect(screen.getByText(/새로운 독자 이름의 프로필/)).toBeVisible();
+  expect(screen.getByText('Do you really want to sign out from the Medium app?')).toHaveProp('accessibilityHint', '새로운 독자 이름 · local mock session');
   await user.press(button('로그아웃 취소'));
   await user.press(tab('홈'));
   expect(like()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
@@ -73,6 +73,7 @@ it('이름 저장은 인증 ID·revision·좋아요·북마크·목록을 보존
   expect(screen.queryByText('내 소개', { includeHiddenElements: true })).not.toBeOnTheScreen();
   await switchUser(auth, mockUserA.id);
   expect(await screen.findByText('새로운 독자 이름 · 로그인됨')).toBeVisible();
+  await user.press(tab('About'));
   expect(screen.getByText('내 소개')).toBeVisible();
   expect(screen.getByText('모의 계정: 예시 독자 A')).toBeVisible();
 }, 15000);
@@ -131,3 +132,52 @@ it('같은 A로 즉시 재로그인해도 편집 초안과 열린 모달은 재�
   await user.press(button('프로필 편집'));
   expect(screen.getByLabelText('이름 · 필수')).toHaveDisplayValue(mockUserA.name);
 });
+
+it('프로필 Lists에서 읽기 목록과 기사로 이동해 원래 목록에 복귀하고 Settings 편집 이름을 공유한다', async () => {
+  const { auth, user } = await setup();
+  const bookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^북마크, ${title}`) });
+  await waitFor(() => expect(bookmark()).toBeEnabled());
+  await user.press(bookmark());
+  await user.press(tab('프로필'));
+  await user.press(tab('Lists'));
+  await user.press(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' }));
+  await user.press(await screen.findByRole('button', { name: new RegExp(`^${title}`) }));
+  expect(await screen.findByRole('heading', { name: title })).toBeVisible();
+  await user.press(button('읽기 목록으로 돌아가기'));
+  expect(screen.getByRole('heading', { name: '읽기 목록' })).toBeVisible();
+  await user.press(button('프로필로 돌아가기'));
+  expect(tab('Lists')).toBeSelected();
+  await user.press(button('설정 열기'));
+  const revision = auth.getSnapshot().revision;
+  await user.press(button('설정에서 프로필 편집'));
+  await fireEvent.changeText(screen.getByLabelText('이름 · 필수'), 'Settings에서 수정한 이름');
+  await fireEvent.changeText(screen.getByLabelText('짧은 소개'), '동일한 프로필 저장소');
+  await user.press(button('프로필 저장'));
+  expect(screen.getByRole('heading', { name: '설정' })).toBeVisible();
+  await user.press(button('프로필로 돌아가기'));
+  expect(screen.getByRole('heading', { name: 'Settings에서 수정한 이름' })).toBeVisible();
+  await user.press(tab('About'));
+  expect(screen.getByText('동일한 프로필 저장소')).toBeVisible();
+  expect(auth.getSnapshot()).toMatchObject({ user: { id: mockUserA.id }, revision });
+}, 15000);
+
+it('프로필 목록에서 기사를 읽는 동안 B로 전환하면 이전 목록 대신 새 프로필로 돌아가며 A 소유권을 보존한다', async () => {
+  const { auth, user } = await setup();
+  const bookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^북마크, ${title}`) });
+  await waitFor(() => expect(bookmark()).toBeEnabled());
+  await user.press(bookmark());
+  await user.press(tab('프로필'));
+  await user.press(tab('Lists'));
+  await user.press(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' }));
+  await user.press(await screen.findByRole('button', { name: new RegExp(`^${title}`) }));
+  await screen.findByRole('heading', { name: title });
+  await switchUser(auth, mockUserB.id);
+  expect(screen.queryByRole('button', { name: '읽기 목록으로 돌아가기' })).not.toBeOnTheScreen();
+  await user.press(button('프로필로 돌아가기'));
+  expect(await screen.findByRole('heading', { name: mockUserB.name })).toBeVisible();
+  await user.press(tab('Lists'));
+  expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
+  await switchUser(auth, mockUserA.id);
+  await user.press(tab('Lists'));
+  expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' })).toBeVisible();
+}, 15000);

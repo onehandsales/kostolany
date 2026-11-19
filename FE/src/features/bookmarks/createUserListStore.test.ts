@@ -200,3 +200,26 @@ it('기본 목록·없는 기사·중복 이름 변경을 거부하고 동기 �
   expect(content(id)?.name).toBe('경제 뉴스');
   store.retryList(id); await flush(); expect(content(id)?.name).toBe('새 이름');
 });
+
+it('설명과 Private를 이름·소속 변경과 함께 보존하고 초과 설명은 제출하지 않는다', async () => {
+  const { store, content, setList } = setup(); await store.refreshLists();
+  expect(store.createList('Reading list').ok).toBe(false);
+  expect(store.createList('긴 설명', { description: '😀'.repeat(281) }).ok).toBe(false);
+  const created = store.createList('설명 있는 목록', { description: '😀'.repeat(280), isPrivate: true });
+  if (!created.ok) throw new Error(created.message); await flush();
+  store.setArticleInList(created.listId, 'first', true); await flush();
+  store.renameList(created.listId, '변경된 이름'); await flush();
+  expect(content(created.listId)).toEqual({ name: '변경된 이름', description: '😀'.repeat(280), isPrivate: true, articleIds: ['first'] });
+  store.renameList(created.listId, '변경된 이름', { description: '', isPrivate: false }); await flush();
+  expect(content(created.listId)).toMatchObject({ description: '', isPrivate: false, articleIds: ['first'] });
+  expect(setList).toHaveBeenCalledTimes(4);
+});
+
+it('설명 저장 중 삭제한 목록은 늦은 저장 응답으로 되살아나지 않는다', async () => {
+  const { store, content, setList, create } = setup(); await store.refreshLists(); const id = await create();
+  const pending = deferred<WriteResponse>(); setList.mockReturnValueOnce(pending.promise);
+  store.renameList(id, '경제 뉴스', { description: '저장 중', isPrivate: true });
+  const command = setList.mock.calls[1]![0]; store.deleteList(id); expect(content(id)).toBeNull();
+  pending.resolve(command); await flush(); expect(store.getSnapshot().entries).toEqual([]);
+  expect(setList.mock.calls[2]?.[0].content).toBeNull();
+});

@@ -94,7 +94,7 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(getArticle()); await screen.findByRole('heading', { name: title });
   await user.press(screen.getByRole('button', { name: '읽기 목록으로 돌아가기' }));
-  expect(screen.getByText('1개의 기사')).toBeVisible();
+  expect(screen.getByLabelText('1개의 기사')).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '프로필' }));
   await user.press(screen.getByRole('button', { name: '로그아웃' }));
   await user.press(screen.getByRole('button', { name: '로그아웃 취소' }));
@@ -109,7 +109,7 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(screen.getByRole('heading', { name: '라이브러리' })).toBeVisible();
   expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
-  expect(screen.queryByText('1개의 기사')).not.toBeOnTheScreen();
+  expect(screen.queryByLabelText('1개의 기사')).not.toBeOnTheScreen();
   await logOut(user); await logIn(user);
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' })).toBeVisible();
@@ -167,3 +167,19 @@ it.each(['success', 'failure'] as const)('A 개인 변경 중 로그아웃→B�
   expect(screen.getByRole('button', { name: 'A 비공개 공부 열기, 저장한 기사 0개' })).toBeVisible();
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
 }, 15000);
+
+it('가입/로그인 소개 전환과 미연결 공급자 안내는 인증하거나 원래 기사를 잃지 않는다', async () => {
+  const user = userEvent.setup(); await renderApp();
+  await user.press(getArticle()); await screen.findByRole('heading', { name: title });
+  await user.press(getGuestBookmark());
+  await user.press(screen.getByRole('button', { name: 'Create account' }));
+  expect(screen.queryByRole('button', { name: 'Sign up with X' })).not.toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Sign up with Email' }));
+  expect(screen.getByRole('heading', { name: 'Email authentication' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: 'Got it' }));
+  await user.press(screen.getByRole('button', { name: 'Sign in' }));
+  expect(screen.getByRole('button', { name: 'Sign in with X' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: '로그인 닫기' }));
+  expect(screen.getByRole('heading', { name: title })).toBeVisible();
+  expect(getGuestBookmark()).toBeVisible();
+});

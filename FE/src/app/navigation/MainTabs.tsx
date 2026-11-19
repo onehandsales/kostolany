@@ -15,9 +15,18 @@ import { type MainTabParamList, tabs } from './tabs';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-export function MainTabs({ onSelectArticle, source, searchSource }: {
-  onSelectArticle: (articleId: string, origin: 'Home' | 'Explore' | 'Library', listId?: string) => void;
-  source?: FeedSource; searchSource?: SearchSource;
+export function MainTabs({
+  onSelectArticle,
+  source,
+  searchSource,
+}: {
+  onSelectArticle: (
+    articleId: string,
+    origin: 'Home' | 'Explore' | 'Library' | 'Profile',
+    listId?: string,
+  ) => void;
+  source?: FeedSource;
+  searchSource?: SearchSource;
 }) {
   const { state } = useAuth();
   const scopeKey = useBookmarkScopeKey();
@@ -40,14 +49,31 @@ export function MainTabs({ onSelectArticle, source, searchSource }: {
         {() => <HomeFeedScreen source={source} onSelectArticle={(id) => onSelectArticle(id, 'Home')} />}
       </Tab.Screen>
       <Tab.Screen name="Explore">
-        {() => <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />}
+        {() => (
+          <SearchScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />
+        )}
       </Tab.Screen>
       <Tab.Screen name="Library">
-        {({ navigation }) => state.user ? <LibraryNavigator key={scopeKey}
-          onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
-          onBrowseArticles={() => navigation.navigate('Home')} /> : <LibraryLoginScreen />}
+        {({ navigation }) =>
+          state.user ? (
+            <LibraryNavigator
+              key={scopeKey}
+              onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
+              onBrowseArticles={() => navigation.navigate('Home')}
+            />
+          ) : (
+            <LibraryLoginScreen />
+          )
+        }
       </Tab.Screen>
-      <Tab.Screen name="Profile" component={ProfileRouteScreen} />
+      <Tab.Screen name="Profile">
+        {({ navigation }) => (
+          <ProfileRouteScreen
+            onSelectArticle={(articleId, listId) => onSelectArticle(articleId, 'Profile', listId)}
+            onBrowseArticles={() => navigation.navigate('Home')}
+          />
+        )}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }

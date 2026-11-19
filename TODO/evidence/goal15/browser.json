@@ -1,0 +1,14 @@
+{
+  "viewport": "393x759 app region; source 393x852 excluding OS 59 top/34 bottom",
+  "touch": {
+    "x": 321,
+    "y": 16,
+    "width": 48,
+    "height": 48
+  },
+  "errors": [],
+  "passed": [
+    "notification open/close",
+    "320 overflow"
+  ]
+}

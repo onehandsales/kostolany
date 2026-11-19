@@ -1,0 +1,20 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --testPathPattern=app/App.test|mediumCatalog|SearchScreen|HomeFeedScreen|SearchNavigation
+
+PASS iOS src/features/search/SearchScreen.test.tsx (8.563 s)
+PASS iOS src/app/App.test.tsx
+PASS iOS src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/feed/data/mediumCatalog.test.ts
+PASS Android src/features/search/SearchScreen.test.tsx (7.703 s)
+PASS Android src/app/App.test.tsx
+PASS Android src/app/navigation/SearchNavigation.test.tsx
+PASS Android src/features/feed/HomeFeedScreen.test.tsx
+PASS iOS src/features/feed/data/mediumCatalog.test.ts
+
+Test Suites: 10 passed, 10 total
+Tests:       62 passed, 62 total
+Snapshots:   0 total
+Time:        35.056 s, estimated 39 s
+Ran all test suites matching /app\/App.test|mediumCatalog|SearchScreen|HomeFeedScreen|SearchNavigation/i in 2 projects.
