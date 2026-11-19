@@ -1,5 +1,7 @@
 # 프론트엔드 Goal별 작업 계획
 
+**최신 후속 계획(2026-11-19):** [Medium 전체 화면·UX Goal 22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [63개 흐름/273단계/200개 고유 화면·세부 메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). 현재는 후속 계획 문서 작성 단계이며 Goal 22~53 구현은 미착수다. 아래 Goal 1~21의 실행 승인·커밋·검증 결과는 당시 이력으로 보존한다.
+
 2026-11-19 최종 상태: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 
 후속 커밋 요청: 소스·자산·테스트·결과 문서·검증 증거를 `feat(fe): implement Medium reference UI for goals 15-21` 커밋으로 함께 기록한다. 이전 단계의 미커밋 표기는 당시 이력이며 push·배포는 수행하지 않는다.

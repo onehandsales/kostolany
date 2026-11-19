@@ -1,5 +1,7 @@
 # FE 규칙 검토와 Medium 클론 Goal 계획
 
+**최신 후속 계획(2026-11-19):** [전체 Medium 후속 Goal 22~53](FE_MEDIUM_FULL_CLONE_GOALS.md) · [전체 원본/메뉴 대응표](FE_MEDIUM_FULL_CLONE_MAP.md). 후속 Goal은 미착수이며 새 문서의 범위·Windows 작업 경로·실행 요청문을 사용한다. 아래 Goal 14~21 승인과 결과는 당시 이력이다.
+
 작성일: 2026-11-19 KST.
 
 **현재 상태: Goal14~21 작업·각 두 차례 검토·문서화를 마쳤다. 최종638 tests/84 suites, typecheck·lint·8081·양 플랫폼 JS/Hermes 통과. 원본31쌍 비교 완료 / 100% 시각 일치·실제 native 검증은 미완료.** [Goal21 결과](FE_GOAL_21_RESULT.md). Goal14는 `d016c06`으로 커밋했다. Goal15~21도 후속 사용자 커밋 요청에 따라 로컬 커밋으로 보관하며 후속 개발은 시작하지 않는다.
