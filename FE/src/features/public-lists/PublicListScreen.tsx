@@ -12,7 +12,9 @@ import { useAuth } from '../auth/AuthProvider';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { publicIdentity } from '../community/data/publicDirectory';
 import { FollowControl } from '../community/FollowControl';
-import { mediumArticles } from '../feed/data/mediumFixtures';
+import { bookmarkArticles } from '../bookmarks/data/bookmarkFixtures';
+import { mockUsers } from '../auth/data/mockUsers';
+import { useKnownProfile } from '../profile/ProfileProvider';
 import { useModeration } from '../moderation/ModerationContext';
 import { ClapControl } from '../reactions/ClapControl';
 import { useClapStore } from '../reactions/ClapProvider';
@@ -60,13 +62,15 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
   const owner = publicIdentity(list.owner);
+  const knownProfile = useKnownProfile(list.owner.id);
+  const ownerName = knownProfile?.name ?? owner?.name ?? mockUsers.find(user => user.id === list.owner.id)?.name ?? list.owner.id;
   const clapStore = useClapStore();
   const own = auth.state.user?.id === list.owner.id;
   const [collapsed, setCollapsed] = useState(false);
   const [shareTarget, setShareTarget] = useState<{ kind: 'list'; id: string; title: string } | null>(null);
   const target = { kind: 'list' as const, id: list.id };
   const articles = list.articleIds.flatMap(id => {
-    const article = mediumArticles.find(item => item.id === id);
+    const article = bookmarkArticles.find(item => item.id === id);
     return article ? [article] : [];
   });
   const share = () => setShareTarget({ kind: 'list', id: list.id, title: list.title });
@@ -87,28 +91,30 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
         onScroll={event => setCollapsed(event.nativeEvent.contentOffset.y > 96)} scrollEventThrottle={32}
         contentContainerStyle={styles.content} accessibilityLabel={`Stories in ${list.title}`}
         ListHeaderComponent={<View style={styles.intro}>
-          <Pressable role="button" accessibilityLabel={`Open ${owner?.name ?? list.owner.id} profile`}
+          <Pressable role="button" accessibilityLabel={`Open ${ownerName} profile`}
             style={styles.owner} onPress={() => navigation.openIdentity(list.owner)}>
             {owner?.avatar && <Image source={owner.avatar} style={styles.avatar} accessible={false} />}
             <View style={styles.ownerText}>
-              <Text style={styles.ownerName}>{owner?.name ?? list.owner.id}</Text>
+              <Text style={styles.ownerName}>{ownerName}</Text>
               <Text style={styles.metadata}>{list.publishedLabel ? `${list.publishedLabel} · ` : ''}
                 {list.capturedStoryCount} stories · {list.baselineSaves + Number(saved)} saves</Text>
             </View>
           </Pressable>
           <Text role="heading" style={styles.title}>{list.title}</Text>
           {!!list.description && <Text style={styles.description}>{list.description}</Text>}
-          {own && <Text style={styles.metadata}>Your public list</Text>}
+          {own && <Text style={styles.metadata}>{list.isPrivate ? 'Your private list' : 'Your public list'}</Text>}
         </View>}
-        renderItem={({ item }) => <PublicListStoryCard article={item} onOpen={onSelectArticle} />}
+        renderItem={({ item }) => <View>
+          {!!list.notes?.[item.id] && <Text style={styles.note}>{list.notes[item.id]}</Text>}
+          <PublicListStoryCard article={item} onOpen={onSelectArticle} /></View>}
         ListFooterComponent={<View>
           {articles.length < list.capturedStoryCount && <Text style={styles.missing}>
             {articles.length} of {list.capturedStoryCount} captured stories are available in this sample.
           </Text>}
           <View style={styles.more}>
             <View style={styles.moreHeading}>
-              <Text style={styles.moreTitle}>More from {owner?.name ?? list.owner.id}</Text>
-              {!own && <FollowControl target={list.owner} name={owner?.name ?? list.owner.id} />}
+              <Text style={styles.moreTitle}>More from {ownerName}</Text>
+              {!own && <FollowControl target={list.owner} name={ownerName} />}
             </View>
             {!!owner?.bio && <Text style={styles.description}>{owner.bio}</Text>}
           </View>
@@ -124,6 +130,8 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
   </SafeAreaView>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
+  note: { marginHorizontal: 24, marginTop: 16, paddingLeft: 12, borderLeftWidth: 3, borderColor: colors.border,
+    fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, fontStyle: 'italic', color: colors.text },
   screen: { flex: 1, backgroundColor: colors.background },
   header: { minHeight: 48, paddingHorizontal: 8, flexDirection: 'row', alignItems: 'center' },
   headerTitle: { flex: 1, fontFamily: fonts.sans, fontSize: 16, fontWeight: '700', color: colors.text },

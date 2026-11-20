@@ -33,7 +33,7 @@ export function SaveToListSheet({
   const lists = [
     { listId: DEFAULT_LIST_ID, name: '읽기 목록', saved: store.readingList.getSnapshot(articleId).isSaved },
     ...custom.entries.flatMap((entry) =>
-      entry.content
+      entry.content && entry.listId !== DEFAULT_LIST_ID
         ? [
             {
               listId: entry.listId,

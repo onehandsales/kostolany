@@ -10,6 +10,8 @@ export type PublicList = Readonly<{
   capturedStoryCount: number;
   baselineSaves: number;
   baselineClaps: number;
+  notes?: Readonly<Record<string, string>>;
+  isPrivate?: boolean;
 }>;
 export type PublicListValue = Readonly<{
   userId: string | null;

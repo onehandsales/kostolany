@@ -138,13 +138,14 @@ it('생성 실패 후 이름을 고쳐 재시도해도 같은 ID를 사용한다
   expect(setList.mock.calls.map(([input]) => input.listId)).toEqual([result.listId, result.listId]);
 });
 
-it('생성 중 삭제 의도 뒤 생성이 실패하면 유령 목록이나 재시도 오류를 남기지 않는다', async () => {
+it('생성 응답 유실 가능성이 있으면 삭제 목표를 공급부에 확정하고 유령 목록을 남기지 않는다', async () => {
   const { store, setList } = setup(); await store.refreshLists();
   const pending = deferred<WriteResponse>(); setList.mockReturnValueOnce(pending.promise);
   const result = store.createList('임시 목록'); if (!result.ok) throw new Error(result.message);
   store.deleteList(result.listId); pending.reject(new Error('create failure')); await flush();
   expect(store.getSnapshot().entries).toEqual([]);
-  expect(setList).toHaveBeenCalledTimes(1);
+  expect(setList).toHaveBeenCalledTimes(2);
+  expect(setList.mock.calls[1]?.[0].content).toBeNull();
 });
 
 it('늦은 빈 조회가 생성·수정을 지우지 않고 늦은 항목 조회도 삭제를 되돌리지 않는다', async () => {

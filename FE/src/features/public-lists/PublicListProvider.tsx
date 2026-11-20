@@ -6,6 +6,7 @@ import { createPublicListStore, type PublicListStore } from './createPublicListS
 import { createMockPublicListSource } from './data/createMockPublicListSource';
 import { publicListPreviewScenario } from './data/publicListPreview';
 import type { PublicList, PublicListSource } from './types';
+import type { UserListSource } from '../bookmarks/listTypes';
 
 type PublicListContextValue = {
   store: PublicListStore;
@@ -13,12 +14,13 @@ type PublicListContextValue = {
   getListForUser: (userId: string | null, listId: string) => PublicList | undefined;
 };
 const Context = createContext<PublicListContextValue | null>(null);
-type PublicListProviderProps = { source?: PublicListSource; children: ReactNode };
+type PublicListProviderProps = { source?: PublicListSource; userLists?: UserListSource; children: ReactNode };
 
-export function PublicListProvider({ source, children }: PublicListProviderProps) {
+export function PublicListProvider({ source, userLists, children }: PublicListProviderProps) {
   const auth = useAuth();
-  const [fallback] = useState(() => createMockPublicListSource({ scenario: publicListPreviewScenario }));
-  const current = source ?? fallback;
+  const [fallback, setFallback] = useState(() => ({ userLists,
+    source: createMockPublicListSource({ scenario: publicListPreviewScenario, userLists }) }));
+  const current = source ?? fallback.source;
   const [cache, setCache] = useState(() => ({ source: current, generation: 0,
     stores: new Map<string | null, PublicListStore>() }));
   const getListForUser = useCallback((userId: string | null, listId: string) => {
@@ -26,6 +28,10 @@ export function PublicListProvider({ source, children }: PublicListProviderProps
     const snapshot = cache.stores.get(userId)?.getSnapshot();
     return snapshot?.readError ? undefined : snapshot?.value?.lists.find(list => list.id === listId);
   }, [cache]);
+  if (fallback.userLists !== userLists) {
+    setFallback({ userLists, source: createMockPublicListSource({ scenario: publicListPreviewScenario, userLists }) });
+    return null;
+  }
   if (cache.source !== current) {
     setCache({ source: current, generation: cache.generation + 1, stores: new Map() });
     return null;

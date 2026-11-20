@@ -10,7 +10,9 @@ import { SafeWebsiteLink } from './SafeWebsiteLink';
 import { publicListPreviews } from './data/publicDirectory';
 import { usePublicLists } from '../public-lists/PublicListProvider';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
-import { followKey, type FollowTarget } from './types';
+import { followKey, type FollowTarget, type PublicIdentity } from './types';
+import { mockUsers } from '../auth/data/mockUsers';
+import { useKnownProfile } from '../profile/ProfileProvider';
 import { mediumArticles } from '../feed/data/mediumFixtures';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { IconButton } from '../../shared/ui/IconButton';
@@ -35,6 +37,8 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
   const publicLists = usePublicLists();
+  const knownProfile = useKnownProfile(target.id);
+  const mockOwner = target.kind === 'writer' ? mockUsers.find(user => user.id === target.id) : undefined;
   const { scope } = moderation;
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
   const [uiScope, setUiScope] = useState(scope);
@@ -50,9 +54,10 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
     const timer = setTimeout(() => setMessage(null), 2400);
     return () => clearTimeout(timer);
   }, [message]);
-  const identity = directory.state.data?.identities.find((item) => followKey(item) === followKey(target));
-  const lists = publicLists.state?.value?.lists.filter(list => identity?.lists.includes(list.id)
-    && followKey(list.owner) === followKey(target)) ?? [];
+  const identity: PublicIdentity | undefined = directory.state.data?.identities.find((item) => followKey(item) === followKey(target))
+    ?? (mockOwner ? { ...target, name: knownProfile?.name ?? mockOwner.name, bio: knownProfile?.bio,
+      stories: [], pinned: [], lists: [] } : undefined);
+  const lists = publicLists.state?.value?.lists.filter(list => followKey(list.owner) === followKey(target)) ?? [];
   useEffect(() => {
     if (active && section === 'Lists') void publicLists.store?.reload();
   }, [active, section, publicLists.store]);

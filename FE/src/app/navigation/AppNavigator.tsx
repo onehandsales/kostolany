@@ -8,6 +8,9 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
+import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 
 import { useTheme } from '../../shared/theme/ThemeProvider';
 
@@ -141,6 +144,8 @@ function SessionNavigationContent({
 }: AppNavigatorProps) {
   const { state } = useAuth();
   const { colors, scheme } = useTheme();
+  const [defaultBookmarks] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
+  const currentBookmarks = bookmarkSource ?? defaultBookmarks;
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
@@ -180,7 +185,7 @@ function SessionNavigationContent({
               userId={state.user?.id ?? null}
               revision={state.revision}
             >
-              <PublicListProvider source={publicListSource}>
+              <PublicListProvider source={publicListSource} userLists={currentBookmarks.lists}>
               <ClapProvider source={clapSource} userId={state.user?.id ?? null} revision={state.revision}>
               <ResponseProvider
                 source={responseSource}
@@ -201,7 +206,7 @@ function SessionNavigationContent({
                           revision={state.revision}
                         >
                           <BookmarkProvider
-                            source={bookmarkSource}
+                            source={currentBookmarks}
                             userId={state.user?.id ?? null}
                             sessionRevision={state.revision}
                           >

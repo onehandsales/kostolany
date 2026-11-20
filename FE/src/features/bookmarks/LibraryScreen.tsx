@@ -47,19 +47,19 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
     !dismissed &&
     state.status === 'ready' &&
     !state.articles.length &&
-    !custom.entries.some((entry) => entry.content);
+    !custom.entries.some((entry) => entry.listId !== DEFAULT_LIST_ID && entry.content);
   const lists = [
     ...(state.status === 'ready'
       ? [{ listId: DEFAULT_LIST_ID, name: '읽기 목록', articles: state.articles }]
       : []),
     ...custom.entries.flatMap((entry) =>
-      entry.content
+      entry.content && entry.listId !== DEFAULT_LIST_ID
         ? [
             {
               listId: entry.listId,
               name: entry.content.name,
               isPrivate: entry.content.isPrivate,
-              articles: store.articles.filter((article) => entry.content?.articleIds.includes(article.id)),
+              articles: entry.content.articleIds.flatMap(id => store.articles.find(article => article.id === id) ?? []),
             },
           ]
         : [],

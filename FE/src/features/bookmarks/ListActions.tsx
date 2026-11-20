@@ -4,10 +4,14 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { LibrarySheet, listFormStyles as createListFormStyles } from './LibrarySheet';
 import { ListEditorSheet } from './ListEditorSheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
+import { DEFAULT_LIST_ID } from './listTypes';
+import { ListPrivacyDialog } from './ListPrivacyDialog';
+import { ReorderListSheet } from './ReorderListSheet';
+import { useCommunityNavigation } from '../community/CommunityNavigation';
+import { ownedPublicListId } from '../public-lists/ownedPublicList';
 
 type ListActionsProps = { listId: string; name: string };
 
@@ -30,33 +34,40 @@ function ListActionControls({
 }) {
   const styles = useThemeStyles(createStyles);
   const listFormStyles = useThemeStyles(createListFormStyles);
-  const [mode, setMode] = useState<'rename' | 'delete' | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [mode, setMode] = useState<'rename' | 'delete' | 'privacy' | 'reorder' | null>(null);
   const store = useBookmarkStore().userLists;
+  const navigation = useCommunityNavigation();
+  const isDefault = listId === DEFAULT_LIST_ID;
   return (
     <>
       <ActionMenu
         label={`목록 관리, ${name}`}
         items={[
-          { label: 'Edit list info', accessibilityLabel: '이름 수정', onPress: () => setMode('rename') },
+          ...(!isDefault ? [{ label: 'Edit list info', accessibilityLabel: '이름 수정', onPress: () => setMode('rename') },
           {
             label: isPrivate ? 'Make list public' : 'Make list private',
             onPress: () => {
-              store.renameList(listId, name, { isPrivate: !isPrivate });
+              setMode('privacy');
             },
-          },
-          { label: 'Reorder items', onPress: () => setNotice('Reorder items') },
+          }] : []),
+          { label: 'Reorder items', onPress: () => setMode('reorder') },
+          ...(!isDefault ? [
+          { label: 'View list', onPress: () => {
+            navigation.openPublicList(ownedPublicListId(store.userId, listId), store.userId);
+          } },
           {
             label: 'Delete list',
             accessibilityLabel: '목록 삭제',
             destructive: true,
             onPress: () => setMode('delete'),
-          },
+          }] : []),
         ]}
       />
       {mode === 'rename' && (
         <ListEditorSheet listId={listId} initialName={name} onClose={() => setMode(null)} />
       )}
+      {mode === 'privacy' && <ListPrivacyDialog listId={listId} isPrivate={!isPrivate} onClose={() => setMode(null)} />}
+      {mode === 'reorder' && <ReorderListSheet listId={listId} onClose={() => setMode(null)} />}
       {mode === 'delete' && (
         <LibrarySheet
           title="Delete list"
@@ -85,7 +96,6 @@ function ListActionControls({
           </Pressable>
         </LibrarySheet>
       )}
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </>
   );
 }

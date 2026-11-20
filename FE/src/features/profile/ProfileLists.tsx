@@ -21,7 +21,7 @@ export function ProfileLists({ onOpenList, header, footer, contentContainerStyle
   return (
     <FlatList
       accessibilityLabel="프로필 저장 목록"
-      data={lists.entries.filter((entry) => entry.content !== null)}
+      data={lists.entries.filter((entry) => entry.listId !== DEFAULT_LIST_ID && entry.content !== null)}
       keyExtractor={(entry) => entry.listId}
       contentContainerStyle={contentContainerStyle}
       ListHeaderComponent={
@@ -47,7 +47,7 @@ export function ProfileLists({ onOpenList, header, footer, contentContainerStyle
             name={entry.content.name}
             isPrivate={entry.content.isPrivate}
             onOpen={onOpenList}
-            articles={store.articles.filter((article) => entry.content?.articleIds.includes(article.id))}
+            articles={entry.content.articleIds.flatMap(id => store.articles.find(article => article.id === id) ?? [])}
           />
         ) : null
       }

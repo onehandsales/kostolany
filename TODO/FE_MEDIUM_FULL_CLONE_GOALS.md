@@ -1,20 +1,20 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**Goal32 자동 검사:** 최종 typecheck·lint·152 suites/906 tests 통과(548.752초). 브라우저·원본 비교·양 플랫폼 Hermes export와 실제 native 미검증을 결과 문서에서 구분한다.
+**현재 Goal33 검사:** typecheck·lint·전체156 suites/940 tests 통과(578.413초). 마지막 공유 안내 표시 정리 후 타입/lint·관련4 suites/32 tests·브라우저·양 플랫폼 Hermes/web export도 통과했다. 실제8081·원본8쌍을 대조했으며 동일 시각 재현·실제 native는 잔여다. [Goal33 결과](FE_GOAL_33_RESULT.md). Goal32의152 suites/906 tests는 당시 이력이다.
 
-**현재 승인(2026-11-20 KST): Goal32만 구현·두 차례 자체 검토·검증·결과 기록한다. Goal32 보고 후 종료하며 Goal33 이후를 시작하지 않는다. 커밋·push·배포 금지. 과거 연속 진행/커밋 요청은 현재 승인에 적용하지 않는다.**
+**현재 승인(2026-11-20 KST): Goal32 변경만 로컬 커밋(`4dabf10`)한 뒤 Goal33 구현·두 차례 자체 검토·검증·결과 기록까지다. Goal33 변경은 커밋/push/배포하지 않고 결과 보고 후 종료한다. Goal34 이후와 과거 연속 진행/커밋/push 요청은 승인 범위가 아니다.**
 
-**현재 상태:** Windows 루트에서 공개 목록·전체 Save/Unsave·Saved lists·목록 박수/응답·소유자 Follow·공유 진입과 권한/계정 수명 처리를 구현했다. 원본 동일 재현·실제 native 검증은 잔여이며 자동 검사의 최종 결과는 [Goal32 결과](FE_GOAL_32_RESULT.md)를 따른다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
+**현재 상태:** Goal33 메모·순서 초안/드래그·공개 범위 확인·정보 편집·제거/Undo·삭제를 구현하고 소유 원본을 Goal32 공개 목록/Saved lists와 연결했다. **구현 완료·검증 잔여**다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
 
-**과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. 이번 작업 시작 HEAD는 `da38ae2`다.
+**과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. Goal32 작업 시작 HEAD는 `da38ae2`였다.
 
-**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 위 Goal32 단독 승인이다.
+**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 상단 Goal33 승인이다.
 
 작성일: 2026-11-19 KST · 작업 위치: `D:\git_repository\kostolany_project`.
 
 **Goal31 종료 당시 상태(macOS):** [Goal31 결과](FE_GOAL_31_RESULT.md)의144 suites/856 tests·타입/lint·8081·양 플랫폼 JS/Hermes는 당시 코드 결과다. Goal32의 검사 결과로 사용하지 않는다.
 
-**과거 연속 진행 승인 이력 — 현재 적용 없음:** Goal25→35 순차 실행 요청과 초기 HEAD `2e7aedd` 기록이 있었다. 이후 Goal31 종료로 범위가 변경되었고, 이번에는 Goal32만 별도로 승인되었다.
+**과거 연속 진행 승인 이력 — 현재 적용 없음:** Goal25→35 순차 실행 요청과 초기 HEAD `2e7aedd` 기록이 있었다. 이후 Goal31 종료, Goal32 단독 승인으로 변경되었던 이력이다.
 
 목표는 보관된 **Medium iOS 화면·문구·폰트·텍스트 크기·픽셀 위치·상태·이동 흐름을 그대로 재현하는 FE**다. 1차 MVP에 없던 기능뿐 아니라 기존 화면의 차이와 미연결 메뉴까지 포함한다. 백엔드 구축 전에 화면과 mock 동작을 완성하고, 마지막에 실제 구현을 근거로 API/DB 설계에 필요한 계약을 인계한다.
 
@@ -305,7 +305,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 33 — 내 목록 메모·정렬·공개 범위·편집·삭제
 
-- **상태/선행:** 미착수 / Goal 32.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal 32. [Goal33 결과](FE_GOAL_33_RESULT.md): 관계 메모·정렬·확인/Undo·공유 원본·두 차례 자체 검토·현재 검사/시각 차이를 기록했다. 동일 시각 재현·미수록 정책·실제 native 확인은 잔여다.
 - **원본:** [F04](FE_MEDIUM_FULL_CLONE_MAP.md#f04), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F37](FE_MEDIUM_FULL_CLONE_MAP.md#f37), [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41), [F42](FE_MEDIUM_FULL_CLONE_MAP.md#f42), [F45](FE_MEDIUM_FULL_CLONE_MAP.md#f45), [F46](FE_MEDIUM_FULL_CLONE_MAP.md#f46), [F47](FE_MEDIUM_FULL_CLONE_MAP.md#f47), [F48](FE_MEDIUM_FULL_CLONE_MAP.md#f48), [F49](FE_MEDIUM_FULL_CLONE_MAP.md#f49), [F50](FE_MEDIUM_FULL_CLONE_MAP.md#f50), [F51](FE_MEDIUM_FULL_CLONE_MAP.md#f51), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 목록 메모 추가/수정, 정렬 Cancel/Done, Make private 확인, 제목/설명 수정, 기사 제거/Undo, 목록 삭제를 완성한다. 기존 목록 생성/다중 저장/제거 기능도 원본에 맞춰 재검토한다.
 - **시각 비교:** 원본 행 메뉴·메모 편집기·드래그 표시·비공개 경고·잠금 표시를 맞춘다. 비공개에서도 보이는 공유 아이콘을 임의로 숨기지 않는다.

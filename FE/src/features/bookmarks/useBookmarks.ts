@@ -44,5 +44,8 @@ export function useReadingList(): {
 
 export function useUserLists(): UserListsSnapshot {
   const store = useBookmarkStore().userLists;
-  return useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
+  const scope = useBookmarkScopeKey();
+  const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
+  return store.getScope() === scope ? snapshot : { ...snapshot, hasReadError: false,
+    entries: snapshot.entries.map(entry => ({ ...entry, failure: null })) };
 }

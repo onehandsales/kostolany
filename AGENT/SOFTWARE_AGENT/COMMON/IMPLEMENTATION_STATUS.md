@@ -1,14 +1,16 @@
 # 현재 상태와 다음 작업
 
-**Goal32 최종 검증:** typecheck·lint·152 suites/906 tests 통과(548.752초),8081 정상/장애/계정·권한 경계와 원본 두 쌍 대조,web JS/iOS·Android Hermes export 확인. 실제 native build/run·OS 접근성/IME 및 미수록 원본/글꼴 차이는 잔여다.
+**현재 Goal33 검증:** typecheck·lint·전체156 suites/940 tests 통과(578.413초). 마지막 공유 안내 표시 정리 후 타입/lint·관련4 suites/32 tests·브라우저·web/iOS/Android export도 통과했다. 8081 편집/실패/드래그/계정·권한과 원본8쌍을 대조했다. 실제 native build/run·OS 접근성/IME와 동일 시각 재현은 잔여다. [Goal33 결과](../../../TODO/FE_GOAL_33_RESULT.md).
 
-**현재 승인/상태(2026-11-20 KST, Windows): Goal32 단독 구현·두 차례 자체 검토·검증·결과 기록.** 공개 목록 상세·전체 Save/Unsave·Library Saved lists·목록 박수/응답·소유자 Follow·공유 대상 진입을 연결했다. 기사 북마크와 전체 목록 저장은 별개이며 비공개/삭제·늦은 응답·계정 수명을 처리한다. [Goal32 결과와8081 확인 순서](../../../TODO/FE_GOAL_32_RESULT.md)에 실제 실행 결과와 잔여를 기록한다. **구현 완료·원본 동일 재현/실제 native 검증 잔여**다. Goal33 이후·커밋·push·배포는 하지 않는다.
+**현재 승인/상태(2026-11-20 KST, Windows): Goal32 로컬 커밋 후 Goal33만 구현·두 차례 자체 검토·검증·결과 기록.** Goal32 로컬 커밋은 `4dabf10`이다. Goal33은 메모·순서 초안/드래그·공개 범위 확인·정보 편집·제거/Undo·삭제와 소유 목록→공개 상세/Saved lists를 같은 원본에 연결했다. **구현 완료·검증 잔여**이며 Goal33은 미커밋이다. push·배포·Goal34 이후는 진행하지 않는다.
 
-작업 시작 HEAD `da38ae2`·clean, Node24.18.0/npm10.9.0, 기존8081 PID5248을 확인했다. 원본/ENV/lockfile을 보존했고 `TODO/evidence`·`TODO/_evidence`와 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다. 아래 과거 승인/검사/환경을 현재 승인으로 적용하지 않는다.
+Goal33 시작 HEAD `4dabf10`·clean, Node24.18.0/npm10.9.0, 기존8081 PID5248을 보존했다. 원본/ENV/lockfile과 과거 결과 문서를 유지하며 `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다.
+
+**Goal32 당시 검사:** typecheck/lint·152 suites/906 tests(548.752초), 원본2쌍과 JS/Hermes export는 [Goal32 결과](../../../TODO/FE_GOAL_32_RESULT.md)의 당시 코드 결과이며 Goal33 검사로 재사용하지 않는다.
 
 **과거 승인 이력 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
 
-**과거 Goal31 종료 요청:** Goal31에서 종료했던 기록이며 현재 범위는 위 Goal32 단독 승인이다.
+**과거 Goal31 종료 요청:** Goal31에서 종료했던 당시 기록이다. 현재 승인과 검사는 문서 상단 Goal33 기준이다.
 
 **Goal31 당시 상태(2026-11-20, macOS):** [Goal31 결과](../../../TODO/FE_GOAL_31_RESULT.md). Goal25~31은 구현 완료·시각/native 검증 잔여다. 추천 관리·관심사·Show less·이력 삭제/Library 동기화,늦은 이력 응답/실패 복구와 빠른 계정 전환의 개인 navigation 초기화를 구현했다. 각 Goal에서 두 차례 자체 검토·수정했다. 현재 코드 typecheck·lint·전체 **144 suites/856 tests 통과**,8081 정상/장애/계정/320px·긴 목록·원본 대조와 iOS/Android JS/Hermes export를 확인했다. 원본 font/vector·시각 차이와 실제 native build/run·OS 접근성/IME는 남는다. 최신 사용자 지시에 따라 **Goal31에서 종료하며 Goal32 이후 미착수**다. 커밋/push/배포·외부 연동은 없다. HEAD2e7aedd,Node24.18.0/npm10.9.0,기존8081 PID11374·medium382개 파일·ENV·lockfile을 보존했다. 산출물은 저장소 밖 임시 경로이며 아래 과거 승인/검사/PID/중단 문구는 당시 이력이다.
 

@@ -2,15 +2,23 @@ import type { BookmarkSource } from '../types';
 import { bookmarkArticles } from './bookmarkFixtures';
 import { createMockUserListSource } from './createMockUserListSource';
 import { userListPreviewScenario } from './userListPreview';
+import { DEFAULT_LIST_ID } from '../listTypes';
 
 export type BookmarkScenario = 'normal' | 'read-error' | 'save-error' | 'remove-error' | 'slow';
 
-export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 1800 : 350 }: {
-  scenario?: BookmarkScenario; delayMs?: number;
+export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 1800 : 350,
+  managesReadingList = false }: {
+  scenario?: BookmarkScenario; delayMs?: number; managesReadingList?: boolean;
 } = {}): BookmarkSource {
   const savedByUser = new Map<string, Set<string>>();
   const failedRequests = new Set<string>();
   const articleIds = new Set(bookmarkArticles.map((article) => article.id));
+  const lists = createMockUserListSource({ scenario: userListPreviewScenario !== 'normal' ? userListPreviewScenario
+    : managesReadingList && scenario === 'read-error' ? 'lists-read-error'
+    : managesReadingList && scenario === 'save-error' ? 'add-error'
+    : managesReadingList && scenario === 'remove-error' ? 'list-remove-error' : 'normal', managesReadingList,
+    delayMs: userListPreviewScenario === 'slow' ? 1800 : delayMs });
+  const writes = new Map<string, Promise<unknown>>();
 
   function getSaved(userId: string): Set<string> {
     if (!userId.trim()) throw new Error('Invalid mock user');
@@ -30,15 +38,32 @@ export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenar
   }
 
   return {
-    lists: createMockUserListSource({ scenario: userListPreviewScenario,
-      delayMs: userListPreviewScenario === 'slow' ? 1800 : delayMs }),
+    lists,
     async fetchReadingList(userId) {
+      if (managesReadingList) {
+        const response = await lists.fetchLists(userId);
+        return { userId, articleIds: response.lists.find(list => list.listId === DEFAULT_LIST_ID)?.articleIds ?? [] };
+      }
       const snapshot = { userId, articleIds: [...getSaved(userId)] };
       await waitForResponse();
       if (scenario === 'read-error') failOnce(JSON.stringify([userId, 'read']));
       return snapshot;
     },
     async setArticleSaved(input) {
+      if (managesReadingList) {
+        const write = (writes.get(input.userId) ?? Promise.resolve()).catch(() => {}).then(async () => {
+          const current = (await lists.fetchLists(input.userId)).lists.find(list => list.listId === DEFAULT_LIST_ID);
+          if (!current || !articleIds.has(input.articleId)) throw new Error('Unknown mock article');
+          const ids = new Set(current.articleIds);
+          if (input.saved) ids.add(input.articleId); else ids.delete(input.articleId);
+          const notes = { ...current.notes }; if (!input.saved) delete notes[input.articleId];
+          await lists.setList({ userId: input.userId, listId: DEFAULT_LIST_ID, commandId: input.commandId,
+            operation: 'update', expectedContent: current, content: { ...current, articleIds: [...ids], notes } });
+          return { userId: input.userId, articleId: input.articleId, saved: input.saved };
+        });
+        writes.set(input.userId, write);
+        return write;
+      }
       const saved = getSaved(input.userId);
       if (!articleIds.has(input.articleId)) throw new Error('Unknown mock article');
       await waitForResponse();

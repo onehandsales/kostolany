@@ -16,9 +16,11 @@ type ListStoryCardProps = {
   onOpen: (id: string) => void;
   onRemove: () => void;
   onNotice: (label: string) => void;
+  note?: string;
+  onEditNote?: () => void;
 };
 
-export function ListStoryCard({ article, onOpen, onRemove, onNotice }: ListStoryCardProps) {
+export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEditNote }: ListStoryCardProps) {
   const moderation = useModeration();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
@@ -42,11 +44,11 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice }: ListStory
     <View style={styles.card}>
       <Pressable
         role="button"
-        accessibilityLabel={`Add a note, ${article.title}`}
-        onPress={() => onNotice('Add a note')}
+        accessibilityLabel={`${note ? 'Edit note' : 'Add a note'}, ${article.title}`}
+        onPress={onEditNote ?? (() => onNotice('Add a note'))}
         style={styles.noteTarget}
       >
-        <Text style={styles.note}>Add a note...</Text>
+        <Text style={styles.note}>{note || 'Add a note...'}</Text>
       </Pressable>
       <Pressable
         role="button"
@@ -72,7 +74,7 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice }: ListStory
         <ActionMenu
           label={`기사 관리, ${article.title}`}
           items={[
-            { label: 'Add note', onPress: () => onNotice('Add a note') },
+            { label: note ? 'Edit note' : 'Add note', onPress: onEditNote ?? (() => onNotice('Add a note')) },
             {
               label: 'Remove from list',
               accessibilityLabel: `이 목록에서 제거, ${article.title}`,

@@ -1,14 +1,16 @@
 # Kostolany Mobile
 
-**현재 검증:** typecheck·lint·152 suites/906 tests 통과. 8081 실제 흐름·장애·계정/권한 경계·원본 두 쌍 대조 및 web JS/iOS·Android Hermes export를 확인했다. 실제 native build/run·OS 접근성/IME와 미수록 원본 확인은 잔여다.
+**현재 검증:** Goal33 typecheck·lint·전체156 suites/940 tests 통과. 마지막 공유 안내 표시 정리 후 타입/lint·관련4 suites/32 tests·브라우저·web/iOS/Android export도 통과했다. 8081 목록 편집·실패·정렬·계정/권한 흐름과 원본8쌍을 대조했다. 실제 native build/run·OS 접근성/IME와 원본 동일 재현은 잔여다. [Goal33 결과](../TODO/FE_GOAL_33_RESULT.md).
 
-**현재 승인/상태(2026-11-20 KST, Windows): Goal32 단독 구현·두 차례 자체 검토·검증·결과 기록.** 공개 목록 상세·전체 Save/Unsave·Library Saved lists·목록 박수/응답·소유자 Follow·공유 대상 진입을 연결했다. 기사 북마크와 전체 목록 저장은 별개이며 비공개/삭제·늦은 응답·계정 수명을 처리한다. [Goal32 결과와8081 확인 순서](../TODO/FE_GOAL_32_RESULT.md)에 실제 실행 결과와 잔여를 기록한다. **구현 완료·원본 동일 재현/실제 native 검증 잔여**다. Goal33 이후·커밋·push·배포는 하지 않는다.
+**현재 승인/상태(2026-11-20 KST, Windows): Goal32 로컬 커밋 후 Goal33만 구현·두 차례 자체 검토·검증·결과 기록.** Goal32는 `4dabf10`으로 커밋했다. Goal33은 목록 관계 메모·순서 초안/드래그·공개 범위 확인·정보 편집·제거/Undo·삭제와 소유 목록→공개 상세/Saved lists를 같은 원본에 연결했다. **구현 완료·검증 잔여**이며 Goal33은 미커밋이다. push·배포·Goal34 이후는 진행하지 않는다.
 
-작업 시작 HEAD `da38ae2`·clean, Node24.18.0/npm10.9.0, 기존8081 PID5248을 확인했다. 원본/ENV/lockfile을 보존했고 `TODO/evidence`·`TODO/_evidence`와 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다. 아래 과거 승인/검사/환경을 현재 승인으로 적용하지 않는다.
+Goal33 시작 HEAD `4dabf10`·clean, Node24.18.0/npm10.9.0, 기존8081 PID5248을 보존했다. 원본/ENV/lockfile과 과거 결과 문서를 유지하고 `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다. 아래 과거 승인/검사는 현재 승인에 적용하지 않는다.
+
+**Goal32 당시 검사:** 152 suites/906 tests·typecheck/lint·원본2쌍·web/iOS/Android export는 [Goal32 결과](../TODO/FE_GOAL_32_RESULT.md)의 이력이며 Goal33 변경 검사가 아니다.
 
 **과거 승인 이력 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
 
-**과거 Goal31 종료 요청:** Goal31에서 종료했던 기록이며 현재 범위는 위 Goal32 단독 승인이다.
+**과거 Goal31 종료 요청:** Goal31에서 종료했던 당시 기록이다. 현재 승인과 검사는 문서 상단 Goal33 기준이다.
 
 로컬 미리보기는 기존 [http://localhost:8081](http://localhost:8081)을 사용한다. 실행 중이면 중복 서버를 시작하지 않는다.
 

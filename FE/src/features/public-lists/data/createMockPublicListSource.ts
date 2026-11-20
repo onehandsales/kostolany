@@ -1,5 +1,7 @@
 import { publicListFixtures } from './publicListFixtures';
 import type { PublicList, PublicListSource, PublicListValue, SavePublicListCommand } from '../types';
+import { DEFAULT_LIST_ID, type UserListSource } from '../../bookmarks/listTypes';
+import { toPublicList } from '../ownedPublicList';
 
 export type PublicListScenario = 'normal' | 'read-error' | 'write-error' | 'slow' | 'empty' | 'long';
 type CreateMockPublicListSourceOptions = {
@@ -7,11 +9,12 @@ type CreateMockPublicListSourceOptions = {
   delayMs?: number;
   lists?: readonly PublicList[];
   initialSaved?: Readonly<Record<string, readonly string[]>>;
+  userLists?: UserListSource;
 };
 
 export function createMockPublicListSource({
   scenario = 'normal', delayMs = scenario === 'slow' ? 4000 : 150,
-  lists = publicListFixtures, initialSaved = {},
+  lists = publicListFixtures, initialSaved = {}, userLists,
 }: CreateMockPublicListSourceOptions = {}) {
   const catalog = scenario === 'empty' ? [] : scenario === 'long'
     ? lists.flatMap(list => Array.from({ length: 150 }, (_, index) => ({ ...list,
@@ -22,7 +25,18 @@ export function createMockPublicListSource({
   const applied = new Map<string, string>();
   const failures = new Set<string>();
   const listeners = new Set<() => void>();
+  let disconnectCatalog: (() => void) | undefined;
   let version = 0;
+  const currentCatalog = () => [...catalog, ...(userLists?.getCatalog?.() ?? [])
+    .filter(list => list.listId !== DEFAULT_LIST_ID).map(toPublicList)];
+  function catalogChanged() {
+    const current = currentCatalog();
+    values.forEach(saved => saved.forEach(id => {
+      if (!current.some(list => list.id === id && !list.isPrivate && !hidden.has(id))) saved.delete(id);
+    }));
+    version += 1;
+    listeners.forEach(listener => listener());
+  }
   function savedFor(userId: string) {
     let saved = values.get(userId);
     if (!saved) {
@@ -32,12 +46,13 @@ export function createMockPublicListSource({
     return saved;
   }
   function accessible(userId: string | null, list: PublicList) {
-    const visibility = hidden.get(list.id);
+    const visibility = hidden.get(list.id) ?? (list.isPrivate ? 'private' : undefined);
     return !visibility || (visibility === 'private' && list.owner.id === userId);
   }
   function snapshot(userId: string | null): PublicListValue {
-    const visible = catalog.filter(list => accessible(userId, list));
-    return { userId, version, lists: visible.map(list => ({ ...list, owner: { ...list.owner }, articleIds: [...list.articleIds] })),
+    const visible = currentCatalog().filter(list => accessible(userId, list));
+    return { userId, version, lists: visible.map(list => ({ ...list, owner: { ...list.owner }, articleIds: [...list.articleIds],
+      ...(list.notes && { notes: { ...list.notes } }) })),
       savedIds: userId ? [...savedFor(userId)].filter(id => visible.some(list => list.id === id)) : [] };
   }
   async function wait(key: string, fail: boolean) {
@@ -46,10 +61,17 @@ export function createMockPublicListSource({
   }
   const source: PublicListSource = {
     canAccess(userId, listId) {
-      const list = catalog.find(item => item.id === listId);
+      const list = currentCatalog().find(item => item.id === listId);
       return Boolean(list && accessible(userId, list));
     },
-    subscribe(listener) { listeners.add(listener); return () => { listeners.delete(listener); }; },
+    subscribe(listener) {
+      if (listeners.size === 0) disconnectCatalog = userLists?.subscribe?.(catalogChanged);
+      listeners.add(listener);
+      return () => {
+        listeners.delete(listener);
+        if (!listeners.size) { disconnectCatalog?.(); disconnectCatalog = undefined; }
+      };
+    },
     async read(userId) {
       await wait(`read:${userId}`, scenario === 'read-error');
       return snapshot(userId);
@@ -59,7 +81,7 @@ export function createMockPublicListSource({
         throw new Error('invalid');
       }
       await wait(`save:${command.userId}:${command.listId}`, scenario === 'write-error');
-      const list = catalog.find(item => item.id === command.listId && item.owner.id === command.ownerId);
+      const list = currentCatalog().find(item => item.id === command.listId && item.owner.id === command.ownerId);
       if (!list || !accessible(command.userId, list) || list.owner.id === command.userId) {
         throw new Error('unavailable');
       }

@@ -20,12 +20,15 @@ it.each(['success', 'failure'] as const)('이름 변경 중 추가한 기사는 
   store.userLists.renameList(result.listId, '경제 공부');
   store.setArticleInList(result.listId, articleId, true);
   expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: true, error: null });
-  if (outcome === 'success') rename.resolve({ userId: 'reader-a', listId: result.listId,
-    content: { name: '경제 공부', articleIds: [] } });
+  const renameCommand = setList.mock.calls.at(-1)?.[0];
+  if (!renameCommand) throw new Error('Missing rename command');
+  if (outcome === 'success') rename.resolve(await source.lists.setList(renameCommand));
   else rename.reject(new Error('old rename failed'));
   await flush();
   expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: true, error: null });
-  add.resolve({ userId: 'reader-a', listId: result.listId, content: { name: '경제 공부', articleIds: [articleId] } });
+  const addCommand = setList.mock.calls.at(-1)?.[0];
+  if (!addCommand) throw new Error('Missing addition command');
+  add.resolve(await source.lists.setList(addCommand));
   await flush();
   expect(store.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: false, error: null });
 });
@@ -63,10 +66,11 @@ it.each(['success', 'failure'] as const)('사용자 A의 늦은 목록 %s가 사
   first.setArticleInList(created.listId, articleId, true);
   expect(first.getSnapshot(articleId)).toMatchObject({ isSaved: true, isPending: true });
   expect(second.getSnapshot(articleId).isSaved).toBe(false);
-  if (outcome === 'success') pending.resolve({ userId: 'reader-a', listId: created.listId,
-    content: { name: '개인 목록', articleIds: [articleId] } });
+  const command = setList.mock.calls.at(-1)?.[0]; if (!command) throw new Error('Missing command');
+  if (outcome === 'success') pending.resolve(await source.lists.setList(command));
   else pending.reject(new Error('old failure'));
   await flush(); expect(second.getSnapshot(articleId)).toMatchObject({ isSaved: false, isPending: false, error: null });
+  expect(first.getSnapshot(articleId).isSaved).toBe(outcome === 'success');
   expect(second.userLists.getSnapshot().entries).toEqual([]);
 });
 

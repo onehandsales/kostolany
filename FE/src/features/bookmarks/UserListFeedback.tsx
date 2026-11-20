@@ -26,7 +26,8 @@ export function UserListFeedback({ listId, hideVisibleMembershipFailures = false
         && target.articleIds.every((id) => entry.content?.articleIds.includes(id)));
     }).map((entry) => entry.failure
       ? <View key={entry.listId} style={styles.feedback}>
-        <Text role="alert" style={listFormStyles.error}>{entry.failure.name} — {entry.failure.target === null
+        <Text role="alert" style={listFormStyles.error}>{entry.failure.name} — {entry.failure.conflict
+          ? '목록이 다른 작업으로 바뀌었어요. 최신 내용을 확인하고 다시 편집해 주세요.' : entry.failure.target === null
           ? '목록을 삭제하지 못해 복원했어요.' : '목록 변경을 저장하지 못했어요.'}</Text>
         <Pressable role="button" accessibilityLabel={`목록 변경 다시 시도, ${entry.failure.name}`}
           onPress={() => store.retryList(entry.listId)} style={listFormStyles.row}>

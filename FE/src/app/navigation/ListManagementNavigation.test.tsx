@@ -254,7 +254,7 @@ it('목록 메타데이터 저장 실패는 초안을 보존하고 재시도·�
   await user.press(screen.getByRole('button', { name: '목록 관리, Metadata list' }));
   await user.press(screen.getByRole('button', { name: '이름 수정' }));
   expect(screen.getByLabelText('목록 설명')).toHaveDisplayValue('한글 설명 😀');
-  expect(screen.getByRole('switch', { name: 'Private' })).toBeChecked();
+  expect(screen.queryByRole('switch', { name: 'Private' })).toBeNull();
   await user.clear(screen.getByLabelText('목록 설명'));
   await user.press(screen.getByRole('button', { name: '목록 이름 수정 취소' }));
   expect((await source.fetchLists(userId)).lists[0]).toMatchObject({ description: '한글 설명 😀', isPrivate: true });

@@ -62,7 +62,7 @@ export function ListEditorSheet({
     }
     const targetId = submittedId ?? listId;
     const result = targetId
-      ? store.renameList(targetId, name, { description: description.normalize('NFC'), isPrivate })
+      ? store.renameList(targetId, name, { description: description.normalize('NFC') })
       : store.createList(name, { description: description.normalize('NFC'), isPrivate });
     if (!result.ok) {
       setError(result.message);
@@ -119,7 +119,7 @@ export function ListEditorSheet({
         />
         <Text style={styles.counter}>{[...description.normalize('NFC')].length} / 280</Text>
       </View>
-      <View style={styles.privacy}>
+      {!listId && <View style={styles.privacy}>
         <View style={styles.flex}>
           <Text style={styles.label}>Private</Text>
           <Text style={styles.hint}>Only you can see the list</Text>
@@ -138,7 +138,7 @@ export function ListEditorSheet({
             <View style={[styles.thumb, isPrivate && styles.privateThumb]} />
           </View>
         </Pressable>
-      </View>
+      </View>}
       {(error || (name.length > 0 && validation)) && (
         <Text role="alert" style={listFormStyles.error}>
           {error ?? validation}

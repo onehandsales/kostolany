@@ -1,6 +1,7 @@
 import type { FeedArticle } from '../feed/types';
 import { createBookmarkStore } from './createBookmarkStore';
 import { createUserListStore } from './createUserListStore';
+import { createManagedReadingList } from './createManagedReadingList';
 import { createMockUserListSource } from './data/createMockUserListSource';
 import { DEFAULT_LIST_ID } from './listTypes';
 import type { BookmarkSnapshot, BookmarkSource } from './types';
@@ -8,9 +9,10 @@ import type { BookmarkSnapshot, BookmarkSource } from './types';
 export type LibraryStore = ReturnType<typeof createLibraryStore>;
 
 export function createLibraryStore(source: BookmarkSource, userId: string, articles: readonly FeedArticle[]) {
-  const readingList = createBookmarkStore(source, userId, articles);
   const userLists = createUserListStore(source.lists ?? createMockUserListSource({ delayMs: 0 }),
     userId, articles.map((article) => article.id));
+  const readingList = source.lists?.managesReadingList
+    ? createManagedReadingList(userLists, articles) : createBookmarkStore(source, userId, articles);
   const listeners = new Map<string, Set<() => void>>();
   const snapshots = new Map<string, BookmarkSnapshot>();
 
@@ -20,7 +22,7 @@ export function createLibraryStore(source: BookmarkSource, userId: string, artic
     for (const article of articles) {
       const base = readingList.getSnapshot(article.id);
       const previous = snapshots.get(article.id);
-      const selected = lists.entries.filter((entry) => entry.content?.articleIds.includes(article.id));
+      const selected = lists.entries.filter((entry) => entry.listId !== DEFAULT_LIST_ID && entry.content?.articleIds.includes(article.id));
       const next: BookmarkSnapshot = {
         status: base.status !== 'ready' ? base.status : lists.status,
         isSaved: base.isSaved || selected.length > 0,
@@ -47,7 +49,7 @@ export function createLibraryStore(source: BookmarkSource, userId: string, artic
     },
     ensureReadingList(): void { readingList.ensureReadingList(); userLists.ensureLists(); },
     hasCustomMembership(articleId: string): boolean {
-      return userLists.getSnapshot().entries.some((entry) => entry.content?.articleIds.includes(articleId));
+      return userLists.getSnapshot().entries.some((entry) => entry.listId !== DEFAULT_LIST_ID && entry.content?.articleIds.includes(articleId));
     },
     setArticleInList(listId: string, articleId: string, saved: boolean): void {
       if (listId === DEFAULT_LIST_ID) readingList.setArticleSaved(articleId, saved);

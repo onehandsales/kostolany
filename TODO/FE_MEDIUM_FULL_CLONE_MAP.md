@@ -1,12 +1,12 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**Goal32 최종 검사:** typecheck·lint·152 suites/906 tests 통과; 실제 navigation/8081 검증 및 F04 상단·하단 비교 완료. 동일 시각 재현·미수록 UI·실제 native 검증은 잔여다.
+**현재 Goal33 검사:** typecheck·lint·전체156 suites/940 tests 통과. 마지막 공유 안내 표시 정리 후 타입/lint·관련4 suites/32 tests·브라우저·export 재검증도 통과했다. 실제 navigation/8081과 원본8쌍을 대조했다. 동일 시각 재현·미수록 정책·실제 native는 잔여다. [Goal33 결과](FE_GOAL_33_RESULT.md). Goal32의152 suites/906 tests는 당시 이력이다.
 
-**현재 승인(2026-11-20 KST): Goal32 단독 구현·두 차례 자체 검토·검증·결과 기록 후 종료한다. Goal33 이후·커밋·push·배포는 승인 범위가 아니다.** [Goal32 결과](FE_GOAL_32_RESULT.md)에 공개 목록/Saved lists/목록 반응 구현·실제 검사·원본 차이를 기록한다. 원본 동일 재현·실제 native 검증은 잔여다. `TODO/evidence`·`TODO/_evidence`는 만들지 않는다.
+**현재 승인(2026-11-20 KST): Goal32 로컬 커밋(`4dabf10`) 후 Goal33 구현·두 차례 자체 검토·검증·결과 기록까지다. Goal33은 미커밋으로 종료하며 push/배포·Goal34 이후는 승인 범위가 아니다.** [Goal33 결과](FE_GOAL_33_RESULT.md)에 소유/공개 목록 연결·편집·검사·시각 차이를 기록한다. `TODO/evidence`·`TODO/_evidence`는 만들지 않는다.
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31 커밋/push와 Goal25~35 연속 진행 요청은 당시 이력이다.
 
-**과거 Goal31 종료 기록:** 다음 문단의 Goal31 당시 수치/미착수 표기는 이력이며 현재 판정은 Goal32 결과를 따른다.
+**과거 Goal31 종료 기록:** 다음 문단의 Goal31 당시 수치/미착수 표기는 이력이며 현재 판정은 Goal33 결과를 따른다.
 
 작성일: 2026-11-19 KST · [Goal 22~53 실행 계획](FE_MEDIUM_FULL_CLONE_GOALS.md).
 
@@ -23,13 +23,13 @@
 
 ## 현재 구현과 후속 범위
 
-| 영역 | Goal32 작업 후 구현·잔여 | 관련 Goal |
+| 영역 | Goal33 작업 후 구현·잔여 | 관련 Goal |
 | --- | --- | --- |
 | 홈·탐색·Stories 검색 | 관계 기반 Following·추천 제어·토픽/작성자/publication 진입을 연결했다. 다른 검색 결과 종류와 전체 검색 확장은 후속 범위다. | 23,30,31 구현·시각/native 잔여; 50 미착수 |
 | 기사·반응 | Goal25에서 누적 박수·내 기여/Undo·Viewed·이력을 전환하고 본문/관련 기사/더보기 진입을 보정했다. 전체 검사/시각 잔여는 결과 문서 기준이다. | 24~29,45~47 |
 | Responses | 작성·답글·편집/삭제·정렬·반응·인용·소유자 응답 관리를 실제 mock 상태와 연결했다. 기사 댓글 수는 해당 상태에서 계산한다. | 26,27,29 구현·시각/native 잔여 |
 | 작성자·관계 | Stories/Lists/About·팔로우·Mute/Block/신고와 공개 목록 상세를 연결했다. 권한 철회 시 프로필 목록 카드를 제거하며 목록 하단 Follow와 프로필이 같은 상태를 사용한다. 실제 공유 실행은 후속 범위다. | 28~32 구현·시각/native 잔여; 47 미착수 |
-| 저장·내 목록 | 기사 다중 저장과 별도로 공개 목록 전체 Save/Unsave·권한 처리를 구현했다. 목록 메모/재정렬/공개 범위 편집 확장은 선행하지 않았다. | 32 구현·검증 잔여; 33~35 미착수 |
+| 저장·내 목록 | 다중 저장·관계 메모·정렬 초안/드래그·공개 확인·정보 편집·제거/Undo·삭제를 구현했다. 소유 원본과 공개 상세/Saved lists를 연결했다. 정렬 시트/폰트·미수록 정책·native는 잔여다. | 32,33 구현·검증 잔여; 34,35 미착수 |
 | Library·Digest | Saved lists의 실제 저장 목록·상세·해제 동기화를 연결했다. 원본 Saved lists 본문은 미수록이며 자체 보완 UI다. Digest·다운로드·관련 설정은 후속 범위다. | 27,31,32 구현·시각/native 잔여; 34,35,44 미착수 |
 | Write | 작성 진입이 안내 상태다. 편집·미디어·멘션·초안·발행 전체가 후속 범위다. | 36~39 |
 | 인증 | 가입/로그인 제공자 버튼은 이미 있다. Google mock 계정 중심이며 나머지 제공자/이메일 단계·온보딩·intro 복귀를 연결한다. | 40,41 |
@@ -71,14 +71,14 @@
 | C25 | 추천 | Following/Reading history/Muted/Suggestions·See all/See more | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F12~F15; 네 탭·공유 관계/이력·확장 구현,현재 자동/브라우저 검증. 원본 대조 수행·시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
 | C26 | 추천 | All/Writers/Publications/Topics·follow·mute 해제 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F13; 대상 필터·Follow·Unmute 구현. 늦은 토픽 응답·필터 전환·실패 재시도·계정 경계 검증. Muted 본문은 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
 | C27 | 이력 | 개별 기록 제거·Clear history·확인/취소·Library 이력 진입 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F14,F15,F41; 개별/전체 삭제·취소·실패/재시도·Library/Viewed 동기화 구현/검증. 저장/박수/Highlight 보존 확인. Library 본문/Viewed 삭제 관계는 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
-| C28 | 저장 | Save to·여러 목록·선택 초안·Done·새 목록 생성 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F37,F42; 기존 구현을 재사용하되 원본 동작/시각을 재검증한다. |
+| C28 | 저장 | Save to·여러 목록·선택 초안·Done·새 목록 생성 | [33 결과](FE_GOAL_33_RESULT.md) | F37,F42; 기존 다중 선택/생성/취소를 실제 navigation·8081에서 확인하고 기본 목록 원본을 통합했다. 시각/native 잔여. |
 | C29 | 공개 목록 | 전체 목록 Save/해제·저장 수·Saved lists·소유자/방문자 | [32 결과](FE_GOAL_32_RESULT.md) | 구현·실제 navigation/8081 검사. 기사 bookmark와 별도 관계, 비공개/삭제 시 제거. Saved lists 본문 원본은 추가 조회에서도 미확보여서 자체 보완; 동일 재현/native 잔여. |
 | C30 | 공개 목록 | 목록 claps·목록 responses·소유자 Follow·Share·Undo claps·박수 사용자 목록 | [32 결과](FE_GOAL_32_RESULT.md) | target별 공유 계약 연결·최대50/Undo/응답 CRUD/Follow 검증. Share는 대상 선택 안내이며 실행은47. 목록 Responses/참여자 펼친 원본 미수록, 참여자는 내 기여만 표시하고 타인을 생성하지 않음; 동일 재현/native 잔여. |
-| C31 | 내 목록 | 목록 제목/설명 편집·읽기 목록·새 목록·행별 더보기 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F42,F46; 기본/사용자 목록과 소유권별 메뉴를 확인한다. |
-| C32 | 내 목록 | Add/Edit note·취소/저장·빈값 Done·기존 메모 지우기·공개 범위 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F45; 메모는 목록-기사 관계다. 빈값 Done이 녹색인 사실과 실제 빈값 저장/타인 가시성은 구분하며 근거 없는 멤버십 제한을 만들지 않는다. |
-| C33 | 내 목록 | Reorder·드래그·Cancel/Done·확정 순서 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F51; 취소가 원래 순서를 복원한다. |
-| C34 | 내 목록 | Make private 확인·타인 저장 목록 경고·잠금·공유 아이콘 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F49; 기존 즉시 변경을 확인 단계로 맞춘다. |
-| C35 | 내 목록 | Remove story·Undo·Delete list·확인/취소 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F47,F50; 목록 삭제가 원본 기사나 다른 목록 저장을 삭제하지 않는다. |
+| C31 | 내 목록 | 목록 제목/설명 편집·읽기 목록·새 목록·행별 더보기 | [33 결과](FE_GOAL_33_RESULT.md) | F42,F46; 소유자 편집/선택 설명·기본 목록 삭제 보호와 실패/재시도 확인. 실제 편집 폼 원본 미수록, 시각/native 잔여. |
+| C32 | 내 목록 | Add/Edit note·취소/저장·빈값 Done·기존 메모 지우기·공개 범위 | [33 결과](FE_GOAL_33_RESULT.md) | F45; 관계 메모·Cancel/Done/Retry·빈값 지우기 구현. 빈값/최대 길이/타인 가시성은 명시적 mock 기본안이며 실제 Medium 정책 미확인. 원본3쌍 대조, 동일 시각/native 잔여. |
+| C33 | 내 목록 | Reorder·드래그·Cancel/Done·확정 순서 | [33 결과](FE_GOAL_33_RESULT.md) | F51; 순서 초안·취소/실패/Retry, 마우스/웹 합성 터치와48px 핸들 확인. 현재 시트는 원본 inline 구조와 다르며 native/가장자리 자동 스크롤 잔여. |
+| C34 | 내 목록 | Make private 확인·타인 저장 목록 경고·잠금·공유 아이콘 | [33 결과](FE_GOAL_33_RESULT.md) | F49; 확인 목표 고정·취소/Retry, 같은 소유 원본 변경으로 방문자 Saved lists/열린 상세 접근 철회. 원본 경고 비교, 색/폭/native 잔여. |
+| C35 | 내 목록 | Remove story·Undo·Delete list·확인/취소 | [33 결과](FE_GOAL_33_RESULT.md) | F47,F50; 위치/메모 Undo·목록 삭제·기사/다른 소속 보존·늦은 응답 부활 방지 구현/검사. Undo 실행 결과/충돌은 자체 보완, 시각/native 잔여. |
 | C36 | 다운로드 | Download list·진행/완료·개별 기사 상태·취소/제거/실패 | [35](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-35) | F48; 실제 캐시/오프라인과 fixture 상태를 구분한다. |
 | C37 | Library | Your lists/Saved lists/Highlights/Reading history·Digest | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F41; 27/31/32/33/35 결과를 함께 연결한다. |
 | C38 | Digest | 날짜 선택/Done·해당 이야기·last 10 digests | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F43; 10개 Digest와 10일은 같지 않다. |

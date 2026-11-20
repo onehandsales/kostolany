@@ -117,7 +117,7 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' })).toBeVisible();
 }, 15000);
 
-it.each(['success', 'failure'] as const)('A 개인 변경 중 로그아웃→B에서 늦은 %s를 격리하고 A 복귀 시 결과 또는 재시도를 이어간다', async (outcome) => {
+it.each(['success', 'failure'] as const)('A 개인 변경의 늦은 %s를 격리하고 재로그인에서는 확정 목록만 복원한다', async (outcome) => {
   const clapPending = deferred<ClapValue>();
   const savePending = deferred<Awaited<ReturnType<BookmarkSource['setArticleSaved']>>>();
   const listPending = deferred<Awaited<ReturnType<UserListSource['setList']>>>();
@@ -144,7 +144,8 @@ it.each(['success', 'failure'] as const)('A 개인 변경 중 로그아웃→B�
     if (outcome === 'success') {
       clapPending.resolve({ userId: mockUserA.id, target: { kind: 'article', id: 'example-latest-rates' }, mine: 1, total: 25 });
       savePending.resolve({ userId: mockUserA.id, articleId: 'example-latest-rates', saved: true });
-      listPending.resolve(command);
+      if (!bookmarks.lists) throw new Error('Missing lists');
+      listPending.resolve(await bookmarks.lists.setList(command));
     } else {
       clapPending.reject(new Error('A like')); savePending.reject(new Error('A save')); listPending.reject(new Error('A list'));
     }
@@ -166,7 +167,12 @@ it.each(['success', 'failure'] as const)('A 개인 변경 중 로그아웃→B�
   }
   expect(getClap()).toHaveProp('accessibilityValue', expect.objectContaining({ now: 1 })); expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
-  if (outcome === 'failure') await user.press(screen.getByRole('button', { name: '목록 변경 다시 시도, A 비공개 공부' }));
+  if (outcome === 'failure') {
+    expect(screen.queryByRole('button', { name: '목록 변경 다시 시도, A 비공개 공부' })).toBeNull();
+    await user.press(screen.getByRole('button', { name: '새 목록' }));
+    await user.type(screen.getByLabelText('목록 이름 · 필수'), 'A 비공개 공부');
+    await user.press(screen.getByRole('button', { name: '목록 만들기' }));
+  }
   expect(screen.getByRole('button', { name: 'A 비공개 공부 열기, 저장한 기사 0개' })).toBeVisible();
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
 }, 15000);

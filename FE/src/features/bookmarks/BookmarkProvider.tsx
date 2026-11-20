@@ -1,4 +1,4 @@
-import { createContext, useState, type ReactNode } from 'react';
+import { createContext, useEffect, useState, type ReactNode } from 'react';
 
 import type { FeedArticle } from '../feed/types';
 import { createLibraryStore, type LibraryStore } from './createLibraryStore';
@@ -17,7 +17,7 @@ type BookmarkProviderProps = {
 
 export function BookmarkProvider({ children, source, userId = MOCK_BOOKMARK_USER_ID,
   articles = bookmarkArticles, sessionRevision = 0 }: BookmarkProviderProps) {
-  const [defaultSource] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario }));
+  const [defaultSource] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
   const currentSource = source ?? defaultSource;
   const [scope, setScope] = useState(() => ({ source: currentSource, articles, version: 0,
     getStore: createUserStores(currentSource, articles) }));
@@ -29,9 +29,22 @@ export function BookmarkProvider({ children, source, userId = MOCK_BOOKMARK_USER
   }
   const store = userId ? scope.getStore(userId) : null;
   // 공개 화면은 유지하고 개인 화면과 시트만 이 범위 키를 사용해 이전 입력을 정리한다.
-  return <BookmarkScopeContext.Provider value={JSON.stringify([scope.version, userId, sessionRevision])}>
-    <BookmarkStoreContext.Provider value={store}>{children}</BookmarkStoreContext.Provider>
+  const sessionScope = JSON.stringify([scope.version, userId, sessionRevision]);
+  return <BookmarkScopeContext.Provider value={sessionScope}>
+    <BookmarkStoreContext.Provider value={store}>
+      <LibrarySession key={sessionScope} store={store} scope={sessionScope} />
+      {children}</BookmarkStoreContext.Provider>
   </BookmarkScopeContext.Provider>;
+}
+
+function LibrarySession({ store, scope }: { store: LibraryStore | null; scope: string }) {
+  useEffect(() => {
+    store?.userLists.setScope(scope);
+    const disconnect = store?.userLists.connect();
+    if (store) void store.userLists.refreshLists();
+    return () => { disconnect?.(); store?.userLists.setScope(''); };
+  }, [store, scope]);
+  return null;
 }
 
 function createUserStores(source: BookmarkSource, articles: readonly FeedArticle[]): (userId: string) => LibraryStore {

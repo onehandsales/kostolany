@@ -69,7 +69,10 @@ it('비공개 선택은 접근성 상태와 저장 명령에 함께 반영되고
   expect(screen.getByRole('switch', { name: 'Private' })).toBeDisabled();
   await user.press(screen.getByRole('switch', { name: 'Private' }));
   expect(screen.getByRole('switch', { name: 'Private' })).toBeChecked();
-  await act(async () => pending.resolve(command));
+  await act(async () => {
+    if (!mock.lists) throw new Error('Missing source');
+    pending.resolve(await mock.lists.setList(command));
+  });
   expect(screen.getByRole('button', { name: '비공개 목록 열기, 저장한 기사 0개' })).toBeVisible();
 });
 
@@ -86,7 +89,10 @@ it('사용자 전환은 열린 초안을 지우고 A로 복귀하면 A의 진행
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: /A의 목록 열기/ })).not.toBeOnTheScreen();
   const command = setList.mock.calls[0]?.[0]; if (!command) throw new Error('Missing command');
-  await act(async () => pending.resolve(command));
+  await act(async () => {
+    if (!mock.lists) throw new Error('Missing source');
+    pending.resolve(await mock.lists.setList(command));
+  });
   await view.rerender(<TestLibrary source={source} />);
   expect(screen.getByRole('button', { name: 'A의 목록 열기, 저장한 기사 0개' })).toBeVisible();
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
@@ -103,7 +109,12 @@ it.each(['success', 'failure'] as const)('공급부 교체는 생성 폼을 닫�
   await user.press(screen.getByRole('button', { name: '목록 만들기' }));
   await view.rerender(<TestLibrary source={createMockBookmarkSource({ delayMs: 0 })} />);
   const command = setList.mock.calls[0]?.[0]; if (!command) throw new Error('Missing command');
-  await act(async () => { if (outcome === 'success') pending.resolve(command); else pending.reject(new Error('old failure')); });
+  await act(async () => {
+    if (outcome === 'success') {
+      if (!mock.lists) throw new Error('Missing source');
+      pending.resolve(await mock.lists.setList(command));
+    } else pending.reject(new Error('old failure'));
+  });
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: /이전 범위 열기/ })).not.toBeOnTheScreen();
   expect(screen.queryByRole('alert')).not.toBeOnTheScreen();

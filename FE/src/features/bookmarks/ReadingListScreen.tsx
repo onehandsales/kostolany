@@ -12,7 +12,11 @@ import { SearchCard } from '../search/SearchCard';
 
 import { ListStoryCard } from './ListStoryCard';
 import { ListActions } from './ListActions';
-import { DEFAULT_LIST_ID } from './listTypes';
+import { DEFAULT_LIST_ID, type RemovedListStory } from './listTypes';
+import { ListNoteSheet } from './ListNoteSheet';
+import type { FeedArticle } from '../feed/types';
+import { AppIcon } from '../../shared/ui/AppIcon';
+import { ownedPublicListId } from '../public-lists/ownedPublicList';
 import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
@@ -36,18 +40,25 @@ export function ReadingListScreen({
   const { colors } = useTheme();
   const profile = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
-  const [removed, setRemoved] = useState<string | null>(null);
+  const [shareTarget, setShareTarget] = useState<{ id: string; title: string } | null>(null);
+  const [removed, setRemoved] = useState<RemovedListStory | string | null>(null);
+  const [editingNote, setEditingNote] = useState<FeedArticle | null>(null);
   const [collapsed, setCollapsed] = useState(false);
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
   const store = useBookmarkStore();
   const isDefault = listId === DEFAULT_LIST_ID;
   const selected = custom.entries.find((entry) => entry.listId === listId);
-  const articles = isDefault
-    ? state.articles
-    : store.articles.filter((article) => selected?.content?.articleIds.includes(article.id));
+  const articles = selected?.content
+    ? selected.content.articleIds.flatMap(id => store.articles.find(article => article.id === id) ?? [])
+    : isDefault ? state.articles : [];
   const status = isDefault ? state.status : custom.status;
   const name = isDefault ? '읽기 목록' : (selected?.content?.name ?? '');
+  const removedId = typeof removed === 'string' ? removed : removed?.articleId;
+  function removeStory(articleId: string) {
+    if (selected) setRemoved(store.userLists.removeStory(listId, articleId));
+    else { store.setArticleInList(listId, articleId, false); setRemoved(articleId); }
+  }
   useEffect(() => {
     if (!isDefault && custom.status === 'ready' && !selected?.content) onBack();
   }, [isDefault, custom.status, selected?.content, onBack]);
@@ -73,22 +84,23 @@ export function ReadingListScreen({
           size={20}
           onPress={() => setNotice('Download list')}
         />
-        {isDefault && (
+        {isDefault && !selected && (
           <IconButton
             icon="more"
             label="Reading list options"
             onPress={() => setNotice('Reading list options')}
           />
         )}
-        {!isDefault && <ListActions listId={listId} name={name} />}
+        {selected && <ListActions listId={listId} name={name} />}
       </View>
-      {removed && !articles.some((article) => article.id === removed) && (
+      {removed && !articles.some((article) => article.id === removedId) && (
         <View style={styles.toast}>
           <Text style={styles.toastText}>Story removed from list</Text>
           <Pressable
             role="button"
             onPress={() => {
-              store.setArticleInList(listId, removed, true);
+              if (typeof removed === 'string') store.setArticleInList(listId, removed, true);
+              else store.userLists.undoRemove(removed);
               setRemoved(null);
             }}
             style={styles.undo}
@@ -123,6 +135,9 @@ export function ReadingListScreen({
               <Text role="heading" accessibilityLabel={name} style={styles.title}>
                 {isDefault ? 'Reading list' : name}
               </Text>
+              {(isDefault || selected?.content?.isPrivate) && <View style={{ flexDirection: 'row', gap: 6 }}>
+                <AppIcon name="lock" size={16} color={colors.secondaryText} />
+                <Text style={styles.count}>Private</Text></View>}
               {Boolean(selected?.content?.description) && (
                 <Text style={styles.description}>{selected?.content?.description}</Text>
               )}
@@ -165,24 +180,26 @@ export function ReadingListScreen({
               article={item}
               onOpen={onSelectArticle}
               onNotice={setNotice}
-              onRemove={() => {
-                store.setArticleInList(listId, item.id, false);
-                setRemoved(item.id);
-              }}
+              note={selected?.content?.notes?.[item.id]}
+              onEditNote={selected ? () => setEditingNote(item) : undefined}
+              onRemove={() => removeStory(item.id)}
             />
           ) : (
             <SearchCard
               article={item}
               onSelect={onSelectArticle}
-              footer={
+              footer={<View>
+                {selected && <Pressable role="button" accessibilityLabel={`Add a note, ${item.title}`}
+                  onPress={() => setEditingNote(item)} style={styles.remove}>
+                  <Text style={styles.removeText}>{selected.content?.notes?.[item.id] || 'Add a note...'}</Text></Pressable>}
                 <Pressable
                   role="button"
                   accessibilityLabel={`이 목록에서 제거, ${item.title}`}
-                  onPress={() => store.setArticleInList(listId, item.id, false)}
+                  onPress={() => removeStory(item.id)}
                   style={styles.remove}
                 >
                   <Text style={styles.removeText}>이 목록에서 제거</Text>
-                </Pressable>
+                </Pressable></View>
               }
             />
           )
@@ -191,9 +208,13 @@ export function ReadingListScreen({
       <View style={styles.listBar}>
         <IconButton icon="clap" label="List claps" color="#dddddd" onPress={() => setNotice('List claps')} />
         <IconButton icon="comment" label="List responses" onPress={() => setNotice('List responses')} />
-        <IconButton icon="share" label="Share list" onPress={() => setNotice('Share list')} />
+        <IconButton icon="share" label="Share list" onPress={() => setShareTarget({
+          id: ownedPublicListId(store.userLists.userId, listId), title: name,
+        })} />
       </View>
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+      <ReferenceNotice title={shareTarget ? `Share list: ${shareTarget.title}` : notice}
+        onClose={() => { setShareTarget(null); setNotice(null); }} />
+      {editingNote && selected?.content && <ListNoteSheet listId={listId} article={editingNote} onClose={() => setEditingNote(null)} />}
     </SafeAreaView>
   );
 }
