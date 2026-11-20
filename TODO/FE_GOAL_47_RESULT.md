@@ -117,3 +117,8 @@ macOS14.2 arm64, CommandLineTools만 존재하며 Java11/17/21/23을 확인했�
 6.  프로필→설정→로그아웃→B 로그인, 이전 공유 시트/오류가 남지 않는지 확인한다. A 재로그인·늦은 응답은 자동 navigation 회귀에서도 검증했다. 새로고침은 메모리 mock을 초기화한다.
 
 기존8081 PID58453을 재시작/종료하지 않았고 ENV·medium 원본·사용자 변경을 건드리지 않았다. 최종 diff/staged 검토 후 이 Goal만 로컬 커밋하고 Goal48로 진행한다.
+
+
+## Goal48 후속 연결 — 이전 실행 기록과 구분
+
+2026-11-21의 [Goal48 결과](FE_GOAL_48_RESULT.md)에서 계정별 mock 멤버십을 연결했다. A는 기존 Member, B는 Free 기본 fixture이며 확정 권한을 Listen·offline·공유가 함께 읽는다. 미확정 요청 취소와 확정 후 닫기를 구분한다. 온보딩/설정의 멤버십 안내를 실제 mock 플랜으로 연결하고 Friend 링크는 memberOnly·작성자/Friend 자격을 검사한다. 실제 결제/음성 출력/링크 발급·native 실행 완료를 뜻하지 않는다. 위 과거 검사 수치와 당시 제한은 당시 기록으로 유지한다.

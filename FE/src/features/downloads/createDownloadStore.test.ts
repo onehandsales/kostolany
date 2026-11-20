@@ -109,3 +109,13 @@ it('원본 공급부도 다른 소유자와 목록에 없는 기사 요청을 �
   await expect(source.load({ userId: 'B', listId: 'list', articleId: first, jobId: 'x' }, new AbortController().signal)).rejects.toThrow('DOWNLOAD_FORBIDDEN');
   close();
 });
+
+it('멤버 권한 철회는 사본 접근·새 다운로드를 막고 사본 삭제는 허용한다', async () => {
+  const { source, store, close } = await setup(); close();
+  let permitted = true; const disconnect = store.connect('A:member', () => true, () => permitted);
+  await store.start('list'); expect(store.article(first)).not.toBeNull();
+  permitted = false; expect(store.article(first)).toBeNull();
+  store.remove('list'); expect(store.getSnapshot().entries).toEqual([]);
+  source.load = jest.fn(source.load); await store.start('list'); expect(source.load).not.toHaveBeenCalled();
+  permitted = true; await store.start('list'); expect(store.article(first)).not.toBeNull(); disconnect();
+});

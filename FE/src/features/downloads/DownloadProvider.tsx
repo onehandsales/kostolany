@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { hasMembershipBenefit } from '../membership/types';
+import { useMembership } from '../membership/MembershipProvider';
 import { useAuth } from '../auth/AuthProvider';
 import type { UserListSource } from '../bookmarks/listTypes';
 import type { ArticleSource } from '../article/types';
@@ -12,6 +14,7 @@ const DownloadContext = createContext<{ store: DownloadStore | null; scope: stri
 
 export function DownloadProvider({ source, lists, children }: { source?: DownloadSource; lists?: UserListSource; children: ReactNode }) {
   const auth = useAuth();
+  const membership = useMembership();
   const [fallback, setFallback] = useState(() => ({ lists, source: createMockDownloadSource({ lists }) }));
   const current = source ?? fallback.source;
   const [cache, setCache] = useState(() => ({ source: current, generation: 0, stores: new Map<string, DownloadStore>() }));
@@ -21,7 +24,7 @@ export function DownloadProvider({ source, lists, children }: { source?: Downloa
   const userId = auth.state.user?.id ?? null;
   let store = userId ? cache.stores.get(userId) ?? null : null;
   if (userId && !store) { store = createDownloadStore(current, userId); cache.stores.set(userId, store); }
-  const scope = JSON.stringify([cache.generation, userId, auth.state.revision]);
+  const scope = JSON.stringify([cache.generation, userId, auth.state.revision, membership?.scope]);
   return <DownloadContext.Provider value={{ store, scope, online }}>
     <DownloadSession key={scope} store={store} scope={scope} />{children}
   </DownloadContext.Provider>;
@@ -29,8 +32,13 @@ export function DownloadProvider({ source, lists, children }: { source?: Downloa
 function DownloadSession({ store, scope }: { store: DownloadStore | null; scope: string }) {
   const auth = useAuth();
   const revision = auth.state.revision;
+  const membership = useMembership();
+  const allowed = !membership || membership.allows('offline');
+  const membershipSource = membership?.source;
   useEffect(() => store?.connect(scope, () => auth.store.getSnapshot().revision === revision &&
-    auth.store.getSnapshot().user?.id === store.userId), [auth.store, revision, scope, store]);
+    auth.store.getSnapshot().user?.id === store.userId, () => !membershipSource || hasMembershipBenefit(
+      membershipSource.getSnapshot().find(item => item.userId === store.userId)?.tier ?? 'free', 'offline')),
+    [auth.store, revision, scope, store, allowed, membershipSource]);
   return null;
 }
 export function useDownloads() {

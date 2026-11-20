@@ -17,13 +17,13 @@ import { clearTextSelection, revealPassage, useSelectionBridge } from './useSele
 import { highlightId, highlightOperation, type Highlight, type Passage } from './types';
 
 type TextRenderer = (index: number, style?: StyleProp<TextStyle>, otherHighlight?: string) => ReactNode;
-type PassageReaderProps = { document: SelectionDocument; active?: boolean; highlightId?: string; onRevealBlock?: (index: number) => void;
+type PassageReaderProps = { document: SelectionDocument; memberOnly?: boolean; active?: boolean; highlightId?: string; onRevealBlock?: (index: number) => void;
   children: (render: TextRenderer) => ReactNode };
 export function PassageReader(props: PassageReaderProps) {
   const { scope } = useHighlights();
   return <PassageReaderContent key={`${scope}:${props.document.articleId}:${props.document.version}:${props.active !== false}`} {...props} />;
 }
-function PassageReaderContent({ document, active = true, highlightId: anchorId, onRevealBlock, children }: PassageReaderProps) {
+function PassageReaderContent({ document, memberOnly = false, active = true, highlightId: anchorId, onRevealBlock, children }: PassageReaderProps) {
   const { state, store } = useHighlights();
   const { colors } = useTheme();
   const auth = useAuth();
@@ -112,7 +112,7 @@ function PassageReaderContent({ document, active = true, highlightId: anchorId, 
           authorId: articleWriter(document.articleId)?.id,
           avatar: publicIdentity(articleWriter(document.articleId) ?? { kind: 'writer', id: '' })?.avatar,
           quote: selection.passage.text, start: selection.passage.start, end: selection.passage.end,
-          visibility: 'public',
+          visibility: 'public', memberOnly,
         }} available={resolvePassage(document, selection.passage)} onClose={() => setSharing(false)} /> : <SelectionOverlay onClose={close}>
         <View accessibilityLabel="문구 선택 메뉴" style={[styles.menu, { backgroundColor: colors.popup, top: menuTop, left: menuLeft, width: menuWidth }]}>
           <View style={styles.row}>

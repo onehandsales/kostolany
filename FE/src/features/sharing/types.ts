@@ -6,6 +6,7 @@ type SharePresentation = Readonly<{
   subtitle: string;
   authorName: string;
   authorId?: string;
+  memberOnly?: boolean;
   avatar?: ImageSourcePropType;
   readingMinutes?: number;
   visibility: 'public' | 'unlisted' | 'private';

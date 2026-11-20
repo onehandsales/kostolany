@@ -8,6 +8,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
   let scope = '';
   let sequence = 0;
   let canUse = () => false;
+  let canDownload = () => true;
   const jobs = new Map<string, { id: string; controller: AbortController; promise: Promise<void> }>();
   const listeners = new Set<() => void>();
   const listFor = (id: string) => source.getLists().find(list => list.userId === userId && list.listId === id);
@@ -40,7 +41,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     publish(entries);
   }
   function start(listId: string): Promise<void> {
-    if (!scope || !canUse()) return Promise.resolve();
+    if (!scope || !canUse() || !canDownload()) return Promise.resolve();
     const pending = jobs.get(listId); if (pending) return pending.promise;
     const current = listFor(listId); if (!current || !current.articleIds.length) return Promise.resolve();
     const previous = entryFor(listId);
@@ -54,7 +55,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     const job = { id, controller, promise: Promise.resolve() };
     jobs.set(listId, job);
     put({ listId, jobId: id, snapshot, items, phase: 'downloading', outdated: false });
-    const valid = () => scope === jobScope && canUse() && jobs.get(listId) === job && !controller.signal.aborted;
+    const valid = () => scope === jobScope && canUse() && canDownload() && jobs.get(listId) === job && !controller.signal.aborted;
     job.promise = (async () => {
       try {
         for (const articleId of snapshot.articleIds) {
@@ -82,8 +83,8 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     getScope: () => scope,
     getSnapshot: () => state,
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
-    connect(nextScope: string, authorized: () => boolean) {
-      scope = nextScope; canUse = authorized; reconcile();
+    connect(nextScope: string, authorized: () => boolean, permitted = () => true) {
+      scope = nextScope; canUse = authorized; canDownload = permitted; reconcile();
       const unsubscribe = source.subscribe(reconcile);
       return () => {
         scope = ''; canUse = () => false; unsubscribe();
@@ -95,7 +96,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     cancel: (id: string) => { if (scope && canUse()) cancel(id); },
     remove: (id: string) => { if (scope && canUse()) remove(id); },
     article(id: string) {
-      if (!scope || !canUse() || !source.getVersion(id)) return null;
+      if (!scope || !canUse() || !canDownload() || !source.getVersion(id)) return null;
       const candidates = state.entries.flatMap(entry => listFor(entry.listId)?.articleIds.includes(id) && entry.items[id] ? [entry.items[id]!] : []);
       return candidates.sort((a, b) => b.received - a.received)[0] ?? null;
     },

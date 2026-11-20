@@ -95,6 +95,11 @@ it('A·B·A와 같은 A 재로그인은 사본 소유권을 유지하고 공급�
   await user.press(button('Download list')); await screen.findByRole('button', { name: '다운로드 제거' });
   await switchTo(mockUserB.id); await open('B 목록', 1);
   expect(button('Download list')).toBeVisible(); expect(screen.queryByLabelText(`다운로드됨, ${article.title}`)).toBeNull();
+  await user.press(button('Download list'));
+  await user.press(button('Member 모의 선택'));
+  await screen.findByRole('button', { name: '멤버십 성공 확인' });
+  await user.press(button('멤버십 성공 확인'));
+  await user.press(button('멤버십 완료 후 돌아가기'));
   await user.press(button('Download list')); await screen.findByRole('button', { name: '다운로드 제거' });
   for (const id of [mockUserA.id, mockUserA.id]) {
     await switchTo(id); await open(); expect(button('다운로드 제거')).toBeVisible();

@@ -265,6 +265,7 @@ function ArticleBody({
           }}
         >
           <PassageReader
+              memberOnly={article.reference?.memberOnly}
             document={document}
             active={active}
             highlightId={highlightId}

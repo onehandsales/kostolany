@@ -184,6 +184,11 @@ it.each(['success', 'failure'] as const)(
     expect(screen.queryByRole('button', { name: /^플레이어 확장:/ })).toBeNull();
     await replace(createMockListeningSource({ delayMs: 10 }));
     await user.press(button('Listen'));
+    await user.press(button('Member 모의 선택'));
+    await flush();
+    await user.press(button('멤버십 성공 확인'));
+    await user.press(button('멤버십 완료 후 돌아가기'));
+    await user.press(button('Listen'));
     await flush();
     await user.press(button(/^플레이어 확장:/));
     await act(async () => {
@@ -315,6 +320,11 @@ it.each(['success', 'failure'] as const)(
     if (outcome === 'success') await act(async () => pending.resolve({ speed: 1, voiceId: 'hans' }));
     else await act(async () => pending.reject(new Error('late A')));
     expect(screen.queryByLabelText('오디오 플레이어')).toBeNull();
+    await user.press(button('Listen'));
+    await user.press(button('Member 모의 선택'));
+    await flush();
+    await user.press(button('멤버십 성공 확인'));
+    await user.press(button('멤버십 완료 후 돌아가기'));
     await user.press(button('Listen'));
     await flush();
     await user.press(button(/^플레이어 확장:/));

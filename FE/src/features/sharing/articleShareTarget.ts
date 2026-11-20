@@ -15,5 +15,6 @@ export function articleShareTarget(article: ArticleDetail | FeedArticle): ShareT
     authorName: publicIdentity(author ?? { kind: 'writer', id: '' })?.name ?? article.sourceName,
     avatar: article.reference?.avatar,
     visibility: 'public',
+    memberOnly: article.reference?.memberOnly ?? false,
   };
 }

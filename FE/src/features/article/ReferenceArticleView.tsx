@@ -207,6 +207,7 @@ export function ReferenceArticleView({
             }}
           >
             <PassageReader
+              memberOnly={article.reference?.memberOnly}
               document={document}
               active={active}
               highlightId={highlightId}

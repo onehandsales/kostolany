@@ -39,7 +39,7 @@ it('신규 가입은 관심사 최소 세 개와 선택 취소를 거쳐 팔로�
   await user.press(screen.getByRole('checkbox', { name: 'Life 관심사' }));
   await user.press(button('관심사 다음')); await flush();
   await user.press(button('추천 팔로우 완료')); await user.press(button('알림 안내 건너뛰기'));
-  await user.press(button('멤버십 안내 열기')); await user.press(button('멤버십 안내 닫기')); await user.press(button('온보딩 완료'));
+  await user.press(button('멤버십 안내 열기')); await user.press(button('멤버십 닫기')); await user.press(button('온보딩 완료'));
   expect(screen.queryByLabelText('글 제목')).toBeNull();
   expect((await source.read('example-reader', new AbortController().signal)).step).toBe('complete');
   const relationships = relationshipSource.read('example-reader'); await flush();

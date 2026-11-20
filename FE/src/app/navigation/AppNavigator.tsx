@@ -94,6 +94,8 @@ import { ListeningPlayer } from '../../features/listening/ListeningPlayer';
 import type { ListeningSource } from '../../features/listening/types';
 import type { ListeningOptionsSource } from '../../features/listening/listeningOptions';
 import { SharingProvider } from '../../features/sharing/SharingProvider';
+import { MembershipProvider } from '../../features/membership/MembershipProvider';
+import type { MembershipSource } from '../../features/membership/types';
 import type { ShareAdapter } from '../../features/sharing/types';
 
 type RootStackParamList = {
@@ -121,6 +123,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  membershipSource?: MembershipSource;
   shareAdapter?: ShareAdapter;
   listeningOptionsSource?: ListeningOptionsSource;
   listeningSource?: ListeningSource;
@@ -166,6 +169,7 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
 export function SessionNavigation(sources: AppNavigatorProps) {
   const { state } = useAuth();
   return (
+    <MembershipProvider source={sources.membershipSource}>
     <NotificationPermissionProvider source={sources.notificationPermissionSource}>
     <NotificationProvider source={sources.notificationSource}>
     <DisplaySettingsProvider userId={state.user?.id ?? null} source={sources.displaySource}>
@@ -173,6 +177,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
     </DisplaySettingsProvider>
     </NotificationProvider>
     </NotificationPermissionProvider>
+    </MembershipProvider>
   );
 }
 

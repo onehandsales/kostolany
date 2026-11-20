@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from 'react';
 import { AppState } from 'react-native';
+import { useMembership } from '../membership/MembershipProvider';
 import { useAuth } from '../auth/AuthProvider';
 import { useArticleModeration } from '../moderation/articleModeration';
 import { createListeningStore, type ListeningStore } from './createListeningStore';
@@ -58,12 +59,14 @@ export function ListeningProvider({ children, source, optionsSource }: Listening
 }
 function ListeningAccessGuard() {
   const { store, snapshot } = useListening();
+  const membership = useMembership();
+  const permitted = !membership || membership.allows('audio');
   const moderation = useArticleModeration();
   const isBlocked = snapshot.story ? moderation.blocked(snapshot.story.articleId) : false;
   // 차단 확정 뒤에는 이미 열려 있던 플레이어도 같은 접근 정책을 따른다.
   useLayoutEffect(() => {
-    if (isBlocked) store?.close();
-  }, [isBlocked, store]);
+    if (isBlocked || !permitted) store?.close();
+  }, [isBlocked, permitted, store, snapshot.story]);
   return null;
 }
 const subscribeNone = () => () => {};

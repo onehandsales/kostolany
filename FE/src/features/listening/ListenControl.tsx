@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { MembershipSheet } from '../membership/MembershipSheet';
+import { useMembership } from '../membership/MembershipProvider';
 import { ActivityIndicator, View } from 'react-native';
 import { IconButton } from '../../shared/ui/IconButton';
 import { useTheme } from '../../shared/theme/ThemeProvider';
@@ -7,6 +10,8 @@ import { useListening } from './ListeningProvider';
 
 type ListenControlProps = { article: ArticleDetail; disabled?: boolean };
 export function ListenControl({ article, disabled }: ListenControlProps) {
+  const membership = useMembership();
+  const [showMembership, setShowMembership] = useState(false);
   const { store, snapshot } = useListening();
   const { colors } = useTheme();
   const current = snapshot.story?.articleId === article.id;
@@ -22,19 +27,23 @@ export function ListenControl({ article, disabled }: ListenControlProps) {
       </View>
     );
   return (
+    <>
+    {showMembership && <MembershipSheet onClose={() => setShowMembership(false)} />}
     <IconButton
       icon={current && snapshot.status === 'playing' ? 'pause' : 'play'}
       label={current && snapshot.status === 'playing' ? 'Listen 일시정지' : 'Listen'}
       disabled={disabled || !store}
-      onPress={() =>
+      onPress={() => {
+        if (membership && !membership.allows('audio')) { setShowMembership(true); return; }
         store?.listen({
           articleId: article.id,
           title: article.title,
           cover: article.reference?.image,
           authorId: writer?.id,
           authorName: (writer ? publicIdentity(writer)?.name : undefined) ?? article.sourceName,
-        })
-      }
+        });
+      }}
     />
+    </>
   );
 }

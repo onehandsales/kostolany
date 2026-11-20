@@ -10,6 +10,8 @@ import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 
+import { MembershipSheet } from '../membership/MembershipSheet';
+import { useMembership } from '../membership/MembershipProvider';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { useModeration } from '../moderation/ModerationContext';
 import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
@@ -34,6 +36,8 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
   const profile = useProfile();
   const [editing, setEditing] = useState<'level' | 'profile' | null>(null);
   const community = useCommunityNavigation();
+  const membership = useMembership();
+  const [showMembership, setShowMembership] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const isEditing = editing !== null;
   const wasEditing = useRef(false);
@@ -49,6 +53,7 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
   }, [isEditing]);
   if (!isFocused && isEditing) setEditing(null);
   if (!isFocused && notice) setNotice(null);
+  if (!isFocused && showMembership) setShowMembership(false);
   if (!store) return null;
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
@@ -59,19 +64,21 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
         </Text>
         <View style={visual.headerSpace} />
       </View>
+      {showMembership && <MembershipSheet onClose={() => setShowMembership(false)} />}
       <ScrollView contentContainerStyle={styles.page}>
         <Text role="heading" style={[visual.section, visual.firstSection]}>
           Account
         </Text>
         <SettingsRow
           title="Become a Friend of Medium"
-          onPress={() => setNotice('Membership')}
+          onPress={() => setShowMembership(true)}
           trailing={<AppIcon name="friend" size={20} color={colors.gold} />}
         />
         <SettingsRow title="Story stats" onPress={() => setNotice('Story stats')} chevron />
         <SettingsRow title="Account" onPress={() => setNotice('Account')} />
         <SettingsRow title="Blocked users" onPress={() => moderation.open({ kind: 'blocked' })} chevron />
-        <SettingsRow title="Membership and payment" onPress={() => setNotice('Membership and payment')} />
+        <SettingsRow title="Membership and payment" onPress={() => setShowMembership(true)}
+          trailing={<Text accessibilityLabel="현재 멤버십 상태" style={{ color: colors.secondaryText, fontSize: 12 }}>Mock: {membership?.tier ?? 'free'}</Text>} />
         <Text role="heading" style={visual.section}>
           Configure Medium
         </Text>
@@ -144,7 +151,8 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
         <DisplaySettingsFeedback />
         <SettingsRow title="Push notifications" onPress={() => community.openNotificationSettings?.('push')} chevron />
         <SettingsRow title="Email notifications" onPress={() => community.openNotificationSettings?.('email')} chevron />
-        <SettingsRow title="Custom app icon" onPress={() => setNotice('Custom app icon')} chevron />
+        <SettingsRow title="Custom app icon" onPress={() => membership?.allows('custom-icon')
+          ? setNotice('Custom app icon') : setShowMembership(true)} chevron />
         <Text role="heading" style={visual.section}>
           Social
         </Text>

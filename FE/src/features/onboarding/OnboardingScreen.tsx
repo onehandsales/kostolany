@@ -7,6 +7,7 @@ import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { IconButton } from '../../shared/ui/IconButton';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
+import { MembershipPanel } from '../membership/MembershipSheet';
 import { useDirectory } from '../community/DirectoryProvider';
 import { FollowControl } from '../community/FollowControl';
 import { useRelationships } from '../community/RelationshipProvider';
@@ -24,11 +25,13 @@ function previousStep(record: OnboardingRecord): OnboardingStep | undefined {
 
 type OnboardingScreenProps = { session: OnboardingSession; permission: NotificationPermissionSource };
 export function OnboardingScreen(props: OnboardingScreenProps) {
+  const [membership, setMembership] = useState(false);
   const styles = useThemeStyles(createStyles);
   const state = useSyncExternalStore(props.session.subscribe, props.session.getSnapshot, props.session.getSnapshot);
   useEffect(() => () => { requestAnimationFrame(restoreModalFocus); }, []);
   return (
     <Modal animationType="fade" accessibilityLabel="관심사 온보딩" onRequestClose={() => {
+      if (membership) { setMembership(false); return; }
       const back = state.record && previousStep(state.record);
       if (back && !state.busy && state.error !== 'response-lost') void props.session.save(back);
       else if (!state.busy) props.session.close();
@@ -41,12 +44,14 @@ export function OnboardingScreen(props: OnboardingScreenProps) {
               message={state.status === 'loading' ? '설정을 불러오고 있어요.' : '설정을 불러오지 못했어요.'}
               actionLabel="온보딩 다시 불러오기" onAction={() => { void props.session.reload(); }} />
           </View>
-        ) : <OnboardingFlow key={state.record.step} {...props} />}
+        ) : membership && state.record.step === 'membership'
+          ? <MembershipPanel embedded onClose={() => setMembership(false)} onComplete={() => { setMembership(false); void props.session.save('complete'); }} />
+          : <OnboardingFlow key={state.record.step} {...props} onOpenMembership={() => setMembership(true)} />}
       </SafeAreaView>
     </Modal>
   );
 }
-function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
+function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScreenProps & { onOpenMembership: () => void }) {
   const styles = useThemeStyles(createStyles);
   const state = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
   const record = state.record;
@@ -66,7 +71,6 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
   }, [relationships.state]);
   const [working, setWorking] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [membership, setMembership] = useState(false);
   const [permissionResult, setPermissionResult] = useState(permission.read);
   const lifetime = useRef(new AbortController());
   const operationPending = useRef(false);
@@ -218,9 +222,7 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
           <Text role="heading" style={styles.membership}>Support independent writing and get the best of Medium.</Text>
           <Text style={styles.description}>Explore membership</Text>
           {record.notificationChoice === 'denied' && <Text style={styles.mock}>이전 알림 권한 요청이 거절됐어요. 알림 없이 계속 읽을 수 있어요.</Text>}
-          {membership && <View style={styles.membershipNotice}><Text style={styles.name}>Medium membership</Text>
-            <Text style={styles.description}>멤버십 구매는 아직 지원하지 않아요. 결제 없이 읽기를 계속할 수 있어요.</Text>
-            <OnboardingAction label="멤버십 안내 닫기" caption="Back" onPress={() => setMembership(false)} secondary disabled={locked} /></View>}
+
         </>}
         {feedback}
       </ScrollView>}
@@ -234,7 +236,7 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
         <OnboardingAction label={permission.kind === 'native' ? '알림 OS 권한 요청' : permission.kind === 'unsupported' ? '알림 권한 사용 불가' : '모의 알림 사용'} caption="Enable Notifications" disabled={locked} onPress={() => { void chooseNotifications(true); }} />
       </>}
       {step === 'membership' && <>
-        <OnboardingAction label="멤버십 안내 열기" caption="Explore membership" disabled={locked} secondary onPress={() => setMembership(true)} />
+        <OnboardingAction label="멤버십 안내 열기" caption="Explore membership" disabled={locked} secondary onPress={onOpenMembership} />
         <OnboardingAction label="온보딩 완료" caption="Continue reading" disabled={locked} onPress={() => { void session.save('complete'); }} />
       </>}
     </View>

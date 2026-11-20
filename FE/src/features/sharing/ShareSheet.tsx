@@ -15,6 +15,8 @@ import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
+import { MembershipPanel } from '../membership/MembershipSheet';
+import { useMembership } from '../membership/MembershipProvider';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { ShareCard, sharePalettes } from './ShareCard';
 import { ShareActionIcon } from './ShareActionIcon';
@@ -34,7 +36,8 @@ export function ShareSheet(props: SharePanelProps) {
 
 export function SharePanel(props: SharePanelProps) {
   const { scope, adapter } = useSharing();
-  const [origin] = useState({ scope, adapter });
+  const membership = useMembership();
+  const [origin] = useState({ scope, adapter, membership: membership?.source });
   const profile = useKnownProfile(props.target.authorId ?? '');
   const target = {
     ...props.target,
@@ -44,15 +47,17 @@ export function SharePanel(props: SharePanelProps) {
   };
   const { onClose } = props;
   useEffect(() => {
-    if (origin.scope !== scope || origin.adapter !== adapter) onClose();
-  }, [origin, scope, adapter, onClose]);
-  if (origin.scope !== scope || origin.adapter !== adapter) return null;
+    if (origin.scope !== scope || origin.adapter !== adapter || origin.membership !== membership?.source) onClose();
+  }, [origin, scope, adapter, onClose, membership?.source]);
+  if (origin.scope !== scope || origin.adapter !== adapter || origin.membership !== membership?.source) return null;
   return <SharePanelContent key={JSON.stringify([target, props.available])} {...props} target={target} />;
 }
 
 type ShareAction = 'copy' | 'friend' | 'via' | 'image';
 function SharePanelContent({ target, onClose, available = true }: SharePanelProps) {
   const { adapter, userId } = useSharing();
+  const membership = useMembership();
+  const [showMembership, setShowMembership] = useState(false);
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { width } = useWindowDimensions();
@@ -89,7 +94,7 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
 
   async function perform(action: ShareAction) {
     if (!shareable || busy.current || !mounted.current) return;
-    if (action === 'friend' && (!userId || target.authorId !== userId)) {
+    if (action === 'friend' && (!target.memberOnly || !userId || (target.authorId !== userId && !membership?.allows('friend-link')))) {
       setError({ kind: 'friend', action });
       return;
     }
@@ -160,6 +165,7 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
     { kind: 'via', label: 'Share via...' },
     { kind: 'image', label: 'Save image' },
   ];
+  if (showMembership) return <MembershipPanel embedded onClose={() => setShowMembership(false)} />;
   return (
     <View accessibilityViewIsModal style={styles.sheet}>
       <View style={styles.header}>
@@ -251,13 +257,14 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
             <View style={styles.error}>
               <Text role="alert" style={styles.errorText}>
                 {error.kind === 'friend'
-                  ? '작성자의 글에서 Preview Friend Link를 복사할 수 있어요. Friend 멤버십 연결은 아직 준비 중이에요.'
+                  ? target.memberOnly ? '다른 작가의 회원 전용 글은 Friend 멤버십에서 모의 링크를 복사할 수 있어요.' : '이 글은 무료로 공유할 수 있어요. Copy link를 사용하세요.'
                   : error.kind === 'permission'
                     ? '사진 저장 권한이 필요해요. 설정에서 허용한 뒤 다시 시도하세요.'
                     : error.kind === 'unsupported'
                       ? '이 환경에서는 이 공유 동작을 지원하지 않아요. Copy link를 사용하세요.'
                       : '공유 작업을 완료하지 못했어요. 선택한 카드로 다시 시도하세요.'}
               </Text>
+              {error.kind === 'friend' && target.memberOnly && <Pressable role="button" accessibilityLabel="Friend 멤버십 보기" style={styles.retry} onPress={() => setShowMembership(true)}><Text style={styles.retryText}>Become a Friend of Medium</Text></Pressable>}
               {!['friend', 'unsupported'].includes(error.kind) && (
                 <Pressable
                   role="button"
