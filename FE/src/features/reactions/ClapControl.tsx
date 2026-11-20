@@ -21,7 +21,8 @@ export function ClapControl({ target, title, size = 16, baseline }: ClapControlP
     store={store} target={target} title={title} size={size} />;
   const total = baseline ?? (target.kind === 'article'
     ? articleClapCounts[target.id] ?? 0 : 0);
-  return <LoginRequestButton context={{ kind: 'like', articleId: target.id }}
+  return <LoginRequestButton context={target.kind === 'list' ? { kind: 'clap-list', listId: target.id }
+    : { kind: 'like', articleId: target.id }}
     label={`박수, ${title}, 로그인 필요`} style={styles.row}>
     <AppIcon name="clap" size={size} filled={size <= 16} />
     <Text style={styles.count}>{formatReactionCount(total)}</Text>

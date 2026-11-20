@@ -1,12 +1,18 @@
 # Kostolany Mobile
 
-**후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+**현재 검증:** typecheck·lint·152 suites/906 tests 통과. 8081 실제 흐름·장애·계정/권한 경계·원본 두 쌍 대조 및 web JS/iOS·Android Hermes export를 확인했다. 실제 native build/run·OS 접근성/IME와 미수록 원본 확인은 잔여다.
 
-**최신 사용자 범위 변경(2026-11-20 KST): Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료한다. Goal32 이후는 시작하지 않는다. 아래 Goal35까지 연속 진행 문구는 변경 전 지시 이력이다. 커밋·push·배포 금지는 유지한다.**
+**현재 승인/상태(2026-11-20 KST, Windows): Goal32 단독 구현·두 차례 자체 검토·검증·결과 기록.** 공개 목록 상세·전체 Save/Unsave·Library Saved lists·목록 박수/응답·소유자 Follow·공유 대상 진입을 연결했다. 기사 북마크와 전체 목록 저장은 별개이며 비공개/삭제·늦은 응답·계정 수명을 처리한다. [Goal32 결과와8081 확인 순서](../TODO/FE_GOAL_32_RESULT.md)에 실제 실행 결과와 잔여를 기록한다. **구현 완료·원본 동일 재현/실제 native 검증 잔여**다. Goal33 이후·커밋·push·배포는 하지 않는다.
+
+작업 시작 HEAD `da38ae2`·clean, Node24.18.0/npm10.9.0, 기존8081 PID5248을 확인했다. 원본/ENV/lockfile을 보존했고 `TODO/evidence`·`TODO/_evidence`와 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다. 아래 과거 승인/검사/환경을 현재 승인으로 적용하지 않는다.
+
+**과거 승인 이력 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+
+**과거 Goal31 종료 요청:** Goal31에서 종료했던 기록이며 현재 범위는 위 Goal32 단독 승인이다.
 
 로컬 미리보기는 기존 [http://localhost:8081](http://localhost:8081)을 사용한다. 실행 중이면 중복 서버를 시작하지 않는다.
 
-**최신 상태(2026-11-20, macOS):** [Goal31 결과](../TODO/FE_GOAL_31_RESULT.md). Goal25~31은 구현 완료·시각/native 검증 잔여다. 추천 관리·관심사·Show less·이력 삭제/Library 동기화,늦은 이력 응답/실패 복구와 빠른 계정 전환의 개인 navigation 초기화를 구현했다. 각 Goal에서 두 차례 자체 검토·수정했다. 현재 코드 typecheck·lint·전체 **144 suites/856 tests 통과**,8081 정상/장애/계정/320px·긴 목록·원본 대조와 iOS/Android JS/Hermes export를 확인했다. 원본 font/vector·시각 차이와 실제 native build/run·OS 접근성/IME는 남는다. 최신 사용자 지시에 따라 **Goal31에서 종료하며 Goal32 이후 미착수**다. 커밋/push/배포·외부 연동은 없다. HEAD2e7aedd,Node24.18.0/npm10.9.0,기존8081 PID11374·medium382개 파일·ENV·lockfile을 보존했다. 산출물은 저장소 밖 임시 경로이며 아래 과거 승인/검사/PID/중단 문구는 당시 이력이다.
+**Goal31 당시 상태(2026-11-20, macOS):** [Goal31 결과](../TODO/FE_GOAL_31_RESULT.md). Goal25~31은 구현 완료·시각/native 검증 잔여다. 추천 관리·관심사·Show less·이력 삭제/Library 동기화,늦은 이력 응답/실패 복구와 빠른 계정 전환의 개인 navigation 초기화를 구현했다. 각 Goal에서 두 차례 자체 검토·수정했다. 현재 코드 typecheck·lint·전체 **144 suites/856 tests 통과**,8081 정상/장애/계정/320px·긴 목록·원본 대조와 iOS/Android JS/Hermes export를 확인했다. 원본 font/vector·시각 차이와 실제 native build/run·OS 접근성/IME는 남는다. 최신 사용자 지시에 따라 **Goal31에서 종료하며 Goal32 이후 미착수**다. 커밋/push/배포·외부 연동은 없다. HEAD2e7aedd,Node24.18.0/npm10.9.0,기존8081 PID11374·medium382개 파일·ENV·lockfile을 보존했다. 산출물은 저장소 밖 임시 경로이며 아래 과거 승인/검사/PID/중단 문구는 당시 이력이다.
 
 Goal 21 완료 당시 기록: Goal 14~21의 순차 구현·각 두 차례 검토·결과 기록을 마쳤다. 최종638 tests/84 suites·typecheck·lint·양 플랫폼 JS/Hermes·8081 통합 흐름·원본31쌍 비교를 확인했다. **100% 시각 일치 및 실제 iOS/Android 실행·native build 검증은 미완료**이며 남은 차이/필요 환경은 Goal21 결과에 기록했다. Goal14 커밋 `d016c06`, Goal15~21은 후속 사용자 요청에 따라 로컬 커밋으로 보관한다. 후속 개발은 시작하지 않는다.
 
@@ -164,6 +170,12 @@ src/features/bookmarks/ArticleBookmarkControl.tsx 저장 상태·접근성·실�
 src/features/bookmarks/LibraryScreen.tsx 기본/사용자 목록 카드·생성 진입
 src/features/bookmarks/ReadingListScreen.tsx 저장 기사·빈 상태·상세 이동
 src/features/bookmarks/data/         기사 카탈로그·모의 사용자별 저장·상태 재현
+src/features/public-lists/PublicListScreen.tsx 공개 목록 상세·소유자·기사·목록 반응
+src/features/public-lists/PublicListProvider.tsx 사용자/source별 저장소·권한 알림·인증 scope
+src/features/public-lists/createPublicListStore.ts 전체 목록 저장·직렬 최신 의도·응답 유실/재시도
+src/features/public-lists/SavedLists.tsx Library 저장 목록·상세 진입·해제 동기화
+src/features/public-lists/data/      관찰한 공개 목록·권한/실패/긴 목록 mock
+src/features/reactions/ClapProvider.tsx 공유 박수의 사용자 저장소와 인증 오류 수명
 src/features/likes/ArticleLikeControl.tsx 하트·수치·처리/실패·접근성 표시
 src/features/likes/data/             모의 사용자·반응 수치·실패/지연 시나리오
 src/shared/theme/tokens.ts           현재 화면에 필요한 색상·글자·간격

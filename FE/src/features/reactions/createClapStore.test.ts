@@ -13,6 +13,26 @@ function setup() {
   return { read, save, store: createClapStore({ read, save }, 'A') };
 }
 
+it('목록 박수 적용 응답을 잃는 동안 Undo해도 공급부와 화면의 최종 기여가 영이 된다', async () => {
+  const list: ClapTarget = { kind: 'list', id: 'public-morning-routine' };
+  const source = createMockClapSource({ delayMs: 0 });
+  const gate = deferred<void>();
+  let writes = 0;
+  const store = createClapStore({ ...source, save: async command => {
+    const value = await source.save(command);
+    if (++writes === 1) { await gate.promise; throw new Error('Lost acknowledgement'); }
+    return value;
+  } }, 'A');
+  await store.refresh(list);
+  store.clap(list);
+  store.undo(list);
+  gate.resolve();
+  await flush();
+  expect(writes).toBe(2);
+  expect(await source.read({ userId: 'A', target: list })).toMatchObject({ mine: 0, total: 98 });
+  expect(store.getSnapshot(list)).toMatchObject({ mine: 0, error: null, isSaving: false });
+});
+
 it.each(['success', 'failure'] as const)('연속 박수와 Undo 도중 이전 %s가 마지막 목표를 덮지 않는다', async outcome => {
   const { store, save } = setup();
   await store.refresh(target);

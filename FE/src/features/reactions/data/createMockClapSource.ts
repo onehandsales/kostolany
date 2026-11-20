@@ -1,16 +1,23 @@
 import { clapTargetKey, MAX_CLAPS, type ClapIdentity, type ClapSource, type ClapValue } from '../types';
 import { articleClapCounts } from './articleClapCounts';
+import { publicListFixtures } from '../../public-lists/data/publicListFixtures';
 
 export type ClapScenario = 'normal' | 'read-error' | 'write-error' | 'slow';
 export function createMockClapSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 4000 : 150,
-  baselines = Object.fromEntries(Object.entries(articleClapCounts).map(([id, count]) => [clapTargetKey({ kind: 'article', id }), count])),
-}: { scenario?: ClapScenario; delayMs?: number; baselines?: Readonly<Record<string, number>> } = {}): ClapSource {
+  baselines = { ...Object.fromEntries(Object.entries(articleClapCounts).map(([id, count]) => [clapTargetKey({ kind: 'article', id }), count])),
+    ...Object.fromEntries(publicListFixtures.map(list => [clapTargetKey({ kind: 'list', id: list.id }), list.baselineClaps])) },
+  canInteract = () => true,
+  baselineFor,
+}: { scenario?: ClapScenario; delayMs?: number; baselines?: Readonly<Record<string, number>>;
+  canInteract?: (identity: ClapIdentity) => boolean;
+  baselineFor?: (identity: ClapIdentity) => number | undefined } = {}): ClapSource {
   const values = new Map<string, number>();
   const failures = new Set<string>();
   const appliedCommands = new Map<string, number>();
   const identityKey = (identity: ClapIdentity) => JSON.stringify([identity.userId, clapTargetKey(identity.target)]);
   function valueFor(identity: ClapIdentity): ClapValue {
-    const baseline = baselines[clapTargetKey(identity.target)];
+    if (!canInteract(identity)) throw new Error('Unavailable clap target');
+    const baseline = baselineFor?.(identity) ?? baselines[clapTargetKey(identity.target)];
     if (baseline === undefined || !identity.userId.trim()) throw new Error('Unknown clap target');
     const mine = values.get(identityKey(identity)) ?? 0;
     // 각 모의 계정의 세계는 원본 기준 수치와 자기 기여만 합치며 실제 전체 사용자 집계와 구분한다.
@@ -24,6 +31,7 @@ export function createMockClapSource({ scenario = 'normal', delayMs = scenario =
     async read(identity) {
       const result = valueFor(identity);
       await wait(`read:${identityKey(identity)}`, scenario === 'read-error');
+      if (!canInteract(identity)) throw new Error('Unavailable clap target');
       return result;
     },
     async save(command) {
@@ -33,6 +41,7 @@ export function createMockClapSource({ scenario = 'normal', delayMs = scenario =
       const key = identityKey(command);
       const commandKey = JSON.stringify([key, command.commandId]);
       await wait(`save:${key}`, scenario === 'write-error');
+      if (!canInteract(command)) throw new Error('Unavailable clap target');
       const previousTarget = appliedCommands.get(commandKey);
       if (previousTarget !== undefined && previousTarget !== command.mine) throw new Error('Conflicting clap command');
       if (previousTarget === undefined) {

@@ -1,6 +1,7 @@
 import type { FeedArticle, FeedSort } from '../types';
 
 import { mediumHistoryStories } from './mediumHistoryStories';
+import { mediumPublicListStories } from './mediumPublicListStories';
 import { mediumTopicStories } from './mediumTopicStories';
 import { mediumAuthorStories } from './mediumAuthorStories';
 import { mediumLibraryArticles } from './mediumLibraryFixtures';
@@ -247,6 +248,7 @@ export const mediumArticles: FeedArticle[] = [
   ...mediumAuthorStories,
   ...mediumTopicStories,
   ...mediumHistoryStories,
+  ...mediumPublicListStories,
 ];
 
 // 키 이름은 기존 조회 계약을 유지하지만 실제 추천·팔로우 알고리즘은 없는 로컬 묶음이다.

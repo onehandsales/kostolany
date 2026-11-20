@@ -16,6 +16,7 @@ import { mediumArticles } from '../feed/data/mediumFixtures';
 import { useRecommendedArticles } from '../recommendations/useRecommendedArticles';
 import { articleReportTarget } from '../moderation/articleModeration';
 import { useModeration } from '../moderation/ModerationContext';
+import { usePublicLists } from '../public-lists/PublicListProvider';
 
 import { useTopics } from './TopicProvider';
 import type { Curation } from './types';
@@ -195,6 +196,13 @@ function CurationPreview({
   const navigation = useCommunityNavigation();
   const moderation = useRecommendedArticles();
   const { open } = useModeration();
+  const publicLists = usePublicLists();
+  const list = publicLists.state?.value?.lists.find(item => item.id === curation.listId
+    && item.owner.id === curation.curatorId);
+  if (publicLists.state?.readError) return <ContentStatus message="Couldn’t load the curated list." error
+    actionLabel="Retry curated list" onAction={() => { void publicLists.store?.reload(); }} />;
+  if (!publicLists.state?.value) return <ContentStatus message="Loading curated list…" loading />;
+  if (!list) return <ContentStatus message="This curated list is unavailable." />;
   const articles = curation.previewStories.flatMap((id) => {
     const article = mediumArticles.find((item) => item.id === id);
     return article && !moderation.excluded(id) ? [article] : [];
@@ -265,7 +273,7 @@ function CurationPreview({
         role="button"
         accessibilityLabel={`See the full list ${curation.title}`}
         style={styles.listTarget}
-        onPress={() => navigation.openPublicList(curation.listId)}
+        onPress={() => navigation.openPublicList(list.id, list.owner.id)}
       >
         <View style={styles.listPill}>
           <Text style={styles.chipText}>See the full list</Text>

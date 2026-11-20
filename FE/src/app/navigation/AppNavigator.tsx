@@ -28,7 +28,9 @@ import { RelationshipProvider } from '../../features/community/RelationshipProvi
 import { CommunityNavigationProvider } from '../../features/community/CommunityNavigation';
 import { PublicIdentityScreen } from '../../features/community/PublicIdentityScreen';
 import { ConnectionsScreen } from '../../features/community/ConnectionsScreen';
-import { PublicListPreviewScreen } from '../../features/community/PublicListPreviewScreen';
+import { PublicListScreen } from '../../features/public-lists/PublicListScreen';
+import { PublicListProvider } from '../../features/public-lists/PublicListProvider';
+import type { PublicListSource } from '../../features/public-lists/types';
 import type { DirectorySource, FollowTarget, RelationshipSource } from '../../features/community/types';
 import type { ExplanationSource } from '../../features/article/explanationTypes';
 import type { ArticleSource } from '../../features/article/types';
@@ -72,7 +74,7 @@ type RootStackParamList = {
     ownerUserId?: string;
     revision?: number;
   };
-  PublicList: { listId: string };
+  PublicList: { listId: string; ownerId?: string; originTab: keyof MainTabParamList };
   Topic: { topicId: string; originTab: keyof MainTabParamList };
   Discovery: { filter: 'all' | 'publication'; originTab: keyof MainTabParamList };
 };
@@ -98,6 +100,7 @@ type AppNavigatorProps = {
   moderationSource?: ModerationSource;
   topicSource?: TopicSource;
   recommendationSource?: RecommendationSource;
+  publicListSource?: PublicListSource;
 };
 
 export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigatorProps) {
@@ -134,6 +137,7 @@ function SessionNavigationContent({
   relationshipSource,
   directorySource,
   moderationSource,
+  publicListSource,
 }: AppNavigatorProps) {
   const { state } = useAuth();
   const { colors, scheme } = useTheme();
@@ -166,7 +170,6 @@ function SessionNavigationContent({
         userId={state.user?.id ?? null}
         sessionRevision={state.revision}
       >
-        <ClapProvider source={clapSource} userId={state.user?.id ?? null} revision={state.revision}>
           <ReadingHistoryProvider
             source={historySource}
             userId={state.user?.id ?? null}
@@ -177,6 +180,8 @@ function SessionNavigationContent({
               userId={state.user?.id ?? null}
               revision={state.revision}
             >
+              <PublicListProvider source={publicListSource}>
+              <ClapProvider source={clapSource} userId={state.user?.id ?? null} revision={state.revision}>
               <ResponseProvider
                 source={responseSource}
                 userId={state.user?.id ?? null}
@@ -253,9 +258,9 @@ function SessionNavigationContent({
                                       revision: owner ? undefined : state.revision,
                                     });
                                 },
-                                openPublicList: (listId) => {
+                                openPublicList: (listId, ownerId) => {
                                   if (navigationRef.isReady())
-                                    navigationRef.dispatch(StackActions.push('PublicList', { listId }));
+                                    navigationRef.dispatch(StackActions.push('PublicList', { listId, ownerId, originTab: currentTab() }));
                                 },
                               }}
                             >
@@ -404,9 +409,13 @@ function SessionNavigationContent({
                                   </Stack.Screen>
                                   <Stack.Screen name="PublicList">
                                     {({ route, navigation }) => (
-                                      <PublicListPreviewScreen
+                                      <FocusedPublicList
                                         listId={route.params.listId}
+                                        ownerId={route.params.ownerId}
                                         onBack={() => navigation.goBack()}
+                                        onSelectArticle={(articleId) => navigation.push('Article', { articleId, origin: 'PublicList' })}
+                                        footer={<PublicTabFooter selected={route.params.originTab}
+                                          onSelect={(screen) => navigation.popTo('Main', { screen })} />}
                                       />
                                     )}
                                   </Stack.Screen>
@@ -421,9 +430,10 @@ function SessionNavigationContent({
                   </RecommendationProvider>
                 </HighlightProvider>
               </ResponseProvider>
+              </ClapProvider>
+              </PublicListProvider>
             </ModerationProvider>
           </ReadingHistoryProvider>
-        </ClapProvider>
       </ProfileProvider>
     </ReadingSettingsProvider>
   );
@@ -432,6 +442,11 @@ function SessionNavigationContent({
 function FocusedArticleRoute(props: React.ComponentProps<typeof ArticleRouteScreen>) {
   const focused = useIsFocused();
   return <ArticleRouteScreen {...props} isFocused={focused} />;
+}
+
+function FocusedPublicList(props: React.ComponentProps<typeof PublicListScreen>) {
+  const focused = useIsFocused();
+  return <PublicListScreen {...props} active={focused} />;
 }
 
 function SessionAuthDialogs() {

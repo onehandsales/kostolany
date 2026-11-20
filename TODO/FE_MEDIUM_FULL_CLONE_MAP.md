@@ -1,12 +1,16 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+**Goal32 최종 검사:** typecheck·lint·152 suites/906 tests 통과; 실제 navigation/8081 검증 및 F04 상단·하단 비교 완료. 동일 시각 재현·미수록 UI·실제 native 검증은 잔여다.
 
-**최신 사용자 범위 변경(2026-11-20 KST): Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료한다. Goal32 이후는 시작하지 않는다. 아래 Goal35까지 연속 진행 문구는 변경 전 지시 이력이다. 커밋·push·배포 금지는 유지한다.**
+**현재 승인(2026-11-20 KST): Goal32 단독 구현·두 차례 자체 검토·검증·결과 기록 후 종료한다. Goal33 이후·커밋·push·배포는 승인 범위가 아니다.** [Goal32 결과](FE_GOAL_32_RESULT.md)에 공개 목록/Saved lists/목록 반응 구현·실제 검사·원본 차이를 기록한다. 원본 동일 재현·실제 native 검증은 잔여다. `TODO/evidence`·`TODO/_evidence`는 만들지 않는다.
+
+**과거 승인 기록 — 현재 적용 없음:** Goal25~31 커밋/push와 Goal25~35 연속 진행 요청은 당시 이력이다.
+
+**과거 Goal31 종료 기록:** 다음 문단의 Goal31 당시 수치/미착수 표기는 이력이며 현재 판정은 Goal32 결과를 따른다.
 
 작성일: 2026-11-19 KST · [Goal 22~53 실행 계획](FE_MEDIUM_FULL_CLONE_GOALS.md).
 
-**63개 흐름 / 273단계 / 고유200장 / UI중복43장 / 작업묶음72개.** 최신 실행 범위는 Goal25→31이며 커밋/push/배포 없이 Goal31에서 종료한다. Goal24는 구현 완료·시각/native 검증 잔여다. [Goal25](FE_GOAL_25_RESULT.md)는 본문·누적 박수·읽음 구현/두 자체 검토·타입/lint·106 suites/728 tests·브라우저/양 플랫폼 JS-Hermes를 확인했고 시각/native 잔여다. [Goal26](FE_GOAL_26_RESULT.md)은 댓글/답글·정렬·편집/삭제·반응·공유 수치 구현/두 자체 검토,112 suites/758 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal27](FE_GOAL_27_RESULT.md)은 선택/Highlight/인용 응답 구현·두 자체 검토,118 suites/778 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal28](FE_GOAL_28_RESULT.md)은 작성자/팔로우/이메일 구현·두 자체 검토,126 suites/798 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal29](FE_GOAL_29_RESULT.md)은 Mute·Block·신고·응답 관리 구현·두 자체 검토,132 suites/824 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal30](FE_GOAL_30_RESULT.md)은 토픽·큐레이션·추천 구현/두 자체 검토,전체138 suites/836 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal31](FE_GOAL_31_RESULT.md)은 추천·관심사·이력 구현/두 자체 검토,현재 144 suites/856 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. Goal32~53은 미착수이며 자동으로 시작하지 않는다. 대응표 존재와 담당 번호는 구현·시각 검증 완료율이 아니다.
+**Goal31 당시 집계 — 63개 흐름 / 273단계 / 고유200장 / UI중복43장 / 작업묶음72개.** 당시 실행 범위는 Goal25→31이며 커밋/push/배포 없이 Goal31에서 종료한다. Goal24는 구현 완료·시각/native 검증 잔여다. [Goal25](FE_GOAL_25_RESULT.md)는 본문·누적 박수·읽음 구현/두 자체 검토·타입/lint·106 suites/728 tests·브라우저/양 플랫폼 JS-Hermes를 확인했고 시각/native 잔여다. [Goal26](FE_GOAL_26_RESULT.md)은 댓글/답글·정렬·편집/삭제·반응·공유 수치 구현/두 자체 검토,112 suites/758 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal27](FE_GOAL_27_RESULT.md)은 선택/Highlight/인용 응답 구현·두 자체 검토,118 suites/778 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal28](FE_GOAL_28_RESULT.md)은 작성자/팔로우/이메일 구현·두 자체 검토,126 suites/798 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal29](FE_GOAL_29_RESULT.md)은 Mute·Block·신고·응답 관리 구현·두 자체 검토,132 suites/824 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal30](FE_GOAL_30_RESULT.md)은 토픽·큐레이션·추천 구현/두 자체 검토,전체138 suites/836 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal31](FE_GOAL_31_RESULT.md)은 추천·관심사·이력 구현/두 자체 검토,당시 144 suites/856 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. 당시 Goal32~53은 미착수이며 자동으로 시작하지 않는다. 대응표 존재와 담당 번호는 구현·시각 검증 완료율이 아니다.
 
 ## 원본과 사용 방법
 
@@ -19,14 +23,14 @@
 
 ## 현재 구현과 후속 범위
 
-| 영역 | Goal31 종료 시점 구현·잔여 | 관련 Goal |
+| 영역 | Goal32 작업 후 구현·잔여 | 관련 Goal |
 | --- | --- | --- |
 | 홈·탐색·Stories 검색 | 관계 기반 Following·추천 제어·토픽/작성자/publication 진입을 연결했다. 다른 검색 결과 종류와 전체 검색 확장은 후속 범위다. | 23,30,31 구현·시각/native 잔여; 50 미착수 |
 | 기사·반응 | Goal25에서 누적 박수·내 기여/Undo·Viewed·이력을 전환하고 본문/관련 기사/더보기 진입을 보정했다. 전체 검사/시각 잔여는 결과 문서 기준이다. | 24~29,45~47 |
 | Responses | 작성·답글·편집/삭제·정렬·반응·인용·소유자 응답 관리를 실제 mock 상태와 연결했다. 기사 댓글 수는 해당 상태에서 계산한다. | 26,27,29 구현·시각/native 잔여 |
-| 작성자·관계 | Stories/Lists/About·팔로워/팔로잉·작가/publication Follow·이메일 구독 상태·Mute/Block/신고를 연결했다. 공개 목록 전체 동작·공유 실행은 후속 범위다. | 28~31 구현·시각/native 잔여; 32,47 미착수 |
-| 저장·내 목록 | 다중 저장·생성/편집/삭제·기사 제거/Undo가 있다. 공개 전환 확인·메모·정렬·전체 목록 저장·반응·다운로드를 보완한다. | 32~35 |
-| Library·Digest | 내 Highlight·원문 복귀와 공유 Reading history·삭제를 연결했다. Saved lists·Digest·다운로드·관련 설정은 후속 범위다. | 27,31 구현·시각/native 잔여; 32~35,44 미착수 |
+| 작성자·관계 | Stories/Lists/About·팔로우·Mute/Block/신고와 공개 목록 상세를 연결했다. 권한 철회 시 프로필 목록 카드를 제거하며 목록 하단 Follow와 프로필이 같은 상태를 사용한다. 실제 공유 실행은 후속 범위다. | 28~32 구현·시각/native 잔여; 47 미착수 |
+| 저장·내 목록 | 기사 다중 저장과 별도로 공개 목록 전체 Save/Unsave·권한 처리를 구현했다. 목록 메모/재정렬/공개 범위 편집 확장은 선행하지 않았다. | 32 구현·검증 잔여; 33~35 미착수 |
+| Library·Digest | Saved lists의 실제 저장 목록·상세·해제 동기화를 연결했다. 원본 Saved lists 본문은 미수록이며 자체 보완 UI다. Digest·다운로드·관련 설정은 후속 범위다. | 27,31,32 구현·시각/native 잔여; 34,35,44 미착수 |
 | Write | 작성 진입이 안내 상태다. 편집·미디어·멘션·초안·발행 전체가 후속 범위다. | 36~39 |
 | 인증 | 가입/로그인 제공자 버튼은 이미 있다. Google mock 계정 중심이며 나머지 제공자/이메일 단계·온보딩·intro 복귀를 연결한다. | 40,41 |
 | 프로필 | 이름/short bio·기본 수준 등의 편집이 있다. 사진·대명사·Public 필터·통계/관계에 안내가 남아 있다. | 28,39,42,43 |
@@ -68,8 +72,8 @@
 | C26 | 추천 | All/Writers/Publications/Topics·follow·mute 해제 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F13; 대상 필터·Follow·Unmute 구현. 늦은 토픽 응답·필터 전환·실패 재시도·계정 경계 검증. Muted 본문은 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
 | C27 | 이력 | 개별 기록 제거·Clear history·확인/취소·Library 이력 진입 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F14,F15,F41; 개별/전체 삭제·취소·실패/재시도·Library/Viewed 동기화 구현/검증. 저장/박수/Highlight 보존 확인. Library 본문/Viewed 삭제 관계는 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
 | C28 | 저장 | Save to·여러 목록·선택 초안·Done·새 목록 생성 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F37,F42; 기존 구현을 재사용하되 원본 동작/시각을 재검증한다. |
-| C29 | 공개 목록 | 전체 목록 Save/해제·저장 수·Saved lists·소유자/방문자 | [32](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-32) | F04; 개별 기사 bookmark와 다른 관계다. Saved lists 펼친 내용은 미수록이다. |
-| C30 | 공개 목록 | 목록 claps·목록 responses·소유자 Follow·Share·Undo claps·박수 사용자 목록 | [32](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-32) | F04; 기사/댓글의 반응과 분리하고 Share는 47에 연결한다. |
+| C29 | 공개 목록 | 전체 목록 Save/해제·저장 수·Saved lists·소유자/방문자 | [32 결과](FE_GOAL_32_RESULT.md) | 구현·실제 navigation/8081 검사. 기사 bookmark와 별도 관계, 비공개/삭제 시 제거. Saved lists 본문 원본은 추가 조회에서도 미확보여서 자체 보완; 동일 재현/native 잔여. |
+| C30 | 공개 목록 | 목록 claps·목록 responses·소유자 Follow·Share·Undo claps·박수 사용자 목록 | [32 결과](FE_GOAL_32_RESULT.md) | target별 공유 계약 연결·최대50/Undo/응답 CRUD/Follow 검증. Share는 대상 선택 안내이며 실행은47. 목록 Responses/참여자 펼친 원본 미수록, 참여자는 내 기여만 표시하고 타인을 생성하지 않음; 동일 재현/native 잔여. |
 | C31 | 내 목록 | 목록 제목/설명 편집·읽기 목록·새 목록·행별 더보기 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F42,F46; 기본/사용자 목록과 소유권별 메뉴를 확인한다. |
 | C32 | 내 목록 | Add/Edit note·취소/저장·빈값 Done·기존 메모 지우기·공개 범위 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F45; 메모는 목록-기사 관계다. 빈값 Done이 녹색인 사실과 실제 빈값 저장/타인 가시성은 구분하며 근거 없는 멤버십 제한을 만들지 않는다. |
 | C33 | 내 목록 | Reorder·드래그·Cancel/Done·확정 순서 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F51; 취소가 원래 순서를 복원한다. |
@@ -213,7 +217,7 @@
 
 - `F번호/단계` 링크는 해당 플로우 폴더의 실제 PNG다. 같은 화면이 여러 플로우에 반복되면 모든 단계 링크를 남긴다. 총 273개 참조이며 각 링크의 흐름/단계 맥락도 검증 대상이다.
 - 담당은 **이 화면을 재사용하는 흐름의 주/관련 Goal 합집합**이다. 공통 시각 담당 23/24와 최종 51~53은 항상 적용한다. 하나의 공통 홈 화면이 여러 Goal에 나오는 것은 중복 구현 지시가 아니다.
-- 모든 행의 이번 후속 검증 상태는 **미착수**다. 원본 ID가 있다는 사실이나 과거 일부 비교를 현재 200장 통과로 계산하지 않는다.
+- 계획 작성 시 모든 행은 미착수였다. 현재 기능별 상태는 위 C항목과 각 Goal 결과를 따른다. Goal32에서 F04 상단/하단을 실제 캡처·overlay/diff로 대조했고 작성자 Lists·Library·비공개/삭제 원본을 연결해 검토했다. 동일 시각 재현과 미수록 화면/native는 잔여이며, 이를 전체200장 통과로 계산하지 않는다.
 
 | 화면 / 고유 ID | 화면 이름 | 기록된 메뉴·조작 | 원본 PNG: 흐름/단계 | 관련 기능 Goal |
 | --- | --- | --- | --- | --- |

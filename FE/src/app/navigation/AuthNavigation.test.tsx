@@ -160,7 +160,8 @@ it.each(['success', 'failure'] as const)('A 개인 변경 중 로그아웃→B�
   await logOut(user); await logIn(user);
   await user.press(screen.getByRole('tab', { name: '홈' }));
   if (outcome === 'failure') {
-    await user.press(screen.getByRole('button', { name: `박수 다시 시도, ${title}` }));
+    expect(screen.queryByRole('button', { name: `박수 다시 시도, ${title}` })).toBeNull();
+    await user.press(getClap());
     await user.press(screen.getByRole('button', { name: `북마크 변경 다시 시도, ${title}` }));
   }
   expect(getClap()).toHaveProp('accessibilityValue', expect.objectContaining({ now: 1 })); expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));

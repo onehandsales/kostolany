@@ -1,6 +1,6 @@
 import { clapTargetKey, MAX_CLAPS, type ClapSnapshot, type ClapSource, type ClapTarget, type ClapValue } from './types';
 
-type Command = { id: number; intent: number; mine: number };
+type Command = { id: number; intent: number; mine: number; scope: string };
 type Entry = {
   confirmed: ClapValue | null;
   desired: number;
@@ -9,6 +9,8 @@ type Entry = {
   reading: boolean;
   command: Command | null;
   failed: number | null;
+  uncertain: boolean;
+  intentScope: string;
   snapshot: ClapSnapshot;
   listeners: Set<() => void>;
 };
@@ -20,13 +22,14 @@ export type ClapStore = ReturnType<typeof createClapStore>;
 export function createClapStore(source: ClapSource, userId: string) {
   const entries = new Map<string, Entry>();
   let commandId = 0;
+  let activeScope = 'standalone';
   const commandScope = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
   function entryFor(target: ClapTarget): Entry {
     const key = clapTargetKey(target);
     let entry = entries.get(key);
     if (!entry) {
       entry = { confirmed: null, desired: 0, intent: 0, generation: 0, reading: false,
-        command: null, failed: null, snapshot: initial, listeners: new Set() };
+        command: null, failed: null, uncertain: false, intentScope: activeScope, snapshot: initial, listeners: new Set() };
       entries.set(key, entry);
     }
     return entry;
@@ -70,8 +73,8 @@ export function createClapStore(source: ClapSource, userId: string) {
   }
   async function drain(target: ClapTarget, entry: Entry): Promise<void> {
     if (entry.command || !entry.confirmed) return;
-    if (entry.desired === entry.confirmed.mine) { publish(entry); return; }
-    const command = { id: ++commandId, intent: entry.intent, mine: entry.desired };
+    if (entry.desired === entry.confirmed.mine && !entry.uncertain) { publish(entry); return; }
+    const command = { id: ++commandId, intent: entry.intent, mine: entry.desired, scope: entry.intentScope };
     entry.command = command;
     publish(entry);
     try {
@@ -79,20 +82,25 @@ export function createClapStore(source: ClapSource, userId: string) {
       validate(value, target, command.mine);
       entry.confirmed = value;
       entry.command = null;
+      entry.uncertain = false;
       void drain(target, entry);
     } catch {
       entry.command = null;
+      // 응답을 잃은 쓰기는 확정값과 같은 Undo 목표도 공급부에 다시 반영한다.
+      entry.uncertain = true;
       if (command.intent !== entry.intent) { void drain(target, entry); return; }
-      entry.failed = command.mine;
+      const current = command.scope === activeScope;
+      entry.failed = current ? command.mine : null;
       entry.desired = entry.confirmed.mine;
-      publish(entry, 'write');
+      publish(entry, current ? 'write' : null);
     }
   }
   function setCount(target: ClapTarget, mine: number): void {
     const entry = entryFor(target);
     if (!entry.confirmed || !Number.isInteger(mine) || mine < 0 || mine > MAX_CLAPS
-      || (mine === entry.desired && entry.failed === null)) return;
+      || (mine === entry.desired && entry.failed === null && !entry.uncertain)) return;
     entry.intent += 1;
+    entry.intentScope = activeScope;
     entry.desired = mine;
     entry.failed = null;
     // 증가량 대신 개인 목표 수를 직렬 저장해 응답 재시도와 연속 입력의 이중 증가를 막는다.
@@ -103,6 +111,17 @@ export function createClapStore(source: ClapSource, userId: string) {
   }
   return {
     userId,
+    getScope: () => activeScope,
+    setScope(scope: string): void {
+      if (scope === activeScope) return;
+      activeScope = scope;
+      entries.forEach(entry => {
+        entry.generation += 1;
+        entry.reading = false;
+        entry.failed = null;
+        publish(entry);
+      });
+    },
     getSnapshot: (target: ClapTarget): ClapSnapshot => entries.get(clapTargetKey(target))?.snapshot ?? initial,
     subscribe(target: ClapTarget, listener: () => void): () => void {
       const entry = entryFor(target);

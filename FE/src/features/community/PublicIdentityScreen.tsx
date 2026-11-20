@@ -8,6 +8,8 @@ import { useCommunityNavigation } from './CommunityNavigation';
 import { FollowControl } from './FollowControl';
 import { SafeWebsiteLink } from './SafeWebsiteLink';
 import { publicListPreviews } from './data/publicDirectory';
+import { usePublicLists } from '../public-lists/PublicListProvider';
+import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { followKey, type FollowTarget } from './types';
 import { mediumArticles } from '../feed/data/mediumFixtures';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
@@ -32,6 +34,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const directory = useDirectory();
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
+  const publicLists = usePublicLists();
   const { scope } = moderation;
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
   const [uiScope, setUiScope] = useState(scope);
@@ -48,6 +51,11 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
     return () => clearTimeout(timer);
   }, [message]);
   const identity = directory.state.data?.identities.find((item) => followKey(item) === followKey(target));
+  const lists = publicLists.state?.value?.lists.filter(list => identity?.lists.includes(list.id)
+    && followKey(list.owner) === followKey(target)) ?? [];
+  useEffect(() => {
+    if (active && section === 'Lists') void publicLists.store?.reload();
+  }, [active, section, publicLists.store]);
   const storyIds = identity
     ? [...identity.pinned, ...identity.stories.filter((id) => !identity.pinned.includes(id))]
     : [];
@@ -146,16 +154,20 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
       )}
       {section === 'Lists' && !blocked && (
         <View style={styles.lists}>
-          {identity.lists.length ? (
-            identity.lists.map((id) => {
-              const list = publicListPreviews.find((item) => item.id === id);
-              if (!list) return null;
+          {publicLists.state?.readError ? (
+            <ContentStatus message="Couldn’t load public lists." error actionLabel="Retry public lists"
+              onAction={() => { void publicLists.store?.reload(); }} />
+          ) : !publicLists.state?.value ? (
+            <ContentStatus message="Loading public lists…" loading />
+          ) : lists.length ? (
+            lists.map((list) => {
+              const preview = publicListPreviews.find((item) => item.id === list.id);
               return (
                 <Pressable
-                  key={id}
+                  key={list.id}
                   role="button"
                   accessibilityLabel={`Open list ${list.title}`}
-                  onPress={() => navigation.openPublicList(id)}
+                  onPress={() => navigation.openPublicList(list.id, list.owner.id)}
                   style={styles.list}
                 >
                   <View style={styles.listCopy}>
@@ -166,10 +178,10 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
                       <Text style={styles.secondary}>{identity.name}</Text>
                     </View>
                     <Text style={styles.listTitle}>{list.title}</Text>
-                    <Text style={styles.secondary}>{list.count} stories</Text>
+                    <Text style={styles.secondary}>{list.capturedStoryCount} stories</Text>
                   </View>
                   <View style={styles.covers}>
-                    {list.covers.map((source, index) => (
+                    {preview?.covers.map((source, index) => (
                       <Image key={index} source={source} style={styles.cover} accessible={false} />
                     ))}
                   </View>

@@ -8,6 +8,7 @@ import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 
 import { ReadingHistoryList } from '../reading-history/ReadingHistoryList';
+import { SavedLists } from '../public-lists/SavedLists';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { HighlightList } from '../highlights/HighlightList';
 
@@ -103,7 +104,7 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
                 });
             }}
             onPress={() => {
-              if (!index || tab === 'Highlighted' || tab === 'Reading history') setSelectedTab(tab);
+              if (!index || tab === 'Saved lists' || tab === 'Highlighted' || tab === 'Reading history') setSelectedTab(tab);
               else setNotice(tab);
             }}
             style={styles.tab}
@@ -145,7 +146,7 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
   );
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
-      {selectedTab === 'Reading history' ? (
+      {selectedTab === 'Saved lists' ? <SavedLists header={header} /> : selectedTab === 'Reading history' ? (
         <ReadingHistoryList
           header={header}
           onSelect={navigation.openHistoryArticle}

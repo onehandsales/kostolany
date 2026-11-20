@@ -12,6 +12,24 @@ const control = <ClapControl target={target} title={title} size={24} />;
 const initial: ClapValue = { userId: 'A', target, mine: 0, total: 0 };
 const button = () => screen.getByRole('button', { name: `박수 보내기, ${title}` });
 
+it('A의 늦은 실패와 이전 오류가 B 전환 및 같은 A 재로그인 화면에 남지 않는다', async () => {
+  const pending = deferred<ClapValue>();
+  const source: ClapSource = { read: async identity => ({ ...initial, userId: identity.userId }), save: () => pending.promise };
+  const user = userEvent.setup();
+  const view = await render(<ClapProvider userId="A" revision={1} source={source}>{control}</ClapProvider>);
+  await waitFor(() => expect(button()).toBeEnabled());
+  await user.press(button());
+  await view.rerender(<ClapProvider userId="B" revision={2} source={source}>{control}</ClapProvider>);
+  await act(async () => pending.reject(new Error('Old A failure')));
+  expect(screen.queryByRole('alert')).toBeNull();
+  await view.rerender(<ClapProvider userId="A" revision={3} source={source}>{control}</ClapProvider>);
+  expect(screen.queryByRole('alert')).toBeNull();
+  await user.press(button());
+  await screen.findByRole('alert');
+  await view.rerender(<ClapProvider userId="A" revision={4} source={source}>{control}</ClapProvider>);
+  expect(screen.queryByRole('alert')).toBeNull();
+});
+
 it.each(['read-error', 'write-error'] as const)('%s를 구분해 보여주고 재시도 후 박수 목표를 복구한다', async scenario => {
   const user = userEvent.setup();
   await render(<ClapProvider userId="A" source={createMockClapSource({ delayMs: 0, scenario })}>{control}</ClapProvider>);

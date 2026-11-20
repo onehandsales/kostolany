@@ -61,6 +61,7 @@ export const mediumTopicStories: FeedArticle[] = [
     thumbnail: null,
     reference: {
       image: require('../../../../assets/medium/morning-productivity.png'),
+      avatar: require('../../../../assets/medium/knowable.png'),
       applause: 0,
       responses: '—',
       memberOnly: true,

@@ -10,6 +10,7 @@ import {
 } from 'react';
 
 import { useModeration } from '../moderation/ModerationContext';
+import { usePublicListAccess } from '../public-lists/PublicListProvider';
 import { articleWriter } from '../community/data/publicDirectory';
 import { visibleResponses } from './responseVisibility';
 import { createResponseStore, type ResponseStore } from './createResponseStore';
@@ -30,10 +31,19 @@ export function ResponseProvider({
   source?: ResponseSource;
 }) {
   const { isBlockedForUser } = useModeration();
+  const getList = usePublicListAccess()?.getListForUser;
   const fallback = useMemo(
     () =>
       createMockResponseSource({
         scenario: responsePreviewScenario,
+        ownerFor: (target, reader) => target.kind === 'list'
+          ? getList?.(reader, target.id)?.owner.id ?? null
+          : target.id === 'example-latest-rates' ? 'example-reader' : null,
+        canRead: (reader, target) => {
+          if (target.kind !== 'list' || !getList) return true;
+          const list = getList(reader, target.id);
+          return Boolean(list && (!reader || !isBlockedForUser(reader, list.owner.id)));
+        },
         canInteract: (owner, target, authorId) => {
           const writer = target.kind === 'article' ? articleWriter(target.id) : null;
           return (
@@ -42,7 +52,7 @@ export function ResponseProvider({
           );
         },
       }),
-    [isBlockedForUser],
+    [isBlockedForUser, getList],
   );
   const current = source ?? fallback;
   const [cache, setCache] = useState(() => ({

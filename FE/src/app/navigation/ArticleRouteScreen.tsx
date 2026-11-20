@@ -8,7 +8,7 @@ import { useExplanationPreference } from '../../features/settings/ReadingSetting
 
 export type ArticleRouteParams = {
   articleId: string;
-  origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Author' | 'Topic' | 'History';
+  origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Author' | 'Topic' | 'History' | 'PublicList';
   listId?: string;
   highlightId?: string;
   ownerUserId?: string;
@@ -47,6 +47,8 @@ export function ArticleRouteScreen({
         : params.origin === 'Profile'
           ? '프로필로 돌아가기'
           : '라이브러리로 돌아가기'
+      : params.origin === 'PublicList'
+        ? '공개 목록으로 돌아가기'
       : params.origin === 'History'
         ? '읽기 이력으로 돌아가기'
         : params.origin === 'Topic'

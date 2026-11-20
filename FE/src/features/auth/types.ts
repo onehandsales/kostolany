@@ -4,6 +4,7 @@ export type AuthScenario = 'success' | 'cancel' | 'failure' | 'slow';
 export type LogoutScenario = Exclude<AuthScenario, 'cancel'>;
 export type LoginContext =
   | Readonly<{ kind: 'like' | 'bookmark' | 'highlight'; articleId: string }>
+  | Readonly<{ kind: 'save-list' | 'clap-list'; listId: string }>
   | Readonly<{ kind: 'response'; targetKind: 'article' | 'list'; targetId: string }>
   | Readonly<{ kind: 'follow'; targetKind: 'writer' | 'publication' | 'topic'; targetId: string }>
   | Readonly<{ kind: 'library' | 'profile' | 'moderation' | 'recommendations' }>;

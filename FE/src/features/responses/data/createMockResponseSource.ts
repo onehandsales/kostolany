@@ -19,13 +19,15 @@ export function createMockResponseSource({
   ownerFor = (target: ResponseTarget) =>
     target.kind === 'article' && target.id === 'example-latest-rates' ? 'example-reader' : null,
   canInteract = () => true,
+  canRead = () => true,
 }: {
   scenario?: ResponseScenario;
   delayMs?: number;
   initial?: (target: ResponseTarget) => readonly ReaderResponse[];
   now?: () => string;
-  ownerFor?: (target: ResponseTarget) => string | null;
+  ownerFor?: (target: ResponseTarget, userId: string | null) => string | null;
   canInteract?: (userId: string, target: ResponseTarget, responseAuthorId?: string) => boolean;
+  canRead?: (userId: string | null, target: ResponseTarget) => boolean;
 } = {}): ResponseSource {
   const values = new Map<string, ResponseValue>();
   const applied = new Map<string, string>();
@@ -66,7 +68,7 @@ export function createMockResponseSource({
         target,
         version: 0,
         responses,
-        ownerId: ownerFor(target),
+        ownerId: ownerFor(target, userId),
         discussion: 'open',
       };
       values.set(key, value);
@@ -85,8 +87,10 @@ export function createMockResponseSource({
   }
   return {
     async read({ userId, target }) {
+      if (!canRead(userId, target)) throw new Error('permission');
       const value = copy(valueFor(userId, target));
       await wait(`read:${keyFor(userId, target)}`, scenario === 'read-error');
+      if (!canRead(userId, target)) throw new Error('permission');
       return value;
     },
     async execute(command, signal) {
@@ -96,6 +100,7 @@ export function createMockResponseSource({
       const operationKey = JSON.stringify([key, command.operationId]);
       const fingerprint = JSON.stringify(command.action);
       await wait(`write:${key}`, scenario === 'write-error');
+      if (!canRead(command.userId, command.target)) throw new Error('permission');
       if (signal?.aborted) throw new Error('unavailable');
       const value = valueFor(command.userId, command.target);
       const previous = applied.get(operationKey);

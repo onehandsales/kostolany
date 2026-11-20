@@ -13,7 +13,7 @@ export type CommunityNavigation = {
   openDiscovery: (filter: 'all' | 'publication') => void;
   openIdentity: (target: FollowTarget) => void;
   openConnections: (owner: FollowTarget | null, section: 'followers' | 'following') => void;
-  openPublicList: (listId: string) => void;
+  openPublicList: (listId: string, ownerId?: string) => void;
 };
 const Context = createContext<CommunityNavigation>({
   openRecommendations: () => {},
