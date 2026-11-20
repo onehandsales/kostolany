@@ -7,6 +7,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
   let snapshot: AuthSnapshot = initialUser ? { user: initialUser, dialog: null, revision: initialRevision }
     : { user: null, dialog: null, revision: initialRevision };
   let generation = 0;
+  let sessionEntry: { joining: boolean; context: LoginContext } | null = null;
   let loginAttempt = 0; const emailSource = source.email ?? createMockEmailAuthSource();
   const listeners = new Set<() => void>();
 
@@ -22,21 +23,22 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
     publish({ ...snapshot, dialog: null });
   }
 
-  async function signIn(userId: string, scenario: AuthScenario = 'success', provider: AuthProviderName = 'Google'): Promise<void> {
+  async function signIn(userId: string, scenario: AuthScenario = 'success', provider: AuthProviderName = 'Google', joining = false): Promise<void> {
     const dialog = snapshot.dialog;
     if (!userId.trim() || snapshot.user || dialog?.kind !== 'login' || dialog.status === 'pending') return;
     const request = ++generation;
-    publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'pending', userId, provider } });
+    publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, joining, status: 'pending', userId, provider } });
     try {
       const result = await source.signIn({ userId, scenario, provider });
       if (generation !== request) return;
       if (result.status === 'cancelled') { closeDialog(); return; }
       if (result.user.id !== userId || !result.user.name.trim()) throw new Error('Invalid auth response');
+      sessionEntry = { joining, context: dialog.context };
       // 로그인은 인증만 확정하며 진입 원인이 된 저장이나 좋아요를 자동 실행하지 않는다.
       publish({ user: result.user, dialog: null, revision: snapshot.revision + 1 });
     } catch {
       if (generation !== request) return;
-      publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'error', userId, provider } });
+      publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, joining, status: 'error', userId, provider } });
     }
   }
 
@@ -49,6 +51,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
       await source.signOut({ userId: user.id, scenario });
       if (generation !== request) return;
       loginAttempt++;
+      sessionEntry = null;
       publish({ user: null, dialog: { kind: 'login', context: { kind: 'profile' }, status: 'idle', userId: null, joining: true }, revision: snapshot.revision + 1 });
     } catch {
       if (generation !== request) return;
@@ -58,6 +61,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
 
   return {
     emailSource,
+    getSessionEntry: () => sessionEntry,
     getLoginAttempt: () => loginAttempt,
     cancelPending() { generation++; },
     invalidate() { generation++; loginAttempt++; snapshot = { ...snapshot, dialog: null, revision: snapshot.revision + 1 }; },
@@ -84,7 +88,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
       const dialog = snapshot.dialog;
       if (dialog?.status !== 'error') return;
       // 실패 재현 뒤의 재시도는 정상 모의 응답을 요청하되 이전 요청의 사용자를 고정한다.
-      if (dialog.kind === 'login' && dialog.userId) await signIn(dialog.userId, 'success', dialog.provider);
+      if (dialog.kind === 'login' && dialog.userId) await signIn(dialog.userId, 'success', dialog.provider, dialog.joining);
       else if (dialog.kind === 'logout') await signOut();
     },
   };

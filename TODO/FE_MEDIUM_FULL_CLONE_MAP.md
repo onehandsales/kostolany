@@ -1,6 +1,10 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**현재 Goal40 상태:** **구현 완료·검증 잔여**. 가입4/로그인5경로의 공통 mock 인증·이메일6자리/재전송·세션 경계·로그아웃intro를 구현하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체190suites/1092tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. [Goal40 결과](FE_GOAL_40_RESULT.md)에 원본 시각/native·OS 검증 잔여와 정책 변경을 구분했다. 실제 OAuth/메일/계정 생성은 없다. Goal37의 실제 Camera/Library OS picker 호출은 구현 잔여이며 local/mock 선택만 지원한다. Goal37/38/39는 `68a51b4`/`3b41943`/`3c4adb2`에 커밋했고 Goal40 변경을 로컬 커밋한 뒤 종료한다. push·배포·Goal41 이후는 진행하지 않는다.
+**현재 Goal41 상태:** **구현 완료·검증 잔여**. 신규/기존 mock 분기·관심사 최소3·추천 Follow·모의 알림·안내/중단/재개를 기존 인증/관계/navigation에 연결하고 두 차례 자체 검토했다. 최종 타입/lint·전체194suites/1114tests를 통과했다. 8081 정상/실패/계정 전환·원본6쌍·3플랫폼 export를 확인했다. [Goal41 결과](FE_GOAL_41_RESULT.md)에 원본 차이/native·OS 검증 잔여와 자체 정책을 기록했다. Goal42는 아직 미착수다. Goal40은 `03b766a`로 커밋됐다. 실제 OS 알림·외부 연동은 없다. Goal37 실제 OS picker는 기존 구현 잔여이며 Goal42에서 필요한 범위를 다시 확인한다.
+
+**현재 승인(2026-11-20 KST): Goal41→42의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총2회다. Goal41 결과/해시 보고 후 별도 확인 없이 Goal42를 진행하고 종료한다. push·배포·Goal43 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
+
+**Goal40 당시 결과:** **구현 완료·검증 잔여**. 가입4/로그인5경로의 공통 mock 인증·이메일6자리/재전송·세션 경계·로그아웃intro를 구현하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체190suites/1092tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. [Goal40 결과](FE_GOAL_40_RESULT.md)에 원본 시각/native·OS 검증 잔여와 정책 변경을 구분했다. 실제 OAuth/메일/계정 생성은 없다. Goal37의 실제 Camera/Library OS picker 호출은 구현 잔여이며 local/mock 선택만 지원한다. Goal37/38/39는 `68a51b4`/`3b41943`/`3c4adb2`에 커밋했고 Goal40 변경을 로컬 커밋한 뒤 종료한다. push·배포·Goal41 이후는 진행하지 않는다.
 
 **Goal39 당시 결과:** **구현 완료·검증 잔여**. 토픽 최대5·미리보기·Publication/Unlisted·mock 발행·실제 작성 문서 상세를 연결하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체186suites/1074tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. 실제 native/OS와 원본 시각 잔여, publication 보완 정책은 [Goal39 결과](FE_GOAL_39_RESULT.md)를 따른다. Goal37/38은 각각 `68a51b4`/`3b41943`에 커밋됐다.
 
@@ -10,7 +14,7 @@
 
 **Goal36 당시 검사:** Write/실제 입력·선택/서식·이탈/계정과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests 통과 후 제목 포커스 표시 수정의 최종 타입/lint·영향2suites/10tests·브라우저/캡처·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_36_RESULT.md). 동일 시각 재현·미수록 정책·실제 native는 잔여다. Goal34는 `d05ca45`에 커밋되었고 Goal35·36을 묶음 로컬 커밋 후 종료한다.
 
-**현재 승인(2026-11-20 KST): Goal37→38→39→40의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총4회다. 각 결과/해시 보고 후 다음 승인된 Goal을 이어서 진행하고 Goal40에서 종료한다. push·배포·Goal41 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
+**과거 승인 — 현재 적용 없음(2026-11-20 KST): Goal37→38→39→40의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총4회다. 각 결과/해시 보고 후 다음 승인된 Goal을 이어서 진행하고 Goal40에서 종료한다. push·배포·Goal41 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31 커밋/push와 Goal25~35 연속 진행 요청은 당시 이력이다.
 
@@ -100,8 +104,8 @@
 | C46 | 인증 | 가입 제공자 4개·로그인 X 포함 5개·intro/로그인 전환 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F52,F53; 가입4/로그인5경로·공통 mock 세션/취소/실패/재시도를 연결했다. [Goal40 구현 완료·검증 잔여](FE_GOAL_40_RESULT.md). 실제 소셜 인증은 없다. |
 | C47 | 인증 | 이메일·이름·6자리 코드·재전송·활성 상태·닫기/뒤로 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F52,F53; fixture 이메일/이름·6자리·만료/재전송·이전 시도 무효화·뒤로/닫기를 구현했다. [Goal40 구현 완료·검증 잔여](FE_GOAL_40_RESULT.md). 실제 메일·비밀번호는 없다. |
 | C48 | 인증 | 세션 복구·mock A/B·로그아웃 확인→intro·계정 데이터 정리 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F61; 성공 후 가입intro와 공개 navigation 보존·개인 화면 정리를 연결했다. [Goal40 구현 완료·검증 잔여](FE_GOAL_40_RESULT.md). 세션은 메모리이며 앱 재실행은 초기화한다. |
-| C49 | 온보딩 | 관심사 최소 3개·Continue·Follow/Finish·재진입 | [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41) | F53; 추천 Follow를 필수로 단정하지 않는다. |
-| C50 | 온보딩 | 알림 Enable/Skip·새 경험 안내·멤버십 제안 | [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41) | F53; OS 권한·앱 수신 설정·계정별 진입 순서를 구분한다. |
+| C49 | 온보딩 | 관심사 최소 3개·Continue·Follow/Finish·재진입 | [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41) | F53; 최소3·선택 초안·관계 저장·추천 Follow/Finish·중단/계정별 재개 연결. [Goal41 구현 완료·검증 잔여](FE_GOAL_41_RESULT.md). Follow는 필수가 아니며 추천은 기존 directory fixture다. |
+| C50 | 온보딩 | 알림 Enable/Skip·새 경험 안내·멤버십 제안 | [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41) | F53; mock Enable/Skip/거절·새 경험/멤버십 안내/복귀 연결. [Goal41 구현 완료·검증 잔여](FE_GOAL_41_RESULT.md). 실제 OS 권한/발송·Goal44 전체 설정·Goal48 결제는 제외한다. |
 | C51 | 프로필 | 사진 Camera/Library·부모 Save·이름·short bio·50/160 표시 | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | F57; 사진 제거는 원본 확인 과제다. |
 | C52 | 프로필 | pronouns 최대 4개·검색/선택·Done→부모 Save/Cancel | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | F56; 하위 선택과 확정 저장을 분리한다. |
 | C53 | 프로필 | About 데스크톱 안내·내 Stories/Public 필터·Lists·팔로우 진입 | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | F55,F57; 필터 옵션은 추가 확인, 긴 소개 모바일 편집기로 바꾸지 않는다. |

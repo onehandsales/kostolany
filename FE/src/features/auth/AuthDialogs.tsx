@@ -74,7 +74,7 @@ function LoginDialog() {
   function handleProviderPress(provider: ProviderName): void {
     if (provider === 'Email') { store.cancelLoginRequest(); setEmail(true); return; }
     if (hasError) store.retry();
-    else void store.signIn(userId, scenario, provider);
+    else void store.signIn(userId, scenario, provider, isJoining);
   }
   return (
     <Modal animationType="fade" accessibilityLabel="모의 로그인" onRequestClose={() => { if (email) emailBack.current?.(); else store.closeDialog(); }}>

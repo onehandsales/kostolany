@@ -5,12 +5,14 @@ import { createMockAuthSource } from '../../features/auth/data/createMockAuthSou
 import { createMockEmailAuthSource, emailFixtures } from '../../features/auth/emailAuthSource';
 import { mockUserA } from '../../features/auth/data/mockUsers';
 import type { AuthSource } from '../../features/auth/types';
+import { createMockOnboardingSource } from '../../features/onboarding/onboardingSource';
 
 beforeEach(() => jest.useFakeTimers()); afterEach(() => jest.useRealTimers());
 const button = (name: string) => screen.getByRole('button', { name });
 const flush = () => act(async () => { await jest.advanceTimersByTimeAsync(1200); });
 async function setup(source: AuthSource = { ...createMockAuthSource({ delayMs: 0 }), email: createMockEmailAuthSource({ delayMs: 0 }) }) {
-  const tree = (next = source) => <SafeAreaProvider><AppNavigator authSource={next} /></SafeAreaProvider>;
+  const onboardingSource = createMockOnboardingSource({ newUserIds: [] });
+  const tree = (next = source) => <SafeAreaProvider><AppNavigator authSource={next} onboardingSource={onboardingSource} /></SafeAreaProvider>;
   const view = await render(tree()); const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await user.press(button('Write a story')); return { user, replace: (next: AuthSource) => view.rerender(tree(next)) };
 }

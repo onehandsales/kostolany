@@ -30,7 +30,7 @@ export function createEmailAttempt(source: EmailAuthSource, auth: AuthStore, joi
       const userId = await source.verify({ attemptId, challengeId: challenge.id, code }, operationLease.signal);
       if (!valid() || operation !== sequence || lease !== operationLease) return;
       if (userId !== challenge.userId) throw new Error('verify-failed');
-      await auth.signIn(userId, scenario, 'Email');
+      await auth.signIn(userId, scenario, 'Email', joining);
       if (valid() && operation === sequence) publish({ ...state, busy: false, error: 'sign-in-failed' });
     } catch (error) { if (valid() && operation === sequence && lease === operationLease) publish({ ...state, busy: false, error: error instanceof Error ? error.message : 'verify-failed' }); }
   }

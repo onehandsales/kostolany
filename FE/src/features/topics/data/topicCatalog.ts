@@ -38,6 +38,7 @@ const names = [
   'Blockchain',
   'Cryptocurrency',
   'Design',
+  'Politics', 'Psychology', 'Money', 'Python', 'Mental Health', 'Startup', 'JavaScript', 'Software Engineering', 'Coding',
 ];
 // 토픽 이름과 고정 ID를 분리하며 미수록 집계와 기사 목록은 만들어 채우지 않는다.
 export const topicCatalog: TopicCatalog = {

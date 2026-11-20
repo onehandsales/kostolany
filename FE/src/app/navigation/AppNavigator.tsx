@@ -48,6 +48,9 @@ import type { DirectorySource, FollowTarget, RelationshipSource } from '../../fe
 import type { ExplanationSource } from '../../features/article/explanationTypes';
 import type { ArticleSource } from '../../features/article/types';
 import { AuthDialogs } from '../../features/auth/AuthDialogs';
+import { OnboardingProvider } from '../../features/onboarding/OnboardingProvider';
+import type { OnboardingSource } from '../../features/onboarding/onboardingSource';
+import type { NotificationPermissionSource } from '../../features/onboarding/notificationPermission';
 import { AuthProvider, useAuth } from '../../features/auth/AuthProvider';
 import type { AuthSource, AuthUser } from '../../features/auth/types';
 import { BookmarkProvider } from '../../features/bookmarks/BookmarkProvider';
@@ -101,6 +104,8 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  onboardingSource?: OnboardingSource;
+  notificationPermissionSource?: NotificationPermissionSource;
   draftSource?: DraftSource;
   editorImageSource?: EditorImageSource;
   downloadSource?: DownloadSource;
@@ -145,6 +150,8 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  onboardingSource,
+  notificationPermissionSource,
   draftSource,
   editorImageSource,
   downloadSource,
@@ -242,6 +249,7 @@ function SessionNavigationContent({
                           >
                             <DownloadProvider source={downloadSource} lists={currentBookmarks.lists}>
                             <WrittenStoriesProvider value={{ source: drafts, images, sessionRevision: state.revision }}>
+                            <OnboardingProvider source={onboardingSource} permissionSource={notificationPermissionSource}>
                             <CommunityNavigationProvider
                               value={{
                                 openExplore: () => {
@@ -475,6 +483,7 @@ function SessionNavigationContent({
                               </NavigationContainer>
                               <SessionAuthDialogs />
                             </CommunityNavigationProvider>
+                            </OnboardingProvider>
                             </WrittenStoriesProvider>
                             </DownloadProvider>
                           </BookmarkProvider>

@@ -14,6 +14,7 @@ import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 
 import { ProfileLists } from './ProfileLists';
 import { ProfileStories } from './ProfileStories';
+import { useOnboarding } from '../onboarding/OnboardingProvider';
 import { EditorDialog } from '../editor/StoryEditorScreen';
 import { ProfileEditorSheet } from './ProfileEditorSheet';
 import { useProfile } from './ProfileProvider';
@@ -36,6 +37,7 @@ export function ProfileScreen({
 }: ProfileScreenProps) {
   const visual = useThemeStyles(createVisual);
   const relationships = useRelationships();
+  const onboarding = useOnboarding();
   const community = useCommunityNavigation();
   const followingCount = relationships.state?.relationships.filter(item => item.following).length ?? 0;
   const styles = useThemeStyles(createStyles);
@@ -133,6 +135,10 @@ export function ProfileScreen({
               </View>
             </Pressable>
           </View>
+          {onboarding.canResume && <Pressable role="button" accessibilityLabel="온보딩 이어서 하기"
+            style={visual.action} onPress={() => onboarding.session?.open()}>
+            <Text style={visual.caption}>Continue setup</Text>
+          </Pressable>}
           <View style={visual.tabs}>
             {(['Stories', 'Lists', 'About'] as const).map((tab) => (
               <Pressable
