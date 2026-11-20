@@ -1,14 +1,14 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 Goal33 검사:** typecheck·lint·전체156 suites/940 tests 통과(578.413초). 마지막 공유 안내 표시 정리 후 타입/lint·관련4 suites/32 tests·브라우저·양 플랫폼 Hermes/web export도 통과했다. 실제8081·원본8쌍을 대조했으며 동일 시각 재현·실제 native는 잔여다. [Goal33 결과](FE_GOAL_33_RESULT.md). Goal32의152 suites/906 tests는 당시 이력이다.
+**현재 Goal34 상태:** Digest 발행/날짜 초안·오류/재시도·Library 연결을 구현하고 두 차례 자체 검토, 최종 타입/lint·전체160suites/964tests(580.306초), 실제8081·원본3쌍·JS/Hermes export를 확인했다. [Goal34 결과](FE_GOAL_34_RESULT.md). 원본 동일 재현과 실제 native는 잔여다. Goal33의156 suites/940 tests는 당시 이력이다.
 
-**현재 승인(2026-11-20 KST): Goal32 변경만 로컬 커밋(`4dabf10`)한 뒤 Goal33 구현·두 차례 자체 검토·검증·결과 기록까지다. Goal33 변경은 커밋/push/배포하지 않고 결과 보고 후 종료한다. Goal34 이후와 과거 연속 진행/커밋/push 요청은 승인 범위가 아니다.**
+**현재 승인(2026-11-20 KST): Goal34→35→36의 구현·각각 두 차례 자체 검토·검증·결과 기록. Goal34만 먼저 로컬 커밋하고 Goal35·36을 함께 두 번째 로컬 커밋한다. push·배포·Goal37 이후는 금지한다. 과거 승인 기록은 적용하지 않는다.**
 
-**현재 상태:** Goal33 메모·순서 초안/드래그·공개 범위 확인·정보 편집·제거/Undo·삭제를 구현하고 소유 원본을 Goal32 공개 목록/Saved lists와 연결했다. **구현 완료·검증 잔여**다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
+**현재 상태:** Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다. Goal34는 **구현 완료·검증 잔여**이며 Goal35·36은 순서대로 진행한다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. Goal32 작업 시작 HEAD는 `da38ae2`였다.
 
-**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 상단 Goal33 승인이다.
+**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 상단 Goal34~36 승인이다.
 
 작성일: 2026-11-19 KST · 작업 위치: `D:\git_repository\kostolany_project`.
 
@@ -28,14 +28,14 @@
 | 기준 | 확인 내용 |
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
-| 현재 Git 기준 | Windows 루트에서 시작 HEAD da38ae2·clean 확인. 이번 변경은 커밋하지 않는다. |
-| 현재 검증의 범위 | [Goal32 결과](FE_GOAL_32_RESULT.md)의 실제 명령·현재 코드 결과를 따른다. 이전 Goal의 수치는 당시 기록이다. 자동/브라우저/JS-Hermes/실제 native를 구분한다. |
+| 현재 Git 기준 | Windows 시작 HEAD `4ddc4b7`·Goal33 사용자 커밋 확인. Backend/DB/COMMON 사용자 변경을 보존하고 이번 두 커밋에서 제외한다. |
+| 현재 검증의 범위 | [Goal34 결과](FE_GOAL_34_RESULT.md)의 실제 명령·현재 코드 결과를 따른다. 이전 Goal의 수치는 당시 기록이다. 자동/브라우저/JS-Hermes/실제 native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
-| 승인 경계 | Goal32 단독 구현·검토·검증·결과 기록 후 종료. mock 유지, 실제 외부 연동·커밋·push·배포 제외. |
+| 승인 경계 | Goal34 로컬 커밋 후 Goal35→36을 진행하고 묶음 로컬 커밋 후 종료. mock 유지, 실제 외부 연동·push·배포·Goal37 이후 제외. |
 
-기존 문서의 macOS 경로·MVP 제외 범위·이전 종료 문구는 당시 실행의 이력이다. **현재 실행은 Windows `D:\git_repository\kostolany_project`와 Goal32 단독 승인을 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
+기존 문서의 macOS 경로·MVP 제외 범위·이전 종료 문구는 당시 실행의 이력이다. **현재 실행은 Windows `D:\git_repository\kostolany_project`와 Goal34~36 승인을 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
 
 ## 필수 규칙과 구현 경계
 
@@ -88,21 +88,21 @@
 
 권장 실행 순서는 **22→53**이다. 아래 선행 번호는 최소 의존성이다. 23의 공통 표현과 24의 테마 규칙은 모든 후속 화면에 적용하고, 후속 연결은 50/51에서 통합한다. 큰 Goal도 화면/상태 단위로 구현·검증하되 완료 조건을 임의 축소하지 않는다.
 
-| Goal | 작업 | 최소 선행 | 초기 상태 |
+| Goal | 작업 | 최소 선행 | 현재 상태 |
 | --- | --- | --- | --- |
 | [22](#goal-22) | 원본 전수 대응·현재 코드·비교 환경 기준선 | 기존 Goal 21 이후 코드 | 기준선 완료 / 원본 동일성·native 잔여 별도 |
 | [23](#goal-23) | 공통 글꼴·아이콘·레이아웃과 기존 화면 보정 | 22 | 구현 완료·검증 잔여 — [결과](FE_GOAL_23_RESULT.md) |
 | [24](#goal-24) | 전역 Light·Dark·System과 기사 표시 설정 | 23 | 구현 완료·시각/native 검증 잔여 — [결과](FE_GOAL_24_RESULT.md) |
 | [25](#goal-25) | 기사 본문·박수·읽음 표시·상세 메뉴 | 24 | 구현 완료·검증 잔여 — [결과](FE_GOAL_25_RESULT.md) |
-| [26](#goal-26) | Responses·댓글·답글·정렬·수정·삭제 | 25 | 진행 |
-| [27](#goal-27) | 문구 선택·Highlight·인용 Responses | 26 | 미착수 |
-| [28](#goal-28) | 작성자 프로필·팔로우·팔로잉·이메일 구독 | 25 | 미착수 |
-| [29](#goal-29) | Mute·Block·신고·응답 관리 | 26, 28 | 미착수 |
-| [30](#goal-30) | 토픽·Publication·큐레이션 탐색 | 28 | 미착수 |
-| [31](#goal-31) | 추천 관리·관심사·읽기 이력 | 29, 30 | 미착수 |
+| [26](#goal-26) | Responses·댓글·답글·정렬·수정·삭제 | 25 | 구현 완료·검증 잔여 — [결과](FE_GOAL_26_RESULT.md) |
+| [27](#goal-27) | 문구 선택·Highlight·인용 Responses | 26 | 구현 완료·검증 잔여 — [결과](FE_GOAL_27_RESULT.md) |
+| [28](#goal-28) | 작성자 프로필·팔로우·팔로잉·이메일 구독 | 25 | 구현 완료·검증 잔여 — [결과](FE_GOAL_28_RESULT.md) |
+| [29](#goal-29) | Mute·Block·신고·응답 관리 | 26, 28 | 구현 완료·검증 잔여 — [결과](FE_GOAL_29_RESULT.md) |
+| [30](#goal-30) | 토픽·Publication·큐레이션 탐색 | 28 | 구현 완료·검증 잔여 — [결과](FE_GOAL_30_RESULT.md) |
+| [31](#goal-31) | 추천 관리·관심사·읽기 이력 | 29, 30 | 구현 완료·검증 잔여 — [결과](FE_GOAL_31_RESULT.md) |
 | [32](#goal-32) | 공개 목록·Saved lists·목록 반응 | 26, 28, 30 | 구현 완료·원본/native 검증 잔여; [결과](FE_GOAL_32_RESULT.md) |
-| [33](#goal-33) | 내 목록 메모·정렬·공개 범위·편집·삭제 | 32 | 미착수 |
-| [34](#goal-34) | Digest·날짜 필터·Library 연결 | 27, 31, 33 | 미착수 |
+| [33](#goal-33) | 내 목록 메모·정렬·공개 범위·편집·삭제 | 32 | 구현 완료·검증 잔여 — [결과](FE_GOAL_33_RESULT.md) |
+| [34](#goal-34) | Digest·날짜 필터·Library 연결 | 27, 31, 33 | 구현 완료·검증 잔여 — [결과](FE_GOAL_34_RESULT.md) |
 | [35](#goal-35) | 목록 다운로드·오프라인 화면 상태 | 33, 34 | 미착수 |
 | [36](#goal-36) | 글쓰기 편집기·텍스트 서식 | 23, 24 | 미착수 |
 | [37](#goal-37) | 글쓰기 이미지·Camera·Library·Unsplash | 36 | 미착수 |
@@ -319,7 +319,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 34 — Digest·날짜 필터·Library 연결
 
-- **상태/선행:** 미착수 / Goal 27, Goal 31, Goal 33.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal 27, Goal 31, Goal 33. [Goal34 결과](FE_GOAL_34_RESULT.md): 발행/날짜 초안·Library 연결·두 차례 자체 검토·자동/브라우저 검사와 원본/native 잔여를 구분한다.
 - **원본:** [F25](FE_MEDIUM_FULL_CLONE_MAP.md#f25), [F37](FE_MEDIUM_FULL_CLONE_MAP.md#f37), [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41), [F42](FE_MEDIUM_FULL_CLONE_MAP.md#f42), [F43](FE_MEDIUM_FULL_CLONE_MAP.md#f43), [F44](FE_MEDIUM_FULL_CLONE_MAP.md#f44), [F48](FE_MEDIUM_FULL_CLONE_MAP.md#f48), [F59](FE_MEDIUM_FULL_CLONE_MAP.md#f59), [F62](FE_MEDIUM_FULL_CLONE_MAP.md#f62). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** Library의 Your lists/Saved lists/Highlights/Reading history 및 Digest 진입을 연결하고 Digest 날짜 선택/Done·Digest settings·빈 날짜를 구현한다.
 - **시각 비교:** 날짜 선택기·이야기 목록·설정 행과 Push chevron/Email 외부 링크를 원본 구분대로 맞춘다.

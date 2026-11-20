@@ -12,13 +12,15 @@ import { LibraryNavigator } from './LibraryNavigator';
 import { ProfileRouteScreen } from './ProfileRouteScreen';
 import { SearchRouteScreen } from './SearchRouteScreen';
 import { type MainTabParamList, tabs } from './tabs';
+import type { DigestSource } from '../../features/digest/types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 type MainTabsProps = {
+  digestSource?: DigestSource;
   onSelectArticle: (
     articleId: string,
-    origin: 'Home' | 'Explore' | 'Library' | 'Profile',
+    origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Digest',
     listId?: string,
     highlightId?: string,
   ) => void;
@@ -27,6 +29,7 @@ type MainTabsProps = {
 };
 
 export function MainTabs({
+  digestSource,
   onSelectArticle,
   source,
   searchSource,
@@ -60,6 +63,8 @@ export function MainTabs({
         {({ navigation }) =>
           state.user ? (
             <LibraryNavigator
+              digestSource={digestSource}
+              onOpenDigestArticle={(id) => onSelectArticle(id, 'Digest')}
               key={scopeKey}
               onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
               onOpenHighlight={(id, highlightId) => onSelectArticle(id, 'Library', undefined, highlightId)}

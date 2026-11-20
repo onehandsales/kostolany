@@ -26,6 +26,7 @@ type LibrarySheetProps = {
   closeLabel?: string;
   titleLabel?: string;
   closeText?: string;
+  closeSide?: 'left' | 'right';
   hideClose?: boolean;
   variant?: 'standard' | 'confirmation';
 } & (
@@ -42,6 +43,7 @@ export function LibrarySheet({
   expanded = false,
   closeLabel = '취소',
   closeText = closeLabel,
+  closeSide = 'right',
   hideClose = false,
   variant = 'standard',
   contentStyle,
@@ -83,7 +85,7 @@ export function LibrarySheet({
                   role="button"
                   accessibilityLabel={`${titleLabel} ${closeLabel}`}
                   onPress={onClose}
-                  style={[styles.close, variant === 'confirmation' && styles.confirmationClose]}
+                  style={[styles.close, closeSide === 'left' && styles.closeLeft, variant === 'confirmation' && styles.confirmationClose]}
                 >
                   {variant === 'confirmation' ? <AppIcon name="close" size={18} color={colors.secondaryText} /> : <Text style={styles.closeText}>{closeText}</Text>}
                 </Pressable>
@@ -160,6 +162,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     justifyContent: 'center',
   },
   closeText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'center' },
+  closeLeft: { left: 0, right: undefined },
   confirmationHeader: { paddingTop: 38, paddingBottom: 10, borderBottomWidth: 0 },
   confirmationTitle: { fontSize: 20, lineHeight: 26 },
   confirmationClose: { top: 0, right: 0, alignItems: 'center' },

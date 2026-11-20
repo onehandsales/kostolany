@@ -4,13 +4,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 
 import { ReadingHistoryList } from '../reading-history/ReadingHistoryList';
 import { SavedLists } from '../public-lists/SavedLists';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { HighlightList } from '../highlights/HighlightList';
+import { DigestPanel } from '../digest/DigestPanel';
+import { createMockDigestSource } from '../digest/createMockDigestSource';
+import type { DigestSource } from '../digest/types';
 
 import { BookmarkIcon } from './BookmarkIcon';
 import { LibraryListCard } from './LibraryListCard';
@@ -22,6 +24,8 @@ import { useBookmarkScopeKey, useBookmarkStore, useReadingList, useUserLists } f
 import { UserListFeedback } from './UserListFeedback';
 
 type LibraryScreenProps = {
+  digestSource?: DigestSource;
+  onOpenDigestArticle?: (articleId: string) => void;
   onOpenList: (listId: string) => void;
   onOpenHighlight?: (articleId: string, highlightId: string) => void;
 };
@@ -31,7 +35,7 @@ export function LibraryScreen(props: LibraryScreenProps) {
   return <LibraryContent key={scopeKey} {...props} />;
 }
 
-function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
+function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, digestSource }: LibraryScreenProps) {
   const navigation = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const listFormStyles = useThemeStyles(createListFormStyles);
@@ -39,8 +43,9 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
   const custom = useUserLists();
   const store = useBookmarkStore();
   const [selectedTab, setSelectedTab] = useState('Your lists');
+  const [visitedDigest, setVisitedDigest] = useState(false);
+  const [defaultDigests] = useState(() => createMockDigestSource());
   const tabScroll = useRef<ScrollView>(null);
-  const [notice, setNotice] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [creating, setCreating] = useState(false);
   const showIntroduction =
@@ -91,10 +96,11 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
         contentContainerStyle={styles.tabs}
         style={styles.section}
       >
-        {['Your lists', 'Saved lists', 'Digest', 'Highlighted', 'Reading history'].map((tab, index) => (
+        {['Your lists', 'Saved lists', 'Digest', 'Highlighted', 'Reading history'].map((tab) => (
           <Pressable
             key={tab}
             role="tab"
+            accessibilityLabel={tab}
             aria-selected={selectedTab === tab}
             onLayout={(event) => {
               if (selectedTab === tab)
@@ -104,14 +110,14 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
                 });
             }}
             onPress={() => {
-              if (!index || tab === 'Saved lists' || tab === 'Highlighted' || tab === 'Reading history') setSelectedTab(tab);
-              else setNotice(tab);
+              setSelectedTab(tab);
+              if (tab === 'Digest') setVisitedDigest(true);
             }}
             style={styles.tab}
           >
             <View style={[styles.tabLabel, selectedTab === tab && styles.activeTab]}>
               <Text style={[styles.tabText, selectedTab === tab && styles.activeText]}>{tab}</Text>
-              {tab === 'Digest' && showIntroduction && <Text style={styles.badge}>New</Text>}
+              {tab === 'Digest' && showIntroduction && !visitedDigest && <Text style={styles.badge}>New</Text>}
             </View>
           </Pressable>
         ))}
@@ -146,7 +152,10 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
   );
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
-      {selectedTab === 'Saved lists' ? <SavedLists header={header} /> : selectedTab === 'Reading history' ? (
+      {visitedDigest && <View style={[styles.screen, selectedTab !== 'Digest' && { display: 'none' }]}>
+        <DigestPanel source={digestSource ?? defaultDigests} userId={store.userLists.userId} header={header} onOpen={onOpenDigestArticle ?? navigation.openHistoryArticle} />
+      </View>}
+      {selectedTab === 'Digest' ? null : selectedTab === 'Saved lists' ? <SavedLists header={header} /> : selectedTab === 'Reading history' ? (
         <ReadingHistoryList
           header={header}
           onSelect={navigation.openHistoryArticle}
@@ -172,7 +181,6 @@ function LibraryContent({ onOpenList, onOpenHighlight }: LibraryScreenProps) {
           )}
         />
       )}
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {creating && <ListEditorSheet onClose={() => setCreating(false)} />}
     </SafeAreaView>
   );

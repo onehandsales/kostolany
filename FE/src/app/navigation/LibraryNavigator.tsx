@@ -2,19 +2,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { LibraryScreen } from '../../features/bookmarks/LibraryScreen';
 import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
+import type { DigestSource } from '../../features/digest/types';
 
 type LibraryStackParamList = { LibraryHome: undefined; ReadingList: { listId: string } };
 const Stack = createNativeStackNavigator<LibraryStackParamList>();
 
 type LibraryNavigatorProps = {
+  digestSource?: DigestSource;
+  onOpenDigestArticle?: (articleId: string) => void;
   onOpenHighlight?: (articleId: string, highlightId: string) => void;
   onSelectArticle: (articleId: string, listId: string) => void; onBrowseArticles: () => void;
 };
 
-export function LibraryNavigator({ onSelectArticle, onBrowseArticles, onOpenHighlight }: LibraryNavigatorProps) {
+export function LibraryNavigator({ onSelectArticle, onBrowseArticles, onOpenHighlight, digestSource, onOpenDigestArticle }: LibraryNavigatorProps) {
   return <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="LibraryHome">
-      {({ navigation }) => <LibraryScreen onOpenHighlight={onOpenHighlight} onOpenList={(listId) => navigation.navigate('ReadingList', { listId })} />}
+      {({ navigation }) => <LibraryScreen digestSource={digestSource} onOpenDigestArticle={onOpenDigestArticle} onOpenHighlight={onOpenHighlight} onOpenList={(listId) => navigation.navigate('ReadingList', { listId })} />}
     </Stack.Screen>
     <Stack.Screen name="ReadingList" getId={({ params }) => params.listId}>
       {({ navigation, route }) => <ReadingListScreen listId={route.params.listId} onBack={() => navigation.popToTop()}

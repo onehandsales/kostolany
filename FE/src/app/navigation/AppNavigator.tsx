@@ -64,6 +64,8 @@ import type { MainTabParamList } from './tabs';
 import { ArticleRouteScreen, type ArticleRouteParams } from './ArticleRouteScreen';
 import { ArticlePresentation } from './ArticlePresentation';
 import { MainTabs } from './MainTabs';
+import { createMockDigestSource } from '../../features/digest/createMockDigestSource';
+import type { DigestSource } from '../../features/digest/types';
 
 type RootStackParamList = {
   Recommendations: { section: RecommendationSection; interests: boolean; originTab: keyof MainTabParamList };
@@ -84,6 +86,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  digestSource?: DigestSource;
   articleSource?: ArticleSource;
   feedSource?: FeedSource;
   searchSource?: SearchSource;
@@ -124,6 +127,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  digestSource,
   articleSource,
   feedSource,
   searchSource,
@@ -146,6 +150,7 @@ function SessionNavigationContent({
   const { colors, scheme } = useTheme();
   const [defaultBookmarks] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
   const currentBookmarks = bookmarkSource ?? defaultBookmarks;
+  const [defaultDigests] = useState(() => createMockDigestSource());
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
@@ -278,6 +283,7 @@ function SessionNavigationContent({
                                   <Stack.Screen name="Main">
                                     {({ navigation }) => (
                                       <MainTabs
+                                        digestSource={digestSource ?? defaultDigests}
                                         source={feedSource}
                                         searchSource={searchSource}
                                         onSelectArticle={(articleId, origin, listId, highlightId) =>
