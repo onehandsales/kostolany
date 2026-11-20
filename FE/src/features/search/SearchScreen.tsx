@@ -282,7 +282,7 @@ export function SearchScreen({
           </>
         )}
       </View>
-      {!isSearching && <WriteButton />}
+      {!isSearching && <WriteButton onPress={navigation.openWrite} />}
     </SafeAreaView>
   );
 }

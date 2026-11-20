@@ -10,8 +10,10 @@ import type { FeedArticle } from '../feed/types';
 import { SearchByline } from '../search/SearchCard';
 import { ArticleBookmarkControl } from './ArticleBookmarkControl';
 import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
+import { DownloadArticleStatus } from '../downloads/DownloadControl';
 
 type ListStoryCardProps = {
+  listId?: string;
   article: FeedArticle;
   onOpen: (id: string) => void;
   onRemove: () => void;
@@ -20,7 +22,7 @@ type ListStoryCardProps = {
   onEditNote?: () => void;
 };
 
-export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEditNote }: ListStoryCardProps) {
+export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEditNote, listId }: ListStoryCardProps) {
   const moderation = useModeration();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
@@ -64,7 +66,7 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEdi
         </View>
       </Pressable>
       <View style={styles.actions}>
-        <AppIcon name="download" size={16} color={colors.secondaryText} />
+        {listId ? <DownloadArticleStatus listId={listId} articleId={article.id} title={article.title} /> : <AppIcon name="download" size={16} color={colors.secondaryText} />}
         <Text style={styles.metadata}>
           {article.readingMinutes ? `${article.readingMinutes} min read  ·  ` : ''}
           {article.publishedLabel}

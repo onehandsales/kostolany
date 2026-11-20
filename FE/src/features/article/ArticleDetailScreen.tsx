@@ -25,6 +25,7 @@ import { useArticle } from './useArticle';
 import { useEntryExplanationPreference } from './useEntryExplanationPreference';
 
 type ArticleDetailScreenProps = {
+  offline?: boolean;
   articleId: string;
   onBack: () => void;
   source?: ArticleSource;
@@ -38,6 +39,7 @@ type ArticleDetailScreenProps = {
 };
 
 export function ArticleDetailScreen({
+  offline = false,
   articleId,
   onBack,
   source = previewArticleSource,
@@ -64,6 +66,7 @@ export function ArticleDetailScreen({
   if (state.status === 'ready' && state.article.reference)
     return (
       <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
+        {offline && <Text accessibilityLiveRegion="polite" style={{ color: colors.secondaryText, padding: 12 }}>Offline · Downloaded copy</Text>}
         <RecordArticleVisit articleId={articleId} active={isFocused && !access} revision={sessionRevision} />
         <ReferenceArticleView
           key={articleId}
@@ -84,6 +87,9 @@ export function ArticleDetailScreen({
     );
   return (
     <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
+      {offline && <Text accessibilityLiveRegion="polite" style={{ color: colors.secondaryText, padding: 12 }}>
+        {state.status === 'ready' ? 'Offline · Downloaded copy' : state.status === 'error' ?
+          '오프라인에서 이용할 수 있는 사본이 없어요. 연결 후 다시 시도해 주세요.' : '오프라인에서 이용할 수 있는 사본을 확인하고 있어요.'}</Text>}
       {state.status === 'ready' && (
         <RecordArticleVisit articleId={articleId} active={isFocused} revision={sessionRevision} />
       )}

@@ -5,6 +5,8 @@ import { useAuth } from '../../features/auth/AuthProvider';
 import { DEFAULT_LIST_ID } from '../../features/bookmarks/listTypes';
 import { useHasLibraryList } from '../../features/bookmarks/useBookmarks';
 import { useExplanationPreference } from '../../features/settings/ReadingSettingsProvider';
+import { useDownloadArticleSource } from '../../features/downloads/DownloadProvider';
+import { previewArticleSource } from '../../features/article/data/articlePreview';
 
 export type ArticleRouteParams = {
   articleId: string;
@@ -35,6 +37,7 @@ export function ArticleRouteScreen({
   const { state } = useAuth();
   const preference = useExplanationPreference();
   const hasList = useHasLibraryList(params.listId);
+  const download = useDownloadArticleSource(source ?? previewArticleSource, params.articleId);
   // 과거 계정이나 삭제된 목록의 식별자로 새 개인 화면을 열지 않고 남아 있는 경로로만 복귀한다.
   const canReturnToList =
     params.ownerUserId === state.user?.id && params.sessionRevision === state.revision && hasList;
@@ -63,7 +66,8 @@ export function ArticleRouteScreen({
   return (
     <ArticleDetailScreen
       articleId={params.articleId}
-      source={source}
+      source={download.source}
+      offline={download.offline}
       onBack={onBack}
       backLabel={backLabel}
       explanationSource={explanationSource}

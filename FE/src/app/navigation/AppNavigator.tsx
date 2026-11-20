@@ -4,11 +4,14 @@ import {
   StackActions,
   useIsFocused,
   useNavigationContainerRef,
+  usePreventRemove,
+  type NavigationAction,
   type NavigatorScreenParams,
 } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, type NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/StoryEditorScreen';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 
@@ -66,8 +69,11 @@ import { ArticlePresentation } from './ArticlePresentation';
 import { MainTabs } from './MainTabs';
 import { createMockDigestSource } from '../../features/digest/createMockDigestSource';
 import type { DigestSource } from '../../features/digest/types';
+import { DownloadProvider } from '../../features/downloads/DownloadProvider';
+import type { DownloadSource } from '../../features/downloads/types';
 
 type RootStackParamList = {
+  Editor: { ownerId: string; revision: number };
   Recommendations: { section: RecommendationSection; interests: boolean; originTab: keyof MainTabParamList };
   Main: NavigatorScreenParams<MainTabParamList> | undefined;
   Article: ArticleRouteParams;
@@ -86,6 +92,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  downloadSource?: DownloadSource;
   digestSource?: DigestSource;
   articleSource?: ArticleSource;
   feedSource?: FeedSource;
@@ -127,6 +134,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  downloadSource,
   digestSource,
   articleSource,
   feedSource,
@@ -146,7 +154,7 @@ function SessionNavigationContent({
   moderationSource,
   publicListSource,
 }: AppNavigatorProps) {
-  const { state } = useAuth();
+  const { state, store: authStore } = useAuth();
   const { colors, scheme } = useTheme();
   const [defaultBookmarks] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
   const currentBookmarks = bookmarkSource ?? defaultBookmarks;
@@ -215,6 +223,7 @@ function SessionNavigationContent({
                             userId={state.user?.id ?? null}
                             sessionRevision={state.revision}
                           >
+                            <DownloadProvider source={downloadSource} lists={currentBookmarks.lists}>
                             <CommunityNavigationProvider
                               value={{
                                 openExplore: () => {
@@ -272,6 +281,10 @@ function SessionNavigationContent({
                                   if (navigationRef.isReady())
                                     navigationRef.dispatch(StackActions.push('PublicList', { listId, ownerId, originTab: currentTab() }));
                                 },
+                                openWrite: () => {
+                                  if (!state.user) { authStore.openLogin({ kind: 'write' }); return; }
+                                  if (navigationRef.isReady()) navigationRef.navigate('Editor', { ownerId: state.user.id, revision: state.revision });
+                                },
                               }}
                             >
                               <NavigationContainer theme={theme} ref={navigationRef}>
@@ -305,6 +318,7 @@ function SessionNavigationContent({
                                       />
                                     )}
                                   </Stack.Screen>
+                                  <Stack.Screen name="Editor" component={EditorRouteScreen} />
                                   {/* 같은 기사 새 진입과 기존 인스턴스 복귀를 구분해 설명 수준의 수명을 보존한다. */}
                                   <Stack.Screen name="Article">
                                     {({ route, navigation }) => (
@@ -434,6 +448,7 @@ function SessionNavigationContent({
                               </NavigationContainer>
                               <SessionAuthDialogs />
                             </CommunityNavigationProvider>
+                            </DownloadProvider>
                           </BookmarkProvider>
                         </RelationshipProvider>
                       </DirectoryProvider>
@@ -453,6 +468,24 @@ function SessionNavigationContent({
 function FocusedArticleRoute(props: React.ComponentProps<typeof ArticleRouteScreen>) {
   const focused = useIsFocused();
   return <ArticleRouteScreen {...props} isFocused={focused} />;
+}
+
+function EditorRouteScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'Editor'>) {
+  const { state } = useAuth();
+  const permitted = state.user?.id === route.params.ownerId && state.revision === route.params.revision;
+  const [dirty, setDirty] = useState(false);
+  const [pending, setPending] = useState<NavigationAction | null>(null);
+  const [allowExit, setAllowExit] = useState(false);
+  usePreventRemove(permitted && dirty && !allowExit, ({ data }) => setPending(data.action));
+  useEffect(() => {
+    if (!permitted && navigation.isFocused()) navigation.goBack();
+    else if (allowExit && pending) navigation.dispatch(pending);
+  }, [allowExit, navigation, pending, permitted]);
+  if (!permitted) return null;
+  return <>
+    <StoryEditorScreen onClose={() => navigation.goBack()} onDirtyChange={setDirty} />
+    {pending && <EditorExitDialog onCancel={() => setPending(null)} onDiscard={() => setAllowExit(true)} />}
+  </>;
 }
 
 function FocusedPublicList(props: React.ComponentProps<typeof PublicListScreen>) {

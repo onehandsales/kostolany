@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 import type { FollowTarget } from './types';
 
 export type CommunityNavigation = {
+  openWrite: () => void;
   openRecommendations: (
     section?: 'Following' | 'Reading history' | 'Muted' | 'Suggestions',
     interests?: boolean,
@@ -16,6 +17,7 @@ export type CommunityNavigation = {
   openPublicList: (listId: string, ownerId?: string) => void;
 };
 const Context = createContext<CommunityNavigation>({
+  openWrite: () => {},
   openRecommendations: () => {},
   openExplore: () => {},
   openHistoryArticle: () => {},

@@ -25,6 +25,7 @@ type HomeFeedScreenProps = {
 };
 
 export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedScreenProps) {
+  const community = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const [sort, setSort] = useState<FeedSort>('latest');
@@ -66,7 +67,7 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
           onScrollChange={setCollapsed}
         />
       )}
-      <WriteButton />
+      <WriteButton onPress={community.openWrite} />
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </SafeAreaView>
   );

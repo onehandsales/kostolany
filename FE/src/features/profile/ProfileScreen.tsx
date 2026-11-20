@@ -228,7 +228,7 @@ export function ProfileScreen({
           {footer}
         </ScrollView>
       )}
-      {section === 'Stories' && <WriteButton />}
+      {section === 'Stories' && <WriteButton onPress={community.openWrite} />}
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {isEditing && isFocused && profile && (
         <ProfileEditorSheet initialProfile={profile} store={store} onClose={() => setIsEditing(false)} />

@@ -20,6 +20,7 @@ import { ownedPublicListId } from '../public-lists/ownedPublicList';
 import { ReadingListFeedback } from './ReadingListFeedback';
 import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
+import { DownloadArticleStatus, DownloadControl, DownloadFeedback } from '../downloads/DownloadControl';
 
 type ReadingListScreenProps = {
   listId?: string;
@@ -78,12 +79,7 @@ export function ReadingListScreen({
           </Svg>
         </Pressable>
         <Text style={styles.headerTitle}>{collapsed ? (isDefault ? 'Reading list' : name) : ''}</Text>
-        <IconButton
-          icon="download"
-          label="Download list"
-          size={20}
-          onPress={() => setNotice('Download list')}
-        />
+        <DownloadControl listId={listId} />
         {isDefault && !selected && (
           <IconButton
             icon="more"
@@ -142,6 +138,7 @@ export function ReadingListScreen({
                 <Text style={styles.description}>{selected?.content?.description}</Text>
               )}
             </View>
+            <DownloadFeedback listId={listId} />
             {isDefault ? (
               <ReadingListFeedback
                 state={state}
@@ -177,6 +174,7 @@ export function ReadingListScreen({
         renderItem={({ item }) =>
           item.reference ? (
             <ListStoryCard
+              listId={listId}
               article={item}
               onOpen={onSelectArticle}
               onNotice={setNotice}
@@ -189,6 +187,7 @@ export function ReadingListScreen({
               article={item}
               onSelect={onSelectArticle}
               footer={<View>
+                <DownloadArticleStatus listId={listId} articleId={item.id} title={item.title} />
                 {selected && <Pressable role="button" accessibilityLabel={`Add a note, ${item.title}`}
                   onPress={() => setEditingNote(item)} style={styles.remove}>
                   <Text style={styles.removeText}>{selected.content?.notes?.[item.id] || 'Add a note...'}</Text></Pressable>}

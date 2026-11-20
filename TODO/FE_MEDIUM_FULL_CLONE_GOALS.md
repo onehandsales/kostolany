@@ -1,10 +1,10 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 Goal34 상태:** Digest 발행/날짜 초안·오류/재시도·Library 연결을 구현하고 두 차례 자체 검토, 최종 타입/lint·전체160suites/964tests(580.306초), 실제8081·원본3쌍·JS/Hermes export를 확인했다. [Goal34 결과](FE_GOAL_34_RESULT.md). 원본 동일 재현과 실제 native는 잔여다. Goal33의156 suites/940 tests는 당시 이력이다.
+**현재 Goal36 결과:** Write/실제 입력·선택/서식·계정/이탈과 두 차례 자체 검토를 마쳤다. 전체168suites/1014tests(653.522초) 통과 후 제목 포커스 표시만 수정하고 최종 타입/lint·영향 navigation2suites/10tests(28.78초)·브라우저/캡처·3플랫폼 export를 다시 확인했다. [실행 기준과 결과](FE_GOAL_36_RESULT.md).8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했으며 원본 동일 재현·실제 native는 잔여다. Goal34의160/964와 Goal35의164/990은 각 Goal 당시 전체 검사다.
 
 **현재 승인(2026-11-20 KST): Goal34→35→36의 구현·각각 두 차례 자체 검토·검증·결과 기록. Goal34만 먼저 로컬 커밋하고 Goal35·36을 함께 두 번째 로컬 커밋한다. push·배포·Goal37 이후는 금지한다. 과거 승인 기록은 적용하지 않는다.**
 
-**현재 상태:** Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다. Goal34는 **구현 완료·검증 잔여**이며 Goal35·36은 순서대로 진행한다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
+**현재 상태:** Goal33은 사용자 커밋 `4ddc4b7`, Goal34는 로컬 커밋 `d05ca45`다. Goal34·35·36은 **구현 완료·검증 잔여**다. Goal35·36 변경과 이 결과 문서를 두 번째 묶음 로컬 커밋에 포함하고 종료한다. Goal35 단독 커밋·push·배포·Goal37 이후 개발은 없다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않았다.
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. Goal32 작업 시작 HEAD는 `da38ae2`였다.
 
@@ -29,7 +29,7 @@
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
 | 현재 Git 기준 | Windows 시작 HEAD `4ddc4b7`·Goal33 사용자 커밋 확인. Backend/DB/COMMON 사용자 변경을 보존하고 이번 두 커밋에서 제외한다. |
-| 현재 검증의 범위 | [Goal34 결과](FE_GOAL_34_RESULT.md)의 실제 명령·현재 코드 결과를 따른다. 이전 Goal의 수치는 당시 기록이다. 자동/브라우저/JS-Hermes/실제 native를 구분한다. |
+| 현재 검증의 범위 | [Goal36 결과](FE_GOAL_36_RESULT.md)의 실제 명령·현재 코드 결과를 따른다. 이전 Goal의 수치는 당시 기록이다. 자동/브라우저/JS-Hermes/실제 native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
@@ -103,8 +103,8 @@
 | [32](#goal-32) | 공개 목록·Saved lists·목록 반응 | 26, 28, 30 | 구현 완료·원본/native 검증 잔여; [결과](FE_GOAL_32_RESULT.md) |
 | [33](#goal-33) | 내 목록 메모·정렬·공개 범위·편집·삭제 | 32 | 구현 완료·검증 잔여 — [결과](FE_GOAL_33_RESULT.md) |
 | [34](#goal-34) | Digest·날짜 필터·Library 연결 | 27, 31, 33 | 구현 완료·검증 잔여 — [결과](FE_GOAL_34_RESULT.md) |
-| [35](#goal-35) | 목록 다운로드·오프라인 화면 상태 | 33, 34 | 미착수 |
-| [36](#goal-36) | 글쓰기 편집기·텍스트 서식 | 23, 24 | 미착수 |
+| [35](#goal-35) | 목록 다운로드·오프라인 화면 상태 | 33, 34 | 구현 완료·검증 잔여 |
+| [36](#goal-36) | 글쓰기 편집기·텍스트 서식 | 23, 24 | 구현 완료·검증 잔여 |
 | [37](#goal-37) | 글쓰기 이미지·Camera·Library·Unsplash | 36 | 미착수 |
 | [38](#goal-38) | 초안 저장·재개·멘션 | 37 | 미착수 |
 | [39](#goal-39) | 토픽 최대 5개·발행 미리보기·Publish | 30, 38 | 미착수 |
@@ -333,7 +333,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 35 — 목록 다운로드·오프라인 화면 상태
 
-- **상태/선행:** 미착수 / Goal 33, Goal 34.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal 33, Goal 34. [Goal35 결과](FE_GOAL_35_RESULT.md): 메모리 사본·상태/권한·두 차례 검토·자동/브라우저 검사와 원본/native 잔여를 구분한다.
 - **원본:** [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41), [F45](FE_MEDIUM_FULL_CLONE_MAP.md#f45), [F46](FE_MEDIUM_FULL_CLONE_MAP.md#f46), [F47](FE_MEDIUM_FULL_CLONE_MAP.md#f47), [F48](FE_MEDIUM_FULL_CLONE_MAP.md#f48), [F49](FE_MEDIUM_FULL_CLONE_MAP.md#f49), [F50](FE_MEDIUM_FULL_CLONE_MAP.md#f50), [F51](FE_MEDIUM_FULL_CLONE_MAP.md#f51). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 다운로드 시작/진행/완료 표시·취소/제거·실패 재시도와 목록/기사의 이용 가능 상태를 구현한다. 네트워크가 없는 상황에서 어떤 mock 콘텐츠를 보여줄지 명시한다.
 - **시각 비교:** Downloading/다운로드 아이콘·목록 수·실패/권한 보완 상태를 비교한다. 공유 카드 Save image와 혼동하지 않는다.
@@ -347,7 +347,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 36 — 글쓰기 편집기·텍스트 서식
 
-- **상태/선행:** 미착수 / Goal 23, Goal 24.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal 23, Goal 24. [Goal36 결과](FE_GOAL_36_RESULT.md): 제목/본문·서식/선택·이탈/계정 수명·두 차례 검토와 실제 native/원본 잔여를 구분한다.
 - **원본:** [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F08](FE_MEDIUM_FULL_CLONE_MAP.md#f08), [F09](FE_MEDIUM_FULL_CLONE_MAP.md#f09), [F10](FE_MEDIUM_FULL_CLONE_MAP.md#f10), [F11](FE_MEDIUM_FULL_CLONE_MAP.md#f11). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** Write 진입, 제목/본문 입력, 텍스트 선택, 헤더·굵기·기울임·링크·인용·목록·구분선 및 관찰된 코드 도구를 구현한다. 에디터 전체 UI를 원본 키보드/툴바 위치로 맞춘다.
 - **시각 비교:** 빈 편집기·선택 서식·문단·스크롤·키보드가 열린 상태를 비교한다. 입력 가능한 실제 텍스트와 접근 가능한 도구를 사용한다.

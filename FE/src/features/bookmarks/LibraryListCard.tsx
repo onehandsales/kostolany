@@ -11,6 +11,7 @@ import type { FeedArticle } from '../feed/types';
 import { useProfile } from '../profile/ProfileProvider';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID } from './listTypes';
+import { DownloadControl, DownloadFeedback } from '../downloads/DownloadControl';
 
 type LibraryListCardProps = {
   listId: string;
@@ -58,12 +59,7 @@ export function LibraryListCard({
           <AppIcon name="lock" size={12} color={colors.secondaryText} />
         )}
         <View style={styles.flex} />
-        <IconButton
-          icon="download"
-          label={`Download ${name}`}
-          size={20}
-          onPress={() => setNotice('Download list')}
-        />
+        <DownloadControl listId={listId} label={`Download ${name}`} />
         {listId !== DEFAULT_LIST_ID ? (
           <ListActions listId={listId} name={name} />
         ) : (
@@ -75,6 +71,7 @@ export function LibraryListCard({
           />
         )}
       </View>
+      <DownloadFeedback listId={listId} />
       <View aria-hidden style={styles.thumbnails}>
         {[0, 1, 2].map((index) => {
           const article = thumbnails[index];

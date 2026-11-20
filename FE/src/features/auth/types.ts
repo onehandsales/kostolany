@@ -7,7 +7,7 @@ export type LoginContext =
   | Readonly<{ kind: 'save-list' | 'clap-list'; listId: string }>
   | Readonly<{ kind: 'response'; targetKind: 'article' | 'list'; targetId: string }>
   | Readonly<{ kind: 'follow'; targetKind: 'writer' | 'publication' | 'topic'; targetId: string }>
-  | Readonly<{ kind: 'library' | 'profile' | 'moderation' | 'recommendations' }>;
+  | Readonly<{ kind: 'library' | 'profile' | 'moderation' | 'recommendations' | 'write' }>;
 export type AuthSource = {
   signIn: (input: {
     userId: string;

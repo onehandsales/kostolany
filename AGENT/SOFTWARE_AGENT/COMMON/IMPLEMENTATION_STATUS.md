@@ -1,8 +1,8 @@
 # 현재 상태와 다음 작업
 
-**현재 Goal34 검증:** Digest 날짜/Library 연결·두 차례 자체 검토·최종 타입/lint·전체160suites/964tests(580.306초) 통과.8081 정상/실패/계정 흐름·원본3쌍·web/iOS/Android export를 확인했다. [Goal34 결과](../../../TODO/FE_GOAL_34_RESULT.md). 실제 native build/run·OS 접근성/IME와 동일 시각 재현은 잔여다.
+**현재 Goal36 검증:** Write/실제 입력·선택/서식·계정/이탈과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests(653.522초) 통과 후 제목 포커스 표시만 보정하고 최종 타입/lint·영향2suites/10tests(28.78초)·브라우저/캡처·web/iOS/Android export도 통과했다. [실행 기준과 결과](../../../TODO/FE_GOAL_36_RESULT.md). 실제 native/OS 접근성·IME·원본 동일 재현은 잔여다. [Goal35](../../../TODO/FE_GOAL_35_RESULT.md)는 메모리 사본이며 파일 캐시·재시작 보존은 없다.
 
-**현재 승인/상태(2026-11-20 KST, Windows): Goal34→35→36 구현·각각 두 차례 자체 검토·검증·결과 기록.** Goal34만 먼저 로컬 커밋하고 Goal35·36을 묶어 로컬 커밋 후 종료한다. push·배포·Goal37 이후는 진행하지 않는다. Goal34는 발행10개/날짜 선택·실패/재시도·Library 연결을 구현한 **구현 완료·검증 잔여** 상태다. Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다.
+**현재 승인/상태(2026-11-20 KST, Windows): Goal34→35→36 구현·각각 두 차례 자체 검토·검증·결과 기록.** Goal34 로컬 커밋은 `d05ca45`이고 Goal35·36과 이 결과 문서를 두 번째 묶음 로컬 커밋에 포함한 뒤 종료한다. 세 Goal은 **구현 완료·검증 잔여**다. push·배포·Goal37 이후는 진행하지 않는다. Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다.
 
 Goal34 시작 HEAD `4ddc4b7`, Node24.18.0/npm10.9.0, 기존8081 PID5248과 Backend/DB/COMMON 사용자 변경을 보존한다. 원본/ENV/lockfile과 과거 결과 문서를 유지하며 `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다.
 

@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { useThemeStyles, useTheme } from '../theme/ThemeProvider';
 import { type ThemeColors } from '../theme/tokens';
 import { IconButton } from './IconButton';
-import { ReferenceNotice } from './ReferenceNotice';
 
-export function WriteButton() {
+export function WriteButton({ onPress }: { onPress: () => void }) {
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
-  const [visible, setVisible] = useState(false);
   return (
     <>
       <IconButton
@@ -17,10 +14,9 @@ export function WriteButton() {
         label="Write a story"
         color={colors.onAccent}
         size={24}
-        onPress={() => setVisible(true)}
+        onPress={onPress}
         style={styles.button}
       />
-      <ReferenceNotice title={visible ? 'Write a story' : null} onClose={() => setVisible(false)} />
     </>
   );
 }
