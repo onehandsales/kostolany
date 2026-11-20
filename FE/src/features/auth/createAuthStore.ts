@@ -1,11 +1,13 @@
-import type { AuthScenario, AuthSnapshot, AuthSource, AuthUser, LoginContext, LogoutScenario } from './types';
+import type { AuthProviderName, AuthScenario, AuthSnapshot, AuthSource, AuthUser, LoginContext, LogoutScenario } from './types';
+import { createMockEmailAuthSource } from './emailAuthSource';
 
 export type AuthStore = ReturnType<typeof createAuthStore>;
 
-export function createAuthStore(source: AuthSource, initialUser: AuthUser | null = null) {
-  let snapshot: AuthSnapshot = initialUser ? { user: initialUser, dialog: null, revision: 0 }
-    : { user: null, dialog: null, revision: 0 };
+export function createAuthStore(source: AuthSource, initialUser: AuthUser | null = null, initialRevision = 0) {
+  let snapshot: AuthSnapshot = initialUser ? { user: initialUser, dialog: null, revision: initialRevision }
+    : { user: null, dialog: null, revision: initialRevision };
   let generation = 0;
+  let loginAttempt = 0; const emailSource = source.email ?? createMockEmailAuthSource();
   const listeners = new Set<() => void>();
 
   function publish(next: AuthSnapshot): void {
@@ -16,16 +18,17 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
   function closeDialog(): void {
     // 닫기 이후의 성공과 실패는 같은 사용자의 재시도에도 적용하지 않는다.
     generation += 1;
+    loginAttempt += 1;
     publish({ ...snapshot, dialog: null });
   }
 
-  async function signIn(userId: string, scenario: AuthScenario = 'success'): Promise<void> {
+  async function signIn(userId: string, scenario: AuthScenario = 'success', provider: AuthProviderName = 'Google'): Promise<void> {
     const dialog = snapshot.dialog;
     if (!userId.trim() || snapshot.user || dialog?.kind !== 'login' || dialog.status === 'pending') return;
     const request = ++generation;
-    publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'pending', userId } });
+    publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'pending', userId, provider } });
     try {
-      const result = await source.signIn({ userId, scenario });
+      const result = await source.signIn({ userId, scenario, provider });
       if (generation !== request) return;
       if (result.status === 'cancelled') { closeDialog(); return; }
       if (result.user.id !== userId || !result.user.name.trim()) throw new Error('Invalid auth response');
@@ -33,7 +36,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
       publish({ user: result.user, dialog: null, revision: snapshot.revision + 1 });
     } catch {
       if (generation !== request) return;
-      publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'error', userId } });
+      publish({ user: null, revision: snapshot.revision, dialog: { ...dialog, status: 'error', userId, provider } });
     }
   }
 
@@ -45,7 +48,8 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
     try {
       await source.signOut({ userId: user.id, scenario });
       if (generation !== request) return;
-      publish({ user: null, dialog: null, revision: snapshot.revision + 1 });
+      loginAttempt++;
+      publish({ user: null, dialog: { kind: 'login', context: { kind: 'profile' }, status: 'idle', userId: null, joining: true }, revision: snapshot.revision + 1 });
     } catch {
       if (generation !== request) return;
       publish({ user, revision: snapshot.revision, dialog: { kind: 'logout', status: 'error' } });
@@ -53,13 +57,22 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
   }
 
   return {
+    emailSource,
+    getLoginAttempt: () => loginAttempt,
+    cancelPending() { generation++; },
+    invalidate() { generation++; loginAttempt++; snapshot = { ...snapshot, dialog: null, revision: snapshot.revision + 1 }; },
+    cancelLoginRequest() {
+      if (snapshot.user || snapshot.dialog?.kind !== 'login') return;
+      generation++; publish({ ...snapshot, dialog: { ...snapshot.dialog, status: 'idle', userId: null } });
+    },
     getSnapshot: (): AuthSnapshot => snapshot,
     subscribe(listener: () => void): () => void {
       listeners.add(listener);
       return () => { listeners.delete(listener); };
     },
     openLogin(context: LoginContext): void {
-      if (snapshot.user || snapshot.dialog) return;
+      if (snapshot.user || snapshot.dialog && !(snapshot.dialog.kind === 'login' && snapshot.dialog.joining && snapshot.dialog.status === 'idle')) return;
+      loginAttempt++;
       publish({ ...snapshot, dialog: { kind: 'login', context, status: 'idle', userId: null } });
     },
     openLogout(): void {
@@ -71,7 +84,7 @@ export function createAuthStore(source: AuthSource, initialUser: AuthUser | null
       const dialog = snapshot.dialog;
       if (dialog?.status !== 'error') return;
       // 실패 재현 뒤의 재시도는 정상 모의 응답을 요청하되 이전 요청의 사용자를 고정한다.
-      if (dialog.kind === 'login' && dialog.userId) await signIn(dialog.userId);
+      if (dialog.kind === 'login' && dialog.userId) await signIn(dialog.userId, 'success', dialog.provider);
       else if (dialog.kind === 'logout') await signOut();
     },
   };

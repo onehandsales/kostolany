@@ -78,7 +78,8 @@ it('설정 로그아웃 취소·실패는 화면을 지키고 재시도는 비�
   await user.press(button('로그아웃')); await user.press(button('모의 동작 선택 열기'));
   await user.press(screen.getByRole('radio', { name: '모의 결과: 실패' })); await user.press(button('로그아웃 확인'));
   expect(screen.getByRole('alert')).toHaveTextContent(/로그인 상태를 유지/);
-  await user.press(button('로그아웃 다시 시도')); expect(screen.getByText('로그인하지 않은 상태예요.')).toBeVisible();
+  await user.press(button('로그아웃 다시 시도')); await screen.findByRole('button', { name: 'Sign in' });
+  await user.press(button('로그인 닫기')); expect(screen.getByText('로그인하지 않은 상태예요.')).toBeVisible();
   expect(screen.queryByRole('button', { name: '프로필로 돌아가기', includeHiddenElements: true })).not.toBeOnTheScreen();
 });
 it.each(['success', 'failure'] as const)('A 저장과 미제출 선택 중 B 전환 뒤 늦은 %s는 B 초안·인증을 건드리지 않는다', async (outcome) => {

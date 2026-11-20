@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 
 import { createAuthStore, type AuthStore } from './createAuthStore';
 import { createMockAuthSource } from './data/createMockAuthSource';
@@ -11,9 +11,14 @@ type AuthProviderProps = {
 };
 
 export function AuthProvider({ children, source, initialUser = null }: AuthProviderProps) {
-  // 초기 사용자와 공급부는 앱 실행 단위로 고정하며 사용자 변경은 인증 명령으로만 처리한다.
-  const [store] = useState(() => createAuthStore(source ?? createMockAuthSource(), initialUser));
-  return <AuthContext.Provider value={store}>{children}</AuthContext.Provider>;
+  const [fallback] = useState(createMockAuthSource); const current = source ?? fallback;
+  const [boundary, setBoundary] = useState(() => ({ source: current, store: createAuthStore(current, initialUser) }));
+  useEffect(() => () => boundary.store.cancelPending(), [boundary.store]);
+  if (boundary.source !== current) {
+    const previous = boundary.store.getSnapshot(); boundary.store.invalidate();
+    setBoundary({ source: current, store: createAuthStore(current, previous.user, previous.revision + 1) }); return null;
+  }
+  return <AuthContext.Provider value={boundary.store}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth(): { state: AuthSnapshot; store: AuthStore } {

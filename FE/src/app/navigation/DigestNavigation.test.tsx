@@ -21,7 +21,8 @@ function Probe({ capture }: { capture: (store: AuthStore) => void }) {
 }
 async function setup(source = createMockDigestSource({ delayMs: 0 }), moderationSource?: ModerationSource) {
   let auth: AuthStore | undefined;
-  const tree = (current = source) => <SafeAreaProvider><AuthProvider initialUser={mockUserA} source={createMockAuthSource({ delayMs: 0 })}>
+  const authentication = createMockAuthSource({ delayMs: 0 });
+  const tree = (current = source) => <SafeAreaProvider><AuthProvider initialUser={mockUserA} source={authentication}>
     <SessionNavigation digestSource={current} moderationSource={moderationSource} articleSource={createMockArticleSource({ delayMs: 0 })} />
     <Probe capture={value => { auth = value; }} />
   </AuthProvider></SafeAreaProvider>;

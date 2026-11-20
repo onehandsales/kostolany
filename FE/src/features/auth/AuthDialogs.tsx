@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ProviderIcon, type ProviderName } from '../../shared/ui/ProviderIcon';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { EmailLogin } from './EmailLogin';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { useAuth } from './AuthProvider';
@@ -33,7 +33,7 @@ type AuthDialogsProps = { profileName?: string };
 type LogoutDialogProps = { profileName?: string };
 
 export function AuthDialogs({ profileName }: AuthDialogsProps) {
-  const { state } = useAuth();
+  const { state, store } = useAuth();
   const wasOpen = useRef(false);
   useEffect(() => {
     if (state.dialog) {
@@ -45,7 +45,7 @@ export function AuthDialogs({ profileName }: AuthDialogsProps) {
     const frame = requestAnimationFrame(restoreModalFocus);
     return () => cancelAnimationFrame(frame);
   }, [state.dialog]);
-  if (state.dialog?.kind === 'login') return <LoginDialog />;
+  if (state.dialog?.kind === 'login') return <LoginDialog key={`${state.revision}:${store.getLoginAttempt()}`} />;
   if (state.dialog?.kind === 'logout') return <LogoutDialog profileName={profileName} />;
   return null;
 }
@@ -56,8 +56,11 @@ function LoginDialog() {
   const { colors } = useTheme();
   const { state, store } = useAuth();
   const { width } = useWindowDimensions();
-  const [isJoining, setJoining] = useState(false);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [isJoining, setJoining] = useState(state.dialog?.kind === 'login' && Boolean(state.dialog.joining));
+  const [email, setEmail] = useState(false);
+  const emailBack = useRef<(() => void) | null>(null);
+  const loginScroll = useRef<ScrollView>(null);
+  useEffect(() => { loginScroll.current?.scrollTo({ y: 0, animated: false }); }, [isJoining]);
   const [userId, setUserId] = useState(mockUserA.id);
   const [scenario, setScenario] = useState<AuthScenario>('success');
   const dialog = state.dialog;
@@ -69,16 +72,14 @@ function LoginDialog() {
     ? ['Google', 'Facebook', 'Apple', 'Email']
     : ['Google', 'Facebook', 'Apple', 'X', 'Email'];
   function handleProviderPress(provider: ProviderName): void {
-    if (provider !== 'Google') {
-      setNotice(`${provider} authentication`);
-      return;
-    }
+    if (provider === 'Email') { store.cancelLoginRequest(); setEmail(true); return; }
     if (hasError) store.retry();
-    else void store.signIn(userId, scenario);
+    else void store.signIn(userId, scenario, provider);
   }
   return (
-    <Modal animationType="fade" accessibilityLabel="모의 로그인" onRequestClose={store.closeDialog}>
+    <Modal animationType="fade" accessibilityLabel="모의 로그인" onRequestClose={() => { if (email) emailBack.current?.(); else store.closeDialog(); }}>
       <SafeAreaView style={authStyles.screen}>
+        {email ? <EmailLogin joining={isJoining} scenario={scenario} backActionRef={emailBack} onBack={() => setEmail(false)} onClose={store.closeDialog} /> : <>
         <View style={styles.authHeader}>
           <Text style={styles.brand}>Medium</Text>
           <View style={styles.loginTop}>
@@ -86,7 +87,7 @@ function LoginDialog() {
             <IconButton icon="close" label="로그인 닫기" onPress={store.closeDialog} size={20} />
           </View>
         </View>
-        <ScrollView contentContainerStyle={styles.login}>
+        <ScrollView ref={loginScroll} contentContainerStyle={styles.login}>
           <Text role="heading" style={[styles.headline, width < 360 && styles.smallHeadline]}>
             Human{'\n'}stories and{'\n'}ideas.
           </Text>
@@ -102,30 +103,28 @@ function LoginDialog() {
                 key={provider}
                 role="button"
                 accessibilityLabel={
-                  provider === 'Google'
-                    ? hasError
-                      ? '로그인 다시 시도'
-                      : 'Google로 로그인 (모의)'
+                  hasError && provider === dialog.provider ? '로그인 다시 시도' : provider === 'Google'
+                    ? 'Google로 로그인 (모의)'
                     : `Sign ${isJoining ? 'up' : 'in'} with ${provider}`
                 }
-                accessibilityState={{ disabled: isPending, busy: provider === 'Google' && isPending }}
-                disabled={isPending}
+                accessibilityState={{ disabled: isPending || hasError && provider !== dialog.provider, busy: provider === (dialog.provider ?? 'Google') && isPending }}
+                disabled={isPending || hasError && provider !== dialog.provider}
                 onPress={() => handleProviderPress(provider)}
                 style={styles.providerTarget}
               >
                 <View style={styles.providerPill}>
                   <View style={styles.providerIcon}>
-                    {provider === 'Google' && isPending ? (
+                    {provider === (dialog.provider ?? 'Google') && isPending ? (
                       <ActivityIndicator color={colors.text} />
                     ) : (
                       <ProviderIcon provider={provider} />
                     )}
                   </View>
                   <Text style={styles.providerLabel}>
-                    {provider === 'Google' && isPending
+                    {provider === (dialog.provider ?? 'Google') && isPending
                       ? 'Signing in…'
-                      : provider === 'Google' && hasError
-                        ? 'Try again with Google'
+                      : provider === dialog.provider && hasError
+                        ? `Try again with ${provider}`
                         : `Sign ${isJoining ? 'up' : 'in'} with ${provider}`}
                   </Text>
                 </View>
@@ -179,7 +178,7 @@ function LoginDialog() {
             <ScenarioPicker selected={scenario} onSelect={setScenario} disabled={isLocked} />
           </View>
         </ScrollView>
-        <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+        </>}
       </SafeAreaView>
     </Modal>
   );

@@ -66,7 +66,7 @@ it.each(['success', 'failure'] as const)('이전 로그인 %s는 새 B 세션과
   store.openLogout(); await store.signOut();
   if (outcome === 'success') response.resolve(success); else response.reject(new Error('old'));
   await first;
-  expect(store.getSnapshot()).toEqual({ user: null, dialog: null, revision: 2 });
+  expect(store.getSnapshot()).toMatchObject({ user: null, dialog: { kind: 'login', joining: true, status: 'idle' }, revision: 2 });
 });
 
 it.each(['success', 'failure'] as const)('A→취소→A 재요청 중 이전 %s는 새 시도의 처리를 끝내지 않는다', async (outcome) => {
@@ -94,7 +94,7 @@ it('로그아웃 확인 전 취소는 요청하지 않고 실패 후 재시도�
   store.openLogout(); await store.signOut('failure');
   expect(store.getSnapshot()).toMatchObject({ user: mockUserA, dialog: { kind: 'logout', status: 'error' } });
   await store.retry();
-  expect(store.getSnapshot()).toEqual({ user: null, dialog: null, revision: 1 });
+  expect(store.getSnapshot()).toMatchObject({ user: null, dialog: { kind: 'login', joining: true, status: 'idle' }, revision: 1 });
 });
 
 it('로그아웃 처리 중 중복 확인을 막고 확정 전에는 기존 사용자 상태를 유지한다', async () => {

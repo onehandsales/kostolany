@@ -42,6 +42,8 @@ async function logOut(user: ReturnType<typeof userEvent.setup>) {
   await user.press(screen.getByRole('tab', { name: '프로필' }));
   await user.press(screen.getByRole('button', { name: '로그아웃' }));
   await user.press(screen.getByRole('button', { name: '로그아웃 확인' }));
+  await screen.findByRole('button', { name: 'Sign in' });
+  await user.press(screen.getByRole('button', { name: '로그인 닫기' }));
   expect(screen.getByText('로그인하지 않은 상태예요.')).toBeVisible();
 }
 
@@ -107,6 +109,8 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   await user.press(screen.getByRole('button', { name: '로그아웃 확인' }));
   expect(screen.getByRole('alert')).toHaveTextContent(/로그인 상태를 유지했어요/);
   await user.press(screen.getByRole('button', { name: '로그아웃 다시 시도' }));
+  await screen.findByRole('button', { name: 'Sign in' });
+  await user.press(screen.getByRole('button', { name: '로그인 닫기' }));
   await logIn(user, mockUserB.name);
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(screen.getByRole('heading', { name: '라이브러리' })).toBeVisible();
@@ -177,15 +181,15 @@ it.each(['success', 'failure'] as const)('A 개인 변경의 늦은 %s를 격리
   expect(screen.queryByLabelText('목록 이름 · 필수')).not.toBeOnTheScreen();
 }, 15000);
 
-it('가입/로그인 소개 전환과 미연결 공급자 안내는 인증하거나 원래 기사를 잃지 않는다', async () => {
+it('가입/로그인 소개 전환과 이메일 입력 취소는 인증하거나 원래 기사를 잃지 않는다', async () => {
   const user = userEvent.setup(); await renderApp();
   await user.press(getArticle()); await screen.findByRole('heading', { name: title });
   await user.press(getGuestBookmark());
   await user.press(screen.getByRole('button', { name: 'Create account' }));
   expect(screen.queryByRole('button', { name: 'Sign up with X' })).not.toBeOnTheScreen();
   await user.press(screen.getByRole('button', { name: 'Sign up with Email' }));
-  expect(screen.getByRole('heading', { name: 'Email authentication' })).toBeVisible();
-  await user.press(screen.getByRole('button', { name: 'Got it' }));
+  expect(screen.getByRole('heading', { name: 'Sign up with email.' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: '인증 제공자로 돌아가기' }));
   await user.press(screen.getByRole('button', { name: 'Sign in' }));
   expect(screen.getByRole('button', { name: 'Sign in with X' })).toBeVisible();
   await user.press(screen.getByRole('button', { name: '로그인 닫기' }));
