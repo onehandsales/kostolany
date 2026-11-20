@@ -2,9 +2,13 @@ export type BlockKind = 'paragraph' | 'heading' | 'subheading' | 'quote' | 'pull
 export type Format = { kind: 'bold' | 'italic' | 'link'; url?: string };
 export type Mark = Format & { start: number; end: number };
 export type TextSelection = { start: number; end: number };
-export type EditorDocument = { schemaVersion: 1; title: string; body: string; blocks: BlockKind[]; marks: Mark[] };
+export type EditorImage = {
+  id: string; offset: number; assetId: string; source: 'camera' | 'library' | 'unsplash';
+  description: string; credit: string; width: number; height: number;
+};
+export type EditorDocument = { schemaVersion: 2; version: number; title: string; body: string; blocks: BlockKind[]; marks: Mark[]; images: EditorImage[] };
 export type EditorValue = { document: EditorDocument; selection: TextSelection; typing: Format[] };
-export const emptyEditor = (): EditorValue => ({ document: { schemaVersion: 1, title: '', body: '', blocks: ['paragraph'], marks: [] }, selection: { start: 0, end: 0 }, typing: [] });
+export const emptyEditor = (): EditorValue => ({ document: { schemaVersion: 2, version: 0, title: '', body: '', blocks: ['paragraph'], marks: [], images: [] }, selection: { start: 0, end: 0 }, typing: [] });
 export function clampSelection(body: string, selection: TextSelection): TextSelection {
   const start = Math.max(0, Math.min(body.length, selection.start));
   return { start, end: Math.max(start, Math.min(body.length, selection.end)) };
@@ -62,7 +66,9 @@ export function replaceText(value: EditorValue, selection: TextSelection, insert
   });
   if (inserted.length) marks.push(...value.typing.map(format => ({ ...format, start, end: start + inserted.length })));
   const position = start + inserted.length;
-  return { ...value, document: { ...doc, body, blocks, marks: normalizeMarks(marks) }, selection: { start: position, end: position } };
+  const images = doc.images.filter(image => image.offset < start || image.offset >= end)
+    .map(image => image.offset >= end ? { ...image, offset: image.offset + delta } : image);
+  return { ...value, document: { ...doc, version: doc.version + 1, body, blocks, images, marks: normalizeMarks(marks) }, selection: { start: position, end: position } };
 }
 export function changeBody(value: EditorValue, next: string): EditorValue {
   next = next.replace(/\r\n?/g, '\n'); const before = value.document.body;
@@ -91,7 +97,7 @@ export function toggleFormat(value: EditorValue, format: Format): EditorValue {
   const marks = value.document.marks.flatMap(mark => mark.kind !== format.kind || mark.end <= start || mark.start >= end ? [mark] :
     [...(mark.start < start ? [{ ...mark, end: start }] : []), ...(mark.end > end ? [{ ...mark, start: end }] : [])]);
   if (!active) marks.push({ ...format, start, end });
-  return { ...value, typing, document: { ...value.document, marks: normalizeMarks(marks) } };
+  return { ...value, typing, document: { ...value.document, version: value.document.version + 1, marks: normalizeMarks(marks) } };
 }
 export function safeLink(input: string): string | null {
   try {
@@ -106,7 +112,7 @@ export function selectedLines(value: EditorValue) {
     (line.start < value.selection.end || line.start <= value.selection.start));
 }
 export function setBlock(value: EditorValue, kind: BlockKind): EditorValue {
-  const selected = selectedLines(value); let next = value;
+  const selected = selectedLines(value).filter(line => !value.document.images.some(image => image.offset === line.start)); let next = value;
   let selection = { ...value.selection };
   for (const line of [...selected].reverse()) {
     const prefix = line.kind === 'bullet' && line.text.startsWith('• ') ? 2 : line.kind === 'numbered' ? /^\d+\. /u.exec(line.text)?.[0].length ?? 0 : 0;
@@ -141,7 +147,60 @@ export function segments(document: EditorDocument, start: number, end: number) {
 }
 export function editorOutput(document: EditorDocument) {
   return { schemaVersion: document.schemaVersion, title: document.title,
-    blocks: lines(document).map(line => ({ type: line.kind, content: line.kind === 'divider' ? [] :
+    blocks: lines(document).map(line => {
+      const image = document.images.find(image => image.offset === line.start);
+      if (image) return { type: 'image' as const, image, content: [] };
+      return { type: line.kind, content: line.kind === 'divider' ? [] :
       segments(document, line.start + (line.kind === 'bullet' && line.text.startsWith('• ') ? 2 : line.kind === 'numbered' ? /^\d+\. /u.exec(line.text)?.[0].length ?? 0 : 0), line.end)
-        .map(({ text, formats }) => ({ text, formats })) })) };
+        .map(({ text, formats }) => ({ text, formats })) };
+    }) };
+}
+
+export function insertImage(value: EditorValue, image: Omit<EditorImage, 'offset'>): EditorValue {
+  if (value.document.images.some(item => item.id === image.id)) return value;
+  const line = selectedLines(value).at(-1);
+  const at = line?.end ?? value.document.body.length;
+  const prefix = at === 0 && !value.document.body ? '' : '\n';
+  const next = replaceText({ ...value, typing: [] }, { start: at, end: at }, `${prefix}\uFFFC\n`);
+  const offset = at + prefix.length;
+  const blocks = [...next.document.blocks];
+  const index = next.document.body.slice(0, offset).split('\n').length - 1;
+  blocks[index] = 'paragraph'; blocks[index + 1] = 'paragraph';
+  return { ...next, document: { ...next.document, blocks, images: [...next.document.images, { ...image, offset }] } };
+}
+export function removeImage(value: EditorValue, id: string): EditorValue {
+  const image = value.document.images.find(item => item.id === id);
+  if (!image) return value;
+  return replaceText({ ...value, typing: [] }, { start: image.offset, end: image.offset + 2 }, '');
+}
+
+export function editorSections(document: EditorDocument) {
+  let start = 0;
+  const sections: { key: string; start: number; end: number; image?: EditorImage }[] = [];
+  for (const image of [...document.images].sort((a, b) => a.offset - b.offset)) {
+    sections.push({ key: start === 0 ? 'start' : `after-${sections.at(-1)?.key}`, start, end: Math.max(start, image.offset - 1) });
+    sections.push({ key: image.id, start: image.offset, end: image.offset + 1, image });
+    start = image.offset + 2;
+  }
+  sections.push({ key: start === 0 ? 'start' : `after-${sections.at(-1)?.key}`, start, end: document.body.length });
+  return sections;
+}
+
+export function sliceEditor(value: EditorValue, start: number, end: number): EditorValue {
+  const document = value.document;
+  const body = document.body.slice(start, end);
+  const first = document.body.slice(0, start).split('\n').length - 1;
+  return { ...value, selection: clampSelection(body, { start: value.selection.start - start, end: value.selection.end - start }),
+    document: { ...document, body, images: [], blocks: document.blocks.slice(first, first + body.split('\n').length),
+      marks: document.marks.filter(mark => mark.end > start && mark.start < end)
+        .map(mark => ({ ...mark, start: Math.max(start, mark.start) - start, end: Math.min(end, mark.end) - start })) } };
+}
+
+export function mergeEditorSection(value: EditorValue, start: number, end: number, section: EditorValue): EditorValue {
+  const next = replaceText({ ...value, typing: [] }, { start, end }, section.document.body.replace(/\uFFFC/gu, ''));
+  const first = next.document.body.slice(0, start).split('\n').length - 1;
+  const blocks = [...next.document.blocks]; blocks.splice(first, section.document.blocks.length, ...section.document.blocks);
+  const marks = [...next.document.marks, ...section.document.marks.map(mark => ({ ...mark, start: mark.start + start, end: mark.end + start }))];
+  return { ...next, typing: section.typing, selection: { start: section.selection.start + start, end: section.selection.end + start },
+    document: { ...next.document, blocks, marks } };
 }

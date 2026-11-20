@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Keyboard, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Image, Keyboard, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { RichBody } from './RichBody';
+import { RichDocumentBody } from './RichDocumentBody';
+import { ImagePickerSheet } from './ImagePickerSheet';
+import { createMockEditorImageSource, type EditorImageSource } from './imageSource';
+import { useImageInsertion } from './useImageInsertion';
 import { emptyEditor, insertDivider, safeLink, selectedLines, selectText, setBlock, toggleFormat, type BlockKind, type EditorValue } from './editorModel';
 
 export function EditorDialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
@@ -28,9 +31,13 @@ export function EditorExitDialog({ onCancel, onDiscard }: { onCancel: () => void
     <Pressable role="button" accessibilityLabel="내용 버리고 닫기" style={styles.action} onPress={onDiscard}><Text style={styles.danger}>Discard</Text></Pressable>
   </EditorDialog>;
 }
-export function StoryEditorScreen({ onClose, onDirtyChange }: { onClose: () => void; onDirtyChange: (dirty: boolean) => void }) {
+export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onClose: () => void; onDirtyChange: (dirty: boolean) => void; imageSource?: EditorImageSource }) {
   const styles = useThemeStyles(createStyles); const { colors } = useTheme();
   const [value, setValue] = useState(emptyEditor);
+  const [defaultImages] = useState(createMockEditorImageSource);
+  const images = imageSource ?? defaultImages;
+  const insertion = useImageInsertion(value, images, setValue);
+  const [imagePicker, setImagePicker] = useState(false);
   const [titleHeight, setTitleHeight] = useState(48);
   const [bodyTarget, setBodyTarget] = useState(false); const [focused, setFocused] = useState(false);
   const [composing, setComposing] = useState(false); const [focusRequest, requestFocus] = useState(0);
@@ -78,11 +85,20 @@ export function StoryEditorScreen({ onClose, onDirtyChange }: { onClose: () => v
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive" contentContainerStyle={styles.content}>
         <TextInput multiline autoFocus accessibilityLabel="글 제목" placeholderTextColor={colors.secondaryText}
-          value={value.document.title} onChangeText={title => setValue(current => ({ ...current, document: { ...current.document, title } }))}
+          value={value.document.title} onChangeText={title => setValue(current => ({ ...current, document: { ...current.document, title, version: current.document.version + 1 } }))}
           onContentSizeChange={event => setTitleHeight(Math.max(48, event.nativeEvent.contentSize.height))} scrollEnabled={false}
           onFocus={() => { setBodyTarget(false); setFocused(false); }} style={[styles.title, { height: titleHeight }]} />
-        <RichBody value={value} onChange={setValue} onSelect={selection => setValue(current => selectText(current, selection))}
+        <RichDocumentBody source={images} value={value} onChange={setValue} onSelect={selection => setValue(current => selectText(current, selection))}
           onFocus={() => { setBodyTarget(true); setFocused(true); }} onBlur={() => setFocused(false)} onComposing={setComposing} focusRequest={focusRequest} dismissRequest={dismissRequest} />
+        {insertion.pending && <View style={{ borderWidth: 3, borderColor: colors.green, marginVertical: 24 }}>
+          <Image source={images.resolve(insertion.pending.asset.assetId)} accessibilityLabel={insertion.pending.asset.description}
+            style={{ width: '100%', height: 'auto', aspectRatio: insertion.pending.asset.width / insertion.pending.asset.height, opacity: 0.4 }} />
+          <Pressable role="button" accessibilityLabel="이미지 삽입 취소" style={[styles.tool, { position: 'absolute', right: 0, top: 0 }]} onPress={insertion.cancel}><Text style={styles.toolText}>×</Text></Pressable>
+          {insertion.pending.status === 'loading' ? <ActivityIndicator accessibilityLabel="이미지 삽입 중" /> : <>
+            <Text role="alert" style={styles.danger}>이미지를 삽입하지 못했어요.</Text>
+            <Pressable role="button" accessibilityLabel="이미지 삽입 다시 시도" onPress={insertion.retry} style={styles.action}><Text style={styles.green}>Try again</Text></Pressable>
+          </>}
+        </View>}
       </ScrollView>
       {bodyTarget && (focused || value.selection.start !== value.selection.end) && <View style={styles.inlineTools}>
         {tool('굵게', 'B', () => apply(toggleFormat(value, { kind: 'bold' })), value.typing.some(format => format.kind === 'bold'))}
@@ -97,7 +113,7 @@ export function StoryEditorScreen({ onClose, onDirtyChange }: { onClose: () => v
         {tool('구분선 삽입', '⋯', () => apply(insertDivider(value)))}
         {tool('멘션 안내', '@', () => setNotice('Mentions'), false, false)}
         {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), block === 'code')}
-        {tool('이미지 안내', '▧', () => setNotice('Images'), false, false)}
+        {tool('이미지 삽입', '▧', () => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }, false, composing)}
       </ScrollView>
     </KeyboardAvoidingView>
     {link && <EditorDialog title="링크" onClose={closeLink}>
@@ -113,6 +129,9 @@ export function StoryEditorScreen({ onClose, onDirtyChange }: { onClose: () => v
       }}><Text style={styles.dialogText}>Remove link</Text></Pressable>}
     </EditorDialog>}
     <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+    {imagePicker && <ImagePickerSheet source={images} onClose={() => setImagePicker(false)} onSelect={(asset, origin) => {
+      setImagePicker(false); insertion.select(asset, origin);
+    }} />}
   </SafeAreaView>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({

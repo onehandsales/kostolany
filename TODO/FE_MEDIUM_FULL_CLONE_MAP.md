@@ -1,8 +1,10 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**현재 Goal36 검사:** Write/실제 입력·선택/서식·이탈/계정과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests 통과 후 제목 포커스 표시 수정의 최종 타입/lint·영향2suites/10tests·브라우저/캡처·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_36_RESULT.md). 동일 시각 재현·미수록 정책·실제 native는 잔여다. Goal34는 `d05ca45`에 커밋되었고 Goal35·36을 묶음 로컬 커밋 후 종료한다.
+**현재 Goal37 상태:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
-**현재 승인(2026-11-20 KST): Goal34→35→36 구현·각각 두 차례 자체 검토·검증·결과 기록. Goal34만 로컬 커밋한 뒤 Goal35·36을 묶어 두 번째 로컬 커밋하고 종료한다. push/배포·Goal37 이후는 승인 범위가 아니다.** Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다. `TODO/evidence`·`TODO/_evidence`는 만들지 않는다.
+**Goal36 당시 검사:** Write/실제 입력·선택/서식·이탈/계정과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests 통과 후 제목 포커스 표시 수정의 최종 타입/lint·영향2suites/10tests·브라우저/캡처·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_36_RESULT.md). 동일 시각 재현·미수록 정책·실제 native는 잔여다. Goal34는 `d05ca45`에 커밋되었고 Goal35·36을 묶음 로컬 커밋 후 종료한다.
+
+**현재 승인(2026-11-20 KST): Goal37→38→39→40의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총4회다. 각 결과/해시 보고 후 다음 승인된 Goal을 이어서 진행하고 Goal40에서 종료한다. push·배포·Goal41 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31 커밋/push와 Goal25~35 연속 진행 요청은 당시 이력이다.
 
@@ -84,7 +86,7 @@
 | C38 | Digest | 날짜 선택/Done·해당 이야기·last 10 digests | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F43; 발행10개·초안 취소/확정·삭제 날짜·빈 값·실패/늦은 응답 구현. [원본3쌍·잔여](FE_GOAL_34_RESULT.md). 10개와10일을 구분한다. |
 | C39 | Digest | Daily 빈도·Push chevron·Email 외부 링크·설정 복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F44; Goal34는 설정 표시/진입·지원 전 안내/복귀까지 구현. 실제 설정 변경/외부 이동은44 잔여이며 빈도 옵션/이메일 세부 화면은 미수록이다. |
 | C40 | 편집기 | 제목/본문·서식 툴바·헤더/강조/링크/인용/목록/구분선/코드 | [36](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-36) | F08,F09; [구현 완료·검증 잔여](FE_GOAL_36_RESULT.md). 실제 입력/선택·링크 오류/이탈/계정/5쌍 비교를 확인했다. 코드 실행 후 원본과 native 문단 장식/IME는 잔여다. |
-| C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 실제 업로드/외부 검색과 local/mock 선택을 구분한다. |
+| C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 이미지 문서/출력·검색/삽입/삭제·오류/계정 수명 구현, [Goal37 구현 완료·검증 잔여](FE_GOAL_37_RESULT.md). 실제 OS picker·업로드/외부 검색은 미연동이다. |
 | C42 | 편집기 | Drafts 메뉴·초안 목록/재개·자동 저장/실패 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F10 및 SOURCES; 자동 저장은 공식 설명이며 완전한 캡처가 아니다. |
 | C43 | 편집기 | @ 검색·핸들/아바타·동명이인·선택/삭제·멘션 대상 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F11; 문구만 같은 가짜 링크가 아니라 대상 ID를 유지한다. |
 | C44 | 발행 | 토픽 검색·최대 5개·chip 제거·검색 X·완료 | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F07; 검색어 clear와 선택 토픽 제거는 다른 동작이다. |

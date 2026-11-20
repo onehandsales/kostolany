@@ -12,6 +12,7 @@ import { createNativeStackNavigator, type NativeStackScreenProps } from '@react-
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/StoryEditorScreen';
+import type { EditorImageSource } from '../../features/editor/imageSource';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 
@@ -92,6 +93,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  editorImageSource?: EditorImageSource;
   downloadSource?: DownloadSource;
   digestSource?: DigestSource;
   articleSource?: ArticleSource;
@@ -134,6 +136,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  editorImageSource,
   downloadSource,
   digestSource,
   articleSource,
@@ -318,7 +321,7 @@ function SessionNavigationContent({
                                       />
                                     )}
                                   </Stack.Screen>
-                                  <Stack.Screen name="Editor" component={EditorRouteScreen} />
+                                  <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} imageSource={editorImageSource} />}</Stack.Screen>
                                   {/* 같은 기사 새 진입과 기존 인스턴스 복귀를 구분해 설명 수준의 수명을 보존한다. */}
                                   <Stack.Screen name="Article">
                                     {({ route, navigation }) => (
@@ -470,7 +473,7 @@ function FocusedArticleRoute(props: React.ComponentProps<typeof ArticleRouteScre
   return <ArticleRouteScreen {...props} isFocused={focused} />;
 }
 
-function EditorRouteScreen({ route, navigation }: NativeStackScreenProps<RootStackParamList, 'Editor'>) {
+function EditorRouteScreen({ route, navigation, imageSource }: NativeStackScreenProps<RootStackParamList, 'Editor'> & { imageSource?: EditorImageSource }) {
   const { state } = useAuth();
   const permitted = state.user?.id === route.params.ownerId && state.revision === route.params.revision;
   const [dirty, setDirty] = useState(false);
@@ -483,7 +486,7 @@ function EditorRouteScreen({ route, navigation }: NativeStackScreenProps<RootSta
   }, [allowExit, navigation, pending, permitted]);
   if (!permitted) return null;
   return <>
-    <StoryEditorScreen onClose={() => navigation.goBack()} onDirtyChange={setDirty} />
+    <StoryEditorScreen onClose={() => navigation.goBack()} onDirtyChange={setDirty} imageSource={imageSource} />
     {pending && <EditorExitDialog onCancel={() => setPending(null)} onDiscard={() => setAllowExit(true)} />}
   </>;
 }

@@ -1,16 +1,18 @@
 # Kostolany Mobile
 
-**현재 Goal36 검증:** Write/실제 입력·선택/서식·계정/이탈과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests(653.522초) 통과 후 제목 포커스 표시만 보정하고 최종 타입/lint·영향2suites/10tests(28.78초)·브라우저/캡처·web/iOS/Android export도 통과했다. [실행 기준과 결과](../TODO/FE_GOAL_36_RESULT.md). 실제 native/OS 접근성·IME·원본 동일 재현은 잔여다. [Goal35](../TODO/FE_GOAL_35_RESULT.md)는 메모리 사본이며 파일 캐시·재시작 보존은 없다.
+**현재 Goal37 상태:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](../TODO/FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
-**현재 승인/상태(2026-11-20 KST, Windows): Goal34→35→36 구현·각각 두 차례 자체 검토·검증·결과 기록.** Goal34 로컬 커밋은 `d05ca45`이고 Goal35·36과 이 결과 문서를 두 번째 묶음 로컬 커밋에 포함한 뒤 종료한다. 세 Goal은 **구현 완료·검증 잔여**다. push·배포·Goal37 이후는 진행하지 않는다. Goal33은 사용자 커밋 `4ddc4b7`에 포함되어 있다.
+**Goal36 당시 검증:** Write/실제 입력·선택/서식·계정/이탈과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests(653.522초) 통과 후 제목 포커스 표시만 보정하고 최종 타입/lint·영향2suites/10tests(28.78초)·브라우저/캡처·web/iOS/Android export도 통과했다. [실행 기준과 결과](../TODO/FE_GOAL_36_RESULT.md). 실제 native/OS 접근성·IME·원본 동일 재현은 잔여다. [Goal35](../TODO/FE_GOAL_35_RESULT.md)는 메모리 사본이며 파일 캐시·재시작 보존은 없다.
 
-Goal34 시작 HEAD `4ddc4b7`, Node24.18.0/npm10.9.0, 기존8081 PID5248과 Backend/DB/COMMON 사용자 변경을 보존한다. 원본/ENV/lockfile과 과거 결과 문서를 유지하고 `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교 HTML·로그·검증 스크립트를 만들지 않는다. 캡처/로그/export는 저장소 밖 임시 경로다. 아래 과거 승인/검사는 당시 이력이며 현재 승인에 적용하지 않는다.
+**현재 승인(2026-11-20 KST): Goal37→38→39→40의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총4회다. 각 결과/해시 보고 후 다음 승인된 Goal을 이어서 진행하고 Goal40에서 종료한다. push·배포·Goal41 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
+
+현재 시작 HEAD는 `66f1041`, 작업 트리는 깨끗했다. Node24.18.0/npm10.9.0과 기존8081 PID5248을 유지한다. medium 원본·ENV·기존 사용자 변경을 보존하고 비교/로그/export는 저장소 밖 임시 경로에 둔다. 아래 과거 승인/검사는 당시 이력이다.
 
 **Goal32 당시 검사:** 152 suites/906 tests·typecheck/lint·원본2쌍·web/iOS/Android export는 [Goal32 결과](../TODO/FE_GOAL_32_RESULT.md)의 이력이며 Goal33 변경 검사가 아니다.
 
 **과거 승인 이력 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
 
-**과거 Goal31 종료 요청:** Goal31에서 종료했던 당시 기록이다. 현재 승인과 검사는 문서 상단 Goal34~36 기준이다.
+**과거 Goal31 종료 요청:** Goal31에서 종료했던 당시 기록이다. 현재 승인과 검사는 문서 상단 Goal37~40 기준이다.
 
 로컬 미리보기는 기존 [http://localhost:8081](http://localhost:8081)을 사용한다. 실행 중이면 중복 서버를 시작하지 않는다.
 

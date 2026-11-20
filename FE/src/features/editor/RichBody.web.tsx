@@ -43,10 +43,11 @@ export function RichBody(props: RichBodyProps) {
   useEffect(() => { if (props.dismissRequest) root.current?.blur(); }, [props.dismissRequest]);
   useLayoutEffect(() => {
     const element = root.current; if (!element || composing.current) return;
-    const focus = document.activeElement === element || requested.current !== props.focusRequest;
+    const currentDocument = latest.current.value.document;
+    const focus = document.activeElement === element || ((props.isActive ?? true) && requested.current !== props.focusRequest);
     requested.current = props.focusRequest; rendering.current = true;
     const fragment = document.createDocumentFragment();
-    for (const line of lines(props.value.document)) {
+    for (const line of lines(currentDocument)) {
       const prefix = line.kind === 'bullet' ? '• ' : line.kind === 'numbered' ? /^\d+\. /u.exec(line.text)?.[0] ?? '' : '';
       const prefixWidth = Math.max(28, prefix.length * 10);
       const block = document.createElement('div'); block.dataset.block = line.kind;
@@ -65,7 +66,7 @@ export function RichBody(props: RichBodyProps) {
         const marker = document.createElement('span'); marker.textContent = prefix;
         Object.assign(marker.style, { display: 'inline-block', width: `${prefixWidth}px`, textIndent: '0' }); block.append(marker);
       }
-      for (const part of segments(props.value.document, line.start + prefix.length, line.end)) {
+      for (const part of segments(currentDocument, line.start + prefix.length, line.end)) {
         const link = part.formats.find(format => format.kind === 'link');
         const span = document.createElement(link ? 'a' : 'span'); span.textContent = part.text;
         if (span instanceof HTMLAnchorElement && link?.url) { span.href = link.url; span.tabIndex = -1; }
@@ -79,7 +80,8 @@ export function RichBody(props: RichBodyProps) {
     element.replaceChildren(fragment);
     if (focus) { element.focus({ preventScroll: true }); restore(element, latest.current.value.selection); }
     rendering.current = false;
-  }, [props.value.document, props.focusRequest, colors]);
+    // 구간 객체가 새로 만들어져도 선택만 바뀐 경우에는 입력 DOM을 교체하지 않는다.
+  }, [props.value.document.version, props.focusRequest, props.isActive, colors]);
   useEffect(() => {
     const element = root.current; if (!element) return;
     const onSelect = () => {
@@ -101,9 +103,9 @@ export function RichBody(props: RichBodyProps) {
     const next = changeBody(latest.current.value, bodyText(root.current));
     latest.current.onChange({ ...next, selection: selected(root.current) ?? next.selection });
   };
-  return <div style={{ position: 'relative', minHeight: 300 }}>
-    <div ref={root} role="textbox" aria-label="글 본문" aria-multiline="true" contentEditable suppressContentEditableWarning spellCheck
-      style={{ minHeight: 300, outline: 'none', color: colors.text, caretColor: colors.text, paddingBottom: 40 }}
+  return <div style={{ position: 'relative', minHeight: props.minHeight ?? 300 }}>
+    <div ref={root} role="textbox" aria-label={props.label ?? '글 본문'} aria-multiline="true" contentEditable suppressContentEditableWarning spellCheck
+      style={{ minHeight: props.minHeight ?? 300, outline: 'none', color: colors.text, caretColor: colors.text, paddingBottom: props.minHeight ? 0 : 40 }}
       onFocus={props.onFocus} onBlur={props.onBlur} onInput={commit}
       onCompositionStart={() => { composing.current = true; props.onComposing(true); }}
       onCompositionEnd={() => { composing.current = false; commit(); props.onComposing(false); }}
