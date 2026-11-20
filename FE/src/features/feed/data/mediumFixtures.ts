@@ -1,5 +1,10 @@
-import { mediumLibraryArticles } from './mediumLibraryFixtures';
 import type { FeedArticle, FeedSort } from '../types';
+
+import { mediumHistoryStories } from './mediumHistoryStories';
+import { mediumTopicStories } from './mediumTopicStories';
+import { mediumAuthorStories } from './mediumAuthorStories';
+import { mediumLibraryArticles } from './mediumLibraryFixtures';
+import { mediumRelatedStories } from './mediumRelatedStories';
 import { recommendedStories, staffPicks } from './mediumExploreExtras';
 
 // 잘린 제목과 미수록 읽기 시간·집계는 원문 전체를 추정해서 채우지 않는다.
@@ -238,6 +243,10 @@ export const mediumArticles: FeedArticle[] = [
   ...staffPicks,
   ...recommendedStories,
   ...mediumLibraryArticles,
+  ...mediumRelatedStories,
+  ...mediumAuthorStories,
+  ...mediumTopicStories,
+  ...mediumHistoryStories,
 ];
 
 // 키 이름은 기존 조회 계약을 유지하지만 실제 추천·팔로우 알고리즘은 없는 로컬 묶음이다.

@@ -13,7 +13,7 @@ export function AccountScreen() {
       <Text style={styles.secondary}>모의 로그인 · 실제 Google 계정과 연결되지 않아요.</Text>
       <View style={{ gap: 24 }}>
         <Text style={styles.text}>로그인하지 않은 상태예요.</Text>
-        <Text style={styles.secondary}>기사는 자유롭게 읽고, 로그인하면 좋아요와 저장 목록을 사용할 수 있어요.</Text>
+        <Text style={styles.secondary}>기사는 자유롭게 읽고, 로그인하면 박수와 저장 목록을 사용할 수 있어요.</Text>
         <LoginRequestButton context={{ kind: 'profile' }} label="모의 로그인 시작" style={styles.button}>
           <Text style={styles.buttonText}>로그인</Text>
         </LoginRequestButton>

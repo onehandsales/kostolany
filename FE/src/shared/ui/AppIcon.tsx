@@ -4,6 +4,8 @@ import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import { useTheme } from '../theme/ThemeProvider';
 
 export type AppIconName =
+  | 'document'
+  | 'trash'
   | 'back'
   | 'close'
   | 'more'
@@ -22,7 +24,9 @@ export type AppIconName =
   | 'verified'
   | 'star'
   | 'check'
-  | 'clap';
+  | 'clap'
+  | 'shield'
+  | 'pin';
 type AppIconProps = { name: AppIconName; size?: number; color?: string; filled?: boolean };
 
 // 원본 PNG의 윤곽을 참고한 벡터 대체이며 Medium의 원본 아이콘 경로는 확보하지 못했다.
@@ -42,6 +46,10 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
       aria-hidden
       accessible={Platform.OS === 'web' ? undefined : false}
     >
+      {name === 'document' && <Path d="M5 2h14v20H5ZM8 6h8M8 10h8M8 14h8M8 18h5" />}
+      {name === 'trash' && <Path d="M3 5h18M9 2h6l1 3M5 5l1 17h12l1-17M9 9v9M12 9v9M15 9v9" />}
+      {name === 'pin' && <Path d="m14 2 8 8-3 1-5 5-2-2-8 8 7-9-2-2 5-5Z" />}
+      {name === 'shield' && <Path d="M12 2 4 5v6c0 5 4 8 8 11 4-3 8-6 8-11V5l-8-3Zm-3 9 2 2 4-5" fill="none" stroke={color} strokeWidth={1.2} />}
       {name === 'back' && <Path d="m14 5-7 7 7 7" />}
       {name === 'chevron' && <Path d="m9 5 7 7-7 7" />}
       {name === 'close' && <Path d="m5 5 14 14M19 5 5 19" />}

@@ -1,13 +1,19 @@
+import { useMemo, useRef } from 'react';
 import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
+import { useArticleModeration } from '../moderation/articleModeration';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { sizes, spacing, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
-import { ArticleLikeControl } from '../likes/ArticleLikeControl';
+import { ClapControl, UndoClaps } from '../reactions/ClapControl';
+import { ResponseButton } from '../responses/ResponseButton';
+import { PassageReader } from '../highlights/PassageReader';
+import { articleSelectionDocument } from './articleSelectionDocument';
+import { RecordArticleVisit } from '../reading-history/ReadingHistoryProvider';
 import { ArticleDisplayControl } from '../settings/ArticleDisplayControl';
 import { useReaderTypography } from '../settings/useReaderTypography';
 import { previewArticleSource } from './data/articlePreview';
@@ -25,6 +31,10 @@ type ArticleDetailScreenProps = {
   explanationSource?: ExplanationSource;
   backLabel?: string;
   preference?: ExplanationPreference;
+  onSelectArticle?: (articleId: string) => void;
+  isFocused?: boolean;
+  sessionRevision?: number;
+  highlightId?: string;
 };
 
 export function ArticleDetailScreen({
@@ -34,26 +44,49 @@ export function ArticleDetailScreen({
   explanationSource,
   preference,
   backLabel = '홈으로 돌아가기',
+  onSelectArticle,
+  isFocused = true,
+  sessionRevision = 0,
+  highlightId,
 }: ArticleDetailScreenProps) {
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
+  const moderation = useArticleModeration();
   const entryPreference = useEntryExplanationPreference(articleId, preference);
   const { state, retry } = useArticle(articleId, source);
+  const access = moderation.state?.readError
+    ? 'error'
+    : moderation.store && moderation.state?.status === 'loading'
+      ? 'loading'
+      : moderation.blocked(articleId)
+        ? 'blocked'
+        : undefined;
   if (state.status === 'ready' && state.article.reference)
     return (
       <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
+        <RecordArticleVisit articleId={articleId} active={isFocused && !access} revision={sessionRevision} />
         <ReferenceArticleView
           key={articleId}
           article={state.article}
+          active={isFocused && !access}
+          access={access}
+          onRetryAccess={() => {
+            void moderation.store?.reload();
+          }}
+          highlightId={highlightId}
           onBack={onBack}
           backLabel={backLabel}
           explanationSource={explanationSource}
           preference={entryPreference}
+          onSelectArticle={onSelectArticle}
         />
       </SafeAreaView>
     );
   return (
     <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>
+      {state.status === 'ready' && (
+        <RecordArticleVisit articleId={articleId} active={isFocused} revision={sessionRevision} />
+      )}
       <View style={styles.header}>
         <Pressable
           role="button"
@@ -78,6 +111,8 @@ export function ArticleDetailScreen({
       <ArticleReader
         key={articleId}
         state={state}
+        active={isFocused}
+        highlightId={highlightId}
         retry={retry}
         explanationSource={explanationSource}
         preference={entryPreference}
@@ -87,17 +122,32 @@ export function ArticleDetailScreen({
 }
 
 type ArticleReaderProps = {
+  active?: boolean;
+  highlightId?: string;
   state: ArticleLoadState;
   retry: () => void;
   explanationSource?: ExplanationSource;
   preference?: ExplanationPreference;
 };
 
-function ArticleReader({ state, retry, explanationSource, preference }: ArticleReaderProps) {
+function ArticleReader({
+  state,
+  retry,
+  explanationSource,
+  preference,
+  active,
+  highlightId,
+}: ArticleReaderProps) {
   const styles = useThemeStyles(createStyles);
+  const scroll = useRef<ScrollView>(null);
   return (
     <View style={styles.reader}>
-      <ScrollView accessibilityLabel="기사 본문" style={styles.scroll} contentContainerStyle={styles.content}>
+      <ScrollView
+        ref={scroll}
+        accessibilityLabel="기사 본문"
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+      >
         {state.status === 'loading' && <ContentStatus message="기사 내용을 불러오고 있어요" loading />}
         {state.status === 'error' && (
           <ContentStatus
@@ -110,6 +160,9 @@ function ArticleReader({ state, retry, explanationSource, preference }: ArticleR
         {state.status === 'ready' && (
           <ArticleBody
             article={state.article}
+            active={active}
+            highlightId={highlightId}
+            onReveal={(y) => scroll.current?.scrollTo({ y, animated: false })}
             explanationSource={explanationSource}
             preference={preference}
           />
@@ -119,7 +172,13 @@ function ArticleReader({ state, retry, explanationSource, preference }: ArticleR
         <View style={styles.reactionBar}>
           <View style={styles.reactionContent}>
             <View style={styles.like}>
-              <ArticleLikeControl articleId={state.article.id} articleTitle={state.article.title} />
+              <ClapControl target={{ kind: 'article', id: state.article.id }} title={state.article.title} />
+              <ResponseButton
+                target={{ kind: 'article', id: state.article.id }}
+                title={state.article.title}
+                label="Responses"
+              />
+              <UndoClaps target={{ kind: 'article', id: state.article.id }} onDone={() => {}} />
             </View>
             <View style={styles.bookmark}>
               <ArticleBookmarkControl articleId={state.article.id} articleTitle={state.article.title} />
@@ -132,12 +191,25 @@ function ArticleReader({ state, retry, explanationSource, preference }: ArticleR
 }
 
 type ArticleBodyProps = {
+  active?: boolean;
+  highlightId?: string;
+  onReveal?: (y: number) => void;
   article: ArticleDetail;
   explanationSource?: ExplanationSource;
   preference?: ExplanationPreference;
 };
 
-function ArticleBody({ article, explanationSource, preference }: ArticleBodyProps) {
+function ArticleBody({
+  article,
+  explanationSource,
+  preference,
+  active,
+  highlightId,
+  onReveal,
+}: ArticleBodyProps) {
+  const document = useMemo(() => articleSelectionDocument(article), [article]);
+  const bodyTop = useRef(0);
+  const positions = useRef(new Map<number, number>());
   const reader = useReaderTypography();
   const styles = useThemeStyles(createStyles);
   return (
@@ -167,11 +239,31 @@ function ArticleBody({ article, explanationSource, preference }: ArticleBodyProp
           사실 요약
         </Text>
         <Text style={styles.note}>아래 내용은 읽기 화면을 위한 가상 상황입니다.</Text>
-        {article.facts.map((paragraph, index) => (
-          <Text selectable key={index} style={[styles.paragraph, reader.body]}>
-            {paragraph}
-          </Text>
-        ))}
+        <View
+          onLayout={(event) => {
+            bodyTop.current = event.nativeEvent.layout.y;
+          }}
+        >
+          <PassageReader
+            document={document}
+            active={active}
+            highlightId={highlightId}
+            onRevealBlock={(index) => onReveal?.(bodyTop.current + (positions.current.get(index) ?? 0))}
+          >
+            {(renderText) =>
+              article.facts.map((_paragraph, index) => (
+                <View
+                  key={index}
+                  onLayout={(event) => {
+                    positions.current.set(index, event.nativeEvent.layout.y);
+                  }}
+                >
+                  {renderText(index, [styles.paragraph, reader.body])}
+                </View>
+              ))
+            }
+          </PassageReader>
+        </View>
       </View>
       <ExplanationSection
         key={article.id}
@@ -183,56 +275,86 @@ function ArticleBody({ article, explanationSource, preference }: ArticleBodyProp
   );
 }
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.background },
-  headerSpace: { flex: 1 },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    minHeight: 48,
-    paddingHorizontal: 4,
-    borderBottomColor: colors.border,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  back: {
-    width: sizes.minimumTouchTarget,
-    minHeight: sizes.minimumTouchTarget,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pressed: { opacity: 0.6 },
-  scroll: { flex: 1 },
-  reader: { flex: 1 },
-  reactionBar: {
-    borderTopColor: colors.border,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    paddingHorizontal: spacing.page,
-    paddingVertical: 4,
-  },
-  reactionContent: {
-    width: '100%',
-    maxWidth: 680,
-    alignSelf: 'center',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    gap: 16,
-  },
-  like: { flex: 1 },
-  bookmark: { maxWidth: '48%' },
-  content: { flexGrow: 1, paddingHorizontal: spacing.page, paddingVertical: spacing.section },
-  article: { width: '100%', maxWidth: 680, alignSelf: 'center', gap: spacing.section },
-  intro: { gap: spacing.page },
-  exampleBadge: { ...typography.caption, color: colors.secondaryText },
-  title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 42, fontWeight: '700', color: colors.text },
-  subtitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 30, color: colors.secondaryText },
-  metadata: { ...typography.caption, color: colors.secondaryText },
-  source: { ...typography.body, color: colors.text },
-  figure: { gap: spacing.small },
-  image: { width: '100%', aspectRatio: 80 / 64 },
-  caption: { ...typography.caption, color: colors.secondaryText, textAlign: 'center' },
-  section: { gap: spacing.page },
-  sectionTitle: { ...typography.sectionTitle, color: colors.text },
-  note: { ...typography.caption, color: colors.secondaryText },
-  paragraph: { fontFamily: fonts.sans, fontSize: 18, lineHeight: 31, color: colors.text },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    screen: { flex: 1, backgroundColor: colors.background },
+    headerSpace: { flex: 1 },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      minHeight: 48,
+      paddingHorizontal: 4,
+      borderBottomColor: colors.border,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    back: {
+      width: sizes.minimumTouchTarget,
+      minHeight: sizes.minimumTouchTarget,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    pressed: { opacity: 0.6 },
+    scroll: { flex: 1 },
+    reader: { flex: 1 },
+    reactionBar: {
+      borderTopColor: colors.border,
+      borderTopWidth: StyleSheet.hairlineWidth,
+      paddingHorizontal: spacing.page,
+      paddingVertical: 4,
+    },
+    reactionContent: {
+      width: '100%',
+      maxWidth: 680,
+      alignSelf: 'center',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      gap: 16,
+    },
+    like: { flex: 1 },
+    bookmark: { maxWidth: '48%' },
+    content: {
+      flexGrow: 1,
+      paddingHorizontal: spacing.page,
+      paddingVertical: spacing.section,
+    },
+    article: {
+      width: '100%',
+      maxWidth: 680,
+      alignSelf: 'center',
+      gap: spacing.section,
+    },
+    intro: { gap: spacing.page },
+    exampleBadge: { ...typography.caption, color: colors.secondaryText },
+    title: {
+      fontFamily: fonts.sans,
+      fontSize: 32,
+      lineHeight: 42,
+      fontWeight: '700',
+      color: colors.text,
+    },
+    subtitle: {
+      fontFamily: fonts.sans,
+      fontSize: 20,
+      lineHeight: 30,
+      color: colors.secondaryText,
+    },
+    metadata: { ...typography.caption, color: colors.secondaryText },
+    source: { ...typography.body, color: colors.text },
+    figure: { gap: spacing.small },
+    image: { width: '100%', aspectRatio: 80 / 64 },
+    caption: {
+      ...typography.caption,
+      color: colors.secondaryText,
+      textAlign: 'center',
+    },
+    section: { gap: spacing.page },
+    sectionTitle: { ...typography.sectionTitle, color: colors.text },
+    note: { ...typography.caption, color: colors.secondaryText },
+    paragraph: {
+      fontFamily: fonts.sans,
+      fontSize: 18,
+      lineHeight: 31,
+      color: colors.text,
+    },
+  });

@@ -3,7 +3,8 @@ import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-na
 import { useThemeStyles } from '../../../shared/theme/ThemeProvider';
 import { spacing, typography, type ThemeColors } from '../../../shared/theme/tokens';
 import { ArticleBookmarkControl } from '../../bookmarks/ArticleBookmarkControl';
-import { ArticleLikeControl } from '../../likes/ArticleLikeControl';
+import { ClapControl } from '../../reactions/ClapControl';
+import { useHasViewed } from '../../reading-history/ReadingHistoryProvider';
 import type { FeedArticle } from '../types';
 import { FeedThumbnail } from './FeedThumbnail';
 import { ReferenceArticleCard } from './ReferenceArticleCard';
@@ -17,6 +18,7 @@ export function ArticleCard({ article, onSelect }: ArticleCardProps) {
   const styles = useThemeStyles(createStyles);
   const { width, fontScale } = useWindowDimensions();
   const stacked = width < 360 || fontScale > 1.3;
+  const viewed = useHasViewed(article.id);
 
   if (article.reference) return <ReferenceArticleCard article={article} onSelect={onSelect} />;
 
@@ -31,18 +33,19 @@ export function ArticleCard({ article, onSelect }: ArticleCardProps) {
         <Text style={styles.source}>{article.sourceName}</Text>
         <View style={[styles.body, stacked && styles.stacked]}>
           <View style={[styles.text, stacked && styles.stackedText]}>
-            <Text style={styles.title}>{article.title}</Text>
+            <Text style={[styles.title, viewed && styles.viewed]}>{article.title}</Text>
             <Text style={styles.summary}>{article.summary}</Text>
           </View>
           {article.thumbnail && <FeedThumbnail variant={article.thumbnail} />}
         </View>
         <Text style={styles.metadata}>
           {article.publishedLabel} · {article.readingMinutes}분 읽기
+          {viewed ? ' · Viewed' : ''}
         </Text>
       </Pressable>
       <View style={styles.actions}>
         <View style={styles.like}>
-          <ArticleLikeControl articleId={article.id} articleTitle={article.title} />
+          <ClapControl target={{ kind: 'article', id: article.id }} title={article.title} />
         </View>
         <View style={styles.bookmark}>
           <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} />
@@ -65,6 +68,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   // 웹의 flex: 0은 높이를 0으로 잡으므로 세로 배치에서는 내용의 높이를 그대로 사용한다.
   stackedText: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
   title: { ...typography.sectionTitle, color: colors.text },
+  viewed: { color: colors.secondaryText },
   summary: { ...typography.body, color: colors.secondaryText },
   metadata: { ...typography.caption, color: colors.secondaryText },
   pressed: { opacity: 0.6 },

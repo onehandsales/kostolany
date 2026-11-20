@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Modal, Platform, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../theme/ThemeProvider';
@@ -12,7 +12,7 @@ export function TopPopover({ title, onClose, children, width: preferredWidth = 3
   const styles = useThemeStyles(createStyles);
   const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
-  useEffect(() => () => { requestAnimationFrame(restoreModalFocus); }, []);
+  useEffect(() => () => { if (Platform.OS === 'web') requestAnimationFrame(restoreModalFocus); }, []);
   return <Modal transparent animationType="none" accessibilityLabel={title} onRequestClose={onClose}>
     <View style={styles.screen} accessibilityViewIsModal>
       <Pressable role="button" accessibilityLabel={`${title} 닫기`} style={StyleSheet.absoluteFill} onPress={onClose} />

@@ -7,11 +7,15 @@ import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ProviderIcon } from '../../shared/ui/ProviderIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
-import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
-import { useProfile } from '../profile/ProfileProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
+
+import { useCommunityNavigation } from '../community/CommunityNavigation';
+import { useModeration } from '../moderation/ModerationContext';
+import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
+import { useProfile } from '../profile/ProfileProvider';
 import { explanationLevelLabels } from '../article/explanationTypes';
+
 import { DefaultLevelSheet } from './DefaultLevelSheet';
 import { useReadingSettings } from './ReadingSettingsProvider';
 import { useDisplaySettings } from './DisplaySettingsProvider';
@@ -23,11 +27,13 @@ type SettingsScreenProps = { onBack: () => void; onLogout: () => void; isFocused
 export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenProps) {
   const display = useDisplaySettings();
   const visual = useThemeStyles(createVisual);
+  const moderation = useModeration();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { state, store } = useReadingSettings();
   const profile = useProfile();
   const [editing, setEditing] = useState<'level' | 'profile' | null>(null);
+  const community = useCommunityNavigation();
   const [notice, setNotice] = useState<string | null>(null);
   const isEditing = editing !== null;
   const wasEditing = useRef(false);
@@ -64,6 +70,7 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
         />
         <SettingsRow title="Story stats" onPress={() => setNotice('Story stats')} chevron />
         <SettingsRow title="Account" onPress={() => setNotice('Account')} />
+        <SettingsRow title="Blocked users" onPress={() => moderation.open({ kind: 'blocked' })} chevron />
         <SettingsRow title="Membership and payment" onPress={() => setNotice('Membership and payment')} />
         <Text role="heading" style={visual.section}>
           Configure Medium
@@ -92,7 +99,7 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
         )}
         <SettingsRow
           title="Refine recommendations"
-          onPress={() => setNotice('Refine recommendations')}
+          onPress={() => community.openRecommendations('Following')}
           chevron
         />
         <View style={visual.row}>
@@ -105,12 +112,30 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
                 role="button"
                 accessibilityLabel={`앱 테마: ${option}`}
                 aria-pressed={display.state.settings.appTheme === ['system', 'light', 'dark'][index]}
-                accessibilityState={{ selected: display.state.settings.appTheme === ['system', 'light', 'dark'][index] }}
-                onPress={() => display.store?.update({ appTheme: (['system', 'light', 'dark'] as const)[index] })}
+                accessibilityState={{
+                  selected: display.state.settings.appTheme === ['system', 'light', 'dark'][index],
+                }}
+                onPress={() =>
+                  display.store?.update({ appTheme: (['system', 'light', 'dark'] as const)[index] })
+                }
                 style={visual.segmentTarget}
               >
-                <View style={[visual.segment, display.state.settings.appTheme === ['system', 'light', 'dark'][index] && visual.selectedSegment]}>
-                  <Text style={[visual.segmentText, display.state.settings.appTheme === ['system', 'light', 'dark'][index] && visual.selectedText]}>{option}</Text>
+                <View
+                  style={[
+                    visual.segment,
+                    display.state.settings.appTheme === ['system', 'light', 'dark'][index] &&
+                      visual.selectedSegment,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      visual.segmentText,
+                      display.state.settings.appTheme === ['system', 'light', 'dark'][index] &&
+                        visual.selectedText,
+                    ]}
+                  >
+                    {option}
+                  </Text>
                 </View>
               </Pressable>
             ))}
@@ -264,82 +289,87 @@ function SettingsRow({
     </Pressable>
   );
 }
-const createVisual = (colors: ThemeColors) => StyleSheet.create({
-  header: {
-    minHeight: 48,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
-  },
-  title: {
-    flex: 1,
-    alignSelf: 'flex-start',
-    paddingTop: 8,
-    fontFamily: fonts.sans, fontSize: 16,
-    lineHeight: 22,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: colors.text,
-  },
-  headerSpace: { width: 48 },
-  back: { paddingBottom: 14 },
-  firstSection: { paddingTop: 17, paddingBottom: 11 },
-  section: {
-    paddingHorizontal: 16,
-    paddingTop: 25,
-    paddingBottom: 13,
-    backgroundColor: colors.section,
-    fontFamily: fonts.sans, fontSize: 16,
-    lineHeight: 22,
-    fontWeight: '600',
-    color: colors.text,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.divider,
-  },
-  row: {
-    minHeight: 51,
-    paddingHorizontal: 16,
-    paddingVertical: 0,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    alignContent: 'center',
-    gap: 16,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.divider,
-  },
-  grow: { flexGrow: 1, flexShrink: 1 },
-  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
-  green: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
-  segments: { flexDirection: 'row', position: 'relative', borderRadius: 8, flexWrap: 'wrap' },
-  segmentBackground: {
-    position: 'absolute',
-    top: 9,
-    bottom: 9,
-    left: 0,
-    right: 0,
-    backgroundColor: colors.segment,
-    borderRadius: 8,
-  },
-  segmentTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
-  segment: { minHeight: 30, paddingHorizontal: 8, justifyContent: 'center', borderRadius: 6 },
-  selectedSegment: { backgroundColor: colors.selectedSurface, borderWidth: 1, borderColor: colors.border },
-  segmentText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.text },
-  selectedText: { fontWeight: '600' },
-  socialHint: {
-    fontFamily: fonts.sans, fontSize: 14,
-    lineHeight: 20,
-    color: colors.secondaryText,
-    backgroundColor: colors.section,
-    paddingHorizontal: 16,
-    paddingTop: 8,
-  },
-  version: {
-    fontFamily: fonts.sans, fontSize: 14,
-    lineHeight: 20,
-    color: colors.secondaryText,
-    backgroundColor: colors.section,
-    padding: 16,
-  },
-});
+const createVisual = (colors: ThemeColors) =>
+  StyleSheet.create({
+    header: {
+      minHeight: 48,
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: colors.border,
+    },
+    title: {
+      flex: 1,
+      alignSelf: 'flex-start',
+      paddingTop: 8,
+      fontFamily: fonts.sans,
+      fontSize: 16,
+      lineHeight: 22,
+      fontWeight: '700',
+      textAlign: 'center',
+      color: colors.text,
+    },
+    headerSpace: { width: 48 },
+    back: { paddingBottom: 14 },
+    firstSection: { paddingTop: 17, paddingBottom: 11 },
+    section: {
+      paddingHorizontal: 16,
+      paddingTop: 25,
+      paddingBottom: 13,
+      backgroundColor: colors.section,
+      fontFamily: fonts.sans,
+      fontSize: 16,
+      lineHeight: 22,
+      fontWeight: '600',
+      color: colors.text,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: colors.divider,
+    },
+    row: {
+      minHeight: 51,
+      paddingHorizontal: 16,
+      paddingVertical: 0,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      alignContent: 'center',
+      gap: 16,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: colors.divider,
+    },
+    grow: { flexGrow: 1, flexShrink: 1 },
+    text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
+    green: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
+    segments: { flexDirection: 'row', position: 'relative', borderRadius: 8, flexWrap: 'wrap' },
+    segmentBackground: {
+      position: 'absolute',
+      top: 9,
+      bottom: 9,
+      left: 0,
+      right: 0,
+      backgroundColor: colors.segment,
+      borderRadius: 8,
+    },
+    segmentTarget: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
+    segment: { minHeight: 30, paddingHorizontal: 8, justifyContent: 'center', borderRadius: 6 },
+    selectedSegment: { backgroundColor: colors.selectedSurface, borderWidth: 1, borderColor: colors.border },
+    segmentText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.text },
+    selectedText: { fontWeight: '600' },
+    socialHint: {
+      fontFamily: fonts.sans,
+      fontSize: 14,
+      lineHeight: 20,
+      color: colors.secondaryText,
+      backgroundColor: colors.section,
+      paddingHorizontal: 16,
+      paddingTop: 8,
+    },
+    version: {
+      fontFamily: fonts.sans,
+      fontSize: 14,
+      lineHeight: 20,
+      color: colors.secondaryText,
+      backgroundColor: colors.section,
+      padding: 16,
+    },
+  });

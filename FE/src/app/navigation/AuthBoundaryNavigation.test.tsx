@@ -10,7 +10,7 @@ import { mockUserA, mockUserB } from '../../features/auth/data/mockUsers';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
 import { createMockDisplaySettingsSource } from '../../features/settings/data/createMockDisplaySettingsSource';
 import { SessionNavigation } from './AppNavigator';
 
@@ -31,7 +31,7 @@ async function renderSession() {
   }
   let auth: AuthStore | undefined;
   await render(<SafeAreaProvider><AuthProvider source={createMockAuthSource({ delayMs: 0 })} initialUser={mockUserA}>
-    <SessionNavigation bookmarkSource={bookmarks} likeSource={createMockLikeSource({ delayMs: 0 })}
+    <SessionNavigation bookmarkSource={bookmarks} clapSource={createMockClapSource({ delayMs: 0 })}
       displaySource={createMockDisplaySettingsSource({ delayMs: 0 })}
       feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })} />
     <AuthProbe onStore={(store) => { auth = store; }} />
@@ -111,7 +111,7 @@ it.each(['success', 'failure'] as const)('로그인 Modal의 native 닫기 후 �
   await render(<SafeAreaProvider><AuthProvider source={{ ...source, signIn }}>
     <SessionNavigation feedSource={createMockFeedSource({ delayMs: 0 })} displaySource={createMockDisplaySettingsSource({ delayMs: 0 })} />
   </AuthProvider></SafeAreaProvider>);
-  await user.press(await screen.findByRole('button', { name: `좋아요, ${title}, 로그인 필요` }));
+  await user.press(await screen.findByRole('button', { name: `박수, ${title}, 로그인 필요` }));
   await user.press(screen.getByRole('button', { name: 'Google로 로그인 (모의)' }));
   expect(screen.getByRole('button', { name: 'Google로 로그인 (모의)' })).toBeBusy();
   await fireEvent(screen.getByLabelText('모의 로그인'), 'requestClose');
@@ -119,7 +119,7 @@ it.each(['success', 'failure'] as const)('로그인 Modal의 native 닫기 후 �
     if (outcome === 'success') response.resolve({ status: 'success', user: mockUserA });
     else response.reject(new Error('late'));
   });
-  expect(screen.getByRole('button', { name: `좋아요, ${title}, 로그인 필요` })).toBeVisible();
+  expect(screen.getByRole('button', { name: `박수, ${title}, 로그인 필요` })).toBeVisible();
   expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
   expect(signIn).toHaveBeenCalledTimes(1);
 });

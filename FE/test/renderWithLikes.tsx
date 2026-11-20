@@ -7,6 +7,9 @@ import type { BookmarkSource } from '../src/features/bookmarks/types';
 import { article } from '../src/features/feed/tests/helpers';
 import { LikeProvider } from '../src/features/likes/LikeProvider';
 import type { LikeSource } from '../src/features/likes/types';
+import { AuthProvider } from '../src/features/auth/AuthProvider';
+import { ClapProvider } from '../src/features/reactions/ClapProvider';
+import type { ClapSource } from '../src/features/reactions/types';
 
 // 기존 화면 검증의 임의 기사 ID에도 반응 조회가 별도 오류를 만들지 않도록 공급부를 주입한다.
 const source: LikeSource = {
@@ -15,10 +18,15 @@ const source: LikeSource = {
 };
 
 export function LikeTestProvider({ children }: { children: ReactNode }) {
-  return <LikeProvider source={source}><BookmarkProvider source={bookmarkSource} articles={testArticles}>
+  return <AuthProvider><ClapProvider userId="example-reader" source={clapSource}>
+    <LikeProvider source={source}><BookmarkProvider source={bookmarkSource} articles={testArticles}>
     {children}
-  </BookmarkProvider></LikeProvider>;
+  </BookmarkProvider></LikeProvider></ClapProvider></AuthProvider>;
 }
+const clapSource: ClapSource = {
+  read: async input => ({ ...input, mine: 0, total: 0 }),
+  save: async input => ({ ...input, total: input.mine }),
+};
 
 // 피드와 검색의 응답 순서 검증에 쓰는 기사도 별도 북마크 오류 없이 표현한다.
 const testArticles = [...bookmarkArticles, ...['first', 'second', 'recovered', 'popular', 'obsolete',

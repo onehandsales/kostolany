@@ -14,6 +14,20 @@ export const referenceArticleContent: Readonly<Record<string, ReferenceArticleCo
       { kind: 'missing' },
       {
         kind: 'text',
+        text: 'A ChatGPT session is an echo chamber to end all other echo chambers — it’s just you, an overly friendly AI, and all your thoughts, dreams, desires, and secrets endlessly affirmed, validated, and supported.',
+      },
+      {
+        kind: 'text',
+        text: 'Why is this dangerous? Well, like any feedback loop, it becomes vicious. One day you’re casually brainstorming some ideas with ChatGPT, and the next you’re sucked into a delusion of grandeur.',
+      },
+      {
+        kind: 'image', source: require('../../../../assets/medium/brain-chat-excerpt.png'),
+        description: 'Captured ChatGPT conversation excerpt beginning with “Dude.”',
+        caption: 'A real screenshot from a recent GPT session...', aspectRatio: 1035 / 393,
+      },
+      { kind: 'missing' },
+      {
+        kind: 'text',
         text: 'Maybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.',
       },
       {

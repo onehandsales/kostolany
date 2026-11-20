@@ -8,8 +8,9 @@ import { useExplanationPreference } from '../../features/settings/ReadingSetting
 
 export type ArticleRouteParams = {
   articleId: string;
-  origin: 'Home' | 'Explore' | 'Library' | 'Profile';
+  origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Author' | 'Topic' | 'History';
   listId?: string;
+  highlightId?: string;
   ownerUserId?: string;
   sessionRevision?: number;
 };
@@ -19,9 +20,18 @@ type ArticleRouteScreenProps = {
   source?: ArticleSource;
   explanationSource?: ExplanationSource;
   onBack: () => void;
+  onSelectArticle?: (articleId: string) => void;
+  isFocused?: boolean;
 };
 
-export function ArticleRouteScreen({ params, source, explanationSource, onBack }: ArticleRouteScreenProps) {
+export function ArticleRouteScreen({
+  params,
+  source,
+  explanationSource,
+  onBack,
+  onSelectArticle,
+  isFocused = true,
+}: ArticleRouteScreenProps) {
   const { state } = useAuth();
   const preference = useExplanationPreference();
   const hasList = useHasLibraryList(params.listId);
@@ -37,9 +47,15 @@ export function ArticleRouteScreen({ params, source, explanationSource, onBack }
         : params.origin === 'Profile'
           ? '프로필로 돌아가기'
           : '라이브러리로 돌아가기'
-      : params.origin === 'Explore'
-        ? '탐색으로 돌아가기'
-        : '홈으로 돌아가기';
+      : params.origin === 'History'
+        ? '읽기 이력으로 돌아가기'
+        : params.origin === 'Topic'
+          ? '토픽으로 돌아가기'
+          : params.origin === 'Author'
+            ? '작가 프로필로 돌아가기'
+            : params.origin === 'Explore'
+              ? '탐색으로 돌아가기'
+              : '홈으로 돌아가기';
   return (
     <ArticleDetailScreen
       articleId={params.articleId}
@@ -48,6 +64,14 @@ export function ArticleRouteScreen({ params, source, explanationSource, onBack }
       backLabel={backLabel}
       explanationSource={explanationSource}
       preference={preference}
+      onSelectArticle={onSelectArticle}
+      isFocused={isFocused}
+      sessionRevision={state.revision}
+      highlightId={
+        params.ownerUserId === state.user?.id && params.sessionRevision === state.revision
+          ? params.highlightId
+          : undefined
+      }
     />
   );
 }

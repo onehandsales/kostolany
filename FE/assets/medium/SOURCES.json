@@ -448,5 +448,366 @@
       1039,
       1365
     ]
+  },
+  {
+    "asset": "FE/assets/medium/brain-chat-excerpt.png",
+    "source": "medium/flows/Home/Story detail/Changing display/screens/09_sc_d1d05d6500f349d89c5a3e5646ff238b.png",
+    "cropPhysicalPixels": [
+      72,
+      1776,
+      1107,
+      2169
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/radu-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png",
+    "cropPhysicalPixels": [
+      132,
+      1404,
+      228,
+      1500
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/frbarrosl-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png",
+    "cropPhysicalPixels": [
+      192,
+      2052,
+      288,
+      2148
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/elena-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png",
+    "cropPhysicalPixels": [
+      132,
+      1101,
+      228,
+      1197
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/gabriela-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png",
+    "cropPhysicalPixels": [
+      72,
+      1857,
+      168,
+      1953
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/gwyneth-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/Sorting responses/screens/03_sc_280ed6ce41b24f6f876aac698f4a8119.png",
+    "cropPhysicalPixels": [
+      72,
+      1275,
+      168,
+      1371
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/melanie-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/Sorting responses/screens/03_sc_280ed6ce41b24f6f876aac698f4a8119.png",
+    "cropPhysicalPixels": [
+      72,
+      1947,
+      168,
+      2043
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/bernie-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png",
+    "cropPhysicalPixels": [
+      72,
+      654,
+      168,
+      750
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/alfred-response.png",
+    "source": "medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png",
+    "cropPhysicalPixels": [
+      72,
+      456,
+      168,
+      552
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/important-prompt.png",
+    "source": "medium/ui-elements/medium-sc_3de359a1c13340968c4b733188faa6d1.png",
+    "cropPhysicalPixels": [
+      867,
+      1824,
+      1107,
+      1992
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/aaa-ai-first.png",
+    "source": "medium/flows/Home/Story detail/Author detail/screens/03_sc_334d50df678445baaa7ba445c96861ba.png",
+    "cropPhysicalPixels": [
+      72,
+      1404,
+      513,
+      1722
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/aaa-ai-second.png",
+    "source": "medium/flows/Home/Story detail/Author detail/screens/03_sc_334d50df678445baaa7ba445c96861ba.png",
+    "cropPhysicalPixels": [
+      525,
+      1404,
+      900,
+      1722
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/medium-blog.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      564,
+      168,
+      660
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/keith.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      846,
+      168,
+      942
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/roy.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      1188,
+      168,
+      1284
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/douglas.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      1530,
+      168,
+      1626
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/aaron.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      1872,
+      168,
+      1968
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/sheila.png",
+    "source": "medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png",
+    "cropPhysicalPixels": [
+      72,
+      2214,
+      168,
+      2310
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/jordan-profile.png",
+    "source": "medium/ui-elements/medium-sc_3de359a1c13340968c4b733188faa6d1.png",
+    "cropPhysicalPixels": [
+      72,
+      288,
+      240,
+      456
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/topic-life.png",
+    "source": "medium/flows/Explore/Topic detail/screens/02_sc_4602e853aca341a697239bc9f55b6da3.png",
+    "cropPhysicalPixels": [
+      72,
+      1452,
+      1107,
+      1938
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/topic-self-improvement.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/02_sc_7de88da749774d0483716f2e861fb080.png",
+    "cropPhysicalPixels": [
+      72,
+      1452,
+      1107,
+      1938
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/morning-routine.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png",
+    "cropPhysicalPixels": [
+      72,
+      717,
+      792,
+      1077
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/darius.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png",
+    "cropPhysicalPixels": [
+      72,
+      1128,
+      132,
+      1188
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/morning-productivity.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png",
+    "cropPhysicalPixels": [
+      888,
+      717,
+      1179,
+      1077
+    ],
+    "note": "Only the right-edge preview photograph fragment is captured; no text or floating controls included."
+  },
+  {
+    "asset": "FE/assets/medium/medium-staff.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/04_sc_15a122b14ac84b3d80c37fb84dfae4c7.png",
+    "cropPhysicalPixels": [
+      72,
+      351,
+      216,
+      459
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/southern-winds.png",
+    "source": "medium/flows/Explore/Topic detail/screens/02_sc_4602e853aca341a697239bc9f55b6da3.png",
+    "cropPhysicalPixels": [
+      72,
+      1995,
+      132,
+      2055
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/daniel-gallagher.png",
+    "source": "medium/flows/Explore/Topic detail/Browse curated list/screens/02_sc_7de88da749774d0483716f2e861fb080.png",
+    "cropPhysicalPixels": [
+      72,
+      1995,
+      132,
+      2055
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/kim-witten.png",
+    "source": "medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png",
+    "cropPhysicalPixels": [
+      72,
+      1329,
+      168,
+      1425
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/zulie-medium.png",
+    "source": "medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png",
+    "cropPhysicalPixels": [
+      72,
+      1671,
+      168,
+      1767
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/perry-wilson.png",
+    "source": "medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png",
+    "cropPhysicalPixels": [
+      72,
+      1953,
+      168,
+      2049
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/history-unsexy.png",
+    "source": "medium/ui-elements/medium-sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "cropPhysicalPixels": [
+      867,
+      1521,
+      1107,
+      1683
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/write-catalyst.png",
+    "source": "medium/ui-elements/medium-sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "cropPhysicalPixels": [
+      72,
+      1410,
+      132,
+      1470
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/history-titans.png",
+    "source": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "cropPhysicalPixels": [
+      867,
+      936,
+      1107,
+      1098
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/history-personality.png",
+    "source": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "cropPhysicalPixels": [
+      867,
+      1602,
+      1107,
+      1764
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/stem-parenting.png",
+    "source": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "cropPhysicalPixels": [
+      72,
+      828,
+      132,
+      888
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/think-draft.png",
+    "source": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "cropPhysicalPixels": [
+      72,
+      1491,
+      132,
+      1551
+    ]
   }
 ]

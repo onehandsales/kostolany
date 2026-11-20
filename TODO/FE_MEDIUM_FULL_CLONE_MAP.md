@@ -1,8 +1,12 @@
 # Medium 후속 전체 범위·원본 대응표
 
+**후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+
+**최신 사용자 범위 변경(2026-11-20 KST): Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료한다. Goal32 이후는 시작하지 않는다. 아래 Goal35까지 연속 진행 문구는 변경 전 지시 이력이다. 커밋·push·배포 금지는 유지한다.**
+
 작성일: 2026-11-19 KST · [Goal 22~53 실행 계획](FE_MEDIUM_FULL_CLONE_GOALS.md).
 
-**63개 흐름 / 273단계 / 고유200장 / UI중복43장 / 작업묶음72개.** Goal24 구현·두 차례 자체 검토/수정과 현재 자동/브라우저/JS-Hermes 검증을 마쳤으며 시각/native 잔여가 있다. [Goal24 표시 설정·비교·잔여](FE_GOAL_24_RESULT.md). 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료한다. Goal25~53은 미착수·별도 요청 대기다. 담당 번호만으로 기능 완료를 뜻하지 않는다.
+**63개 흐름 / 273단계 / 고유200장 / UI중복43장 / 작업묶음72개.** 최신 실행 범위는 Goal25→31이며 커밋/push/배포 없이 Goal31에서 종료한다. Goal24는 구현 완료·시각/native 검증 잔여다. [Goal25](FE_GOAL_25_RESULT.md)는 본문·누적 박수·읽음 구현/두 자체 검토·타입/lint·106 suites/728 tests·브라우저/양 플랫폼 JS-Hermes를 확인했고 시각/native 잔여다. [Goal26](FE_GOAL_26_RESULT.md)은 댓글/답글·정렬·편집/삭제·반응·공유 수치 구현/두 자체 검토,112 suites/758 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal27](FE_GOAL_27_RESULT.md)은 선택/Highlight/인용 응답 구현·두 자체 검토,118 suites/778 tests·타입/lint·8081·양 플랫폼 JS/Hermes 확인, 시각/native 잔여다. [Goal28](FE_GOAL_28_RESULT.md)은 작성자/팔로우/이메일 구현·두 자체 검토,126 suites/798 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal29](FE_GOAL_29_RESULT.md)은 Mute·Block·신고·응답 관리 구현·두 자체 검토,132 suites/824 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal30](FE_GOAL_30_RESULT.md)은 토픽·큐레이션·추천 구현/두 자체 검토,전체138 suites/836 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. [Goal31](FE_GOAL_31_RESULT.md)은 추천·관심사·이력 구현/두 자체 검토,현재 144 suites/856 tests·타입/lint·8081·JS/Hermes 확인,시각/native 잔여다. Goal32~53은 미착수이며 자동으로 시작하지 않는다. 대응표 존재와 담당 번호는 구현·시각 검증 완료율이 아니다.
 
 ## 원본과 사용 방법
 
@@ -15,14 +19,14 @@
 
 ## 현재 구현과 후속 범위
 
-| 영역 | 현재 코드 기준 출발점 | 후속 Goal |
+| 영역 | Goal31 종료 시점 구현·잔여 | 관련 Goal |
 | --- | --- | --- |
-| 홈·탐색·Stories 검색 | 카드/탭/검색의 기본 화면·mock 동작이 있다. 관계 기반 Following·추천 제어·토픽/작성자 목적지와 다른 검색 결과를 완성해야 한다. | 23,30,31,50 |
-| 기사·반응 | 본문/읽기 도구·boolean like·저장 진입이 있다. 누적 박수·Viewed·원본 더보기와 연결 기능이 남아 있다. | 24~29,45~47 |
-| Responses | 일부 응답 표현/숫자는 정적이며 작성·답글·반응·확장 등이 안내로 연결된다. | 26,27,29 |
-| 작성자·관계 | 작성자 화면/Follow·웹사이트 등에 안내 진입이 남아 있다. 실제 관계와 세 탭 내용을 연결한다. | 28~32,47 |
+| 홈·탐색·Stories 검색 | 관계 기반 Following·추천 제어·토픽/작성자/publication 진입을 연결했다. 다른 검색 결과 종류와 전체 검색 확장은 후속 범위다. | 23,30,31 구현·시각/native 잔여; 50 미착수 |
+| 기사·반응 | Goal25에서 누적 박수·내 기여/Undo·Viewed·이력을 전환하고 본문/관련 기사/더보기 진입을 보정했다. 전체 검사/시각 잔여는 결과 문서 기준이다. | 24~29,45~47 |
+| Responses | 작성·답글·편집/삭제·정렬·반응·인용·소유자 응답 관리를 실제 mock 상태와 연결했다. 기사 댓글 수는 해당 상태에서 계산한다. | 26,27,29 구현·시각/native 잔여 |
+| 작성자·관계 | Stories/Lists/About·팔로워/팔로잉·작가/publication Follow·이메일 구독 상태·Mute/Block/신고를 연결했다. 공개 목록 전체 동작·공유 실행은 후속 범위다. | 28~31 구현·시각/native 잔여; 32,47 미착수 |
 | 저장·내 목록 | 다중 저장·생성/편집/삭제·기사 제거/Undo가 있다. 공개 전환 확인·메모·정렬·전체 목록 저장·반응·다운로드를 보완한다. | 32~35 |
-| Library·Digest | 기본 목록 중심이다. Saved lists/Highlights/Reading history/Digest와 설정을 완성한다. | 27,31~35,44 |
+| Library·Digest | 내 Highlight·원문 복귀와 공유 Reading history·삭제를 연결했다. Saved lists·Digest·다운로드·관련 설정은 후속 범위다. | 27,31 구현·시각/native 잔여; 32~35,44 미착수 |
 | Write | 작성 진입이 안내 상태다. 편집·미디어·멘션·초안·발행 전체가 후속 범위다. | 36~39 |
 | 인증 | 가입/로그인 제공자 버튼은 이미 있다. Google mock 계정 중심이며 나머지 제공자/이메일 단계·온보딩·intro 복귀를 연결한다. | 40,41 |
 | 프로필 | 이름/short bio·기본 수준 등의 편집이 있다. 사진·대명사·Public 필터·통계/관계에 안내가 남아 있다. | 28,39,42,43 |
@@ -40,29 +44,29 @@
 | C02 | 공통 | Light/Dark/System·OS 추종·시트/입력/카드 테마 | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | [Goal24](FE_GOAL_24_RESULT.md): 구현·현재 자동/8081/JS-Hermes 검증 완료, 시각/native 잔여. 기사 System 상속은 명시적 mock 정책이며 원본 영향은 미확인. |
 | C03 | 공통 | 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | Goal23에서 web320px/긴 한글/CSS160%·48px hit test·폼/선택 접근성 보정. 실제 OS 글자 확대·IME·Safe Area·스크린리더는 미검증이다. |
 | C04 | 홈 | For you/Following/Featured·+·알림·Write·하단 탭 | [50](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-50) | F05; 기존 탭 외형을 관계/작성/알림 데이터와 연결한다. |
-| C05 | 홈 | For you 카드 −·더보기·Show less·관심사 편집 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F05,F12; Featured의 bookmark와 혼동하지 않는다. |
-| C06 | 탐색 | 토픽 가로 이동·Trending·Staff Picks·Recommended for you·Who to follow | [30](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-30) | F01; See all/See more 및 publication 추천 진입을 포함한다. |
+| C05 | 홈 | For you 카드 −·더보기·Show less·관심사 편집 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F05,F12; Show less/Undo·홈+관심사 구현/자동 검사·브라우저 확인. 관심사 화면은 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). Featured bookmark와 분리. |
+| C06 | 탐색 | 토픽 가로 이동·Trending·Staff Picks·Recommended for you·Who to follow | [30](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-30) | F01; 기능 구현·자동 검사/브라우저 확인. See all/See more·publication 진입 연결. 캐러셀 원본 대조 수행,서체/벡터/native 잔여([결과30](FE_GOAL_30_RESULT.md)). |
 | C07 | 검색 | 검색어·clear·취소·Stories/People/Publications/Topics/Lists·결과 이동 | [50](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-50) | F02; 다섯 탭은 관찰됐으며 Stories 외 네 유형의 결과 내용/정렬은 미수록 보완 대상이다. |
-| C08 | 토픽 | Follow/Following·토픽 공유·큐레이션 미리보기·publication 관계 | [30](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-30) | F03,F04; 토픽별 서로 다른 캡처를 동일 토픽 전환으로 오인하지 않는다. |
-| C09 | 기사 | 원문/읽기 도구·유료 배지·관련 글·작성자·토픽·반응 영역 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | F16; 기존 4단계 설명과 원본 UI 차이를 별도 기록한다. |
-| C10 | 기사 | 누적 claps·내 기여·피드백 수·다른 카드 수 동기화·Undo claps·박수 사용자 목록 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | F38; +16은 터치 횟수 증거가 아니다. Goal22의 현재 공식 설명은 기사/목록 최대50이며 댓글로 일반화하지 않는다. 취소/사용자 목록 펼친 UI는 추가 확인한다. |
-| C11 | 기사 | Viewed·읽은 제목 색·읽기 이력 발생 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | F62; sc_45fd4ac6da2148968fab1446df649f7f의 회색 제목/Viewed를 포함한다. |
+| C08 | 토픽 | Follow/Following·토픽 공유·큐레이션 미리보기·publication 관계 | [30](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-30) | F03,F04; 토픽 Follow·큐레이션 구현/자동 검사·원본 대조,시각/native 잔여([결과30](FE_GOAL_30_RESULT.md)). 전체 공개 목록32·공유47. 서로 다른 토픽 캡처를 동일 전환으로 오인하지 않는다. |
+| C09 | 기사 | 원문/읽기 도구·유료 배지·관련 글·작성자·토픽·반응 영역 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | [Goal25](FE_GOAL_25_RESULT.md): 발췌/이미지·관련 기사 연결과4단계 설명 보존. font/vector/미수록 본문 차이 유지. |
+| C10 | 기사 | 누적 claps·내 기여·피드백 수·다른 카드 수 동기화·Undo claps·박수 사용자 목록 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | [Goal25](FE_GOAL_25_RESULT.md): 개인 목표 수 직렬 저장·최대50/Undo·실패 재시도/격리 구현. +16은 원본 터치 횟수 증거가 아니다. 참여자 원본 UI/타인 데이터 미확보, 댓글 정책은26 별도. |
+| C11 | 기사 | Viewed·읽은 제목 색·읽기 이력 발생 | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25) | [Goal25](FE_GOAL_25_RESULT.md): 활성 기사 조회 성공을 읽음 조건으로 정한 mock 정책, 홈/검색/목록 Viewed 공유. 삭제/Viewed 갱신은[Goal31](FE_GOAL_31_RESULT.md)에서 구현·검증했다. 실제 체류/완독 측정 아님. |
 | C12 | 기사 메뉴 | Show less / Display / Follow / Mute / Report story | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F24; 처리 담당은 31/24/28/29/29이며 29가 미연결 잔여를 확인한다. |
 | C13 | 읽기 설정 | Font size 100%/120%·Font·Theme·Show highlights | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | [Goal24](FE_GOAL_24_RESULT.md):100/120·font·기사 Theme·타인 강조 표시 연결과 현재 자동/8081 검증 완료, 시각/native 잔여. 폰트 목록/범위/전역 영향의 미수록 정책을 명시했고 내 highlight 삭제 명령은 없다. |
-| C14 | 응답 | Responses 열기·수/목록·Most relevant/Most recent·policy | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F30,F34,F36; 정적 수를 동작 결과와 연결한다. |
-| C15 | 응답 | 작성·수정·삭제 확인·Cancel/Save/Publish·실패 입력 유지 | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F31,F32,F33; 기사/댓글/사용자 식별과 확정 시점을 구분한다. |
-| C16 | 응답 | 부모 댓글·답글 작성·Hide replies·See more replies | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F35; 답글 펼침과 댓글 본문 Read more를 구분한다. |
-| C17 | 응답 | 댓글/답글 claps·Read more·작성자 메뉴 | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F30~F36; 자기 댓글 비활성처럼 보이는 상태의 정책은 미확인이다. |
-| C18 | 응답 관리 | 이야기 작성자의 응답 숨김·토론 종료·권한/확인 | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | SOURCES의 공식 설명 근거. 펼친 UI는 미수록 보완 대상이다. |
-| C19 | 선택 | 문구 선택 핸들·Highlight/Respond/Share/더보기 | [27](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-27) | F25,F29; 실제 선택·메뉴 위치와 47의 공유 연결을 포함한다. |
-| C20 | 선택 | highlight 저장/해제·타인 표시·Library Highlights·인용 응답 | [27](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-27) | F25,F29,F41; 표시 설정과 저장 삭제를 구분한다. |
-| C21 | 작성자 | Stories/Lists/About·고정 이야기·Member/Friend 정보·웹사이트 | [28](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-28) | F17; 배지 시작 월은 계정 생성일 증거가 아니다. |
-| C22 | 작성자 | Follow/Following/Unfollow·팔로워/Following list·이메일 수신 | [28](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-28) | F19,F20,F21; 작가/publication·관계/이메일 상태를 구분한다. |
-| C23 | 작성자 메뉴 | Share author / Mute / Block / Report / Cancel | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F18,F22,F23; Share 실제 처리는 47, 나머지 상태는 29다. |
-| C24 | 신고 | 작가/기사 대상·이유·추가 설명·Also block·정책/권리 링크·Report this item·Blocked users | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F23,F45,F46,F50 및 SOURCES; block과 신고를 분리한다. 공식 Account/Blocked users 진입은49와 연결하고 펼친 UI/원본 충돌은 재확인한다. |
-| C25 | 추천 | Following/Reading history/Muted/Suggestions·See all/See more | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F12~F15; 필터별 실제 데이터와 변경의 연결을 포함한다. |
-| C26 | 추천 | All/Writers/Publications/Topics·follow·mute 해제 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F13; 계정/대상별 최신 의도와 필터 복귀를 검증한다. |
-| C27 | 이력 | 개별 기록 제거·Clear history·확인/취소·Library 이력 진입 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F14,F15,F41; 이력 삭제가 저장/박수/highlight를 삭제하지 않는다. |
+| C14 | 응답 | Responses 열기·수/목록·Most relevant/Most recent·policy | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F30,F34,F36; 정적 수를 동작 결과와 연결한다. [Goal26 구현·자동/web 확인, 시각/native 잔여](FE_GOAL_26_RESULT.md). |
+| C15 | 응답 | 작성·수정·삭제 확인·Cancel/Save/Publish·실패 입력 유지 | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F31,F32,F33; 기사/댓글/사용자 식별과 확정 시점을 구분한다. [Goal26 구현·자동/web 확인, 시각/native 잔여](FE_GOAL_26_RESULT.md). |
+| C16 | 응답 | 부모 댓글·답글 작성·Hide replies·See more replies | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F35; 답글 펼침과 댓글 본문 Read more를 구분한다. [Goal26 구현·자동/web 확인, 시각/native 잔여](FE_GOAL_26_RESULT.md). |
+| C17 | 응답 | 댓글/답글 claps·Read more·작성자 메뉴 | [26](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-26) | F30~F36; 자기 댓글 비활성처럼 보이는 상태의 정책은 미확인이다. [Goal26 구현·자동/web 확인, 시각/native 잔여](FE_GOAL_26_RESULT.md). |
+| C18 | 응답 관리 | 이야기 작성자의 응답 숨김·토론 종료·권한/확인 | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | Goal29 소유자 hide/show·close/open/hide-all 구현/검사. 공식 근거·미수록 UI 보완·시각/native 잔여는 [결과](FE_GOAL_29_RESULT.md). |
+| C19 | 선택 | 문구 선택 핸들·Highlight/Respond/Share/더보기 | [27](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-27) | [구현·검증 잔여 결과](FE_GOAL_27_RESULT.md). F25,F29; 실제 선택·메뉴 위치와 47의 공유 연결을 포함한다. |
+| C20 | 선택 | highlight 저장/해제·타인 표시·Library Highlights·인용 응답 | [27](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-27) | [구현·검증 잔여 결과](FE_GOAL_27_RESULT.md). F25,F29,F41; 표시 설정과 저장 삭제를 구분한다. |
+| C21 | 작성자 | Stories/Lists/About·고정 이야기·Member/Friend 정보·웹사이트 | [28](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-28) | [구현/검증·잔여](FE_GOAL_28_RESULT.md), F17; 배지 시작 월은 계정 생성일 증거가 아니다. |
+| C22 | 작성자 | Follow/Following/Unfollow·팔로워/Following list·이메일 수신 | [28](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-28) | [구현/검증·잔여](FE_GOAL_28_RESULT.md), F19,F20,F21; 작가/publication·관계/이메일 상태를 구분한다. |
+| C23 | 작성자 메뉴 | Share author / Mute / Block / Report / Cancel | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F18,F22,F23; Goal29 실제 mute/block/report·취소/해제 구현·검사, 시각/native 잔여. Share 실행은47. |
+| C24 | 신고 | 작가/기사 대상·이유·추가 설명·Also block·정책/권리 링크·Report this item·Blocked users | [29](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-29) | F23,F45,F46,F50; Goal29 대상 신고·원자적 Also block·실패/재시도·Blocked users 구현/검사. 실제 전송 없음, 시각/native 잔여. 전체Account는49, 목록소유권은32/33. |
+| C25 | 추천 | Following/Reading history/Muted/Suggestions·See all/See more | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F12~F15; 네 탭·공유 관계/이력·확장 구현,현재 자동/브라우저 검증. 원본 대조 수행·시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
+| C26 | 추천 | All/Writers/Publications/Topics·follow·mute 해제 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F13; 대상 필터·Follow·Unmute 구현. 늦은 토픽 응답·필터 전환·실패 재시도·계정 경계 검증. Muted 본문은 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
+| C27 | 이력 | 개별 기록 제거·Clear history·확인/취소·Library 이력 진입 | [31](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-31) | F14,F15,F41; 개별/전체 삭제·취소·실패/재시도·Library/Viewed 동기화 구현/검증. 저장/박수/Highlight 보존 확인. Library 본문/Viewed 삭제 관계는 자체 보완,시각/native 잔여([결과31](FE_GOAL_31_RESULT.md)). |
 | C28 | 저장 | Save to·여러 목록·선택 초안·Done·새 목록 생성 | [33](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-33) | F37,F42; 기존 구현을 재사용하되 원본 동작/시각을 재검증한다. |
 | C29 | 공개 목록 | 전체 목록 Save/해제·저장 수·Saved lists·소유자/방문자 | [32](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-32) | F04; 개별 기사 bookmark와 다른 관계다. Saved lists 펼친 내용은 미수록이다. |
 | C30 | 공개 목록 | 목록 claps·목록 responses·소유자 Follow·Share·Undo claps·박수 사용자 목록 | [32](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-32) | F04; 기사/댓글의 반응과 분리하고 Share는 47에 연결한다. |

@@ -7,7 +7,7 @@ import { createMockUserListSource, type UserListScenario } from '../../features/
 import type { UserListSource } from '../../features/bookmarks/listTypes';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
 import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
@@ -27,7 +27,7 @@ afterEach(async () => {
 async function renderApp(lists = createMockUserListSource({ delayMs: 0 })) {
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}
-    searchSource={createMockSearchSource({ delayMs: 0 })} likeSource={createMockLikeSource({ delayMs: 0 })} />
+    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0 })} />
   </SafeAreaProvider>);
   await waitFor(() => expect(getBookmark()).toBeEnabled());
 }
@@ -49,7 +49,7 @@ it('생성부터 기사 추가·상세 복귀·이름 수정·제거·삭제까�
   const user = userEvent.setup(); await renderApp();
   await user.press(screen.getByRole('tab', { name: '라이브러리' })); await createList(user, '경제 공부');
   await user.press(screen.getByRole('tab', { name: '홈' })); await user.press(getBookmark());
-  await user.press(screen.getByRole('togglebutton', { name: new RegExp(`^좋아요, ${title}`) }));
+  await user.press(screen.getByRole('button', { name: new RegExp(`^박수 보내기, ${title}`) }));
   await selectList(user, '경제 공부');
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' })).toBeVisible();
@@ -75,8 +75,8 @@ it('생성부터 기사 추가·상세 복귀·이름 수정·제거·삭제까�
   expect(screen.queryByRole('button', { name: /금리 공부 열기/ })).not.toBeOnTheScreen();
   await user.press(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' }));
   expect(getBookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
-  expect(screen.getByRole('togglebutton', { name: new RegExp(`^좋아요, ${title}`) })).toHaveProp('accessibilityState',
-    expect.objectContaining({ checked: true }));
+  expect(screen.getByRole('button', { name: new RegExp(`^박수 보내기, ${title}`) })).toHaveProp('accessibilityValue',
+    expect.objectContaining({ now: 1 }));
 });
 
 it('생성·이름 편집·저장 대상 선택 취소는 데이터를 바꾸지 않으며 기본 목록은 관리 메뉴가 없다', async () => {

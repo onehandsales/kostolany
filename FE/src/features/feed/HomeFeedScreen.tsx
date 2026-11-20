@@ -7,6 +7,11 @@ import { spacing, typography, type ThemeColors } from '../../shared/theme/tokens
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
+
+import { useCommunityNavigation } from '../community/CommunityNavigation';
+import { useRecommendedArticles } from '../recommendations/useRecommendedArticles';
+import { FollowingFeed } from '../community/FollowingFeed';
+
 import { ArticleCard } from './components/ArticleCard';
 import { FeedSortTabs } from './components/FeedSortTabs';
 import { FeedStatus } from './components/FeedStatus';
@@ -14,7 +19,10 @@ import { previewFeedSource } from './data/feedPreview';
 import { type FeedSort, type FeedSource, feedSortLabels } from './types';
 import { useFeed } from './useFeed';
 
-type HomeFeedScreenProps = { source?: FeedSource; onSelectArticle: (articleId: string) => void };
+type HomeFeedScreenProps = {
+  source?: FeedSource;
+  onSelectArticle: (articleId: string) => void;
+};
 
 export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: HomeFeedScreenProps) {
   const styles = useThemeStyles(createStyles);
@@ -47,13 +55,17 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
         }}
       />
       {/* 정렬 변경은 목록과 스크롤 수명을 새로 시작하며 이전 응답을 적용하지 않는다. */}
-      <FeedResults
-        key={sort}
-        sort={sort}
-        source={source}
-        onSelectArticle={onSelectArticle}
-        onScrollChange={setCollapsed}
-      />
+      {sort === 'popular' && source === previewFeedSource ? (
+        <FollowingFeed onSelectArticle={onSelectArticle} onScrollChange={setCollapsed} />
+      ) : (
+        <FeedResults
+          key={sort}
+          sort={sort}
+          source={source}
+          onSelectArticle={onSelectArticle}
+          onScrollChange={setCollapsed}
+        />
+      )}
       <WriteButton />
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </SafeAreaView>
@@ -72,8 +84,9 @@ function FeedResults({
   onScrollChange: (collapsed: boolean) => void;
 }) {
   const styles = useThemeStyles(createStyles);
+  const navigation = useCommunityNavigation();
   const feed = useFeed(sort, source);
-  const [notice, setNotice] = useState<string | null>(null);
+  const moderation = useRecommendedArticles();
 
   const empty =
     feed.status === 'loading' ? (
@@ -86,7 +99,7 @@ function FeedResults({
         <Text style={styles.emptyText}>Featured stories from publications you follow will appear here.</Text>
         <Pressable
           role="button"
-          onPress={() => setNotice('Recommended publications')}
+          onPress={() => navigation.openDiscovery('publication')}
           style={styles.publications}
         >
           <Text style={styles.emptyText}>View recommended publications</Text>
@@ -100,7 +113,7 @@ function FeedResults({
     <>
       <FlatList
         accessibilityLabel={`${feedSortLabels[sort]} 기사 목록`}
-        data={feed.articles}
+        data={feed.articles.filter((article) => !moderation.excluded(article.id))}
         onScroll={(event) => onScrollChange(event.nativeEvent.contentOffset.y > 80)}
         scrollEventThrottle={32}
         onEndReached={feed.loadMore}
@@ -112,7 +125,6 @@ function FeedResults({
         ListFooterComponent={<FeedFooter feed={feed} />}
         contentContainerStyle={styles.list}
       />
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </>
   );
 }
@@ -143,29 +155,47 @@ function ArticleSeparator() {
   return <View style={styles.separator} />;
 }
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.background },
-  header: {
-    paddingHorizontal: spacing.page,
-    paddingVertical: spacing.medium,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  title: { ...typography.pageTitle, color: colors.text },
-  notification: { marginRight: -10 },
-  list: { flexGrow: 1, paddingBottom: spacing.small },
-  separator: { height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
-  emptyFeatured: { margin: 24, padding: 24, backgroundColor: colors.surface, alignItems: 'center', gap: 8 },
-  emptyTitle: { ...typography.caption, fontWeight: '600', color: colors.text },
-  emptyText: { ...typography.caption, textAlign: 'center', color: colors.text },
-  publications: {
-    minHeight: 48,
-    paddingHorizontal: 16,
-    borderWidth: 1,
-    borderColor: colors.text,
-    borderRadius: 24,
-    justifyContent: 'center',
-    marginTop: 8,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    screen: { flex: 1, backgroundColor: colors.background },
+    header: {
+      paddingHorizontal: spacing.page,
+      paddingVertical: spacing.medium,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    title: { ...typography.pageTitle, color: colors.text },
+    notification: { marginRight: -10 },
+    list: { flexGrow: 1, paddingBottom: spacing.small },
+    separator: {
+      height: StyleSheet.hairlineWidth,
+      backgroundColor: colors.divider,
+    },
+    emptyFeatured: {
+      margin: 24,
+      padding: 24,
+      backgroundColor: colors.surface,
+      alignItems: 'center',
+      gap: 8,
+    },
+    emptyTitle: {
+      ...typography.caption,
+      fontWeight: '600',
+      color: colors.text,
+    },
+    emptyText: {
+      ...typography.caption,
+      textAlign: 'center',
+      color: colors.text,
+    },
+    publications: {
+      minHeight: 48,
+      paddingHorizontal: 16,
+      borderWidth: 1,
+      borderColor: colors.text,
+      borderRadius: 24,
+      justifyContent: 'center',
+      marginTop: 8,
+    },
+  });

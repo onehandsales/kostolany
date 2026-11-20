@@ -13,7 +13,7 @@ import type { AuthUser } from '../../features/auth/types';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
 import { createMockProfileSource } from '../../features/profile/data/createMockProfileSource';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
 import { createMockReadingSettingsSource } from '../../features/settings/data/createMockReadingSettingsSource';
@@ -35,7 +35,7 @@ async function setup(source = createMockReadingSettingsSource({ delayMs: 0 }), i
     <SessionNavigation settingsSource={source} profileSource={createMockProfileSource({ delayMs: 0 })}
       feedSource={createMockFeedSource({ delayMs: 0 })} searchSource={createMockSearchSource({ delayMs: 0 })}
       articleSource={createMockArticleSource({ delayMs: 0 })} explanationSource={createMockExplanationSource({ delayMs: 0 })}
-      likeSource={createMockLikeSource({ delayMs: 0 })} bookmarkSource={createMockBookmarkSource({ delayMs: 0 })} />
+      clapSource={createMockClapSource({ delayMs: 0 })} bookmarkSource={createMockBookmarkSource({ delayMs: 0 })} />
     <Probe onStore={(store) => { auth = store; }} />
   </AuthProvider></SafeAreaProvider>);
   await screen.findByRole('button', { name: new RegExp(`^${title}`) });

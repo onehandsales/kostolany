@@ -1,0 +1,391 @@
+import { useEffect, useState, type ReactNode } from 'react';
+import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useDirectory } from './DirectoryProvider';
+import { useModeration } from '../moderation/ModerationContext';
+import { useCommunityNavigation } from './CommunityNavigation';
+import { FollowControl } from './FollowControl';
+import { SafeWebsiteLink } from './SafeWebsiteLink';
+import { publicListPreviews } from './data/publicDirectory';
+import { followKey, type FollowTarget } from './types';
+import { mediumArticles } from '../feed/data/mediumFixtures';
+import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
+import { IconButton } from '../../shared/ui/IconButton';
+import { AppIcon } from '../../shared/ui/AppIcon';
+import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { fonts, type ThemeColors } from '../../shared/theme/tokens';
+
+type Props = {
+  target: FollowTarget;
+  onBack: () => void;
+  onSelectArticle: (id: string) => void;
+  footer?: ReactNode;
+  active?: boolean;
+};
+export function PublicIdentityScreen(props: Props) {
+  return <IdentityContent key={followKey(props.target)} {...props} />;
+}
+function IdentityContent({ target, onBack, onSelectArticle, footer, active = true }: Props) {
+  const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
+  const directory = useDirectory();
+  const navigation = useCommunityNavigation();
+  const moderation = useModeration();
+  const { scope } = moderation;
+  const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
+  const [uiScope, setUiScope] = useState(scope);
+  const [section, setSection] = useState<'Stories' | 'Lists' | 'About'>('Stories');
+  const [message, setMessage] = useState<string | null>(null);
+  if (uiScope !== scope) {
+    setUiScope(scope);
+    setMessage(null);
+  }
+  if (!active && message) setMessage(null);
+  useEffect(() => {
+    if (!message) return;
+    const timer = setTimeout(() => setMessage(null), 2400);
+    return () => clearTimeout(timer);
+  }, [message]);
+  const identity = directory.state.data?.identities.find((item) => followKey(item) === followKey(target));
+  const storyIds = identity
+    ? [...identity.pinned, ...identity.stories.filter((id) => !identity.pinned.includes(id))]
+    : [];
+  const stories = storyIds.flatMap((id) => {
+    const article = mediumArticles.find((item) => item.id === id);
+    return article ? [article] : [];
+  });
+  const header = identity && (
+    <>
+      <View style={styles.identity}>
+        {identity.avatar ? (
+          <Image
+            source={identity.avatar}
+            style={[styles.avatar, target.kind === 'publication' && styles.square]}
+            accessible={false}
+          />
+        ) : (
+          <View style={styles.avatar} />
+        )}
+        <View style={styles.grow}>
+          <View style={styles.nameRow}>
+            <Text role="heading" style={styles.name}>
+              {identity.name}
+            </Text>
+            {identity.verified && <AppIcon name="verified" size={14} />}
+          </View>
+          <View style={styles.counts}>
+            <Pressable
+              role="button"
+              accessibilityLabel={`${identity.name} followers`}
+              style={styles.count}
+              onPress={() => navigation.openConnections(target, 'followers')}
+            >
+              <Text style={styles.caption}>
+                {identity.followers ?? '—'}
+                {identity.followers?.includes('followers') ? '' : ' followers'}
+              </Text>
+            </Pressable>
+            <Text style={styles.caption}>·</Text>
+            <Pressable
+              role="button"
+              accessibilityLabel={`${identity.name} following`}
+              style={styles.count}
+              onPress={() => navigation.openConnections(target, 'following')}
+            >
+              <Text style={styles.caption}>{identity.followingCount ?? '—'} following</Text>
+            </Pressable>
+          </View>
+          {identity.friend && (
+            <View style={styles.badge}>
+              <AppIcon name="friend" size={18} color={colors.gold} />
+              <Text style={styles.caption}>Friend of Medium</Text>
+            </View>
+          )}
+        </View>
+      </View>
+      <View style={styles.follow}>
+        <FollowControl target={target} name={identity.name} wide onMessage={setMessage} />
+      </View>
+      <View style={styles.tabs}>
+        {(['Stories', 'Lists', 'About'] as const).map((tab) => (
+          <Pressable
+            key={tab}
+            role="tab"
+            aria-selected={section === tab}
+            accessibilityState={{ selected: section === tab }}
+            onPress={() => setSection(tab)}
+            style={styles.tab}
+          >
+            <View style={[styles.tabLabel, section === tab && styles.activeTab]}>
+              <Text style={styles.caption}>{tab}</Text>
+            </View>
+          </Pressable>
+        ))}
+      </View>
+      {section === 'About' && (
+        <View style={styles.about}>
+          {(
+            identity.about ??
+            (identity.bio
+              ? [identity.bio]
+              : ['Additional About information is not included in the reference.'])
+          ).map((paragraph, index) => (
+            <Text key={index} style={styles.aboutText}>
+              {paragraph}
+            </Text>
+          ))}
+          {identity.memberSince && (
+            <Text style={styles.member}>
+              Medium member since {identity.memberSince}
+              {identity.friendSince ? `  ·  Friend of Medium since ${identity.friendSince}` : ''}
+            </Text>
+          )}
+          {identity.website && <SafeWebsiteLink url={identity.website} />}
+        </View>
+      )}
+      {section === 'Lists' && !blocked && (
+        <View style={styles.lists}>
+          {identity.lists.length ? (
+            identity.lists.map((id) => {
+              const list = publicListPreviews.find((item) => item.id === id);
+              if (!list) return null;
+              return (
+                <Pressable
+                  key={id}
+                  role="button"
+                  accessibilityLabel={`Open list ${list.title}`}
+                  onPress={() => navigation.openPublicList(id)}
+                  style={styles.list}
+                >
+                  <View style={styles.listCopy}>
+                    <View style={styles.badge}>
+                      {identity.avatar && (
+                        <Image source={identity.avatar} style={styles.smallAvatar} accessible={false} />
+                      )}
+                      <Text style={styles.secondary}>{identity.name}</Text>
+                    </View>
+                    <Text style={styles.listTitle}>{list.title}</Text>
+                    <Text style={styles.secondary}>{list.count} stories</Text>
+                  </View>
+                  <View style={styles.covers}>
+                    {list.covers.map((source, index) => (
+                      <Image key={index} source={source} style={styles.cover} accessible={false} />
+                    ))}
+                  </View>
+                </Pressable>
+              );
+            })
+          ) : (
+            <Text style={styles.secondary}>No captured public lists</Text>
+          )}
+        </View>
+      )}
+    </>
+  );
+  return (
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
+      <View style={styles.toolbar}>
+        <IconButton icon="back" label="Back from profile" onPress={onBack} />
+        <View style={styles.grow} />
+        {identity && (
+          <IconButton
+            icon="more"
+            label={`${identity.name} options`}
+            onPress={() => moderation.open({ kind: 'author', target, name: identity.name })}
+          />
+        )}
+      </View>
+      {directory.state.status === 'loading' ? (
+        <View style={styles.status}>
+          <ActivityIndicator />
+          <Text style={styles.secondary}>Loading profile…</Text>
+        </View>
+      ) : directory.state.status === 'error' ? (
+        <Pressable
+          role="button"
+          accessibilityLabel="Retry public profile"
+          onPress={directory.retry}
+          style={styles.status}
+        >
+          <Text role="alert" style={styles.secondary}>
+            Couldn’t load the profile. Retry
+          </Text>
+        </Pressable>
+      ) : !identity ? (
+        <Text style={styles.status}>Profile unavailable</Text>
+      ) : (
+        <FlatList
+          accessibilityLabel={`${identity.name} ${section}`}
+          key={section}
+          data={section === 'Stories' && !blocked ? stories : []}
+          keyExtractor={(item) => item.id}
+          ListHeaderComponent={header}
+          renderItem={({ item }) => (
+            <View>
+              {identity.pinned.includes(item.id) && (
+                <View style={styles.pinned}>
+                  <AppIcon name="pin" size={16} color={colors.secondaryText} />
+                  <Text style={styles.secondary}>Pinned</Text>
+                </View>
+              )}
+              <ReferenceArticleCard article={item} onSelect={onSelectArticle} variant="profile" />
+            </View>
+          )}
+          ListFooterComponent={
+            blocked && section !== 'About' ? (
+              <Text style={styles.status}>
+                You blocked this author. Unblock them from the options menu to view their stories and lists.
+              </Text>
+            ) : section === 'Stories' && !stories.length ? (
+              <Text style={styles.status}>No captured stories</Text>
+            ) : null
+          }
+        />
+      )}
+      {footer}
+      {message && (
+        <View style={styles.toast} pointerEvents="none">
+          <Text aria-live="polite" style={styles.toastText}>
+            {message}
+          </Text>
+        </View>
+      )}
+    </SafeAreaView>
+  );
+}
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    screen: { flex: 1, backgroundColor: colors.background },
+    toolbar: {
+      height: 40,
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 8,
+    },
+    grow: { flex: 1 },
+    identity: {
+      flexDirection: 'row',
+      gap: 16,
+      marginHorizontal: 24,
+      marginTop: -4,
+    },
+    avatar: {
+      height: 56,
+      width: 56,
+      borderRadius: 28,
+      backgroundColor: colors.input,
+      marginTop: 4,
+    },
+    square: { borderRadius: 3 },
+    nameRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+    name: {
+      fontFamily: fonts.sans,
+      fontSize: 24,
+      lineHeight: 30,
+      fontWeight: '600',
+      color: colors.text,
+      flexShrink: 1,
+    },
+    counts: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      columnGap: 6,
+      marginVertical: -8,
+    },
+    count: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
+    badge: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+    caption: {
+      fontFamily: fonts.sans,
+      fontSize: 14,
+      lineHeight: 20,
+      color: colors.text,
+    },
+    follow: { marginHorizontal: 24, marginTop: 16 },
+    tabs: {
+      flexDirection: 'row',
+      gap: 24,
+      paddingHorizontal: 24,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.border,
+      marginTop: 12,
+    },
+    tab: {
+      minHeight: 48,
+      minWidth: 48,
+      marginHorizontal: -8,
+      paddingHorizontal: 8,
+    },
+    tabLabel: { minHeight: 48, justifyContent: 'center' },
+    activeTab: { borderBottomWidth: 1, borderColor: colors.text },
+    pinned: {
+      marginHorizontal: 24,
+      marginTop: 30,
+      marginBottom: -20,
+      flexDirection: 'row',
+      gap: 8,
+      alignItems: 'center',
+    },
+    about: {
+      paddingHorizontal: 24,
+      paddingTop: 24,
+      gap: 20,
+      paddingBottom: 24,
+    },
+    aboutText: {
+      fontFamily: fonts.serif,
+      fontSize: 18,
+      lineHeight: 26,
+      color: colors.text,
+    },
+    member: {
+      fontFamily: fonts.sans,
+      fontSize: 13,
+      lineHeight: 20,
+      color: colors.secondaryText,
+      marginTop: 32,
+    },
+    lists: { padding: 24, paddingTop: 32, gap: 24 },
+    list: {
+      borderWidth: 1,
+      borderColor: colors.border,
+      backgroundColor: colors.surface,
+      borderRadius: 3,
+      overflow: 'hidden',
+    },
+    listCopy: { padding: 24, gap: 12 },
+    smallAvatar: { width: 20, height: 20, borderRadius: 10 },
+    listTitle: {
+      fontFamily: fonts.sans,
+      fontSize: 16,
+      lineHeight: 22,
+      fontWeight: '700',
+      color: colors.text,
+    },
+    secondary: {
+      fontFamily: fonts.sans,
+      fontSize: 14,
+      lineHeight: 20,
+      color: colors.secondaryText,
+    },
+    covers: { flexDirection: 'row', gap: 4 },
+    cover: { width: '43%', height: 106 },
+    status: { padding: 24, minHeight: 80, justifyContent: 'center', gap: 12 },
+    menuRow: { padding: 16, minHeight: 48, justifyContent: 'center' },
+    toast: {
+      position: 'absolute',
+      top: 48,
+      left: 35,
+      right: 35,
+      backgroundColor: colors.text,
+      padding: 24,
+      borderRadius: 3,
+    },
+    toastText: {
+      fontFamily: fonts.sans,
+      fontSize: 14,
+      lineHeight: 20,
+      color: colors.onInverse,
+    },
+  });

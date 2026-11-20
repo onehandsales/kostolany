@@ -5,13 +5,26 @@ import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+
+import { useCommunityNavigation } from '../community/CommunityNavigation';
+import { useModeration } from '../moderation/ModerationContext';
+import { followKey } from '../community/types';
+import { useRecommendedArticles } from '../recommendations/useRecommendedArticles';
+import { FollowControl } from '../community/FollowControl';
+import { IdentityLink } from '../community/IdentityLink';
+import { suggestedTargets } from '../community/data/publicDirectory';
 import { recommendedStories, staffPicks, suggestedProfiles } from '../feed/data/mediumExploreExtras';
-import { formatReactionCount } from '../feed/data/mediumFixtures';
+import { ClapControl } from '../reactions/ClapControl';
+import { ResponseButton } from '../responses/ResponseButton';
+
 import { SearchByline } from './SearchCard';
 
 type ExploreSectionsProps = { onSelect: (id: string) => void };
 
 export function ExploreSections({ onSelect }: ExploreSectionsProps) {
+  const navigation = useCommunityNavigation();
+  const privacy = useModeration();
+  const moderation = useRecommendedArticles();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const [notice, setNotice] = useState<string | null>(null);
@@ -23,22 +36,24 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
         </Text>
         <Text style={styles.description}>Stories from across Medium, hand selected by our team</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.carousel}>
-          {staffPicks.map((article) => (
-            <Pressable
-              key={article.id}
-              role="button"
-              accessibilityLabel={article.title}
-              onPress={() => onSelect(article.id)}
-              style={styles.staff}
-            >
-              <Image source={article.reference?.image} style={styles.cover} accessible={false} />
-              <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
-              <Text style={styles.title}>{article.title}</Text>
-              <Text style={styles.meta}>
-                {article.readingMinutes} min read · {article.publishedLabel}
-              </Text>
-            </Pressable>
-          ))}
+          {staffPicks
+            .filter((article) => !moderation.excluded(article.id))
+            .map((article) => (
+              <Pressable
+                key={article.id}
+                role="button"
+                accessibilityLabel={article.title}
+                onPress={() => onSelect(article.id)}
+                style={styles.staff}
+              >
+                <Image source={article.reference?.image} style={styles.cover} accessible={false} />
+                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+                <Text style={styles.title}>{article.title}</Text>
+                <Text style={styles.meta}>
+                  {article.readingMinutes} min read · {article.publishedLabel}
+                </Text>
+              </Pressable>
+            ))}
           <Pressable
             role="button"
             accessibilityLabel="Partially captured Staff Pick"
@@ -60,85 +75,162 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
         <Text role="heading" style={styles.heading}>
           Recommended for you
         </Text>
-        {recommendedStories.map((article) => (
-          <Pressable
-            key={article.id}
-            role="button"
-            accessibilityLabel={article.title}
-            onPress={() => onSelect(article.id)}
-            style={styles.recommended}
-          >
-            <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
-            <Text style={styles.title}>{article.title}</Text>
-            <View style={styles.metadata}>
-              {article.reference?.memberOnly && <AppIcon name="star" color={colors.gold} size={16} />}
-              <Text style={styles.meta}>{article.publishedLabel}</Text>
-              {Boolean(article.reference?.applause) && (
-                <>
-                  <AppIcon name="clap" size={16} color={colors.secondaryText} />
-                  <Text style={styles.meta}>{formatReactionCount(article.reference?.applause ?? 0)}</Text>
-                  <AppIcon name="comment" size={14} color={colors.secondaryText} />
-                  <Text style={styles.meta}>{article.reference?.responses}</Text>
-                </>
-              )}
+        {recommendedStories
+          .filter((article) => !moderation.excluded(article.id))
+          .map((article) => (
+            <View key={article.id} style={styles.recommended}>
+              <Pressable
+                role="button"
+                accessibilityLabel={article.title}
+                onPress={() => onSelect(article.id)}
+                style={{ gap: 10, minHeight: 48 }}
+              >
+                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+                <Text style={styles.title}>{article.title}</Text>
+              </Pressable>
+              <View style={styles.metadata}>
+                {article.reference?.memberOnly && <AppIcon name="star" color={colors.gold} size={16} />}
+                <Text style={styles.meta}>{article.publishedLabel}</Text>
+                <ClapControl target={{ kind: 'article', id: article.id }} title={article.title} />
+                <ResponseButton
+                  target={{ kind: 'article', id: article.id }}
+                  title={article.title}
+                  size={14}
+                />
+              </View>
             </View>
-          </Pressable>
-        ))}
+          ))}
       </View>
       <View style={styles.section}>
         <Text role="heading" style={styles.heading}>
           Who to follow
         </Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.carousel}>
-          {suggestedProfiles.map((profile) => (
-            <View key={profile.name} style={styles.person}>
-              <Image source={profile.image} style={styles.avatar} accessible={false} />
-              <Text style={styles.title}>{profile.name}</Text>
-              <Text style={styles.meta}>{profile.followers}</Text>
-              <Text style={styles.bio}>{profile.bio}</Text>
-              <Pressable
-                role="button"
-                accessibilityLabel={`Follow ${profile.name}`}
-                onPress={() => setNotice(`Follow ${profile.name}`)}
-                style={styles.follow}
-              >
-                <Text style={styles.followLabel}>Follow</Text>
-              </Pressable>
-            </View>
-          ))}
+          {suggestedProfiles
+            .map((profile, index) => ({ profile, target: suggestedTargets[index] }))
+            .filter(
+              ({ target }) =>
+                target &&
+                !(target.kind === 'writer' && privacy.state?.value?.blocked.includes(target.id)) &&
+                !privacy.state?.value?.muted.some((item) => followKey(item) === followKey(target)),
+            )
+            .map(({ profile, target }) => (
+              <View key={profile.name} style={styles.person}>
+                <Image source={profile.image} style={styles.avatar} accessible={false} />
+                {target && <IdentityLink target={target} style={styles.title} />}
+                <Text style={[styles.meta, styles.personMeta]}>{profile.followers}</Text>
+                <Text numberOfLines={3} style={styles.bio}>
+                  {profile.bio}
+                </Text>
+                {target && (
+                  <View style={styles.personFollow}>
+                    <FollowControl target={target} name={profile.name} />
+                  </View>
+                )}
+              </View>
+            ))}
         </ScrollView>
       </View>
+      <Pressable
+        role="button"
+        accessibilityLabel="See all recommended people and publications"
+        onPress={() => navigation.openDiscovery('all')}
+        style={styles.seeAll}
+      >
+        <Text style={styles.meta}>See all</Text>
+      </Pressable>
+      <Pressable
+        role="button"
+        accessibilityLabel="View recommended publications"
+        onPress={() => navigation.openDiscovery('publication')}
+        style={styles.seeAll}
+      >
+        <Text style={styles.meta}>Recommended publications</Text>
+      </Pressable>
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </>
   );
 }
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  section: { paddingVertical: 40, borderTopWidth: 2, borderTopColor: colors.input },
-  staffSection: { paddingBottom: 56 },
-  staffHeading: { marginBottom: 8 },
-  heading: { ...typography.sectionTitle, color: colors.text, marginHorizontal: 24, marginBottom: 24 },
-  description: { ...typography.caption, color: colors.secondaryText, marginHorizontal: 24, marginBottom: 20 },
-  carousel: { paddingHorizontal: 24, gap: 24 },
-  staff: { width: 272, gap: 10 },
-  cover: { width: 272, height: 164 },
-  fragment: { width: 73, height: 164 },
-  title: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
-  meta: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText },
-  metadata: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
-  recommended: { marginHorizontal: 24, paddingBottom: 32, gap: 10, minHeight: 48 },
-  person: { width: 235, borderWidth: 1, borderColor: colors.border, borderRadius: 4, padding: 24, gap: 12 },
-  avatar: { width: 64, height: 64, borderRadius: 32 },
-  bio: { ...typography.body, color: colors.secondaryText, minHeight: 90 },
-  follow: {
-    minHeight: 48,
-    minWidth: 72,
-    alignSelf: 'flex-start',
-    paddingHorizontal: 16,
-    borderWidth: 1,
-    borderColor: colors.text,
-    borderRadius: 24,
-    justifyContent: 'center',
-  },
-  followLabel: { ...typography.body, color: colors.text },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    seeAll: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 24 },
+    section: {
+      paddingVertical: 40,
+      borderTopWidth: 2,
+      borderTopColor: colors.input,
+    },
+    staffSection: { paddingBottom: 56 },
+    staffHeading: { marginBottom: 8 },
+    heading: {
+      ...typography.sectionTitle,
+      color: colors.text,
+      marginHorizontal: 24,
+      marginBottom: 24,
+    },
+    description: {
+      ...typography.caption,
+      color: colors.secondaryText,
+      marginHorizontal: 24,
+      marginBottom: 20,
+    },
+    carousel: { paddingHorizontal: 24, gap: 24 },
+    staff: { width: 272, gap: 10 },
+    cover: { width: 272, height: 164 },
+    fragment: { width: 73, height: 164 },
+    title: {
+      fontFamily: fonts.sans,
+      fontSize: 16,
+      lineHeight: 21,
+      fontWeight: '700',
+      color: colors.text,
+    },
+    meta: {
+      fontFamily: fonts.sans,
+      fontSize: 13,
+      lineHeight: 20,
+      color: colors.secondaryText,
+    },
+    metadata: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: 8,
+    },
+    recommended: {
+      marginHorizontal: 24,
+      paddingBottom: 32,
+      gap: 10,
+      minHeight: 48,
+    },
+    person: {
+      width: 235,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 4,
+      padding: 24,
+      paddingBottom: 16,
+    },
+    avatar: { width: 64, height: 64, borderRadius: 32 },
+    personMeta: { marginTop: -4 },
+    personFollow: { alignSelf: 'flex-start', marginTop: 8 },
+    bio: {
+      fontFamily: fonts.sans,
+      fontSize: 13,
+      lineHeight: 20,
+      color: colors.secondaryText,
+      minHeight: 60,
+      marginTop: 8,
+    },
+    follow: {
+      minHeight: 48,
+      minWidth: 72,
+      alignSelf: 'flex-start',
+      paddingHorizontal: 16,
+      borderWidth: 1,
+      borderColor: colors.text,
+      borderRadius: 24,
+      justifyContent: 'center',
+    },
+    followLabel: { ...typography.body, color: colors.text },
+  });

@@ -1,10 +1,12 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { useThemeStyles, useTheme } from '../../../shared/theme/ThemeProvider';
 import { sizes, spacing, typography, fonts, type ThemeColors } from '../../../shared/theme/tokens';
 import { IconButton } from '../../../shared/ui/IconButton';
-import { ReferenceNotice } from '../../../shared/ui/ReferenceNotice';
+
+import { useCommunityNavigation } from '../../community/CommunityNavigation';
+import { topicByName } from '../../topics/data/topicCatalog';
 import { type FeedSort, feedSortLabels } from '../types';
 
 const sortOrder: FeedSort[] = ['latest', 'popular', 'recommended'];
@@ -14,13 +16,10 @@ type FeedSortTabsProps = {
   onSelect: (sort: FeedSort) => void;
 };
 
-export function FeedSortTabs({
-  selected,
-  onSelect,
-}: FeedSortTabsProps) {
+export function FeedSortTabs({ selected, onSelect }: FeedSortTabsProps) {
+  const navigation = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
-  const [notice, setNotice] = useState<string | null>(null);
   const scroll = useRef<ScrollView>(null);
   return (
     <>
@@ -39,7 +38,7 @@ export function FeedSortTabs({
           color={colors.secondaryText}
           size={20}
           style={styles.plus}
-          onPress={() => setNotice('Customize your interests')}
+          onPress={() => navigation.openRecommendations('Suggestions', true)}
         />
         {sortOrder.map((sort) => (
           <Pressable
@@ -67,46 +66,50 @@ export function FeedSortTabs({
             role="tab"
             aria-selected={false}
             accessibilityLabel={topic}
-            onPress={() => setNotice(topic)}
+            onPress={() => {
+              const found = topicByName(topic);
+              if (found) navigation.openTopic(found.id);
+            }}
             style={styles.tab}
           >
             <Text style={styles.label}>{topic}</Text>
           </Pressable>
         ))}
       </ScrollView>
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </>
   );
 }
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  container: {
-    flexGrow: 0,
-    flexShrink: 0,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
-  },
-  tabs: { paddingLeft: 8, paddingRight: spacing.page, gap: 32 },
-  plus: { marginRight: -14 },
-  tab: {
-    minHeight: sizes.minimumTouchTarget,
-    minWidth: sizes.minimumTouchTarget,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: spacing.small,
-    borderBottomWidth: 1,
-    borderBottomColor: 'transparent',
-  },
-  selected: { borderBottomColor: colors.text },
-  label: { ...typography.caption, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
-  selectedLabel: { color: colors.text },
-  labelRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  badge: {
-    fontFamily: fonts.sans, fontSize: 11,
-    lineHeight: 16,
-    paddingHorizontal: 4,
-    borderRadius: 4,
-    color: colors.onAccent,
-    backgroundColor: colors.green,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flexGrow: 0,
+      flexShrink: 0,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: colors.border,
+    },
+    tabs: { paddingLeft: 8, paddingRight: spacing.page, gap: 32 },
+    plus: { marginRight: -14 },
+    tab: {
+      minHeight: sizes.minimumTouchTarget,
+      minWidth: sizes.minimumTouchTarget,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: spacing.small,
+      borderBottomWidth: 1,
+      borderBottomColor: 'transparent',
+    },
+    selected: { borderBottomColor: colors.text },
+    label: { ...typography.caption, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+    selectedLabel: { color: colors.text },
+    labelRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+    badge: {
+      fontFamily: fonts.sans,
+      fontSize: 11,
+      lineHeight: 16,
+      paddingHorizontal: 4,
+      borderRadius: 4,
+      color: colors.onAccent,
+      backgroundColor: colors.green,
+    },
+  });

@@ -1,3 +1,5 @@
+import { useRelationships } from '../community/RelationshipProvider';
+import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -31,6 +33,9 @@ export function ProfileScreen({
   onOpenList,
 }: ProfileScreenProps) {
   const visual = useThemeStyles(createVisual);
+  const relationships = useRelationships();
+  const community = useCommunityNavigation();
+  const followingCount = relationships.state?.relationships.filter(item => item.following).length ?? 0;
   const styles = useThemeStyles(createStyles);
   const { state, store } = useProfile();
   const [section, setSection] = useState<'Stories' | 'Lists' | 'About'>('Stories');
@@ -99,10 +104,10 @@ export function ProfileScreen({
               <Pressable
                 role="button"
                 accessibilityLabel="Followers and following"
-                onPress={() => setNotice('Followers and following')}
+                onPress={() => community.openConnections(null, 'following')}
                 style={visual.followers}
               >
-                <Text style={visual.caption}>0 followers · 1 following</Text>
+                <Text style={visual.caption}>0 followers · {relationships.state?.status === 'ready' ? followingCount : '—'} following</Text>
               </Pressable>
             </View>
           </View>
@@ -188,7 +193,7 @@ export function ProfileScreen({
       <Text style={styles.secondary}>모의 계정: {accountLabel}</Text>
       {profile && <Text style={styles.secondary}>{profile.name} · 로그인됨</Text>}
       <Text style={styles.secondary}>
-        팔로우 수와 가입 월은 원본 화면의 예시이며 실제 회원 정보가 아닙니다.
+        팔로우는 이 모의 계정의 상태이며 Member 시작 월은 원본 화면 예시입니다.
       </Text>
       {state.isSaving && (
         <Text aria-live="polite" style={styles.secondary}>
@@ -201,7 +206,7 @@ export function ProfileScreen({
         </Text>
       )}
       <View style={styles.section}>
-        <Text style={styles.secondary}>좋아요와 저장 목록은 이 독자의 공간에 보관돼요.</Text>
+        <Text style={styles.secondary}>박수와 저장 목록은 이 독자의 공간에 보관돼요.</Text>
         <Pressable role="button" onPress={onLogout} style={styles.button}>
           <Text style={styles.buttonText}>로그아웃</Text>
         </Pressable>

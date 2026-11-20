@@ -9,8 +9,8 @@ import { BookmarkProvider } from '../../features/bookmarks/BookmarkProvider';
 import type { LibraryStore } from '../../features/bookmarks/createLibraryStore';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { useBookmarkStore } from '../../features/bookmarks/useBookmarks';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
-import { LikeProvider } from '../../features/likes/LikeProvider';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
+import { ClapProvider } from '../../features/reactions/ClapProvider';
 import { ArticleRouteScreen } from './ArticleRouteScreen';
 
 function LibraryProbe({ onStore }: { onStore: (store: LibraryStore) => void }) {
@@ -23,11 +23,11 @@ it.each(['Library', 'Profile'] as const)('%s 기사의 원래 목록 삭제 시 
     content: { name: '삭제될 목록', articleIds: ['example-latest-rates'] } });
   let library: LibraryStore | undefined; const onBack = jest.fn(); const user = userEvent.setup();
   await render(<SafeAreaProvider><AuthProvider initialUser={mockUserA}>
-    <LikeProvider source={createMockLikeSource({ delayMs: 0 })}><BookmarkProvider source={source}>
+    <ClapProvider userId="example-reader" source={createMockClapSource({ delayMs: 0 })}><BookmarkProvider source={source}>
       <LibraryProbe onStore={(store) => { library = store; }} />
       <ArticleRouteScreen params={{ articleId: 'example-latest-rates', origin, listId: 'deleted',
         ownerUserId: mockUserA.id, sessionRevision: 0 }} source={createMockArticleSource({ delayMs: 0 })} onBack={onBack} />
-    </BookmarkProvider></LikeProvider>
+    </BookmarkProvider></ClapProvider>
   </AuthProvider></SafeAreaProvider>);
   expect(await screen.findByRole('button', { name: '저장 목록으로 돌아가기' })).toBeVisible();
   await act(async () => { library?.userLists.deleteList('deleted'); });

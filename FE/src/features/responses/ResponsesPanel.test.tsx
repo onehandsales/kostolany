@@ -1,0 +1,134 @@
+import { act, render, screen, userEvent, waitFor, within } from '@testing-library/react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { AuthProvider } from '../auth/AuthProvider';
+import { mockUserA, mockUserB } from '../auth/data/mockUsers';
+import { deferred } from '../feed/tests/helpers';
+import { ProfileProvider } from '../profile/ProfileProvider';
+import { createMockProfileSource } from '../profile/data/createMockProfileSource';
+import { ResponseButton } from './ResponseButton';
+import { ResponseProvider } from './ResponseProvider';
+import { createMockResponseSource } from './data/createMockResponseSource';
+import type { ResponseCommand, ResponseSource, ResponseValue } from './types';
+
+const target = { kind: 'article' as const, id: 'medium-brain' };
+const profile = createMockProfileSource({ delayMs: 0 });
+function tree(source: ResponseSource, userId = mockUserA.id, revision = 0) {
+  return (
+    <SafeAreaProvider>
+      <ResponseProvider source={source} userId={userId} revision={revision}>
+        <AuthProvider
+          key={`${userId}:${revision}`}
+          initialUser={userId === mockUserA.id ? mockUserA : mockUserB}
+        >
+          <ProfileProvider userId={userId} sessionRevision={revision} source={profile}>
+            <ResponseButton target={target} title="기사" />
+          </ProfileProvider>
+        </AuthProvider>
+      </ResponseProvider>
+    </SafeAreaProvider>
+  );
+}
+const panel = () => within(screen.getByLabelText('Responses 패널'));
+
+it.each([false, true])(
+  '답글 전송 뒤 접기를 유지하고 초안 변경 여부 %s에서도 늦은 성공을 격리한다',
+  async (changeDraft) => {
+    const base = createMockResponseSource({ delayMs: 0 });
+    const late = deferred<ResponseValue>();
+    let command: ResponseCommand | undefined;
+    const source: ResponseSource = {
+      ...base,
+      execute: (input) => {
+        command = input;
+        return late.promise;
+      },
+    };
+    const user = userEvent.setup();
+    await render(tree(source));
+    await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+    await user.press(await panel().findByRole('button', { name: 'Reply to Bérnie' }));
+    await user.type(panel().getByLabelText('응답 내용'), '전송된 답글');
+    await user.press(panel().getByRole('button', { name: '응답 게시' }));
+    await user.press(panel().getByRole('button', { name: 'Hide replies, brain-bernie' }));
+    if (changeDraft) await user.type(panel().getByLabelText('응답 내용'), ' 새 초안');
+    expect(command).toBeDefined();
+    await act(async () => {
+      late.resolve(await base.execute(command!));
+    });
+    expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue(changeDraft ? '전송된 답글 새 초안' : '');
+    expect(panel().queryByRole('button', { name: 'Hide replies, brain-bernie' })).toBeNull();
+    expect(panel().getByRole('button', { name: 'Show replies, brain-bernie' })).toBeVisible();
+    if (changeDraft) await user.press(panel().getByRole('button', { name: '응답 작성 취소' }));
+    await user.press(panel().getByRole('button', { name: 'Show replies, brain-bernie' }));
+    expect(await panel().findByText('전송된 답글')).toBeVisible();
+  },
+);
+
+it.each(['success', 'failure'] as const)(
+  'A 작성 중 B와 같은 A 재로그인에서 늦은 %s와 이전 초안·메뉴를 격리한다',
+  async (outcome) => {
+    const base = createMockResponseSource({ delayMs: 0 });
+    const late = deferred<ResponseValue>();
+    let command: ResponseCommand | undefined;
+    const source: ResponseSource = {
+      ...base,
+      execute: (input) => {
+        command = input;
+        return late.promise;
+      },
+    };
+    const user = userEvent.setup();
+    const view = await render(tree(source));
+    await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+    await panel().findByRole('heading', { name: 'Responses (7)' });
+    await user.type(panel().getByLabelText('응답 내용'), 'A의 전송');
+    await user.press(panel().getByRole('button', { name: '응답 게시' }));
+    await view.rerender(tree(source, mockUserB.id, 1));
+    expect(screen.queryByLabelText('Responses 패널')).toBeNull();
+    await act(async () => {
+      if (outcome === 'success') late.resolve(await base.execute(command!));
+      else late.reject(new Error('old A failure'));
+    });
+    await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+    await panel().findByRole('heading', { name: 'Responses (7)' });
+    expect(panel().queryByText('A의 전송')).toBeNull();
+    await view.rerender(tree(source, mockUserA.id, 2));
+    await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+    await panel().findByRole('heading', {
+      name: `Responses (${outcome === 'success' ? 8 : 7})`,
+    });
+    expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue('');
+    await user.type(panel().getByLabelText('응답 내용'), '재로그인 전 초안');
+    await user.press(panel().getAllByRole('button', { name: /response options$/ })[0]!);
+    await view.rerender(tree(source, mockUserA.id, 3));
+    expect(screen.queryByLabelText('응답 메뉴')).toBeNull();
+    expect(screen.queryByLabelText('Responses 패널')).toBeNull();
+    await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+    expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue('');
+  },
+);
+
+it('최초 조회 실패에서 재시도하고 source 교체 시 이전 읽기와 열린 패널을 폐기한다', async () => {
+  const source = createMockResponseSource({
+    scenario: 'read-error',
+    delayMs: 0,
+  });
+  const user = userEvent.setup();
+  const view = await render(tree(source));
+  await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+  await user.press(await panel().findByRole('button', { name: '댓글 조회 다시 시도' }));
+  await panel().findByRole('heading', { name: 'Responses (7)' });
+  const late = deferred<ResponseValue>();
+  const replacement = { ...source, read: () => late.promise };
+  await view.rerender(tree(replacement));
+  expect(screen.queryByLabelText('Responses 패널')).toBeNull();
+  await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+  await view.rerender(tree(createMockResponseSource({ delayMs: 0, initial: () => [] })));
+  await act(async () => {
+    late.reject(new Error('obsolete'));
+  });
+  await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+  await waitFor(() => expect(panel().getByRole('heading', { name: 'Responses (0)' })).toBeVisible());
+  expect(panel().queryByRole('alert')).toBeNull();
+});

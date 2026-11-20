@@ -20,6 +20,7 @@ type MainTabsProps = {
     articleId: string,
     origin: 'Home' | 'Explore' | 'Library' | 'Profile',
     listId?: string,
+    highlightId?: string,
   ) => void;
   source?: FeedSource;
   searchSource?: SearchSource;
@@ -55,12 +56,13 @@ export function MainTabs({
           <SearchRouteScreen source={searchSource} onSelectArticle={(id) => onSelectArticle(id, 'Explore')} />
         )}
       </Tab.Screen>
-      <Tab.Screen name="Library">
+      <Tab.Screen name="Library" navigationKey={scopeKey}>
         {({ navigation }) =>
           state.user ? (
             <LibraryNavigator
               key={scopeKey}
               onSelectArticle={(id, listId) => onSelectArticle(id, 'Library', listId)}
+              onOpenHighlight={(id, highlightId) => onSelectArticle(id, 'Library', undefined, highlightId)}
               onBrowseArticles={() => navigation.navigate('Home')}
             />
           ) : (
@@ -68,7 +70,7 @@ export function MainTabs({
           )
         }
       </Tab.Screen>
-      <Tab.Screen name="Profile">
+      <Tab.Screen name="Profile" navigationKey={scopeKey}>
         {({ navigation }) => (
           <ProfileRouteScreen
             onSelectArticle={(articleId, listId) => onSelectArticle(articleId, 'Profile', listId)}

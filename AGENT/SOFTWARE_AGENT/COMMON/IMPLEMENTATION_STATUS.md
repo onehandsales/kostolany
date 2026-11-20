@@ -1,6 +1,10 @@
 # 현재 상태와 다음 작업
 
-**최신 상태(2026-11-19):** [Goal24 결과·8081 확인 순서](../../../TODO/FE_GOAL_24_RESULT.md). Goal24 전역 Light/Dark/System과 기사 표시 설정 구현·두 차례 자체 검토/수정을 마쳤다. 현재 타입/lint·98 suites/690 tests, 8081 흐름·부분 시각 대조와 양 플랫폼 JS/Hermes가 통과했다. 원본 font/vector·시각/native 잔여는 계속 추적한다. 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료하고 Goal25 이후는 미착수·별도 요청 대기다. push·배포는 하지 않는다. 실제 인증/결제/메일/서버/DB는 연결하지 않는다. 기존8081 PID17148·medium·ENV와 기존 계약을 보존한다. 캡처/로그/일회성 스크립트는 저장소 밖 임시 경로만 사용하며 TODO/evidence에는 쓰지 않는다. 아래 이전 Goal 승인·수치·중단 문구는 당시 이력이다.
+**후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+
+**최신 사용자 범위 변경(2026-11-20 KST): Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료한다. Goal32 이후는 시작하지 않는다. 아래 Goal35까지 연속 진행 문구는 변경 전 지시 이력이다. 커밋·push·배포 금지는 유지한다.**
+
+**최신 상태(2026-11-20, macOS):** [Goal31 결과](../../../TODO/FE_GOAL_31_RESULT.md). Goal25~31은 구현 완료·시각/native 검증 잔여다. 추천 관리·관심사·Show less·이력 삭제/Library 동기화,늦은 이력 응답/실패 복구와 빠른 계정 전환의 개인 navigation 초기화를 구현했다. 각 Goal에서 두 차례 자체 검토·수정했다. 현재 코드 typecheck·lint·전체 **144 suites/856 tests 통과**,8081 정상/장애/계정/320px·긴 목록·원본 대조와 iOS/Android JS/Hermes export를 확인했다. 원본 font/vector·시각 차이와 실제 native build/run·OS 접근성/IME는 남는다. 최신 사용자 지시에 따라 **Goal31에서 종료하며 Goal32 이후 미착수**다. 커밋/push/배포·외부 연동은 없다. HEAD2e7aedd,Node24.18.0/npm10.9.0,기존8081 PID11374·medium382개 파일·ENV·lockfile을 보존했다. 산출물은 저장소 밖 임시 경로이며 아래 과거 승인/검사/PID/중단 문구는 당시 이력이다.
 
 아래 Goal21/13의 수치·macOS/PID·커밋 요청·실행 순서는 **당시 이력**이다. 현재 후속 범위와 실행 판단은 [전체 Goal 계획](../../../TODO/FE_MEDIUM_FULL_CLONE_GOALS.md)을 따른다.
 

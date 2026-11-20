@@ -1,9 +1,11 @@
 import type { ReferenceStory } from '../feed/types';
+import type { ImageSourcePropType } from 'react-native';
 
 export type ReferenceBlock =
   | { kind: 'text'; text: string; bold?: boolean; highlight?: string }
   | { kind: 'divider' }
-  | { kind: 'missing' };
+  | { kind: 'missing' }
+  | { kind: 'image'; source: ImageSourcePropType; description: string; caption: string; aspectRatio: number };
 
 export type ReferenceArticleContent = {
   publishedLabel: string;

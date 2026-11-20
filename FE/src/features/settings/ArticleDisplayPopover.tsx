@@ -41,9 +41,9 @@ export function ArticleDisplayPopover({ onClose }: ArticleDisplayPopoverProps) {
     </View>
     <DisplaySettingsFeedback />
     {picker && <TopPopover title={picker === 'theme' ? '기사 테마 선택' : '글꼴 선택'} onClose={() => setPicker(null)} width={250} top={picker === 'theme' ? 205 : 148} right={27} showPointer={false}>
-      {picker === 'theme' ? themes.map((item) => <Pressable key={item.value} role="radio" accessibilityLabel={`기사 테마: ${item.label}`} accessibilityState={{ checked: settings.readerTheme === item.value }} style={styles.choice} onPress={() => { store?.update({ readerTheme: item.value }); setPicker(null); }}>
+      {picker === 'theme' ? themes.map((item) => <Pressable key={item.value} role="radio" accessibilityLabel={`기사 테마: ${item.label}`} aria-checked={settings.readerTheme === item.value} accessibilityState={{ checked: settings.readerTheme === item.value }} style={styles.choice} onPress={() => { store?.update({ readerTheme: item.value }); setPicker(null); }}>
         <View style={styles.check}>{settings.readerTheme === item.value && <AppIcon name="check" size={18} />}</View><Text style={styles.choiceText}>{item.label}</Text>
-      </Pressable>) : families.map((item) => <Pressable key={item.value} role="radio" accessibilityLabel={`글꼴: ${item.label}`} accessibilityState={{ checked: settings.fontFamily === item.value }} style={styles.choice} onPress={() => { store?.update({ fontFamily: item.value }); setPicker(null); }}>
+      </Pressable>) : families.map((item) => <Pressable key={item.value} role="radio" accessibilityLabel={`글꼴: ${item.label}`} aria-checked={settings.fontFamily === item.value} accessibilityState={{ checked: settings.fontFamily === item.value }} style={styles.choice} onPress={() => { store?.update({ fontFamily: item.value }); setPicker(null); }}>
         <View style={styles.check}>{settings.fontFamily === item.value && <AppIcon name="check" size={18} />}</View><Text style={styles.choiceText}>{item.label}</Text>
       </Pressable>)}
     </TopPopover>}

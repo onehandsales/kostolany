@@ -16,7 +16,8 @@ import { AppIcon } from '../../shared/ui/AppIcon';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import type { FeedArticle } from '../feed/types';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
-import { ArticleLikeControl } from '../likes/ArticleLikeControl';
+import { ClapControl } from '../reactions/ClapControl';
+import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
 
 type SearchBylineProps = { name: string; avatar?: ImageSourcePropType; emphasized?: boolean; verified?: boolean };
 
@@ -52,6 +53,7 @@ type SearchCardProps = {
 export function SearchCard({ article, first = false, onSelect, footer }: SearchCardProps) {
   const styles = useThemeStyles(createStyles);
   const { fontScale } = useWindowDimensions();
+  const viewed = useHasViewed(article.id);
   if (article.reference)
     return (
       <View>
@@ -69,7 +71,7 @@ export function SearchCard({ article, first = false, onSelect, footer }: SearchC
       >
         <SearchByline name={article.sourceName} />
         <View style={[styles.headline, fontScale > 1.3 && styles.stacked]}>
-          <Text style={[styles.title, fontScale > 1.3 && styles.fullTitle]}>{article.title}</Text>
+          <Text style={[styles.title, fontScale > 1.3 && styles.fullTitle, viewed && styles.viewed]}>{article.title}</Text>
           {article.thumbnail !== null && (
             <View style={styles.thumbnail}>
               <ContentIllustration variant={article.thumbnail} width={80} height={64} />
@@ -79,11 +81,12 @@ export function SearchCard({ article, first = false, onSelect, footer }: SearchC
         <Text style={styles.summary}>{article.summary}</Text>
         <Text style={styles.metadata}>
           {article.publishedLabel} · {article.readingMinutes}분 읽기
+          {viewed ? ' · Viewed' : ''}
         </Text>
       </Pressable>
       <View style={styles.reaction}>
         <View style={styles.like}>
-          <ArticleLikeControl articleId={article.id} articleTitle={article.title} />
+          <ClapControl target={{ kind: 'article', id: article.id }} title={article.title} />
         </View>
         <View style={styles.bookmark}>
           <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} />
@@ -130,6 +133,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 16, marginTop: 16 },
   stacked: { flexDirection: 'column' },
   title: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text, flex: 1 },
+  viewed: { color: colors.secondaryText },
   // 큰 글자의 세로 배치에서도 웹 flex 축약으로 제목 높이가 사라지지 않게 한다.
   fullTitle: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
   thumbnail: { width: 80, height: 54, overflow: 'hidden', justifyContent: 'center' },

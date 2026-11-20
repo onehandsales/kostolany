@@ -1,0 +1,58 @@
+import { fireEvent, render, screen, userEvent, waitFor, within } from '@testing-library/react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { articleSelectionDocument } from '../../features/article/articleSelectionDocument';
+import { articleFixtures } from '../../features/article/data/fixtures';
+import { createMockArticleSource } from '../../features/article/data/mockArticleSource';
+import { mockUserA } from '../../features/auth/data/mockUsers';
+import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
+import { mediumArticles } from '../../features/feed/data/mediumFixtures';
+import { createMockHighlightSource } from '../../features/highlights/data/createMockHighlightSource';
+import { createMockResponseSource } from '../../features/responses/data/createMockResponseSource';
+import { AppNavigator } from './AppNavigator';
+
+it('실제 navigation과 선택 이벤트로 저장 실패/재시도·Library 원문 복귀·인용 응답 실패/재시도·강조 제거를 연결한다', async () => {
+  const highlights = createMockHighlightSource({ delayMs: 0, scenario: 'write-error' });
+  const responses = createMockResponseSource({ delayMs: 0, scenario: 'write-error' });
+  const user = userEvent.setup();
+  const article = articleFixtures.find(item => item.id === 'medium-brain')!;
+  const document = articleSelectionDocument(article);
+  const start = document.text.indexOf('This “yes man”'); const end = document.text.indexOf(' last week', start);
+  const quote = document.text.slice(start, end);
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} highlightSource={highlights} responseSource={responses}
+    feedSource={createMockFeedSource({ delayMs: 0, catalog: { latest: mediumArticles.filter(item => item.id === article.id), popular: [], recommended: [] } })}
+    articleSource={createMockArticleSource({ delayMs: 0 })} /></SafeAreaProvider>);
+  await user.press(await screen.findByRole('button', { name: /^ChatGPT Is Poisoning/ }));
+  await user.press(screen.getByRole('button', { name: '기사 문구 선택' }));
+  await fireEvent(screen.getByLabelText('선택할 원문'), 'selectionChange', { nativeEvent: { selection: { start, end } } });
+  await user.press(screen.getByRole('button', { name: '문구 선택 Done' }));
+  await user.press(screen.getByRole('button', { name: 'Highlight' }));
+  await user.press(await screen.findByRole('button', { name: '하이라이트 저장 다시 시도' }));
+  await waitFor(() => expect(screen.queryByRole('button', { name: 'Highlight' })).toBeNull());
+  expect((await highlights.read(mockUserA.id)).highlights).toHaveLength(1);
+  await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  await user.press(screen.getByRole('tab', { name: 'Highlighted' }));
+  await user.press(await screen.findByRole('button', { name: `하이라이트 원문: ${article.title}` }));
+  await fireEvent.press(await screen.findByLabelText(`내 하이라이트: ${quote}`), { nativeEvent: { pageY: 300 } });
+  await user.press(screen.getByRole('button', { name: 'Respond to passage' }));
+  const panel = () => within(screen.getByLabelText('Responses 패널'));
+  expect(panel().getByRole('button', { name: '응답 게시' })).toBeDisabled();
+  expect(panel().getByText(quote)).toBeVisible();
+  await user.type(panel().getByLabelText('응답 내용'), '인용한 문장에 동의해요');
+  await user.press(panel().getByRole('button', { name: '응답 게시' }));
+  await panel().findByText(/저장하지 못했어요/);
+  expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue('인용한 문장에 동의해요');
+  expect(panel().getByText(quote)).toBeVisible();
+  await user.press(panel().getByRole('button', { name: '응답 게시' }));
+  await panel().findByRole('heading', { name: 'Responses (8)' });
+  await user.press(panel().getByRole('button', { name: 'Responses 닫기' }));
+  await fireEvent.press(screen.getByLabelText(`내 하이라이트: ${quote}`), { nativeEvent: { pageY: 300 } });
+  await user.press(screen.getByRole('button', { name: 'Remove highlight' }));
+  await waitFor(() => expect(screen.queryByLabelText(`내 하이라이트: ${quote}`)).toBeNull());
+  await user.press(screen.getByRole('button', { name: '라이브러리로 돌아가기' }));
+  expect(screen.getByRole('tab', { name: 'Highlighted' })).toBeSelected();
+  expect(screen.getByText('No highlights yet')).toBeVisible();
+  const savedResponse = (await responses.read({ userId: mockUserA.id, target: { kind: 'article', id: article.id } })).responses.find(item => item.authorId === mockUserA.id);
+  expect(savedResponse?.quote?.text).toBe(quote);
+}, 25000);

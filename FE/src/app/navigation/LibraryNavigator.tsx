@@ -7,13 +7,14 @@ type LibraryStackParamList = { LibraryHome: undefined; ReadingList: { listId: st
 const Stack = createNativeStackNavigator<LibraryStackParamList>();
 
 type LibraryNavigatorProps = {
+  onOpenHighlight?: (articleId: string, highlightId: string) => void;
   onSelectArticle: (articleId: string, listId: string) => void; onBrowseArticles: () => void;
 };
 
-export function LibraryNavigator({ onSelectArticle, onBrowseArticles }: LibraryNavigatorProps) {
+export function LibraryNavigator({ onSelectArticle, onBrowseArticles, onOpenHighlight }: LibraryNavigatorProps) {
   return <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name="LibraryHome">
-      {({ navigation }) => <LibraryScreen onOpenList={(listId) => navigation.navigate('ReadingList', { listId })} />}
+      {({ navigation }) => <LibraryScreen onOpenHighlight={onOpenHighlight} onOpenList={(listId) => navigation.navigate('ReadingList', { listId })} />}
     </Stack.Screen>
     <Stack.Screen name="ReadingList" getId={({ params }) => params.listId}>
       {({ navigation, route }) => <ReadingListScreen listId={route.params.listId} onBack={() => navigation.popToTop()}

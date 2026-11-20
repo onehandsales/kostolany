@@ -6,7 +6,7 @@ import { createMockBookmarkSource } from '../../features/bookmarks/data/createMo
 import type { ArticleBookmark, BookmarkSource } from '../../features/bookmarks/types';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
 import { createMockSearchSource } from '../../features/search/data/mockSearchSource';
 import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
@@ -19,7 +19,7 @@ const getArticle = () => screen.getByRole('button', { name: new RegExp(`^${title
 async function renderApp(bookmarkSource = createMockBookmarkSource({ delayMs: 0 })) {
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={bookmarkSource}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}
-    searchSource={createMockSearchSource({ delayMs: 0 })} likeSource={createMockLikeSource({ delayMs: 0 })} />
+    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0 })} />
   </SafeAreaProvider>);
   await waitFor(() => expect(getBookmark()).toBeEnabled());
 }

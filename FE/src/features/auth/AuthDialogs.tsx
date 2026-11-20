@@ -172,7 +172,7 @@ function LoginDialog() {
               {isPending
                 ? '닫기를 누르면 로그인 요청을 취소해요.'
                 : dialog.context.kind === 'like' || dialog.context.kind === 'bookmark'
-                  ? '로그인 후 읽던 화면으로 돌아가요. 좋아요나 저장은 다시 눌러 주세요.'
+                  ? '로그인 후 읽던 화면으로 돌아가요. 박수나 저장은 다시 눌러 주세요.'
                   : '로그인 후 이 화면으로 돌아가요.'}
             </Text>
             <ScenarioPicker selected={scenario} onSelect={setScenario} disabled={isLocked} />

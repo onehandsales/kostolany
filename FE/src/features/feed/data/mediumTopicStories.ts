@@ -1,0 +1,69 @@
+import type { FeedArticle } from '../types';
+
+// 토픽과 큐레이션에서 실제 보이는 제목·사진·문구만 연결한다.
+export const mediumTopicStories: FeedArticle[] = [
+  {
+    id: 'medium-atlantic',
+    title: 'How Much Time Do We Have Before the Atlantic Ocean’s Collapse?',
+    summary: '',
+    sourceName: 'In Southern Winds by Ricky Lanusse',
+    publishedLabel: '',
+    readingMinutes: 0,
+    thumbnail: null,
+    reference: {
+      image: require('../../../../assets/medium/topic-life.png'),
+      avatar: require('../../../../assets/medium/southern-winds.png'),
+      applause: 0,
+      responses: '—',
+      memberOnly: false,
+    },
+  },
+  {
+    id: 'medium-pope',
+    title: 'Pope Francis Has One More Thing To Say',
+    summary: '',
+    sourceName: 'Daniel B. Gallagher',
+    publishedLabel: '',
+    readingMinutes: 0,
+    thumbnail: null,
+    reference: {
+      image: require('../../../../assets/medium/topic-self-improvement.png'),
+      avatar: require('../../../../assets/medium/daniel-gallagher.png'),
+      applause: 0,
+      responses: '—',
+      memberOnly: false,
+    },
+  },
+  {
+    id: 'medium-morning-routine',
+    title: 'A Morning Routine for People Who Don’t Want to Wake Up Early',
+    summary: 'Yes, you can be productive if you don’t wake up at 4 am',
+    sourceName: 'Darius Foroux',
+    publishedLabel: 'Sep 22, 2021',
+    readingMinutes: 5,
+    thumbnail: null,
+    reference: {
+      image: require('../../../../assets/medium/morning-routine.png'),
+      avatar: require('../../../../assets/medium/darius.png'),
+      applause: 0,
+      responses: '—',
+      memberOnly: true,
+      verifiedAuthor: true,
+    },
+  },
+  {
+    id: 'medium-productivity-obsession',
+    title: 'Why We’re Obsessed With Productivity',
+    summary: 'The origins of… obsessions wi…',
+    sourceName: 'In Knowable by Ryan Duffy',
+    publishedLabel: 'Sep 13, 202…',
+    readingMinutes: 0,
+    thumbnail: null,
+    reference: {
+      image: require('../../../../assets/medium/morning-productivity.png'),
+      applause: 0,
+      responses: '—',
+      memberOnly: true,
+    },
+  },
+];

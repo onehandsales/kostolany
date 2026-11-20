@@ -1,10 +1,14 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
+**후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
+
+**최신 사용자 범위 변경(2026-11-20 KST): Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료한다. Goal32 이후는 시작하지 않는다. 아래 Goal35까지 연속 진행 문구는 변경 전 지시 이력이다. 커밋·push·배포 금지는 유지한다.**
+
 작성일: 2026-11-19 KST · 작업 위치: `D:\git_repository\kostolany_project`.
 
-**현재 상태: Goal24 구현 완료·시각/native 검증 잔여.** [Goal24 결과](FE_GOAL_24_RESULT.md)에 두 차례 자체 검토·수정, 현재 타입/lint·98 suites/690 tests·8081 흐름·부분 대조·양 플랫폼 JS/Hermes 결과를 기록했다. Goal23의 원본 font/vector·시각/native 잔여는 유지한다. Goal25~53은 미착수이며 별도 요청을 기다린다.
+**현재 상태(2026-11-20 KST, macOS): Goal25~31 구현 완료·시각/native 검증 잔여. Goal31에서 종료,Goal32 이후 미착수.** [Goal31 결과](FE_GOAL_31_RESULT.md)에 추천 관리·관심사·이력 삭제·계정 navigation 수정,두 자체 검토와 현재 144 suites/856 tests·타입/lint·8081·양 플랫폼 JS/Hermes 결과를 기록했다. 과거 검사 수치는 당시 코드 결과다.
 
-**이번 실행 승인:** 최초 Goal24→30 연속 실행 요청은 최신 사용자 지시로 **Goal24까지**로 축소됐다. Goal24의 구현→1차 검토→수정/검증→2차 재검토→추가 수정/검증→문서 갱신→해당 변경만 로컬 커밋 후 종료한다. Goal25 이후는 자동 시작하지 않는다. push·배포는 하지 않는다.
+**이번 실행 승인:** 최신 사용자 요청에 따라 **Goal25→35를 순차 연속 실행**한다. Goal별 구현→1차 검토→수정/검증→2차 재검토→추가 수정/검증→결과 기록 후 다음 Goal로 진행한다. 중간 종료/별도 승인 대기 문구는 이번 범위에 적용하지 않는다. **커밋·push·배포 금지, Goal36 미착수**다. 초기 HEAD `2e7aedd`, clean을 확인했고 현재 새 변경을 누적 중이다.
 
 목표는 보관된 **Medium iOS 화면·문구·폰트·텍스트 크기·픽셀 위치·상태·이동 흐름을 그대로 재현하는 FE**다. 1차 MVP에 없던 기능뿐 아니라 기존 화면의 차이와 미연결 메뉴까지 포함한다. 백엔드 구축 전에 화면과 mock 동작을 완성하고, 마지막에 실제 구현을 근거로 API/DB 설계에 필요한 계약을 인계한다.
 
@@ -18,14 +22,14 @@
 | 기준 | 확인 내용 |
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
-| 현재 Git 기준 | Goal24 시작 HEAD 529f0fa, clean. 사용자 변경을 포함하지 않고 Goal별 검증·staged diff 확인 뒤 별도 로컬 커밋한다. |
+| 현재 Git 기준 | macOS 루트에서 시작 HEAD2e7aedd·clean 확인. 이번 변경은 커밋하지 않는다. |
 | 현재 검증의 범위 | [Goal24 결과](FE_GOAL_24_RESULT.md)의 실제 명령·현재 코드 결과를 따른다. Goal23의670건은 당시 기록이다. 자동/브라우저/JS-Hermes/실제 native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
-| 승인 경계 | 최신 요청은 Goal24 구현·검토·문서·로컬 커밋까지다. mock 범위 유지, 실제 외부 서비스·push·배포 제외. Goal25 이후는 별도 요청 대기. |
+| 승인 경계 | Goal25~35 연속 구현·검증·결과 기록. mock 유지, 실제 외부 연동·커밋·push·배포 제외. |
 
-기존 문서의 macOS 경로·MVP 제외 범위·Goal 21 뒤 종료 문구는 당시 실행의 이력이다. **현재 후속 계획은 Windows 경로와 이 문서의 범위를 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
+기존 문서의 macOS 경로·MVP 제외 범위·Goal 21 뒤 종료 문구는 당시 실행의 이력이다. **현재 실행은 macOS `/Users/jaegeunsong/Desktop/workplace/kostolany`와 최신 승인25~35 범위를 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
 
 ## 필수 규칙과 구현 경계
 
@@ -83,8 +87,8 @@
 | [22](#goal-22) | 원본 전수 대응·현재 코드·비교 환경 기준선 | 기존 Goal 21 이후 코드 | 기준선 완료 / 원본 동일성·native 잔여 별도 |
 | [23](#goal-23) | 공통 글꼴·아이콘·레이아웃과 기존 화면 보정 | 22 | 구현 완료·검증 잔여 — [결과](FE_GOAL_23_RESULT.md) |
 | [24](#goal-24) | 전역 Light·Dark·System과 기사 표시 설정 | 23 | 구현 완료·시각/native 검증 잔여 — [결과](FE_GOAL_24_RESULT.md) |
-| [25](#goal-25) | 기사 본문·박수·읽음 표시·상세 메뉴 | 24 | 미착수 |
-| [26](#goal-26) | Responses·댓글·답글·정렬·수정·삭제 | 25 | 미착수 |
+| [25](#goal-25) | 기사 본문·박수·읽음 표시·상세 메뉴 | 24 | 구현 완료·검증 잔여 — [결과](FE_GOAL_25_RESULT.md) |
+| [26](#goal-26) | Responses·댓글·답글·정렬·수정·삭제 | 25 | 진행 |
 | [27](#goal-27) | 문구 선택·Highlight·인용 Responses | 26 | 미착수 |
 | [28](#goal-28) | 작성자 프로필·팔로우·팔로잉·이메일 구독 | 25 | 미착수 |
 | [29](#goal-29) | Mute·Block·신고·응답 관리 | 26, 28 | 미착수 |
@@ -169,7 +173,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 24 — 전역 Light·Dark·System과 기사 표시 설정
 
-- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal23. [Goal24 결과](FE_GOAL_24_RESULT.md). 이번 실행은 이 Goal의 로컬 커밋 후 종료한다.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal23. [Goal24 결과](FE_GOAL_24_RESULT.md). Goal24 당시 실행은 해당 로컬 커밋 후 종료했으며 현재25~35 승인과 구분한다.
 - **원본:** [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F58](FE_MEDIUM_FULL_CLONE_MAP.md#f58), [F62](FE_MEDIUM_FULL_CLONE_MAP.md#f62). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 설정의 Light/Dark/System, OS 테마 추종, 기사 Display의 Font size·Font·Theme·Show highlights를 구현한다. 원본의 100%/120% 상태와 다크 홈·목록·기사·설정·오버레이를 맞춘다.
 - **시각 비교:** 표면·보조 글자·구분선·아이콘·선택 표시까지 테마별로 검증한다. 기본 OS 글자 배율의 원본 대조와 큰 글자 검증을 분리한다.
@@ -183,7 +187,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 25 — 기사 본문·박수·읽음 표시·상세 메뉴
 
-- **상태/선행:** 미착수 / Goal 24.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal24. [현재 결과](FE_GOAL_25_RESULT.md).
 - **원본:** [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36), [F38](FE_MEDIUM_FULL_CLONE_MAP.md#f38), [F62](FE_MEDIUM_FULL_CLONE_MAP.md#f62). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 기사 본문·유료 배지·하단 관련 기사/토픽/작성자 구성을 보정하고 누적 박수와 내 반응을 구현한다. 더보기의 Show less like this/Display/Follow/Mute/Report story 진입 계약, 읽음 이력과 목록의 Viewed/제목 색 상태를 마련한다.
 - **시각 비교:** 박수 피드백·숫자·기사 머리/꼬리·읽음 색을 원본 상태별로 비교한다. 기존 하트의 boolean like를 누적 박수로 이름만 바꾸지 않는다.
@@ -197,7 +201,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 26 — Responses·댓글·답글·정렬·수정·삭제
 
-- **상태/선행:** 미착수 / Goal 25.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal25. [결과](FE_GOAL_26_RESULT.md): 두 자체 검토·수정,112 suites/758 tests·타입/lint·브라우저·양 플랫폼 JS/Hermes.
 - **원본:** [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F25](FE_MEDIUM_FULL_CLONE_MAP.md#f25), [F29](FE_MEDIUM_FULL_CLONE_MAP.md#f29), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36), [F38](FE_MEDIUM_FULL_CLONE_MAP.md#f38). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** Responses 패널, 댓글 작성/수정/삭제 확인, Most relevant/Most recent, 중첩 답글, 댓글 박수, Hide replies/Read more/See more replies, Medium policy 진입을 구현한다. 정적 834 같은 숫자를 실제 mock 결과와 연결한다.
 - **시각 비교:** 입력 포커스·키보드·부모 댓글·답글 들여쓰기·내 댓글 메뉴·본문 펼침을 각각 원본과 대조한다.
@@ -211,7 +215,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 27 — 문구 선택·Highlight·인용 Responses
 
-- **상태/선행:** 미착수 / Goal 26.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal26. [결과](FE_GOAL_27_RESULT.md): 두 자체 검토·현재118 suites/778 tests·타입/lint·8081·양 플랫폼 JS/Hermes.
 - **원본:** [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F25](FE_MEDIUM_FULL_CLONE_MAP.md#f25), [F29](FE_MEDIUM_FULL_CLONE_MAP.md#f29), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36), [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 본문 선택 핸들/메뉴의 Highlight·Respond·Share·더보기, highlight 표시/해제, 인용 문구를 포함한 댓글, Library Highlighted 진입과 원문 복귀를 구현한다.
 - **시각 비교:** 선택 범위·색·문맥 메뉴 위치·인용 블록·키보드 상태를 맞추고 스크린샷 텍스트를 이미지로 붙여 선택을 흉내 내지 않는다.
@@ -225,7 +229,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 28 — 작성자 프로필·팔로우·팔로잉·이메일 구독
 
-- **상태/선행:** 미착수 / Goal 25.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal25. [실제 결과](FE_GOAL_28_RESULT.md).
 - **원본:** [F01](FE_MEDIUM_FULL_CLONE_MAP.md#f01), [F02](FE_MEDIUM_FULL_CLONE_MAP.md#f02), [F03](FE_MEDIUM_FULL_CLONE_MAP.md#f03), [F06](FE_MEDIUM_FULL_CLONE_MAP.md#f06), [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F17](FE_MEDIUM_FULL_CLONE_MAP.md#f17), [F18](FE_MEDIUM_FULL_CLONE_MAP.md#f18), [F19](FE_MEDIUM_FULL_CLONE_MAP.md#f19), [F20](FE_MEDIUM_FULL_CLONE_MAP.md#f20), [F21](FE_MEDIUM_FULL_CLONE_MAP.md#f21), [F22](FE_MEDIUM_FULL_CLONE_MAP.md#f22), [F23](FE_MEDIUM_FULL_CLONE_MAP.md#f23), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55), [F56](FE_MEDIUM_FULL_CLONE_MAP.md#f56), [F57](FE_MEDIUM_FULL_CLONE_MAP.md#f57). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 작성자 Stories/Lists/About, 고정 이야기, 웹사이트, 팔로워/팔로잉 진입, 작가와 publication이 섞인 Following list, Follow/Following/Unfollow, 작가별 이메일 수신을 구현한다.
 - **시각 비교:** 프로필 헤더·배지·탭·팔로우 상태·이메일 확인 UI를 원본 문구와 위치로 맞춘다. Member/Friend 시작 월을 계정 가입일로 잘못 해석하지 않는다.
@@ -239,7 +243,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 29 — Mute·Block·신고·응답 관리
 
-- **상태/선행:** 미착수 / Goal 26, Goal 28.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal26,Goal28. [결과](FE_GOAL_29_RESULT.md).
 - **원본:** [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15), [F16](FE_MEDIUM_FULL_CLONE_MAP.md#f16), [F17](FE_MEDIUM_FULL_CLONE_MAP.md#f17), [F18](FE_MEDIUM_FULL_CLONE_MAP.md#f18), [F19](FE_MEDIUM_FULL_CLONE_MAP.md#f19), [F20](FE_MEDIUM_FULL_CLONE_MAP.md#f20), [F21](FE_MEDIUM_FULL_CLONE_MAP.md#f21), [F22](FE_MEDIUM_FULL_CLONE_MAP.md#f22), [F23](FE_MEDIUM_FULL_CLONE_MAP.md#f23), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F28](FE_MEDIUM_FULL_CLONE_MAP.md#f28), [F30](FE_MEDIUM_FULL_CLONE_MAP.md#f30), [F31](FE_MEDIUM_FULL_CLONE_MAP.md#f31), [F32](FE_MEDIUM_FULL_CLONE_MAP.md#f32), [F33](FE_MEDIUM_FULL_CLONE_MAP.md#f33), [F34](FE_MEDIUM_FULL_CLONE_MAP.md#f34), [F35](FE_MEDIUM_FULL_CLONE_MAP.md#f35), [F36](FE_MEDIUM_FULL_CLONE_MAP.md#f36). [F45](FE_MEDIUM_FULL_CLONE_MAP.md#f45), [F46](FE_MEDIUM_FULL_CLONE_MAP.md#f46), [F50](FE_MEDIUM_FULL_CLONE_MAP.md#f50). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 작성자 Mute/Block/Report author와 기사 Report story, 목록 내 기사 메뉴의 동일 대상 처리를 구현한다. 이유 선택·추가 설명·선택적 Also block·권리/정책 링크·성공/취소 상태, 응답 숨김/토론 종료의 확인된 범위를 다룬다.
 - **시각 비교:** 작가 더보기의 Share/Mute/Block/Report/Cancel, 차단/신고 시트의 문구·선택·경고를 원본별로 맞춘다.
@@ -253,7 +257,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 30 — 토픽·Publication·큐레이션 탐색
 
-- **상태/선행:** 미착수 / Goal 28.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal 28.
 - **원본:** [F01](FE_MEDIUM_FULL_CLONE_MAP.md#f01), [F02](FE_MEDIUM_FULL_CLONE_MAP.md#f02), [F03](FE_MEDIUM_FULL_CLONE_MAP.md#f03), [F04](FE_MEDIUM_FULL_CLONE_MAP.md#f04), [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F07](FE_MEDIUM_FULL_CLONE_MAP.md#f07), [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 토픽 상세/Follow, Browse curated list의 미리보기, Recommended publications·Who to follow, 추천 캐러셀과 See all/See more를 연결한다. publication 대상 관계와 상세 진입의 근거를 확보한다.
 - **시각 비교:** 토픽 칩/헤더·관련 카드·큐레이션 소개·팔로우 추천의 크기/간격/스크롤을 맞춘다.
@@ -267,7 +271,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 31 — 추천 관리·관심사·읽기 이력
 
-- **상태/선행:** 미착수 / Goal 29, Goal 30.
+- **상태/선행:** 구현 완료·시각/native 검증 잔여 / Goal 29, Goal 30.
 - **원본:** [F01](FE_MEDIUM_FULL_CLONE_MAP.md#f01), [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F12](FE_MEDIUM_FULL_CLONE_MAP.md#f12), [F13](FE_MEDIUM_FULL_CLONE_MAP.md#f13), [F14](FE_MEDIUM_FULL_CLONE_MAP.md#f14), [F15](FE_MEDIUM_FULL_CLONE_MAP.md#f15), [F18](FE_MEDIUM_FULL_CLONE_MAP.md#f18), [F22](FE_MEDIUM_FULL_CLONE_MAP.md#f22), [F24](FE_MEDIUM_FULL_CLONE_MAP.md#f24), [F41](FE_MEDIUM_FULL_CLONE_MAP.md#f41). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** Refine recommendations의 Following/Reading history/Muted/Suggestions, All/Writers/Publications/Topics 필터, 목록 확장, Show less, 홈 + 관심사, 이력 개별 제거/전체 삭제를 구현한다.
 - **시각 비교:** 탭·필터·설명·삭제 확인·음소거 해제·빈 목록을 각각 대조한다. Library Reading history 진입은 같은 데이터 계약으로 연결하되 화면 동일 여부를 확인한다.

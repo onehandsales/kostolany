@@ -9,11 +9,17 @@ import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
 describe('search to detail and back', () => {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(async () => {
+    await act(async () => { await jest.runOnlyPendingTimersAsync(); });
+    jest.useRealTimers();
+  });
+
   it.each(['button', 'native back event'] as const)('restores the query and results through %s without another search', async (back) => {
     const source = jest.fn(createMockSearchSource({ delayMs: 0 }));
     const articleSource = jest.fn(createMockArticleSource({ delayMs: 0 }));
     const subscription = jest.spyOn(BackHandler, 'addEventListener');
-    const user = userEvent.setup();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     try {
       await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} feedSource={createMockFeedSource({ delayMs: 0 })}
         articleSource={articleSource} searchSource={source} /></SafeAreaProvider>);

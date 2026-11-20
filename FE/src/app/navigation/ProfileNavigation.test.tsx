@@ -9,10 +9,14 @@ import { mockUserA, mockUserB } from '../../features/auth/data/mockUsers';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { deferred } from '../../features/feed/tests/helpers';
-import { createMockLikeSource } from '../../features/likes/data/createMockLikeSource';
+import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
 import { createMockProfileSource } from '../../features/profile/data/createMockProfileSource';
 import type { Profile, ProfileSource } from '../../features/profile/types';
 import { SessionNavigation } from './AppNavigator';
+
+// 가상 목록과 공급부 타이머를 검사 안에서 진행해 늦은 갱신도 act 경계로 관찰한다.
+beforeEach(() => jest.useFakeTimers());
+afterEach(() => jest.useRealTimers());
 
 const initial: Profile = { userId: mockUserA.id, name: mockUserA.name, bio: '' };
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
@@ -24,16 +28,16 @@ function Probe({ onStore }: { onStore: (store: AuthStore) => void }) {
 }
 async function setup(source = createMockProfileSource({ delayMs: 0 })) {
   let auth: AuthStore | undefined;
-  const likes = createMockLikeSource({ delayMs: 0 });
+  const likes = createMockClapSource({ delayMs: 0 });
   const bookmarks = createMockBookmarkSource({ delayMs: 0 });
   await render(<SafeAreaProvider><AuthProvider initialUser={mockUserA} source={createMockAuthSource({ delayMs: 0 })}>
     <SessionNavigation profileSource={source} feedSource={createMockFeedSource({ delayMs: 0 })}
-      likeSource={likes} bookmarkSource={bookmarks} />
+      clapSource={likes} bookmarkSource={bookmarks} />
     <Probe onStore={(store) => { auth = store; }} />
   </AuthProvider></SafeAreaProvider>);
   await screen.findByRole('button', { name: new RegExp(`^${title}`) });
   if (!auth) throw new Error('Missing auth');
-  return { auth, likes, bookmarks, user: userEvent.setup() };
+  return { auth, likes, bookmarks, user: userEvent.setup({ advanceTimers: jest.advanceTimersByTime }) };
 }
 async function switchUser(auth: AuthStore, userId: string) {
   await act(async () => {
@@ -43,7 +47,7 @@ async function switchUser(auth: AuthStore, userId: string) {
 
 it('이름 저장은 인증 ID·revision·좋아요·북마크·목록을 보존하며 로그아웃 표시와 A→B→A 재로그인에도 일치한다', async () => {
   const { auth, user } = await setup();
-  const like = () => screen.getByRole('togglebutton', { name: new RegExp(`^좋아요, ${title}`) });
+  const like = () => screen.getByRole('button', { name: new RegExp(`^박수 보내기, ${title}`) });
   const bookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^북마크, ${title}`) });
   await waitFor(() => expect(like()).toBeEnabled());
   await user.press(like()); await user.press(bookmark());
@@ -63,7 +67,7 @@ it('이름 저장은 인증 ID·revision·좋아요·북마크·목록을 보존
   expect(screen.getByText('Do you really want to sign out from the Medium app?')).toHaveProp('accessibilityHint', '새로운 독자 이름 · local mock session');
   await user.press(button('로그아웃 취소'));
   await user.press(tab('홈'));
-  expect(like()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
+  expect(like()).toHaveProp('accessibilityValue', expect.objectContaining({ now: 1 }));
   expect(bookmark()).toHaveProp('accessibilityState', expect.objectContaining({ checked: true }));
   await user.press(tab('라이브러리'));
   expect(button('이름 변경 뒤에도 남는 목록 열기, 저장한 기사 0개')).toBeVisible();
