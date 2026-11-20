@@ -7,6 +7,7 @@ import { AppIcon } from '../../shared/ui/AppIcon';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
+import { DigestSettingsSheet } from '../notifications/NotificationSettingsScreen';
 import { LibrarySheet } from '../bookmarks/LibrarySheet';
 import { useBookmarkStore } from '../bookmarks/useBookmarks';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
@@ -39,7 +40,6 @@ function DigestContent({ source, userId, header, onOpen }: DigestPanelProps) {
   const list = useRef<FlatList<FeedArticle>>(null);
   const [draft, setDraft] = useState<string | null>(null);
   const [settings, setSettings] = useState(false);
-  const [notice, setNotice] = useState<string | null>(null);
   const selected = state.issues.find(issue => issue.id === state.selectedId);
   const validDraft = state.catalogStatus === 'ready' && state.issues.some(issue => issue.id === draft);
   const awaitingModeration = Boolean(moderation.store && !moderation.state?.value);
@@ -78,20 +78,7 @@ function DigestContent({ source, userId, header, onOpen }: DigestPanelProps) {
           setDraft(null);
         }}><Text style={styles.doneText}>Done</Text></Pressable></View>
     </LibrarySheet>}
-    {settings && <LibrarySheet title={notice ?? 'Digest settings'} expanded closeLabel="닫기" closeText="×" closeSide="left" contentStyle={styles.sheetContent} onClose={() => notice ? setNotice(null) : setSettings(false)}>
-      {notice ? <ContentStatus message="이 설정의 변경은 아직 지원하지 않아요." actionLabel="Got it" onAction={() => setNotice(null)} /> : <>
-      <Pressable role="button" accessibilityLabel="Digest 수신 빈도 Daily" style={styles.setting} onPress={() => setNotice('Digest frequency')}>
-        <View style={styles.settingCopy}><Text style={styles.text}>Frequency</Text><Text style={styles.secondary}>Adjust how often you see a new Digest</Text></View>
-        <Text style={styles.green}>Daily ↕</Text>
-      </Pressable>
-      <Pressable role="button" accessibilityLabel="Digest Push notifications" style={styles.setting} onPress={() => setNotice('Push notifications')}>
-        <Text style={[styles.text, styles.settingCopy]}>Push notifications</Text><Text style={styles.secondary}>On</Text><AppIcon name="chevron" size={16} />
-      </Pressable>
-      <Pressable role="button" accessibilityLabel="Digest Email notifications" style={styles.setting} onPress={() => setNotice('Email notifications')}>
-        <Text style={[styles.text, styles.settingCopy]}>Email notifications</Text><Text style={styles.secondary}>On</Text><Text style={styles.text}>↗</Text>
-      </Pressable>
-      </>}
-    </LibrarySheet>}
+    {settings && <DigestSettingsSheet onClose={() => setSettings(false)} />}
   </>;
 }
 
@@ -136,9 +123,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   done: { minHeight: 48, justifyContent: 'center', borderRadius: 28, backgroundColor: colors.text },
   doneText: { textAlign: 'center', color: colors.background, fontFamily: fonts.sans, fontSize: 14 },
   disabled: { opacity: 0.4 },
-  setting: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 50, paddingVertical: 14, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
-  settingCopy: { flex: 1 },
-  green: { color: colors.green, fontSize: 16 },
   story: { paddingHorizontal: 24, paddingBottom: 24, marginBottom: 24, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border, gap: 12 },
   hero: { width: '100%', borderRadius: 2, marginBottom: 4 },
   storyLink: { minHeight: 48, gap: 6 },

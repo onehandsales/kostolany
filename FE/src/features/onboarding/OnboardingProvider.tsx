@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
 
+import { useNotificationPermission } from '../notifications/NotificationPermissionProvider';
 import { useAuth } from '../auth/AuthProvider';
 import { useRelationships } from '../community/RelationshipProvider';
 import { createOnboardingSession, type OnboardingSession } from './createOnboardingSession';
@@ -18,13 +19,14 @@ export function OnboardingProvider({ children, source, permissionSource }: Onboa
   const auth = useAuth();
   const [fallback] = useState(createMockOnboardingSource);
   const [permission] = useState(createMockNotificationPermission);
+  const sharedPermission = useNotificationPermission();
   const current = source ?? fallback;
   const relationships = useRelationships();
   const userId = auth.state.user?.id ?? null;
   const revision = auth.state.revision;
   const boundary = useMemo(() => ({ source: current, auth: auth.store, userId, revision,
-    relationships: relationships.store, permission: permissionSource ?? permission }),
-  [current, auth.store, userId, revision, relationships.store, permissionSource, permission]);
+    relationships: relationships.store, permission: permissionSource ?? sharedPermission ?? permission }),
+  [current, auth.store, userId, revision, relationships.store, permissionSource, sharedPermission, permission]);
   const session = useMemo(() => boundary.userId
     ? createOnboardingSession(boundary.source, boundary.auth, boundary.userId) : null, [boundary]);
   useEffect(() => session?.activate(), [session]);

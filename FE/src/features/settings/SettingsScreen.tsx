@@ -142,8 +142,8 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
           </View>
         </View>
         <DisplaySettingsFeedback />
-        <SettingsRow title="Push notifications" onPress={() => setNotice('Push notifications')} chevron />
-        <SettingsRow title="Email notifications" onPress={() => setNotice('Email notifications')} chevron />
+        <SettingsRow title="Push notifications" onPress={() => community.openNotificationSettings?.('push')} chevron />
+        <SettingsRow title="Email notifications" onPress={() => community.openNotificationSettings?.('email')} chevron />
         <SettingsRow title="Custom app icon" onPress={() => setNotice('Custom app icon')} chevron />
         <Text role="heading" style={visual.section}>
           Social

@@ -11,6 +11,7 @@ export type AppIconName =
   | 'more'
   | 'plus'
   | 'chevron'
+  | 'select'
   | 'bell'
   | 'write'
   | 'minus'
@@ -26,7 +27,8 @@ export type AppIconName =
   | 'check'
   | 'clap'
   | 'shield'
-  | 'pin';
+  | 'pin'
+  | 'person';
 type AppIconProps = { name: AppIconName; size?: number; color?: string; filled?: boolean };
 
 // 원본 PNG의 윤곽을 참고한 벡터 대체이며 Medium의 원본 아이콘 경로는 확보하지 못했다.
@@ -46,12 +48,14 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
       aria-hidden
       accessible={Platform.OS === 'web' ? undefined : false}
     >
+      {name === 'person' && <><Circle cx={12} cy={7} r={4} /><Path d="M4 22v-3a8 8 0 0 1 16 0v3" /></>}
       {name === 'document' && <Path d="M5 2h14v20H5ZM8 6h8M8 10h8M8 14h8M8 18h5" />}
       {name === 'trash' && <Path d="M3 5h18M9 2h6l1 3M5 5l1 17h12l1-17M9 9v9M12 9v9M15 9v9" />}
       {name === 'pin' && <Path d="m14 2 8 8-3 1-5 5-2-2-8 8 7-9-2-2 5-5Z" />}
       {name === 'shield' && <Path d="M12 2 4 5v6c0 5 4 8 8 11 4-3 8-6 8-11V5l-8-3Zm-3 9 2 2 4-5" fill="none" stroke={color} strokeWidth={1.2} />}
       {name === 'back' && <Path d="m14 5-7 7 7 7" />}
       {name === 'chevron' && <Path d="m9 5 7 7-7 7" />}
+      {name === 'select' && <Path d="m6 9 6-6 6 6M6 15l6 6 6-6" strokeWidth={2} />}
       {name === 'close' && <Path d="m5 5 14 14M19 5 5 19" />}
       {name === 'plus' && <Path d="M12 4v16M4 12h16" />}
       {name === 'more' && (

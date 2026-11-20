@@ -1,10 +1,14 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**현재 Goal43 상태(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
+**현재 진행 — Goal44 구현·두 차례 자체 검토 수행, 원본/실제 native 검증 잔여.** 알림 대상/Follow/읽음·Push/Tailored·Email/Digest 설정과 OS 권한 어댑터를 연결했다. 실제 실행 결과와 비교 차이는 [Goal44 결과](FE_GOAL_44_RESULT.md)를 따른다. 자동 검사·브라우저·JS/Hermes와 실제 native를 구분하며 미확인 메뉴/글꼴·기기 검증은 완료로 계산하지 않는다.
+
+**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44 변경은 그 위에서 검토한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
+
+**Goal43 당시 상태 — 과거 실행 기록(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
 
 **Goal42 당시 상태 — 과거 실행 기록(2026-11-20, macOS): 구현 완료·네이티브 검증 대기·원본 차이 잔여.** 사진 Camera/Library·대명사 최대4·부모 Save/Cancel·공유 이름/아바타·About·Stories 복귀를 연결했다. [Goal42 결과·검증·8081 확인 순서](FE_GOAL_42_RESULT.md)에서 Goal42 당시 코드의 실행 결과와 원본 차이·네이티브 검증 대기를 구분한다. 당시 타입/lint·전체204 suites/1156 tests(355.276초)·8081·web/iOS/Android export를 통과했다. Goal41의194 suites/1114 tests는 과거 기록이다. 실제 native/OS 검증이 남아 Goal42 전체 완료로 표시하지 않는다.
 
-**현재 승인:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
+**Goal43 당시 승인 — 현재 적용 없음:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
 
 Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했다. **Goal37 작성 편집기의 Camera/Library는 여전히 mock 선택**이다. 프로필 OS 호출의 구현과 iOS/Android 기기 성공 검증을 구분한다.
 
@@ -104,7 +108,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | C36 | 다운로드 | Download list·진행/완료·개별 기사 상태·취소/제거/실패 | [35](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-35) | F48; [구현 완료·검증 잔여](FE_GOAL_35_RESULT.md). 원본3쌍·취소/재시도·계정/삭제/열린 사본 회귀 확인. 메모리 본문과 실제 파일/콜드 시작 캐시를 구분한다. |
 | C37 | Library | Your lists/Saved lists/Highlights/Reading history·Digest | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F41; 실제 상태/navigation 연결·저장/강조/이력 회귀 확인. [구현 완료·검증 잔여](FE_GOAL_34_RESULT.md). 다운로드는35 담당이다. |
 | C38 | Digest | 날짜 선택/Done·해당 이야기·last 10 digests | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F43; 발행10개·초안 취소/확정·삭제 날짜·빈 값·실패/늦은 응답 구현. [원본3쌍·잔여](FE_GOAL_34_RESULT.md). 10개와10일을 구분한다. |
-| C39 | Digest | Daily 빈도·Push chevron·Email 외부 링크·설정 복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F44; Goal34는 설정 표시/진입·지원 전 안내/복귀까지 구현. 실제 설정 변경/외부 이동은44 잔여이며 빈도 옵션/이메일 세부 화면은 미수록이다. |
+| C39 | Digest | Daily 빈도·Push chevron·Email 외부 링크·설정 복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F44; Frequency·Push·Email 선택/저장/복귀와 공유 선호 연결. Email 목적지와 빈도 옵션은 자체 mock 보완, 실제 외부 설정/발송 미연결. [결과44](FE_GOAL_44_RESULT.md). |
 | C40 | 편집기 | 제목/본문·서식 툴바·헤더/강조/링크/인용/목록/구분선/코드 | [36](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-36) | F08,F09; [구현 완료·검증 잔여](FE_GOAL_36_RESULT.md). 실제 입력/선택·링크 오류/이탈/계정/5쌍 비교를 확인했다. 코드 실행 후 원본과 native 문단 장식/IME는 잔여다. |
 | C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 이미지 문서/출력·검색/삽입/삭제·오류/계정 수명의 local/mock 구현, [Goal37 결과](FE_GOAL_37_RESULT.md). 실제 Camera/Library OS picker는 구현 잔여이며 업로드/외부 검색은 범위 밖이다. |
 | C42 | 편집기 | Drafts 메뉴·초안 목록/재개·자동 저장/실패 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F10 및 공식 도움말; 자동 저장/실패/재개와 계정 경계를 구현했다. [Goal38 구현 완료·검증 잔여](FE_GOAL_38_RESULT.md). 자동 저장 주기/오류/빈 상태는 자체 보완이다. |
@@ -120,9 +124,9 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | C52 | 프로필 | pronouns 최대 4개·검색/선택·Done→부모 Save/Cancel | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | F56; 최대4·접두 검색·chip 삭제·하위 Done/취소→부모 Save/Cancel 연결. 현재 공식13후보와 보관본 관찰을 구분한다. [Goal42 결과](FE_GOAL_42_RESULT.md). |
 | C53 | 프로필 | About 데스크톱 안내·내 Stories/Public 필터·Lists·팔로우 진입 | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | F55,F57; About inline 데스크톱 안내·계정별 Public/Unlisted·목록 복귀·팔로워/팔로잉 진입 연결. 펼친 필터 원본은 미확보이며 두 옵션은 Goal39의 기존 자체 보완 정책이다. [Goal42 결과](FE_GOAL_42_RESULT.md). |
 | C54 | 통계 | Monthly/Lifetime·날짜/월·Views/Reads·그래프·Stories·Latest | [43](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-43) | F63; 구현·실제 발행/복귀·실패/계정 경합 검증. 펼친 메뉴는 자체 보완,11/2·0/0 원인 미확인. [결과](FE_GOAL_43_RESULT.md). |
-| C55 | 알림 | 유형별 목록·팔로우 버튼·작가/기사/목록/응답 대상·복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F06; 녹색 표시의 읽음 의미는 미확인이다. |
-| C56 | 알림 설정 | Digest/Top stories/Editors/Featured/Applause/Saves 토글 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F59; OS 권한과 앱 선호는 별도다. |
-| C57 | 알림 설정 | Tailored for you·새 글/박수/highlight/응답/mentions·Email | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F59; 선택형 행/잘린 영역/Email 목적지를 보완한다. |
+| C55 | 알림 | 유형별 목록·팔로우 버튼·작가/기사/목록/응답 대상·복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F06; 실제 대상/접근 확인·Follow·읽음/Retry·목록 복귀·계정 격리 구현/검증. 녹색의 원본 의미는 미확인, 읽음은 mock 보완. [결과44](FE_GOAL_44_RESULT.md). |
+| C56 | 알림 설정 | Digest/Top stories/Editors/Featured/Applause/Saves 토글 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F59; 항목별 저장/실패/Retry와 Digest 공유 연결. 계정 선호와 기기 OS 권한 분리, native 어댑터 구현·실기기 검증 대기. [결과44](FE_GOAL_44_RESULT.md). |
+| C57 | 알림 설정 | Tailored for you·새 글/박수/highlight/응답/mentions·Email | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F59; Tailored/All/Off·Email 자체 mock 화면 연결·취소/Done/계정 격리 검증. 펼친 원본·잘린 행은 미확인. [결과44](FE_GOAL_44_RESULT.md). |
 | C58 | 오디오 | Listen 로딩·미니/확장·play/pause/close·시간·10초/30초 이동 | [45](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-45) | F26; mock 타이머/실제 음원 재생을 구분한다. |
 | C59 | 오디오 | 속도 1→2.5·WPM·선택 확인/취소·이전/다음 상태 | [46](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-46) | F27; 200→490은 정확한 배속 곱셈 근거가 아니다. |
 | C60 | 오디오 | Emma→Hans·음성 언어/메타데이터·검색·선택 | [46](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-46) | F28; 음성 언어 변경이 본문 번역은 아니다. |

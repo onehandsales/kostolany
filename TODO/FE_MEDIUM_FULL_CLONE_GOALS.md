@@ -1,10 +1,14 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 Goal43 상태(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
+**현재 진행 — Goal44 구현·두 차례 자체 검토 수행, 원본/실제 native 검증 잔여.** 알림 대상/Follow/읽음·Push/Tailored·Email/Digest 설정과 OS 권한 어댑터를 연결했다. 실제 실행 결과와 비교 차이는 [Goal44 결과](FE_GOAL_44_RESULT.md)를 따른다. 자동 검사·브라우저·JS/Hermes와 실제 native를 구분하며 미확인 메뉴/글꼴·기기 검증은 완료로 계산하지 않는다.
+
+**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44 변경은 그 위에서 검토한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
+
+**Goal43 당시 상태 — 과거 실행 기록(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
 
 **Goal42 당시 상태 — 과거 실행 기록(2026-11-20, macOS): 구현 완료·네이티브 검증 대기·원본 차이 잔여.** 사진 Camera/Library·대명사 최대4·부모 Save/Cancel·공유 이름/아바타·About·Stories 복귀를 연결했다. [Goal42 결과·검증·8081 확인 순서](FE_GOAL_42_RESULT.md)에서 Goal42 당시 코드의 실행 결과와 원본 차이·네이티브 검증 대기를 구분한다. 당시 타입/lint·전체204 suites/1156 tests(355.276초)·8081·web/iOS/Android export를 통과했다. Goal41의194 suites/1114 tests는 과거 기록이다. 실제 native/OS 검증이 남아 Goal42 전체 완료로 표시하지 않는다.
 
-**현재 승인:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
+**Goal43 당시 승인 — 현재 적용 없음:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
 
 Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했다. **Goal37 작성 편집기의 Camera/Library는 여전히 mock 선택**이다. 프로필 OS 호출의 구현과 iOS/Android 기기 성공 검증을 구분한다.
 
@@ -28,7 +32,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. Goal32 작업 시작 HEAD는 `da38ae2`였다.
 
-**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 상단 Goal43 단독 승인이다.
+**과거 Goal31 범위 변경 이력:** Goal31까지만 구현·검토·검증·문서화를 마친 뒤 종료하고 Goal32 이후는 시작하지 않도록 했던 요청이다. 현재 범위는 상단 Goal44~53 연속 승인이다.
 
 작성일: 2026-11-19 KST · 작업 위치: `D:\git_repository\kostolany_project`.
 
@@ -48,14 +52,14 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | 기준 | 확인 내용 |
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
-| 현재 Git 기준 | macOS 시작 HEAD `036ef6e`·Goal42 미커밋45개 경로. 시작 사본과 대조하며 기존 변경을 보존하고 이번 작업은 커밋하지 않는다. |
-| 현재 검증의 범위 | [Goal43 결과](FE_GOAL_43_RESULT.md)의 현재 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
+| 현재 Git 기준 | 재개 HEAD `036ef6e`에서 선행59개 기준 사본을 별도 검증하고 사용자 승인으로 `b11b004`에 기록했다. Goal44~53은 단계별 로컬 커밋한다. |
+| 현재 검증의 범위 | [Goal44 결과](FE_GOAL_44_RESULT.md)의 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
-| 승인 경계 | Goal43만 검토/검사/기록 후 종료한다. mock 유지, 커밋·실제 외부 연동·push·배포·Goal44 이후 제외. |
+| 승인 경계 | Goal44~53 순차 작업·각 단계 로컬 커밋. mock 유지, 실제 외부 연동·push·배포·Goal54 이후 제외. |
 
-기존 문서의 Windows 경로·과거 PID·MVP 제외 범위·이전 종료 문구는 당시 실행의 이력이다. **현재 실행은 macOS `/Users/jaegeunsong/Desktop/workplace/kostolany`와 Goal43 단독·커밋 금지 지시를 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
+기존 문서의 Windows 경로·과거 PID·MVP 제외 범위·이전 종료 문구는 당시 실행의 이력이다. **현재 실행은 macOS `/Users/jaegeunsong/Desktop/workplace/kostolany`와 Goal44~53 순차 작업·단계별 로컬 커밋 지시를 적용**한다. 기존 기능이 일부 있다는 이유로 새 Goal을 완료 처리하지 않으며, 기존 사용자 데이터/4단계 설명/기본 수준/mock 계정 계약은 보존하고 원본 차이를 표시한다.
 
 ## 필수 규칙과 구현 경계
 
@@ -132,7 +136,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | [41](#goal-41) | 온보딩 관심사·추천 팔로우·알림 안내 | 30, 31, 40 | 구현 완료·검증 잔여 ([결과](FE_GOAL_41_RESULT.md)) |
 | [42](#goal-42) | 프로필 사진·대명사·소개·Stories 필터 | 28, 39, 40 | 구현 완료·native/원본 검증 잔여 ([결과](FE_GOAL_42_RESULT.md)) |
 | [43](#goal-43) | Story stats·월간·누적·정렬 | 39, 42 | 구현 완료·native/원본 메뉴·글꼴 검증 잔여 ([결과](FE_GOAL_43_RESULT.md)) |
-| [44](#goal-44) | 알림 목록·Push·Email·Tailored 설정 | 26, 28, 34, 41 | 미착수 |
+| [44](#goal-44) | 알림 목록·Push·Email·Tailored 설정 | 26, 28, 34, 41 | 구현 완료·원본/native 검증 잔여 — [결과](FE_GOAL_44_RESULT.md) |
 | [45](#goal-45) | Listen·미니/확장 플레이어·재생 제어 | 25 | 미착수 |
 | [46](#goal-46) | 재생 속도·음성·검색·AirPlay·큐 상태 | 29, 45 | 미착수 |
 | [47](#goal-47) | 기사·인용·작가·토픽·목록 공유와 이미지 저장 | 27, 28, 30, 32, 46 | 미착수 |
@@ -480,7 +484,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 44 — 알림 목록·Push·Email·Tailored 설정
 
-- **상태/선행:** 미착수 / Goal 26, Goal 28, Goal 34, Goal 41.
+- **상태/선행:** 구현 완료·원본/실제 native 검증 잔여 / Goal 26, Goal 28, Goal 34, Goal 41. [결과44](FE_GOAL_44_RESULT.md)에 두 차례 자체 검토·수정·현재 검사와 남은 차이를 기록한다.
 - **원본:** [F05](FE_MEDIUM_FULL_CLONE_MAP.md#f05), [F06](FE_MEDIUM_FULL_CLONE_MAP.md#f06), [F43](FE_MEDIUM_FULL_CLONE_MAP.md#f43), [F44](FE_MEDIUM_FULL_CLONE_MAP.md#f44), [F53](FE_MEDIUM_FULL_CLONE_MAP.md#f53), [F58](FE_MEDIUM_FULL_CLONE_MAP.md#f58), [F59](FE_MEDIUM_FULL_CLONE_MAP.md#f59). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 팔로우/기사/목록/응답 등 알림 종류별 이동·Follow 버튼, Push의 Digest/Top stories/Editors/Featured/Applause/Saves, Tailored for you의 작가 새 글/박수/highlight/응답/멘션 설정과 Email/Digest 설정 연결을 구현한다.
 - **시각 비교:** 알림 행·시간·아바타·대상 텍스트·토글/선택형 행·하단 잘린 영역을 구분하여 맞춘다.

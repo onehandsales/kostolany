@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { spacing, typography, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { WriteButton } from '../../shared/ui/WriteButton';
 
 import { useCommunityNavigation } from '../community/CommunityNavigation';
@@ -29,7 +28,6 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const [sort, setSort] = useState<FeedSort>('latest');
-  const [notice, setNotice] = useState<string | null>(null);
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -42,7 +40,7 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
           <IconButton
             icon="bell"
             label="Notifications"
-            onPress={() => setNotice('Notifications')}
+            onPress={() => community.openNotifications?.()}
             color={colors.secondaryText}
             style={styles.notification}
           />
@@ -68,7 +66,6 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
         />
       )}
       <WriteButton onPress={community.openWrite} />
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </SafeAreaView>
   );
 }

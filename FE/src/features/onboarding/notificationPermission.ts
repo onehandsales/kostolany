@@ -1,8 +1,11 @@
 import { waitForOnboarding } from './onboardingSource';
 
-export type NotificationPermission = 'undetermined' | 'granted' | 'denied';
+export type NotificationPermission = 'undetermined' | 'granted' | 'denied' | 'unsupported';
 export type NotificationPermissionSource = {
+  kind?: 'mock' | 'native' | 'unsupported';
   read: () => NotificationPermission;
+  refresh?: () => Promise<NotificationPermission>;
+  openSettings?: () => Promise<void>;
   request: (signal: AbortSignal) => Promise<NotificationPermission>;
 };
 export function createMockNotificationPermission(options: {

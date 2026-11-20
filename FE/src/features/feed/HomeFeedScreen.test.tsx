@@ -8,18 +8,6 @@ import { article, deferred } from './tests/helpers';
 import type { FeedPage, FeedRequest, FeedSource } from './types';
 
 describe('Home feed', () => {
-  it('알림 안내를 닫아도 선택한 피드와 기사를 유지한다', async () => {
-    const user = userEvent.setup();
-    const source = jest.fn(createMockFeedSource({ delayMs: 0 }));
-    await render(<HomeFeedScreen source={source} onSelectArticle={jest.fn()} />);
-    await screen.findByRole('button', { name: /^금리가 오르면/ });
-    await user.press(screen.getByRole('button', { name: 'Notifications' }));
-    expect(screen.getByRole('heading', { name: 'Notifications' })).toBeVisible();
-    await user.press(screen.getByRole('button', { name: 'Got it' }));
-    expect(screen.queryByRole('heading', { name: 'Notifications' })).not.toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: /^금리가 오르면/ })).toBeVisible();
-    expect(source).toHaveBeenCalledTimes(1);
-  });
 
   it('shows loading then passes only the chosen article ID, including cards without images', async () => {
     const firstPage = deferred<FeedPage>();

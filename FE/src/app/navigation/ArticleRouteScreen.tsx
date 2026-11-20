@@ -10,7 +10,7 @@ import { previewArticleSource } from '../../features/article/data/articlePreview
 
 export type ArticleRouteParams = {
   articleId: string;
-  origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Author' | 'Topic' | 'History' | 'PublicList' | 'Digest';
+  origin: 'Home' | 'Explore' | 'Library' | 'Profile' | 'Author' | 'Topic' | 'History' | 'PublicList' | 'Digest' | 'Notifications';
   listId?: string;
   highlightId?: string;
   ownerUserId?: string;
@@ -42,7 +42,7 @@ export function ArticleRouteScreen({
   const canReturnToList =
     params.ownerUserId === state.user?.id && params.sessionRevision === state.revision && hasList;
   const backLabel =
-    params.origin === 'Library' || params.origin === 'Profile'
+    params.origin === 'Notifications' ? '알림으로 돌아가기' : params.origin === 'Library' || params.origin === 'Profile'
       ? canReturnToList
         ? params.listId === DEFAULT_LIST_ID
           ? '읽기 목록으로 돌아가기'

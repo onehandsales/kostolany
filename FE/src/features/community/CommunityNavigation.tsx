@@ -3,6 +3,8 @@ import { createContext, useContext } from 'react';
 import type { FollowTarget } from './types';
 
 export type CommunityNavigation = {
+  openNotifications?: () => void;
+  openNotificationSettings?: (section: 'push' | 'email') => void;
   openWrite: () => void;
   openDrafts?: () => void;
   openWrittenStory?: (storyId: string) => void;

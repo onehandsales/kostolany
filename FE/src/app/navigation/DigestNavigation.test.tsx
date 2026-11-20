@@ -67,7 +67,9 @@ it('Digest 날짜 취소·확정·빈 날짜와 기사 복귀 및 Library 탭 �
   await user.press(screen.getByRole('tab', { name: 'Saved lists' })); await user.press(screen.getByRole('tab', { name: 'Digest' }));
   expect(screen.getByText('June 11, 2025')).toBeVisible();
   await user.press(button('Digest 설정')); await screen.findByRole('heading', { name: 'Digest settings' });
-  await user.press(button('Digest Push notifications')); await user.press(button('Got it'));
+  await user.press(button('Digest Push notifications'));
+  await screen.findByRole('switch', { name: 'New Medium Digest' });
+  await user.press(button('Push notifications 뒤로'));
   await screen.findByRole('heading', { name: 'Digest settings' });
   await user.press(button('Digest settings 닫기'));
   await user.press(button('Digest 날짜 선택')); await user.press(screen.getByRole('radio', { name: 'June 7, 2025' }));

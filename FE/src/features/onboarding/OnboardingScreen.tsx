@@ -70,12 +70,24 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
   const [permissionResult, setPermissionResult] = useState(permission.read);
   const lifetime = useRef(new AbortController());
   const operationPending = useRef(false);
+  const permissionIntent = useRef(0);
   useEffect(() => {
     lifetime.current = new AbortController();
     operationPending.current = false;
     return () => lifetime.current.abort();
   }, []);
   const current = () => session.isCurrent() && !lifetime.current.signal.aborted;
+  useEffect(() => {
+    if (state.record?.step !== 'notifications' || !permission.refresh) return;
+    let active = true;
+    const intent = permissionIntent.current;
+    void Promise.resolve().then(() => permission.refresh?.() ?? permission.read()).then(value => {
+      if (active && intent === permissionIntent.current) setPermissionResult(value);
+    }, () => {
+      if (active && intent === permissionIntent.current) setError('기기 알림 권한을 조회하지 못했어요. 다시 요청하거나 건너뛰세요.');
+    });
+    return () => { active = false; };
+  }, [permission, state.record?.step]);
   if (!record) return null;
   const step = record.step;
   const busy = state.busy || working;
@@ -118,17 +130,19 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
   async function chooseNotifications(enable: boolean) {
     if (busy || operationPending.current || !current()) return;
     operationPending.current = true;
+    permissionIntent.current++;
     const requestLifetime = lifetime.current;
     setWorking(true); setError(null);
     try {
       const result = enable ? await permission.request(lifetime.current.signal) : permission.read();
       if (!current() || lifetime.current !== requestLifetime) return;
-      if (!['undetermined', 'granted', 'denied'].includes(result)) throw new Error('invalid-permission');
+      if (enable && result !== 'granted' && result !== 'denied') throw new Error('unresolved-permission');
+      if (!['undetermined', 'granted', 'denied', 'unsupported'].includes(result)) throw new Error('invalid-permission');
       setPermissionResult(result); setWorking(false);
       await session.save(record?.showMembership ? 'membership' : 'complete',
         enable ? result === 'granted' ? 'enabled' : 'denied' : 'skipped');
     } catch {
-      if (current() && lifetime.current === requestLifetime) { setWorking(false); setError('모의 알림 권한을 확인하지 못했어요. 다시 시도하거나 건너뛰세요.'); }
+      if (current() && lifetime.current === requestLifetime) { setWorking(false); setError('알림 권한을 확인하거나 요청할 수 없어요. 다시 시도하거나 건너뛰세요.'); }
     } finally {
       if (lifetime.current === requestLifetime) operationPending.current = false;
     }
@@ -198,12 +212,12 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
         {step === 'notifications' && <>
           <Text role="heading" style={styles.title}>Stay up to date.</Text>
           <Text style={styles.description}>Turn on notifications, and we’ll let you know when writers you follow publish new stories.</Text>
-          <Text style={styles.mock}>MOCK · 실제 OS 알림 권한이나 발송을 요청하지 않아요.{ '\n' }모의 기기 권한: {permissionResult}</Text>
+          <Text style={styles.mock}>{permission.kind === 'native' ? '기기 알림 권한' : permission.kind === 'unsupported' ? '현재 실행 환경에서는 알림 권한을 요청할 수 없어요' : '모의 기기 권한'}: {permissionResult}{'\n'}실제 알림 발송은 연결하지 않았어요.</Text>
         </>}
         {step === 'membership' && <>
           <Text role="heading" style={styles.membership}>Support independent writing and get the best of Medium.</Text>
           <Text style={styles.description}>Explore membership</Text>
-          {record.notificationChoice === 'denied' && <Text style={styles.mock}>모의 알림 권한이 거절됐어요. 알림 없이 계속 읽을 수 있어요.</Text>}
+          {record.notificationChoice === 'denied' && <Text style={styles.mock}>이전 알림 권한 요청이 거절됐어요. 알림 없이 계속 읽을 수 있어요.</Text>}
           {membership && <View style={styles.membershipNotice}><Text style={styles.name}>Medium membership</Text>
             <Text style={styles.description}>멤버십 구매는 아직 지원하지 않아요. 결제 없이 읽기를 계속할 수 있어요.</Text>
             <OnboardingAction label="멤버십 안내 닫기" caption="Back" onPress={() => setMembership(false)} secondary disabled={locked} /></View>}
@@ -217,7 +231,7 @@ function OnboardingFlow({ session, permission }: OnboardingScreenProps) {
       {step === 'following' && <OnboardingAction label="추천 팔로우 완료" caption="Finish" disabled={locked} onPress={() => { void session.save('notifications'); }} />}
       {step === 'notifications' && <>
         <OnboardingAction label="알림 안내 건너뛰기" caption="Skip this step" disabled={locked} secondary onPress={() => { void chooseNotifications(false); }} />
-        <OnboardingAction label="모의 알림 사용" caption="Enable Notifications" disabled={locked} onPress={() => { void chooseNotifications(true); }} />
+        <OnboardingAction label={permission.kind === 'native' ? '알림 OS 권한 요청' : permission.kind === 'unsupported' ? '알림 권한 사용 불가' : '모의 알림 사용'} caption="Enable Notifications" disabled={locked} onPress={() => { void chooseNotifications(true); }} />
       </>}
       {step === 'membership' && <>
         <OnboardingAction label="멤버십 안내 열기" caption="Explore membership" disabled={locked} secondary onPress={() => setMembership(true)} />

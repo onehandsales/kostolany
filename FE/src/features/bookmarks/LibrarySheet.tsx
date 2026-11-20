@@ -27,6 +27,7 @@ type LibrarySheetProps = {
   titleLabel?: string;
   closeText?: string;
   closeSide?: 'left' | 'right';
+  closeIcon?: 'close' | 'back';
   hideClose?: boolean;
   variant?: 'standard' | 'confirmation';
 } & (
@@ -44,6 +45,7 @@ export function LibrarySheet({
   closeLabel = '취소',
   closeText = closeLabel,
   closeSide = 'right',
+  closeIcon,
   hideClose = false,
   variant = 'standard',
   contentStyle,
@@ -87,7 +89,9 @@ export function LibrarySheet({
                   onPress={onClose}
                   style={[styles.close, closeSide === 'left' && styles.closeLeft, variant === 'confirmation' && styles.confirmationClose]}
                 >
-                  {variant === 'confirmation' ? <AppIcon name="close" size={18} color={colors.secondaryText} /> : <Text style={styles.closeText}>{closeText}</Text>}
+                  {closeIcon ? <View style={{ alignItems: 'center' }}><AppIcon name={closeIcon} size={20} color={colors.secondaryText} /></View>
+                    : variant === 'confirmation' ? <AppIcon name="close" size={18} color={colors.secondaryText} />
+                      : <Text style={styles.closeText}>{closeText}</Text>}
                 </Pressable>
               )}
             </View>
@@ -162,7 +166,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     justifyContent: 'center',
   },
   closeText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, textAlign: 'center' },
-  closeLeft: { left: 0, right: undefined },
+  // 웹에서 undefined는 기존 right를 지우지 않아 버튼이 제목까지 늘어날 수 있다.
+  closeLeft: { left: 0, right: 'auto', width: sizes.minimumTouchTarget },
   confirmationHeader: { paddingTop: 38, paddingBottom: 10, borderBottomWidth: 0 },
   confirmationTitle: { fontSize: 20, lineHeight: 26 },
   confirmationClose: { top: 0, right: 0, alignItems: 'center' },

@@ -1,10 +1,14 @@
 # Kostolany Mobile
 
-**현재 Goal43 상태(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](../TODO/FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
+**현재 진행 — Goal44 구현·두 차례 자체 검토 수행, 원본/실제 native 검증 잔여.** 알림 대상/Follow/읽음·Push/Tailored·Email/Digest 설정과 OS 권한 어댑터를 연결했다. 실제 실행 결과와 비교 차이는 [Goal44 결과](../TODO/FE_GOAL_44_RESULT.md)를 따른다. 자동 검사·브라우저·JS/Hermes와 실제 native를 구분하며 미확인 메뉴/글꼴·기기 검증은 완료로 계산하지 않는다.
+
+**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44 변경은 그 위에서 검토한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
+
+**Goal43 당시 상태 — 과거 실행 기록(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](../TODO/FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
 
 **Goal42 당시 상태 — 과거 실행 기록(2026-11-20, macOS): 구현 완료·네이티브 검증 대기·원본 차이 잔여.** 사진 Camera/Library·대명사 최대4·부모 Save/Cancel·공유 이름/아바타·About·Stories 복귀를 연결했다. [Goal42 결과·검증·8081 확인 순서](../TODO/FE_GOAL_42_RESULT.md)에서 Goal42 당시 코드의 실행 결과와 원본 차이·네이티브 검증 대기를 구분한다. 당시 타입/lint·전체204 suites/1156 tests(355.276초)·8081·web/iOS/Android export를 통과했다. Goal41의194 suites/1114 tests는 과거 기록이다. 실제 native/OS 검증이 남아 Goal42 전체 완료로 표시하지 않는다.
 
-**현재 승인:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
+**Goal43 당시 승인 — 현재 적용 없음:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
 
 Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했다. **Goal37 작성 편집기의 Camera/Library는 여전히 mock 선택**이다. 프로필 OS 호출의 구현과 iOS/Android 기기 성공 검증을 구분한다.
 

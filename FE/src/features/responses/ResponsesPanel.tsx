@@ -48,6 +48,7 @@ export function ResponsesPanel({
   initialEditId,
   initialDeleteId,
   initialQuote,
+  initialFocusId,
   onClose,
 }: {
   target: ResponseTarget;
@@ -55,6 +56,7 @@ export function ResponsesPanel({
   initialEditId?: string;
   initialDeleteId?: string;
   initialQuote?: ResponseQuote;
+  initialFocusId?: string;
   onClose: () => void;
 }) {
   const styles = useThemeStyles(createStyles);
@@ -112,7 +114,17 @@ export function ResponsesPanel({
   const selectedId = composer.mode === 'edit' ? composer.id : composer.parentId;
   const selected = selectedId ? responses.find((response) => response.id === selectedId) : null;
   const invalidTarget = Boolean(selectedId && (!selected || selected.deleted));
-  const rows = responseRows(responses, sort, store?.userId ?? null, visibleReplies);
+  // 알림 대상의 조상 답글만 처음 펼치며 사용자의 후속 펼침 선택을 우선한다.
+  const notificationReplies: Record<string, number> = {};
+  let notificationParent = responses.find(item => item.id === initialFocusId)?.parentId;
+  while (notificationParent && !notificationReplies[notificationParent]) {
+    notificationReplies[notificationParent] = Number.MAX_SAFE_INTEGER;
+    notificationParent = responses.find(item => item.id === notificationParent)?.parentId;
+  }
+  const rows = responseRows(responses, sort, store?.userId ?? null, { ...notificationReplies, ...visibleReplies });
+  const responseList = useRef<FlatList<ReturnType<typeof responseRows>[number]>>(null);
+  const focusIndex = rows.findIndex(row => row.id === initialFocusId);
+  const scrolledToFocus = useRef(false);
   function requireLogin(): void {
     auth.store.openLogin({
       kind: 'response',
@@ -315,7 +327,17 @@ export function ResponsesPanel({
               )}
               {store && state?.value && (
                 <FlatList
+                  ref={responseList}
                   data={rows}
+                  onContentSizeChange={() => {
+                    if (focusIndex >= 0 && !scrolledToFocus.current) {
+                      scrolledToFocus.current = true;
+                      responseList.current?.scrollToIndex({ index: focusIndex, animated: false });
+                    }
+                  }}
+                  onScrollToIndexFailed={({ averageItemLength, index }) => {
+                    responseList.current?.scrollToOffset({ offset: averageItemLength * index, animated: false });
+                  }}
                   keyExtractor={(row) => row.id}
                   style={styles.flex}
                   contentContainerStyle={styles.list}
@@ -324,6 +346,9 @@ export function ResponsesPanel({
                   windowSize={7}
                   ListHeaderComponent={
                     <View>
+                      {initialFocusId && <Text accessibilityLiveRegion="polite" style={styles.status}>
+                        {responses.some(item => item.id === initialFocusId && !item.deleted) ? '알림의 응답을 표시하고 있어요.' : '알림의 응답이 삭제되었거나 더 이상 표시되지 않아요.'}
+                      </Text>}
                       <ResponseManagement target={target} />
                       <View ref={sortAnchor} collapsable={false}>
                         <Pressable
@@ -406,7 +431,7 @@ export function ResponsesPanel({
                         depth={item.depth}
                         childCount={item.childCount}
                         repliesVisible={(visibleReplies[item.id] ?? 1) > 0}
-                        selected={selectedId === item.id}
+                        selected={selectedId === item.id || initialFocusId === item.id}
                         store={store}
                         displayName={profile.state.profile?.name}
                         onRequireLogin={requireLogin}

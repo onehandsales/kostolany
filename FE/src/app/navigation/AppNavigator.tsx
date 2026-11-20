@@ -83,8 +83,17 @@ import type { DigestSource } from '../../features/digest/types';
 import { DownloadProvider } from '../../features/downloads/DownloadProvider';
 import type { DownloadSource } from '../../features/downloads/types';
 import type { StoryStatsSource } from '../../features/story-stats/types';
+import { NotificationProvider } from '../../features/notifications/NotificationProvider';
+import { NotificationPermissionProvider } from '../../features/notifications/NotificationPermissionProvider';
+import { NotificationsScreen } from '../../features/notifications/NotificationsScreen';
+import { NotificationSettingsScreen } from '../../features/notifications/NotificationSettingsScreen';
+import type { NotificationSource } from '../../features/notifications/types';
+import { ResponsesPanel } from '../../features/responses/ResponsesPanel';
 
 type RootStackParamList = {
+  Notifications: undefined;
+  NotificationSettings: { section: 'push' | 'email'; originTab: keyof MainTabParamList };
+  NotificationResponse: { articleId: string; responseId: string };
   WrittenStory: { storyId: string };
   Editor: { ownerId: string; revision: number; draftId: string; isNew: boolean };
   Drafts: { ownerId: string; revision: number };
@@ -109,6 +118,7 @@ type AppNavigatorProps = {
   statsSource?: StoryStatsSource;
   onboardingSource?: OnboardingSource;
   notificationPermissionSource?: NotificationPermissionSource;
+  notificationSource?: NotificationSource;
   draftSource?: DraftSource;
   editorImageSource?: EditorImageSource;
   downloadSource?: DownloadSource;
@@ -147,9 +157,13 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
 export function SessionNavigation(sources: AppNavigatorProps) {
   const { state } = useAuth();
   return (
+    <NotificationPermissionProvider source={sources.notificationPermissionSource}>
+    <NotificationProvider source={sources.notificationSource}>
     <DisplaySettingsProvider userId={state.user?.id ?? null} source={sources.displaySource}>
       <SessionNavigationContent {...sources} />
     </DisplaySettingsProvider>
+    </NotificationProvider>
+    </NotificationPermissionProvider>
   );
 }
 
@@ -314,6 +328,14 @@ function SessionNavigationContent({
                                   if (navigationRef.isReady())
                                     navigationRef.dispatch(StackActions.push('PublicList', { listId, ownerId, originTab: currentTab() }));
                                 },
+                                openNotifications: () => {
+                                  if (!state.user) { authStore.openLogin({ kind: 'notifications' }); return; }
+                                  if (navigationRef.isReady()) navigationRef.navigate('Notifications');
+                                },
+                                openNotificationSettings: section => {
+                                  if (!state.user) { authStore.openLogin({ kind: 'notifications' }); return; }
+                                  if (navigationRef.isReady()) navigationRef.navigate('NotificationSettings', { section, originTab: currentTab() });
+                                },
                                 openWrite: () => {
                                   if (!state.user) { authStore.openLogin({ kind: 'write' }); return; }
                                   if (navigationRef.isReady()) navigationRef.navigate('Editor', { ownerId: state.user.id, revision: state.revision, draftId: drafts.newId(state.user.id), isNew: true });
@@ -333,6 +355,22 @@ function SessionNavigationContent({
                                   initialRouteName="Main"
                                   screenOptions={{ headerShown: false }}
                                 >
+                                  {state.user && <Stack.Group navigationKey={`notifications:${state.user.id}:${state.revision}`}>
+                                    <Stack.Screen name="Notifications">{({ navigation }) => <NotificationsRoute articleSource={articleSource}
+                                      onBack={() => navigation.goBack()} onOpen={target => {
+                                        if (target.kind === 'writer') navigation.push('Identity', { target: { kind: 'writer', id: target.id }, originTab: 'Home' });
+                                        else if (target.kind === 'list') navigation.push('PublicList', { listId: target.id, ownerId: target.ownerId, originTab: 'Home' });
+                                        else if (target.kind === 'response') navigation.push('NotificationResponse', target);
+                                        else navigation.push('Article', { articleId: target.id, origin: 'Notifications' });
+                                      }} footer={<PublicTabFooter selected="Home" onSelect={screen => navigation.popTo('Main', { screen })} />} />}</Stack.Screen>
+                                    <Stack.Screen name="NotificationSettings">{({ navigation, route }) => <>
+                                      <NotificationSettingsScreen section={route.params.section} onBack={() => navigation.goBack()} />
+                                      <PublicTabFooter selected={route.params.originTab} onSelect={screen => navigation.popTo('Main', { screen })} />
+                                    </>}</Stack.Screen>
+                                    <Stack.Screen name="NotificationResponse">{({ navigation, route }) => <NotificationResponseRoute
+                                      articleId={route.params.articleId} responseId={route.params.responseId} source={articleSource}
+                                      explanationSource={explanationSource} onBack={() => navigation.goBack()} />}</Stack.Screen>
+                                  </Stack.Group>}
                                   <Stack.Screen name="Main">
                                     {({ navigation }) => (
                                       <MainTabs
@@ -575,4 +613,19 @@ function SessionAuthDialogs() {
 function FocusedIdentity(props: React.ComponentProps<typeof PublicIdentityScreen>) {
   const focused = useIsFocused();
   return <PublicIdentityScreen {...props} active={focused} />;
+}
+
+// 알림의 개인 경로만 인증 수명으로 제거하고 기존 공개 navigation은 보존한다.
+function NotificationsRoute(props: Omit<React.ComponentProps<typeof NotificationsScreen>, 'active'>) {
+  const active = useIsFocused();
+  return <NotificationsScreen {...props} active={active} />;
+}
+function NotificationResponseRoute({ articleId, responseId, source, explanationSource, onBack }: {
+  articleId: string; responseId: string; source?: ArticleSource; explanationSource?: ExplanationSource; onBack: () => void;
+}) {
+  const [open, setOpen] = useState(true); const active = useIsFocused();
+  return <><ArticleRouteScreen params={{ articleId, origin: 'Notifications' }} source={source}
+    explanationSource={explanationSource} onBack={onBack} isFocused={active} />
+    {open && active && <ResponsesPanel target={{ kind: 'article', id: articleId }} initialFocusId={responseId} onClose={() => setOpen(false)} />}
+  </>;
 }
