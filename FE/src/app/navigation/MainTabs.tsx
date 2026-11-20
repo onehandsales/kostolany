@@ -16,6 +16,7 @@ import type { DigestSource } from '../../features/digest/types';
 import { useProfile } from '../../features/profile/ProfileProvider';
 import { ProfileAvatar } from '../../features/profile/ProfileAvatar';
 import type { StoryStatsSource } from '../../features/story-stats/types';
+import { ListeningMiniPlayer } from '../../features/listening/ListeningPlayer';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -46,7 +47,12 @@ export function MainTabs({
     <Tab.Navigator
       initialRouteName="Home"
       backBehavior="history"
-      tabBar={(props) => <BottomTabBar {...props} />}
+      tabBar={(props) => (
+        <>
+          <ListeningMiniPlayer />
+          <BottomTabBar {...props} />
+        </>
+      )}
       screenOptions={({ route }) => ({
         headerShown: false,
         animation: 'none',

@@ -18,6 +18,9 @@ export type AppIconName =
   | 'comment'
   | 'share'
   | 'play'
+  | 'pause'
+  | 'previous'
+  | 'next'
   | 'lock'
   | 'download'
   | 'settings'
@@ -96,6 +99,14 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
           <Path d="m10 8 6 4-6 4Z" fill={color} />
         </>
       )}
+      {name === 'pause' && (
+        <>
+          <Circle cx={12} cy={12} r={9} />
+          <Path d="M10 9v6M14 9v6" strokeWidth={1.5} />
+        </>
+      )}
+      {name === 'previous' && <Path d="M4 4v16M20 4 6 12l14 8Z" fill={color} />}
+      {name === 'next' && <Path d="M20 4v16M4 4l14 8L4 20Z" fill={color} />}
       {name === 'lock' && (
         <>
           <Rect x={6} y={10} width={12} height={11} rx={1} fill={color} />

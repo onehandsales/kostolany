@@ -24,6 +24,7 @@ import { useReaderTypography } from '../settings/useReaderTypography';
 import { ClapControl, UndoClaps } from '../reactions/ClapControl';
 import { ResponseButton } from '../responses/ResponseButton';
 import { PassageReader } from '../highlights/PassageReader';
+import { ListenControl } from '../listening/ListenControl';
 
 import { articleSelectionDocument } from './articleSelectionDocument';
 import { ReferenceArticleFooter } from './ReferenceArticleFooter';
@@ -120,13 +121,7 @@ export function ReferenceArticleView({
       >
         <IconButton icon="back" label={backLabel} onPress={onBack} color={colors.secondaryText} />
         <View style={styles.flex} />
-        <IconButton
-          icon="play"
-          label="Listen"
-          disabled={Boolean(access)}
-          onPress={() => notice('Listen')}
-          style={styles.listen}
-        />
+        <ListenControl article={article} disabled={Boolean(access) || !active} />
         <IconButton
           icon="more"
           label="Story options"
@@ -494,7 +489,6 @@ const createStyles = (colors: ThemeColors) =>
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: colors.border,
     },
-    listen: { alignItems: 'flex-end', paddingRight: 4 },
     scroll: { paddingHorizontal: 24, paddingTop: 27, paddingBottom: 32 },
     body: { width: '100%', maxWidth: 680, alignSelf: 'center' },
     memberBadge: {

@@ -89,6 +89,9 @@ import { NotificationsScreen } from '../../features/notifications/NotificationsS
 import { NotificationSettingsScreen } from '../../features/notifications/NotificationSettingsScreen';
 import type { NotificationSource } from '../../features/notifications/types';
 import { ResponsesPanel } from '../../features/responses/ResponsesPanel';
+import { ListeningProvider } from '../../features/listening/ListeningProvider';
+import { ListeningPlayer } from '../../features/listening/ListeningPlayer';
+import type { ListeningSource } from '../../features/listening/types';
 
 type RootStackParamList = {
   Notifications: undefined;
@@ -115,6 +118,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  listeningSource?: ListeningSource;
   statsSource?: StoryStatsSource;
   onboardingSource?: OnboardingSource;
   notificationPermissionSource?: NotificationPermissionSource;
@@ -168,6 +172,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  listeningSource,
   statsSource,
   onboardingSource,
   notificationPermissionSource,
@@ -208,6 +213,15 @@ function SessionNavigationContent({
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
     const name = tabState?.routes[tabState.index ?? 0]?.name;
     return name === 'Explore' || name === 'Library' || name === 'Profile' ? name : 'Home';
+  }
+  function viewListeningStory(articleId: string) {
+    if (!navigationRef.isReady()) return;
+    const current = navigationRef.getCurrentRoute();
+    if (
+      current?.name === 'Article' && current.params &&
+      'articleId' in current.params && current.params.articleId === articleId
+    ) return;
+    navigationRef.dispatch(StackActions.push('Article', { articleId, origin: currentTab() }));
   }
   const theme = {
     ...DefaultTheme,
@@ -349,6 +363,7 @@ function SessionNavigationContent({
                                 },
                               }}
                             >
+                              <ListeningProvider source={listeningSource}>
                               <NavigationContainer theme={theme} ref={navigationRef}>
                                 <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
                                 <Stack.Navigator
@@ -526,7 +541,9 @@ function SessionNavigationContent({
                                     )}
                                   </Stack.Screen>
                                 </Stack.Navigator>
+                                <ListeningPlayer onViewStory={viewListeningStory} />
                               </NavigationContainer>
+                              </ListeningProvider>
                               <SessionAuthDialogs />
                             </CommunityNavigationProvider>
                             </OnboardingProvider>

@@ -16,6 +16,8 @@ import { articleSelectionDocument } from './articleSelectionDocument';
 import { RecordArticleVisit } from '../reading-history/ReadingHistoryProvider';
 import { ArticleDisplayControl } from '../settings/ArticleDisplayControl';
 import { useReaderTypography } from '../settings/useReaderTypography';
+import { ListenControl } from '../listening/ListenControl';
+import { ListeningMiniPlayer } from '../listening/ListeningPlayer';
 import { previewArticleSource } from './data/articlePreview';
 import { ExplanationSection } from './ExplanationSection';
 import { ReferenceArticleView } from './ReferenceArticleView';
@@ -83,6 +85,7 @@ export function ArticleDetailScreen({
           preference={entryPreference}
           onSelectArticle={onSelectArticle}
         />
+        <ListeningMiniPlayer />
       </SafeAreaView>
     );
   return (
@@ -111,6 +114,9 @@ export function ArticleDetailScreen({
           </Svg>
         </Pressable>
         <View style={styles.headerSpace} />
+        {state.status === 'ready' && (
+          <ListenControl article={state.article} disabled={Boolean(access) || !isFocused} />
+        )}
         <ArticleDisplayControl />
       </View>
       {/* 기사가 바뀌면 본문과 스크롤 세션만 새로 시작하고 공유 반응은 유지한다. */}
@@ -123,6 +129,7 @@ export function ArticleDetailScreen({
         explanationSource={explanationSource}
         preference={entryPreference}
       />
+      <ListeningMiniPlayer />
     </SafeAreaView>
   );
 }
