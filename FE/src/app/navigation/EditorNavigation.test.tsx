@@ -85,12 +85,12 @@ it('제목·본문·선택 서식과 링크 취소·유효성 오류·적용을 
   await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' }); await open();
   expect(screen.getByLabelText('글 제목')).toHaveDisplayValue(''); expect(screen.queryByText('첫 문장')).toBeNull();
 }, 30000);
-it('검색과 프로필의 실제 글쓰기 진입은 각각 원래 탭으로 돌아오며 후속 안내는 내용에 영향을 주지 않는다', async () => {
+it('검색과 프로필의 실제 글쓰기 진입은 각각 원래 탭으로 돌아오며 발행 미리보기 취소는 내용을 보존한다', async () => {
   const { user, open } = await setup();
   await user.press(screen.getByRole('tab', { name: '탐색' })); await open(); await user.press(button('편집기 닫기'));
   expect(screen.getByRole('tab', { name: '탐색', selected: true })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '프로필' })); await open(); await inputBody('보존할 본문');
-  await user.press(button('Next')); await user.press(button('Got it')); expect(screen.getByText('보존할 본문')).toBeVisible();
+  await user.press(button('Next')); await user.press(button('발행 미리보기 닫기')); expect(screen.getByText('보존할 본문')).toBeVisible();
   await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' });
   expect(screen.getByRole('tab', { name: '프로필', selected: true })).toBeVisible();
 }, 30000);

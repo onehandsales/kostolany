@@ -4,6 +4,7 @@ import { mockUserA, mockUserB } from '../auth/data/mockUsers';
 import { createDraftSession } from './createDraftSession';
 import { createMockDraftSource, type Draft, type DraftSource, type SaveDraft } from './draftSource';
 import { changeBody, emptyEditor, insertImage } from './editorModel';
+import { emptyPublishOptions } from './publishing';
 
 beforeEach(() => jest.useFakeTimers()); afterEach(() => jest.useRealTimers());
 const signal = () => new AbortController().signal;
@@ -35,7 +36,7 @@ it('저장 중 더 최신 입력과 중복 flush를 직렬화하고 오래된 �
   const saving = session.flush(); expect(session.flush()).toBe(saving);
   session.edit(changeBody(session.getSnapshot().value, '최신')); pending[0]!.reject(new Error('old'));
   await Promise.resolve(); expect(pending).toHaveLength(2);
-  const command = pending[1]!.command; pending[1]!.resolve({ id: command.draftId, userId: command.userId, document: command.document, updatedAt: '' });
+  const command = pending[1]!.command; pending[1]!.resolve({ id: command.draftId, userId: command.userId, document: command.document, publishing: command.publishing ?? emptyPublishOptions(), updatedAt: '' });
   expect(await saving).toBe(true); expect(session.getSnapshot().value.document.body).toBe('최신'); expect(session.getSnapshot().dirty).toBe(false); close();
 });
 it('낮은 버전과 다른 소유자의 저장은 최신 내용을 덮지 않고 계정 전환 전 요청은 저장소에서도 중단한다', async () => {
@@ -57,9 +58,9 @@ it('해제 뒤 늦은 성공·실패와 재활성화 이전 응답은 현재 세
   const source = { ...base, save: (command: SaveDraft) => new Promise<Draft>(resolve => pending.push(resolve)) };
   const { session, scope, close } = setup(source); session.edit(changeBody(emptyEditor(), '이탈')); const old = session.flush(); close();
   const deactivate = session.activate(); session.edit(changeBody(session.getSnapshot().value, '재활성')); const current = session.flush();
-  pending[0]!({ id: scope.draftId, userId: scope.userId, document: changeBody(emptyEditor(), '이탈').document, updatedAt: '' });
+  pending[0]!({ id: scope.draftId, userId: scope.userId, document: changeBody(emptyEditor(), '이탈').document, publishing: emptyPublishOptions(), updatedAt: '' });
   expect(await old).toBe(false); expect(session.getSnapshot().saveStatus).toBe('saving');
-  pending[1]!({ id: scope.draftId, userId: scope.userId, document: session.getSnapshot().value.document, updatedAt: '' }); expect(await current).toBe(true); deactivate();
+  pending[1]!({ id: scope.draftId, userId: scope.userId, document: session.getSnapshot().value.document, publishing: emptyPublishOptions(), updatedAt: '' }); expect(await current).toBe(true); deactivate();
   const document = insertImage(changeBody(emptyEditor(), '이미지 포함'), { id: 'shared', assetId: 'local-sunset', source: 'library', width: 240, height: 168, description: '사진', credit: 'Local fixture' }).document;
   await finish(base.save({ ...scope, document, operationId: 'image' }, signal()));
   const resumed = createDraftSession(base, createAuthStore(createMockAuthSource(), mockUserA), { ...scope, isNew: false }); const stop = resumed.activate(); await jest.runAllTimersAsync();

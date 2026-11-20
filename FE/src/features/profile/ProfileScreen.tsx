@@ -13,6 +13,8 @@ import { WriteButton } from '../../shared/ui/WriteButton';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 
 import { ProfileLists } from './ProfileLists';
+import { ProfileStories } from './ProfileStories';
+import { EditorDialog } from '../editor/StoryEditorScreen';
 import { ProfileEditorSheet } from './ProfileEditorSheet';
 import { useProfile } from './ProfileProvider';
 import { profileStyles as createStyles } from './profileStyles';
@@ -39,6 +41,8 @@ export function ProfileScreen({
   const styles = useThemeStyles(createStyles);
   const { state, store } = useProfile();
   const [section, setSection] = useState<'Stories' | 'Lists' | 'About'>('Stories');
+  const [visibility, setVisibility] = useState<'public' | 'unlisted'>('public');
+  const [filterOpen, setFilterOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const wasEditing = useRef(false);
@@ -54,6 +58,7 @@ export function ProfileScreen({
   }, [isEditing]);
   if (!isFocused && isEditing) setIsEditing(false);
   if (!isFocused && notice) setNotice(null);
+  if (!isFocused && filterOpen) setFilterOpen(false);
   if (!store) return null;
   const profile = state.profile;
   const header = (
@@ -147,12 +152,12 @@ export function ProfileScreen({
             <View style={visual.stories}>
               <Pressable
                 role="button"
-                accessibilityLabel="Public stories"
-                onPress={() => setNotice('Story visibility')}
+                accessibilityLabel={visibility === 'public' ? 'Public stories' : 'Unlisted stories'}
+                onPress={() => setFilterOpen(true)}
                 style={visual.filterTarget}
               >
                 <View style={visual.filter}>
-                  <Text style={visual.caption}>Public</Text>
+                  <Text style={visual.caption}>{visibility === 'public' ? 'Public' : 'Unlisted'}</Text>
                   <View style={visual.downChevron}>
                     <AppIcon name="chevron" size={14} />
                   </View>
@@ -161,12 +166,6 @@ export function ProfileScreen({
               <Pressable role="button" accessibilityLabel="내 초안" style={visual.textAction} onPress={community.openDrafts}>
                 <Text style={visual.green}>Drafts</Text>
               </Pressable>
-              <View style={visual.empty}>
-                <Text style={visual.caption}>You haven’t published any stories</Text>
-                <Pressable role="button" onPress={() => setNotice('Get started')} style={visual.textAction}>
-                  <Text style={visual.green}>Get started</Text>
-                </Pressable>
-              </View>
             </View>
           )}
           {section === 'About' && (
@@ -225,6 +224,8 @@ export function ProfileScreen({
           footer={footer}
           contentContainerStyle={visual.page}
         />
+      ) : section === 'Stories' && profile ? (
+        <ProfileStories userId={profile.userId} visibility={visibility} active={isFocused} header={header} footer={footer} contentContainerStyle={visual.page} />
       ) : (
         <ScrollView contentContainerStyle={visual.page}>
           {header}
@@ -233,6 +234,10 @@ export function ProfileScreen({
       )}
       {section === 'Stories' && <WriteButton onPress={community.openWrite} />}
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+      {filterOpen && <EditorDialog title="Story visibility" onClose={() => setFilterOpen(false)}>
+        {(['public', 'unlisted'] as const).map(item => <Pressable key={item} role="radio" accessibilityLabel={item === 'public' ? 'Public' : 'Unlisted'} accessibilityState={{ checked: visibility === item }} aria-checked={visibility === item} style={visual.textAction} onPress={() => { setVisibility(item); setFilterOpen(false); }}><Text style={visual.caption}>{item === 'public' ? 'Public' : 'Unlisted'}</Text></Pressable>)}
+        <Pressable role="button" accessibilityLabel="Stories 필터 닫기" style={visual.textAction} onPress={() => setFilterOpen(false)}><Text style={visual.green}>Cancel</Text></Pressable>
+      </EditorDialog>}
       {isEditing && isFocused && profile && (
         <ProfileEditorSheet initialProfile={profile} store={store} onClose={() => setIsEditing(false)} />
       )}

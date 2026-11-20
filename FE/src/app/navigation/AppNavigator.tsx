@@ -15,7 +15,10 @@ import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/Story
 import { createDraftSession } from '../../features/editor/createDraftSession';
 import { createMockDraftSource, type DraftSource } from '../../features/editor/draftSource';
 import { DraftsScreen } from '../../features/editor/DraftsScreen';
-import type { EditorImageSource } from '../../features/editor/imageSource';
+import { createMockEditorImageSource, type EditorImageSource } from '../../features/editor/imageSource';
+import { PublishPreview, type PublishStage } from '../../features/editor/PublishPreview';
+import { WrittenStoriesProvider } from '../../features/editor/WrittenStoriesProvider';
+import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 
@@ -77,6 +80,7 @@ import { DownloadProvider } from '../../features/downloads/DownloadProvider';
 import type { DownloadSource } from '../../features/downloads/types';
 
 type RootStackParamList = {
+  WrittenStory: { storyId: string };
   Editor: { ownerId: string; revision: number; draftId: string; isNew: boolean };
   Drafts: { ownerId: string; revision: number };
   Recommendations: { section: RecommendationSection; interests: boolean; originTab: keyof MainTabParamList };
@@ -170,6 +174,8 @@ function SessionNavigationContent({
   const [defaultDigests] = useState(() => createMockDigestSource());
   const [defaultDrafts] = useState(createMockDraftSource);
   const drafts = draftSource ?? defaultDrafts;
+  const [defaultImages] = useState(createMockEditorImageSource);
+  const images = editorImageSource ?? defaultImages;
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
@@ -235,6 +241,7 @@ function SessionNavigationContent({
                             sessionRevision={state.revision}
                           >
                             <DownloadProvider source={downloadSource} lists={currentBookmarks.lists}>
+                            <WrittenStoriesProvider value={{ source: drafts, images, sessionRevision: state.revision }}>
                             <CommunityNavigationProvider
                               value={{
                                 openExplore: () => {
@@ -300,6 +307,9 @@ function SessionNavigationContent({
                                   if (!state.user) { authStore.openLogin({ kind: 'write' }); return; }
                                   if (navigationRef.isReady()) navigationRef.navigate('Drafts', { ownerId: state.user.id, revision: state.revision });
                                 },
+                                openWrittenStory: storyId => {
+                                  if (navigationRef.isReady()) navigationRef.dispatch(StackActions.push('WrittenStory', { storyId }));
+                                },
                               }}
                             >
                               <NavigationContainer theme={theme} ref={navigationRef}>
@@ -333,8 +343,9 @@ function SessionNavigationContent({
                                       />
                                     )}
                                   </Stack.Screen>
-                                  <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} source={drafts} imageSource={editorImageSource} />}</Stack.Screen>
+                                  <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} source={drafts} imageSource={images} />}</Stack.Screen>
                                   <Stack.Screen name="Drafts">{props => <DraftsRouteScreen {...props} source={drafts} />}</Stack.Screen>
+                                  <Stack.Screen name="WrittenStory">{({ route, navigation }) => <WrittenStoryScreen storyId={route.params.storyId} onBack={() => navigation.goBack()} />}</Stack.Screen>
                                   {/* 같은 기사 새 진입과 기존 인스턴스 복귀를 구분해 설명 수준의 수명을 보존한다. */}
                                   <Stack.Screen name="Article">
                                     {({ route, navigation }) => (
@@ -464,6 +475,7 @@ function SessionNavigationContent({
                               </NavigationContainer>
                               <SessionAuthDialogs />
                             </CommunityNavigationProvider>
+                            </WrittenStoriesProvider>
                             </DownloadProvider>
                           </BookmarkProvider>
                         </RelationshipProvider>
@@ -486,7 +498,7 @@ function FocusedArticleRoute(props: React.ComponentProps<typeof ArticleRouteScre
   return <ArticleRouteScreen {...props} isFocused={focused} />;
 }
 
-type EditorRouteProps = NativeStackScreenProps<RootStackParamList, 'Editor'> & { source: DraftSource; imageSource?: EditorImageSource };
+type EditorRouteProps = NativeStackScreenProps<RootStackParamList, 'Editor'> & { source: DraftSource; imageSource: EditorImageSource };
 function EditorRouteScreen(props: EditorRouteProps) {
   const { state } = useAuth();
   const permitted = state.user?.id === props.route.params.ownerId && state.revision === props.route.params.revision;
@@ -499,6 +511,8 @@ function EditorRouteScreen(props: EditorRouteProps) {
 }
 function EditorSessionRoute({ route, navigation, imageSource, source, draftId }: EditorRouteProps & { draftId: string }) {
   const { store } = useAuth();
+  const { state: profile } = useProfile();
+  const [stage, setStage] = useState<PublishStage | null>(null);
   const [session] = useState(() => createDraftSession(source, store, { userId: route.params.ownerId, revision: route.params.revision, draftId, isNew: route.params.isNew }));
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
   useEffect(() => session.activate(), [session]);
@@ -509,10 +523,17 @@ function EditorSessionRoute({ route, navigation, imageSource, source, draftId }:
     setPending(action); setFailedExit(false);
     if (await session.flush()) setAllowExit(true); else setFailedExit(true);
   }
-  usePreventRemove(snapshot.dirty && !allowExit, ({ data }) => { void saveAndExit(data.action); });
+  const publishing = snapshot.publishStatus === 'pending' || snapshot.publishStatus === 'uncertain';
+  usePreventRemove((snapshot.dirty || Boolean(stage) || publishing) && !allowExit, ({ data }) => {
+    if (publishing) return;
+    if (stage) { setStage(stage === 'preview' ? null : 'preview'); return; }
+    void saveAndExit(data.action);
+  });
   useEffect(() => { if (allowExit && pending) navigation.dispatch(pending); }, [allowExit, navigation, pending]);
   return <>
-    <StoryEditorScreen session={session} onClose={() => navigation.goBack()} onDrafts={() => navigation.replace('Drafts', { ownerId: route.params.ownerId, revision: route.params.revision })} imageSource={imageSource} />
+    {stage ? <PublishPreview session={session} images={imageSource} authorName={profile.profile?.name ?? store.getSnapshot().user?.name ?? 'Writer'} stage={stage} onStage={setStage} onEdit={() => setStage(null)}
+      onPublished={() => { setPending(StackActions.popTo('Main', { screen: 'Profile' })); setAllowExit(true); }} /> :
+      <StoryEditorScreen session={session} onPreview={setStage} onClose={() => navigation.goBack()} onDrafts={() => navigation.replace('Drafts', { ownerId: route.params.ownerId, revision: route.params.revision })} imageSource={imageSource} />}
     {failedExit && pending && <EditorExitDialog onCancel={() => { setPending(null); setFailedExit(false); }} onRetry={() => { void saveAndExit(pending); }} onDiscard={() => setAllowExit(true)} />}
   </>;
 }

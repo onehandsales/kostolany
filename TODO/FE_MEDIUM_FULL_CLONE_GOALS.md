@@ -1,6 +1,8 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 Goal38 상태:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
+**현재 Goal39 상태:** **구현 완료·검증 잔여**. 토픽 최대5·미리보기·Publication/Unlisted·mock 발행·실제 작성 문서 상세를 연결하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체186suites/1074tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. 실제 native/OS와 원본 시각 잔여, publication 보완 정책은 [Goal39 결과](FE_GOAL_39_RESULT.md)를 따른다. Goal37/38은 각각 `68a51b4`/`3b41943`에 커밋됐다.
+
+**Goal38 당시 결과:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
 
 **Goal37 당시 결과:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
@@ -8,7 +10,7 @@
 
 **현재 승인(2026-11-20 KST): Goal37→38→39→40의 구현·각각 두 차례 자체 검토·검증·결과 기록과 각 Goal별 로컬 커밋1회, 총4회다. 각 결과/해시 보고 후 다음 승인된 Goal을 이어서 진행하고 Goal40에서 종료한다. push·배포·Goal41 이후와 과거 연속 진행/커밋/push 지시는 적용하지 않는다.**
 
-**현재 기준:** Goal35·36은 `66f1041`에 커밋된 상태로 시작했고 작업 트리는 깨끗했다. Node24.18.0/npm10.9.0과 기존8081 PID5248을 확인했다. Goal37은 `68a51b4`에 로컬 커밋했고 Goal38은 검사/기록을 마쳤으며 해당 Goal만 로컬 커밋한 뒤 Goal39를 진행한다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
+**현재 기준:** Goal35·36은 `66f1041`에 커밋된 상태로 시작했고 작업 트리는 깨끗했다. Node24.18.0/npm10.9.0과 기존8081 PID5248을 확인했다. Goal37은 `68a51b4`에 로컬 커밋했고 Goal38은 `3b41943`에 커밋했다. Goal39는 최종 검사/기록 후 해당 변경만 커밋하고 승인된 Goal40을 진행한다. `TODO/evidence`·`TODO/_evidence` 및 저장소 내부 비교/로그/검증 스크립트는 만들지 않는다.
 
 **과거 승인 기록 — 현재 적용 없음:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았던 이력이다. Goal32 작업 시작 HEAD는 `da38ae2`였다.
 
@@ -33,7 +35,7 @@
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
 | 현재 Git 기준 | Windows 시작 HEAD `66f1041`·작업 트리 변경 없음. 현재 사용자 변경이 추가되면 보존하고 Goal별 변경만 커밋한다. |
-| 현재 검증의 범위 | [Goal38 결과](FE_GOAL_38_RESULT.md)의 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
+| 현재 검증의 범위 | [Goal39 결과](FE_GOAL_39_RESULT.md)의 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
@@ -393,7 +395,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 39 — 토픽 최대 5개·발행 미리보기·Publish
 
-- **상태/선행:** 미착수 / Goal 30, Goal 38.
+- **상태/선행:** 구현 완료·검증 잔여 / Goal 30, Goal 38. [Goal39 결과](FE_GOAL_39_RESULT.md)에 최종 검사와 원본/native 잔여를 기록한다.
 - **원본:** [F07](FE_MEDIUM_FULL_CLONE_MAP.md#f07), [F08](FE_MEDIUM_FULL_CLONE_MAP.md#f08), [F09](FE_MEDIUM_FULL_CLONE_MAP.md#f09), [F10](FE_MEDIUM_FULL_CLONE_MAP.md#f10), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55), [F63](FE_MEDIUM_FULL_CLONE_MAP.md#f63). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 토픽 검색/선택/삭제/최대 5개, Publish preview의 Edit/Topics/Publication/Unlisted/Publish now, 발행 후 내 Stories 연결을 구현한다.
 - **시각 비교:** 선택 chip·검색 X·상한 문구·미리보기·발행 버튼·프로필 결과를 맞춘다.

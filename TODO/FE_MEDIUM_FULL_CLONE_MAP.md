@@ -1,6 +1,8 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**현재 Goal38 상태:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
+**현재 Goal39 상태:** **구현 완료·검증 잔여**. 토픽 최대5·미리보기·Publication/Unlisted·mock 발행·실제 작성 문서 상세를 연결하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체186suites/1074tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. 실제 native/OS와 원본 시각 잔여, publication 보완 정책은 [Goal39 결과](FE_GOAL_39_RESULT.md)를 따른다. Goal37/38은 각각 `68a51b4`/`3b41943`에 커밋됐다.
+
+**Goal38 당시 결과:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
 
 **Goal37 당시 결과:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
@@ -91,8 +93,8 @@
 | C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 이미지 문서/출력·검색/삽입/삭제·오류/계정 수명 구현, [Goal37 구현 완료·검증 잔여](FE_GOAL_37_RESULT.md). 실제 OS picker·업로드/외부 검색은 미연동이다. |
 | C42 | 편집기 | Drafts 메뉴·초안 목록/재개·자동 저장/실패 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F10 및 공식 도움말; 자동 저장/실패/재개와 계정 경계를 구현했다. [Goal38 구현 완료·검증 잔여](FE_GOAL_38_RESULT.md). 자동 저장 주기/오류/빈 상태는 자체 보완이다. |
 | C43 | 편집기 | @ 검색·핸들/아바타·동명이인·선택/삭제·멘션 대상 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F11; 이름/핸들 검색·동명이인 ID·편집/재개 후 대상 보존을 구현했다. [Goal38 구현 완료·검증 잔여](FE_GOAL_38_RESULT.md). 미수록 후보 아바타는 글자 대체이며 실제 알림은 없다. |
-| C44 | 발행 | 토픽 검색·최대 5개·chip 제거·검색 X·완료 | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F07; 검색어 clear와 선택 토픽 제거는 다른 동작이다. |
-| C45 | 발행 | 미리보기 Edit/Topics/Publication/Unlisted/Publish now·내 Stories | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F08; publication 이후/Unlisted On은 미수록 보완 대상이다. |
+| C44 | 발행 | 토픽 검색·최대 5개·chip 제거·검색 X·완료 | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F07; 검색/5개 제한/선택 초안·취소·Save와 검색 X/chip 제거를 구현했다. [Goal39 구현 완료·검증 잔여](FE_GOAL_39_RESULT.md). |
+| C45 | 발행 | 미리보기 Edit/Topics/Publication/Unlisted/Publish now·내 Stories | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F08; 실제 문서 미리보기·mock 발행·내 Stories/상세 연결을 구현했다. [Goal39 구현 완료·검증 잔여](FE_GOAL_39_RESULT.md). publication 이후/Unlisted On은 자체 보완이며 실제 게시/링크 발급은 아니다. |
 | C46 | 인증 | 가입 제공자 4개·로그인 X 포함 5개·intro/로그인 전환 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F52,F53; 기존 버튼이 있으므로 실제 mock 단계 연결을 검증한다. |
 | C47 | 인증 | 이메일·이름·6자리 코드·재전송·활성 상태·닫기/뒤로 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F52,F53; 비밀번호 화면이나 실제 메일 전송을 가정하지 않는다. |
 | C48 | 인증 | 세션 복구·mock A/B·로그아웃 확인→intro·계정 데이터 정리 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | F61; 기존 공개 화면 유지와 원본 intro 복귀 차이를 검토한다. |

@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import type { PublishStage } from './PublishPreview';
 import { RichDocumentBody } from './RichDocumentBody';
 import { ImagePickerSheet } from './ImagePickerSheet';
 import { createMockEditorImageSource, type EditorImageSource } from './imageSource';
@@ -34,7 +34,7 @@ export function EditorExitDialog({ onCancel, onDiscard, onRetry }: { onCancel: (
     <Pressable role="button" accessibilityLabel="저장하지 않은 변경 버리고 닫기" style={styles.action} onPress={onDiscard}><Text style={styles.danger}>Discard unsaved changes</Text></Pressable>
   </EditorDialog>;
 }
-export function StoryEditorScreen({ onClose, onDrafts, session, imageSource }: { onClose: () => void; onDrafts: () => void; session: DraftSession; imageSource?: EditorImageSource }) {
+export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, imageSource }: { onClose: () => void; onDrafts: () => void; onPreview: (stage: PublishStage) => void; session: DraftSession; imageSource?: EditorImageSource }) {
   const styles = useThemeStyles(createStyles); const { colors } = useTheme();
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
   const { value } = snapshot;
@@ -49,7 +49,7 @@ export function StoryEditorScreen({ onClose, onDrafts, session, imageSource }: {
   const [dismissRequest, requestDismiss] = useState(0);
   const [link, setLink] = useState<{ url: string; value: EditorValue } | null>(null);
   const wasLinkOpen = useRef(false);
-  const [error, setError] = useState<string | null>(null); const [notice, setNotice] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [more, setMore] = useState(false);
   useEffect(() => {
     if (link) { wasLinkOpen.current = true; return; }
@@ -94,7 +94,7 @@ export function StoryEditorScreen({ onClose, onDrafts, session, imageSource }: {
       </View>
       <View style={styles.headerRight}>
         <Pressable role="button" accessibilityLabel="편집기 더보기" style={styles.tool} onPress={() => { Keyboard.dismiss(); requestDismiss(current => current + 1); setMore(true); }}><Text style={styles.toolText}>···</Text></Pressable>
-        <Pressable role="button" accessibilityLabel="Next" style={styles.headerAction} onPress={() => setNotice('Story preview')}><Text style={styles.green}>Next</Text></Pressable>
+        <Pressable role="button" accessibilityLabel="Next" style={styles.headerAction} disabled={Boolean(insertion.pending) || composing} accessibilityState={{ disabled: Boolean(insertion.pending) || composing }} onPress={() => { Keyboard.dismiss(); onPreview('preview'); }}><Text style={styles.green}>Next</Text></Pressable>
       </View>
     </View>
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -147,14 +147,13 @@ export function StoryEditorScreen({ onClose, onDrafts, session, imageSource }: {
         apply(toggleFormat(link.value, link.value.typing.find(format => format.kind === 'link')!)); closeLink();
       }}><Text style={styles.dialogText}>Remove link</Text></Pressable>}
     </EditorDialog>}
-    <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     {more && <Modal transparent animationType="none" onRequestClose={() => setMore(false)}>
       <View style={styles.flex} accessibilityViewIsModal>
         <Pressable role="button" accessibilityLabel="작성 메뉴 닫기" onPress={() => setMore(false)} style={StyleSheet.absoluteFill} />
         <SafeAreaView pointerEvents="box-none" style={styles.menuAnchor}>
           <View role="dialog" accessibilityLabel="작성 메뉴" style={styles.menu}>
             {['Drafts', 'Submit to publication', 'Add or edit topics', 'Edit story preview'].map(item => <Pressable key={item} role="button" accessibilityLabel={item} style={[styles.menuItem, item === 'Edit story preview' && { borderBottomWidth: 0 }]}
-              onPress={() => { setMore(false); if (item === 'Drafts') onDrafts(); else setNotice(item); }}><Text style={styles.menuText}>{item}</Text></Pressable>)}
+              disabled={Boolean(insertion.pending)} onPress={() => { setMore(false); if (item === 'Drafts') onDrafts(); else onPreview(item === 'Submit to publication' ? 'publication' : item === 'Add or edit topics' ? 'topics' : 'preview'); }}><Text style={styles.menuText}>{item}</Text></Pressable>)}
           </View>
         </SafeAreaView>
       </View>

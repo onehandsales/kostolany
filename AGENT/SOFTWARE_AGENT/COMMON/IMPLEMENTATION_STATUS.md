@@ -1,6 +1,8 @@
 # 현재 상태와 다음 작업
 
-**현재 Goal38 상태:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](../../../TODO/FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
+**현재 Goal39 상태:** **구현 완료·검증 잔여**. 토픽 최대5·미리보기·Publication/Unlisted·mock 발행·실제 작성 문서 상세를 연결하고 두 차례 자체 검토를 수행했다. 최종 타입/lint·전체186suites/1074tests·8081 정상/실패/계정 흐름·원본 비교·3플랫폼 export를 통과했다. 실제 native/OS와 원본 시각 잔여, publication 보완 정책은 [Goal39 결과](../../../TODO/FE_GOAL_39_RESULT.md)를 따른다. Goal37/38은 각각 `68a51b4`/`3b41943`에 커밋됐다.
+
+**Goal38 당시 결과:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](../../../TODO/FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
 
 **Goal37 당시 결과:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](../../../TODO/FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
