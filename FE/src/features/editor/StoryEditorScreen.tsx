@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode, type SetStateAction } from 'react';
 import { ActivityIndicator, Image, Keyboard, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -9,7 +9,9 @@ import { RichDocumentBody } from './RichDocumentBody';
 import { ImagePickerSheet } from './ImagePickerSheet';
 import { createMockEditorImageSource, type EditorImageSource } from './imageSource';
 import { useImageInsertion } from './useImageInsertion';
-import { emptyEditor, insertDivider, safeLink, selectedLines, selectText, setBlock, toggleFormat, type BlockKind, type EditorValue } from './editorModel';
+import { insertDivider, insertMention, mentionQuery, replaceText, safeLink, selectedLines, selectText, setBlock, toggleFormat, type BlockKind, type EditorValue } from './editorModel';
+import type { DraftSession } from './createDraftSession';
+import { MentionSuggestions } from './MentionSuggestions';
 
 export function EditorDialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
   const styles = useThemeStyles(createStyles);
@@ -23,17 +25,20 @@ export function EditorDialog({ title, onClose, children }: { title: string; onCl
     </SafeAreaView>
   </Modal>;
 }
-export function EditorExitDialog({ onCancel, onDiscard }: { onCancel: () => void; onDiscard: () => void }) {
+export function EditorExitDialog({ onCancel, onDiscard, onRetry }: { onCancel: () => void; onDiscard: () => void; onRetry: () => void }) {
   const styles = useThemeStyles(createStyles);
-  return <EditorDialog title="작성 중인 내용을 버릴까요?" onClose={onCancel}>
-    <Text style={styles.dialogText}>현재 내용은 이 화면에만 있어요. 나가면 저장되지 않아요.</Text>
+  return <EditorDialog title="초안을 저장하지 못했어요" onClose={onCancel}>
+    <Text style={styles.dialogText}>마지막 변경을 저장하지 못했어요. 다시 저장하거나 계속 작성할 수 있어요.</Text>
+    <Pressable role="button" accessibilityLabel="저장하고 나가기 다시 시도" style={styles.action} onPress={onRetry}><Text style={styles.green}>Try again</Text></Pressable>
     <Pressable role="button" accessibilityLabel="계속 작성" style={styles.action} onPress={onCancel}><Text style={styles.green}>Keep writing</Text></Pressable>
-    <Pressable role="button" accessibilityLabel="내용 버리고 닫기" style={styles.action} onPress={onDiscard}><Text style={styles.danger}>Discard</Text></Pressable>
+    <Pressable role="button" accessibilityLabel="저장하지 않은 변경 버리고 닫기" style={styles.action} onPress={onDiscard}><Text style={styles.danger}>Discard unsaved changes</Text></Pressable>
   </EditorDialog>;
 }
-export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onClose: () => void; onDirtyChange: (dirty: boolean) => void; imageSource?: EditorImageSource }) {
+export function StoryEditorScreen({ onClose, onDrafts, session, imageSource }: { onClose: () => void; onDrafts: () => void; session: DraftSession; imageSource?: EditorImageSource }) {
   const styles = useThemeStyles(createStyles); const { colors } = useTheme();
-  const [value, setValue] = useState(emptyEditor);
+  const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
+  const { value } = snapshot;
+  function setValue(update: SetStateAction<EditorValue>) { session.edit(typeof update === 'function' ? update(session.getSnapshot().value) : update); }
   const [defaultImages] = useState(createMockEditorImageSource);
   const images = imageSource ?? defaultImages;
   const insertion = useImageInsertion(value, images, setValue);
@@ -45,8 +50,7 @@ export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onC
   const [link, setLink] = useState<{ url: string; value: EditorValue } | null>(null);
   const wasLinkOpen = useRef(false);
   const [error, setError] = useState<string | null>(null); const [notice, setNotice] = useState<string | null>(null);
-  const dirty = Boolean(value.document.title || value.document.body);
-  useEffect(() => onDirtyChange(dirty), [dirty, onDirtyChange]);
+  const [more, setMore] = useState(false);
   useEffect(() => {
     if (link) { wasLinkOpen.current = true; return; }
     if (!wasLinkOpen.current) return;
@@ -74,11 +78,22 @@ export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onC
       <Text style={[styles.toolText, selected && styles.green, disabled && styles.dim]}>{text}</Text>
     </Pressable>;
   };
+  if (snapshot.status !== 'ready') return <SafeAreaView style={styles.screen}>
+    <Pressable role="button" accessibilityLabel="편집기 닫기" style={styles.headerAction} onPress={onClose}><Text style={styles.headerText}>Close</Text></Pressable>
+    {snapshot.status === 'loading' ? <ActivityIndicator accessibilityLabel="초안 불러오는 중" /> : <>
+      <Text role="alert" style={styles.dialogText}>초안을 불러오지 못했어요.</Text>
+      <Pressable role="button" accessibilityLabel="초안 다시 불러오기" style={styles.action} onPress={() => { void session.reload(); }}><Text style={styles.green}>Try again</Text></Pressable>
+    </>}
+  </SafeAreaView>;
   return <SafeAreaView style={styles.screen}>
     <View style={styles.header}>
       <Pressable role="button" accessibilityLabel="편집기 닫기" style={styles.headerAction} onPress={onClose}><Text style={styles.headerText}>Close</Text></Pressable>
+      <View style={styles.saveStatus} accessibilityLiveRegion="polite">
+        {snapshot.saveStatus === 'error' ? <Pressable role="button" accessibilityLabel="초안 저장 다시 시도" style={styles.headerAction} onPress={() => { void session.flush(); }}><Text style={styles.statusText}>Save failed · Retry</Text></Pressable> :
+          <Text style={styles.statusText}>{snapshot.saveStatus === 'saving' || snapshot.saveStatus === 'pending' ? 'Saving…' : snapshot.saveStatus === 'saved' ? 'Saved' : ''}</Text>}
+      </View>
       <View style={styles.headerRight}>
-        <Pressable role="button" accessibilityLabel="편집기 더보기" style={styles.tool} onPress={() => setNotice('Draft options')}><Text style={styles.toolText}>···</Text></Pressable>
+        <Pressable role="button" accessibilityLabel="편집기 더보기" style={styles.tool} onPress={() => { Keyboard.dismiss(); requestDismiss(current => current + 1); setMore(true); }}><Text style={styles.toolText}>···</Text></Pressable>
         <Pressable role="button" accessibilityLabel="Next" style={styles.headerAction} onPress={() => setNotice('Story preview')}><Text style={styles.green}>Next</Text></Pressable>
       </View>
     </View>
@@ -100,7 +115,11 @@ export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onC
           </>}
         </View>}
       </ScrollView>
-      {bodyTarget && (focused || value.selection.start !== value.selection.end) && <View style={styles.inlineTools}>
+      <MentionSuggestions value={value} active={bodyTarget && !composing && !imagePicker && !link && !more} onSelect={(captured, target) => {
+        const current = session.getSnapshot().value; const range = mentionQuery(captured);
+        if (range && current.document === captured.document && current.selection.start === captured.selection.start && current.selection.end === captured.selection.end) apply(insertMention(current, range, target));
+      }} />
+      {bodyTarget && !mentionQuery(value) && (focused || value.selection.start !== value.selection.end) && <View style={styles.inlineTools}>
         {tool('굵게', 'B', () => apply(toggleFormat(value, { kind: 'bold' })), value.typing.some(format => format.kind === 'bold'))}
         {tool('기울임', 'I', () => apply(toggleFormat(value, { kind: 'italic' })), value.typing.some(format => format.kind === 'italic'))}
         {tool('링크', '↗', () => { setError(null); setLink({ url: value.typing.find(format => format.kind === 'link')?.url ?? '', value }); }, value.typing.some(format => format.kind === 'link'), !enabled || value.selection.start === value.selection.end)}
@@ -111,7 +130,7 @@ export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onC
         {tool('인용 서식', '❝', () => cycle(['paragraph', 'quote', 'pullquote']), ['quote', 'pullquote'].includes(block))}
         {tool('목록 서식', '☷', () => cycle(['paragraph', 'bullet', 'numbered']), ['bullet', 'numbered'].includes(block))}
         {tool('구분선 삽입', '⋯', () => apply(insertDivider(value)))}
-        {tool('멘션 안내', '@', () => setNotice('Mentions'), false, false)}
+        {tool('멘션 삽입', '@', () => { setBodyTarget(true); apply(replaceText(value, value.selection, `${value.selection.start && !/\s/u.test(value.document.body[value.selection.start - 1]!) ? ' ' : ''}@`)); }, false, composing)}
         {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), block === 'code')}
         {tool('이미지 삽입', '▧', () => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }, false, composing)}
       </ScrollView>
@@ -129,6 +148,17 @@ export function StoryEditorScreen({ onClose, onDirtyChange, imageSource }: { onC
       }}><Text style={styles.dialogText}>Remove link</Text></Pressable>}
     </EditorDialog>}
     <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
+    {more && <Modal transparent animationType="none" onRequestClose={() => setMore(false)}>
+      <View style={styles.flex} accessibilityViewIsModal>
+        <Pressable role="button" accessibilityLabel="작성 메뉴 닫기" onPress={() => setMore(false)} style={StyleSheet.absoluteFill} />
+        <SafeAreaView pointerEvents="box-none" style={styles.menuAnchor}>
+          <View role="dialog" accessibilityLabel="작성 메뉴" style={styles.menu}>
+            {['Drafts', 'Submit to publication', 'Add or edit topics', 'Edit story preview'].map(item => <Pressable key={item} role="button" accessibilityLabel={item} style={[styles.menuItem, item === 'Edit story preview' && { borderBottomWidth: 0 }]}
+              onPress={() => { setMore(false); if (item === 'Drafts') onDrafts(); else setNotice(item); }}><Text style={styles.menuText}>{item}</Text></Pressable>)}
+          </View>
+        </SafeAreaView>
+      </View>
+    </Modal>}
     {imagePicker && <ImagePickerSheet source={images} onClose={() => setImagePicker(false)} onSelect={(asset, origin) => {
       setImagePicker(false); insertion.select(asset, origin);
     }} />}
@@ -138,6 +168,10 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background }, flex: { flex: 1, minHeight: 0 },
   header: { minHeight: 48, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12, borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
   headerRight: { flexDirection: 'row' }, headerAction: { minHeight: 48, minWidth: 48, justifyContent: 'center', alignItems: 'center' },
+  saveStatus: { flex: 1, minWidth: 0, paddingHorizontal: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
+  statusText: { fontFamily: fonts.sans, fontSize: 12, color: colors.secondaryText }, menuItem: { minHeight: 48, justifyContent: 'center', borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
+  menuAnchor: { alignItems: 'flex-end', paddingTop: 48, paddingRight: 54 }, menu: { width: 250, maxWidth: '90%', backgroundColor: colors.surface, paddingHorizontal: 16, borderRadius: 12, elevation: 5, boxShadow: '0px 4px 24px #00000018' },
+  menuText: { fontFamily: fonts.sans, fontSize: 16, color: colors.text },
   headerText: { fontFamily: fonts.sans, fontSize: 14, color: colors.text }, green: { color: colors.green, fontFamily: fonts.sans, fontSize: 16 },
   content: { paddingHorizontal: 18, paddingTop: 20, paddingBottom: 30 },
   title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 38, fontWeight: '700', color: colors.text, padding: 0, marginBottom: 11, minHeight: 48, outlineStyle: 'solid', outlineWidth: 0 },

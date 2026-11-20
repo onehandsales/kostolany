@@ -239,6 +239,12 @@ for (const identity of [
     ...identity,
   });
 }
+// 보관 화면의 멘션 이름과 핸들은 유지하고 미수록 프로필 내용은 비워 둔다.
+for (const identity of [
+  { id: 'mention-samlee', name: 'Sam Lee', handle: 'samlee' },
+  { id: 'mention-samlee-hk', name: 'LI Sam', handle: 'samlee-hk' },
+  { id: 'mention-sam-lee', name: 'Sam Lee', handle: 'sam.lee' },
+]) identities.set(`writer:${identity.id}`, { ...identity, kind: 'writer', stories: [], pinned: [], lists: [] });
 export const publicDirectory: PublicDirectory = {
   identities: [...identities.values()],
   // 원본에 소유자가 표시되지 않아 Jordan과의 연결은 mock 탐색용 보완이다.

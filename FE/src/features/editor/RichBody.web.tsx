@@ -69,8 +69,9 @@ export function RichBody(props: RichBodyProps) {
       for (const part of segments(currentDocument, line.start + prefix.length, line.end)) {
         const link = part.formats.find(format => format.kind === 'link');
         const span = document.createElement(link ? 'a' : 'span'); span.textContent = part.text;
+        if (part.mention) { span.dataset.mentionId = part.mention.id; span.title = `@${part.mention.handle}`; }
         if (span instanceof HTMLAnchorElement && link?.url) { span.href = link.url; span.tabIndex = -1; }
-        Object.assign(span.style, { color: link ? colors.green : line.kind === 'divider' ? colors.secondaryText : colors.text,
+        Object.assign(span.style, { color: link || part.mention ? colors.green : line.kind === 'divider' ? colors.secondaryText : colors.text,
           fontWeight: part.formats.some(format => format.kind === 'bold') ? '700' : 'inherit',
           fontStyle: part.formats.some(format => format.kind === 'italic') ? 'italic' : 'inherit',
           textDecoration: link ? 'underline' : 'none' }); block.append(span);

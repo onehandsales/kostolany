@@ -1,6 +1,8 @@
 # Kostolany Mobile
 
-**현재 Goal37 상태:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](../TODO/FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
+**현재 Goal38 상태:** **구현 완료·검증 잔여**. 초안 자동 저장/실패/재개·ID를 보존하는 멘션과 두 차례 자체 검토, 전체180suites/1060tests·타입/lint를 통과했다. 이후 빈 문서 상태/시각 보정의12suites/54tests, 마지막 후보/메뉴 보정의최종 타입/lint·4suites/18tests·8081·원본5쌍·3플랫폼 export도 통과했다. [코드 기준과 결과](../TODO/FE_GOAL_38_RESULT.md). 실제 native/OS·원본 시각 잔여와 메모리 초기화 정책은 별도다. Goal37은 `68a51b4`에 로컬 커밋했다.
+
+**Goal37 당시 결과:** **구현 완료·검증 잔여**. 이미지 문서/출력·실패/권한·계정 수명과 두 차례 자체 검토, 전체174suites/1038tests·타입/lint 통과 후 실패 이미지 삭제 보완의 최종 타입/lint·4suites/14tests·브라우저·3플랫폼 export도 통과했다. [현재 결과](../TODO/FE_GOAL_37_RESULT.md). Camera/Library는 로컬 mock 선택이며 실제 OS picker 호출과 native 실행은 구분한다.
 
 **Goal36 당시 검증:** Write/실제 입력·선택/서식·계정/이탈과 두 차례 자체 검토,8081 기본8흐름·시각/포커스3흐름·원본5쌍을 확인했다. 전체168suites/1014tests(653.522초) 통과 후 제목 포커스 표시만 보정하고 최종 타입/lint·영향2suites/10tests(28.78초)·브라우저/캡처·web/iOS/Android export도 통과했다. [실행 기준과 결과](../TODO/FE_GOAL_36_RESULT.md). 실제 native/OS 접근성·IME·원본 동일 재현은 잔여다. [Goal35](../TODO/FE_GOAL_35_RESULT.md)는 메모리 사본이며 파일 캐시·재시작 보존은 없다.
 

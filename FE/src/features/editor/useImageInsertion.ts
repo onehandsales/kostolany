@@ -50,7 +50,9 @@ export function useImageInsertion(value: EditorValue, source: EditorImageSource,
   return { pending: valid ? pending : null, cancel,
     select(asset: ImageAsset, origin: ImageOrigin) {
       if (job.current) return;
-      void run({ id: `image-${revision}-${++sequence.current}`, asset, origin, value, source, ownerId, revision, status: 'loading' });
+      let id: string;
+      do { id = `image-${revision}-${++sequence.current}`; } while (value.document.images.some(image => image.id === id));
+      void run({ id, asset, origin, value, source, ownerId, revision, status: 'loading' });
     },
     retry() { if (pending && valid) void run(pending); },
   };

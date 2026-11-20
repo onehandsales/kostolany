@@ -158,6 +158,9 @@ export function ProfileScreen({
                   </View>
                 </View>
               </Pressable>
+              <Pressable role="button" accessibilityLabel="내 초안" style={visual.textAction} onPress={community.openDrafts}>
+                <Text style={visual.green}>Drafts</Text>
+              </Pressable>
               <View style={visual.empty}>
                 <Text style={visual.caption}>You haven’t published any stories</Text>
                 <Pressable role="button" onPress={() => setNotice('Get started')} style={visual.textAction}>

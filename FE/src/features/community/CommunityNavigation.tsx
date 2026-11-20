@@ -4,6 +4,7 @@ import type { FollowTarget } from './types';
 
 export type CommunityNavigation = {
   openWrite: () => void;
+  openDrafts?: () => void;
   openRecommendations: (
     section?: 'Following' | 'Reading history' | 'Muted' | 'Suggestions',
     interests?: boolean,

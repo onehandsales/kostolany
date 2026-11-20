@@ -61,11 +61,11 @@ it('늦은 프로필·기본 설정과 다른 기능의 공급부 교체는 편�
   expect(auth().getSnapshot().revision).toBe(revision); expect(screen.getByLabelText('글 제목')).toHaveDisplayValue('조회 중에도 유지');
   await user.press(button('편집기 더보기'));
   await replace({ bookmarkSource: { ...createMockBookmarkSource({ delayMs: 0 }), lists: createMockUserListSource({ delayMs: 0, managesReadingList: true }) } });
-  expect(screen.getByText('Draft options')).toBeVisible(); await user.press(button('Got it'));
+  expect(button('Drafts')).toBeVisible(); await user.press(button('작성 메뉴 닫기'));
   expect(screen.getByLabelText('글 제목')).toHaveDisplayValue('조회 중에도 유지'); await inputBody('다시 만든 초안');
   await view.unmount(); const next = await setup(); await next.open(); expect(screen.queryByText('다시 만든 초안')).toBeNull();
 }, 30000);
-it('제목·본문·선택 서식과 링크 취소·유효성 오류·적용을 보존하고 이탈 취소와 폐기를 구분한다', async () => {
+it('제목·본문·선택 서식과 링크 취소·유효성 오류·적용을 보존하고 저장 뒤 새 편집기는 비운다', async () => {
   const { user, open } = await setup(); await open();
   await fireEvent.changeText(screen.getByLabelText('글 제목'), '긴 한국어 제목'); await inputBody('첫 문장\n둘째 문장');
   await fireEvent(screen.getByLabelText('글 본문'), 'selectionChange', { nativeEvent: { selection: { start: 0, end: 4 } } });
@@ -82,8 +82,7 @@ it('제목·본문·선택 서식과 링크 취소·유효성 오류·적용을 
   expect(screen.getByLabelText('링크 주소')).toHaveDisplayValue('javascript:alert(1)');
   await fireEvent.changeText(screen.getByLabelText('링크 주소'), 'example.com'); await user.press(button('링크 적용'));
   expect(button('링크')).toHaveProp('accessibilityState', { selected: true, disabled: false });
-  await user.press(button('편집기 닫기')); await user.press(button('계속 작성')); expect(screen.getByLabelText('글 제목')).toHaveDisplayValue('긴 한국어 제목');
-  await user.press(button('편집기 닫기')); await user.press(button('내용 버리고 닫기')); await open();
+  await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' }); await open();
   expect(screen.getByLabelText('글 제목')).toHaveDisplayValue(''); expect(screen.queryByText('첫 문장')).toBeNull();
 }, 30000);
 it('검색과 프로필의 실제 글쓰기 진입은 각각 원래 탭으로 돌아오며 후속 안내는 내용에 영향을 주지 않는다', async () => {
@@ -92,7 +91,7 @@ it('검색과 프로필의 실제 글쓰기 진입은 각각 원래 탭으로 �
   expect(screen.getByRole('tab', { name: '탐색', selected: true })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '프로필' })); await open(); await inputBody('보존할 본문');
   await user.press(button('Next')); await user.press(button('Got it')); expect(screen.getByText('보존할 본문')).toBeVisible();
-  await user.press(button('편집기 닫기')); await user.press(button('내용 버리고 닫기'));
+  await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' });
   expect(screen.getByRole('tab', { name: '프로필', selected: true })).toBeVisible();
 }, 30000);
 it('A·B·A와 같은 A 재로그인은 작성 내용·링크 초안·오류를 즉시 폐기한다', async () => {

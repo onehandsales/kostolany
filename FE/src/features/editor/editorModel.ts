@@ -2,13 +2,32 @@ export type BlockKind = 'paragraph' | 'heading' | 'subheading' | 'quote' | 'pull
 export type Format = { kind: 'bold' | 'italic' | 'link'; url?: string };
 export type Mark = Format & { start: number; end: number };
 export type TextSelection = { start: number; end: number };
+export type MentionTarget = { id: string; name: string; handle: string };
+export type Mention = TextSelection & { target: MentionTarget };
 export type EditorImage = {
   id: string; offset: number; assetId: string; source: 'camera' | 'library' | 'unsplash';
   description: string; credit: string; width: number; height: number;
 };
-export type EditorDocument = { schemaVersion: 2; version: number; title: string; body: string; blocks: BlockKind[]; marks: Mark[]; images: EditorImage[] };
+export type EditorDocument = { schemaVersion: 3; version: number; title: string; body: string; blocks: BlockKind[]; marks: Mark[]; images: EditorImage[]; mentions: Mention[] };
 export type EditorValue = { document: EditorDocument; selection: TextSelection; typing: Format[] };
-export const emptyEditor = (): EditorValue => ({ document: { schemaVersion: 2, version: 0, title: '', body: '', blocks: ['paragraph'], marks: [], images: [] }, selection: { start: 0, end: 0 }, typing: [] });
+export const emptyEditor = (): EditorValue => ({ document: { schemaVersion: 3, version: 0, title: '', body: '', blocks: ['paragraph'], marks: [], images: [], mentions: [] }, selection: { start: 0, end: 0 }, typing: [] });
+export function validEditorDocument(document: EditorDocument): boolean {
+  if (!document || document.schemaVersion !== 3 || !Number.isSafeInteger(document.version) || document.version < 0 ||
+    typeof document.title !== 'string' || typeof document.body !== 'string' || !Array.isArray(document.blocks) ||
+    !Array.isArray(document.marks) || !Array.isArray(document.images) || !Array.isArray(document.mentions)) return false;
+  const kinds: BlockKind[] = ['paragraph', 'heading', 'subheading', 'quote', 'pullquote', 'bullet', 'numbered', 'divider', 'code'];
+  const range = (item: TextSelection) => Number.isSafeInteger(item.start) && Number.isSafeInteger(item.end) && item.start >= 0 && item.end > item.start && item.end <= document.body.length;
+  return document.blocks.length === document.body.split('\n').length && document.blocks.every(kind => kinds.includes(kind)) &&
+    document.marks.every(mark => range(mark) && (mark.kind === 'bold' || mark.kind === 'italic' || mark.kind === 'link' && Boolean(safeLink(mark.url ?? '')))) &&
+    new Set(document.images.map(image => image.id)).size === document.images.length &&
+    new Set(document.images.map(image => image.offset)).size === document.images.length &&
+    document.images.every(image => image.id && image.assetId && ['camera', 'library', 'unsplash'].includes(image.source) &&
+      Number.isSafeInteger(image.offset) && image.offset >= 0 && document.body[image.offset] === '\uFFFC' &&
+      (image.offset === 0 || document.body[image.offset - 1] === '\n') && document.body[image.offset + 1] === '\n' &&
+      Number.isFinite(image.width) && image.width > 0 && Number.isFinite(image.height) && image.height > 0) &&
+    document.mentions.every(mention => range(mention) && mention.target?.id && mention.target.name && mention.target.handle &&
+      document.body.slice(mention.start, mention.end) === mention.target.name);
+}
 export function clampSelection(body: string, selection: TextSelection): TextSelection {
   const start = Math.max(0, Math.min(body.length, selection.start));
   return { start, end: Math.max(start, Math.min(body.length, selection.end)) };
@@ -68,7 +87,9 @@ export function replaceText(value: EditorValue, selection: TextSelection, insert
   const position = start + inserted.length;
   const images = doc.images.filter(image => image.offset < start || image.offset >= end)
     .map(image => image.offset >= end ? { ...image, offset: image.offset + delta } : image);
-  return { ...value, document: { ...doc, version: doc.version + 1, body, blocks, images, marks: normalizeMarks(marks) }, selection: { start: position, end: position } };
+  const mentions = doc.mentions.flatMap(mention => mention.end <= start ? [mention] : mention.start >= end ?
+    [{ ...mention, start: mention.start + delta, end: mention.end + delta }] : []);
+  return { ...value, document: { ...doc, version: doc.version + 1, body, blocks, images, mentions, marks: normalizeMarks(marks) }, selection: { start: position, end: position } };
 }
 export function changeBody(value: EditorValue, next: string): EditorValue {
   next = next.replace(/\r\n?/g, '\n'); const before = value.document.body;
@@ -141,9 +162,10 @@ export function insertDivider(value: EditorValue): EditorValue {
   return { ...next, document: { ...next.document, blocks } };
 }
 export function segments(document: EditorDocument, start: number, end: number) {
-  const points = [...new Set([start, end, ...document.marks.flatMap(mark => [Math.max(start, Math.min(end, mark.start)), Math.max(start, Math.min(end, mark.end))])])].sort((a, b) => a - b);
+  const points = [...new Set([start, end, ...[...document.marks, ...document.mentions].flatMap(mark => [Math.max(start, Math.min(end, mark.start)), Math.max(start, Math.min(end, mark.end))])])].sort((a, b) => a - b);
   return points.slice(0, -1).map((point, i) => ({ text: document.body.slice(point, points[i + 1]),
-    formats: formatsAt(document, { start: point, end: points[i + 1]! }), start: point }));
+    formats: formatsAt(document, { start: point, end: points[i + 1]! }), start: point,
+    mention: document.mentions.find(mention => mention.start <= point && mention.end >= points[i + 1]!)?.target }));
 }
 export function editorOutput(document: EditorDocument) {
   return { schemaVersion: document.schemaVersion, title: document.title,
@@ -152,7 +174,7 @@ export function editorOutput(document: EditorDocument) {
       if (image) return { type: 'image' as const, image, content: [] };
       return { type: line.kind, content: line.kind === 'divider' ? [] :
       segments(document, line.start + (line.kind === 'bullet' && line.text.startsWith('• ') ? 2 : line.kind === 'numbered' ? /^\d+\. /u.exec(line.text)?.[0].length ?? 0 : 0), line.end)
-        .map(({ text, formats }) => ({ text, formats })) };
+        .map(({ text, formats, mention }) => ({ text, formats, ...(mention ? { mention } : {}) })) };
     }) };
 }
 
@@ -192,6 +214,7 @@ export function sliceEditor(value: EditorValue, start: number, end: number): Edi
   const first = document.body.slice(0, start).split('\n').length - 1;
   return { ...value, selection: clampSelection(body, { start: value.selection.start - start, end: value.selection.end - start }),
     document: { ...document, body, images: [], blocks: document.blocks.slice(first, first + body.split('\n').length),
+      mentions: document.mentions.filter(mention => mention.start >= start && mention.end <= end).map(mention => ({ ...mention, start: mention.start - start, end: mention.end - start })),
       marks: document.marks.filter(mark => mark.end > start && mark.start < end)
         .map(mark => ({ ...mark, start: Math.max(start, mark.start) - start, end: Math.min(end, mark.end) - start })) } };
 }
@@ -201,6 +224,21 @@ export function mergeEditorSection(value: EditorValue, start: number, end: numbe
   const first = next.document.body.slice(0, start).split('\n').length - 1;
   const blocks = [...next.document.blocks]; blocks.splice(first, section.document.blocks.length, ...section.document.blocks);
   const marks = [...next.document.marks, ...section.document.marks.map(mark => ({ ...mark, start: mark.start + start, end: mark.end + start }))];
+  const mentions = [...next.document.mentions, ...section.document.mentions.map(mention => ({ ...mention, start: mention.start + start, end: mention.end + start }))];
   return { ...next, typing: section.typing, selection: { start: section.selection.start + start, end: section.selection.end + start },
-    document: { ...next.document, blocks, marks } };
+    document: { ...next.document, blocks, marks, mentions } };
+}
+
+export function mentionQuery(value: EditorValue): { start: number; end: number; query: string } | null {
+  if (value.selection.start !== value.selection.end) return null;
+  const prefix = value.document.body.slice(0, value.selection.start);
+  const match = /(?:^|\s)@([^\s@]*)$/u.exec(prefix);
+  if (!match) return null;
+  return { start: prefix.length - match[1]!.length - 1, end: prefix.length, query: match[1]! };
+}
+export function insertMention(value: EditorValue, range: TextSelection, target: MentionTarget): EditorValue {
+  const current = mentionQuery(value);
+  if (!current || current.start !== range.start || current.end !== range.end) return value;
+  const next = replaceText(value, range, `${target.name} `);
+  return { ...next, document: { ...next.document, mentions: [...next.document.mentions, { start: range.start, end: range.start + target.name.length, target: { ...target } }] } };
 }

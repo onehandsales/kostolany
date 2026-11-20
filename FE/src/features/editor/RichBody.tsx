@@ -33,7 +33,7 @@ export function RichBody({ value, onChange, onSelect, onFocus, onBlur, focusRequ
       {segments(value.document, line.start, line.end).map(part => <Text key={part.start} style={{
         fontWeight: part.formats.some(format => format.kind === 'bold') ? '700' : undefined,
         fontStyle: part.formats.some(format => format.kind === 'italic') ? 'italic' : undefined,
-        color: part.formats.some(format => format.kind === 'link') ? colors.green : undefined,
+        color: part.mention || part.formats.some(format => format.kind === 'link') ? colors.green : undefined,
         textDecorationLine: part.formats.some(format => format.kind === 'link') ? 'underline' : 'none',
       }}>{part.text}</Text>)}{line.index < value.document.blocks.length - 1 ? '\n' : ''}
     </Text>)}</Text>

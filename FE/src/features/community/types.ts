@@ -23,6 +23,7 @@ export type RelationshipSnapshot = {
 };
 export type PublicIdentity = FollowTarget & {
   name: string;
+  handle?: string;
   avatar?: ImageSourcePropType;
   bio?: string;
   followers?: string;

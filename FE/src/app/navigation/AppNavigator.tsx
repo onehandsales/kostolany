@@ -10,8 +10,11 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator, type NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/StoryEditorScreen';
+import { createDraftSession } from '../../features/editor/createDraftSession';
+import { createMockDraftSource, type DraftSource } from '../../features/editor/draftSource';
+import { DraftsScreen } from '../../features/editor/DraftsScreen';
 import type { EditorImageSource } from '../../features/editor/imageSource';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
@@ -74,7 +77,8 @@ import { DownloadProvider } from '../../features/downloads/DownloadProvider';
 import type { DownloadSource } from '../../features/downloads/types';
 
 type RootStackParamList = {
-  Editor: { ownerId: string; revision: number };
+  Editor: { ownerId: string; revision: number; draftId: string; isNew: boolean };
+  Drafts: { ownerId: string; revision: number };
   Recommendations: { section: RecommendationSection; interests: boolean; originTab: keyof MainTabParamList };
   Main: NavigatorScreenParams<MainTabParamList> | undefined;
   Article: ArticleRouteParams;
@@ -93,6 +97,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  draftSource?: DraftSource;
   editorImageSource?: EditorImageSource;
   downloadSource?: DownloadSource;
   digestSource?: DigestSource;
@@ -136,6 +141,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  draftSource,
   editorImageSource,
   downloadSource,
   digestSource,
@@ -162,6 +168,8 @@ function SessionNavigationContent({
   const [defaultBookmarks] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
   const currentBookmarks = bookmarkSource ?? defaultBookmarks;
   const [defaultDigests] = useState(() => createMockDigestSource());
+  const [defaultDrafts] = useState(createMockDraftSource);
+  const drafts = draftSource ?? defaultDrafts;
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
@@ -286,7 +294,11 @@ function SessionNavigationContent({
                                 },
                                 openWrite: () => {
                                   if (!state.user) { authStore.openLogin({ kind: 'write' }); return; }
-                                  if (navigationRef.isReady()) navigationRef.navigate('Editor', { ownerId: state.user.id, revision: state.revision });
+                                  if (navigationRef.isReady()) navigationRef.navigate('Editor', { ownerId: state.user.id, revision: state.revision, draftId: drafts.newId(state.user.id), isNew: true });
+                                },
+                                openDrafts: () => {
+                                  if (!state.user) { authStore.openLogin({ kind: 'write' }); return; }
+                                  if (navigationRef.isReady()) navigationRef.navigate('Drafts', { ownerId: state.user.id, revision: state.revision });
                                 },
                               }}
                             >
@@ -321,7 +333,8 @@ function SessionNavigationContent({
                                       />
                                     )}
                                   </Stack.Screen>
-                                  <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} imageSource={editorImageSource} />}</Stack.Screen>
+                                  <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} source={drafts} imageSource={editorImageSource} />}</Stack.Screen>
+                                  <Stack.Screen name="Drafts">{props => <DraftsRouteScreen {...props} source={drafts} />}</Stack.Screen>
                                   {/* 같은 기사 새 진입과 기존 인스턴스 복귀를 구분해 설명 수준의 수명을 보존한다. */}
                                   <Stack.Screen name="Article">
                                     {({ route, navigation }) => (
@@ -473,22 +486,42 @@ function FocusedArticleRoute(props: React.ComponentProps<typeof ArticleRouteScre
   return <ArticleRouteScreen {...props} isFocused={focused} />;
 }
 
-function EditorRouteScreen({ route, navigation, imageSource }: NativeStackScreenProps<RootStackParamList, 'Editor'> & { imageSource?: EditorImageSource }) {
+type EditorRouteProps = NativeStackScreenProps<RootStackParamList, 'Editor'> & { source: DraftSource; imageSource?: EditorImageSource };
+function EditorRouteScreen(props: EditorRouteProps) {
+  const { state } = useAuth();
+  const permitted = state.user?.id === props.route.params.ownerId && state.revision === props.route.params.revision;
+  const [boundary, setBoundary] = useState({ source: props.source, generation: 0, draftId: props.route.params.draftId });
+  useEffect(() => { if (!permitted && props.navigation.isFocused()) props.navigation.goBack(); }, [permitted, props.navigation]);
+  if (boundary.source !== props.source) {
+    setBoundary({ source: props.source, generation: boundary.generation + 1, draftId: props.route.params.isNew ? props.source.newId(props.route.params.ownerId) : props.route.params.draftId }); return null;
+  }
+  return permitted ? <EditorSessionRoute key={boundary.generation} {...props} draftId={boundary.draftId} /> : null;
+}
+function EditorSessionRoute({ route, navigation, imageSource, source, draftId }: EditorRouteProps & { draftId: string }) {
+  const { store } = useAuth();
+  const [session] = useState(() => createDraftSession(source, store, { userId: route.params.ownerId, revision: route.params.revision, draftId, isNew: route.params.isNew }));
+  const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
+  useEffect(() => session.activate(), [session]);
+  const [pending, setPending] = useState<NavigationAction | null>(null);
+  const [failedExit, setFailedExit] = useState(false);
+  const [allowExit, setAllowExit] = useState(false);
+  async function saveAndExit(action: NavigationAction) {
+    setPending(action); setFailedExit(false);
+    if (await session.flush()) setAllowExit(true); else setFailedExit(true);
+  }
+  usePreventRemove(snapshot.dirty && !allowExit, ({ data }) => { void saveAndExit(data.action); });
+  useEffect(() => { if (allowExit && pending) navigation.dispatch(pending); }, [allowExit, navigation, pending]);
+  return <>
+    <StoryEditorScreen session={session} onClose={() => navigation.goBack()} onDrafts={() => navigation.replace('Drafts', { ownerId: route.params.ownerId, revision: route.params.revision })} imageSource={imageSource} />
+    {failedExit && pending && <EditorExitDialog onCancel={() => { setPending(null); setFailedExit(false); }} onRetry={() => { void saveAndExit(pending); }} onDiscard={() => setAllowExit(true)} />}
+  </>;
+}
+function DraftsRouteScreen({ route, navigation, source }: NativeStackScreenProps<RootStackParamList, 'Drafts'> & { source: DraftSource }) {
   const { state } = useAuth();
   const permitted = state.user?.id === route.params.ownerId && state.revision === route.params.revision;
-  const [dirty, setDirty] = useState(false);
-  const [pending, setPending] = useState<NavigationAction | null>(null);
-  const [allowExit, setAllowExit] = useState(false);
-  usePreventRemove(permitted && dirty && !allowExit, ({ data }) => setPending(data.action));
-  useEffect(() => {
-    if (!permitted && navigation.isFocused()) navigation.goBack();
-    else if (allowExit && pending) navigation.dispatch(pending);
-  }, [allowExit, navigation, pending, permitted]);
-  if (!permitted) return null;
-  return <>
-    <StoryEditorScreen onClose={() => navigation.goBack()} onDirtyChange={setDirty} imageSource={imageSource} />
-    {pending && <EditorExitDialog onCancel={() => setPending(null)} onDiscard={() => setAllowExit(true)} />}
-  </>;
+  useEffect(() => { if (!permitted && navigation.isFocused()) navigation.goBack(); }, [permitted, navigation]);
+  return permitted ? <DraftsScreen key={state.revision} source={source} userId={route.params.ownerId} onClose={() => navigation.goBack()}
+    onOpen={draftId => navigation.replace('Editor', { ...route.params, draftId, isNew: false })} /> : null;
 }
 
 function FocusedPublicList(props: React.ComponentProps<typeof PublicListScreen>) {

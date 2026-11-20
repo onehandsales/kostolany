@@ -29,18 +29,17 @@ async function setup(source: EditorImageSource) {
   } };
 }
 
-it('실제 홈에서 이미지 삽입 실패·재시도와 앞뒤 본문 편집·삭제·닫기 취소·폐기를 연결한다', async () => {
+it('실제 홈에서 이미지 삽입 실패·재시도와 앞뒤 본문 편집·삭제·저장 후 새 글을 연결한다', async () => {
   const { user, open, pick } = await setup(createMockEditorImageSource({ delayMs: 0, prepareFailures: 1 }));
   await open(); await fireEvent.changeText(screen.getByLabelText('글 제목'), '사진이 있는 글');
   await fireEvent.changeText(screen.getByLabelText('글 본문'), '이미지 앞'); await pick(); await flush();
   expect(button('이미지 삽입 다시 시도')).toBeVisible(); await user.press(button('이미지 삽입 다시 시도')); await flush();
   await fireEvent.changeText(screen.getByLabelText('이미지 뒤 본문 1'), '이미지 뒤');
-  await user.press(button('편집기 닫기')); await user.press(button('계속 작성'));
   expect(button('해질녘 풍경 이미지 선택')).toBeVisible();
   await user.press(button('해질녘 풍경 이미지 선택')); await user.press(button('해질녘 풍경 이미지 삭제'));
   expect(screen.queryByRole('button', { name: '해질녘 풍경 이미지 선택' })).toBeNull();
   expect(screen.getByText('이미지 앞')).toBeVisible(); expect(screen.getByText('이미지 뒤')).toBeVisible();
-  await user.press(button('편집기 닫기')); await user.press(button('내용 버리고 닫기')); await open();
+  await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' }); await open();
   expect(screen.getByLabelText('글 제목')).toHaveDisplayValue('');
 }, 30000);
 
