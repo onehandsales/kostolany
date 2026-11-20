@@ -21,6 +21,9 @@ export type AppIconName =
   | 'pause'
   | 'previous'
   | 'next'
+  | 'airplay'
+  | 'voice'
+  | 'search'
   | 'lock'
   | 'download'
   | 'settings'
@@ -107,6 +110,24 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
       )}
       {name === 'previous' && <Path d="M4 4v16M20 4 6 12l14 8Z" fill={color} />}
       {name === 'next' && <Path d="M20 4v16M4 4l14 8L4 20Z" fill={color} />}
+      {name === 'search' && (
+        <>
+          <Circle cx={10} cy={10} r={7} />
+          <Path d="m15 15 6 6" />
+        </>
+      )}
+      {name === 'airplay' && (
+        <>
+          <Path d="m12 14-6 8h12Z" fill={color} />
+          <Path d="M5 17a9 9 0 1 1 14 0M8 14a5 5 0 1 1 8 0" />
+        </>
+      )}
+      {name === 'voice' && (
+        <>
+          <Circle cx={11} cy={7} r={4} />
+          <Path d="M3 22v-5q0-3 3-3h10q3 0 3 3v5M18 3q3 4 0 8M21 1q4 6 0 12" />
+        </>
+      )}
       {name === 'lock' && (
         <>
           <Rect x={6} y={10} width={12} height={11} rx={1} fill={color} />

@@ -1,3 +1,4 @@
+import { createMockListeningOptionsSource, type ListeningOptions } from './listeningOptions';
 import { deferred } from '../feed/tests/helpers';
 import { createListeningStore } from './createListeningStore';
 import { createMockListeningSource } from './createMockListeningSource';
@@ -120,3 +121,85 @@ it('로딩 취소·background 진입·복귀·폐기와 재활성화는 타이�
   dispose();
   expect(jest.getTimerCount()).toBe(0);
 });
+
+it('배속·음성 확정은 위치를 보존하고 실패·취소에서는 마지막 확정 설정으로 재생한다', async () => {
+  const options = createMockListeningOptionsSource({ delayMs: 100, applyFailures: 1 });
+  const store = createListeningStore(createMockListeningSource({ delayMs: 0 }), Date.now, 'A', options);
+  const dispose = store.activate();
+  store.listen(storyA);
+  await jest.advanceTimersByTimeAsync(1000);
+  const before = store.getSnapshot().positionSeconds;
+  const failure = store.setOptions({ speed: 2.5, voiceId: 'hans' });
+  await jest.advanceTimersByTimeAsync(100);
+  expect(await failure).toBe(false);
+  expect(store.getSnapshot().options).toEqual({ speed: 1, voiceId: 'emma' });
+  const retry = store.setOptions({ speed: 2.5, voiceId: 'hans' });
+  await jest.advanceTimersByTimeAsync(100);
+  expect(await retry).toBe(true);
+  const confirmed = store.getSnapshot().positionSeconds;
+  expect(confirmed).toBeGreaterThanOrEqual(before);
+  await jest.advanceTimersByTimeAsync(2000);
+  expect(store.getSnapshot().positionSeconds).toBeCloseTo(confirmed + 5);
+  store.listen(storyB);
+  await jest.advanceTimersByTimeAsync(0);
+  expect(store.getSnapshot().options).toEqual({ speed: 2.5, voiceId: 'hans' });
+  const cancelled = store.setOptions({ speed: 1, voiceId: 'emma' });
+  store.cancelOptions();
+  await jest.advanceTimersByTimeAsync(100);
+  expect(await cancelled).toBe(false);
+  expect(store.getSnapshot().options.speed).toBe(2.5);
+  store.close();
+  expect(store.getSnapshot().options.speed).toBe(1);
+  dispose();
+  expect(jest.getTimerCount()).toBe(0);
+});
+
+it.each(['success', 'failure'] as const)(
+  '속도 A→B→A·기사 교체·dispose 후 늦은 옵션 %s를 버린다',
+  async (outcome) => {
+    const pending = [
+      deferred<ListeningOptions>(),
+      deferred<ListeningOptions>(),
+      deferred<ListeningOptions>(),
+    ];
+    const source = createMockListeningOptionsSource({ delayMs: 0 });
+    let index = 0;
+    source.apply = () => {
+      const request = pending[index++];
+      if (!request) throw new Error('Unexpected');
+      return request.promise;
+    };
+    const store = createListeningStore(createMockListeningSource({ delayMs: 0 }), Date.now, 'A', source);
+    const dispose = store.activate();
+    store.listen(storyA);
+    await jest.advanceTimersByTimeAsync(0);
+    const first = store.setOptions({ speed: 2.5, voiceId: 'hans' });
+    const second = store.setOptions({ speed: 1, voiceId: 'emma' });
+    const last = store.setOptions({ speed: 2.5, voiceId: 'hans' });
+    pending[2]?.resolve({ speed: 2.5, voiceId: 'hans' });
+    expect(await last).toBe(true);
+    if (outcome === 'success') {
+      pending[0]?.resolve({ speed: 2.5, voiceId: 'hans' });
+      pending[1]?.resolve({ speed: 1, voiceId: 'emma' });
+    } else {
+      pending[0]?.reject(new Error('late'));
+      pending[1]?.reject(new Error('late'));
+    }
+    expect(await first).toBe(false);
+    expect(await second).toBe(false);
+    expect(store.getSnapshot()).toMatchObject({
+      optionsStatus: 'idle',
+      options: { speed: 2.5, voiceId: 'hans' },
+    });
+    const late = deferred<ListeningOptions>();
+    source.apply = () => late.promise;
+    const oldArticle = store.setOptions({ speed: 1, voiceId: 'emma' });
+    store.listen(storyB);
+    await jest.advanceTimersByTimeAsync(0);
+    late.resolve({ speed: 1, voiceId: 'emma' });
+    expect(await oldArticle).toBe(false);
+    expect(store.getSnapshot().options.speed).toBe(2.5);
+    dispose();
+    expect(jest.getTimerCount()).toBe(0);
+  },
+);

@@ -92,6 +92,7 @@ import { ResponsesPanel } from '../../features/responses/ResponsesPanel';
 import { ListeningProvider } from '../../features/listening/ListeningProvider';
 import { ListeningPlayer } from '../../features/listening/ListeningPlayer';
 import type { ListeningSource } from '../../features/listening/types';
+import type { ListeningOptionsSource } from '../../features/listening/listeningOptions';
 
 type RootStackParamList = {
   Notifications: undefined;
@@ -118,6 +119,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  listeningOptionsSource?: ListeningOptionsSource;
   listeningSource?: ListeningSource;
   statsSource?: StoryStatsSource;
   onboardingSource?: OnboardingSource;
@@ -172,6 +174,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  listeningOptionsSource,
   listeningSource,
   statsSource,
   onboardingSource,
@@ -363,7 +366,7 @@ function SessionNavigationContent({
                                 },
                               }}
                             >
-                              <ListeningProvider source={listeningSource}>
+                              <ListeningProvider source={listeningSource} optionsSource={listeningOptionsSource}>
                               <NavigationContainer theme={theme} ref={navigationRef}>
                                 <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
                                 <Stack.Navigator

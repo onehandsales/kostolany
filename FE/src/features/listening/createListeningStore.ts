@@ -1,9 +1,16 @@
 import { idleListening, type ListeningSnapshot, type ListeningSource, type ListeningStory } from './types';
+import {
+  createMockListeningOptionsSource,
+  isListeningOptions,
+  type ListeningOptions,
+  type ListeningOptionsSource,
+} from './listeningOptions';
 
 export function createListeningStore(
   source: ListeningSource,
   now: () => number = Date.now,
   scope = 'standalone',
+  optionsSource: ListeningOptionsSource = createMockListeningOptionsSource(),
 ) {
   let snapshot: ListeningSnapshot = idleListening;
   const listeners = new Set<() => void>();
@@ -11,6 +18,7 @@ export function createListeningStore(
   let foreground = true;
   let revision = 0;
   let request: AbortController | null = null;
+  let optionsRequest: AbortController | null = null;
   let timer: ReturnType<typeof setInterval> | undefined;
   let startedAtMs = 0;
   let startedAtSeconds = 0;
@@ -26,7 +34,10 @@ export function createListeningStore(
     if (snapshot.status !== 'playing') return;
     const positionSeconds = Math.min(
       snapshot.durationSeconds,
-      Math.max(snapshot.positionSeconds, startedAtSeconds + Math.max(0, now() - startedAtMs) / 1000),
+      Math.max(
+        snapshot.positionSeconds,
+        startedAtSeconds + (Math.max(0, now() - startedAtMs) / 1000) * snapshot.options.speed,
+      ),
     );
     if (positionSeconds === snapshot.durationSeconds) stopTimer();
     publish({
@@ -42,6 +53,7 @@ export function createListeningStore(
     timer = setInterval(updatePosition, 250);
   }
   function close() {
+    cancelOptions();
     revision++;
     request?.abort();
     request = null;
@@ -49,12 +61,14 @@ export function createListeningStore(
     publish(idleListening);
   }
   async function prepare(story: ListeningStory) {
+    cancelOptions();
     request?.abort();
     stopTimer();
     const id = ++revision;
     const controller = new AbortController();
     request = controller;
     publish({
+      ...snapshot,
       status: 'loading',
       story,
       expanded: snapshot.expanded,
@@ -72,6 +86,7 @@ export function createListeningStore(
       )
         throw new Error('Invalid recording');
       publish({
+        ...snapshot,
         status: foreground ? 'playing' : 'paused',
         story,
         expanded: snapshot.expanded,
@@ -82,6 +97,7 @@ export function createListeningStore(
     } catch {
       if (active && !controller.signal.aborted && id === revision)
         publish({
+          ...snapshot,
           status: 'error',
           story,
           expanded: snapshot.expanded,
@@ -103,8 +119,52 @@ export function createListeningStore(
       if (playing && foreground) startTimer();
     }
   }
+  function cancelOptions() {
+    optionsRequest?.abort();
+    optionsRequest = null;
+    if (snapshot.optionsStatus !== 'idle') publish({ ...snapshot, optionsStatus: 'idle' });
+  }
+  async function setOptions(options: ListeningOptions): Promise<boolean> {
+    if (!active || !snapshot.story || snapshot.durationSeconds <= 0) return false;
+    cancelOptions();
+    const controller = new AbortController();
+    optionsRequest = controller;
+    const articleId = snapshot.story.articleId;
+    const requested = { ...options };
+    publish({ ...snapshot, optionsStatus: 'saving' });
+    try {
+      if (!isListeningOptions(requested)) throw new Error('Invalid options');
+      const confirmed = await optionsSource.apply(articleId, requested, controller.signal);
+      if (
+        !active ||
+        controller.signal.aborted ||
+        optionsRequest !== controller ||
+        snapshot.story?.articleId !== articleId
+      )
+        return false;
+      if (
+        !isListeningOptions(confirmed) ||
+        confirmed.speed !== requested.speed ||
+        confirmed.voiceId !== requested.voiceId
+      )
+        throw new Error('Mismatched options');
+      updatePosition();
+      publish({ ...snapshot, options: { ...confirmed }, optionsStatus: 'idle' });
+      if (snapshot.status === 'playing') startTimer();
+      return true;
+    } catch {
+      if (active && !controller.signal.aborted && optionsRequest === controller)
+        publish({ ...snapshot, optionsStatus: 'error' });
+      return false;
+    } finally {
+      if (optionsRequest === controller) optionsRequest = null;
+    }
+  }
   return {
     scope,
+    searchVoices: (query: string, signal: AbortSignal) => optionsSource.searchVoices(query, signal),
+    setOptions,
+    cancelOptions,
     subscribe(listener: () => void) {
       listeners.add(listener);
       return () => {

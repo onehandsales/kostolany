@@ -1,8 +1,8 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 진행 — Goal45 기능 구현·두 차례 자체 검토 수행, 원본/실제 native 검증 잔여.** Listen·미니/확장·재생/시간/seek·원문 복귀를 연결했다. 소리 없는 mock이며 실제 음성/TTS는 없다. 전체220suites/1266tests 이후 수정의 영향 검사와 브라우저·export 기준은 [Goal45 결과](FE_GOAL_45_RESULT.md)를 따른다. Goal44는 `00b2527`에 로컬 커밋했다. Goal46~53을 이어서 진행한다.
+**현재 진행 — Goal46 mock 기능 구현·두 차례 자체 검토 수행, 원본/실제 native 검증 잔여.** 속도·WPM·음성/검색·취소/Done·기존 메뉴를 연결했다. AirPlay는 silent mock의 미지원 상태이며 실제 장치 연결은 없다. 전체222suites/1282tests와 이후 영향 검사·브라우저·export 기준은 [Goal46 결과](FE_GOAL_46_RESULT.md)를 따른다. Goal45는 `ee1c299`에 로컬 커밋했다. Goal47~53을 이어서 진행한다.
 
-**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44는 `00b2527`에 기록했고 Goal45부터 그 위에서 단계별 검토한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
+**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44·45는 `00b2527`·`ee1c299`에 기록했고 이후 단계도 각각 검토·로컬 커밋한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
 
 **Goal43 당시 상태 — 과거 실행 기록(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
 
@@ -53,7 +53,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | --- | --- |
 | 기존 이력 | [Goal 1~13 및 전체 이력](FE_GOALS.md), [Goal 14~21 계획](FE_MEDIUM_CLONE_GOALS.md), [Goal 21 결과](FE_GOAL_21_RESULT.md), [기존 화면 대응표](FE_MEDIUM_SCREEN_MAP.md) |
 | 현재 Git 기준 | 재개 HEAD `036ef6e`에서 선행59개 기준 사본을 별도 검증하고 사용자 승인으로 `b11b004`에 기록했다. Goal44~53은 단계별 로컬 커밋한다. |
-| 현재 검증의 범위 | [Goal45 결과](FE_GOAL_45_RESULT.md)의 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
+| 현재 검증의 범위 | [Goal46 결과](FE_GOAL_46_RESULT.md)의 코드/명령 기준을 따른다. 이전 Goal 수치는 당시 이력이며 자동·브라우저·export·native를 구분한다. |
 | 원본 범위 | iOS version ID 1419의 보관본. 63개 흐름·273단계 참조·고유 화면 200장. UI 요소 43장은 이 200장의 부분집합이며 화면 ID/파일 해시가 같다. 현재 출시 앱·Android·웹 전체를 조사한 자료는 아니다. |
 | 구현 출발점 | 홈/탐색/Stories 검색/기사/저장/목록 기본 편집/모의 계정/프로필 기본 편집이 있다. Write·Responses·Follow·Share·여러 설정은 안내 또는 정적 표현이 남아 있다. 자세한 상태는 대응표와 Goal 22에서 실제 코드로 확인한다. |
 | 시각/native 한계 | 기존 비교 31쌍은 200장 전체 비교가 아니다. 원본 글꼴 파일과 일부 메뉴 상태가 없고, JS/Hermes export는 native build/run 증거가 아니다. |
@@ -138,7 +138,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | [43](#goal-43) | Story stats·월간·누적·정렬 | 39, 42 | 구현 완료·native/원본 메뉴·글꼴 검증 잔여 ([결과](FE_GOAL_43_RESULT.md)) |
 | [44](#goal-44) | 알림 목록·Push·Email·Tailored 설정 | 26, 28, 34, 41 | 구현 완료·원본/native 검증 잔여 — [결과](FE_GOAL_44_RESULT.md) |
 | [45](#goal-45) | Listen·미니/확장 플레이어·재생 제어 | 25 | 기능 구현·두 차례 자체 검토, 원본/native 검증 잔여 |
-| [46](#goal-46) | 재생 속도·음성·검색·AirPlay·큐 상태 | 29, 45 | 미착수 |
+| [46](#goal-46) | 재생 속도·음성·검색·AirPlay·큐 상태 | 29, 45 | mock 구현·두 차례 자체 검토·검증 잔여 ([결과](FE_GOAL_46_RESULT.md)) |
 | [47](#goal-47) | 기사·인용·작가·토픽·목록 공유와 이미지 저장 | 27, 28, 30, 32, 46 | 미착수 |
 | [48](#goal-48) | Member·Friend 구독 화면과 mock 권한 | 33, 41, 47 | 미착수 |
 | [49](#goal-49) | 남은 설정·앱 아이콘·외부 안내 | 42, 44, 48 | 미착수 |
@@ -512,7 +512,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 46 — 재생 속도·음성·검색·AirPlay·큐 상태
 
-- **상태/선행:** 미착수 / Goal 29, Goal 45.
+- **상태/선행:** mock 기능 구현·두 차례 자체 검토·검증 잔여 / Goal 29, Goal 45. [결과](FE_GOAL_46_RESULT.md)의 현재 검사·원본8쌍·실제 native 한계를 따른다. AirPlay 미지원 진입은 구현했으나 실제 OS 장치 연결/음성 출력은 미구현이다.
 - **원본:** [F26](FE_MEDIUM_FULL_CLONE_MAP.md#f26), [F27](FE_MEDIUM_FULL_CLONE_MAP.md#f27), [F28](FE_MEDIUM_FULL_CLONE_MAP.md#f28). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** 속도 선택과 WPM, 음성 목록/선택/검색, AirPlay 진입, View story/Show less/Mute/Report 메뉴 및 이전/다음 상태를 완성한다.
 - **시각 비교:** 속도 1→2.5·음성 Emma→Hans·선택 마크·voice 메타데이터·메뉴 순서와 모달 복귀를 맞춘다.

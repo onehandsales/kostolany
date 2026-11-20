@@ -14,20 +14,27 @@ import { useArticleModeration } from '../moderation/articleModeration';
 import { createListeningStore, type ListeningStore } from './createListeningStore';
 import { createMockListeningSource } from './createMockListeningSource';
 import { idleListening, type ListeningSource } from './types';
+import { createMockListeningOptionsSource, type ListeningOptionsSource } from './listeningOptions';
 
 const Context = createContext<{ store: ListeningStore | null; scope: string }>({ store: null, scope: '' });
-type ListeningProviderProps = { children: ReactNode; source?: ListeningSource };
-export function ListeningProvider({ children, source }: ListeningProviderProps) {
+type ListeningProviderProps = {
+  children: ReactNode;
+  source?: ListeningSource;
+  optionsSource?: ListeningOptionsSource;
+};
+export function ListeningProvider({ children, source, optionsSource }: ListeningProviderProps) {
   const { state } = useAuth();
   const [fallback] = useState(createMockListeningSource);
+  const [fallbackOptions] = useState(createMockListeningOptionsSource);
   const store = useMemo(
     () =>
       createListeningStore(
         source ?? fallback,
         Date.now,
         JSON.stringify([state.user?.id ?? null, state.revision]),
+        optionsSource ?? fallbackOptions,
       ),
-    [source, fallback, state.user?.id, state.revision],
+    [source, fallback, optionsSource, fallbackOptions, state.user?.id, state.revision],
   );
   const [boundary, setBoundary] = useState({ store, generation: 0 });
   useEffect(() => {

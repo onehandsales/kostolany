@@ -21,6 +21,9 @@ import { useKnownProfile } from '../profile/ProfileProvider';
 import { useListening } from './ListeningProvider';
 import { formatListeningTime } from './types';
 import { ListeningSeek } from './ListeningSeek';
+import { ListeningSpeedPanel } from './ListeningSpeedPanel';
+import { ListeningVoicePanel } from './ListeningVoicePanel';
+import { ListeningMenu } from './ListeningMenu';
 
 export function ListeningMiniPlayer() {
   const { store, snapshot } = useListening();
@@ -93,12 +96,13 @@ export function ListeningPlayer({ onViewStory }: ListeningPlayerProps) {
 
 function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
   const { store, snapshot } = useListening();
-  const [panel, setPanel] = useState<'menu' | 'share' | null>(null);
+  const [panel, setPanel] = useState<'menu' | 'share' | 'speed' | 'voice' | 'output' | null>(null);
   const { height, width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const profile = useKnownProfile(snapshot.story?.authorId ?? '');
   const menuTrigger = useRef<View | null>(null);
   const shareTrigger = useRef<View | null>(null);
+  const speedTrigger = useRef<View | null>(null);
   const panelAction = useRef<View | null>(null);
   useEffect(
     () => () => {
@@ -113,7 +117,8 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
   const story = snapshot.story;
   const ready = snapshot.durationSeconds > 0;
   const hidePanel = () => {
-    const trigger = panel === 'share' ? shareTrigger : menuTrigger;
+    const trigger = panel === 'share' ? shareTrigger : panel === 'speed' ? speedTrigger : menuTrigger;
+    store?.cancelOptions();
     setPanel(null);
     requestAnimationFrame(() => trigger.current?.focus());
   };
@@ -207,7 +212,8 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 <Text style={styles.remaining}>
                   -
                   {formatListeningTime(
-                    Math.max(0, snapshot.durationSeconds - Math.floor(snapshot.positionSeconds)),
+                    Math.max(0, snapshot.durationSeconds - Math.floor(snapshot.positionSeconds)) /
+                      snapshot.options.speed,
                   )}
                 </Text>
               </View>
@@ -260,9 +266,15 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
             </View>
             <View style={styles.spacer} />
             <View style={styles.bottomControls}>
-              <Text accessibilityLabel="재생 속도 1배" style={styles.white}>
-                1×
-              </Text>
+              <Pressable
+                ref={speedTrigger}
+                role="button"
+                accessibilityLabel={`재생 속도 ${snapshot.options.speed}배`}
+                style={styles.action}
+                onPress={() => setPanel('speed')}
+              >
+                <Text style={styles.white}>{snapshot.options.speed}×</Text>
+              </Pressable>
               <Pressable
                 ref={shareTrigger}
                 role="button"
@@ -295,39 +307,42 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 style={StyleSheet.absoluteFill}
                 onPress={hidePanel}
               />
-              <View style={styles.panel}>
-                <Text role="heading" style={styles.panelTitle}>
-                  {panel === 'menu' ? 'Player options' : 'Share story'}
-                </Text>
-                <Text style={styles.panelText}>{story.title}</Text>
-                {panel === 'menu' ? (
+              {panel === 'menu' ? (
+                <ListeningMenu
+                  onVoice={() => setPanel('voice')}
+                  onOutput={() => setPanel('output')}
+                  onViewStory={onViewStory}
+                />
+              ) : panel === 'speed' ? (
+                <ListeningSpeedPanel onClose={hidePanel} />
+              ) : panel === 'voice' ? (
+                <ListeningVoicePanel onClose={hidePanel} />
+              ) : (
+                <View style={styles.panel}>
+                  <Text role="heading" style={styles.panelTitle}>
+                    {panel === 'share' ? 'Share story' : 'AirPlay'}
+                  </Text>
+                  <Text style={styles.panelText}>
+                    {panel === 'share'
+                      ? story.title
+                      : '이 mock 플레이어는 소리를 출력하지 않아 AirPlay 장치를 연결할 수 없어요.'}
+                  </Text>
+                  {panel === 'share' && (
+                    <Text style={styles.panelText}>
+                      공유 대상은 이 기사예요. 외부 공유는 아직 연결하지 않았어요.
+                    </Text>
+                  )}
                   <Pressable
                     ref={panelAction}
                     role="button"
-                    accessibilityLabel="View story"
+                    accessibilityLabel="플레이어 메뉴 완료"
                     style={styles.action}
-                    onPress={() => {
-                      store?.setExpanded(false);
-                      onViewStory(story.articleId);
-                    }}
+                    onPress={hidePanel}
                   >
-                    <Text style={styles.panelText}>View story</Text>
+                    <Text style={styles.panelText}>Done</Text>
                   </Pressable>
-                ) : (
-                  <Text style={styles.panelText}>
-                    공유 대상은 이 기사예요. 외부 공유는 아직 연결하지 않았어요.
-                  </Text>
-                )}
-                <Pressable
-                  ref={panel === 'share' ? panelAction : undefined}
-                  role="button"
-                  accessibilityLabel="플레이어 메뉴 완료"
-                  style={styles.action}
-                  onPress={hidePanel}
-                >
-                  <Text style={styles.panelText}>Done</Text>
-                </Pressable>
-              </View>
+                </View>
+              )}
             </View>
           )}
         </View>

@@ -1,4 +1,5 @@
 import type { ImageSourcePropType } from 'react-native';
+import { defaultListeningOptions, type ListeningOptions } from './listeningOptions';
 
 export type ListeningStory = {
   articleId: string;
@@ -9,7 +10,7 @@ export type ListeningStory = {
 };
 export type ListeningRecording = { articleId: string; durationSeconds: number; mode: 'silent-mock' };
 export type ListeningSource = (story: ListeningStory, signal: AbortSignal) => Promise<ListeningRecording>;
-export type ListeningSnapshot =
+export type ListeningSnapshot = (
   | { status: 'idle'; story: null; expanded: false; positionSeconds: 0; durationSeconds: 0 }
   | {
       status: 'loading' | 'error';
@@ -24,9 +25,12 @@ export type ListeningSnapshot =
       expanded: boolean;
       positionSeconds: number;
       durationSeconds: number;
-    };
+    }
+) & { options: ListeningOptions; optionsStatus: 'idle' | 'saving' | 'error' };
 
 export const idleListening: ListeningSnapshot = {
+  options: defaultListeningOptions,
+  optionsStatus: 'idle',
   status: 'idle',
   story: null,
   expanded: false,
