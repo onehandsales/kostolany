@@ -25,6 +25,9 @@ import { ClapControl, UndoClaps } from '../reactions/ClapControl';
 import { ResponseButton } from '../responses/ResponseButton';
 import { PassageReader } from '../highlights/PassageReader';
 import { ListenControl } from '../listening/ListenControl';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
+import { articleShareTarget } from '../sharing/articleShareTarget';
 
 import { articleSelectionDocument } from './articleSelectionDocument';
 import { ReferenceArticleFooter } from './ReferenceArticleFooter';
@@ -58,6 +61,7 @@ export function ReferenceArticleView({
   onSelectArticle,
 }: ReferenceArticleViewProps) {
   const reader = useReaderTypography(18);
+  const share = useShareDialog();
   const moderation = useModeration();
   const muted = moderation.state?.value?.muted.some(
     (item) => item.kind === 'writer' && item.id === articleWriter(article.id)?.id,
@@ -346,7 +350,7 @@ export function ReferenceArticleView({
           size={24}
         />
         <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} compact iconSize={24} />
-        <IconButton icon="share" label="Share story" onPress={() => notice('Share story')} size={24} />
+        <IconButton icon="share" label="Share story" onPress={() => share.open(articleShareTarget(article))} size={24} />
       </View>
       {!access && matchesScope && ui.isMenuOpen && (
         <TopPopover
@@ -433,6 +437,7 @@ export function ReferenceArticleView({
       {!access && matchesScope && ui.isDisplayOpen && (
         <ArticleDisplayPopover onClose={() => setUi((previous) => ({ ...previous, isDisplayOpen: false }))} />
       )}
+      {share.target && <ShareSheet target={share.target} available={!access && active} onClose={share.close} />}
       <ReferenceNotice
         title={matchesScope ? ui.notice : null}
         onClose={() => setUi((previous) => ({ ...previous, notice: null }))}

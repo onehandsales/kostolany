@@ -110,8 +110,9 @@ it('실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View sto
   expect(button('미니 플레이어 재생')).toBeVisible();
   await user.press(button(/^플레이어 확장:/));
   await user.press(button('오디오 기사 공유'));
-  expect(screen.getByText('공유 대상은 이 기사예요. 외부 공유는 아직 연결하지 않았어요.')).toBeVisible();
-  await user.press(button('플레이어 메뉴 완료'));
+  expect(screen.getByRole('heading', { name: 'Share' })).toBeVisible();
+  expect(button('Copy link')).toBeVisible();
+  await user.press(button('공유 닫기'));
   await user.press(button('플레이어 더보기'));
   await user.press(button('View story'));
   await flush();

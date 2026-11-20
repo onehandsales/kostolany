@@ -7,7 +7,8 @@ import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
 
 import { FollowControl } from '../community/FollowControl';
 import { IdentityLink, ArticleByline } from '../community/IdentityLink';
@@ -58,7 +59,7 @@ function TopicContent({
   const navigation = useCommunityNavigation();
   const moderation = useRecommendedArticles();
   const [collapsed, setCollapsed] = useState(false);
-  const [share, setShare] = useState(false);
+  const share = useShareDialog(state.data ?? undefined);
   const topic = state.data?.topics.find((item) => item.id === topicId);
   const articles =
     topic?.stories.flatMap((id) => {
@@ -73,7 +74,8 @@ function TopicContent({
         <IconButton
           icon="share"
           label={`Share topic ${topic?.name ?? topicId}`}
-          onPress={() => setShare(true)}
+          onPress={() => { if (topic) share.open({ kind: 'topic', id: topic.id, title: topic.name,
+            subtitle: 'Explore stories about this topic', authorName: 'Medium', visibility: 'public' }); }}
         />
       </View>
       {state.status === 'loading' ? (
@@ -177,10 +179,7 @@ function TopicContent({
         />
       )}
       {footer}
-      <ReferenceNotice
-        title={share ? `Share topic: ${topic?.name ?? topicId}` : null}
-        onClose={() => setShare(false)}
-      />
+      {share.target && <ShareSheet target={share.target} available={Boolean(topic) && state.status === 'ready'} onClose={share.close} />}
     </SafeAreaView>
   );
 }

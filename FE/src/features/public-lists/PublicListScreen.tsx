@@ -7,7 +7,8 @@ import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { IconButton } from '../../shared/ui/IconButton';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
 import { useAuth } from '../auth/AuthProvider';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { publicIdentity } from '../community/data/publicDirectory';
@@ -68,13 +69,15 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
   const clapStore = useClapStore();
   const own = auth.state.user?.id === list.owner.id;
   const [collapsed, setCollapsed] = useState(false);
-  const [shareTarget, setShareTarget] = useState<{ kind: 'list'; id: string; title: string } | null>(null);
+  const sharing = useShareDialog();
   const target = { kind: 'list' as const, id: list.id };
   const articles = list.articleIds.flatMap(id => {
     const article = bookmarkArticles.find(item => item.id === id);
     return article ? [article] : [];
   });
-  const share = () => setShareTarget({ kind: 'list', id: list.id, title: list.title });
+  const share = () => sharing.open({ kind: 'list', id: list.id, title: list.title,
+    subtitle: list.description, authorId: list.owner.kind === 'writer' ? list.owner.id : undefined,
+    authorName: ownerName, avatar: owner?.avatar, visibility: list.isPrivate ? 'private' : 'public' });
   return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
     <View style={styles.header}>
       <IconButton icon="back" label="Back from public list" onPress={onBack} />
@@ -127,7 +130,7 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
       </View>
     </View>
     {footer}
-    <ReferenceNotice title={shareTarget ? `Share list: ${shareTarget.title}` : null} onClose={() => setShareTarget(null)} />
+    {sharing.target && <ShareSheet target={sharing.target} available={!list.isPrivate} onClose={sharing.close} />}
   </SafeAreaView>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({

@@ -93,6 +93,8 @@ import { ListeningProvider } from '../../features/listening/ListeningProvider';
 import { ListeningPlayer } from '../../features/listening/ListeningPlayer';
 import type { ListeningSource } from '../../features/listening/types';
 import type { ListeningOptionsSource } from '../../features/listening/listeningOptions';
+import { SharingProvider } from '../../features/sharing/SharingProvider';
+import type { ShareAdapter } from '../../features/sharing/types';
 
 type RootStackParamList = {
   Notifications: undefined;
@@ -119,6 +121,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  shareAdapter?: ShareAdapter;
   listeningOptionsSource?: ListeningOptionsSource;
   listeningSource?: ListeningSource;
   statsSource?: StoryStatsSource;
@@ -174,6 +177,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  shareAdapter,
   listeningOptionsSource,
   listeningSource,
   statsSource,
@@ -250,6 +254,7 @@ function SessionNavigationContent({
         userId={state.user?.id ?? null}
         sessionRevision={state.revision}
       >
+        <SharingProvider adapter={shareAdapter}>
           <ReadingHistoryProvider
             source={historySource}
             userId={state.user?.id ?? null}
@@ -563,6 +568,7 @@ function SessionNavigationContent({
               </PublicListProvider>
             </ModerationProvider>
           </ReadingHistoryProvider>
+        </SharingProvider>
       </ProfileProvider>
     </ReadingSettingsProvider>
   );

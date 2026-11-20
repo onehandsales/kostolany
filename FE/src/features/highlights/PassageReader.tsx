@@ -5,6 +5,8 @@ import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
 import { useAuth } from '../auth/AuthProvider';
 import { ResponsesPanel } from '../responses/ResponsesPanel';
+import { ShareSheet } from '../sharing/ShareSheet';
+import { articleWriter, publicIdentity } from '../community/data/publicDirectory';
 import { useHighlights } from './HighlightProvider';
 import { HighlightedText } from './HighlightedText';
 import { SelectionOverlay } from './SelectionOverlay';
@@ -105,7 +107,13 @@ function PassageReaderContent({ document, active = true, highlightId: anchorId, 
     {children(renderText)}
     {Platform.OS !== 'web' && <Pressable role="button" accessibilityLabel="기사 문구 선택" style={styles.action} onPress={() => setNativePicker(true)}><Text style={{ color: colors.green }}>Select a passage</Text></Pressable>}
     {active && nativePicker && <NativePassagePicker document={document} onClose={() => setNativePicker(false)} onSelect={passage => { setNativePicker(false); updateSelection({ passage, position: { x: 24, y: 240, width: width - 48, height: 30 } }); }} />}
-    {active && selection && !quote && <SelectionOverlay onClose={close}>
+    {active && selection && !quote && (sharing ? <ShareSheet target={{
+          kind: 'quote', id: document.articleId, title: document.title, subtitle: '', authorName: document.author,
+          authorId: articleWriter(document.articleId)?.id,
+          avatar: publicIdentity(articleWriter(document.articleId) ?? { kind: 'writer', id: '' })?.avatar,
+          quote: selection.passage.text, start: selection.passage.start, end: selection.passage.end,
+          visibility: 'public',
+        }} available={resolvePassage(document, selection.passage)} onClose={() => setSharing(false)} /> : <SelectionOverlay onClose={close}>
         <View accessibilityLabel="문구 선택 메뉴" style={[styles.menu, { backgroundColor: colors.popup, top: menuTop, left: menuLeft, width: menuWidth }]}>
           <View style={styles.row}>
             <Pressable role="button" accessibilityLabel={selectedHighlight ? 'Remove highlight' : 'Highlight'} disabled={pending} accessibilityState={{ disabled: pending, busy: pending }} style={styles.action} onPress={() => { void save(); }}><Text style={[styles.label, { color: colors.text }]}>{selectedHighlight ? 'Remove highlight' : 'Highlight'}</Text></Pressable>
@@ -116,9 +124,8 @@ function PassageReaderContent({ document, active = true, highlightId: anchorId, 
           {pending && <Text style={[styles.message, { color: colors.secondaryText }]}>Saving…</Text>}
           {error && <Pressable role="button" accessibilityLabel="하이라이트 저장 다시 시도" style={styles.action} onPress={() => { void save(true); }}><Text role="alert" style={{ color: colors.destructive }}>저장하지 못했어요. 다시 시도</Text></Pressable>}
           {more && <Text style={[styles.message, { color: colors.secondaryText }]}>선택 메뉴의 추가 항목은 보관된 화면에서 확인되지 않았어요.</Text>}
-          {sharing && <View><Text style={[styles.message, { color: colors.text }]}>선택한 인용문을 공유할 준비가 되었어요. 외부 공유는 Goal47에서 연결합니다.</Text><Text selectable style={[styles.message, { color: colors.secondaryText }]}>{selection.passage.text}</Text><Pressable role="button" accessibilityLabel="공유 초안 닫기" style={styles.action} onPress={() => setSharing(false)}><Text style={{ color: colors.green }}>Close</Text></Pressable></View>}
         </View>
-    </SelectionOverlay>}
+    </SelectionOverlay>)}
     {active && quote && <ResponsesPanel target={{ kind: 'article', id: document.articleId }} initialQuote={quote} onClose={() => { setQuote(null); close(); }} />}
   </View>;
 }

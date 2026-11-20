@@ -22,6 +22,7 @@ import { publicIdentity } from '../community/data/publicDirectory';
 import { mockUsers } from '../auth/data/mockUsers';
 import { responseFixtures } from '../responses/data/responseFixtures';
 import { SafeWebsiteLink } from '../community/SafeWebsiteLink';
+import { SharePanel } from '../sharing/ShareSheet';
 import { useModeration, type ModerationEntry } from './ModerationContext';
 import {
   moderationKey,
@@ -211,7 +212,7 @@ export function ModerationDialogs({
               <Pressable
                 role="button"
                 style={styles.authorRow}
-                onPress={() => open({ kind: 'share', name: author.name })}
+                onPress={() => { if (entry.kind === 'author') open({ kind: 'share', name: author.name, target: entry.target }); }}
               >
                 <Text style={styles.blue}>Share {noun}</Text>
               </Pressable>
@@ -416,13 +417,10 @@ export function ModerationDialogs({
             </Pressable>
           </View>
         ) : (
-          <View style={styles.confirm}>
-            <Text style={styles.confirmTitle}>Share {entry.name}</Text>
-            <Text style={styles.text}>External sharing is unavailable in this demo.</Text>
-            <Pressable role="button" style={styles.row} onPress={close}>
-              <Text style={styles.blue}>Done</Text>
-            </Pressable>
-          </View>
+          <SharePanel target={{ kind: entry.target.kind, id: entry.target.id, title: entry.name,
+            subtitle: publicIdentity(entry.target)?.bio ?? '', authorName: entry.name,
+            authorId: entry.target.kind === 'writer' ? entry.target.id : undefined,
+            avatar: publicIdentity(entry.target)?.avatar, visibility: 'public' }} onClose={close} />
         )}
       </SafeAreaView>
     </Modal>

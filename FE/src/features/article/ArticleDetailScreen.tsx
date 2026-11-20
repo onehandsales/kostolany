@@ -25,6 +25,9 @@ import type { ExplanationPreference, ExplanationSource } from './explanationType
 import type { ArticleDetail, ArticleLoadState, ArticleSource } from './types';
 import { useArticle } from './useArticle';
 import { useEntryExplanationPreference } from './useEntryExplanationPreference';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
+import { articleShareTarget } from '../sharing/articleShareTarget';
 
 type ArticleDetailScreenProps = {
   offline?: boolean;
@@ -58,6 +61,7 @@ export function ArticleDetailScreen({
   const moderation = useArticleModeration();
   const entryPreference = useEntryExplanationPreference(articleId, preference);
   const { state, retry } = useArticle(articleId, source);
+  const sharing = useShareDialog(source);
   const access = moderation.state?.readError
     ? 'error'
     : moderation.store && moderation.state?.status === 'loading'
@@ -118,6 +122,8 @@ export function ArticleDetailScreen({
           <ListenControl article={state.article} disabled={Boolean(access) || !isFocused} />
         )}
         <ArticleDisplayControl />
+        {state.status === 'ready' && !access && <Pressable role="button" accessibilityLabel="Share story" style={styles.back}
+          onPress={() => sharing.open(articleShareTarget(state.article))}><Text style={{ color: colors.green }}>Share</Text></Pressable>}
       </View>
       {/* 기사가 바뀌면 본문과 스크롤 세션만 새로 시작하고 공유 반응은 유지한다. */}
       <ArticleReader
@@ -130,6 +136,7 @@ export function ArticleDetailScreen({
         preference={entryPreference}
       />
       <ListeningMiniPlayer />
+      {sharing.target && <ShareSheet target={sharing.target} onClose={sharing.close} available={isFocused && !access && state.status === 'ready' && state.article.id === sharing.target.id} />}
     </SafeAreaView>
   );
 }

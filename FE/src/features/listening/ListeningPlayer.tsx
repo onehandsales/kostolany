@@ -24,6 +24,9 @@ import { ListeningSeek } from './ListeningSeek';
 import { ListeningSpeedPanel } from './ListeningSpeedPanel';
 import { ListeningVoicePanel } from './ListeningVoicePanel';
 import { ListeningMenu } from './ListeningMenu';
+import { SharePanel } from '../sharing/ShareSheet';
+import { articleShareTarget } from '../sharing/articleShareTarget';
+import { mediumArticles } from '../feed/data/mediumFixtures';
 
 export function ListeningMiniPlayer() {
   const { store, snapshot } = useListening();
@@ -317,21 +320,18 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 <ListeningSpeedPanel onClose={hidePanel} />
               ) : panel === 'voice' ? (
                 <ListeningVoicePanel onClose={hidePanel} />
+              ) : panel === 'share' ? (
+                <SharePanel target={articleShareTarget(mediumArticles.find(article => article.id === story.articleId)
+                  ?? { id: story.articleId, title: story.title, summary: '', sourceName: story.authorName,
+                    publishedLabel: '', readingMinutes: 0, thumbnail: null })} onClose={hidePanel} />
               ) : (
                 <View style={styles.panel}>
                   <Text role="heading" style={styles.panelTitle}>
-                    {panel === 'share' ? 'Share story' : 'AirPlay'}
+                    AirPlay
                   </Text>
                   <Text style={styles.panelText}>
-                    {panel === 'share'
-                      ? story.title
-                      : '이 mock 플레이어는 소리를 출력하지 않아 AirPlay 장치를 연결할 수 없어요.'}
+                    이 mock 플레이어는 소리를 출력하지 않아 AirPlay 장치를 연결할 수 없어요.
                   </Text>
-                  {panel === 'share' && (
-                    <Text style={styles.panelText}>
-                      공유 대상은 이 기사예요. 외부 공유는 아직 연결하지 않았어요.
-                    </Text>
-                  )}
                   <Pressable
                     ref={panelAction}
                     role="button"

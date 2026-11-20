@@ -14,7 +14,7 @@ export type ModerationEntry =
       returnTo?: 'blocked';
     }
   | { kind: 'report'; target: ReportTarget; title: string }
-  | { kind: 'share'; name: string }
+  | { kind: 'share'; name: string; target: ModerationIdentity }
   | { kind: 'blocked' };
 export const ModerationContext = createContext<{
   store: ModerationStore | null;

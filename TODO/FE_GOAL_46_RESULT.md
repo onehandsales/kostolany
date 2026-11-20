@@ -97,3 +97,7 @@ baseline/platform JSON, check 로그, browser/extended/comparison 스크립트·
 5. 다른 기사 Listen에서 확정 선택 유지, 닫기/새 시작·로그아웃/로그인·전체 reload에서 초기화를 확인한다.
 
 실패·지연 재현은 외부 extended.cjs 또는 source 주입 테스트를 사용하며 실제 계정/음성 서비스가 필요하지 않다.
+
+## Goal47 후속 반영
+
+공유 안내는 [Goal47](FE_GOAL_47_RESULT.md)에서 같은 재생 기사 ID의 실제 공유 화면으로 연결했다. 실제 navigation·브라우저 및 Goal47의 후속 영향 검사에 플레이어 회귀를 포함했다. 위 Goal46 당시 실행 결과와 AirPlay 미지원/실제 오디오 미연동 상태는 바꾸지 않는다.

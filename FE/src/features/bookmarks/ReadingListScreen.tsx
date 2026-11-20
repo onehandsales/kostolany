@@ -6,6 +6,8 @@ import Svg, { Path } from 'react-native-svg';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
 import { useProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -42,7 +44,7 @@ export function ReadingListScreen({
   const { colors } = useTheme();
   const profile = useProfile();
   const [notice, setNotice] = useState<string | null>(null);
-  const [shareTarget, setShareTarget] = useState<{ id: string; title: string } | null>(null);
+  const sharing = useShareDialog();
   const [removed, setRemoved] = useState<RemovedListStory | string | null>(null);
   const [editingNote, setEditingNote] = useState<FeedArticle | null>(null);
   const [collapsed, setCollapsed] = useState(false);
@@ -208,12 +210,14 @@ export function ReadingListScreen({
       <View style={styles.listBar}>
         <IconButton icon="clap" label="List claps" color="#dddddd" onPress={() => setNotice('List claps')} />
         <IconButton icon="comment" label="List responses" onPress={() => setNotice('List responses')} />
-        <IconButton icon="share" label="Share list" onPress={() => setShareTarget({
-          id: ownedPublicListId(store.userLists.userId, listId), title: name,
+        <IconButton icon="share" label="Share list" onPress={() => sharing.open({
+          kind: 'list', id: ownedPublicListId(store.userLists.userId, listId), title: name,
+          subtitle: selected?.content?.description ?? '', authorId: store.userLists.userId,
+          authorName: 'My list', visibility: selected?.content?.isPrivate ? 'private' : 'public',
         })} />
       </View>
-      <ReferenceNotice title={shareTarget ? `Share list: ${shareTarget.title}` : notice}
-        onClose={() => { setShareTarget(null); setNotice(null); }} />
+      {sharing.target && <ShareSheet target={sharing.target} available={!selected?.content?.isPrivate && (isDefault || Boolean(selected?.content))} onClose={sharing.close} />}
+      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {editingNote && selected?.content && <ListNoteSheet listId={listId} article={editingNote} onClose={() => setEditingNote(null)} />}
     </SafeAreaView>
   );
