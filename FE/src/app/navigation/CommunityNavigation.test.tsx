@@ -55,7 +55,7 @@ it('실제 navigation으로 프로필 탭·목록·팔로우/이메일 재시도
   await user.press(screen.getByRole('button', { name: /^Behold/ }));
   await user.press(await screen.findByRole('button', { name: '작가 프로필로 돌아가기' }));
   await user.press(screen.getByRole('tab', { name: '프로필' }));
-  await user.press(await screen.findByRole('button', { name: 'Followers and following' }));
+  await user.press(await screen.findByRole('button', { name: 'My following' }));
   expect(screen.getByRole('button', { name: 'Following Jordan Gibbs' })).toBeVisible();
   expect(screen.getByRole('button', { name: 'Following The Medium Blog' })).toBeVisible();
   await user.press(screen.getByRole('button', { name: 'Following Jordan Gibbs' }));

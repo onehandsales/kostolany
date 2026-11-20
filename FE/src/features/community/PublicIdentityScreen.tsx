@@ -13,6 +13,7 @@ import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { followKey, type FollowTarget, type PublicIdentity } from './types';
 import { mockUsers } from '../auth/data/mockUsers';
 import { useKnownProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { mediumArticles } from '../feed/data/mediumFixtures';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { IconButton } from '../../shared/ui/IconButton';
@@ -71,7 +72,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const header = identity && (
     <>
       <View style={styles.identity}>
-        {identity.avatar ? (
+        {target.kind === 'writer' ? <ProfileAvatar userId={target.id} fallback={identity.avatar} size={56} /> : identity.avatar ? (
           <Image
             source={identity.avatar}
             style={[styles.avatar, target.kind === 'publication' && styles.square]}
@@ -83,8 +84,9 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
         <View style={styles.grow}>
           <View style={styles.nameRow}>
             <Text role="heading" style={styles.name}>
-              {identity.name}
+              {knownProfile?.name ?? identity.name}
             </Text>
+            {!!knownProfile?.pronouns.length && <Text style={styles.caption}>{knownProfile.pronouns.join('/')}</Text>}
             {identity.verified && <AppIcon name="verified" size={14} />}
           </View>
           <View style={styles.counts}>
@@ -177,10 +179,8 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
                 >
                   <View style={styles.listCopy}>
                     <View style={styles.badge}>
-                      {identity.avatar && (
-                        <Image source={identity.avatar} style={styles.smallAvatar} accessible={false} />
-                      )}
-                      <Text style={styles.secondary}>{identity.name}</Text>
+                      <ProfileAvatar userId={identity.kind === 'writer' ? identity.id : undefined} fallback={identity.avatar} size={20} />
+                      <Text style={styles.secondary}>{knownProfile?.name ?? identity.name}</Text>
                     </View>
                     <Text style={styles.listTitle}>{list.title}</Text>
                     <Text style={styles.secondary}>{list.capturedStoryCount} stories</Text>

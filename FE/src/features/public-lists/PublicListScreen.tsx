@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -15,6 +15,7 @@ import { FollowControl } from '../community/FollowControl';
 import { bookmarkArticles } from '../bookmarks/data/bookmarkFixtures';
 import { mockUsers } from '../auth/data/mockUsers';
 import { useKnownProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useModeration } from '../moderation/ModerationContext';
 import { ClapControl } from '../reactions/ClapControl';
 import { useClapStore } from '../reactions/ClapProvider';
@@ -93,7 +94,7 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
         ListHeaderComponent={<View style={styles.intro}>
           <Pressable role="button" accessibilityLabel={`Open ${ownerName} profile`}
             style={styles.owner} onPress={() => navigation.openIdentity(list.owner)}>
-            {owner?.avatar && <Image source={owner.avatar} style={styles.avatar} accessible={false} />}
+            <ProfileAvatar userId={list.owner.kind === 'writer' ? list.owner.id : undefined} fallback={owner?.avatar} size={48} />
             <View style={styles.ownerText}>
               <Text style={styles.ownerName}>{ownerName}</Text>
               <Text style={styles.metadata}>{list.publishedLabel ? `${list.publishedLabel} · ` : ''}

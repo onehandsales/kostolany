@@ -57,6 +57,7 @@ import { BookmarkProvider } from '../../features/bookmarks/BookmarkProvider';
 import type { BookmarkSource } from '../../features/bookmarks/types';
 import type { FeedSource } from '../../features/feed/types';
 import { ProfileProvider, useProfile } from '../../features/profile/ProfileProvider';
+import type { ProfilePhotoPicker } from '../../features/profile/profilePhoto';
 import type { ProfileSource } from '../../features/profile/types';
 import type { SearchSource } from '../../features/search/types';
 import { ReadingSettingsProvider } from '../../features/settings/ReadingSettingsProvider';
@@ -81,6 +82,7 @@ import { createMockDigestSource } from '../../features/digest/createMockDigestSo
 import type { DigestSource } from '../../features/digest/types';
 import { DownloadProvider } from '../../features/downloads/DownloadProvider';
 import type { DownloadSource } from '../../features/downloads/types';
+import type { StoryStatsSource } from '../../features/story-stats/types';
 
 type RootStackParamList = {
   WrittenStory: { storyId: string };
@@ -104,6 +106,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  statsSource?: StoryStatsSource;
   onboardingSource?: OnboardingSource;
   notificationPermissionSource?: NotificationPermissionSource;
   draftSource?: DraftSource;
@@ -115,6 +118,7 @@ type AppNavigatorProps = {
   searchSource?: SearchSource;
   bookmarkSource?: BookmarkSource;
   profileSource?: ProfileSource;
+  profilePhotoPicker?: ProfilePhotoPicker;
   settingsSource?: ReadingSettingsSource;
   displaySource?: DisplaySettingsSource;
   explanationSource?: ExplanationSource;
@@ -150,6 +154,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  statsSource,
   onboardingSource,
   notificationPermissionSource,
   draftSource,
@@ -161,6 +166,7 @@ function SessionNavigationContent({
   searchSource,
   bookmarkSource,
   profileSource,
+  profilePhotoPicker,
   settingsSource,
   explanationSource,
   clapSource,
@@ -209,6 +215,7 @@ function SessionNavigationContent({
     >
       <ProfileProvider
         source={profileSource}
+        photoPicker={profilePhotoPicker}
         userId={state.user?.id ?? null}
         sessionRevision={state.revision}
       >
@@ -329,6 +336,7 @@ function SessionNavigationContent({
                                   <Stack.Screen name="Main">
                                     {({ navigation }) => (
                                       <MainTabs
+                                        statsSource={statsSource}
                                         digestSource={digestSource ?? defaultDigests}
                                         source={feedSource}
                                         searchSource={searchSource}

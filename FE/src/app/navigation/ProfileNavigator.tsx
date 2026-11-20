@@ -1,29 +1,55 @@
 import { useIsFocused } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useMemo, useState } from 'react';
 
 import { useAuth } from '../../features/auth/AuthProvider';
 import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
 import { ProfileScreen } from '../../features/profile/ProfileScreen';
 import { SettingsScreen } from '../../features/settings/SettingsScreen';
+import { useWrittenStories } from '../../features/editor/WrittenStoriesProvider';
+import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
+import { createMockStoryStatsSource } from '../../features/story-stats/createMockStoryStatsSource';
+import { StoryStatsScreen } from '../../features/story-stats/StoryStatsScreen';
+import type { StoryStatsSource } from '../../features/story-stats/types';
 
-type ProfileStackParamList = { ProfileHome: undefined; Settings: undefined; ProfileList: { listId: string } };
+type ProfileStackParamList = {
+  ProfileHome: undefined;
+  Settings: undefined;
+  ProfileList: { listId: string };
+  StoryStats: undefined;
+  StatsStory: { storyId: string };
+};
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
 type ProfileNavigatorProps = {
+  statsSource?: StoryStatsSource;
   onSelectArticle: (articleId: string, listId: string) => void;
   onBrowseArticles: () => void;
 };
 
-export function ProfileNavigator({ onSelectArticle, onBrowseArticles }: ProfileNavigatorProps) {
+export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticles }: ProfileNavigatorProps) {
+  const drafts = useWrittenStories()?.source;
+  const source = useMemo(() => statsSource ?? (drafts ? createMockStoryStatsSource(drafts) : null), [statsSource, drafts]);
+  const { state } = useAuth();
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ProfileHome">
         {({ navigation }) => (
           <ProfileHome
+            onOpenStats={() => navigation.navigate('StoryStats')}
             onOpenList={(listId) => navigation.navigate('ProfileList', { listId })}
             onOpenSettings={() => navigation.navigate('Settings')}
           />
         )}
+      </Stack.Screen>
+      <Stack.Screen name="StoryStats">
+        {({ navigation }) => source && state.user && <StatsRoute source={source}
+          userId={state.user.id} revision={state.revision} onBack={() => navigation.goBack()}
+          onOpenStory={storyId => navigation.navigate('StatsStory', { storyId })} />}
+      </Stack.Screen>
+      <Stack.Screen name="StatsStory">
+        {({ navigation, route }) => state.user && <WrittenStoryScreen storyId={route.params.storyId}
+          ownerId={state.user.id} onBack={() => navigation.goBack()} />}
       </Stack.Screen>
       <Stack.Screen name="Settings">
         {({ navigation }) => <SettingsRoute onBack={() => navigation.goBack()} />}
@@ -44,9 +70,11 @@ export function ProfileNavigator({ onSelectArticle, onBrowseArticles }: ProfileN
 }
 
 function ProfileHome({
+  onOpenStats,
   onOpenSettings,
   onOpenList,
 }: {
+  onOpenStats: () => void;
   onOpenSettings: () => void;
   onOpenList: (listId: string) => void;
 }) {
@@ -55,6 +83,7 @@ function ProfileHome({
   return (
     state.user && (
       <ProfileScreen
+        onOpenStats={onOpenStats}
         accountLabel={state.user.name}
         isFocused={isFocused}
         onLogout={store.openLogout}
@@ -63,6 +92,19 @@ function ProfileHome({
       />
     )
   );
+}
+
+function StatsRoute({ source, userId, revision, onBack, onOpenStory }: {
+  source: StoryStatsSource; userId: string; revision: number; onBack: () => void; onOpenStory: (storyId: string) => void;
+}) {
+  const active = useIsFocused();
+  const [scope, setScope] = useState({ source, version: 0 });
+  if (scope.source !== source) {
+    setScope({ source, version: scope.version + 1 });
+    return null;
+  }
+  return <StoryStatsScreen key={JSON.stringify([userId, revision, scope.version])} source={source}
+    userId={userId} sessionRevision={revision} active={active} onBack={onBack} onOpenStory={onOpenStory} />;
 }
 
 function SettingsRoute({ onBack }: { onBack: () => void }) {

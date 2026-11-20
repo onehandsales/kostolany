@@ -9,6 +9,7 @@ import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import type { FeedArticle } from '../feed/types';
 import { useProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { DownloadControl, DownloadFeedback } from '../downloads/DownloadControl';
@@ -44,7 +45,7 @@ export function LibraryListCard({
         style={styles.link}
       >
         <View style={styles.owner}>
-          <View style={styles.avatar} />
+          <ProfileAvatar userId={state.profile?.userId} size={20} />
           <Text style={styles.ownerName}>{state.profile?.name ?? 'Reader'}</Text>
         </View>
         <Text style={styles.title}>{listId === DEFAULT_LIST_ID ? 'Reading list' : name}</Text>

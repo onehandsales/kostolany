@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
+  Keyboard,
   Modal,
   Platform,
   Pressable,
@@ -16,7 +17,10 @@ import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { ProfileAvatar } from './ProfileAvatar';
+import { ProfilePhotoMenu } from './ProfilePhotoMenu';
+import { PronounsEditor } from './PronounsEditor';
+import { useProfilePhotoSelection } from './useProfilePhotoSelection';
 import type { ProfileStore } from './createProfileStore';
 import { profileStyles as createStyles } from './profileStyles';
 import {
@@ -32,8 +36,11 @@ type ProfileEditorSheetProps = { initialProfile: Profile; store: ProfileStore; o
 export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEditorSheetProps) {
   const visual = useThemeStyles(createVisual);
   const styles = useThemeStyles(createStyles);
-  const [unavailableFeature, setUnavailableFeature] = useState<string | null>(null);
-  const [fields, setFields] = useState<ProfileFields>({ name: initialProfile.name, bio: initialProfile.bio });
+  const [child, setChild] = useState<'photo' | 'pronouns' | null>(null);
+  const [fields, setFields] = useState<ProfileFields>(() => normalizeProfileFields(initialProfile));
+  const [initialPhoto] = useState(initialProfile.photo);
+  const photoButton = useRef<View>(null);
+  const pronounsButton = useRef<View>(null);
   const [error, setError] = useState<string | null>(null);
   const [hasSaveError, setHasSaveError] = useState(false);
   const [pendingFields, setPendingFields] = useState<ProfileFields | null>(null);
@@ -52,11 +59,18 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
   const isDuplicate =
     pendingFields !== null && areProfileFieldsEqual(pendingFields, normalizeProfileFields(fields));
 
-  const change = (key: keyof ProfileFields, value: string) => {
+  const change = <Key extends keyof ProfileFields>(key: Key, value: ProfileFields[Key]) => {
     draftVersion.current += 1;
     setFields((previous) => ({ ...previous, [key]: value }));
     setError(null);
     setNotice('');
+  };
+  const photoSelection = useProfilePhotoSelection(initialPhoto, photo => change('photo', photo));
+  const closeChild = () => {
+    if (child === 'photo') photoSelection.cancel();
+    const target = child === 'photo' ? photoButton : pronounsButton;
+    setChild(null);
+    requestAnimationFrame(() => target.current?.focus());
   };
   const save = async () => {
     const validation = validateProfileFields(fields);
@@ -89,12 +103,13 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
       transparent
       animationType="fade"
       accessibilityLabel="프로필 편집 창"
-      onRequestClose={onClose}
+      onRequestClose={child ? closeChild : onClose}
       onShow={() => nameInput.current?.focus()}
     >
       <SafeAreaView style={styles.backdrop}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.keyboard}>
-          <View accessibilityViewIsModal style={[styles.sheet, visual.sheet]}>
+          <View accessibilityViewIsModal aria-hidden={child === 'photo'} pointerEvents={child === 'photo' ? 'none' : 'auto'} style={[styles.sheet, visual.sheet]}>
+            {child === 'pronouns' ? <PronounsEditor initial={fields.pronouns ?? []} onCancel={closeChild} onDone={values => { change('pronouns', values); closeChild(); }} /> : <>
             <View style={[styles.header, visual.header]}>
               <Pressable
                 role="button"
@@ -127,10 +142,12 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
               contentContainerStyle={[styles.page, visual.content]}
             >
               <View style={visual.photoRow}>
-                <View style={styles.avatar} />
+                <ProfileAvatar photo={fields.photo ?? null} size={56} />
                 <Pressable
+                  ref={photoButton}
                   role="button"
-                  onPress={() => setUnavailableFeature('Update photo')}
+                  accessibilityLabel="프로필 사진 변경"
+                  onPress={() => { Keyboard.dismiss(); setChild('photo'); }}
                   style={visual.updatePhoto}
                 >
                   <Text style={visual.photoLink}>Update photo</Text>
@@ -160,16 +177,18 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
               <View style={visual.field}>
                 <Text style={visual.label}>Pronouns</Text>
                 <Pressable
+                  ref={pronounsButton}
                   role="button"
                   accessibilityLabel="Add pronouns"
-                  onPress={() => setUnavailableFeature('Pronouns')}
+                  onPress={() => setChild('pronouns')}
                   style={visual.inputTarget}
                 >
-                  <View style={visual.inputSurface}>
+                  <View style={[visual.inputSurface, visual.pronouns]}>
+                    {(fields.pronouns ?? []).map(value => <Text key={value} style={visual.pronoun}>{value}</Text>)}
                     <Text style={visual.placeholder}>Add...</Text>
                   </View>
                 </Pressable>
-                <Text style={[styles.counter, visual.counter]}>0 / 4</Text>
+                <Text style={[styles.counter, visual.counter]}>{fields.pronouns?.length ?? 0} / 4</Text>
               </View>
               <View style={visual.field}>
                 <Text style={visual.label}>Short bio</Text>
@@ -202,10 +221,8 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                   {notice}
                 </Text>
               )}
-              <Pressable
-                role="button"
+              <View
                 accessibilityLabel="About Page information"
-                onPress={() => setUnavailableFeature('About Page')}
                 style={visual.about}
               >
                 <Text style={visual.label}>About Page</Text>
@@ -213,7 +230,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                   Visit medium.com/me/about from a desktop web browser to personalize your About Page and
                   paint more of a vivid portrait of yourself than your ‘Short bio.’
                 </Text>
-              </Pressable>
+              </View>
               <View style={visual.localInfo}>
                 <Text aria-live="polite" style={styles.secondary}>
                   {pendingFields
@@ -233,9 +250,12 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                 </Pressable>
               </View>
             </ScrollView>
+            </>}
           </View>
         </KeyboardAvoidingView>
-        <ReferenceNotice title={unavailableFeature} onClose={() => setUnavailableFeature(null)} />
+        {child === 'photo' && <ProfilePhotoMenu busy={photoSelection.busy} error={photoSelection.error} onClose={closeChild} onSelect={origin => {
+          void photoSelection.select(origin).then(selected => { if (selected && isMounted.current) { setChild(null); requestAnimationFrame(() => photoButton.current?.focus()); } });
+        }} />}
       </SafeAreaView>
     </Modal>
   );
@@ -270,6 +290,8 @@ const createVisual = (colors: ThemeColors) => StyleSheet.create({
     justifyContent: 'center',
   },
   placeholder: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
+  pronouns: { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', gap: 8 },
+  pronoun: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.text, backgroundColor: colors.background, paddingHorizontal: 6, borderRadius: 3 },
   counter: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20 },
   about: {
     marginTop: 34,

@@ -17,6 +17,7 @@ import { ProfileStories } from './ProfileStories';
 import { useOnboarding } from '../onboarding/OnboardingProvider';
 import { EditorDialog } from '../editor/StoryEditorScreen';
 import { ProfileEditorSheet } from './ProfileEditorSheet';
+import { ProfileAvatar } from './ProfileAvatar';
 import { useProfile } from './ProfileProvider';
 import { profileStyles as createStyles } from './profileStyles';
 
@@ -26,6 +27,7 @@ type ProfileScreenProps = {
   isFocused: boolean;
   onOpenSettings?: () => void;
   onOpenList?: (listId: string) => void;
+  onOpenStats?: () => void;
 };
 
 export function ProfileScreen({
@@ -34,6 +36,7 @@ export function ProfileScreen({
   isFocused,
   onOpenSettings,
   onOpenList,
+  onOpenStats,
 }: ProfileScreenProps) {
   const visual = useThemeStyles(createVisual);
   const relationships = useRelationships();
@@ -47,6 +50,7 @@ export function ProfileScreen({
   const [filterOpen, setFilterOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const editButton = useRef<View>(null);
   const wasEditing = useRef(false);
   useEffect(() => {
     if (isEditing) {
@@ -55,9 +59,12 @@ export function ProfileScreen({
     }
     if (!wasEditing.current) return;
     wasEditing.current = false;
-    const frame = requestAnimationFrame(restoreModalFocus);
+    const frame = requestAnimationFrame(() => {
+      if (isFocused) editButton.current?.focus();
+      restoreModalFocus();
+    });
     return () => cancelAnimationFrame(frame);
-  }, [isEditing]);
+  }, [isEditing, isFocused]);
   if (!isFocused && isEditing) setIsEditing(false);
   if (!isFocused && notice) setNotice(null);
   if (!isFocused && filterOpen) setFilterOpen(false);
@@ -103,28 +110,33 @@ export function ProfileScreen({
       {profile && (
         <>
           <View style={visual.identity}>
-            <View aria-hidden style={visual.avatar} />
+            <ProfileAvatar userId={profile.userId} size={56} />
             <View style={visual.grow}>
+              <View style={visual.nameRow}>
               <Text role="heading" style={visual.name}>
                 {profile.name}
               </Text>
-              <Pressable
-                role="button"
-                accessibilityLabel="Followers and following"
-                onPress={() => community.openConnections(null, 'following')}
-                style={visual.followers}
-              >
-                <Text style={visual.caption}>0 followers · {relationships.state?.status === 'ready' ? followingCount : '—'} following</Text>
-              </Pressable>
+              {!!profile.pronouns?.length && <Text style={styles.secondary}>{profile.pronouns.join('/')}</Text>}
+              </View>
+              <View style={visual.relationships}>
+                <Pressable role="button" accessibilityLabel="My followers" onPress={() => community.openConnections(null, 'followers')} style={visual.followers}>
+                  <Text style={visual.caption}>0 followers</Text>
+                </Pressable>
+                <Text style={visual.caption}>·</Text>
+                <Pressable role="button" accessibilityLabel="My following" onPress={() => community.openConnections(null, 'following')} style={visual.followers}>
+                  <Text style={visual.caption}>{relationships.state?.status === 'ready' ? followingCount : '—'} following</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
           <View style={visual.actions}>
-            <Pressable role="button" onPress={() => setNotice('View stats')} style={visual.action}>
+            <Pressable role="button" onPress={onOpenStats} disabled={!onOpenStats} style={visual.action}>
               <View style={[visual.pill, visual.dark]}>
                 <Text style={[visual.buttonText, visual.white]}>View stats</Text>
               </View>
             </Pressable>
             <Pressable
+              ref={editButton}
               role="button"
               accessibilityLabel="프로필 편집"
               onPress={() => setIsEditing(true)}
@@ -177,7 +189,7 @@ export function ProfileScreen({
           {section === 'About' && (
             <View style={visual.about}>
               {profile.bio ? (
-                <Text style={visual.bio}>{profile.bio}</Text>
+                <><Text style={visual.bio}>{profile.bio}</Text><Text style={visual.member}>Medium member since June 2025</Text></>
               ) : (
                 <View style={visual.empty}>
                   <Text accessibilityLabel="아직 짧은 소개가 없어요." style={visual.caption}>
@@ -266,8 +278,10 @@ const createVisual = (colors: ThemeColors) => StyleSheet.create({
     borderColor: colors.border,
   },
   grow: { flex: 1 },
-  name: { fontFamily: fonts.sans, fontSize: 24, lineHeight: 30, fontWeight: '600', color: colors.text },
-  followers: { minHeight: 48, justifyContent: 'center', marginVertical: -8 },
+  nameRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'baseline', gap: 8 },
+  name: { flexShrink: 1, maxWidth: '100%', fontFamily: fonts.sans, fontSize: 24, lineHeight: 30, fontWeight: '600', color: colors.text },
+  relationships: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', columnGap: 4 },
+  followers: { minHeight: 48, minWidth: 48, justifyContent: 'center', marginVertical: -8 },
   caption: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   actions: { marginHorizontal: 24, marginTop: 16, flexDirection: 'row', gap: 8 },
   action: { flex: 1, minHeight: 48, justifyContent: 'center' },
@@ -326,7 +340,7 @@ const createVisual = (colors: ThemeColors) => StyleSheet.create({
   textAction: { minHeight: 48, minWidth: 48, justifyContent: 'center' },
   green: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
   about: { marginHorizontal: 24, marginTop: 24 },
-  bio: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text },
-  member: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 8 },
+  bio: { fontFamily: fonts.serif, fontSize: 17, lineHeight: 28, color: colors.text },
+  member: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, marginTop: 24 },
   mockInfo: { marginTop: 360, paddingHorizontal: 24, gap: 16 },
 });

@@ -9,6 +9,11 @@
     },
     "orientation": "default",
     "userInterfaceStyle": "light",
+    "plugins": [["expo-image-picker", {
+      "cameraPermission": "프로필 사진을 촬영할 때 카메라를 사용합니다.",
+      "photosPermission": "선택한 사진을 프로필에 표시합니다.",
+      "microphonePermission": false
+    }]],
     "ios": {
       "supportsTablet": false
     }

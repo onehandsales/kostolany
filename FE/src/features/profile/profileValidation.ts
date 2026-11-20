@@ -1,4 +1,6 @@
 import type { ProfileFields } from './types';
+import { isProfilePhoto } from './profilePhoto';
+import { validPronouns } from './pronouns';
 
 export const PROFILE_NAME_LIMIT = 50;
 export const PROFILE_BIO_LIMIT = 160;
@@ -10,10 +12,14 @@ export function countProfileCharacters(value: string): number {
 
 export function normalizeProfileFields(fields: ProfileFields): ProfileFields {
   return { name: fields.name.normalize('NFC').trim().replace(/\s+/gu, ' '),
-    bio: fields.bio.normalize('NFC').replace(/\r\n?/gu, '\n').trim() };
+    bio: fields.bio.normalize('NFC').replace(/\r\n?/gu, '\n').trim(),
+    ...(fields.photo !== undefined ? { photo: fields.photo ? { ...fields.photo } : null } : {}),
+    ...(fields.pronouns !== undefined ? { pronouns: [...fields.pronouns] } : {}) };
 }
 
 export function validateProfileFields(fields: ProfileFields): string | null {
+  if (fields.pronouns !== undefined && !validPronouns(fields.pronouns)) return '대명사는 중복 없이 후보에서 4개까지 선택해 주세요.';
+  if (fields.photo != null && !isProfilePhoto(fields.photo)) return '사진을 다시 선택해 주세요.';
   const normalized = normalizeProfileFields(fields);
   if (!normalized.name) return '이름을 입력해 주세요.';
   if (countProfileCharacters(normalized.name) > PROFILE_NAME_LIMIT) return '이름은 50자까지 입력할 수 있어요.';
@@ -26,5 +32,10 @@ export function validateProfileFields(fields: ProfileFields): string | null {
 }
 
 export function areProfileFieldsEqual(left: ProfileFields, right: ProfileFields): boolean {
-  return left.name === right.name && left.bio === right.bio;
+  return left.name === right.name && left.bio === right.bio
+    && (left.photo?.id ?? null) === (right.photo?.id ?? null)
+    && (left.photo?.uri ?? null) === (right.photo?.uri ?? null)
+    && (left.photo?.width ?? null) === (right.photo?.width ?? null)
+    && (left.photo?.height ?? null) === (right.photo?.height ?? null)
+    && JSON.stringify(left.pronouns ?? []) === JSON.stringify(right.pronouns ?? []);
 }

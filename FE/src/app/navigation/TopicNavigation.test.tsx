@@ -42,7 +42,7 @@ it('실제 탐색·토픽·기사·큐레이션·Following 복귀에서 같은 �
   await user.press(screen.getByRole('tab', { name: 'Following' }));
   expect(await screen.findByRole('button', { name: /^How Much Time Do We Have/ })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '프로필' }));
-  await user.press(await screen.findByRole('button', { name: 'Followers and following' }));
+  await user.press(await screen.findByRole('button', { name: 'My following' }));
   expect(screen.getByRole('button', { name: 'Following Life' })).toBeVisible();
   await user.press(screen.getByRole('button', { name: 'Following Life' }));
   await waitFor(() => expect(screen.queryByRole('button', { name: 'Following Life' })).toBeNull());

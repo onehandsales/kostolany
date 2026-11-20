@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useKnownProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ResponseManagement } from './ResponseManagement';
@@ -64,8 +66,9 @@ export function ResponseCard({
     };
   }, []);
   const own = response.authorId === store.userId;
+  const profile = useKnownProfile(response.authorId);
   const avatar = responseAvatar(response.authorId);
-  const name = own ? (displayName ?? response.authorName) : response.authorName;
+  const name = profile?.name ?? (own ? (displayName ?? response.authorName) : response.authorName);
   const excerptOnly = response.body.endsWith('…');
   async function react(retry = false): Promise<void> {
     if (!store.userId) {
@@ -103,14 +106,11 @@ export function ResponseCard({
       ]}
     >
       <View style={styles.byline}>
-        {avatar ? (
-          <Image source={avatar} style={styles.avatar} accessible={false} />
-        ) : (
-          <View style={styles.avatar} />
-        )}
+        <ProfileAvatar userId={response.authorId} fallback={avatar} size={32} />
         <View style={styles.flex}>
           <Text style={styles.name}>
             {name}
+            {profile?.pronouns.length ? ` ${profile.pronouns.join('/')}` : ''}
             {own ? '  YOU' : ''}
           </Text>
           <Text style={styles.date}>

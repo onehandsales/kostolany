@@ -3,8 +3,10 @@ import { useAuth } from '../../features/auth/AuthProvider';
 import { useProfileScopeKey } from '../../features/profile/ProfileProvider';
 import { useSettingsScopeKey } from '../../features/settings/ReadingSettingsProvider';
 import { ProfileNavigator } from './ProfileNavigator';
+import type { StoryStatsSource } from '../../features/story-stats/types';
 
 type ProfileRouteScreenProps = {
+  statsSource?: StoryStatsSource;
   onSelectArticle: (articleId: string, listId: string) => void;
   onBrowseArticles: () => void;
 };

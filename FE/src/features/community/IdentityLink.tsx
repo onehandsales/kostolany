@@ -4,6 +4,8 @@ import { publicIdentity, articleWriter, articlePublication } from './data/public
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import type { FollowTarget } from './types';
+import { useKnownProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 
 export function IdentityLink({
   target,
@@ -18,22 +20,24 @@ export function IdentityLink({
 }) {
   const navigation = useCommunityNavigation();
   const identity = publicIdentity(target);
+  const knownProfile = useKnownProfile(target.kind === 'writer' ? target.id : '');
+  const name = knownProfile?.name ?? identity?.name ?? target.id;
   const styles = useThemeStyles(createStyles);
   return (
     <Pressable
       role="button"
-      accessibilityLabel={`Open ${identity?.name ?? children ?? target.id} ${target.kind === 'writer' ? 'profile' : 'publication'}`}
+      accessibilityLabel={`Open ${knownProfile?.name ?? identity?.name ?? children ?? target.id} ${target.kind === 'writer' ? 'profile' : 'publication'}`}
       onPress={() => navigation.openIdentity(target)}
       style={styles.target}
     >
-      {avatar && identity?.avatar && (
+      {avatar && target.kind === 'writer' ? <ProfileAvatar userId={target.id} fallback={identity?.avatar} size={20} /> : avatar && identity?.avatar && (
         <Image
           source={identity.avatar}
           style={[styles.avatar, target.kind === 'publication' && styles.publication]}
           accessible={false}
         />
       )}
-      <Text style={[styles.label, style]}>{children ?? identity?.name ?? target.id}</Text>
+      <Text style={[styles.label, style]}>{knownProfile?.name ?? children ?? name}</Text>
     </Pressable>
   );
 }

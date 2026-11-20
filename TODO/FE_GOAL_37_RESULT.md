@@ -1,5 +1,7 @@
 # Goal37 — 글쓰기 이미지·Camera·Library·Unsplash
 
+**Goal42 후속 확인(2026-11-20, macOS):** 프로필 사진에는 Goal42에서 Expo Camera/Library OS picker와 웹 파일 선택 어댑터를 별도로 구현했다. Goal37 작성 편집기의 Camera/Library는 여전히 번들 fixture 기반 mock이며 이 잔여 전체가 해결된 것은 아니다. 프로필의 네이티브 실행 검증도 대기다. [현재 결과](FE_GOAL_42_RESULT.md).
+
 2026-11-20 KST · Windows · 시작 HEAD `66f1041cf1993fe379ecd8cbef452a113d14a55a` · 시작 작업 트리 변경 없음.
 
 상태: **구현 완료·검증 잔여**. local/mock 범위의 구현과 두 차례 자체 검토를 수행했다. 원본 동일 재현·실제 native 검증 및 실제 OS picker 구현은 아래 구분대로 남는다. 승인 범위는 Goal37→38→39→40이며 각 Goal별 로컬 커밋 후 다음 Goal을 진행한다. push·배포·Goal41 이후는 제외한다. 이전 Goal36의 전체168suites/1014tests와 후속2suites/10tests는 당시 코드의 검사로만 확인했다.

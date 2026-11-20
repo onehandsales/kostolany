@@ -7,6 +7,7 @@ import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { useProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { SearchCard } from '../search/SearchCard';
 
@@ -116,7 +117,7 @@ export function ReadingListScreen({
           <View>
             <View style={styles.intro}>
               <View style={styles.ownerRow}>
-                <View style={styles.avatar} />
+                <ProfileAvatar userId={profile.state.profile?.userId} size={48} />
                 <View style={styles.ownerInfo}>
                   <Text style={styles.owner}>{profile.state.profile?.name ?? 'Reader'}</Text>
                   {status === 'ready' && (

@@ -1,8 +1,12 @@
 # 프론트엔드 Goal별 작업 계획
 
+**현재 상태 — Goal43 단독:** 프로필 Story stats·월간/누적·UTC 월/날짜·정렬·발행 연결과 두 차례 자체 검토/수정을 마쳤다. 타입/lint·전체210 suites/1188 tests·8081·원본4쌍·3플랫폼 export를 확인했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. 전체 실행 결과와 시각/native 잔여는 [Goal43 결과](FE_GOAL_43_RESULT.md), [전체 계획](FE_MEDIUM_FULL_CLONE_GOALS.md), [대응표](FE_MEDIUM_FULL_CLONE_MAP.md)를 따른다. 시작 HEAD `036ef6e`·Goal42 미커밋45개 경로와8081을 보존했다. 커밋·push·배포 없이 종료하며 Goal44는 시작하지 않는다. 실제 native와 원본 메뉴/글꼴 확인은 검증 잔여다.
+
+**Goal42 당시 상태 — 과거 기록:** 사진·대명사·소개·Stories 필터 구현과 두 차례 자체 검토·수정을 마쳤다. 당시 타입/lint·204 suites/1156 tests·8081·3플랫폼 export 통과. 실제 네이티브 검증과 원본 차이는 남아 전체 완료와 구분한다. [Goal42 결과](FE_GOAL_42_RESULT.md) · [전체 계획](FE_MEDIUM_FULL_CLONE_GOALS.md) · [대응표](FE_MEDIUM_FULL_CLONE_MAP.md). macOS 시작 HEAD `036ef6e`, 커밋·push·배포 금지이며 당시에는 Goal43을 시작하지 않았다. 과거 검사 수치·경로·승인은 당시 이력이다.
+
 **후속 사용자 요청 — 커밋·push:** Goal25~31의 소스·자산·테스트·결과 문서를 함께 커밋하고 `origin/main`에 푸시하도록 요청받았다. 아래 커밋/push 금지와 미커밋 표기는 개발 종료 당시 이력이다. 배포하지 않으며 Goal32 이후는 시작하지 않는다.
 
-**최신 상태(2026-11-20):** [Goal31 결과](FE_GOAL_31_RESULT.md) · [후속 전체 계획](FE_MEDIUM_FULL_CLONE_GOALS.md). Goal25~31 구현/두 차례 자체 검토·현재 144 suites/856 tests·타입/lint·8081·JS/Hermes 확인,시각/native 검증 잔여다. 최신 사용자 지시에 따라 Goal31에서 종료하며 Goal32 이후는 미착수다. 커밋·push·배포 금지,기존8081/medium/ENV 보존. 아래 과거 커밋 승인·검사 수치·PID·중단 문구는 당시 이력이다.
+**Goal31 당시 상태(2026-11-20) — 과거 기록:** [Goal31 결과](FE_GOAL_31_RESULT.md) · [후속 전체 계획](FE_MEDIUM_FULL_CLONE_GOALS.md). Goal25~31 구현/두 차례 자체 검토·현재 144 suites/856 tests·타입/lint·8081·JS/Hermes 확인,시각/native 검증 잔여다. 최신 사용자 지시에 따라 Goal31에서 종료하며 Goal32 이후는 미착수다. 커밋·push·배포 금지,기존8081/medium/ENV 보존. 아래 과거 커밋 승인·검사 수치·PID·중단 문구는 당시 이력이다.
 
 **과거 상태(2026-11-19, Goal24 당시):** [Goal24 결과·8081 확인 순서](FE_GOAL_24_RESULT.md). Goal24 전역 Light/Dark/System과 기사 표시 설정 구현·두 차례 자체 검토/수정을 마쳤다. 현재 타입/lint·98 suites/690 tests, 8081 흐름·부분 시각 대조와 양 플랫폼 JS/Hermes가 통과했다. 원본 font/vector·시각/native 잔여는 계속 추적한다. 최신 사용자 지시에 따라 Goal24 로컬 커밋 후 종료하고 Goal25 이후는 미착수·별도 요청 대기다. push·배포는 하지 않는다. 실제 인증/결제/메일/서버/DB는 연결하지 않는다. 기존8081 PID17148·medium·ENV와 기존 계약을 보존한다. 캡처/로그/일회성 스크립트는 저장소 밖 임시 경로만 사용하며 TODO/evidence에는 쓰지 않는다. 아래 이전 Goal 승인·수치·중단 문구는 당시 이력이다.
 

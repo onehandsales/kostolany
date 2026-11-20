@@ -13,10 +13,14 @@ import { ProfileRouteScreen } from './ProfileRouteScreen';
 import { SearchRouteScreen } from './SearchRouteScreen';
 import { type MainTabParamList, tabs } from './tabs';
 import type { DigestSource } from '../../features/digest/types';
+import { useProfile } from '../../features/profile/ProfileProvider';
+import { ProfileAvatar } from '../../features/profile/ProfileAvatar';
+import type { StoryStatsSource } from '../../features/story-stats/types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 type MainTabsProps = {
+  statsSource?: StoryStatsSource;
   digestSource?: DigestSource;
   onSelectArticle: (
     articleId: string,
@@ -29,12 +33,14 @@ type MainTabsProps = {
 };
 
 export function MainTabs({
+  statsSource,
   digestSource,
   onSelectArticle,
   source,
   searchSource,
 }: MainTabsProps) {
   const { state } = useAuth();
+  const profile = useProfile();
   const scopeKey = useBookmarkScopeKey();
   return (
     <Tab.Navigator
@@ -47,7 +53,9 @@ export function MainTabs({
         title: tabs[route.name].title,
         tabBarAccessibilityLabel: tabs[route.name].title,
         tabBarIcon: ({ focused, color, size }) => (
-          <TabIcon name={tabs[route.name].icon} focused={focused} color={color} size={size} />
+          route.name === 'Profile' && profile.state.profile?.photo
+            ? <ProfileAvatar photo={profile.state.profile.photo} size={size} style={{ borderColor: color, borderWidth: focused ? 2 : 1 }} />
+            : <TabIcon name={tabs[route.name].icon} focused={focused} color={color} size={size} />
         ),
       })}
     >
@@ -78,6 +86,7 @@ export function MainTabs({
       <Tab.Screen name="Profile" navigationKey={scopeKey}>
         {({ navigation }) => (
           <ProfileRouteScreen
+            statsSource={statsSource}
             onSelectArticle={(articleId, listId) => onSelectArticle(articleId, 'Profile', listId)}
             onBrowseArticles={() => navigation.navigate('Home')}
           />

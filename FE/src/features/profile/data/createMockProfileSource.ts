@@ -27,7 +27,7 @@ export function createMockProfileSource({ delayMs = 350, scenario = 'normal' }: 
       await wait(userId, 'read');
       const profile = profiles.get(userId);
       if (!profile) throw new Error('Unknown mock profile');
-      return { ...profile };
+      return { userId, ...normalizeProfileFields(profile) };
     },
     async saveProfile({ userId, commandId, fields }) {
       if (!Number.isSafeInteger(commandId) || commandId < 1 || validateProfileFields(fields)) {
@@ -36,7 +36,7 @@ export function createMockProfileSource({ delayMs = 350, scenario = 'normal' }: 
       await wait(userId, 'save');
       const profile = { userId, ...normalizeProfileFields(fields) };
       profiles.set(userId, profile);
-      return { ...profile };
+      return { userId, ...normalizeProfileFields(profile) };
     },
   };
 }
