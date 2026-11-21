@@ -1,10 +1,13 @@
 # Goal 18 — 라이브러리·목록 관리 클론
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 3곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19, 기준 `d016c06`. 구현·두 차례 자체 검토·관련 Jest/실제 브라우저 검증 수행. 폰트/플랫폼 차이와 native 검증은 대기. Goal 15 이후 변경은 미커밋이며 연속 지시에 따라 Goal 19로 진행한다.
 
 ## 원본과 구현
 
-`medium/flows/Library`의 ANALYSIS와 화면 02~03, Creating a list 02~04, List detail 02~04, Deleting a list 02~04, Removing a story 01~02를 읽고 실제 PNG를 확인했다. [원본/구현 비교](evidence/goal18/COMPARISON.html), [원본 묶음](evidence/goal18/originals-0.png), [관리 원본](evidence/goal18/originals-1.png). 393×759 앱 영역 비교 기준은 Goal 15와 같다. 목록명·소속 수·현재 독자·스크롤 위치가 다른 비교는 동일 상태의 픽셀 일치 측정으로 표현하지 않는다.
+`medium/flows/Library`의 ANALYSIS와 화면 02~03, Creating a list 02~04, List detail 02~04, Deleting a list 02~04, Removing a story 01~02를 읽고 실제 PNG를 확인했다. 원본/구현 비교 (저장소 보관본 없음: `evidence/goal18/COMPARISON.html`), 원본 묶음 (저장소 보관본 없음: `evidence/goal18/originals-0.png`), 관리 원본 (저장소 보관본 없음: `evidence/goal18/originals-1.png`). 393×759 앱 영역 비교 기준은 Goal 15와 같다. 목록명·소속 수·현재 독자·스크롤 위치가 다른 비교는 동일 상태의 픽셀 일치 측정으로 표현하지 않는다.
 
 - Your library, Your lists 등 가로 탭, 시작 배너·닫기, 기본/사용자 카드·동적 썸네일·기사 수·잠금/다운로드/더보기.
 - 목록 소유자·제목·선택 설명·빈 상태·Start browsing, 기사 note 표식·작가·썸네일·시간·날짜·저장·기사 메뉴, 스크롤 제목과 하단 목록 반응.

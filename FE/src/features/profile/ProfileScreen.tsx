@@ -26,7 +26,7 @@ type ProfileScreenProps = {
   onLogout: () => void;
   isFocused: boolean;
   onOpenSettings?: () => void;
-  onOpenList?: (listId: string) => void;
+  onOpenList?: (listId: string, reorder?: boolean) => void;
   onOpenStats?: () => void;
 };
 

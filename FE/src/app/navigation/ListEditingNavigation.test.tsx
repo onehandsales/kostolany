@@ -47,7 +47,13 @@ const button = (label: string) => screen.getByRole('button', { name: label });
 it('기본 읽기 목록의 반응은 실제 공급부에서 조회하며 공개 공유와 계정 간 노출을 막는다', async () => {
   const { user, switchTo } = await setup();
   await user.press(button('라이브러리로 돌아가기'));
-  await user.press(button('읽기 목록 열기, 저장한 기사 0개'));
+  await user.press(button('목록 관리, 읽기 목록'));
+  expect(screen.queryByRole('button', { name: '목록 삭제' })).toBeNull();
+  expect(screen.queryByRole('button', { name: '이름 수정' })).toBeNull();
+  await user.press(button('Reorder items'));
+  expect(screen.getByRole('heading', { name: '읽기 목록' })).toBeVisible();
+  expect(screen.queryByRole('dialog', { name: '목록 순서 변경' })).toBeNull();
+  await user.press(button('Cancel'));
   const clap = await screen.findByRole('button', { name: /^박수 보내기, 읽기 목록/ });
   await waitFor(() => expect(clap).toBeEnabled());
   await user.press(clap);
@@ -98,7 +104,7 @@ it('정렬 취소는 원순서를 보존하고 실패 뒤 같은 초안 재시�
   await openOrder(); await user.press(button(`순서 이동, ${title}`)); await user.press(button(`아래로 이동, ${title}`));
   await user.press(button('목록 순서 저장')); await screen.findByRole('button', { name: '순서 저장 다시 시도' });
   await user.press(button('순서 저장 다시 시도'));
-  await waitFor(() => expect(screen.queryByRole('heading', { name: 'Reorder items' })).toBeNull());
+  await waitFor(() => expect(screen.queryByRole('button', { name: '순서 저장 다시 시도' })).toBeNull());
   expect((await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own')?.articleIds).toEqual([ids[1], ids[0], ids[2]]);
   await user.press(button(`목록 관리, ${name}`)); await user.press(button('View list'));
   await screen.findByRole('heading', { name });

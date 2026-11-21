@@ -9,17 +9,16 @@ import { ListEditorSheet } from './ListEditorSheet';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 import { DEFAULT_LIST_ID } from './listTypes';
 import { ListPrivacyDialog } from './ListPrivacyDialog';
-import { ReorderListSheet } from './ReorderListSheet';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { ownedPublicListId } from '../public-lists/ownedPublicList';
 
-type ListActionsProps = { listId: string; name: string };
+type ListActionsProps = { listId: string; name: string; onReorder: () => void };
 
-export function ListActions({ listId, name }: ListActionsProps) {
+export function ListActions({ listId, name, onReorder }: ListActionsProps) {
   const state = useUserLists();
   const selected = state.entries.find((entry) => entry.listId === listId && entry.content);
   return selected?.content ? (
-    <ListActionControls listId={listId} name={name} isPrivate={selected.content.isPrivate ?? false} />
+    <ListActionControls onReorder={onReorder} listId={listId} name={name} isPrivate={selected.content.isPrivate ?? false} />
   ) : null;
 }
 
@@ -27,14 +26,16 @@ function ListActionControls({
   listId,
   name,
   isPrivate,
+  onReorder,
 }: {
   listId: string;
   name: string;
   isPrivate: boolean;
+  onReorder: () => void;
 }) {
   const styles = useThemeStyles(createStyles);
   const listFormStyles = useThemeStyles(createListFormStyles);
-  const [mode, setMode] = useState<'rename' | 'delete' | 'privacy' | 'reorder' | null>(null);
+  const [mode, setMode] = useState<'rename' | 'delete' | 'privacy' | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   useEffect(() => {
     if (!notice) return;
@@ -56,7 +57,7 @@ function ListActionControls({
               setMode('privacy');
             },
           }] : []),
-          { label: 'Reorder items', onPress: () => setMode('reorder') },
+          { label: 'Reorder items', onPress: onReorder },
           ...(!isDefault ? [
           { label: 'View list', onPress: () => {
             navigation.openPublicList(ownedPublicListId(store.userId, listId), store.userId);
@@ -78,7 +79,6 @@ function ListActionControls({
       {notice && <View pointerEvents="none" style={styles.notice}>
         <Text aria-live="polite" style={styles.noticeText}>{notice}</Text>
       </View>}
-      {mode === 'reorder' && <ReorderListSheet listId={listId} onClose={() => setMode(null)} />}
       {mode === 'delete' && (
         <LibrarySheet
           title="Delete list"

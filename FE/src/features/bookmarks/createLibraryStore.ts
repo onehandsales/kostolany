@@ -1,4 +1,5 @@
 import type { FeedArticle } from '../feed/types';
+import { staticArticleCatalog, type ArticleCatalog } from '../feed/ArticleCatalog';
 import { createBookmarkStore } from './createBookmarkStore';
 import { createUserListStore } from './createUserListStore';
 import { createManagedReadingList } from './createManagedReadingList';
@@ -8,18 +9,20 @@ import type { BookmarkSnapshot, BookmarkSource } from './types';
 
 export type LibraryStore = ReturnType<typeof createLibraryStore>;
 
-export function createLibraryStore(source: BookmarkSource, userId: string, articles: readonly FeedArticle[]) {
-  const userLists = createUserListStore(source.lists ?? createMockUserListSource({ delayMs: 0 }),
-    userId, articles.map((article) => article.id));
+export function createLibraryStore(source: BookmarkSource, userId: string, input: readonly FeedArticle[] | ArticleCatalog) {
+  const catalog = 'getSnapshot' in input ? input : staticArticleCatalog(input);
+  const articles = () => catalog.getSnapshot();
+  const userLists = createUserListStore(source.lists ?? createMockUserListSource({ delayMs: 0, articleExists: id => articles().some(article => article.id === id) }),
+    userId, () => articles().map((article) => article.id));
   const readingList = source.lists?.managesReadingList
-    ? createManagedReadingList(userLists, articles) : createBookmarkStore(source, userId, articles);
+    ? createManagedReadingList(userLists, articles()) : createBookmarkStore(source, userId, articles());
   const listeners = new Map<string, Set<() => void>>();
   const snapshots = new Map<string, BookmarkSnapshot>();
 
   function updateSnapshots(): void {
     // 기사 선택은 기본 목록과 사용자 목록의 합집합에서 파생하며 별도 저장 원본을 만들지 않는다.
     const lists = userLists.getSnapshot();
-    for (const article of articles) {
+    for (const article of articles()) {
       const base = readingList.getSnapshot(article.id);
       const previous = snapshots.get(article.id);
       const selected = lists.entries.filter((entry) => entry.listId !== DEFAULT_LIST_ID && entry.content?.articleIds.includes(article.id));
@@ -40,7 +43,13 @@ export function createLibraryStore(source: BookmarkSource, userId: string, artic
   updateSnapshots();
 
   return {
-    readingList, userLists, articles,
+    readingList, userLists,
+    get articles() { return articles(); },
+    connectCatalog(): () => void {
+      const update = () => readingList.updateArticles(articles());
+      update();
+      return catalog.subscribe(update);
+    },
     getSnapshot: (articleId: string): BookmarkSnapshot => snapshots.get(articleId) ?? readingList.getSnapshot(articleId),
     subscribe(articleId: string, listener: () => void): () => void {
       const subscribers = listeners.get(articleId) ?? new Set();

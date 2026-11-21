@@ -20,17 +20,18 @@ export function createMockUserListSource({
   scenario = 'normal',
   delayMs = scenario === 'slow' ? 1800 : 350,
   managesReadingList = false,
+  articleExists = (id: string) => bookmarkArticles.some(article => article.id === id),
 }: {
   scenario?: UserListScenario;
   delayMs?: number;
   managesReadingList?: boolean;
+  articleExists?: (id: string) => boolean;
 } = {}): UserListSource {
   const listsByUser = new Map<string, Map<string, UserList>>();
   const deletedByUser = new Map<string, Set<string>>();
   const failedRequests = new Set<string>();
   const applied = new Map<string, string>();
   const listeners = new Set<() => void>();
-  const articleIds = new Set(bookmarkArticles.map((article) => article.id));
   function getLists(userId: string): Map<string, UserList> {
     if (!userId.trim()) throw new Error('Invalid mock user');
     let lists = listsByUser.get(userId);
@@ -119,7 +120,7 @@ export function createMockUserListSource({
           hasInvalidListNotes(content) ||
           validateListName(content.name, names) ||
           normalizeListName(content.name) !== content.name ||
-          content.articleIds.some((id) => !articleIds.has(id)) ||
+          content.articleIds.some((id) => !articleExists(id)) ||
           new Set(content.articleIds).size !== content.articleIds.length
         )
           throw new Error('Invalid list');

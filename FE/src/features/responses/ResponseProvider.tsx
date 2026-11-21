@@ -12,6 +12,8 @@ import {
 import { useModeration } from '../moderation/ModerationContext';
 import { usePublicListAccess } from '../public-lists/PublicListProvider';
 import { articleWriter } from '../community/data/publicDirectory';
+import { useArticleCatalog } from '../feed/ArticleCatalog';
+import { writtenStoryId } from '../editor/publishedArticle';
 import { visibleResponses } from './responseVisibility';
 import { createResponseStore, type ResponseStore } from './createResponseStore';
 import { createMockResponseSource } from './data/createMockResponseSource';
@@ -33,19 +35,30 @@ export function ResponseProvider({
 }) {
   const { isBlockedForUser } = useModeration();
   const getList = usePublicListAccess()?.getListForUser;
+  const catalog = useArticleCatalog();
   const fallback = useMemo(
     () =>
       createMockResponseSource({
         scenario: responsePreviewScenario,
         ownerFor: (target, reader) => target.kind === 'list'
           ? getList?.(reader, target.id)?.owner.id ?? null
-          : target.id === 'example-latest-rates' ? 'example-reader' : null,
+          : catalog?.getSnapshot().find(article => article.id === target.id)?.publishedStory?.ownerId
+            ?? (target.id === 'example-latest-rates' ? 'example-reader' : null),
         canRead: (reader, target) => {
+          if (target.kind === 'article' && writtenStoryId(target.id)) {
+            const story = catalog?.getSnapshot().find(article => article.id === target.id)?.publishedStory;
+            return Boolean(story && (!reader || !isBlockedForUser(reader, story.ownerId)));
+          }
           if (target.kind !== 'list' || !getList) return true;
           const list = getList(reader, target.id);
           return Boolean(list && (!reader || !isBlockedForUser(reader, list.owner.id)));
         },
         canInteract: (owner, target, authorId) => {
+          if (target.kind === 'article' && writtenStoryId(target.id)) {
+            const story = catalog?.getSnapshot().find(article => article.id === target.id)?.publishedStory;
+            return Boolean(story && !isBlockedForUser(owner, story.ownerId)
+              && !(authorId && isBlockedForUser(owner, authorId)));
+          }
           const writer = target.kind === 'article' ? articleWriter(target.id) : null;
           return (
             !(writer && isBlockedForUser(owner, writer.id)) &&
@@ -53,7 +66,7 @@ export function ResponseProvider({
           );
         },
       }),
-    [isBlockedForUser, getList],
+    [isBlockedForUser, getList, catalog],
   );
   const current = source ?? fallback;
   const [cache, setCache] = useState(() => ({

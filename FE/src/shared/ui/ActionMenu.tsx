@@ -14,6 +14,7 @@ type ActionMenuProps = { label: string; items: readonly MenuItem[] };
 export function ActionMenu({ label, items }: ActionMenuProps) {
   const styles = useThemeStyles(createStyles);
   const anchor = useRef<View>(null);
+  const button = useRef<View>(null);
   const measurementRevision = useRef(0);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const { width, height } = useWindowDimensions();
@@ -31,11 +32,12 @@ export function ActionMenu({ label, items }: ActionMenuProps) {
   };
   const close = () => {
     dismiss();
-    requestAnimationFrame(restoreModalFocus);
+    requestAnimationFrame(() => { button.current?.focus(); restoreModalFocus(); });
   };
   return (
     <View ref={anchor} collapsable={false}>
       <IconButton
+        buttonRef={button}
         icon="more"
         label={label}
         onPress={() => {

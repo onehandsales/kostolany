@@ -6,7 +6,7 @@ import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import { useModeration } from '../moderation/ModerationContext';
-import { articleReportTarget, isArticleBlocked } from '../moderation/articleModeration';
+import { articleReportTarget, useArticleModeration } from '../moderation/articleModeration';
 import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
 import { SearchByline } from '../search/SearchCard';
 import type { FeedArticle } from '../feed/types';
@@ -15,12 +15,13 @@ type PublicListStoryCardProps = { article: FeedArticle; onOpen: (id: string) => 
 export function PublicListStoryCard({ article, onOpen }: PublicListStoryCardProps) {
   const styles = useThemeStyles(createStyles);
   const moderation = useModeration();
+  const articleModeration = useArticleModeration();
   const viewed = useHasViewed(article.id);
   const { width, fontScale } = useWindowDimensions();
-  if (isArticleBlocked(moderation.state?.value, article.id)) return null;
+  if (articleModeration.blocked(article.id)) return null;
   return <View style={styles.card}>
     <Pressable role="button" accessibilityLabel={`Read ${article.title}`} onPress={() => onOpen(article.id)}>
-      <SearchByline name={article.sourceName} avatar={article.reference?.avatar} verified={article.reference?.verifiedAuthor} />
+      <SearchByline userId={article.publishedStory?.ownerId} name={article.sourceName} avatar={article.reference?.avatar} verified={article.reference?.verifiedAuthor} />
       <View style={[styles.headline, (width < 340 || fontScale > 1.3) && styles.stack]}>
         <Text style={[styles.title, viewed && styles.viewed]}>{article.title}</Text>
         {article.reference?.image && <Image source={article.reference.image} style={styles.image} accessible={false} />}
@@ -35,7 +36,7 @@ export function PublicListStoryCard({ article, onOpen }: PublicListStoryCardProp
       <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} compact />
       <ActionMenu label={`Story options, ${article.title}`} items={[
         { label: 'Report this item', onPress: () => moderation.open({ kind: 'report',
-          target: articleReportTarget(article.id), title: article.title }) },
+          target: article.publishedStory ? { kind: 'article', id: article.id, writerId: article.publishedStory.ownerId } : articleReportTarget(article.id), title: article.title }) },
       ]} />
     </View>
   </View>;

@@ -1,5 +1,8 @@
 # FE Goal 2 결과 기록
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 2곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. `TabPlaceholderScreen.tsx`·`shared/ui/Screen.tsx`는 Goal14 커밋 `d016c06`에서 삭제됐다.
+
+
 작업일: 2026-11-17
 
 상태: 구현·코드 검토·자동 검증 완료 / 기기 실행·원본 화면 비교 검증 대기.
@@ -14,9 +17,9 @@
 | [MainTabs.tsx](../FE/src/app/navigation/MainTabs.tsx) | 홈·탐색·라이브러리·프로필 경로, 초기 홈, 방문 이력 기반 뒤로 가기 |
 | [BottomTabBar.tsx](../FE/src/app/navigation/BottomTabBar.tsx) | 아이콘 4개, 선택 상태, 접근성 이름·tab 역할, 최소 48 터치 영역, 하단·좌우 Safe Area |
 | [tabs.ts](../FE/src/app/navigation/tabs.ts) | 타입이 지정된 경로와 탭별 한국어 안내 |
-| [TabPlaceholderScreen.tsx](../FE/src/app/TabPlaceholderScreen.tsx) | 각 탭 제목과 준비 중 안내만 표시 |
+| TabPlaceholderScreen.tsx (Goal14에서 삭제된 당시 코드: `../FE/src/app/TabPlaceholderScreen.tsx`) | 각 탭 제목과 준비 중 안내만 표시 |
 | [tokens.ts](../FE/src/shared/theme/tokens.ts) | 현재 화면에 필요한 색상·간격·글자 위계·터치 크기 |
-| [Screen.tsx](../FE/src/shared/ui/Screen.tsx) | 상단·좌우 Safe Area, 제목, 긴 글자 대응 스크롤 |
+| Screen.tsx (Goal14에서 삭제된 당시 코드: `../FE/src/shared/ui/Screen.tsx`) | 상단·좌우 Safe Area, 제목, 긴 글자 대응 스크롤 |
 | [TabIcon.tsx](../FE/src/shared/ui/TabIcon.tsx) | 자체 작성한 SVG 아이콘과 채움·굵기·테두리 선택 표시 |
 | [App.test.tsx](../FE/src/app/App.test.tsx) | 기본 진입 테스트를 실제 탭 이동·재선택·뒤로 가기 테스트로 확장 |
 | [jest.config.js](../FE/jest.config.js), [babel.config.js](../FE/babel.config.js) | iOS·Android 설정으로 같은 테스트 실행, Expo Babel 변환 명시 |

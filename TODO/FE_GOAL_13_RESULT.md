@@ -1,5 +1,8 @@
 # Goal 13 — 전체 흐름 검증과 기존 범위 결함 수정
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 13곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 작업일: 2026-11-18~19 KST. 기준 프로젝트: `/Users/jaegeunsong/Desktop/workplace/kostolany`.
 
 상태: **기존 범위 결함 수정·자동 검증·브라우저 검증 완료 / 실제 iOS·Android 검증 대기**.
@@ -23,7 +26,7 @@ Goal 1~12의 mock 화면을 연결해 검증하고, 북마크 처리 중 표시�
 
 코드 변경은 `createUserListStore.ts`, `ArticleCard.tsx`, `FeedSortTabs.tsx`에 한정했다. 새 주석은 한글 한 문장으로 작성했다. 식별자·API 계약·navigation·메모리 수명은 변경하지 않았다. 기존 영문 주석을 전역 정리하거나 구조·의존성을 확장하지 않았다.
 
-증거: [수정 전 실패 로그](evidence/goal13/regression-before.log), [관련 테스트](evidence/goal13/regression-after.log), [수정 전 DOM](evidence/goal13/layout-before.json), [화면 전후 비교](evidence/goal13/COMPARISON.html).
+증거: 수정 전 실패 로그 (저장소 보관본 없음: `evidence/goal13/regression-before.log`), 관련 테스트 (저장소 보관본 없음: `evidence/goal13/regression-after.log`), 수정 전 DOM (저장소 보관본 없음: `evidence/goal13/layout-before.json`), 화면 전후 비교 (저장소 보관본 없음: `evidence/goal13/COMPARISON.html`).
 
 ## 대상 화면과 상태 대조
 
@@ -57,7 +60,7 @@ Goal 1~12의 mock 화면을 연결해 검증하고, 북마크 처리 중 표시�
 | 설정 로그아웃 취소/실패/재시도→B 빈 데이터→A 복귀 | 브라우저 통과. A 이름·설정·좋아요·북마크 유지, B 최초 성인·빈 목록 |
 | 전체 새로고침/앱 재실행 정책 | 브라우저 전체 Reload 후 guest, 초기 이름·성인·빈 개인 데이터 확인. 실제 네이티브 앱 종료/재실행은 미검증 |
 
-정상 흐름 기록: [browser-results.json](evidence/goal13/browser-results.json). 실패·복구: [failure-results.json](evidence/goal13/failure-results.json). 입력·포커스: [accessibility-results.json](evidence/goal13/accessibility-results.json). 스크립트는 각각 같은 폴더의 `verify-browser.mjs`, `verify-failures.mjs`, `verify-accessibility.mjs`에 남겼다.
+정상 흐름 기록: browser-results.json (저장소 보관본 없음: `evidence/goal13/browser-results.json`). 실패·복구: failure-results.json (저장소 보관본 없음: `evidence/goal13/failure-results.json`). 입력·포커스: accessibility-results.json (저장소 보관본 없음: `evidence/goal13/accessibility-results.json`). 스크립트는 각각 같은 폴더의 `verify-browser.mjs`, `verify-failures.mjs`, `verify-accessibility.mjs`에 남겼다.
 
 ## 상태 소유권과 경합 검토
 
@@ -88,8 +91,8 @@ Goal 1~12의 mock 화면을 연결해 검증하고, 북마크 처리 중 표시�
 
 - 추가한 논리 사례는 3개: 저장소의 이전 이름 저장 성공/실패 2개, 실제 AppNavigator를 통한 대기 추가·실패 복구·재시도 1개. 테스트 개수만 늘리는 중복 시나리오를 추가하지 않았다.
 - 수정 전 회귀 재현: 4건 실패(논리 2개 × iOS/Android). 수정 후 관련 테스트: 34건 통과, 4 suites.
-- 전체 `npm run check`: **타입 검사·lint(경고 0)·608건 통과, 80 suites, 242.252초**. 논리 테스트 304개를 iOS/Android Jest에서 각각 실행했다. [전체 실행 로그](evidence/goal13/check.log).
-- iOS `npm run export:ios`: 1,044 modules, 약 2.3MB `.hbc` 생성 성공. Android `npm run export:android`: 1,039 modules, 약 2.3MB `.hbc` 생성 성공. [iOS 로그](evidence/goal13/export-ios.log) · [Android 로그](evidence/goal13/export-android.log).
+- 전체 `npm run check`: **타입 검사·lint(경고 0)·608건 통과, 80 suites, 242.252초**. 논리 테스트 304개를 iOS/Android Jest에서 각각 실행했다. 전체 실행 로그 (저장소 보관본 없음: `evidence/goal13/check.log`).
+- iOS `npm run export:ios`: 1,044 modules, 약 2.3MB `.hbc` 생성 성공. Android `npm run export:android`: 1,039 modules, 약 2.3MB `.hbc` 생성 성공. iOS 로그 (저장소 보관본 없음: `evidence/goal13/export-ios.log`) · Android 로그 (저장소 보관본 없음: `evidence/goal13/export-android.log`).
 - 브라우저 검증 19묶음, 측정 69회, 최종 상태 고유 캡처 64장과 수정 전 2장을 보관했다. 원본 15장과 비교했다. 같은 이름의 반복 상태 캡처는 마지막 화면으로 보관하며 측정 기록의 반복 횟수와 이미지 수를 구분한다.
 - Chrome 157.0.8103.79에서 localhost:8081 직접 조작. 정상·오류·접근성 기록 각각 console/page 오류 0, 외부 HTTP 요청 0. fixture/mock 내부 예외는 앱의 오류 UI로 처리됐다.
 - 변경 코드·테스트 검토 중 TypeScript의 배열 인덱스 nullable 접근을 발견해 테스트의 지연 신호를 `Promise<void>`로 단순화했다. 수정 후 전체 검사에 포함했다.
@@ -99,7 +102,7 @@ Goal 1~12의 mock 화면을 연결해 검증하고, 북마크 처리 중 표시�
 
 ## Medium 원본 비교와 차이
 
-[비교 화면](evidence/goal13/COMPARISON.html)은 원본 15장과 현재 구현을 연결한다. [원본/분석/구현 파일 목록](evidence/goal13/comparison.json)에 경로를 기록했다. 원본은 보관된 Medium iOS Latest 카탈로그 ID 1419, PNG 1179×2556이며 실제 제품 빌드·기기·DPR·캡처 일시는 미확인이다. 이번 작업에서 Medium 계정이나 실제 앱을 실행한 것은 아니다.
+비교 화면 (저장소 보관본 없음: `evidence/goal13/COMPARISON.html`)은 원본 15장과 현재 구현을 연결한다. 원본/분석/구현 파일 목록 (저장소 보관본 없음: `evidence/goal13/comparison.json`)에 경로를 기록했다. 원본은 보관된 Medium iOS Latest 카탈로그 ID 1419, PNG 1179×2556이며 실제 제품 빌드·기기·DPR·캡처 일시는 미확인이다. 이번 작업에서 Medium 계정이나 실제 앱을 실행한 것은 아니다.
 
 - 관찰: 홈/검색 카드의 강한 제목·요약·썸네일·구분선, 검색/설정 뒤로, 라이브러리 카드·수·미리보기·빈 상태, 저장 대상 체크 시트, 생성 60자 카운터, 관리/삭제, Google 버튼, 프로필 편집 50/160 카운터, 설정 섹션·로그아웃 확인.
 - 자체 추가: 한국어 fixture, 최신/인기/추천, 단일 좋아요, 4단계 설명·기본 수준, A/B mock 인증과 성공/취소/실패 재현, 확정/초안 분리, 오류·재시도·메모리 정책, 복수 소속의 합집합 정책.
@@ -119,7 +122,7 @@ Goal 1~12의 mock 화면을 연결해 검증하고, 북마크 처리 중 표시�
 | iOS 실제 실행/빌드 | 불가. Xcode.app 없음, CLT만 존재, xcodebuild/simctl 사용 불가 | 호환 Xcode·Simulator 또는 연결 기기·Expo 개발 환경 |
 | Android 실제 실행/빌드 | 불가. SDK·adb·emulator 없음; Java 설치만으로 실행 불가 | 호환 Android SDK·에뮬레이터/기기·프로젝트 도구 환경 |
 
-[플랫폼 재확인 기록](evidence/goal13/platforms.json)에 명령·종료 상태·경로를 보관했다. 네이티브 소스 프로젝트 생성·SDK 설치·기기 연결은 하지 않았다. 양 플랫폼 Jest 통과와 JS/Hermes 번들은 실제 앱 빌드·설치·실행 증거가 아니다.
+플랫폼 재확인 기록 (저장소 보관본 없음: `evidence/goal13/platforms.json`)에 명령·종료 상태·경로를 보관했다. 네이티브 소스 프로젝트 생성·SDK 설치·기기 연결은 하지 않았다. 양 플랫폼 Jest 통과와 JS/Hermes 번들은 실제 앱 빌드·설치·실행 증거가 아니다.
 
 ## 8081 최종 확인 순서
 

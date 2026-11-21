@@ -2,6 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, u
 
 import { usePublicListAccess } from '../public-lists/PublicListProvider';
 import { useModeration } from '../moderation/ModerationContext';
+import { useArticleCatalog } from '../feed/ArticleCatalog';
+import { writtenStoryId } from '../editor/publishedArticle';
 
 import { createClapStore, type ClapStore } from './createClapStore';
 import { createMockClapSource } from './data/createMockClapSource';
@@ -14,15 +16,21 @@ type ClapProviderProps = { children: ReactNode; userId: string | null; source?: 
 export function ClapProvider({ children, userId, source, revision = 0 }: ClapProviderProps) {
   const getList = usePublicListAccess()?.getListForUser;
   const { isBlockedForUser } = useModeration();
+  const catalog = useArticleCatalog();
   const fallback = useMemo(() => createMockClapSource({ scenario: clapPreviewScenario,
     baselineFor: ({ userId: owner, target }) => target.kind === 'list'
-      ? getList?.(owner, target.id)?.baselineClaps : undefined,
+      ? getList?.(owner, target.id)?.baselineClaps
+      : catalog?.getSnapshot().find(article => article.id === target.id)?.publishedStory ? 0 : undefined,
     canInteract: ({ userId: owner, target }) => {
+      if (target.kind === 'article' && writtenStoryId(target.id)) {
+        const article = catalog?.getSnapshot().find(item => item.id === target.id);
+        return Boolean(article?.publishedStory && !isBlockedForUser(owner, article.publishedStory.ownerId));
+      }
       if (target.kind !== 'list' || !getList) return true;
       const list = getList(owner, target.id);
       return Boolean(list && !isBlockedForUser(owner, list.owner.id));
     },
-  }), [getList, isBlockedForUser]);
+  }), [getList, isBlockedForUser, catalog]);
   const current = source ?? fallback;
   const [scope, setScope] = useState(() => ({ source: current, stores: new Map<string, ClapStore>(), version: 0 }));
   if (scope.source !== current) { setScope({ source: current, stores: new Map(), version: scope.version + 1 }); return null; }

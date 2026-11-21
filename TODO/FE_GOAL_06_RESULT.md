@@ -1,5 +1,8 @@
 # Goal 6 — 기사 검색과 검색 결과
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 6곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 검토일: 2026-11-18 KST. **구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교 완료. 실제 iOS·Android 실행과 네이티브 화면 비교는 미검증.**
 
 ## 구현과 확인 경로
@@ -44,11 +47,11 @@
 
 | 원본 Screen ID | 관찰·반영한 구성 | 구현 캡처 |
 | --- | --- | --- |
-| `sc_1c3e4349171248378eada528f7942269` | 탐색 제목 → 회색 검색창 → 가로 주제 칩 → 구분선 → 순번 목록 | [탐색](evidence/goal6/explore-mobile.png) |
-| `sc_047c91d900aa47448d61e4faacd68ad5` | 뒤로 가기, 빈 검색창, 주제 제목, 오른쪽 화살표를 가진 행 | [빈 검색어](evidence/goal6/empty-mobile.png) |
-| `sc_8dc9eeb5f9d244ca9fa6fb7a973de82f` | 입력값·지우기, 유형 밑줄, 출처/제목/썸네일/전체 폭 요약/하단 메타데이터/구분선 | [결과](evidence/goal6/results-mobile.png) |
+| `sc_1c3e4349171248378eada528f7942269` | 탐색 제목 → 회색 검색창 → 가로 주제 칩 → 구분선 → 순번 목록 | 탐색 (저장소 보관본 없음: `evidence/goal6/explore-mobile.png`) |
+| `sc_047c91d900aa47448d61e4faacd68ad5` | 뒤로 가기, 빈 검색창, 주제 제목, 오른쪽 화살표를 가진 행 | 빈 검색어 (저장소 보관본 없음: `evidence/goal6/empty-mobile.png`) |
+| `sc_8dc9eeb5f9d244ca9fa6fb7a973de82f` | 입력값·지우기, 유형 밑줄, 출처/제목/썸네일/전체 폭 요약/하단 메타데이터/구분선 | 결과 (저장소 보관본 없음: `evidence/goal6/results-mobile.png`) |
 
-[원본과 구현 나란히 보기](evidence/goal6/COMPARISON.html)는 원본 파일을 직접 참조하며 원본 이미지를 수정하지 않는다. 원본은 가로 390px로 축소한다. 콘텐츠 정렬용 60px 이동 옵션은 시각 비교를 위한 근삿값이며 실제 Safe Area 측정값이 아니다. 비교 HTML의 이미지 6개 로딩도 Chrome에서 확인했다.
+원본과 구현 나란히 보기 (저장소 보관본 없음: `evidence/goal6/COMPARISON.html`)는 원본 파일을 직접 참조하며 원본 이미지를 수정하지 않는다. 원본은 가로 390px로 축소한다. 콘텐츠 정렬용 60px 이동 옵션은 시각 비교를 위한 근삿값이며 실제 Safe Area 측정값이 아니다. 비교 HTML의 이미지 6개 로딩도 Chrome에서 확인했다.
 
 | 비교 항목 | 구현과 남은 차이 |
 | --- | --- |
@@ -70,9 +73,9 @@
 | `npm.cmd run check` | 타입 검사·lint 통과, 테스트 **67개 × iOS/Android Jest = 134건**, 24 suites 통과 |
 | `npm.cmd run export:android` | JS/Hermes 번들 생성 성공. APK/AAB 빌드·설치 결과 아님 |
 | `npm.cmd run export:ios` | JS/Hermes 번들 생성 성공. IPA 빌드·설치 결과 아님 |
-| PC Chrome 1365×900 | 탐색 → 금리 검색 → 고정/변동금리 기사 상세 → 검색 복귀 직접 조작. 선택 기사 제목, 검색어·결과·스크롤 유지 확인. [결과 화면](evidence/goal6/desktop-results.png) |
+| PC Chrome 1365×900 | 탐색 → 금리 검색 → 고정/변동금리 기사 상세 → 검색 복귀 직접 조작. 선택 기사 제목, 검색어·결과·스크롤 유지 확인. 결과 화면 (저장소 보관본 없음: `evidence/goal6/desktop-results.png`) |
 | 모바일 폭 Chrome 390×844 | 세 상태 캡처·원본 대조, 빈 값/공백·0건·지우기·주제 바로가기·이미지 없는 기사 확인 |
-| 모바일 폭 Chrome 320×740 | 페이지 가로 넘침 없음, 긴 한국어 결과 표시 확인. [캡처](evidence/goal6/narrow-mobile.png) |
+| 모바일 폭 Chrome 320×740 | 페이지 가로 넘침 없음, 긴 한국어 결과 표시 확인. 캡처 (저장소 보관본 없음: `evidence/goal6/narrow-mobile.png`) |
 | 브라우저 실패/지연 | 최초 실패→같은 검색어 재시도, 금리 요청 시작 후 환율로 변경→늦은 금리 응답 무시, 10초 로딩 중 지우기→늦은 결과 미표시 확인 |
 | 콘솔·통신 | 위 4개 시나리오의 수집된 콘솔 error·런타임 예외 0건, HTTP(S) 요청은 localhost:8081만 관찰. 실제 검색 API 호출 없음 |
 | 실제 기기·시뮬레이터 | 미검증. Windows에서 adb·emulator·Xcode와 기본 Android SDK 실행 파일을 찾지 못함 |

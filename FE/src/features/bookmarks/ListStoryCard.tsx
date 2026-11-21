@@ -1,7 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 import { useModeration } from '../moderation/ModerationContext';
-import { articleReportTarget, isArticleBlocked } from '../moderation/articleModeration';
+import { articleReportTarget, useArticleModeration } from '../moderation/articleModeration';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
@@ -24,11 +24,12 @@ type ListStoryCardProps = {
 
 export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEditNote, listId }: ListStoryCardProps) {
   const moderation = useModeration();
+  const articleModeration = useArticleModeration();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { width, fontScale } = useWindowDimensions();
   const viewed = useHasViewed(article.id);
-  if (isArticleBlocked(moderation.state?.value, article.id))
+  if (articleModeration.blocked(article.id))
     return (
       <View style={styles.card}>
         <Text style={styles.note}>Story from a blocked author</Text>
@@ -57,7 +58,7 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEdi
         accessibilityLabel={`${article.title}, ${article.sourceName}, ${article.publishedLabel}`}
         onPress={() => onOpen(article.id)}
       >
-        <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+        <SearchByline userId={article.publishedStory?.ownerId} name={article.sourceName} avatar={article.reference?.avatar} />
         <View style={[styles.headline, (width < 340 || fontScale > 1.3) && styles.stack]}>
           <Text style={[styles.title, viewed && { color: colors.secondaryText }]}>{article.title}</Text>
           {article.reference?.image && (
@@ -87,7 +88,7 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEdi
               onPress: () =>
                 moderation.open({
                   kind: 'report',
-                  target: articleReportTarget(article.id),
+                  target: article.publishedStory ? { kind: 'article', id: article.id, writerId: article.publishedStory.ownerId } : articleReportTarget(article.id),
                   title: article.title,
                 }),
             },

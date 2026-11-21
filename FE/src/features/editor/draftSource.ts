@@ -12,6 +12,7 @@ export type DraftSource = {
   stories: (userId: string, signal: AbortSignal, visibility?: 'public' | 'unlisted', viewerId?: string | null) => Promise<PublishedStory[]>;
   story: (storyId: string, signal: AbortSignal) => Promise<PublishedStory | null>;
   publicStories?: (signal: AbortSignal) => Promise<PublishedStory[]>;
+  getPublishedSnapshot: () => readonly PublishedStory[];
   subscribe: (listener: () => void) => () => void;
   getRevision: () => number;
   getImageAssetIds?: () => readonly string[];
@@ -27,6 +28,7 @@ export function createMockDraftSource(options: { delayMs?: number; readFailures?
   const records = new Map<string, Draft>(); const owners = new Map<string, string>();
   const operations = new Map<string, string>(); const listeners = new Set<() => void>();
   const stories = new Map<string, PublishedStory>(); const receipts = new Map<string, { operationId: string; fingerprint: string; storyId: string }>();
+  let publishedSnapshot: readonly PublishedStory[] = [];
   let sequence = 0; let revision = 0;
   let readFailures = options.readFailures ?? 0; let saveFailures = options.saveFailures ?? 0; let lostResponses = options.lostResponses ?? 0;
   let publishFailures = options.publishFailures ?? 0; let lostPublishResponses = options.lostPublishResponses ?? 0;
@@ -50,6 +52,7 @@ export function createMockDraftSource(options: { delayMs?: number; readFailures?
     newId(userId) { const id = `draft-${userId}-${++sequence}`; owners.set(id, userId); return id; },
     subscribe(listener) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     getRevision: () => revision,
+    getPublishedSnapshot: () => publishedSnapshot,
     getImageAssetIds: () => [...records.values(), ...stories.values()].flatMap(record => record.document.images.map(image => image.assetId)),
     async list(userId, signal) {
       await wait(signal); if (signal.aborted) throw new Error('cancelled');
@@ -108,6 +111,7 @@ export function createMockDraftSource(options: { delayMs?: number; readFailures?
         document: command.document, publishing: command.publishing, publishedAt: new Date().toISOString() };
       // 발행 결과와 초안 봉인을 같은 동기 단계에서 확정해 늦은 자동 저장의 부활을 차단한다.
       stories.set(story.id, story); receipts.set(command.draftId, { operationId: command.operationId, fingerprint, storyId: story.id }); records.delete(command.draftId);
+      publishedSnapshot = [...stories.values()].map(cloneStory);
       revision++; listeners.forEach(listener => listener());
       if (lostPublishResponses-- > 0) throw new PublishError(true, 'publish-response-lost');
       return cloneStory(story);

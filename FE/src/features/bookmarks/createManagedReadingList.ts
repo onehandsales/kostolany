@@ -5,6 +5,7 @@ import type { BookmarkSnapshot, ReadingListSnapshot } from './types';
 
 // 기본 읽기 목록도 같은 목록 저장소에서 파생해 메모와 순서의 원본을 나누지 않는다.
 export function createManagedReadingList(store: UserListStore, articles: readonly FeedArticle[]) {
+  const unavailable: BookmarkSnapshot = { status: 'error', isSaved: false, isPending: false, error: 'read' };
   const snapshots = new Map<string, BookmarkSnapshot>();
   const listeners = new Set<() => void>();
   let snapshot: ReadingListSnapshot;
@@ -31,8 +32,9 @@ export function createManagedReadingList(store: UserListStore, articles: readonl
   update();
   const subscribe = (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; };
   return {
+    updateArticles(next: readonly FeedArticle[]) { articles = next; update(); },
     getSnapshot: (id: string): BookmarkSnapshot => snapshots.get(id)
-      ?? { status: 'error', isSaved: false, isPending: false, error: 'read' },
+      ?? unavailable,
     getReadingListSnapshot: () => snapshot,
     subscribe: (_id: string, listener: () => void) => subscribe(listener),
     subscribeReadingList: subscribe,

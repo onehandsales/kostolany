@@ -13,6 +13,7 @@ import { useAuth } from '../auth/AuthProvider';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { publicIdentity } from '../community/data/publicDirectory';
 import { FollowControl } from '../community/FollowControl';
+import { useCatalogArticles } from '../feed/ArticleCatalog';
 import { bookmarkArticles } from '../bookmarks/data/bookmarkFixtures';
 import { mockUsers } from '../auth/data/mockUsers';
 import { useKnownProfile } from '../profile/ProfileProvider';
@@ -71,9 +72,10 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
   const [collapsed, setCollapsed] = useState(false);
   const sharing = useShareDialog();
   const target = { kind: 'list' as const, id: list.id };
+  const catalogArticles = useCatalogArticles(bookmarkArticles);
   const articles = list.articleIds.flatMap(id => {
-    const article = bookmarkArticles.find(item => item.id === id);
-    return article ? [article] : [];
+    const article = catalogArticles.find(item => item.id === id);
+    return article && (!article.publishedStory?.unlisted || article.publishedStory.ownerId === auth.state.user?.id) ? [article] : [];
   });
   const share = () => sharing.open({ kind: 'list', id: list.id, title: list.title,
     subtitle: list.description, authorId: list.owner.kind === 'writer' ? list.owner.id : undefined,

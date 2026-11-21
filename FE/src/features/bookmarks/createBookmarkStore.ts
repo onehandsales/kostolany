@@ -127,6 +127,15 @@ export function createBookmarkStore(source: BookmarkSource, userId: string, arti
   }
 
   return {
+    updateArticles(next: readonly FeedArticle[]) {
+      for (const article of next) {
+        const existing = entries.get(article.id);
+        if (existing) existing.article = article;
+        else entries.set(article.id, { article, confirmed: false, desired: false, revision: 0, intent: 0,
+          command: null, failedTarget: null, snapshot: loadingSnapshot, listeners: new Set() });
+      }
+      publish([...entries.values()]);
+    },
     getSnapshot: (articleId: string): BookmarkSnapshot => entries.get(articleId)?.snapshot ?? unknownSnapshot,
     getReadingListSnapshot: (): ReadingListSnapshot => listSnapshot,
     subscribe(articleId: string, listener: () => void): () => void {

@@ -7,6 +7,8 @@ import { useHasLibraryList } from '../../features/bookmarks/useBookmarks';
 import { useExplanationPreference } from '../../features/settings/ReadingSettingsProvider';
 import { useDownloadArticleSource } from '../../features/downloads/DownloadProvider';
 import { previewArticleSource } from '../../features/article/data/articlePreview';
+import { writtenStoryId } from '../../features/editor/publishedArticle';
+import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
 
 export type ArticleRouteParams = {
   articleId: string;
@@ -26,7 +28,12 @@ type ArticleRouteScreenProps = {
   isFocused?: boolean;
 };
 
-export function ArticleRouteScreen({
+export function ArticleRouteScreen(props: ArticleRouteScreenProps) {
+  const storyId = writtenStoryId(props.params.articleId);
+  return storyId ? <WrittenStoryScreen storyId={storyId} onBack={props.onBack} /> : <FeedArticleRouteScreen {...props} />;
+}
+
+function FeedArticleRouteScreen({
   params,
   source,
   explanationSource,

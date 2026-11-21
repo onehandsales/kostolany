@@ -19,7 +19,7 @@ export type ProfileStackParamList = {
   ProfileHome: undefined;
   Settings: undefined;
   SettingsDetail: { page: SettingsDetail };
-  ProfileList: { listId: string };
+  ProfileList: { listId: string; reorder?: boolean };
   StoryStats: undefined;
   StatsStory: { storyId: string };
 };
@@ -41,7 +41,7 @@ export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticle
         {({ navigation }) => (
           <ProfileHome
             onOpenStats={() => navigation.navigate('StoryStats')}
-            onOpenList={(listId) => navigation.navigate('ProfileList', { listId })}
+            onOpenList={(listId, reorder) => navigation.navigate('ProfileList', { listId, reorder })}
             onOpenSettings={() => navigation.navigate('Settings')}
           />
         )}
@@ -64,7 +64,7 @@ export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticle
       </Stack.Screen>
       <Stack.Screen name="ProfileList" getId={({ params }) => params.listId}>
         {({ navigation, route }) => (
-          <ReadingListScreen
+          <ReadingListScreen initialReorder={route.params.reorder}
             listId={route.params.listId}
             backLabel="프로필로 돌아가기"
             onBack={() => navigation.popToTop()}
@@ -84,7 +84,7 @@ function ProfileHome({
 }: {
   onOpenStats: () => void;
   onOpenSettings: () => void;
-  onOpenList: (listId: string) => void;
+  onOpenList: (listId: string, reorder?: boolean) => void;
 }) {
   const { state, store } = useAuth();
   const isFocused = useIsFocused();

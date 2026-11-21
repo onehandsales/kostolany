@@ -26,6 +26,9 @@ import { WrittenStoriesProvider } from '../../features/editor/WrittenStoriesProv
 import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
+import { bookmarkArticles } from '../../features/bookmarks/data/bookmarkFixtures';
+import { ArticleCatalogProvider, useArticleCatalog } from '../../features/feed/ArticleCatalog';
+import { createPublishedArticleCatalog } from '../../features/editor/publishedArticle';
 
 import { useTheme } from '../../shared/theme/ThemeProvider';
 
@@ -182,18 +185,32 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
 
 export function SessionNavigation(sources: AppNavigatorProps) {
   const { state } = useAuth();
+  const [defaultDrafts] = useState(createMockDraftSource);
+  const [defaultImages] = useState(createDeviceEditorImageSource);
+  const drafts = sources.draftSource ?? defaultDrafts;
+  const images = sources.editorImageSource ?? defaultImages;
+  const [catalogScope, setCatalogScope] = useState(() => ({ drafts, images,
+    catalog: createPublishedArticleCatalog(drafts, images, bookmarkArticles) }));
+  if (catalogScope.drafts !== drafts || catalogScope.images !== images) {
+    setCatalogScope({ drafts, images, catalog: createPublishedArticleCatalog(drafts, images, bookmarkArticles) });
+    return null;
+  }
   return (
+    <ArticleCatalogProvider catalog={catalogScope.catalog}>
+    <WrittenStoriesProvider value={{ source: drafts, images, sessionRevision: state.revision }}>
     <SettingsServicesProvider icons={sources.appIconAdapter} connections={sources.accountConnectionSource} platform={sources.settingsPlatform}>
     <MembershipProvider source={sources.membershipSource}>
     <NotificationPermissionProvider source={sources.notificationPermissionSource}>
     <NotificationProvider source={sources.notificationSource}>
     <DisplaySettingsProvider userId={state.user?.id ?? null} revision={state.revision} source={sources.displaySource}>
-      <SessionNavigationContent {...sources} />
+      <SessionNavigationContent {...sources} draftSource={drafts} editorImageSource={images} />
     </DisplaySettingsProvider>
     </NotificationProvider>
     </NotificationPermissionProvider>
     </MembershipProvider>
     </SettingsServicesProvider>
+    </WrittenStoriesProvider>
+    </ArticleCatalogProvider>
   );
 }
 
@@ -205,8 +222,8 @@ function SessionNavigationContent({
   statsSource,
   onboardingSource,
   notificationPermissionSource,
-  draftSource,
-  editorImageSource,
+  draftSource: drafts,
+  editorImageSource: images,
   downloadSource,
   digestSource,
   articleSource,
@@ -227,16 +244,16 @@ function SessionNavigationContent({
   directorySource,
   moderationSource,
   publicListSource,
-}: AppNavigatorProps) {
+}: AppNavigatorProps & { draftSource: DraftSource; editorImageSource: EditorImageSource }) {
   const { state, store: authStore } = useAuth();
   const { colors, scheme } = useTheme();
-  const [defaultBookmarks] = useState(() => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true }));
-  const currentBookmarks = bookmarkSource ?? defaultBookmarks;
+  const catalog = useArticleCatalog();
+  const createBookmarks = () => createMockBookmarkSource({ scenario: bookmarkPreviewScenario, managesReadingList: true,
+    articleExists: (id: string) => Boolean(catalog?.getSnapshot().some(article => article.id === id)) });
+  const [bookmarkScope, setBookmarkScope] = useState(() => ({ catalog, source: createBookmarks() }));
+  if (bookmarkScope.catalog !== catalog) setBookmarkScope({ catalog, source: createBookmarks() });
+  const currentBookmarks = bookmarkSource ?? bookmarkScope.source;
   const [defaultDigests] = useState(() => createMockDigestSource());
-  const [defaultDrafts] = useState(createMockDraftSource);
-  const drafts = draftSource ?? defaultDrafts;
-  const [defaultImages] = useState(createDeviceEditorImageSource);
-  const images = editorImageSource ?? defaultImages;
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
@@ -326,7 +343,6 @@ function SessionNavigationContent({
                             sessionRevision={state.revision}
                           >
                             <DownloadProvider source={downloadSource} lists={currentBookmarks.lists}>
-                            <WrittenStoriesProvider value={{ source: drafts, images, sessionRevision: state.revision }}>
                             <OnboardingProvider source={onboardingSource} permissionSource={notificationPermissionSource}>
                             <CommunityNavigationProvider
                               value={{
@@ -594,7 +610,6 @@ function SessionNavigationContent({
                               <SessionAuthDialogs />
                             </CommunityNavigationProvider>
                             </OnboardingProvider>
-                            </WrittenStoriesProvider>
                             </DownloadProvider>
                           </BookmarkProvider>
                         </RelationshipProvider>

@@ -1,12 +1,15 @@
 # Goal 17 — 기사 상세·반응 바·저장 대상 선택
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 1곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19. 기준 커밋 `d016c06`; Goal 15~17 변경은 미커밋. 연속 요청에 따라 다음 Goal로 진행한다. 구현·두 차례 자체 검토·관련 자동/브라우저 검증을 수행했으며 원본 폰트·아이콘 차이와 native 검증은 남아 있다. 100% 일치 판정은 하지 않는다.
 
 ## 구현과 원본
 
 `ReferenceArticleView`는 원본 기사용 제목·배지·작가·Follow·커버·serif 본문·인용 강조·토픽·작가 소개·고정 반응 바를 제공한다. `ReferenceArticleFooter`는 캡처에 보이는 응답과 후속 기사 미리보기만 표시한다. 댓글/팔로우/공유/청취는 로컬 미연결 안내다. 금융 fixture의 기존 상세·설명은 유지한다. 원문 전체가 없는 구간은 명시적으로 생략하며 자체 문장을 원문으로 채우지 않는다.
 
-원본은 `medium/flows/Home/Story detail/ANALYSIS.md`, screens 02~07과 `Saving a story/ANALYSIS.md`, screen 02. 실제 PNG를 열어 읽고 [비교 페이지](evidence/goal17/COMPARISON.html)에 연결했다. 원본 1179×2556을 393×852로 정규화하고 OS 위59/아래34를 제외한 앱 393×759와 실제 Chrome 캡처를 비교했다. DPR 확정은 아니다.
+원본은 `medium/flows/Home/Story detail/ANALYSIS.md`, screens 02~07과 `Saving a story/ANALYSIS.md`, screen 02. 실제 PNG를 열어 읽고 비교 페이지 (저장소 보관본 없음: `evidence/goal17/COMPARISON.html`)에 연결했다. 원본 1179×2556을 393×852로 정규화하고 OS 위59/아래34를 제외한 앱 393×759와 실제 Chrome 캡처를 비교했다. DPR 확정은 아니다.
 
 저장 시트는 Save to / Create new list... / Reading list / 체크 / Done 구조, 배경 터치·native back 취소, 48 이상 터치 영역을 적용했다. 선택은 Done에서 기존 목록 저장소로 제출한다. 기본 목록 한국어 접근성 이름과 사용자 목록 ID는 유지한다. 취소는 제출하지 않는다. 박수 모양은 기존 1회 좋아요 toggle이며 Medium의 다중 박수 기능이 아니다.
 

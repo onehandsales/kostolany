@@ -4,7 +4,6 @@ import {
   FlatList,
   Keyboard,
   KeyboardAvoidingView,
-  Linking,
   Platform,
   Pressable,
   ScrollView,
@@ -17,6 +16,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ResponseManagement } from './ResponseManagement';
+import { ResponsePolicyLink } from './ResponsePolicyLink';
 import { visibleResponses } from './responseVisibility';
 import { useModeration } from '../moderation/ModerationContext';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -89,7 +89,6 @@ export function ResponsesPanel({
     () => state?.value?.responses.find((response) => response.id === initialDeleteId) ?? null,
   );
   const [policy, setPolicy] = useState(initialPolicy);
-  const [policyError, setPolicyError] = useState(false);
   const [announcement, setAnnouncement] = useState('');
   const input = useRef<TextInput>(null);
   const mounted = useRef(true);
@@ -277,23 +276,7 @@ export function ResponsesPanel({
                   meaningful conversations, we prohibit certain conduct.
                 </Text>
                 <Text style={styles.secondary}>This is an excerpt. The current rules may have changed.</Text>
-                <Pressable
-                  role="link"
-                  accessibilityLabel="현재 Medium Rules 열기"
-                  style={styles.action}
-                  onPress={() => {
-                    void Linking.openURL('https://policy.medium.com/medium-rules-30e5502c4eb4').catch(() =>
-                      setPolicyError(true),
-                    );
-                  }}
-                >
-                  <Text style={styles.green}>Read the current Medium Rules</Text>
-                </Pressable>
-                {policyError && (
-                  <Text role="alert" style={styles.error}>
-                    링크를 열지 못했어요. 다시 눌러 주세요.
-                  </Text>
-                )}
+                <ResponsePolicyLink />
               </ScrollView>
             )}
             <View

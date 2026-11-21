@@ -1,5 +1,8 @@
 # Goal 8 — 북마크 저장·해제와 저장 목록 결과
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 16곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-18 KST. **구현·자동 검증·PC 브라우저 흐름·모바일 폭 원본 비교 완료 / 실제 iOS·Android 기기 검증 대기**.
 
 홈·검색·상세에서 기사를 저장하고 라이브러리의 기본 읽기 목록에서 같은 기사를 다시 읽을 수 있다. 저장·해제, 빈 목록, 조회·변경 실패와 재시도를 구현했다. 실제 인증·DB 저장이 아닌 fixture·mock 프론트엔드 결과다. Goal 9는 시작하지 않았다.
@@ -75,9 +78,9 @@
 | [List detail](<../medium/flows/Library/List detail/ANALYSIS.md>), `adc8aea8-3578-44c2-a256-7f2a893d6676` | 02 `sc_967232cfb5f845839053e0d371d78911`, 03 `sc_0b1e7b64b9f14f2cb5358161e0f67a94` |
 | [Removing a story](<../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>), `c82ad1ef-35ad-416c-97ec-9601d7ee97dd` | 01 `sc_fa4e79f0bed747d698ae44e23f9223f9`, 02 `sc_a79a8c62cfd64776ae74f84e0d98b5c3` |
 
-[나란히 비교 HTML](evidence/goal8/COMPARISON.html)은 빈/채워진 라이브러리, 빈/채워진 읽기 목록, 상세의 선택된 북마크, 기사 제거 결과를 연결한다. 원본 1179×2556px을 가로 390px로 비율 유지 축소하며 파일 변경·자르기·위치 보정은 하지 않았다. 구현 캡처는 390×844 CSS px이며 iOS 시스템 영역을 인위적으로 붙이지 않았다.
+나란히 비교 HTML (저장소 보관본 없음: `evidence/goal8/COMPARISON.html`)은 빈/채워진 라이브러리, 빈/채워진 읽기 목록, 상세의 선택된 북마크, 기사 제거 결과를 연결한다. 원본 1179×2556px을 가로 390px로 비율 유지 축소하며 파일 변경·자르기·위치 보정은 하지 않았다. 구현 캡처는 390×844 CSS px이며 iOS 시스템 영역을 인위적으로 붙이지 않았다.
 
-비교 HTML의 이미지 12개가 로드됨을 확인하고 [목록 비교 캡처](evidence/goal8/comparison-reading-list.png)와 [상세 북마크 비교 캡처](evidence/goal8/comparison-bookmark.png)를 남겼다. 보조 화면은 [320px 상세](evidence/goal8/detail-narrow-mobile.png), [본문 끝과 하단 바](evidence/goal8/detail-end-mobile.png), [큰 글자 목록](evidence/goal8/reading-list-large-text.png), [큰 글자·실패 재시도](evidence/goal8/save-error-detail-large-text.png), [PC 읽기 목록](evidence/goal8/reading-list-desktop.png)에서 확인할 수 있다.
+비교 HTML의 이미지 12개가 로드됨을 확인하고 목록 비교 캡처 (저장소 보관본 없음: `evidence/goal8/comparison-reading-list.png`)와 상세 북마크 비교 캡처 (저장소 보관본 없음: `evidence/goal8/comparison-bookmark.png`)를 남겼다. 보조 화면은 320px 상세 (저장소 보관본 없음: `evidence/goal8/detail-narrow-mobile.png`), 본문 끝과 하단 바 (저장소 보관본 없음: `evidence/goal8/detail-end-mobile.png`), 큰 글자 목록 (저장소 보관본 없음: `evidence/goal8/reading-list-large-text.png`), 큰 글자·실패 재시도 (저장소 보관본 없음: `evidence/goal8/save-error-detail-large-text.png`), PC 읽기 목록 (저장소 보관본 없음: `evidence/goal8/reading-list-desktop.png`)에서 확인할 수 있다.
 
 | 항목 | 반영과 남은 차이 |
 | --- | --- |
@@ -109,9 +112,9 @@
 | 실제 플랫폼 | iOS/Android 실행·APK/AAB/IPA 빌드·설치·기기 원본 비교 미실행 |
 | 검토 | 변경 코드와 테스트 자기 검토, 독립 리뷰·하위 에이전트 미사용 |
 
-브라우저 근거: [정상·실측](evidence/goal8/normal-checks.json), [조회 실패](evidence/goal8/read-error-checks.json), [저장 실패](evidence/goal8/save-error-checks.json), [해제 실패](evidence/goal8/remove-error-checks.json), [지연·연속 입력](evidence/goal8/slow-checks.json). 캡처한 시나리오의 measurements에 viewport·가로 넘침·북마크 크기·선택·처리 상태를 기록했다. 지연 시나리오는 동작만 검사했다. 자동 테스트는 제어 가능한 Promise로 응답 순서를 검증하며 브라우저의 장애 모드는 기본 `normal`로 복구했다.
+브라우저 근거: 정상·실측 (저장소 보관본 없음: `evidence/goal8/normal-checks.json`), 조회 실패 (저장소 보관본 없음: `evidence/goal8/read-error-checks.json`), 저장 실패 (저장소 보관본 없음: `evidence/goal8/save-error-checks.json`), 해제 실패 (저장소 보관본 없음: `evidence/goal8/remove-error-checks.json`), 지연·연속 입력 (저장소 보관본 없음: `evidence/goal8/slow-checks.json`). 캡처한 시나리오의 measurements에 viewport·가로 넘침·북마크 크기·선택·처리 상태를 기록했다. 지연 시나리오는 동작만 검사했다. 자동 테스트는 제어 가능한 Promise로 응답 순서를 검증하며 브라우저의 장애 모드는 기본 `normal`로 복구했다.
 
-명령 출력은 [타입·lint·테스트](evidence/goal8/checks.txt), [Android JS 번들](evidence/goal8/export-android.txt), [iOS JS 번들](evidence/goal8/export-ios.txt)에 보관했다.
+명령 출력은 타입·lint·테스트 (저장소 보관본 없음: `evidence/goal8/checks.txt`), Android JS 번들 (저장소 보관본 없음: `evidence/goal8/export-android.txt`), iOS JS 번들 (저장소 보관본 없음: `evidence/goal8/export-ios.txt`)에 보관했다.
 
 검토 중 보완한 내용:
 

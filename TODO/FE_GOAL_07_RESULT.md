@@ -1,5 +1,8 @@
 # Goal 7 — 좋아요 등록·해제 결과
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 8곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-18 KST. **구현·자동 검증·PC 브라우저 동작·모바일 폭 원본 비교 완료 / 실제 iOS·Android 기기 검증 대기**.
 
 Goal 7만 진행했다. 홈·검색 결과·상세에서 같은 기사의 좋아요 등록·해제와 수치, 처리 중 상태, 실패 복구·재시도가 연결된다. 예시 기사와 고정 모의 사용자만 사용하며 실제 저장이나 인증 성공을 뜻하지 않는다.
@@ -98,7 +101,7 @@ Goal 7만 진행했다. 홈·검색 결과·상세에서 같은 기사의 좋아
 | 선택 유지 | `sc_e3b85b46c655483eb954e6f953d0b7f6`; +16 배지 없이 채운 아이콘 |
 | 검토일·크기 | 2026-11-18 KST; 원본 1179×2556 px, 보관 MCP 메타데이터 390×844 |
 
-[나란히 비교 HTML](evidence/goal7/COMPARISON.html) · [실제 비교 캡처](evidence/goal7/comparison.png). HTML은 원본을 가로 390px로 비율 유지 축소하며 원본 파일을 수정하거나 잘라내지 않았다. 자체 캡처는 390×844 CSS px이다. 서로 다른 콘텐츠·플랫폼 조건이므로 픽셀 차이 점수는 산출하지 않았다.
+나란히 비교 HTML (저장소 보관본 없음: `evidence/goal7/COMPARISON.html`) · 실제 비교 캡처 (저장소 보관본 없음: `evidence/goal7/comparison.png`). HTML은 원본을 가로 390px로 비율 유지 축소하며 원본 파일을 수정하거나 잘라내지 않았다. 자체 캡처는 390×844 CSS px이다. 서로 다른 콘텐츠·플랫폼 조건이므로 픽셀 차이 점수는 산출하지 않았다.
 
 | 관점 | 원본 관찰 | 구현·차이 |
 | --- | --- | --- |
@@ -133,7 +136,7 @@ Native는 `togglebutton`과 `checked/busy/disabled`, 웹은 `button`과 `aria-pr
 | 코드 검토 | 자기 검토 수행; 독립 리뷰는 미실시 |
 | 변경 검사 | `git diff --check` 통과, 보호 문서 해시·참고 파일 변경 여부 확인 |
 
-브라우저 근거: [정상 흐름](evidence/goal7/normal-checks.json), [등록 실패](evidence/goal7/write-error-checks.json), [해제 실패](evidence/goal7/unlike-error-checks.json), [조회 실패](evidence/goal7/read-error-checks.json), [연속 조작](evidence/goal7/slow-checks.json), [실측](evidence/goal7/measurements.json).
+브라우저 근거: 정상 흐름 (저장소 보관본 없음: `evidence/goal7/normal-checks.json`), 등록 실패 (저장소 보관본 없음: `evidence/goal7/write-error-checks.json`), 해제 실패 (저장소 보관본 없음: `evidence/goal7/unlike-error-checks.json`), 조회 실패 (저장소 보관본 없음: `evidence/goal7/read-error-checks.json`), 연속 조작 (저장소 보관본 없음: `evidence/goal7/slow-checks.json`), 실측 (저장소 보관본 없음: `evidence/goal7/measurements.json`).
 
 검토 중 수정한 사항:
 

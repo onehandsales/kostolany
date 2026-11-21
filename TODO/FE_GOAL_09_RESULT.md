@@ -1,5 +1,8 @@
 # Goal 9 — 라이브러리 목록 관리 결과
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 27곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-18 KST. **구현·자동 검증·8081 브라우저 흐름·모바일 폭 원본 비교 완료 / 실제 iOS·Android 기기·네이티브 빌드 검증 대기**.
 
 사용자 목록을 만들고 이름을 바꾸거나 삭제할 수 있다. 같은 기사를 여러 목록에 저장하고 목록에서 상세를 읽은 뒤 원래 목록으로 돌아온다. 홈·검색·상세·라이브러리의 저장 표시는 공유하며, 각 작업의 로딩·실패 복구·재시도를 제공한다. fixture·mock 프론트엔드 결과이며 실제 서비스 정책이나 영속 저장의 완료를 뜻하지 않는다. Goal 10은 시작하지 않았다.
@@ -92,12 +95,12 @@ Goal 8의 `createBookmarkStore.ts`는 변경하지 않았다. 기본 읽기 목�
 | [Removing a story](<../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>), `c82ad1ef-35ad-416c-97ec-9601d7ee97dd` | 01 `sc_fa4e79f0bed747d698ae44e23f9223f9` |
 | [Saving a story](<../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>), `544f44c3-2d0f-471c-9baf-cd6fb8d58786` | 02 `sc_31edfd53d2874259a6ed5ecbc756d10b` |
 
-[원본/구현 비교 HTML](evidence/goal9/COMPARISON.html)에 11쌍과 자체 이름 수정 폼을 연결했다. 원본 링크는 각 쌍에서 직접 열 수 있다. 23개 이미지 로드를 확인하고 [생성 폼](evidence/goal9/comparison-create.png), [저장 대상](evidence/goal9/comparison-save.png), [삭제 확인](evidence/goal9/comparison-delete.png), [목록 상세](evidence/goal9/comparison-detail.png)를 실제 비교 캡처로 남겼다. 원본 1179×2556px은 390px 폭으로 비율만 유지해 표시하며 파일을 수정·자르거나 시스템 영역을 합성하지 않았다. 구현은 Chrome 390×844 CSS px이며 네이티브 캡처가 아니다.
+원본/구현 비교 HTML (저장소 보관본 없음: `evidence/goal9/COMPARISON.html`)에 11쌍과 자체 이름 수정 폼을 연결했다. 원본 링크는 각 쌍에서 직접 열 수 있다. 23개 이미지 로드를 확인하고 생성 폼 (저장소 보관본 없음: `evidence/goal9/comparison-create.png`), 저장 대상 (저장소 보관본 없음: `evidence/goal9/comparison-save.png`), 삭제 확인 (저장소 보관본 없음: `evidence/goal9/comparison-delete.png`), 목록 상세 (저장소 보관본 없음: `evidence/goal9/comparison-detail.png`)를 실제 비교 캡처로 남겼다. 원본 1179×2556px은 390px 폭으로 비율만 유지해 표시하며 파일을 수정·자르거나 시스템 영역을 합성하지 않았다. 구현은 Chrome 390×844 CSS px이며 네이티브 캡처가 아니다.
 
 | 구분 | 관찰·반영·차이 |
 | --- | --- |
 | 원본 관찰 | Library 제목·내 목록 밑줄·카드의 소유자/목록명/기사 수/미리보기, 생성 폼의 이름 0/60·취소·초록 제출, 저장 대상의 체크·Create new list·Done, 관리 메뉴·빨간 삭제 확인 |
-| 이름 수정 | **Edit list info 메뉴만 관찰했으며 편집 폼 캡처는 없다.** 생성 폼 구조를 재사용한 [이름 수정 화면](evidence/goal9/rename-mobile.png)은 자체 설계 |
+| 이름 수정 | **Edit list info 메뉴만 관찰했으며 편집 폼 캡처는 없다.** 생성 폼 구조를 재사용한 이름 수정 화면 (저장소 보관본 없음: `evidence/goal9/rename-mobile.png`)은 자체 설계 |
 | 타이포·여백 | 기존 한글 토큰: 페이지 제목 28/36, 카드·시트 제목 22/30, 입력 18/28, 폼 본문 16/26, 좌우/시트 내부 24. 원본 소스 토큰을 확보한 것은 아님 |
 | 생성 폼 | 회색 이름 입력·카운터·취소·비활성 제출 반영. 확장 시트·한글 검증·오류 재시도는 구현안. 설명·공개 범위 입력 제외 |
 | 관리 메뉴 | 원본 팝오버의 이름 수정/삭제를 공통 하단 시트로 제공. 큰 글자·스크롤·닫기 경로를 통일한 자체 배치 |
@@ -128,15 +131,15 @@ Goal 8의 `createBookmarkStore.ts`는 변경하지 않았다. 기본 읽기 목�
 
 실행 명령은 FE에서 `PATH=/opt/homebrew/opt/node@24/bin:$PATH npm run check`, `npm run export:android`, `npm run export:ios`이며 Node 24 경로를 적용했다. 신규 54개 논리 테스트와 기존 133개의 합계를 중복 실행 횟수와 구분한다.
 
-자동 검증: [전체 check 로그](evidence/goal9/check.log), [Modal 이벤트 수정 후 양 플랫폼 12건 재검증](evidence/goal9/interactions-check.log), [Android JS 번들](evidence/goal9/export-android.log), [iOS JS 번들](evidence/goal9/export-ios.log). 닫기 이벤트 대상을 실제 Modal로 수정한 뒤 해당 파일의 양 플랫폼 12건을 재검증했고, 저장소 수명을 보완한 최종 코드로 전체 check·두 JS 번들·정상 브라우저 흐름을 다시 확인했다.
+자동 검증: 전체 check 로그 (저장소 보관본 없음: `evidence/goal9/check.log`), Modal 이벤트 수정 후 양 플랫폼 12건 재검증 (저장소 보관본 없음: `evidence/goal9/interactions-check.log`), Android JS 번들 (저장소 보관본 없음: `evidence/goal9/export-android.log`), iOS JS 번들 (저장소 보관본 없음: `evidence/goal9/export-ios.log`). 닫기 이벤트 대상을 실제 Modal로 수정한 뒤 해당 파일의 양 플랫폼 12건을 재검증했고, 저장소 수명을 보완한 최종 코드로 전체 check·두 JS 번들·정상 브라우저 흐름을 다시 확인했다.
 
-브라우저 결과: [정상](evidence/goal9/normal-checks.json) · [조회](evidence/goal9/lists-read-error-checks.json) · [생성](evidence/goal9/create-error-checks.json) · [수정](evidence/goal9/rename-error-checks.json) · [삭제](evidence/goal9/delete-error-checks.json) · [기사 추가](evidence/goal9/add-error-checks.json) · [기사 제거](evidence/goal9/list-remove-error-checks.json) · [지연](evidence/goal9/slow-checks.json). [네이티브 환경 확인](evidence/goal9/native-environment.json)과 [비교 이미지 로드 결과](evidence/goal9/comparison-checks.json)도 보관했다.
+브라우저 결과: 정상 (저장소 보관본 없음: `evidence/goal9/normal-checks.json`) · 조회 (저장소 보관본 없음: `evidence/goal9/lists-read-error-checks.json`) · 생성 (저장소 보관본 없음: `evidence/goal9/create-error-checks.json`) · 수정 (저장소 보관본 없음: `evidence/goal9/rename-error-checks.json`) · 삭제 (저장소 보관본 없음: `evidence/goal9/delete-error-checks.json`) · 기사 추가 (저장소 보관본 없음: `evidence/goal9/add-error-checks.json`) · 기사 제거 (저장소 보관본 없음: `evidence/goal9/list-remove-error-checks.json`) · 지연 (저장소 보관본 없음: `evidence/goal9/slow-checks.json`). 네이티브 환경 확인 (저장소 보관본 없음: `evidence/goal9/native-environment.json`)과 비교 이미지 로드 결과 (저장소 보관본 없음: `evidence/goal9/comparison-checks.json`)도 보관했다.
 
 ### 작은 화면·입력·접근성
 
 390×844, 320×740, PC 1365×900에서 확인했다. 캡처 시 문서/모달의 가로 넘침과 화면 안 조작 영역 최소 48×48을 측정했다. 긴 한글 목록명은 줄바꿈되며 제목을 한 줄로 잘라 숨기지 않는다. 목록·폼·시트는 내용이 길어지면 스크롤하고 완료·삭제·재시도 버튼까지 도달한다.
 
-[320px 목록](evidence/goal9/custom-list-narrow.png), [긴 이름](evidence/goal9/long-name-narrow.png), [큰 글자 목록](evidence/goal9/custom-list-large-text.png), [큰 글자 저장 대상 하단](evidence/goal9/save-to-large-text-bottom.png), [큰 글자 삭제 하단](evidence/goal9/delete-confirm-large-text-bottom.png), [큰 글자 생성 실패·재시도](evidence/goal9/create-error-large-text-bottom.png), [PC 라이브러리](evidence/goal9/library-desktop.png)를 남겼다. 큰 글자 검사는 CSS 글자와 행간 2배이며 **OS fontScale 검증이 아니다**.
+320px 목록 (저장소 보관본 없음: `evidence/goal9/custom-list-narrow.png`), 긴 이름 (저장소 보관본 없음: `evidence/goal9/long-name-narrow.png`), 큰 글자 목록 (저장소 보관본 없음: `evidence/goal9/custom-list-large-text.png`), 큰 글자 저장 대상 하단 (저장소 보관본 없음: `evidence/goal9/save-to-large-text-bottom.png`), 큰 글자 삭제 하단 (저장소 보관본 없음: `evidence/goal9/delete-confirm-large-text-bottom.png`), 큰 글자 생성 실패·재시도 (저장소 보관본 없음: `evidence/goal9/create-error-large-text-bottom.png`), PC 라이브러리 (저장소 보관본 없음: `evidence/goal9/library-desktop.png`)를 남겼다. 큰 글자 검사는 CSS 글자와 행간 2배이며 **OS fontScale 검증이 아니다**.
 
 폼 입력 포커스, Tab의 모달 내부 순환, Escape 취소와 원래 버튼 포커스 복귀, 명시적 제출, 한글 문자열·합성 composition 이벤트, Enter로 저장하지 않음을 Chrome에서 확인했다. React Native Modal `onRequestClose` 계약은 테스트로 확인했으며 실제 Android 뒤로 가기 제스처 검증과 구분한다.
 

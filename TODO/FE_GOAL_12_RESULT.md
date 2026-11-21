@@ -1,5 +1,8 @@
 # Goal 12 — 설정과 기본 설명 수준
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 8곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 작성일: 2026-11-18 KST
 
 상태: 구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 iOS·Android 실행·네이티브 빌드 검증 대기
@@ -95,7 +98,7 @@ Goal 5의 모든 진입 성인 정책을 사용자 기본값으로 확장했다.
 - **자체 추가**: 읽기 설정 섹션, 현재 기본 수준, 4개 radio와 선택 원/배경/테두리, 저장·취소 시트, 조회/저장 오류·메모리 안내, 사용자별 캐시와 재시도 정책. Medium에서 관찰한 기능이나 동작으로 기록하지 않는다.
 - **제외**: 원본의 멤버십·통계·계정 설정·추천·Appearance·알림·아이콘·SNS 연결·약관/도움말 등 전체 메뉴. 기본 수준은 실제 나이나 학년 정보가 아니다.
 - **남은 시각 차이**: 자체 한글 기본 글꼴과 금융 콘텐츠, 문자 설정 버튼, 최소한의 섹션, 모의 안내 및 명시적 오류/취소 설명, 최소 48px 터치 영역, PC 최대 폭 680px. 원본 iOS 상태바·홈 인디케이터·native 시스템 확인창을 웹에서 재현했다고 주장하지 않는다.
-- [실제 캡처 비교](evidence/goal12/COMPARISON.html), [브라우저 측정](evidence/goal12/browser-results.json)에 배치·타이포·여백·선택 상태와 큰 글자/작은 폭 증거를 남겼다. PNG 자체를 보정하지 않았다.
+- 실제 캡처 비교 (저장소 보관본 없음: `evidence/goal12/COMPARISON.html`), 브라우저 측정 (저장소 보관본 없음: `evidence/goal12/browser-results.json`)에 배치·타이포·여백·선택 상태와 큰 글자/작은 폭 증거를 남겼다. PNG 자체를 보정하지 않았다.
 
 ## 검증과 검토
 
@@ -103,11 +106,11 @@ Goal 5의 모든 진입 성인 정책을 사용자 기본값으로 확장했다.
 
 | 명령·증거 | 최종 결과 |
 | --- | --- |
-| FE에서 Node 24 PATH로 `npm run check` | 타입·lint 통과, 80 suites·602건 통과(301개 × iOS/Android), 238.495초; [로그](evidence/goal12/check.log) |
-| `npm run export:ios` | 1044 modules, 2.3MB JS/Hermes 생성; [로그](evidence/goal12/export-ios.log) |
-| `npm run export:android` | 1039 modules, 2.3MB JS/Hermes 생성; [로그](evidence/goal12/export-android.log) |
-| `node TODO/evidence/goal12/verify-browser.mjs` | 8개 흐름 묶음, 25회 캡처 측정·24개 PNG(같은 홈 기사 재진입 캡처 파일 재사용), console/page 오류 0·외부 요청 0; [로그](evidence/goal12/browser-run.log) |
-| `node TODO/evidence/goal12/check-platforms.mjs` | iOS·Android 도구 제약 기록; [원문](evidence/goal12/platforms.json) |
+| FE에서 Node 24 PATH로 `npm run check` | 타입·lint 통과, 80 suites·602건 통과(301개 × iOS/Android), 238.495초; 로그 (저장소 보관본 없음: `evidence/goal12/check.log`) |
+| `npm run export:ios` | 1044 modules, 2.3MB JS/Hermes 생성; 로그 (저장소 보관본 없음: `evidence/goal12/export-ios.log`) |
+| `npm run export:android` | 1039 modules, 2.3MB JS/Hermes 생성; 로그 (저장소 보관본 없음: `evidence/goal12/export-android.log`) |
+| `node TODO/evidence/goal12/verify-browser.mjs` | 8개 흐름 묶음, 25회 캡처 측정·24개 PNG(같은 홈 기사 재진입 캡처 파일 재사용), console/page 오류 0·외부 요청 0; 로그 (저장소 보관본 없음: `evidence/goal12/browser-run.log`) |
+| `node TODO/evidence/goal12/check-platforms.mjs` | iOS·Android 도구 제약 기록; 원문 (저장소 보관본 없음: `evidence/goal12/platforms.json`) |
 | Git·문서·8081 | `git diff --check` 통과, 결과/README/비교 페이지 내부 링크 대상 확인, 기존 PID 42833·HTTP 200·HEAD 87db23f 유지 |
 
 Node 실행은 `env PATH=/opt/homebrew/opt/node@24/bin:$PATH`를 사용했다. 새 테스트 45개(양 플랫폼 90건)와 기존 256개(512건)가 함께 통과했다. 검사 중 발견한 타입 오류는 테스트 조회 옵션의 인자 위치를 바로잡아 수정했다. 최초 저장소/UI/preference 64건, navigation 관련 50건을 먼저 확인한 뒤 최종 코드 전체를 검사했다.
@@ -121,7 +124,7 @@ Node 실행은 `env PATH=/opt/homebrew/opt/node@24/bin:$PATH`를 사용했다. �
 
 ### 플랫폼 구분과 미검증
 
-[플랫폼 확인 원문](evidence/goal12/platforms.json)
+플랫폼 확인 원문 (저장소 보관본 없음: `evidence/goal12/platforms.json`)
 
 | 구분 | 결과·한계 |
 | --- | --- |

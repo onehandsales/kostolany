@@ -1,4 +1,5 @@
 import { articlePublication, articleWriter } from '../community/data/publicDirectory';
+import { useArticleCatalog } from '../feed/ArticleCatalog';
 import { useModeration } from './ModerationContext';
 import { moderationKey, type ModerationValue, type ReportTarget } from './types';
 
@@ -27,10 +28,15 @@ export function isArticleMuted(value: ModerationValue | null | undefined, articl
 }
 export function useArticleModeration() {
   const context = useModeration();
+  const catalog = useArticleCatalog();
+  const blocked = (id: string) => {
+    const ownerId = catalog?.getSnapshot().find(article => article.id === id)?.publishedStory?.ownerId;
+    return ownerId ? Boolean(context.state?.value?.blocked.includes(ownerId)) : isArticleBlocked(context.state?.value, id);
+  };
   return {
     ...context,
-    blocked: (id: string) => isArticleBlocked(context.state?.value, id),
+    blocked,
     excluded: (id: string) =>
-      isArticleBlocked(context.state?.value, id) || isArticleMuted(context.state?.value, id),
+      blocked(id) || isArticleMuted(context.state?.value, id),
   };
 }

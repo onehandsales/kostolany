@@ -1,5 +1,6 @@
 import { act, render, screen, userEvent, waitFor, within } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Linking } from 'react-native';
 
 import { createMockArticleSource } from '../../features/article/data/mockArticleSource';
 import { mockUserA } from '../../features/auth/data/mockUsers';
@@ -12,7 +13,7 @@ const title = 'ChatGPT Is Poisoning Your Brain...';
 const target = { kind: 'article' as const, id: 'medium-brain' };
 // 가상 목록의 지연 갱신을 사용자 동작과 같은 테스트 시간 경계에서 진행한다.
 beforeEach(() => jest.useFakeTimers());
-afterEach(() => jest.useRealTimers());
+afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); });
 it('실제 navigation에서 댓글 작성·답글·편집 취소/저장·삭제 취소/확정·정렬 후 기사와 홈에 복귀한다', async () => {
   const source = createMockResponseSource({ delayMs: 0, scenario: 'write-error' });
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
@@ -76,8 +77,19 @@ it('실제 navigation에서 댓글 작성·답글·편집 취소/저장·삭제 
   await user.press(screen.getByRole('radio', { name: 'Most Recent' }));
   await user.press(panel().getByRole('button', { name: 'Medium policy' }));
   await panel().findByRole('heading', { name: 'Medium Rules' });
+  const openPolicy = jest.spyOn(Linking, 'openURL').mockRejectedValueOnce(new Error('open-failed'))
+    .mockResolvedValue(undefined);
+  await user.press(panel().getByRole('link', { name: '현재 Medium Rules 열기' }));
+  expect(panel().getByText('링크를 열지 못했어요. 다시 눌러 주세요.')).toBeVisible();
+  await user.press(panel().getByRole('link', { name: '현재 Medium Rules 열기' }));
+  expect(panel().queryByText('링크를 열지 못했어요. 다시 눌러 주세요.')).toBeNull();
+  openPolicy.mockRejectedValueOnce(new Error('open-failed-again'));
+  await user.press(panel().getByRole('link', { name: '현재 Medium Rules 열기' }));
   await user.press(panel().getByRole('button', { name: 'Responses로 돌아가기' }));
   expect(panel().getByText('Most Recent')).toBeVisible();
+  await user.press(panel().getByRole('button', { name: 'Medium policy' }));
+  expect(panel().queryByText('링크를 열지 못했어요. 다시 눌러 주세요.')).toBeNull();
+  await user.press(panel().getByRole('button', { name: 'Responses로 돌아가기' }));
   await user.press(panel().getByRole('button', { name: 'Responses 닫기' }));
   expect(await screen.findByRole('heading', { name: title })).toBeVisible();
   await user.press(screen.getByRole('button', { name: '본문 응답 정책' }));

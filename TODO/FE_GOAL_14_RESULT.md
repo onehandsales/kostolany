@@ -1,5 +1,8 @@
 # Goal 14 — FE 규칙 준수 검토·수정·재검토
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 10곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 작업일: 2026-11-19 KST. 시작 HEAD: `530476c`. 시작 작업 트리는 깨끗했다.
 
 상태: **코드 수정·두 차례 자기 검토·자동/브라우저 검증 완료 / 실제 네이티브 검증 대기**.
@@ -8,7 +11,7 @@
 
 ## 확인 범위와 규칙별 판정
 
-AGENT 진입·공통 작업·제품·현재 상태·UX 문서, FRONT_AGENT README와 하위 6개, FE_GOALS·클론 계획을 확인했다. 실제 navigation·provider·store·hook·source·폼·공통 UI·설정·테스트를 대조했다. [파일 목록과 정적 검색 결과](evidence/goal14/static-inventory.json)는 수정 후 production 102개·test 40개이며, 이 목록 검사를 모든 줄의 정밀 검증 또는 네이티브 검증으로 표현하지 않는다.
+AGENT 진입·공통 작업·제품·현재 상태·UX 문서, FRONT_AGENT README와 하위 6개, FE_GOALS·클론 계획을 확인했다. 실제 navigation·provider·store·hook·source·폼·공통 UI·설정·테스트를 대조했다. 파일 목록과 정적 검색 결과 (저장소 보관본 없음: `evidence/goal14/static-inventory.json`)는 수정 후 production 102개·test 40개이며, 이 목록 검사를 모든 줄의 정밀 검증 또는 네이티브 검증으로 표현하지 않는다.
 
 | 규칙 | 검토한 경계와 판정 |
 | --- | --- |
@@ -31,7 +34,7 @@ AGENT 진입·공통 작업·제품·현재 상태·UX 문서, FRONT_AGENT READM
 | R14-04 | `TabPlaceholderScreen`, 전용 `Screen`, tabs.description | 현 navigation에서 사용하지 않는 초기 화면이 남아 있음. 소비자 검색 후 해당 파일·필드만 제거 | import/사용처 검색, 타입 검사와 실제 탭/navigation 회귀 |
 | R14-05 | FE README 검증 수와 파일 지도 | 앞 절 602건과 뒤 Goal 13 절 608건이 혼재하고 미사용 파일을 현재 구조로 소개 | 최신 검사 안내를 결과 문서 링크로 연결하고 삭제된 파일을 지도에서 제거 |
 
-수정 전 로그: [feed-before.log](evidence/goal14/feed-before.log). 관련 검사: [feed-after.log](evidence/goal14/feed-after.log). 초기 브라우저 스크립트의 기사 제목 오타는 실제 fixture와 맞춰 수정했으며 앱 결함으로 계산하지 않았다.
+수정 전 로그: feed-before.log (저장소 보관본 없음: `evidence/goal14/feed-before.log`). 관련 검사: feed-after.log (저장소 보관본 없음: `evidence/goal14/feed-after.log`). 초기 브라우저 스크립트의 기사 제목 오타는 실제 fixture와 맞춰 수정했으며 앱 결함으로 계산하지 않았다.
 
 ## 2차 재검토
 
@@ -56,21 +59,21 @@ AGENT 진입·공통 작업·제품·현재 상태·UX 문서, FRONT_AGENT READM
 | --- | --- |
 | 수정 전 회귀 | 6 실패·2 통과, 2 suites. 신규 논리 3개 × iOS/Android |
 | 수정 후 feed/search 관련 | 50 통과, 6 suites, 20.052초 |
-| 타입·lint·전체 테스트 | 통과, 614건(논리 307개 × iOS/Android), 80 suites, 245.554초. [check.log](evidence/goal14/check.log) |
-| iOS JS/Hermes | 성공, 약 2.3MB hbc. [로그](evidence/goal14/export-ios.log) |
-| Android JS/Hermes | 성공, 약 2.3MB hbc. [로그](evidence/goal14/export-android.log) |
-| 8081 실제 Chrome | 검색→상세→수준→로그인 닫기/성공→좋아요/저장→검색 복귀→읽기 목록→프로필 취소→기본 수준 저장→로그아웃 취소/확인. 콘솔 오류 0. [스크립트](evidence/goal14/browser.mjs) · [결과](evidence/goal14/browser.log) |
+| 타입·lint·전체 테스트 | 통과, 614건(논리 307개 × iOS/Android), 80 suites, 245.554초. check.log (저장소 보관본 없음: `evidence/goal14/check.log`) |
+| iOS JS/Hermes | 성공, 약 2.3MB hbc. 로그 (저장소 보관본 없음: `evidence/goal14/export-ios.log`) |
+| Android JS/Hermes | 성공, 약 2.3MB hbc. 로그 (저장소 보관본 없음: `evidence/goal14/export-android.log`) |
+| 8081 실제 Chrome | 검색→상세→수준→로그인 닫기/성공→좋아요/저장→검색 복귀→읽기 목록→프로필 취소→기본 수준 저장→로그아웃 취소/확인. 콘솔 오류 0. 스크립트 (저장소 보관본 없음: `evidence/goal14/browser.mjs`) · 결과 (저장소 보관본 없음: `evidence/goal14/browser.log`) |
 | 캡처 | 390×844 홈·검색·기사·목록·설정, 320×740 홈, 1365×900 홈. 실제 캡처 7장 |
 | iOS native 실행/빌드 | Xcode.app 없음, CLT만 존재. xcodebuild·simctl 실패. 미검증 |
 | Android native 실행/빌드 | Android SDK·adb·emulator 없음. 미검증 |
 
-[플랫폼 명령 결과](evidence/goal14/platform.json). VoiceOver/TalkBack, Dynamic Type/실제 fontScale, 한글 IME·소프트 키보드, Safe Area·OS 뒤로/스와이프·native 모달 포커스는 호환 Xcode/Simulator 또는 Android SDK·에뮬레이터/기기에서 확인해야 한다. 자동 검사나 브라우저로 대체 통과시키지 않는다.
+플랫폼 명령 결과 (저장소 보관본 없음: `evidence/goal14/platform.json`). VoiceOver/TalkBack, Dynamic Type/실제 fontScale, 한글 IME·소프트 키보드, Safe Area·OS 뒤로/스와이프·native 모달 포커스는 호환 Xcode/Simulator 또는 Android SDK·에뮬레이터/기기에서 확인해야 한다. 자동 검사나 브라우저로 대체 통과시키지 않는다.
 
 ## 원본 대조와 남은 차이
 
 보관된 Medium iOS Latest 카탈로그 1419, Home/Explore·Searching Medium 분석과 실제 원본 PNG 2장을 확인했다. 화면 ID는 `sc_5e0ba0e498ff49579bf838096aec4b5e`, `sc_8dc9eeb5f9d244ca9fa6fb7a973de82f`다. 원본은 1179×2556px이며 실제 기기·DPR·제품 빌드는 미확인이다.
 
-[원본·구현 나란히 비교](evidence/goal14/COMPARISON.html)는 원본 표시 폭만 390px로 맞춘다. 실제 캡처를 가공하지 않았다. 현재 한국어 문구·자체 삽화·최신/인기/추천·하트·예시 안내·추가 반응 행은 원본과 다르다. 검색도 원본 Mindfulness/Stories 등과 내용·탭·본문 높이가 다르다. 시스템 상태바·여백·폰트까지 같은 조건이 아니므로 픽셀 일치를 주장하지 않는다. 이 차이를 숨기지 않고 다음 클론 단계의 기준선으로 남긴다.
+원본·구현 나란히 비교 (저장소 보관본 없음: `evidence/goal14/COMPARISON.html`)는 원본 표시 폭만 390px로 맞춘다. 실제 캡처를 가공하지 않았다. 현재 한국어 문구·자체 삽화·최신/인기/추천·하트·예시 안내·추가 반응 행은 원본과 다르다. 검색도 원본 Mindfulness/Stories 등과 내용·탭·본문 높이가 다르다. 시스템 상태바·여백·폰트까지 같은 조건이 아니므로 픽셀 일치를 주장하지 않는다. 이 차이를 숨기지 않고 다음 클론 단계의 기준선으로 남긴다.
 
 이번 Goal은 코드 규칙 검토 단계로, 원본의 글쓰기·추천 제어·알림·댓글·팔로우·외부 인증 등은 구현하지 않았다. 4단계 설명·단일 좋아요·A/B 모의 인증은 기존 앱 추가 요소다.
 

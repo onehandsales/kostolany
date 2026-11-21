@@ -17,17 +17,21 @@ import { ArticleBookmarkControl } from '../bookmarks/ArticleBookmarkControl';
 import type { FeedArticle } from '../feed/types';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { ClapControl } from '../reactions/ClapControl';
+import { useKnownProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
 
-type SearchBylineProps = { name: string; avatar?: ImageSourcePropType; emphasized?: boolean; verified?: boolean };
+type SearchBylineProps = { userId?: string; name: string; avatar?: ImageSourcePropType; emphasized?: boolean; verified?: boolean };
 
-export function SearchByline({ name, avatar, emphasized = false, verified = false }: SearchBylineProps) {
+export function SearchByline({ name: fallbackName, userId, avatar, emphasized = false, verified = false }: SearchBylineProps) {
   const styles = useThemeStyles(createStyles);
   const { fontScale } = useWindowDimensions();
+  const profile = useKnownProfile(userId ?? '');
+  const name = profile?.name ?? fallbackName;
   const publication = /^In (.+) by (.+)$/.exec(name);
   return (
     <View style={styles.byline}>
-      {avatar ? (
+      {userId ? <ProfileAvatar userId={userId} size={20} /> : avatar ? (
         <Image source={avatar} style={[styles.photo, publication && styles.publication]} accessible={false} />
       ) : (
         <View aria-hidden style={styles.avatar}>

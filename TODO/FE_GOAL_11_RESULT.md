@@ -1,5 +1,8 @@
 # FE Goal 11 결과 — 프로필 조회·수정
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 9곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 기준일: 2026-11-18 KST.
 
 **구현·자동 검증·8081 사용자 흐름·모바일 폭 원본 비교 완료 / 실제 iOS·Android 실행·네이티브 빌드·기기 검증 대기.** 실제 인증·백엔드·Storage는 연결하지 않았다.
@@ -90,19 +93,19 @@ Goal 10 정책을 유지했다. 기본 ProfileSource와 사용자별 캐시는 P
 
 | 검사 | 결과·증거 |
 | --- | --- |
-| 타입·lint·전체 Jest | **통과**. [check.log](evidence/goal11/check.log): 타입·lint 오류 0, **70 suites / 512건 통과**, 179.317초. 기존 216+추가 40개 논리 테스트를 iOS·Android 설정에서 각각 실행 |
+| 타입·lint·전체 Jest | **통과**. check.log (저장소 보관본 없음: `evidence/goal11/check.log`): 타입·lint 오류 0, **70 suites / 512건 통과**, 179.317초. 기존 216+추가 40개 논리 테스트를 iOS·Android 설정에서 각각 실행 |
 | 프로필 순수 규칙 | 4개: 공백·필수·빈 소개·삭제·50/160 경계·한글·이모지·제어 문자 |
 | 프로필 저장소 | 16개: 조회 합치기·실패·동기 예외·잘못된 응답·중복·직렬 최신 의도·오래된 조회/실패·복구·사용자별 mock |
 | 편집 화면 | 10개: 기존 값·조합 원문·입력 오류·취소/닫기/뒤로/이탈·무변경·저장 실패 후 수정·처리 중 추가 입력·닫기 후 늦은 성공/실패 |
 | 공급부·수명 | 4개: 편집 중 늦은 조회 성공/실패·공급부 교체 후 오래된 저장 성공/실패 |
 | 실제 navigation | 6개: ID/revision/개인 데이터 유지·이름 일치·A/B/A·A 조회/저장 중 전환·같은 A 재로그인 초안 정리 |
 | 기존 회귀 | 홈·검색·기사·4단계 설명·좋아요·읽기 목록·목록 관리·모의 인증 테스트 전체 포함 |
-| iOS JS/Hermes | **통과**, 1035 modules / 2.3MB. [export-ios.log](evidence/goal11/export-ios.log), IPA·기기 실행과 구분 |
-| Android JS/Hermes | **통과**, 1030 modules / 2.3MB. [export-android.log](evidence/goal11/export-android.log), APK/AAB·기기 실행과 구분 |
-| 브라우저 | Chrome 157.0.8103.79, 기존 8081. [측정 결과](evidence/goal11/browser-results.json), [스크립트](evidence/goal11/verify-browser.mjs), [로그](evidence/goal11/browser.log). 22장 실제 캡처, 콘솔/page 오류 0, 외부 HTTP 요청 0 |
-| 실제 native 실행·빌드 | 양쪽 미검증. [환경 기록](evidence/goal11/platforms.json) 참조 |
+| iOS JS/Hermes | **통과**, 1035 modules / 2.3MB. export-ios.log (저장소 보관본 없음: `evidence/goal11/export-ios.log`), IPA·기기 실행과 구분 |
+| Android JS/Hermes | **통과**, 1030 modules / 2.3MB. export-android.log (저장소 보관본 없음: `evidence/goal11/export-android.log`), APK/AAB·기기 실행과 구분 |
+| 브라우저 | Chrome 157.0.8103.79, 기존 8081. 측정 결과 (저장소 보관본 없음: `evidence/goal11/browser-results.json`), 스크립트 (저장소 보관본 없음: `evidence/goal11/verify-browser.mjs`), 로그 (저장소 보관본 없음: `evidence/goal11/browser.log`). 22장 실제 캡처, 콘솔/page 오류 0, 외부 HTTP 요청 0 |
+| 실제 native 실행·빌드 | 양쪽 미검증. 환경 기록 (저장소 보관본 없음: `evidence/goal11/platforms.json`) 참조 |
 
-최종 모달 파일명·props 정리 후에도 [최종 브라우저 확인](evidence/goal11/final-smoke.json)에서 로그인→프로필 저장→로그아웃을 통과했다. 로컬 문서·비교 자료의 링크도 확인했다.
+최종 모달 파일명·props 정리 후에도 최종 브라우저 확인 (저장소 보관본 없음: `evidence/goal11/final-smoke.json`)에서 로그인→프로필 저장→로그아웃을 통과했다. 로컬 문서·비교 자료의 링크도 확인했다.
 
 브라우저에서 로그인→조회→편집→저장→재진입→로그아웃→B→A, 실패와 재시도, 새로고침 초기화를 실행했다. 좋아요·기본 읽기 목록·사용자 목록이 이름 변경 후 유지되는 것도 확인했다. 390×844, 320×740, 1365×900과 CSS 글자/줄높이 2배를 확인했다. 측정한 보이는 컨트롤은 최소 48px이고 문서/모달 가로 넘침이 없다. 모달 입력 포커스·Tab 가두기·Escape·진입 버튼 복귀, 입력 스크롤·Enter 비제출·합성 composition 이벤트도 확인했다.
 
@@ -110,7 +113,7 @@ Goal 10 정책을 유지했다. 기본 ProfileSource와 사용자별 캐시는 P
 
 ## Medium 원본과 실제 캡처 비교
 
-[비교 HTML](evidence/goal11/COMPARISON.html)에 원본 PNG와 구현 캡처를 연결했다. 로컬 원본 5개를 직접 확인했다. 이미지 보정·생성 이미지 대체는 없고 HTML 표시 크기만 맞췄다.
+비교 HTML (저장소 보관본 없음: `evidence/goal11/COMPARISON.html`)에 원본 PNG와 구현 캡처를 연결했다. 로컬 원본 5개를 직접 확인했다. 이미지 보정·생성 이미지 대체는 없고 HTML 표시 크기만 맞췄다.
 
 출처는 Medium iOS `medium-ios` / 앱 ID `4674239e-d24a-4ef4-aed5-9682429edd48`, 카탈로그 Latest `1419`. 1419를 제품 버전으로 간주하지 않는다. 원본 메타데이터 390×844, PNG 1179×2556. 개별 기기·OS·캡처일 미확인. Settings 흐름 분석에는 하단 캡처의 제품 빌드 `4.263.185257`이 기록되어 있으나 이번 다른 원본의 동일 빌드를 보장하지 않는다. 이번 확인일 2026-11-18 KST.
 

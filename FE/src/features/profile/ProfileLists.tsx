@@ -8,7 +8,7 @@ import { useBookmarkStore, useReadingList, useUserLists } from '../bookmarks/use
 import { UserListFeedback } from '../bookmarks/UserListFeedback';
 
 type ProfileListsProps = {
-  onOpenList: (listId: string) => void;
+  onOpenList: (listId: string, reorder?: boolean) => void;
   header: ReactNode;
   footer: ReactNode;
   contentContainerStyle: StyleProp<ViewStyle>;

@@ -7,17 +7,16 @@ import { DEFAULT_LIST_ID } from '../listTypes';
 export type BookmarkScenario = 'normal' | 'read-error' | 'save-error' | 'remove-error' | 'slow';
 
 export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenario === 'slow' ? 1800 : 350,
-  managesReadingList = false }: {
-  scenario?: BookmarkScenario; delayMs?: number; managesReadingList?: boolean;
+  managesReadingList = false, articleExists = (id: string) => bookmarkArticles.some(article => article.id === id) }: {
+  scenario?: BookmarkScenario; delayMs?: number; managesReadingList?: boolean; articleExists?: (id: string) => boolean;
 } = {}): BookmarkSource {
   const savedByUser = new Map<string, Set<string>>();
   const failedRequests = new Set<string>();
-  const articleIds = new Set(bookmarkArticles.map((article) => article.id));
   const lists = createMockUserListSource({ scenario: userListPreviewScenario !== 'normal' ? userListPreviewScenario
     : managesReadingList && scenario === 'read-error' ? 'lists-read-error'
     : managesReadingList && scenario === 'save-error' ? 'add-error'
     : managesReadingList && scenario === 'remove-error' ? 'list-remove-error' : 'normal', managesReadingList,
-    delayMs: userListPreviewScenario === 'slow' ? 1800 : delayMs });
+    delayMs: userListPreviewScenario === 'slow' ? 1800 : delayMs, articleExists });
   const writes = new Map<string, Promise<unknown>>();
 
   function getSaved(userId: string): Set<string> {
@@ -53,7 +52,7 @@ export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenar
       if (managesReadingList) {
         const write = (writes.get(input.userId) ?? Promise.resolve()).catch(() => {}).then(async () => {
           const current = (await lists.fetchLists(input.userId)).lists.find(list => list.listId === DEFAULT_LIST_ID);
-          if (!current || !articleIds.has(input.articleId)) throw new Error('Unknown mock article');
+          if (!current || !articleExists(input.articleId)) throw new Error('Unknown mock article');
           const ids = new Set(current.articleIds);
           if (input.saved) ids.add(input.articleId); else ids.delete(input.articleId);
           const notes = { ...current.notes }; if (!input.saved) delete notes[input.articleId];
@@ -65,7 +64,7 @@ export function createMockBookmarkSource({ scenario = 'normal', delayMs = scenar
         return write;
       }
       const saved = getSaved(input.userId);
-      if (!articleIds.has(input.articleId)) throw new Error('Unknown mock article');
+      if (!articleExists(input.articleId)) throw new Error('Unknown mock article');
       await waitForResponse();
       if ((scenario === 'save-error' && input.saved) || (scenario === 'remove-error' && !input.saved)) {
         failOnce(JSON.stringify([input.userId, input.articleId, input.saved]));

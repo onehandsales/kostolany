@@ -1,5 +1,8 @@
 # FE Goal 10 — 모의 로그인·취소·로그아웃
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 8곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 작업일: 2026-11-18 KST
 
 상태: **구현·자동 검증·8081 흐름·모바일 폭 원본 비교 완료 / 실제 iOS·Android 실행·네이티브 검증 대기**
@@ -87,21 +90,21 @@ Goal 9의 BookmarkProvider 전체 children key는 공개 navigation까지 초기
 
 ## 검증과 리뷰
 
-최종 자동 검사 결과는 [check-node24.log](evidence/goal10/check-node24.log)에 기록했다. 앱 코드와 테스트를 직접 검토했으며 독립적인 제3자 리뷰는 수행하지 않았다.
+최종 자동 검사 결과는 check-node24.log (저장소 보관본 없음: `evidence/goal10/check-node24.log`)에 기록했다. 앱 코드와 테스트를 직접 검토했으며 독립적인 제3자 리뷰는 수행하지 않았다.
 
 | 구분 | 실행·결과 |
 | --- | --- |
 | 타입·lint·전체 Jest | Node 24에서 `npm run check` 통과. 타입 오류·lint 경고 0, 216개 논리 테스트 × iOS/Android = **432건 / 60 suite 통과** |
-| iOS JS/Hermes | Node 24에서 `npm run export:ios` 성공, 1026 modules·2.3MB. [로그](evidence/goal10/export-ios.log). 네이티브 빌드 아님 |
-| Android JS/Hermes | Node 24에서 `npm run export:android` 성공, 1021 modules·2.3MB. [로그](evidence/goal10/export-android.log). 네이티브 빌드 아님 |
+| iOS JS/Hermes | Node 24에서 `npm run export:ios` 성공, 1026 modules·2.3MB. 로그 (저장소 보관본 없음: `evidence/goal10/export-ios.log`). 네이티브 빌드 아님 |
+| Android JS/Hermes | Node 24에서 `npm run export:android` 성공, 1021 modules·2.3MB. 로그 (저장소 보관본 없음: `evidence/goal10/export-android.log`). 네이티브 빌드 아님 |
 | 브라우저 | 기존 localhost:8081, Chrome 157 headless, 390×844·320×740·1365×900, CSS 글자/행간 2배. 실제 앱 캡처 20장 |
 | 브라우저 결과 | 성공·취소·실패/재시도·지연 취소·A/B/A·개인 기능·목록/기사 복귀·새로고침 초기화 통과. 콘솔/페이지 오류 0, 외부 HTTP(S) 요청 0 |
-| 증거 | [browser-results.json](evidence/goal10/browser-results.json), [브라우저 재현 코드](evidence/goal10/verify-browser.mjs), [원본 비교](evidence/goal10/COMPARISON.html) |
+| 증거 | browser-results.json (저장소 보관본 없음: `evidence/goal10/browser-results.json`), 브라우저 재현 코드 (저장소 보관본 없음: `evidence/goal10/verify-browser.mjs`), 원본 비교 (저장소 보관본 없음: `evidence/goal10/COMPARISON.html`) |
 | iOS 실제 실행·빌드 | 미검증. Xcode 없음, CLT만 있음. `xcodebuild -version` exit 1, `xcrun simctl list devices available` exit 72 |
 | Android 실제 실행·빌드 | 미검증. `adb`·`emulator`와 기본 SDK 경로 없음. Java 23만으로 Android 빌드/실행을 할 수 없음 |
-| 환경 근거 | macOS 14.2 arm64. [native-environment.json](evidence/goal10/native-environment.json). 실제 기기·시뮬레이터 실행을 Jest 플랫폼 설정으로 대신 주장하지 않음 |
+| 환경 근거 | macOS 14.2 arm64. native-environment.json (저장소 보관본 없음: `evidence/goal10/native-environment.json`). 실제 기기·시뮬레이터 실행을 Jest 플랫폼 설정으로 대신 주장하지 않음 |
 
-기본 셸의 Node 22.21.1·npm 11.6.2에서도 전체 검사는 통과했지만, `package.json`의 Node 24 범위를 맞추기 위해 `env PATH=/opt/homebrew/opt/node@24/bin:$PATH`로 Node **24.10.0·npm 11.6.0**을 지정하여 전체 check와 양 플랫폼 export를 다시 통과시켰다. `.nvmrc`의 24.18.0·packageManager의 npm 10.9.0과 패치/도구 버전 차이는 남기며 의존성을 변경하지 않았다. [기본 셸 검사 이력](evidence/goal10/check.log)과 최종 Node 24 결과를 구분한다.
+기본 셸의 Node 22.21.1·npm 11.6.2에서도 전체 검사는 통과했지만, `package.json`의 Node 24 범위를 맞추기 위해 `env PATH=/opt/homebrew/opt/node@24/bin:$PATH`로 Node **24.10.0·npm 11.6.0**을 지정하여 전체 check와 양 플랫폼 export를 다시 통과시켰다. `.nvmrc`의 24.18.0·packageManager의 npm 10.9.0과 패치/도구 버전 차이는 남기며 의존성을 변경하지 않았다. 기본 셸 검사 이력 (저장소 보관본 없음: `evidence/goal10/check.log`)과 최종 Node 24 결과를 구분한다.
 
 브라우저 재현 스크립트는 이전 검증용 `/tmp/kostolany-goal8-browser/node_modules/playwright-core`와 로컬 Chrome을 사용한다. 앱 패키지에 도구를 추가하지 않았다. 다른 환경에서는 이 경로를 준비해야 한다. 스크린샷은 보정·합성하지 않은 브라우저 렌더 캡처이며 HTML은 원본과 캡처를 나란히 보여주는 문서다.
 

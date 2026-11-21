@@ -1,5 +1,8 @@
 # Goal 20 — 프로필·편집·설정 클론
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 9곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19 · 기준 커밋 `d016c06` 이후 연속 작업. 구현·두 차례 자체 검토·관련 자동/브라우저 검증 완료. 원본 글꼴/아이콘/일부 치수 차이와 실제 네이티브 검증은 남아 있다. 이 단계는 커밋하지 않았다.
 
 ## 구현과 기준
@@ -29,17 +32,17 @@
 
 ## 실행 결과와 2차 재검토
 
-- Node24.10.0에서 typecheck·lint 통과: [typecheck](evidence/goal20/typecheck-final.log), [lint](evidence/goal20/lint-final.log). 고정 `.nvmrc`24.18.0과 실행 patch 차이는 유지 기록한다.
-- 프로필/설정/기사 경로 **86 tests,10 suites 통과**,95.24s: [tests-final](evidence/goal20/tests-final.log). 실제 navigation을 사용하며 navigation을 mock으로 바꾸지 않았다.
-- 마지막 접근성·메뉴 수정 후 프로필/실제 navigation/라이브러리 상호작용 **48 tests,6 suites 통과**,41.252s: [tests-second-review](evidence/goal20/tests-second-review.log). 이 실행은 위 테스트와 중복되는 재검사이므로 합산하지 않는다.
-- [브라우저](evidence/goal20/browser.json): 편집 취소/저장·About·Profile Lists→목록→기사→복귀·Settings에서 같은 프로필 수정·기본 수준 저장·로그아웃 취소·B→A 데이터 격리 통과, console/page errors 0.
-- [실패 검증](evidence/goal20/failures.json): 프로필/설정 조회 실패·재시도, 저장 실패·입력/선택 보존·재시도 통과. 장애 설정은 finally에서 모두 normal로 복원했다. 초기 재현 스크립트가 상수 대신 타입 union의 normal을 치환한 문제는 수정했으며, 실제 실패 화면이 나온 재실행 결과만 통과로 기록했다.
+- Node24.10.0에서 typecheck·lint 통과: typecheck (저장소 보관본 없음: `evidence/goal20/typecheck-final.log`), lint (저장소 보관본 없음: `evidence/goal20/lint-final.log`). 고정 `.nvmrc`24.18.0과 실행 patch 차이는 유지 기록한다.
+- 프로필/설정/기사 경로 **86 tests,10 suites 통과**,95.24s: tests-final (저장소 보관본 없음: `evidence/goal20/tests-final.log`). 실제 navigation을 사용하며 navigation을 mock으로 바꾸지 않았다.
+- 마지막 접근성·메뉴 수정 후 프로필/실제 navigation/라이브러리 상호작용 **48 tests,6 suites 통과**,41.252s: tests-second-review (저장소 보관본 없음: `evidence/goal20/tests-second-review.log`). 이 실행은 위 테스트와 중복되는 재검사이므로 합산하지 않는다.
+- 브라우저 (저장소 보관본 없음: `evidence/goal20/browser.json`): 편집 취소/저장·About·Profile Lists→목록→기사→복귀·Settings에서 같은 프로필 수정·기본 수준 저장·로그아웃 취소·B→A 데이터 격리 통과, console/page errors 0.
+- 실패 검증 (저장소 보관본 없음: `evidence/goal20/failures.json`): 프로필/설정 조회 실패·재시도, 저장 실패·입력/선택 보존·재시도 통과. 장애 설정은 finally에서 모두 normal로 복원했다. 초기 재현 스크립트가 상수 대신 타입 union의 normal을 치환한 문제는 수정했으며, 실제 실패 화면이 나온 재실행 결과만 통과로 기록했다.
 - 첫 테스트는 이전 화면 문구 전제와 중복 접근성 이름으로 실패했다. 중간 Android 실행에 938초의 비정상 지연과 5초 timeout이 있었고 원인은 확정하지 않았다. 동일 테스트 재실행은 통과했다. 첫 브라우저의 일시적 로딩 timeout도 재현되지 않았으며 무조건 제품 결함이 없다고 추정하지 않는다. 로그를 삭제하지 않았다.
 - 두 번째 코드 검토에서 ID/revision/편집 초안/늦은 응답 계약과 새 경로 소비자를 다시 확인했다. 마지막 UI 캡처와 선택 상태·공통 메뉴의 회귀를 대조했다. 리뷰 판정과 테스트 실행 결과는 별개이며, 독립된 외부 리뷰를 받았다는 의미가 아니다.
 
 ## 원본 비교와 남은 차이
 
-[원본/실제 구현 7쌍 비교](evidence/goal20/COMPARISON.html), [비교 생성 스크립트](evidence/goal20/compare.py), [실제 브라우저 재현 스크립트](evidence/goal20/browser.mjs).
+원본/실제 구현 7쌍 비교 (저장소 보관본 없음: `evidence/goal20/COMPARISON.html`), 비교 생성 스크립트 (저장소 보관본 없음: `evidence/goal20/compare.py`), 실제 브라우저 재현 스크립트 (저장소 보관본 없음: `evidence/goal20/browser.mjs`).
 
 Profile 02/05, Editing profile information 02/06, Settings 02/03, Logging out02의 실제 PNG와 해당 ANALYSIS를 확인했다. 1179×2556 원본을 비교용393×852로 정규화하고 OS 상단59/하단34를 제외한393×759 영역과 실제 브라우저를 비교했다. DPR·기기 모델을 확정한 것은 아니다.
 

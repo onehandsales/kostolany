@@ -97,7 +97,7 @@ function SignedInUndo({ store, target, onDone }: { store: ClapStore; target: Cla
 
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: { position: 'relative' },
-  row: { flexDirection: 'row', alignItems: 'center', minHeight: 48 },
+  row: { flexDirection: 'row', alignItems: 'center', minHeight: 48, minWidth: 48 },
   target: { minHeight: 48, minWidth: 48, flexDirection: 'row', gap: 2, justifyContent: 'center', alignItems: 'center' },
   count: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.secondaryText },
   toolbarCount: { fontSize: 14, lineHeight: 20, color: colors.text },

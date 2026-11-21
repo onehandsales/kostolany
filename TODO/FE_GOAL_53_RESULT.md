@@ -1,5 +1,8 @@
 # Goal 53 — 63개 흐름 최종 대조·누락 해소·FE 계약 인계
 
+> 이 문서는 Goal53 당시 검사·캡처 이력이다. 현재 코드의 후속 보완·두 차례 재검토·검사·잔여는 [Goal53 후속 결과](FE_GOAL_53_FOLLOWUP_RESULT.md)를 따른다. 아래 200장 판정과 과거 실행 수치를 이번 실행으로 대체하지 않는다.
+
+
 **전수 대조·연결 수정·인계 자료 작성, 전체 동일 재현은 미완료.** 기능/자동 검사/원본 시각/native를 아래처럼 분리한다. 화면 표의 `부분 대조`를 완전 일치나 기능 전체 통과로 읽지 않는다. 미구현과 검증 대기는 별도다.
 
 2026-11-21 KST. 시작 HEAD `1485ac40de0c6abb5bb3d3787ce0cd5c57bb4c61`(Goal52), 시작 작업 트리 clean. macOS14.2 arm64, `.nvmrc`와 맞춘 Node24.18.0, 기존8081 PID58453 보존. 기존 Goal42·43은 별도 승인된 `b11b004`이고 Goal44~52도 각각 커밋되어 있었다. 이번 변경은 Goal53 코드·테스트·문서이며 ENV/medium 원본을 변경하지 않았다. push·배포·Goal54/백엔드는 수행하지 않는다.
@@ -91,8 +94,8 @@
 | Android | native 어댑터 코드·Jest Android 설정·JS/Hermes export | JDK23.0.1은 있으나 SDK/adb/emulator 없음. 실제 Gradle build/install/run·권한·사진·공유·아이콘·TalkBack 미검증 |
 | 생성 프로젝트 | Goal52 외부 prebuild 성공은 당시 생성 결과 | 이번 native 실행 결과로 재사용하지 않음. 실제 새 binary와 기기 검증 필요 |
 | S043/S113 | 현재 웹 진입/파일 선택 대응 캡처 | 원본 native 브랜드 시작/OS Photos와 비동등. Medium 브랜드 splash를 구현했다고 표시하지 않음 |
-| 내 Stories | 작성→발행→Public/Unlisted→작성 문서 상세·통계 연결 | 원본 행의 박수/응답/저장/더보기 bar와 현재 작성 글 카드는 미동등. fixture 기사와 작성 문서의 반응/저장 도메인 통합은 미구현이며 전체 기능 클론 완료가 아님 |
-| 목록 Reorder | 선택·확정·취소·순서 보존, 접근 가능한 위/아래 조작 | 원본 inline native drag와 현재 modal 구조 차이, native drag 미동등 |
+| 내 Stories | 작성→발행→Public/Unlisted→작성 문서 상세·통계 연결 | 원본 행의 박수/응답/저장/더보기 bar와 현재 작성 글 카드는 미동등. 당시 반응/저장 통합은 미구현이었다. 후속에서 공통 target·저장·재열기를 연결했으며 현재 원본 차이는 후속 결과를 따른다 |
+| 목록 Reorder | 선택·확정·취소·순서 보존, 접근 가능한 위/아래 조작 | 당시 modal 구조 차이. 후속에서 inline·drag·edge scroll을 구현하고 웹으로 검증했다. 실제 native 조작은 미검증 |
 | 원본 자산/문구 | 확인한 자산·제목/서체 크기·여백 보정 | 원본 font/vector·native blur/시트·아바타/사진/일부 fixture 내용 차이. 공개 목록 미수록3기사 등을 추측 생성하지 않음 |
 | 정책 안내 | 응답 policy와 허용 공식 링크 | 원본 Medium Rules 전문/기사 화면은 local 발췌 안내와 다름 |
 | 오디오/다운로드 | silent mock timer·음성 선택·메모리 다운로드 | 실제 TTS/음원/AirPlay/background playback·영속 offline 미연결 |
@@ -214,7 +217,7 @@
 | S023 발행 전 Story preview<br>`sc_1ceed9061b86476ebc7eb5acb9dd89c7` | `F07-01-S023.png`<br>`compare-S023.png` | **부분 대조 · 차이/플랫폼 잔여**. 발행 preview 상단/카드/행 대조. 배경·문구·여백·카드 제목·설정행 크기 수정. 이름/사진은 검증 계정과 로컬 자산. |
 | S024 이메일 로그인 입력 완료<br>`sc_1d3dc01005c343c18427fe2c199e4075` | `F52-04-S024.png`<br>`compare-S024.png` | **부분 대조 · 차이/플랫폼 잔여**. 유효 mock Email과Continue 가능. 개인정보 원본 대신 reserved주소·서체/모의 계정선택 차이. |
 | S025 팔로우된 작가 프로필<br>`sc_1da36ea095e64ec0a5b6b9478b032524` | `F19-04-S025.png`<br>`compare-S025.png` | **부분 대조 · 차이/플랫폼 잔여**. Following확정·메뉴닫기. 실제상태동기화/표시, 원본반응수와카드높이차이. |
-| S026 홈 피드 스크롤 상태<br>`sc_1ef4e2f769774d2c958fcb38b96dc94f` | `F05-02-S026.png`<br>`compare-S026.png` | **부분 대조 · 차이/플랫폼 잔여**. 홈 접힘/다음 페이지 실제 요청 후 촬영. 아직 스크롤 위치 재보정 필요; 보관본 하단 세 번째 부분 기사 미구현 fixture 차이. |
+| S026 홈 피드 스크롤 상태<br>`sc_1ef4e2f769774d2c958fcb38b96dc94f` | `F05-02-S026.png`<br>`compare-S026.png` | **부분 대조 · 차이/플랫폼 잔여**. 홈 접힘/다음 페이지 실제 요청 후 촬영. 당시 캡처의 스크롤 위치 차이와 세 번째 부분 기사 fixture 차이를 기록했다. 후속 캡처 위치 재확인과 현재 차이는 후속 결과의 S026을 따른다. |
 | S027 프로필 폼으로 대명사 반환<br>`sc_20bfc41de9f845119aea54bb5971a01e` | `F56-06-S027.png`<br>`compare-S027.png` | **부분 대조 · 차이/플랫폼 잔여**. 하위Done후 부모초안2·4, 아직저장전. 사진fixture/짧은소개필드 간격 차이. |
 | S028 이미지 저장 행동 노출<br>`sc_221a38b7f8ac42959ddd75840253b5c8` | `F39-04-S028.png`<br>`compare-S028.png` | **부분 대조 · 차이/플랫폼 잔여**. 공유 카드의 정보/글쓴이/배치 대조. 자체 gradient 배경·미리보기 kostolany.invalid 링크·좌우 접근성 버튼은 원본 자산과 차이. |
 | S029 Music 토픽 검색<br>`sc_234fd58378fc447ba6bc2e6c0033f9c2` | `F07-03-S029.png`<br>`compare-S029.png` | **부분 대조 · 차이/플랫폼 잔여**. Music 동명이름·followers 후보/검색 지우기/Save 대조. 입력 48터치와 줄 높이 차이. |
@@ -266,7 +269,7 @@
 | S075 앱 아이콘 선택과 멤버십 제한<br>`sc_64b75d913b284d708ab44e4f3663a59f` | `F60-02-S075.png`<br>`compare-S075.png` | **부분 대조 · 차이/플랫폼 잔여**. Customicon선택/잠금/멤버십진입 대조. 자체K아이콘8개는원본M및하단미확인아이콘과다름; 실제launcher실행대기. |
 | S076 리스트 생성 빈 폼<br>`sc_675e3eda08504708979533659dacdcf6` | `F42-02-S076.png`<br>`compare-S076.png` | **부분 대조 · 차이/플랫폼 잔여**. 빈 목록 생성 form/0·60,0·280/Private off/비활성 Create 대조. 웹 focus와48터치 영역 차이. |
 | S077 변경 순서 반영<br>`sc_6840597985cc46b6b12f6cd0204756f4` | `F51-05-S077.png`<br>`compare-S077.png` | **부분 대조 · 차이/플랫폼 잔여**. 재정렬 확정 후 기사 순서·메모 보존. 다운로드가 stale로 구분되어 원본에 없는 복구 안내 표시. |
-| S078 리스트 순서 편집<br>`sc_6a1036b35729490195c460e5b934bd68` | `F51-03-S078.png`<br>`compare-S078.png` | **부분 대조 · 차이/플랫폼 잔여**. Reorder연결/안정ID/확정·취소 대조. 현재 별도 modal과 접근성 이동 버튼은 원본 inline drag화면과 구조 차이. |
+| S078 리스트 순서 편집<br>`sc_6a1036b35729490195c460e5b934bd68` | `F51-03-S078.png`<br>`compare-S078.png` | **부분 대조 · 차이/플랫폼 잔여**. Reorder연결/안정ID/확정·취소 대조. 당시 별도 modal은 원본 inline drag와 구조가 달랐다. 후속 보완에서 목록 안 편집·실제 드래그·가장자리 자동 스크롤로 교체했다. 접근성 이동은 자체 보완이며 현재 비교는 후속 결과를 따른다. |
 | S079 팔로우 추천 카드<br>`sc_6bc604f45031400d9cebd252cd89e7a2` | `F01-05-S079.png`<br>`compare-S079.png` | **부분 대조 · 차이/플랫폼 잔여**. Who to follow 진입/가로 카드 대조. 촬영 스크롤42px 보정; 48터치·카드 높이와 Coinmonks 배너 자산 차이. |
 | S080 대명사 검색<br>`sc_6c7a00132f3c47e6b2e803743cc10d21` | `F56-03-S080.png`<br>`compare-S080.png` | **부분 대조 · 차이/플랫폼 잔여**. he검색후he/her후보·중복제외. 후보48터치/필드테두리차이. |
 | S081 내 리스트 관리 메뉴<br>`sc_71f31ac7803a47f89b2e76b6a9355a7c` | `F47-02-S081.png`<br>`compare-S081.png` | **부분 대조 · 차이/플랫폼 잔여**. Edit/private/reorder/delete 기존 명령 연결. View list는 공개 투영 확인용 자체 추가; 메뉴 divider/blur 차이. |
@@ -324,7 +327,7 @@
 | S133 구매 성공 안내 팝업<br>`sc_bb00623f121d405abc840e589837c3fd` | `F54-04-S133.png`<br>`compare-S133.png` | **부분 대조 · 차이/플랫폼 잔여**. 모의확정 성공dialog. 원본 purchase문구를 mock membership문구로 구분; OSdialog대비앱레이어 차이. |
 | S134 로그인 인증 코드 입력<br>`sc_bc8c0aff71644874a42b97e6c7fd4ce2` | `F52-06-S134.png`<br>`compare-S134.png` | **부분 대조 · 차이/플랫폼 잔여**. 모의6자리 코드123456/Validate 가능. 원본 인증코드를 사용하지 않음; 뒤로/모의 안내 차이. |
 | S135 큐레이션 리스트 하단<br>`sc_bd0cb76562a74fb69a3569e15daf02ee` | `F04-05-S135.png`<br>`compare-S135.png` | **부분 대조 · 차이/플랫폼 잔여**. 하단 스크롤 실패였던 촬영을 실제 footer align으로 수정. 접힌 제목14·More 제목16·소개13으로 조정. 5/8안내 및 48터치 차이. |
-| S136 프로필 편집 결과<br>`sc_be99c4fdcf634190a324ec9820a84f43` | `F57-07-S136.png`<br>`compare-S136.png` | **부분 대조 · 차이/플랫폼 잔여**. 사진/pronouns저장 후 동일userIDStories복귀. writtenrow반응bar연결/이미지 차이, Continue setup/Drafts 자체보완. |
+| S136 프로필 편집 결과<br>`sc_be99c4fdcf634190a324ec9820a84f43` | `F57-07-S136.png`<br>`compare-S136.png` | **부분 대조 · 차이/플랫폼 잔여**. 사진/pronouns저장 후 동일userIDStories복귀. 당시 written row 반응 연결/이미지 차이가 있었다. 반응 연결의 현재 상태는 후속 결과를 따른다. Continue setup/Drafts는 자체 보완이다. |
 | S137 이미지 삽입 후 편집기<br>`sc_bed3857c8edc4a02b07af1e095ad7fba` | `F08-07-S137.png`<br>`compare-S137.png` | **부분 대조 · 차이/플랫폼 잔여**. 준비 완료 이미지가 문서에 실제 삽입. 로컬 sunset과 원본 산/호수의 자산·비율 차이. |
 | S138 대명사·소개 입력된 프로필<br>`sc_befb6fde38cc48f3827ea389caed11de` | `F57-06-S138.png`<br>`compare-S138.png` | **부분 대조 · 차이/플랫폼 잔여**. 사진선택·대명사·49·160소개 초안 대조. 검증용사진/여러줄웹입력과 원본한줄스크롤 차이. |
 | S139 초안 목록<br>`sc_c020fbe7604a43569b5bf77da2725119` | `F10-03-S139.png`<br>`compare-S139.png` | **부분 대조 · 차이/플랫폼 잔여**. 저장 flush→초안 목록→같은초안재개 확인. 수정 시각은 현재mock시각, 원본1분을 고정하지 않음. |
@@ -357,7 +360,7 @@
 | S166 가입 공급자 선택<br>`sc_d55739aa2ac1495da026006235e7c0a7` | `F52-01-S166.png`<br>`compare-S166.png` | **부분 대조 · 차이/플랫폼 잔여**. 가입 방법·문구·배치 대조. mock 표시/닫기 추가와 대체 serif 굵기 차이. |
 | S167 내 소개 빈 상태<br>`sc_d55f02281f894078a734269d60de79c4` | `F55-05-S167.png`<br>`compare-S167.png` | **부분 대조 · 차이/플랫폼 잔여**. About빈 상태/short bio편집 진입. Continue setup·48터치·설명 간격 차이. |
 | S168 기사 더보기 메뉴<br>`sc_d62e32234117483b85b4c73ed63249cd` | `F24-02-S168.png`<br>`compare-S168.png` | **부분 대조 · 차이/플랫폼 잔여**. 기사메뉴Followpill을원본plainFollowauthor행으로수정. 공통관계저장소/접근성label·실패복구유지, nativeblur/행높이차이. |
-| S169 발행 글과 반응 있는 프로필<br>`sc_d76d3680605f4b62ab31e3039d6c4fe6` | `F55-03-S169.png`<br>`compare-S169.png` | **부분 대조 · 차이/플랫폼 잔여**. 실제발행글 조회/진입 확인. 원본사진·반응/저장/더보기 bar와 현재written문서 row 차이 잔여; 발행날짜는 현재값. |
+| S169 발행 글과 반응 있는 프로필<br>`sc_d76d3680605f4b62ab31e3039d6c4fe6` | `F55-03-S169.png`<br>`compare-S169.png` | **부분 대조 · 차이/플랫폼 잔여**. 실제발행글 조회/진입 확인. 당시 원본 사진·반응/저장/더보기와 written row 차이가 있었다. 후속 보완에서 같은 발행 ID의 반응/저장/더보기를 연결하고 카드 상태를 재대조한다. 사진·계정·현재 날짜 차이는 별도다. |
 | S170 사용자 신고 성공 안내<br>`sc_d9ba56fa632249c7908f15a8e3082d97` | `F23-05-S170.png`<br>`compare-S170.png` | **부분 대조 · 차이/플랫폼 잔여**. 모의신고확정안내·기존화면복귀. 외부신고없음, toast/서체차이. |
 | S171 이메일 로그인 빈 폼<br>`sc_da2ab413cfe5481d9abe4f23eeaeb426` | `F52-03-S171.png`<br>`compare-S171.png` | **부분 대조 · 차이/플랫폼 잔여**. Email로그인 빈 상태 대조. 예약된 example.test 입력 보조/실제 정보 입력 금지 안내가 자체 추가. |
 | S172 저장 아이콘 활성<br>`sc_dda8e78e9eb943629d3cf54eaed5fc22` | `F37-03-S172.png`<br>`compare-S172.png` | **부분 대조 · 차이/플랫폼 잔여**. Done 후 북마크채움. 원본834댓글과현재7은다름. |
@@ -366,7 +369,7 @@
 | S175 본문 아래 응답 미리보기<br>`sc_e1a92b59829c4678b3362d2dc6abae59` | `F16-05-S175.png`<br>`compare-S175.png` | **부분 대조 · 차이/플랫폼 잔여**. inlineResponses제목/작성자/입력·policy누락수정. 공유프로필아바타와실제7응답, 원본834/작성자Member배지차이. |
 | S176 Featured 빈 상태<br>`sc_e1cf4be8210f432098943d8a233d9d72` | `F05-03-S176.png`<br>`compare-S176.png` | **부분 대조 · 차이/플랫폼 잔여**. Featured빈공급부 조건으로실제빈화면 촬영, 임시공급부는 finally복원. 정상피드와 구분하며 source빈문구/여백·서체차이. |
 | S177 리스트 상세 스크롤<br>`sc_e20e59ee459b4a0d9a0a0302091962bd` | `F45-01-S177.png`<br>`compare-S177.png` | **부분 대조 · 차이/플랫폼 잔여**. 목록 스크롤 맥락/메모/3기사 대조. Viewed 실제 기록·기사 제목 폭·메모/날짜행 높이 차이. |
-| S178 프로필에 발행 글 표시<br>`sc_e3b2276c9abd4bc7b08e6e4c322dee9e` | `F08-11-S178.png`<br>`compare-S178.png` | **부분 대조 · 차이/플랫폼 잔여**. mock 발행→본인 Stories 실제 연결. 계정/온보딩 재개/초안 진입·시각은 현재 정책. 글 카드 북마크/메뉴 원본과 차이: F55 추가 검토 필요. |
+| S178 프로필에 발행 글 표시<br>`sc_e3b2276c9abd4bc7b08e6e4c322dee9e` | `F08-11-S178.png`<br>`compare-S178.png` | **부분 대조 · 차이/플랫폼 잔여**. mock 발행→본인 Stories 실제 연결. 계정/온보딩 재개/초안 진입·시각은 현재 정책. 당시 글 카드 북마크/메뉴가 누락됐다. 후속 보완에서 S178 저장/더보기와 S169 반응 표시를 구분해 구현·재검증했다. 현재 차이는 후속 결과를 따른다. |
 | S179 박수 피드백 종료<br>`sc_e3b85b46c655483eb954e6f953d0b7f6` | `F38-03-S179.png`<br>`compare-S179.png` | **부분 대조 · 차이/플랫폼 잔여**. 박수피드백종료후내기여유지. 원본832와현재7응답·실제저장상태차이. |
 | S180 멘션 입력 시작<br>`sc_e3c9949b35ca4bc7b3328ee4e887fc5a` | `F11-02-S180.png`<br>`compare-S180.png` | **부분 대조 · 차이/플랫폼 잔여**. @ 진입. End 키가 줄 끝에 삽입했던 촬영 입력을 문서 끝 입력으로 보정; OS키보드 미검증. |
 | S181 본인 응답 관리 메뉴<br>`sc_e4b254a2635b47069e314a1462c985d6` | `F32-02-S181.png`<br>`compare-S181.png` | **부분 대조 · 차이/플랫폼 잔여**. 자기 댓글 Edit/Delete 메뉴. 웹48행/위치/nativeblur 차이. |
@@ -439,16 +442,16 @@
 | C41 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | `editor` · [EditorImagesNavigation.test](../FE/src/app/navigation/EditorImagesNavigation.test.tsx) · F08–F11 | 툴바/이미지 준비/서식 보완; native picker·IME·키보드 미검증 |
 | C42 Drafts 메뉴·초안 목록/재개·자동 저장/실패 | `editor` · [EditorImagesNavigation.test](../FE/src/app/navigation/EditorImagesNavigation.test.tsx) · F08–F11 | 툴바/이미지 준비/서식 보완; native picker·IME·키보드 미검증 |
 | C43 @ 검색·핸들/아바타·동명이인·선택/삭제·멘션 대상 | `editor` · [EditorImagesNavigation.test](../FE/src/app/navigation/EditorImagesNavigation.test.tsx) · F08–F11 | 툴바/이미지 준비/서식 보완; native picker·IME·키보드 미검증 |
-| C44 토픽 검색·최대 5개·chip 제거·검색 X·완료 | `editor · profile` · [PublishingNavigation.test](../FE/src/app/navigation/PublishingNavigation.test.tsx) · F07–F08, F55 | 발행 canonical 연결; 작성 글의 fixture 기사 반응/저장 bar 미통합 |
-| C45 미리보기 Edit/Topics/Publication/Unlisted/Publish now·내 Stories | `editor · profile` · [PublishingNavigation.test](../FE/src/app/navigation/PublishingNavigation.test.tsx) · F07–F08, F55 | 발행 canonical 연결; 작성 글의 fixture 기사 반응/저장 bar 미통합 |
+| C44 토픽 검색·최대 5개·chip 제거·검색 X·완료 | `editor · profile` · [PublishingNavigation.test](../FE/src/app/navigation/PublishingNavigation.test.tsx) · F07–F08, F55 | 당시 발행 canonical 연결·반응/저장 미통합. 후속 결과에서 같은 발행 ID의 공통 반응·저장·재열기 구현/검사 확인 |
+| C45 미리보기 Edit/Topics/Publication/Unlisted/Publish now·내 Stories | `editor · profile` · [PublishingNavigation.test](../FE/src/app/navigation/PublishingNavigation.test.tsx) · F07–F08, F55 | 당시 발행 canonical 연결·반응/저장 미통합. 후속 결과에서 같은 발행 ID의 공통 반응·저장·재열기 구현/검사 확인 |
 | C46 가입 제공자 4개·로그인 X 포함 5개·intro/로그인 전환 | `auth` · [EmailAuthNavigation.test](../FE/src/app/navigation/EmailAuthNavigation.test.tsx) · F52, F61 | fixture 인증/메모리 세션; 실제 OAuth/메일 아님 |
 | C47 이메일·이름·6자리 코드·재전송·활성 상태·닫기/뒤로 | `auth` · [EmailAuthNavigation.test](../FE/src/app/navigation/EmailAuthNavigation.test.tsx) · F52, F61 | fixture 인증/메모리 세션; 실제 OAuth/메일 아님 |
 | C48 세션 복구·mock A/B·로그아웃 확인→intro·계정 데이터 정리 | `auth` · [EmailAuthNavigation.test](../FE/src/app/navigation/EmailAuthNavigation.test.tsx) · F52, F61 | fixture 인증/메모리 세션; 실제 OAuth/메일 아님 |
 | C49 관심사 최소 3개·Continue·Follow/Finish·재진입 | `onboarding · notifications` · [OnboardingNavigation.test](../FE/src/app/navigation/OnboardingNavigation.test.tsx) · F53 | 관심사/재개와 OS 권한 분리; actual native 요청 미검증 |
 | C50 알림 Enable/Skip·새 경험 안내·멤버십 제안 | `onboarding · notifications` · [OnboardingNavigation.test](../FE/src/app/navigation/OnboardingNavigation.test.tsx) · F53 | 관심사/재개와 OS 권한 분리; actual native 요청 미검증 |
-| C51 사진 Camera/Library·부모 Save·이름·short bio·50/160 표시 | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등/Stories bar 잔여 |
-| C52 pronouns 최대 4개·검색/선택·Done→부모 Save/Cancel | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등/Stories bar 잔여 |
-| C53 About 데스크톱 안내·내 Stories/Public 필터·Lists·팔로우 진입 | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등/Stories bar 잔여 |
+| C51 사진 Camera/Library·부모 Save·이름·short bio·50/160 표시 | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등 유지. 당시 Stories bar 잔여는 후속 결과에서 보완 |
+| C52 pronouns 최대 4개·검색/선택·Done→부모 Save/Cancel | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등 유지. 당시 Stories bar 잔여는 후속 결과에서 보완 |
+| C53 About 데스크톱 안내·내 Stories/Public 필터·Lists·팔로우 진입 | `profile · community` · [ProfileDetailsNavigation.test](../FE/src/app/navigation/ProfileDetailsNavigation.test.tsx) · F55–F57 | 사진/대명사 부모 초안·Save; OS 사진 화면 미동등 유지. 당시 Stories bar 잔여는 후속 결과에서 보완 |
 | C54 Monthly/Lifetime·날짜/월·Views/Reads·그래프·Stories·Latest | `story-stats` · [StoryStatsNavigation.test](../FE/src/app/navigation/StoryStatsNavigation.test.tsx) · F63 | 정상0/0과 원본 비교11/2 분리; 펼친 메뉴 원본 미수록 |
 | C55 유형별 목록·팔로우 버튼·작가/기사/목록/응답 대상·복귀 | `notifications` · [NotificationNavigation.test](../FE/src/app/navigation/NotificationNavigation.test.tsx) · F06, F44, F59 | 대상/읽음/설정 연결; 녹색 표시 의미·Tailored/Email 옵션 자체 보완 |
 | C56 Digest/Top stories/Editors/Featured/Applause/Saves 토글 | `notifications` · [NotificationNavigation.test](../FE/src/app/navigation/NotificationNavigation.test.tsx) · F06, F44, F59 | 대상/읽음/설정 연결; 녹색 표시 의미·Tailored/Email 옵션 자체 보완 |

@@ -1,6 +1,6 @@
 # FE 계약 인계 — Goal 53
 
-2026-11-21. Goal53의 실제 TypeScript 공급부·저장소·navigation을 기준으로 작성했다. **현재 구현은 메모리 fixture/mock이며 HTTP API, 서버, DB, DDL, OAuth, 업로드, 결제 검증, Push/Email 발송은 구현하지 않았다.** 아래 조회/명령은 FE 경계 이름이다. URL·테이블·트랜잭션·인증 방식의 서버 설계 확정안이 아니다. 시각/native 잔여는 [Goal53 결과](FE_GOAL_53_RESULT.md), 개별 원본 동작의 확인 범위는 [대응표](FE_MEDIUM_FULL_CLONE_MAP.md)를 따른다.
+2026-11-21. [Goal53 후속 보완](FE_GOAL_53_FOLLOWUP_RESULT.md)의 발행 ID/반응/저장·순서 편집·링크 수명 계약을 반영했다. Goal53의 실제 TypeScript 공급부·저장소·navigation을 기준으로 작성했다. **현재 구현은 메모리 fixture/mock이며 HTTP API, 서버, DB, DDL, OAuth, 업로드, 결제 검증, Push/Email 발송은 구현하지 않았다.** 아래 조회/명령은 FE 경계 이름이다. URL·테이블·트랜잭션·인증 방식의 서버 설계 확정안이 아니다. 시각/native 잔여는 [Goal53 결과](FE_GOAL_53_RESULT.md), 개별 원본 동작의 확인 범위는 [대응표](FE_MEDIUM_FULL_CLONE_MAP.md)를 따른다.
 
 ## 공통 식별자와 수명
 
@@ -10,7 +10,7 @@
 | 인증 revision | 로그인·로그아웃/계정 전환의 세션 경계. 프로필 이름 변경은 revision을 바꾸지 않는다. | 같은 A 재로그인도 이전 화면·초안·오류와 구분한다. 서버 데이터 version과 다른 값이다. |
 | 화면/request/source | 화면 조회에는 AbortSignal·요청 세대·source identity 경계를 사용한다. | 취소 요청 전달과 이미 확정된 서버 쓰기의 취소는 다르다. 늦은 응답이 현재 화면을 재개하지 않도록 해야 한다. |
 | 명령 ID | feature별 `commandId:number`, `operationId:string`, `requestId:string`. 재시도는 같은 의미의 ID를 재사용한다. | 모든 도메인에 동일한 ID 형식을 이미 적용했다고 가정하지 않는다. 같은 ID+다른 payload는 충돌로 취급할 수 있는 서버 계약이 필요하다. |
-| 기사 | fixture `articleId`, 작성 발행 `PublishedStory.id`는 다른 namespace. navigation도 `article`/`written`을 구분한다. | 제목이나 URL slug로 합치지 않는다. 작성 발행 글의 반응/저장 bar는 기존 fixture 기사와 아직 동일 기능이 아니다. |
+| 기사 | fixture ID와 발행의 raw `PublishedStory.id`를 구분한다. 공통 반응/목록의 발행 target은 `written:${encodeURIComponent(story.id)}`이며 Library article route가 raw ID로 해석한다. | 제목/이름/slug로 합치지 않는다. 발행 문서는 DraftSource가 기준이며 카탈로그는 읽기 전용 투영이다. 박수·응답·북마크/목록은 동일 target과 기존 계정별 저장소를 사용한다. 통계는 raw 발행 ID를 유지한다. |
 | 사용자 목록 | `(userId,listId)`, 기본 `reading-list`. 공개 투영 ID는 `owned:${JSON.stringify([userId,listId])}`. | 이 문자열은 FE mock 식별 방식이며 DB PK 형식 확정이 아니다. 기본 목록은 항상 소유자 전용 비공개다. |
 | 관계 | `{kind:'writer'\|'publication'\|'topic',id}`. 종류가 다르면 같은 id 문자열도 다른 대상이다. | Follow·Email·Mute·Block을 하나의 boolean으로 축약하지 않는다. |
 | 인용 | `(articleId,version,start,end,text)`; 끝 offset 제외, 현재 JS 문자열 단위. | 본문 version과 원문 부분 문자열을 검증해야 한다. grapheme/UTF-8 byte offset으로 몰래 바꾸면 기존 인용이 깨진다. |
@@ -41,7 +41,7 @@
 | 내 목록 반응 | owner/listId → owned 공개 투영 target | Goal53 기본 목록도 강제 private 투영으로 공통 반응을 읽음. guest/B 조회 불가, 외부 공유 불가. 명칭이 PublicListSource여도 모든 반환 대상이 공개라는 뜻은 아님. | [ownedPublicList](../FE/src/features/public-lists/ownedPublicList.ts), `bookmarks/ReadingListScreen.tsx` |
 | Digest | 발행 issue 목록/선택 issue의 기사 | 날짜 선택은 Done 전 초안. 최근10개 **발행분**이며 비어 있는 달력일을 자동 생성하지 않음. 빈도 설정 변경이 과거 발행 데이터를 삭제하지 않음. | [digest/types](../FE/src/features/digest/types.ts), `createDigestStore.ts` |
 | 작성 초안 | list(userId), read(userId,draftId,signal) → Draft[]/Draft|null | save({draftId,userId,document,publishing?,operationId},signal). 자동 저장/실패 초안 보존; back은 필요한 flush를 기다림. | [editor/draftSource](../FE/src/features/editor/draftSource.ts), `createDraftSession.ts` |
-| 발행 | stories(userId,signal,visibility?,viewerId?), story(storyId), publicStories? | publish({draftId,userId,document,publishing,authorName,operationId}) → PublishedStory. 불명확 성공은 같은 명령으로 확인. draft와 발행 결과의 ID·소유권을 연결. | [editor/publishing](../FE/src/features/editor/publishing.ts), `WrittenStoriesProvider.tsx` |
+| 발행 | stories(userId,signal,visibility?,viewerId?), story(storyId), publicStories?, getPublishedSnapshot() | publish({draftId,userId,document,publishing,authorName,operationId}) → PublishedStory. 불명확 성공은 같은 명령으로 확인. draft와 발행 결과의 ID·소유권을 연결. | [editor/publishing](../FE/src/features/editor/publishing.ts), `WrittenStoriesProvider.tsx` |
 | 내 Stories/Public/Unlisted | 확정 발행 저장소의 같은 결과 | public은 공개 탐색/프로필, unlisted는 링크 접근 정책과 개인 목록을 구분. 비공개 개인 초안은 publicStories에 포함하지 않음. | `editor/draftSource.ts`, `profile/ProfileStories.tsx`, `editor/WrittenStoryScreen.tsx` |
 | Story stats | readMonthly(userId,YYYY-MM,signal), readLifetime(userId,sort,signal) | 쓰기/이벤트 수집 없음. canonical 발행 목록과 연결한 mock 조회. 새 글 초기0/0. 기간·정렬 선택은 화면 상태. | [story-stats/types](../FE/src/features/story-stats/types.ts), `createMockStoryStatsSource.ts` |
 | 알림 목록 | readInbox(userId,signal) → version/notifications | markRead(userId,notificationId,operationId,signal) → inbox. eventId/recipientId 중복방지, 행 목적지와 접근권 재확인. 기존 알림을 수신선호 변경으로 삭제하지 않음. | [notifications/types](../FE/src/features/notifications/types.ts), `createNotificationStore.ts` |
@@ -107,6 +107,12 @@ Goal53 정상 F63은 현재 시각과 실제 mock 발행의0/0을 사용한다. 
 - 알림→recipient/actor/event/typedtarget, 통계→user/기간/day/story 및 집계 시각. 알림 읽음·Views·Reads·박수는 서로 다른 개념이다.
 - 파일 참조/소유권·영속 보관·cleanup/외부 발송 outbox/구독 영수증·지표 수집의 정의는 후속 설계다. 현재 mock 확정으로 서버 권한을 충족했다고 볼 수 없다.
 
-남은 결정: 실제 인증 공급자/세션 저장, 분산 idempotency 키 범위, 부분 PATCH 및 오류 형식, 영속 저장/삭제/복구 기간, 서버 검색/페이지 전략, 작성 발행 글과 fixture 기사 도메인의 통합, 실제 분석 정의/갱신주기, 멤버십 영수증 검증, 음성/파일 제공 권리와 전송 정책. 원본에 미수록인 메뉴·정렬·필터의 자체 보완은 공식 Medium API 요구사항이 아니다.
+남은 결정: 실제 인증 공급자/세션 저장, 분산 idempotency 키 범위, 부분 PATCH 및 오류 형식, 영속 저장/삭제/복구 기간, 서버 검색/페이지 전략, 서버에서 작성 발행 글과 기존 기사의 영속 ID/권한 통합(FE target 연결은 후속 보완 완료), 실제 분석 정의/갱신주기, 멤버십 영수증 검증, 음성/파일 제공 권리와 전송 정책. 원본에 미수록인 메뉴·정렬·필터의 자체 보완은 공식 Medium API 요구사항이 아니다.
 
-검증 근거는 [Goal53 결과](FE_GOAL_53_RESULT.md)의 현재 검사·200화면판정 및 Goal44~52 결과 문서다. native 미검증과 시각 차이가 남아 전체 동일 재현/실서비스 출시 완료로 인계하지 않는다.
+현재 변경의 검증 근거는 [Goal53 후속 결과](FE_GOAL_53_FOLLOWUP_RESULT.md)다. [Goal53 결과](FE_GOAL_53_RESULT.md)의 200화면판정과 검사, Goal44~52 결과는 당시 이력으로 보존한다. native 미검증과 시각 차이가 남아 전체 동일 재현/실서비스 출시 완료로 인계하지 않는다.
+
+## Goal53 후속 수명 보완
+
+- 카탈로그 snapshot은 발행 시에만 갱신하며 자동 저장/프로필 이름 변경으로 개인 저장소를 재생성하지 않는다. source 교체는 검증 callback도 교체한다. 공개 인덱스에 초안/Unlisted를 합치지 않는다.
+- 순서 변경은 기존 ListWrite/expectedContent로 확정한다. inline 화면의 순서는 미제출 초안이며 Cancel은 이를 버린다. 중간 기사 제거/삭제는 오래된 순서 제출을 거부하고 최신 membership으로 복구한다. 이미 제출/확정된 명령의 취소와 다르다.
+- 외부 링크는 최신 요청만 성공/실패를 표시하며 하위 정책 화면 종료/URL 교체로 오류 수명을 끝낸다. 네트워크/OS의 실제 취소를 보장한다는 뜻은 아니다.

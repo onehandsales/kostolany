@@ -30,7 +30,8 @@ type ListEntry = {
 
 export type UserListStore = ReturnType<typeof createUserListStore>;
 
-export function createUserListStore(source: UserListSource, userId: string, articleIds: readonly string[]) {
+export function createUserListStore(source: UserListSource, userId: string, articleIds: readonly string[] | (() => readonly string[])) {
+  const hasArticle = (id: string) => (typeof articleIds === 'function' ? articleIds() : articleIds).includes(id);
   // 확정 내용과 최신 목표를 분리해 이름과 기사 소속을 하나의 목록 명령으로 직렬 처리한다.
   const entries = new Map<string, ListEntry>();
   const listeners = new Set<() => void>();
@@ -78,7 +79,7 @@ export function createUserListStore(source: UserListSource, userId: string, arti
       validateListName(content.name, isDefault ? [] : ['읽기 목록', 'Reading list']) ||
       normalizeListName(content.name) !== content.name ||
       !Array.isArray(content.articleIds) ||
-      content.articleIds.some((id) => !articleIds.includes(id)) ||
+      content.articleIds.some((id) => !hasArticle(id)) ||
       new Set(content.articleIds).size !== content.articleIds.length
     )
       throw new Error('Invalid list content');
@@ -354,7 +355,7 @@ export function createUserListStore(source: UserListSource, userId: string, arti
     },
     setArticleInList(listId: string, articleId: string, saved: boolean): void {
       const entry = entries.get(listId);
-      if (!entry?.desired || entry.isDeleted || !articleIds.includes(articleId)) return;
+      if (!entry?.desired || entry.isDeleted || !hasArticle(articleId)) return;
       const ids = new Set(entry.desired.articleIds);
       if (saved) ids.add(articleId);
       else ids.delete(articleId);

@@ -20,6 +20,7 @@ export type FeedArticle = {
   publishedLabel: string;
   readingMinutes: number;
   thumbnail: 'city' | 'coins' | null;
+  publishedStory?: Readonly<{ id: string; ownerId: string; unlisted: boolean }>;
   reference?: ReferenceStory;
 };
 

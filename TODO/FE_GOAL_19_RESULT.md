@@ -1,10 +1,13 @@
 # Goal 19 — 로그인·로그아웃 클론
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 1곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19. 기준 `d016c06`, Goal15 이후 미커밋. 구현·두 차례 자체 검토·자동/브라우저 검증 수행, 원본 폰트/아이콘 차이와 native 검증 대기. 연속 요청에 따라 Goal20으로 진행한다.
 
 ## 원본·구현 경계
 
-Logging in ANALYSIS/PNG 01~02, Onboarding의 관련 소개 및 Settings/Logging out ANALYSIS/PNG02~03을 직접 확인했다. [원본 비교](evidence/goal19/COMPARISON.html)는 393×759 앱 영역 기준이다. 로그인은 Medium / Human stories and ideas. / 소개 / 5개 공급자 버튼, 가입 소개는 4개 버튼과 Sign in 링크다. Google만 기존 mock 인증이다. Facebook/Apple/X/Email은 로컬 미연결 안내를 열고 계정·토큰·코드·비밀번호를 만들거나 전송하지 않는다. 시작 splash 표시 시간·실제 Google 성공/계정 선택은 원본에서 확인되지 않았다.
+Logging in ANALYSIS/PNG 01~02, Onboarding의 관련 소개 및 Settings/Logging out ANALYSIS/PNG02~03을 직접 확인했다. 원본 비교 (저장소 보관본 없음: `evidence/goal19/COMPARISON.html`)는 393×759 앱 영역 기준이다. 로그인은 Medium / Human stories and ideas. / 소개 / 5개 공급자 버튼, 가입 소개는 4개 버튼과 Sign in 링크다. Google만 기존 mock 인증이다. Facebook/Apple/X/Email은 로컬 미연결 안내를 열고 계정·토큰·코드·비밀번호를 만들거나 전송하지 않는다. 시작 splash 표시 시간·실제 Google 성공/계정 선택은 원본에서 확인되지 않았다.
 
 Google 이외도 눌렀을 때 명시된 결과가 있다. 상단 MOCK·닫기, 원본 화면 아래 A/B·결과 선택 영역, 실패/재시도/처리 중은 자체 설계다. 원본 정적 화면과 mock 검증 영역을 숨겨 같은 기능이라고 주장하지 않는다. 정상 Google 버튼은 A 성공을 기본안으로 사용하며 아래에서 B·취소·실패·4초 지연을 고를 수 있다.
 

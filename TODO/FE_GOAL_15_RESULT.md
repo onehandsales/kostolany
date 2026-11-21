@@ -1,10 +1,13 @@
 # Goal 15 — 원본 대응표와 공통 시각 요소
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 4곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19 KST. 시작 기준 `d016c06`(Goal 14 검토·수정 커밋). 시작 작업 트리 clean. 이번 Goal 변경은 커밋하지 않는다.
 
 ## 구현과 기준
 
-[화면 대응표](FE_MEDIUM_SCREEN_MAP.md)에 16개 원본 흐름의 ANALYSIS·PNG 인덱스, 후속 Goal별 상태·메뉴·원본 미수록·외부 기능 제외, 기존 기능 처리 기준을 작성했다. 원본들은 [축소 확인 시트](evidence/goal15/originals-0.jpg) 및 originals-1~3.jpg로 직접 확인했고, Home 01은 전체 PNG도 다시 확인했다. 축소 시트는 원본을 대체하는 새 디자인이 아니다.
+[화면 대응표](FE_MEDIUM_SCREEN_MAP.md)에 16개 원본 흐름의 ANALYSIS·PNG 인덱스, 후속 Goal별 상태·메뉴·원본 미수록·외부 기능 제외, 기존 기능 처리 기준을 작성했다. 원본들은 축소 확인 시트 (저장소 보관본 없음: `evidence/goal15/originals-0.jpg`) 및 originals-1~3.jpg로 직접 확인했고, Home 01은 전체 PNG도 다시 확인했다. 축소 시트는 원본을 대체하는 새 디자인이 아니다.
 
 실제 코드에는 시스템 글꼴/본문 세리프 대체와 색상·간격·타이포 토큰, SVG 아이콘, 48px IconButton, 미연결 메뉴 안내를 추가했다. Home 헤더와 탭 바에 실제 적용했다. 기사 카드·본문 등은 후속 화면 Goal 범위이며 이 단계에서 클론 완료로 처리하지 않는다.
 
@@ -25,7 +28,7 @@
 
 ## 2차 재검토
 
-최종 토큰 사용처·Home 헤더·BottomTabBar·아이콘·안내 Modal 코드를 다시 확인했다. 피드의 선택/결과 소유권과 비동기 구조는 변경하지 않았다. 안내 열기/닫기로 source를 재호출하거나 선택을 초기화하지 않는 회귀 테스트를 추가했다. 실제 393×759/320×740 캡처에서 제목, 벨, 4탭 조작 영역과 가로 넘침을 확인했다. 벨은48×48이다. 원본/실제 [비교 페이지](evidence/goal15/COMPARISON.html)에서 수정한 두 공통 영역을 재비교했다.
+최종 토큰 사용처·Home 헤더·BottomTabBar·아이콘·안내 Modal 코드를 다시 확인했다. 피드의 선택/결과 소유권과 비동기 구조는 변경하지 않았다. 안내 열기/닫기로 source를 재호출하거나 선택을 초기화하지 않는 회귀 테스트를 추가했다. 실제 393×759/320×740 캡처에서 제목, 벨, 4탭 조작 영역과 가로 넘침을 확인했다. 벨은48×48이다. 원본/실제 비교 페이지 (저장소 보관본 없음: `evidence/goal15/COMPARISON.html`)에서 수정한 두 공통 영역을 재비교했다.
 
 규칙 판정: 아키텍처(공통 UI는 features 의존 없음), 명명/한글 주석/타입, 상태(기존 소유자 유지), 모바일(48px·Safe Area·폰트 확대 허용), 성능/보안(외부 호출 없음)은 변경 범위에서 준수. 실제 OS 접근성·네이티브 폰트 렌더는 미검증이다.
 
@@ -34,7 +37,7 @@
 - Node24.10.0, npm11.6.0. `FE`에서 typecheck/lint 통과. 최초 루트 실행은 script가 없어 실패했으며 FE 경로에서 다시 실행했다.
 - 관련 테스트는 **4 suites / 32 tests 통과, 14.199초**. `evidence/goal15/review-tests-fixed.log`에 기록했다. 최초 테스트의 native dialog query 실패와 수정 전 로그도 보존했다.
 - `--testPathPatterns`는 이 프로젝트 Jest29의 필터 옵션이 아니어서 의도보다 넓은 전체 검사가 실행됐다. 최초 전체 실행은 수정 전 App 문구 실패를 포함했고 불필요한 나머지 실행을 SIGINT로 종료했으며 최종 결과로 재사용하지 않는다. 이후 `--testPathPattern`으로 변경 영향 테스트를 다시 실행했다.
-- 실제 Chrome: Home 렌더→Notifications 안내→Got it 닫기,320폭 가로 넘침 없음, console 오류0. [스크립트](evidence/goal15/browser.mjs), [결과](evidence/goal15/browser.json), home-common/notice/home-common-320 PNG.
+- 실제 Chrome: Home 렌더→Notifications 안내→Got it 닫기,320폭 가로 넘침 없음, console 오류0. 스크립트 (저장소 보관본 없음: `evidence/goal15/browser.mjs`), 결과 (저장소 보관본 없음: `evidence/goal15/browser.json`), home-common/notice/home-common-320 PNG.
 - `git diff --check` 통과. 8081 기존 PID42833 유지.
 
 ## 남은 차이와 검증 대기

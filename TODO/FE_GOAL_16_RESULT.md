@@ -1,16 +1,19 @@
 # Goal 16 — 홈·탐색·검색
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 7곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19 KST. 기준 커밋 `d016c06`, Goal15 미커밋 변경을 이어서 작업했다. 사용자 변경/삭제, 원본PNG, ENV,8081 프로세스를 보존했다. **대상 UI·mock 연결·두 차례 자기 검토 완료 / 원본 글꼴·일부 시각 차이와 native 검증 대기**다.100% 일치로 판정하지 않는다.
 
 ## 구현과 원본
 
-기준은 [화면 대응표](FE_MEDIUM_SCREEN_MAP.md), Home01~04, Explore02~06, Searching Medium01~03이다. 실제 원본PNG를 열어 확인했고 [비교 페이지](evidence/goal16/COMPARISON.html)에 원본 screen ID와 실제 캡처를 연결했다. Home/검색/탐색은 첫 스크롤, Staff Picks·Who to follow는 원본 제목 위치에 맞춰 스크롤했다. 비교용 원본은393×852 정규화 뒤 OS59/34영역을 제외했다. 실제 캡처는393×759이며 가공 원본과 구분한다.
+기준은 [화면 대응표](FE_MEDIUM_SCREEN_MAP.md), Home01~04, Explore02~06, Searching Medium01~03이다. 실제 원본PNG를 열어 확인했고 비교 페이지 (저장소 보관본 없음: `evidence/goal16/COMPARISON.html`)에 원본 screen ID와 실제 캡처를 연결했다. Home/검색/탐색은 첫 스크롤, Staff Picks·Who to follow는 원본 제목 위치에 맞춰 스크롤했다. 비교용 원본은393×852 정규화 뒤 OS59/34영역을 제외했다. 실제 캡처는393×759이며 가공 원본과 구분한다.
 
 - Home: 영어 헤더, 알림, +·For you·Following·Featured·주제 탭, New, 원형−·더보기, 원본 카드/사진/작가/집계, 작성 버튼, 스크롤 헤더 접힘과 추가 페이지.
 - Explore: Search Medium, 가로 주제, Trending, Staff Picks, Recommended for you, 가로 Who to follow, 기존 금융 예시 구역.
 - Search: 뒤로·입력·지우기·주제 목록, Stories와 원본의 다른 범주 메뉴, Mindfulness 원본 결과, 상세 진입·검색어/스크롤 복귀,0건·실패/재시도.
 - 원본 기사에는 `medium-*` ID를 부여했다. 금융 `example-*` ID를 재사용하지 않았다. 원본 기사도 상세 조회·좋아요·북마크·목록 저장에서 같은 ID를 사용한다.
-- 사진/아바타만 원본에서 crop해 `FE/assets/medium`에 보관했다. [SOURCES.json](../FE/assets/medium/SOURCES.json)에는 물리 픽셀 좌표와 원본 경로가 있고 [추출 스크립트](evidence/goal16/extract-assets.py)로 재현할 수 있다. 글자/전체 화면을 배경 이미지로 붙이지 않았다.
+- 사진/아바타만 원본에서 crop해 `FE/assets/medium`에 보관했다. [SOURCES.json](../FE/assets/medium/SOURCES.json)에는 물리 픽셀 좌표와 원본 경로가 있고 추출 스크립트 (저장소 보관본 없음: `evidence/goal16/extract-assets.py`)로 재현할 수 있다. 글자/전체 화면을 배경 이미지로 붙이지 않았다.
 
 ## 구현 기본안과 범위 차이
 
@@ -51,10 +54,10 @@
 - 마지막 홈/기사 표시 회귀 **4 suites /40 tests 통과** (`final-regression.log`,8.404초).
 -3개 초기 페이지/원본 catalog/App 재검증 **6 suites /20 tests 통과** (`catalog-final.log`,9.966초).
 - 위 수치는 겹치는 검사들이며 합산한 고유 테스트 수가 아니다. 전체 테스트는 Goal21에서 현재 최종 코드로 다시 실행한다.
-- 실제 Chrome: For you/Following/Featured→탐색→Staff Pick 상세/복귀→Follow 안내/닫기→검색→같은 기사 상세/복귀→지우기/0건→320폭/desktop. console 오류0. [브라우저 스크립트](evidence/goal16/browser.mjs), [결과](evidence/goal16/browser.json).
+- 실제 Chrome: For you/Following/Featured→탐색→Staff Pick 상세/복귀→Follow 안내/닫기→검색→같은 기사 상세/복귀→지우기/0건→320폭/desktop. console 오류0. 브라우저 스크립트 (저장소 보관본 없음: `evidence/goal16/browser.mjs`), 결과 (저장소 보관본 없음: `evidence/goal16/browser.json`).
 - 실제 스크롤로 추가 페이지의 ChatGPT 카드가 나타남을 별도 확인했다(`home-scrolled.png`).
-- 피드 최초 오류→재시도, Featured 빈 상태→안내/닫기: [스크립트](evidence/goal16/failures.mjs)·[결과](evidence/goal16/failures.json). `finally`에서 mock 설정을 원래 normal로 복원하고 파일 동일성을 검사했다.
--320폭, CSS 글자130% 확대, 긴 한국어 검색/지우기: [결과](evidence/goal16/accessibility.json). 실제 OS Dynamic Type나 native IME/키보드 검증으로 표현하지 않는다. 캡처에서 제목·본문 겹침과 버튼 줄바꿈을 직접 확인했다.
+- 피드 최초 오류→재시도, Featured 빈 상태→안내/닫기: 스크립트 (저장소 보관본 없음: `evidence/goal16/failures.mjs`)·결과 (저장소 보관본 없음: `evidence/goal16/failures.json`). `finally`에서 mock 설정을 원래 normal로 복원하고 파일 동일성을 검사했다.
+-320폭, CSS 글자130% 확대, 긴 한국어 검색/지우기: 결과 (저장소 보관본 없음: `evidence/goal16/accessibility.json`). 실제 OS Dynamic Type나 native IME/키보드 검증으로 표현하지 않는다. 캡처에서 제목·본문 겹침과 버튼 줄바꿈을 직접 확인했다.
 
 ## 남은 차이·미검증
 

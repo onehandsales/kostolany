@@ -1,5 +1,8 @@
 # Goal 21 — 전체 클론 화면·UX 통합 대조
 
+> Goal53 후속 링크 점검: 이 문서의 과거 경로 중 실제 파일이 없는 20곳은 링크 대신 당시 경로와 보관 상태를 표시했다. 과거 검사 결과·캡처를 재실행하거나 복구한 것이 아니다. 삭제된 `evidence/` 자료는 이 작업 트리에 없으며 역사적 결과의 보관 한계로 남긴다.
+
+
 2026-11-19 · Goal14→21 연속 실행의 마지막 단계. **목표 화면 구현과 두 차례 검토·검증을 수행했으며, 100% 시각 일치와 실제 네이티브 실행/빌드 확인은 완료되지 않았다.** 원본에 없는 동작·자산·플랫폼 확인을 완료로 꾸미지 않는다. Goal22나 외부 연동은 시작하지 않는다.
 
 ## Goal별 결과와 Git
@@ -13,7 +16,7 @@
 | 18 | Library·기본/사용자 목록·생성/편집/삭제/제거/Undo·목록 설명/private 표시 | [18 결과](FE_GOAL_18_RESULT.md) |
 | 19 | 로그인 소개/공급자·가입 UI·mock A/B/실패/취소/재시도·Sign out 확인 | [19 결과](FE_GOAL_19_RESULT.md) |
 | 20 | Profile Stories/Lists/About·편집 폼·Settings·개인 목록/기사 복귀·기본 수준 연결 | [20 결과](FE_GOAL_20_RESULT.md) |
-| 21 | 위 화면들의 최종 원본 대조, 터치 영역·응답 타이포·메뉴 누락 수정, 통합/회귀/플랫폼 검증과 문서 정리 | 이 문서 및 [최종 비교](evidence/goal21/COMPARISON.html) |
+| 21 | 위 화면들의 최종 원본 대조, 터치 영역·응답 타이포·메뉴 누락 수정, 통합/회귀/플랫폼 검증과 문서 정리 | 이 문서 및 최종 비교 (저장소 보관본 없음: `evidence/goal21/COMPARISON.html`) |
 
 Goal21 종료 당시 유일한 작업 커밋은 `d016c066c188c58a84a4bc0e438164dfe6b88cc4` (`fix(fe): audit frontend rules and isolate feed request state`)다. 당시 Goal15~21은 미커밋·미스테이징이었으며 push/배포하지 않았다. 시작 당시 작업 트리는 clean이었고 기존 사용자 삭제/과거 이력을 복구하거나 임의 커밋하지 않았다. `medium` 원본 파일은 수정하지 않았다. 기존8081 Expo 프로세스 PID42833을 재시작하지 않고 유지했다.
 
@@ -26,7 +29,7 @@ Goal21 종료 당시 유일한 작업 커밋은 `d016c066c188c58a84a4bc0e438164d
 | 재현·발견 | 원인·수정 | 검증 |
 | --- | --- | --- |
 | Profile Lists→기사 중 사용자 전환/목록 삭제의 새 진입 경계 | Profile origin에도 소유자·revision·목록 존재 검사를 적용한 소비자를 점검하고 실제 navigation 사용자 전환 및 삭제 단위 회귀를 보강 | ProfileNavigation·ArticleRouteScreen, integration.json |
-| 320px Profile의 Stories45.25/Lists30.20/About38.81, Library Digest41.61 폭 | 글자 폭을 그대로 터치 폭으로 사용. 글자·밑줄은 내부에 유지하고 버튼은 최소48로 확장. 짧은 기사 토픽도 최소48 | [수정 전](evidence/goal21/touch-target-before.json), [수정 후](evidence/goal21/touch-target-audit.json) |
+| 320px Profile의 Stories45.25/Lists30.20/About38.81, Library Digest41.61 폭 | 글자 폭을 그대로 터치 폭으로 사용. 글자·밑줄은 내부에 유지하고 버튼은 최소48로 확장. 짧은 기사 토픽도 최소48 | 수정 전 (저장소 보관본 없음: `evidence/goal21/touch-target-before.json`), 수정 후 (저장소 보관본 없음: `evidence/goal21/touch-target-audit.json`) |
 | Responses 글자가 원본보다 커서 같은 내용이 더 많은 줄을 차지함 | 본문14/18, 이름14/20·작은 정보12/18, 응답 간격·입력 시각 영역 조정 | 최종 Responses 실제 캡처 비교 |
 | More from 추천 카드의 저장 모양 누락 | 로컬 미연결 안내를 여는 저장 아이콘 추가. 원문/기사 ID가 확보되지 않은 추천을 실제 저장 기능처럼 구현하지 않음 | 실제 캡처·전체 회귀 |
 | 최종 비교 스크립트가 응답/추천 제목을 고정 헤더 뒤로 스크롤함 | 비교 스크립트의 정렬 좌표를 헤더 아래64로 수정. 제품 제목이 삭제된 문제와 구분 | screens17/browser.mjs·최종 캡처 |
@@ -38,23 +41,23 @@ Goal21 종료 당시 유일한 작업 커밋은 `d016c066c188c58a84a4bc0e438164d
 ## 2차 재검토와 규칙 판정
 
 - 아키텍처: app이 실제 navigation·provider를 조립하고 features는 ID/콜백으로 이동한다. shared가 features를 참조하거나 features가 app을 역참조한 import는119개 production 파일 검사에서0건이었다. 이는 순환/설계 전체 자동 증명이 아니라 직접 검토의 보조 자료다.
-- 명명/타입/주석: strict 계약·named export·기능별 파일, 상태 의미를 드러내는 이름과 한글 설명 주석을 확인했다. 포매터는 임시 npm 실행 도구이며 프로젝트 의존성·lockfile을 변경하지 않았다. [정리 파일](evidence/goal21/formatted-files.txt), [규칙 보조 검사](evidence/goal21/rule-audit.json).
+- 명명/타입/주석: strict 계약·named export·기능별 파일, 상태 의미를 드러내는 이름과 한글 설명 주석을 확인했다. 포매터는 임시 npm 실행 도구이며 프로젝트 의존성·lockfile을 변경하지 않았다. 정리 파일 (저장소 보관본 없음: `evidence/goal21/formatted-files.txt`), 규칙 보조 검사 (저장소 보관본 없음: `evidence/goal21/rule-audit.json`).
 - 상태/비동기: 사용자 ID·기사 ID·목록 ID·인증 revision, 최신 의도/직렬 쓰기/삭제 tombstone, 공급부별 메모리 소유, 화면 초안 및 시트 키를 다시 확인했다. 프로필 이름/설정 변경은 인증 revision을 바꾸지 않는다. 기존 실패·늦은 응답·A→B→A 테스트를 포함해 실행했다.
 - 모바일/접근성: Safe Area와 최소48pt 터치, 선택 aria 속성, 폼 스크롤·모달 닫기·포커스를 확인했다. 320폭 여덟 화면의 보이는 대상에48미만 없음. 화면 전체의 모든 상태나 실제 OS 접근성 합격을 뜻하지 않는다.
-- 성능/보안: 기존 목록 가상화/지연 검색/요청 세대 보호와 로컬 이미지 사용을 유지했다. 실제 인증/백엔드/Storage/AI·비밀정보·새 외부 서비스는 없다. 원본 사진45개 출처/영역이 유효하며 원본 PNG를 바꾸지 않았다: [자산 검사](evidence/goal21/asset-audit.json).
+- 성능/보안: 기존 목록 가상화/지연 검색/요청 세대 보호와 로컬 이미지 사용을 유지했다. 실제 인증/백엔드/Storage/AI·비밀정보·새 외부 서비스는 없다. 원본 사진45개 출처/영역이 유효하며 원본 PNG를 바꾸지 않았다: 자산 검사 (저장소 보관본 없음: `evidence/goal21/asset-audit.json`).
 - 검증/전달: 아래 실행 로그·실제 브라우저·원본 캡처와 재검토를 연결했다. 두 번의 자체 코드/화면 검토를 독립된 외부 리뷰나 테스트 실행 자체와 혼동하지 않는다. 최종 미확인 항목은 별도로 남긴다.
 
 ## 최종 실행 결과
 
 - Node24.10.0 / npm11.6.0 사용. engines24계열을 충족하지만 `.nvmrc`24.18.0·packageManager npm10.9.0과 patch/도구 버전 차이는 있다.
-- typecheck·lint 통과: [typecheck](evidence/goal21/typecheck.log), [lint](evidence/goal21/lint.log).
-- 전체 Jest 최종 **638 tests,84 suites 통과**,282.752s: [tests-full.log](evidence/goal21/tests-full.log). 두 플랫폼 설정의 합계이며 논리319개다. 시각/터치 수정 전638 tests/84 suites 통과 기록은 [별도 보존](evidence/goal21/tests-before-visual-fixes.log)하며 최종 실행 결과와 구분한다.
-- iOS·Android JS/Hermes export: [iOS](evidence/goal21/export-ios.log), [Android](evidence/goal21/export-android.log). 각각약2.4MB hbc와 로컬 자산 생성. Xcode/Gradle로 만든 native앱·실기기 실행이 아니다.
-- 최종 화면군 브라우저 재실행: [실행 목록](evidence/goal21/recapture-runs.json), 각 screens16~20/browser.json. 기존 성공 기록을 복사한 것이 아니라 새 Chrome 세션에서 최신 코드를 조작/캡처했다.
-- 한 세션 전체 흐름: [integration.json](evidence/goal21/integration.json). 비로그인 읽기/수준/복귀→로그인 닫기/성공/자동 행동 없음→반응→저장 시트에서 목록 생성→두 목록 소속→하나에서 제거/삭제→원본/기본 소속/반응 보존→프로필→설정→홈/검색/라이브러리의 기본 수준·본문·예시 일치→임시 변경/재진입→로그아웃 취소→B→A→전체 Reload 초기화를 확인했다. console/page errors0.
+- typecheck·lint 통과: typecheck (저장소 보관본 없음: `evidence/goal21/typecheck.log`), lint (저장소 보관본 없음: `evidence/goal21/lint.log`).
+- 전체 Jest 최종 **638 tests,84 suites 통과**,282.752s: tests-full.log (저장소 보관본 없음: `evidence/goal21/tests-full.log`). 두 플랫폼 설정의 합계이며 논리319개다. 시각/터치 수정 전638 tests/84 suites 통과 기록은 별도 보존 (저장소 보관본 없음: `evidence/goal21/tests-before-visual-fixes.log`)하며 최종 실행 결과와 구분한다.
+- iOS·Android JS/Hermes export: iOS (저장소 보관본 없음: `evidence/goal21/export-ios.log`), Android (저장소 보관본 없음: `evidence/goal21/export-android.log`). 각각약2.4MB hbc와 로컬 자산 생성. Xcode/Gradle로 만든 native앱·실기기 실행이 아니다.
+- 최종 화면군 브라우저 재실행: 실행 목록 (저장소 보관본 없음: `evidence/goal21/recapture-runs.json`), 각 screens16~20/browser.json. 기존 성공 기록을 복사한 것이 아니라 새 Chrome 세션에서 최신 코드를 조작/캡처했다.
+- 한 세션 전체 흐름: integration.json (저장소 보관본 없음: `evidence/goal21/integration.json`). 비로그인 읽기/수준/복귀→로그인 닫기/성공/자동 행동 없음→반응→저장 시트에서 목록 생성→두 목록 소속→하나에서 제거/삭제→원본/기본 소속/반응 보존→프로필→설정→홈/검색/라이브러리의 기본 수준·본문·예시 일치→임시 변경/재진입→로그아웃 취소→B→A→전체 Reload 초기화를 확인했다. console/page errors0.
 - 성공/취소/실패/재시도·느린 로그인 닫기: 최종 screens19/browser.json. 프로필/설정 조회·저장 실패와 보존/재시도는 Goal20 failures.json에서 확인했다. 전체 Jest는 데이터 변경/경합 회귀를 포함한다.
-- [접근성/입력](evidence/goal21/accessibility.json): 320폭·CSS150%·긴 한국어/이모지/다중행, 합성 composition 검색, Escape로 프로필/설정/목록 폼/메뉴 닫기, 웹 포커스 복귀 통과. 첫 Escape 재현 스크립트는 Modal의 열림 애니메이션 전 완료를 가정했으며 실제 dialog 활성화를 기다리도록 수정했다. 실제 OS 키보드·IME 테스트는 아니다.
-- Featured 빈 상태를 별도로 캡처하고 [empty.json](evidence/goal21/empty.json)에 복구를 기록했다. 모든 장애용 PreviewScenario 상수를 normal로 복원했다. [마지막 상태 확인](evidence/goal21/final-state.json)에서 HTTP8081=200·기존 PID42833·원본 변경0·스테이징0을 확인했다.
+- 접근성/입력 (저장소 보관본 없음: `evidence/goal21/accessibility.json`): 320폭·CSS150%·긴 한국어/이모지/다중행, 합성 composition 검색, Escape로 프로필/설정/목록 폼/메뉴 닫기, 웹 포커스 복귀 통과. 첫 Escape 재현 스크립트는 Modal의 열림 애니메이션 전 완료를 가정했으며 실제 dialog 활성화를 기다리도록 수정했다. 실제 OS 키보드·IME 테스트는 아니다.
+- Featured 빈 상태를 별도로 캡처하고 empty.json (저장소 보관본 없음: `evidence/goal21/empty.json`)에 복구를 기록했다. 모든 장애용 PreviewScenario 상수를 normal로 복원했다. 마지막 상태 확인 (저장소 보관본 없음: `evidence/goal21/final-state.json`)에서 HTTP8081=200·기존 PID42833·원본 변경0·스테이징0을 확인했다.
 
 ## 화면·흐름별 상태
 
@@ -70,7 +73,7 @@ Goal21 종료 당시 유일한 작업 커밋은 `d016c066c188c58a84a4bc0e438164d
 
 ## 원본과 남은 차이
 
-[최종31쌍 비교 인덱스](evidence/goal21/COMPARISON.html) · [원본/구현 파일 대응](evidence/goal21/comparison-manifest.json) · [관찰/추정/자체/미연결 대응표](FE_MEDIUM_SCREEN_MAP.md). 원본1179×2556을 비교용393×852로 정규화하고 OS 상단59/하단34를 제외한다. 실제 브라우저393×759와 비교하며 실제 DPR/기기 동일 조건을 확정하지 않는다. 스크롤 위치·사용자 데이터가 다른 쌍은 아래 한계와 함께 해석한다.
+최종31쌍 비교 인덱스 (저장소 보관본 없음: `evidence/goal21/COMPARISON.html`) · 원본/구현 파일 대응 (저장소 보관본 없음: `evidence/goal21/comparison-manifest.json`) · [관찰/추정/자체/미연결 대응표](FE_MEDIUM_SCREEN_MAP.md). 원본1179×2556을 비교용393×852로 정규화하고 OS 상단59/하단34를 제외한다. 실제 브라우저393×759와 비교하며 실제 DPR/기기 동일 조건을 확정하지 않는다. 스크롤 위치·사용자 데이터가 다른 쌍은 아래 한계와 함께 해석한다.
 
 - 원본에서 관찰: 영어 문구·페이지 구성·사진·카드 위계·선택 모양·Profile/Settings 메뉴·입력 카운터·로그아웃 확인.
 - 추정/대체: 시스템 sans/Georgia·Times 계열, 측정한 여백/행간, 자체 SVG 윤곽. 원본 폰트/아이콘 파일·정확한 애니메이션은 확보되지 않았다. 자간/굵기/줄바꿈·작은 아이콘은 다르며100% 일치로 판정하지 않는다.
@@ -82,7 +85,7 @@ Goal21 종료 당시 유일한 작업 커밋은 `d016c066c188c58a84a4bc0e438164d
 
 ## 플랫폼 미검증
 
-[환경 실측](evidence/goal21/platform-environment.json): macOS14.2 arm64, CommandLineTools만 존재. Xcode/xcodebuild/Simulator·simctl 없음. Android SDK/adb/emulator 없음. Java만으로 앱 빌드를 완료할 수 없다. iOS는 Xcode+런타임/시뮬레이터 또는 기기, Android는 SDK/build tools/에뮬레이터 또는 기기가 필요하다. 설치/프로젝트 native 생성 없이 독립적으로 가능한 양 플랫폼 JS/Hermes export까지 수행했다.
+환경 실측 (저장소 보관본 없음: `evidence/goal21/platform-environment.json`): macOS14.2 arm64, CommandLineTools만 존재. Xcode/xcodebuild/Simulator·simctl 없음. Android SDK/adb/emulator 없음. Java만으로 앱 빌드를 완료할 수 없다. iOS는 Xcode+런타임/시뮬레이터 또는 기기, Android는 SDK/build tools/에뮬레이터 또는 기기가 필요하다. 설치/프로젝트 native 생성 없이 독립적으로 가능한 양 플랫폼 JS/Hermes export까지 수행했다.
 
 **실제 iOS/Android 실행·native build, 실제 Safe Area/상태바·OS 글자 확대·VoiceOver/TalkBack·키보드 가림/한글 IME/뒤로 제스처는 검증 대기다.** Jest의 두 플랫폼 설정·브라우저 CSS 확대·합성 이벤트·Hermes export를 실제 native 검증으로 바꾸어 기록하지 않는다.
 

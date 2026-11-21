@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
-import { IconButton } from '../../shared/ui/IconButton';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { ContentIllustration } from '../../shared/ui/ContentIllustration';
 import type { FeedArticle } from '../feed/types';
 import { useProfile } from '../profile/ProfileProvider';
@@ -18,7 +15,7 @@ type LibraryListCardProps = {
   listId: string;
   name: string;
   articles: readonly FeedArticle[];
-  onOpen: (listId: string) => void;
+  onOpen: (listId: string, reorder?: boolean) => void;
   isPrivate?: boolean;
   afterIntroduction?: boolean;
 };
@@ -34,7 +31,6 @@ export function LibraryListCard({
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { state } = useProfile();
-  const [notice, setNotice] = useState<string | null>(null);
   const thumbnails = articles.filter((article) => article.reference?.image || article.thumbnail).slice(0, 3);
   return (
     <View style={[styles.card, afterIntroduction && { marginTop: 20 }]}>
@@ -61,16 +57,7 @@ export function LibraryListCard({
         )}
         <View style={styles.flex} />
         <DownloadControl listId={listId} label={`Download ${name}`} />
-        {listId !== DEFAULT_LIST_ID ? (
-          <ListActions listId={listId} name={name} />
-        ) : (
-          <IconButton
-            icon="more"
-            label="Reading list options"
-            size={20}
-            onPress={() => setNotice('Reading list options')}
-          />
-        )}
+        <ListActions listId={listId} name={name} onReorder={() => onOpen(listId, true)} />
       </View>
       <DownloadFeedback listId={listId} />
       <View aria-hidden style={styles.thumbnails}>
@@ -95,7 +82,6 @@ export function LibraryListCard({
           );
         })}
       </View>
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </View>
   );
 }

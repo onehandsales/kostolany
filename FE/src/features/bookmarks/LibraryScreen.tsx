@@ -26,7 +26,7 @@ import { UserListFeedback } from './UserListFeedback';
 type LibraryScreenProps = {
   digestSource?: DigestSource;
   onOpenDigestArticle?: (articleId: string) => void;
-  onOpenList: (listId: string) => void;
+  onOpenList: (listId: string, reorder?: boolean) => void;
   onOpenHighlight?: (articleId: string, highlightId: string) => void;
 };
 

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { FlatList, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { usePreventRemove } from '@react-navigation/native';
+import { BackHandler, FlatList, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 
@@ -16,6 +17,7 @@ import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/t
 import { SearchCard } from '../search/SearchCard';
 
 import { ListStoryCard } from './ListStoryCard';
+import { ReorderListEditor } from './ReorderListEditor';
 import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID, type RemovedListStory } from './listTypes';
 import { ListNoteSheet } from './ListNoteSheet';
@@ -29,6 +31,7 @@ import { DownloadArticleStatus, DownloadControl, DownloadFeedback } from '../dow
 
 type ReadingListScreenProps = {
   listId?: string;
+  initialReorder?: boolean;
   backLabel?: string;
   onBack: () => void;
   onBrowseArticles: () => void;
@@ -37,6 +40,7 @@ type ReadingListScreenProps = {
 
 export function ReadingListScreen({
   listId = DEFAULT_LIST_ID,
+  initialReorder = false,
   onBack,
   onBrowseArticles,
   onSelectArticle,
@@ -50,6 +54,20 @@ export function ReadingListScreen({
   const [removed, setRemoved] = useState<RemovedListStory | string | null>(null);
   const [editingNote, setEditingNote] = useState<FeedArticle | null>(null);
   const [collapsed, setCollapsed] = useState(false);
+  const [reordering, setReordering] = useState(initialReorder);
+  const listRef = useRef<FlatList<FeedArticle>>(null);
+  const backRef = useRef<View>(null);
+  const scrollOffset = useRef(0);
+  const closeReorder = useCallback(() => {
+    setReordering(false);
+    requestAnimationFrame(() => backRef.current?.focus());
+  }, []);
+  usePreventRemove(reordering, closeReorder);
+  useEffect(() => {
+    if (!reordering) return;
+    const listener = BackHandler.addEventListener('hardwareBackPress', () => { closeReorder(); return true; });
+    return () => listener.remove();
+  }, [reordering, closeReorder]);
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
   const store = useBookmarkStore();
@@ -69,57 +87,7 @@ export function ReadingListScreen({
   useEffect(() => {
     if (!isDefault && custom.status === 'ready' && !selected?.content) onBack();
   }, [isDefault, custom.status, selected?.content, onBack]);
-  if (!isDefault && custom.status === 'ready' && !selected?.content) return null;
-  return (
-    <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
-      <View style={styles.header}>
-        <Pressable role="button" accessibilityLabel={backLabel} onPress={onBack} style={styles.back}>
-          <Svg
-            width={24}
-            height={24}
-            viewBox="0 0 24 24"
-            aria-hidden
-            accessible={Platform.OS === 'web' ? undefined : false}
-          >
-            <Path d="M15 4 7 12 15 20" fill="none" stroke={colors.secondaryText} strokeWidth={2} />
-          </Svg>
-        </Pressable>
-        <Text style={styles.headerTitle}>{collapsed ? (isDefault ? 'Reading list' : name) : ''}</Text>
-        <DownloadControl listId={listId} />
-        {isDefault && !selected && (
-          <IconButton
-            icon="more"
-            label="Reading list options"
-            onPress={() => setNotice('Reading list options')}
-          />
-        )}
-        {selected && <ListActions listId={listId} name={name} />}
-      </View>
-      {removed && !articles.some((article) => article.id === removedId) && (
-        <View style={styles.toast}>
-          <Text style={styles.toastText}>Story removed from list</Text>
-          <Pressable
-            role="button"
-            onPress={() => {
-              if (typeof removed === 'string') store.setArticleInList(listId, removed, true);
-              else store.userLists.undoRemove(removed);
-              setRemoved(null);
-            }}
-            style={styles.undo}
-          >
-            <Text style={styles.toastText}>Undo</Text>
-          </Pressable>
-        </View>
-      )}
-      <FlatList
-        onScroll={(event) => setCollapsed(event.nativeEvent.contentOffset.y > 80)}
-        scrollEventThrottle={32}
-        accessibilityLabel="저장한 기사 목록"
-        data={articles}
-        keyExtractor={(article) => article.id}
-        contentContainerStyle={styles.content}
-        ListHeaderComponent={
-          <View>
+  const header = <View>
             <View style={styles.intro}>
               <View style={styles.ownerRow}>
                 <ProfileAvatar userId={profile.state.profile?.userId} size={48} />
@@ -155,8 +123,59 @@ export function ReadingListScreen({
             ) : (
               <UserListFeedback listId={listId} hideVisibleMembershipFailures />
             )}
-          </View>
-        }
+          </View>;
+  if (!isDefault && custom.status === 'ready' && !selected?.content) return null;
+  return (
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
+      <View style={styles.header}>
+        <Pressable ref={backRef} role="button" accessibilityLabel={backLabel} onPress={reordering ? closeReorder : onBack} style={styles.back}>
+          <Svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            aria-hidden
+            accessible={Platform.OS === 'web' ? undefined : false}
+          >
+            <Path d="M15 4 7 12 15 20" fill="none" stroke={colors.secondaryText} strokeWidth={2} />
+          </Svg>
+        </Pressable>
+        <Text style={styles.headerTitle}>{collapsed ? (isDefault ? 'Reading list' : name) : ''}</Text>
+        <DownloadControl listId={listId} />
+        {isDefault && !selected && (
+          <IconButton
+            icon="more"
+            label="Reading list options"
+            onPress={() => setNotice('Reading list options')}
+          />
+        )}
+        {selected && <ListActions listId={listId} name={name} onReorder={() => setReordering(true)} />}
+      </View>
+      {removed && !articles.some((article) => article.id === removedId) && (
+        <View style={styles.toast}>
+          <Text style={styles.toastText}>Story removed from list</Text>
+          <Pressable
+            role="button"
+            onPress={() => {
+              if (typeof removed === 'string') store.setArticleInList(listId, removed, true);
+              else store.userLists.undoRemove(removed);
+              setRemoved(null);
+            }}
+            style={styles.undo}
+          >
+            <Text style={styles.toastText}>Undo</Text>
+          </Pressable>
+        </View>
+      )}
+      {reordering && selected?.content ? <ReorderListEditor listId={listId} header={header} onClose={closeReorder} /> : <FlatList
+        ref={listRef}
+        onContentSizeChange={() => { if (scrollOffset.current) listRef.current?.scrollToOffset({ offset: scrollOffset.current, animated: false }); }}
+        onScroll={(event) => { scrollOffset.current = event.nativeEvent.contentOffset.y; setCollapsed(scrollOffset.current > 80); }}
+        scrollEventThrottle={32}
+        accessibilityLabel="저장한 기사 목록"
+        data={articles}
+        keyExtractor={(article) => article.id}
+        contentContainerStyle={styles.content}
+        ListHeaderComponent={header}
         ListEmptyComponent={
           status === 'ready' ? (
             <View style={styles.empty}>
@@ -209,8 +228,8 @@ export function ReadingListScreen({
             />
           )
         }
-      />
-      <View style={styles.listBar}>
+      />}
+      {!reordering && <View style={styles.listBar}>
         <ClapControl target={reactionTarget} title={name} size={20} />
         <ResponseButton target={reactionTarget} title={name} label="List responses" size={20} />
         <IconButton icon="share" label="Share list" onPress={() => sharing.open({
@@ -218,7 +237,7 @@ export function ReadingListScreen({
           subtitle: selected?.content?.description ?? '', authorId: store.userLists.userId,
           authorName: 'My list', visibility: isDefault || selected?.content?.isPrivate ? 'private' : 'public',
         })} />
-      </View>
+      </View>}
       {sharing.target && <ShareSheet target={sharing.target} available={!isDefault && !selected?.content?.isPrivate && Boolean(selected?.content)} onClose={sharing.close} />}
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {editingNote && selected?.content && <ListNoteSheet listId={listId} article={editingNote} onClose={() => setEditingNote(null)} />}

@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, type StyleProp, type ViewStyle } from 'react-native';
+import type { Ref } from 'react';
+import { Pressable, StyleSheet, type StyleProp, type ViewStyle, type View } from 'react-native';
 
 import { sizes } from '../theme/tokens';
 import { AppIcon, type AppIconName } from './AppIcon';
@@ -11,11 +12,13 @@ type IconButtonProps = {
   size?: number;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  buttonRef?: Ref<View>;
 };
 
-export function IconButton({ icon, label, onPress, color, size = 22, style, disabled }: IconButtonProps) {
+export function IconButton({ icon, label, onPress, color, size = 22, style, disabled, buttonRef }: IconButtonProps) {
   return (
     <Pressable
+      ref={buttonRef}
       role="button"
       accessibilityLabel={label}
       accessibilityState={{ disabled }}

@@ -1,5 +1,8 @@
 # Goal 33 — 내 목록 메모·정렬·공개 범위·편집·삭제
 
+> 후속 변경: 기본 카드 실제 메뉴·목록 안 순서 편집·edge 자동 스크롤는 [Goal53 후속 결과](FE_GOAL_53_FOLLOWUP_RESULT.md)를 따른다. 아래 구현·검사·캡처는 Goal33 당시 이력으로 보존한다.
+
+
 실행일: 2026-11-20 KST · Windows PowerShell · `D:\git_repository\kostolany_project`.
 
 **판정: 구현 완료·검증 잔여.** 목록 편집과 공개 목록의 실제 mock 원본을 연결했다. 아래 자동 검사·웹 검증과 원본 동일 재현·실제 native 검증은 별개다. 원본에 없는 정책, 정렬 화면 구조/폰트 차이, 실제 OS 입력·접근성·native 실행이 남아 있으므로 Goal33 전체 완료로 판정하지 않는다.
