@@ -13,13 +13,13 @@
       "bundler": "metro"
     },
     "orientation": "default",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "plugins": [
       [
         "expo-image-picker",
         {
-          "cameraPermission": "프로필 사진을 촬영할 때 카메라를 사용합니다.",
-          "photosPermission": "선택한 사진을 프로필에 표시합니다.",
+          "cameraPermission": "프로필 사진이나 작성 중인 글의 사진을 촬영할 때 카메라를 사용합니다.",
+          "photosPermission": "선택한 사진을 프로필이나 작성 중인 글에 표시합니다.",
           "microphonePermission": false
         }
       ],
@@ -31,7 +31,8 @@
           "preventAutomaticLimitedAccessAlert": true
         }
       ],
-      "./plugins/withAppIcons"
+      "./plugins/withAppIcons",
+      "expo-system-ui"
     ],
     "android": {
       "blockedPermissions": [

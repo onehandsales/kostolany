@@ -1,8 +1,8 @@
+import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Keyboard,
-  Modal,
   Platform,
   Pressable,
   ScrollView,

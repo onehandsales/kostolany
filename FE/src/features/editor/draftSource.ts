@@ -14,6 +14,7 @@ export type DraftSource = {
   publicStories?: (signal: AbortSignal) => Promise<PublishedStory[]>;
   subscribe: (listener: () => void) => () => void;
   getRevision: () => number;
+  getImageAssetIds?: () => readonly string[];
 };
 export function cloneDocument(document: EditorDocument): EditorDocument {
   return { ...document, blocks: [...document.blocks], marks: document.marks.map(mark => ({ ...mark })),
@@ -49,6 +50,7 @@ export function createMockDraftSource(options: { delayMs?: number; readFailures?
     newId(userId) { const id = `draft-${userId}-${++sequence}`; owners.set(id, userId); return id; },
     subscribe(listener) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     getRevision: () => revision,
+    getImageAssetIds: () => [...records.values(), ...stories.values()].flatMap(record => record.document.images.map(image => image.assetId)),
     async list(userId, signal) {
       await wait(signal); if (signal.aborted) throw new Error('cancelled');
       if (readFailures-- > 0) throw new Error('draft-read-failed');

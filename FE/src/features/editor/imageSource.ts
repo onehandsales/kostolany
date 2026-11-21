@@ -6,6 +6,9 @@ export type ImageAsset = Omit<EditorImage, 'id' | 'offset' | 'source'>;
 export type ImageLease = { asset: ImageAsset; release: () => void };
 export type ImagePermission = 'granted' | 'limited' | 'denied' | 'cancelled';
 export type EditorImageSource = {
+  pick?: (origin: 'camera' | 'library', signal: AbortSignal) => Promise<ImageLease | null>;
+  activate?: () => () => void;
+  retainDocuments?: (assetIds: readonly string[]) => void;
   search: (query: string, signal: AbortSignal) => Promise<ImageAsset[]>;
   requestAccess: (origin: 'camera' | 'library', signal: AbortSignal) => Promise<ImagePermission>;
   prepare: (assetId: string, signal: AbortSignal) => Promise<ImageLease>;

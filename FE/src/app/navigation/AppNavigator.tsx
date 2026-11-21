@@ -19,7 +19,8 @@ import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/Story
 import { createDraftSession } from '../../features/editor/createDraftSession';
 import { createMockDraftSource, type DraftSource } from '../../features/editor/draftSource';
 import { DraftsScreen } from '../../features/editor/DraftsScreen';
-import { createMockEditorImageSource, type EditorImageSource } from '../../features/editor/imageSource';
+import type { EditorImageSource } from '../../features/editor/imageSource';
+import { createDeviceEditorImageSource } from '../../features/editor/createDeviceEditorImageSource';
 import { PublishPreview, type PublishStage } from '../../features/editor/PublishPreview';
 import { WrittenStoriesProvider } from '../../features/editor/WrittenStoriesProvider';
 import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
@@ -234,7 +235,7 @@ function SessionNavigationContent({
   const [defaultDigests] = useState(() => createMockDigestSource());
   const [defaultDrafts] = useState(createMockDraftSource);
   const drafts = draftSource ?? defaultDrafts;
-  const [defaultImages] = useState(createMockEditorImageSource);
+  const [defaultImages] = useState(createDeviceEditorImageSource);
   const images = editorImageSource ?? defaultImages;
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   function currentTab(): keyof MainTabParamList {

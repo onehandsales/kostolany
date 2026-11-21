@@ -1,7 +1,7 @@
+import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import type { ReactNode } from 'react';
 import {
   KeyboardAvoidingView,
-  Modal,
   Platform,
   Pressable,
   ScrollView,

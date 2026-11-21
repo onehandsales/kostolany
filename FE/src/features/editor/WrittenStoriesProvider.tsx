@@ -1,10 +1,20 @@
-import { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
+import { createContext, useContext, useEffect, useState, useSyncExternalStore, type ContextType, type ReactNode } from 'react';
 import type { DraftSource } from './draftSource';
 import type { EditorImageSource } from './imageSource';
 import { validPublishedStory, type PublishedStory } from './publishing';
 
 const Context = createContext<{ source: DraftSource; images: EditorImageSource; sessionRevision: number } | null>(null);
-export const WrittenStoriesProvider = Context.Provider;
+export function WrittenStoriesProvider({ value, children }: { value: NonNullable<ContextType<typeof Context>>; children: ReactNode }) {
+  const { source, images } = value;
+  useEffect(() => {
+    const release = images.activate?.();
+    const sync = () => images.retainDocuments?.(source.getImageAssetIds?.() ?? []);
+    sync();
+    const unsubscribe = source.subscribe(sync);
+    return () => { unsubscribe(); release?.(); };
+  }, [source, images]);
+  return <Context.Provider value={value}>{children}</Context.Provider>;
+}
 export const useWrittenStories = () => useContext(Context);
 const subscribeNothing = () => () => {};
 const zero = () => 0;

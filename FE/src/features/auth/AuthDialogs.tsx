@@ -1,7 +1,7 @@
+import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
-  Modal,
   Pressable,
   ScrollView,
   StyleSheet,

@@ -1,5 +1,6 @@
+import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { FlatList, Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';

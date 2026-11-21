@@ -124,3 +124,7 @@ F54/55/58/60의 대응표와 관련 분석을 대조했다. 이번 직접 시각
 6. B→A→B로 연결/멤버십이 분리 보존되는지 확인하고 전체 새로고침의 mock 초기화를 확인한다. 실패/지연은 외부 faults.cjs와 회귀 테스트로 재현한다.
 
 권장 로컬 커밋 메시지: `feat(fe): connect remaining settings and native app icon adapters for goal 49`.
+
+## Goal52 후속 수정 — 2026-11-21
+
+System 테마의 고정 Light 구성과 Android expo-system-ui 누락을 수정했다. SDK57 호환57.0.4 및 automatic 설정을 격리 native 프로젝트 생성물에서 확인했다. 아이콘의 실제 OS 적용·빌드·실행은 여전히 대기다. 현재 코드의 두 차례 검토·실행 결과와 환경 한계는 [Goal52 결과](FE_GOAL_52_RESULT.md)를 따른다. 과거 실행 결과는 당시 코드의 증거로 유지한다.

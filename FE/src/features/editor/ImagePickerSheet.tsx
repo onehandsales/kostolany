@@ -1,10 +1,12 @@
+import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
 import type { EditorImageSource, ImageAsset, ImageOrigin, ImagePermission } from './imageSource';
+import { useDeviceImageSelection } from './useDeviceImageSelection';
 
 type Result = { source: EditorImageSource; origin: ImageOrigin; query: string; attempt: number } & (
   { status: 'ready'; assets: ImageAsset[]; permission: ImagePermission } | { status: 'error' });
@@ -15,9 +17,20 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
   const [origin, setOrigin] = useState<ImageOrigin | null>(null);
   const [query, setQuery] = useState(''); const [attempt, setAttempt] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
+  const device = useDeviceImageSelection(source, onSelect, () => setOrigin(null));
+  const [previousSource, setPreviousSource] = useState(source);
+  if (previousSource !== source) {
+    setPreviousSource(source);
+    if (origin !== 'unsplash') setOrigin(null);
+  }
+  const isDevice = Boolean(source.pick && origin && origin !== 'unsplash');
+  function choose(origin: ImageOrigin) {
+    device.cancel(); setOrigin(origin);
+    if (source.pick && origin !== 'unsplash') device.start(origin);
+  }
   const current = result?.source === source && result.origin === origin && result.query === query && result.attempt === attempt ? result : null;
   useEffect(() => {
-    if (!origin) return;
+    if (!origin || isDevice) return;
     const abort = new AbortController();
     const timer = setTimeout(() => {
       void (async () => {
@@ -29,27 +42,31 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
       })();
     }, query ? 180 : 0);
     return () => { clearTimeout(timer); abort.abort(); };
-  }, [source, origin, query, attempt]);
+  }, [source, origin, query, attempt, isDevice]);
   const action = (label: string, text: string, onPress: () => void) => <Pressable role="button" accessibilityLabel={label} onPress={onPress} style={styles.action}><Text style={styles.blue}>{text}</Text></Pressable>;
   return <Modal transparent animationType="none" onRequestClose={onClose}>
     <SafeAreaView style={styles.backdrop} accessibilityViewIsModal>
       {!origin ? <View role="dialog" accessibilityLabel="이미지 추가" style={styles.menu}>
         <View style={styles.menuGroup}>
-          {action('사진 촬영 선택', 'Take photo', () => setOrigin('camera'))}
-          {action('사진 라이브러리 선택', 'Choose from library', () => setOrigin('library'))}
-          {action('Unsplash 사진 검색', 'Search photos on Unsplash', () => setOrigin('unsplash'))}
+          {action('사진 촬영 선택', 'Take photo', () => choose('camera'))}
+          {action('사진 라이브러리 선택', 'Choose from library', () => choose('library'))}
+          {action('Unsplash 사진 검색', 'Search photos on Unsplash', () => choose('unsplash'))}
         </View>
         <View style={styles.menuGroup}>{action('이미지 선택 취소', 'Cancel', onClose)}</View>
       </View> : <View role="dialog" accessibilityLabel="사진 선택" style={styles.sheet}>
         <View style={styles.header}>
           {action('이미지 선택 취소', 'Cancel', onClose)}
           <Text role="heading" style={styles.title}>{origin === 'unsplash' ? 'Unsplash' : origin === 'camera' ? 'Camera' : 'Library'}</Text>
-          {action('이미지 소스 변경', 'Back', () => { setOrigin(null); setQuery(''); })}
+          {action('이미지 소스 변경', 'Back', () => { device.cancel(); setOrigin(null); setQuery(''); })}
         </View>
-        <Text style={styles.note}>로컬 예시 이미지{origin !== 'unsplash' ? ' · 모의 선택기' : ''}</Text>
+        {!isDevice && <Text style={styles.note}>로컬 예시 이미지{origin !== 'unsplash' ? ' · 모의 선택기' : ''}</Text>}
         {origin === 'unsplash' && <FormTextInput accessibilityLabel="사진 검색" value={query} onChangeText={setQuery}
           placeholder="Search photos" style={styles.search} autoCapitalize="none" returnKeyType="search" />}
-        {!current && <ActivityIndicator accessibilityLabel="사진 불러오는 중" style={styles.space} />}
+        {isDevice ? device.error ? <View style={styles.space}>
+          <Text role="alert" style={styles.text}>{device.error}</Text>
+          {action('사진 다시 시도', 'Try again', () => { if (origin) choose(origin); })}
+        </View> : <ActivityIndicator accessibilityLabel="사진 불러오는 중" style={styles.space} />
+          : !current && <ActivityIndicator accessibilityLabel="사진 불러오는 중" style={styles.space} />}
         {current?.status === 'error' && <View style={styles.space}><Text role="alert" style={styles.text}>사진을 불러오지 못했어요.</Text>{action('사진 다시 시도', 'Try again', () => setAttempt(value => value + 1))}</View>}
         {current?.status === 'ready' && <>
           {current.permission === 'limited' && <Text style={styles.note}>선택한 사진만 접근할 수 있어요.</Text>}

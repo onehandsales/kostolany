@@ -1,5 +1,6 @@
+import { AccessibleModal as Modal } from './AccessibleModal';
 import { useEffect } from 'react';
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useThemeStyles } from '../theme/ThemeProvider';
 import { sizes, spacing, typography, type ThemeColors } from '../theme/tokens';

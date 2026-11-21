@@ -1,6 +1,6 @@
 # Medium 후속 전체 범위·원본 대응표
 
-**현재 진행 — Goal51 공유 조회 수명·계정 격리·발행 복귀 결함 수정, 두 차례 자체 검토·현재 자동 검사 통과.** A의 늦은 조회/실패는 새 세션에 노출하지 않고 제출한 저장 성공은 원래 계정에 보존한다. 8081 정상5묶음/실패4묶음 error0·원본4쌍의 차이와 한계는 [Goal51 결과](FE_GOAL_51_RESULT.md)를 따른다. Goal50은 `22b6674`에 로컬 커밋했다. 이번 단계 검증·커밋 후 Goal52~53을 이어간다.
+**현재 진행 — Goal52 플랫폼/접근성 결함 수정·두 차례 자체 검토, 최종 타입/lint·전체262suites/1426tests 통과.** 편집 Camera/Library 실제 OS/web 어댑터·문서 이미지 수명·웹 모달 배경 격리/포커스·감소 동작·System 테마를 보완했다. [Goal52 결과](FE_GOAL_52_RESULT.md)에 실제 웹/자동 검사와 iOS·Android 실행 대기, F60 원본2쌍의 차이를 구분한다. Goal51은 `44c81e8`에 로컬 커밋했다. 이번 단계 검증·커밋 후 Goal53만 이어간다.
 
 **현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44·45·46·47·48은 `00b2527`·`ee1c299`·`a148542`·`10844cb`·`c1f8961`에 기록했고 이후 단계도 각각 검토·로컬 커밋한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
 
@@ -10,7 +10,7 @@
 
 **Goal43 당시 승인 — 현재 적용 없음:** Goal43만 구현·두 차례 자체 검토·수정·검증·문서 갱신 후 종료한다. 시작 HEAD는 `036ef6e`이고 Goal42 변경45개 경로가 이미 미커밋 상태였다. 기존 변경·ENV·medium 원본과8081 PID43927을 보존했다. **커밋·push·배포 금지, Goal44 미착수.** 커밋은 사용자가 결과 확인 후 직접 한다. 과거 연속 진행/커밋 승인은 적용하지 않는다.
 
-Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했다. **Goal37 작성 편집기의 Camera/Library는 여전히 mock 선택**이다. 프로필 OS 호출의 구현과 iOS/Android 기기 성공 검증을 구분한다.
+Goal52에서 Goal42 프로필의 사진 선택 처리를 공유 어댑터로 추출하고 **Goal37 편집 Camera/Library의 실제 OS/web 호출을 연결했다.** 웹 파일 선택·취소·실패·초안/발행 사진은 검증했으나 iOS/Android 촬영·앨범·권한의 실제 기기 실행은 여전히 대기다. [현재 결과](FE_GOAL_52_RESULT.md).
 
 **Goal41 당시 상태 — 과거 실행 기록:** **구현 완료·검증 잔여**. 신규/기존 mock 분기·관심사 최소3·추천 Follow·모의 알림·안내/중단/재개를 기존 인증/관계/navigation에 연결하고 두 차례 자체 검토했다. 최종 타입/lint·전체194suites/1114tests를 통과했다. 8081 정상/실패/계정 전환·원본6쌍·3플랫폼 export를 확인했다. [Goal41 결과](FE_GOAL_41_RESULT.md)에 원본 차이/native·OS 검증 잔여와 자체 정책을 기록했다. 당시 Goal42는 미착수였다. Goal40은 `03b766a`로 커밋됐다. 실제 OS 알림·외부 연동은 없다. Goal37 실제 OS picker는 기존 구현 잔여이며 Goal42에서 필요한 범위를 다시 확인한다.
 
@@ -110,7 +110,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | C38 | Digest | 날짜 선택/Done·해당 이야기·last 10 digests | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | F43; 발행10개·초안 취소/확정·삭제 날짜·빈 값·실패/늦은 응답 구현. [원본3쌍·잔여](FE_GOAL_34_RESULT.md). 10개와10일을 구분한다. |
 | C39 | Digest | Daily 빈도·Push chevron·Email 외부 링크·설정 복귀 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | F44; Frequency·Push·Email 선택/저장/복귀와 공유 선호 연결. Email 목적지와 빈도 옵션은 자체 mock 보완, 실제 외부 설정/발송 미연결. [결과44](FE_GOAL_44_RESULT.md). |
 | C40 | 편집기 | 제목/본문·서식 툴바·헤더/강조/링크/인용/목록/구분선/코드 | [36](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-36) | F08,F09; [구현 완료·검증 잔여](FE_GOAL_36_RESULT.md). 실제 입력/선택·링크 오류/이탈/계정/5쌍 비교를 확인했다. 코드 실행 후 원본과 native 문단 장식/IME는 잔여다. |
-| C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 이미지 문서/출력·검색/삽입/삭제·오류/계정 수명의 local/mock 구현, [Goal37 결과](FE_GOAL_37_RESULT.md). 실제 Camera/Library OS picker는 구현 잔여이며 업로드/외부 검색은 범위 밖이다. |
+| C41 | 편집기 | 이미지 메뉴·Camera/Library·Unsplash 검색/로딩/선택·삭제 X | [37](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-37) | F08; 이미지 문서/출력·검색/삽입/삭제·오류/계정 수명의 local/mock 구현, [Goal37 결과](FE_GOAL_37_RESULT.md). Goal52에서 실제 OS/web picker와 확정 문서 이미지 수명을 연결했다. 웹 파일 검증과 실제 native 실행 대기는 [후속 결과](FE_GOAL_52_RESULT.md)를 따른다. 업로드/외부 검색은 범위 밖이다. |
 | C42 | 편집기 | Drafts 메뉴·초안 목록/재개·자동 저장/실패 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F10 및 공식 도움말; 자동 저장/실패/재개와 계정 경계를 구현했다. [Goal38 구현 완료·검증 잔여](FE_GOAL_38_RESULT.md). 자동 저장 주기/오류/빈 상태는 자체 보완이다. |
 | C43 | 편집기 | @ 검색·핸들/아바타·동명이인·선택/삭제·멘션 대상 | [38](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-38) | F11; 이름/핸들 검색·동명이인 ID·편집/재개 후 대상 보존을 구현했다. [Goal38 구현 완료·검증 잔여](FE_GOAL_38_RESULT.md). 미수록 후보 아바타는 글자 대체이며 실제 알림은 없다. |
 | C44 | 발행 | 토픽 검색·최대 5개·chip 제거·검색 X·완료 | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39) | F07; 검색/5개 제한/선택 초안·취소·Save와 검색 X/chip 제거를 구현했다. [Goal39 구현 완료·검증 잔여](FE_GOAL_39_RESULT.md). |
@@ -208,7 +208,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | <a id="f57"></a>F57 | [Profile/Editing profile information](<../medium/flows/Profile/Editing profile information/ANALYSIS.md>) | 8 | [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | [28](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-28), [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | Name 50·bio 160 경계·빈 이름·Cancel·사진 권한/실패·웹 About 편집. |
 | <a id="f58"></a>F58 | [Profile/Settings](<../medium/flows/Profile/Settings/ANALYSIS.md>) | 3 | [49](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-49) | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24), [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40), [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44), [48](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-48) | Account·Membership and payment·Email·Facebook·More app controls의 실제 하위 화면. |
 | <a id="f59"></a>F59 | [Profile/Settings/Changing notification settings](<../medium/flows/Profile/Settings/Changing notification settings/ANALYSIS.md>) | 3 | [44](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-44) | [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34), [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41) | Tailored 옵션·화면 아래 잘린 행·OS 권한·전송 결과·저장 실패·재진입. |
-| <a id="f60"></a>F60 | [Profile/Settings/Custom app icon](<../medium/flows/Profile/Settings/Custom app icon/ANALYSIS.md>) | 2 | [49](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-49) | [48](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-48), [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | [Goal49](FE_GOAL_49_RESULT.md): 잠금/선택/적용/실패 UI·OS 어댑터 구현, 원본 자산/잘린 카드·실제 native 검증 잔여. |
+| <a id="f60"></a>F60 | [Profile/Settings/Custom app icon](<../medium/flows/Profile/Settings/Custom app icon/ANALYSIS.md>) | 2 | [49](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-49) | [48](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-48), [52](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-52) | [Goal49](FE_GOAL_49_RESULT.md): 잠금/선택/적용/실패 UI·OS 어댑터 구현. [Goal52](FE_GOAL_52_RESULT.md)에서 현재 원본2쌍·48논리단위·System UI 생성 구성을 재검증했다. 원본 자산/잘린 카드·실제 native 검증 잔여. |
 | <a id="f61"></a>F61 | [Profile/Settings/Logging out](<../medium/flows/Profile/Settings/Logging out/ANALYSIS.md>) | 3 | [40](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-40) | [41](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-41), [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | Cancel·실패·캐시 정리·보호 화면 뒤로 이동·다른 기기 세션 영향. |
 | <a id="f62"></a>F62 | [Profile/Settings/Switching to dark mode](<../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>) | 8 | [24](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-24) | [25](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-25), [34](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-34) | Light 복귀·System 연동·재시작·다른 기기·OS 접근성·기사 설정과 동기화. |
 | <a id="f63"></a>F63 | [Profile/Story stats](<../medium/flows/Profile/Story stats/ANALYSIS.md>) | 4 | [43](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-43) | [39](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-39), [42](FE_MEDIUM_FULL_CLONE_GOALS.md#goal-42) | 수록4장 비교·구현/자동/8081 검증. 다른 월·Latest 펼친 메뉴·더보기·0건/오류 UI·원본 글 행 목적지는 미수록, 앱 보완은 [결과](FE_GOAL_43_RESULT.md). native/글꼴·집계 불일치 원인은 잔여. |

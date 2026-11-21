@@ -45,3 +45,32 @@ it('공급부 교체와 화면 이탈은 이전 검색의 성공과 실패를 �
   expect(screen.queryByRole('button', { name: '이전 공급부 삽입' })).toBeNull(); expect(button('해질녘 풍경 삽입')).toBeVisible();
   await view.unmount();
 });
+
+it('실제 선택 adapter의 동기 실패는 재시도할 수 있고 성공 선택은 부모에 넘긴 뒤 이탈 시 해제한다', async () => {
+  const released = jest.fn(); const selected = jest.fn();
+  const pick = jest.fn<Promise<import('./imageSource').ImageLease | null>, ['camera' | 'library', AbortSignal]>()
+    .mockImplementationOnce(() => { throw new Error('sync picker failure'); })
+    .mockResolvedValueOnce({ asset, release: released });
+  const source = { ...createMockEditorImageSource({ delayMs: 0 }), pick };
+  const view = await render(<ImagePickerSheet source={source} onClose={jest.fn()} onSelect={selected} />);
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await user.press(button('사진 라이브러리 선택'));
+  await user.press(await screen.findByRole('button', { name: '사진 다시 시도' }));
+  expect(selected).toHaveBeenCalledWith(asset, 'library');
+  expect(released).not.toHaveBeenCalled();
+  await view.unmount(); expect(released).toHaveBeenCalledTimes(1);
+});
+
+it('선택 중 source 교체 뒤 늦은 사진을 해제하고 자동으로 새 OS 선택기를 열지 않는다', async () => {
+  let finish!: (lease: import('./imageSource').ImageLease) => void;
+  const released = jest.fn(); const selected = jest.fn();
+  const source = { ...createMockEditorImageSource(), pick: jest.fn(() => new Promise<import('./imageSource').ImageLease>(resolve => { finish = resolve; })) };
+  const next = { ...createMockEditorImageSource(), pick: jest.fn(async () => null) };
+  const view = await render(<ImagePickerSheet source={source} onClose={jest.fn()} onSelect={selected} />);
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await user.press(button('사진 촬영 선택'));
+  await view.rerender(<ImagePickerSheet source={next} onClose={jest.fn()} onSelect={selected} />);
+  await act(async () => finish({ asset, release: released }));
+  expect(released).toHaveBeenCalledTimes(1); expect(selected).not.toHaveBeenCalled(); expect(next.pick).not.toHaveBeenCalled();
+  expect(button('사진 촬영 선택')).toBeVisible();
+});

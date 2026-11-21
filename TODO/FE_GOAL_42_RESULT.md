@@ -183,3 +183,7 @@ OS 사진 선택기/권한 화면은 시스템 UI다. Medium 자체 화면의 �
 ## 마무리
 
 최종 diff·새 파일·문서 링크/현재 승인·Git 상태를 검토했다. HEAD는 `036ef6e3f8ab15af0fa6ae14487b7a2bfe8c2aaf` 그대로이며 staged 변경은 없다. 시작 clean에서 이번 코드/테스트/문서만 변경했다. ENV·medium 원본·기존 evidence를 수정하지 않았고 저장소 내부 임시 스크립트/로그/캡처는 추가하지 않았다.8081을 유지하고 mock 장애 기본값은normal이다. 커밋·push·배포를 하지 않았으며 Goal43을 시작하지 않는다. 권장 커밋 메시지: `feat(fe): implement Goal 42 profile editing and stories flows`.
+
+## Goal52 후속 수정 — 2026-11-21
+
+프로필 사진 선택을 shared/media로 추출하고 프로필768변/부모 Save·Cancel·계정별 확정 사진 계약을 유지했다. 편집기는1600변 정책을 별도로 사용한다. Goal42의 당시 검사 결과를 덮어쓰지 않으며 실제 native 사진 실행은 여전히 대기다. 현재 코드의 두 차례 검토·실행 결과와 환경 한계는 [Goal52 결과](FE_GOAL_52_RESULT.md)를 따른다. 과거 실행 결과는 당시 코드의 증거로 유지한다.

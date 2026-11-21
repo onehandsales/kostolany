@@ -72,6 +72,7 @@ it.each(['홈', '탐색', '라이브러리'])('설정 저장→%s 기사 진입�
   await user.press(article()); await screen.findByText(fixture.example);
   expect(screen.getByRole('radio', { name: '중학생' })).toBeChecked(); expect(write).toHaveBeenCalledTimes(1);
 }, 15000);
+// 여러 실제 navigation·입력·계정 복귀를 연속 검증하므로 같은 파일의 긴 통합 흐름과 동일한 유한 한도를 둔다.
 it('설정 로그아웃 취소·실패는 화면을 지키고 재시도는 비로그인 화면으로 복귀한다', async () => {
   const { user } = await setup(); await settings(user); await screen.findByText('현재 기본값 · 성인');
   await user.press(button('로그아웃')); await user.press(button('로그아웃 취소')); expect(button('기본 설명 수준 변경')).toBeVisible();
@@ -81,7 +82,7 @@ it('설정 로그아웃 취소·실패는 화면을 지키고 재시도는 비�
   await user.press(button('로그아웃 다시 시도')); await screen.findByRole('button', { name: 'Sign in' });
   await user.press(button('로그인 닫기')); expect(screen.getByText('로그인하지 않은 상태예요.')).toBeVisible();
   expect(screen.queryByRole('button', { name: '프로필로 돌아가기', includeHiddenElements: true })).not.toBeOnTheScreen();
-});
+}, 15000);
 it.each(['success', 'failure'] as const)('A 저장과 미제출 선택 중 B 전환 뒤 늦은 %s는 B 초안·인증을 건드리지 않는다', async (outcome) => {
   const pending = deferred<ReadingSettings>(); const base = createMockReadingSettingsSource({ delayMs: 0 });
   const source: ReadingSettingsSource = { ...base, setDefaultLevel: () => pending.promise };
@@ -99,7 +100,7 @@ it.each(['success', 'failure'] as const)('A 저장과 미제출 선택 중 B 전
   await user.press(button('설정 열기'));
   expect(await screen.findByText(`현재 기본값 · ${outcome === 'success' ? '중학생' : '성인'}`)).toBeVisible();
   expect(screen.queryByLabelText('기본 설명 수준 편집')).not.toBeOnTheScreen();
-});
+}, 15000);
 it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 %s를 버리고 A 복귀는 새 조회로 복구한다', async (outcome) => {
   const pending = deferred<ReadingSettings>(); const base = createMockReadingSettingsSource({ delayMs: 0 });
   const source: ReadingSettingsSource = { ...base,
