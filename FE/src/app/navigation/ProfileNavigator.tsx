@@ -15,7 +15,7 @@ import { createMockStoryStatsSource } from '../../features/story-stats/createMoc
 import { StoryStatsScreen } from '../../features/story-stats/StoryStatsScreen';
 import type { StoryStatsSource } from '../../features/story-stats/types';
 
-type ProfileStackParamList = {
+export type ProfileStackParamList = {
   ProfileHome: undefined;
   Settings: undefined;
   SettingsDetail: { page: SettingsDetail };

@@ -11,6 +11,7 @@ export function createReadingHistoryStore(source: ReadingHistorySource, userId: 
   };
   let loaded = false;
   let reading = false;
+  let readGeneration = 0;
   let saving = false;
   let intent = 0;
   let commandId = 0;
@@ -83,9 +84,11 @@ export function createReadingHistoryStore(source: ReadingHistorySource, userId: 
   async function reload(): Promise<void> {
     if (reading || loaded) return;
     reading = true;
+    const generation = ++readGeneration;
     publish({ status: 'loading', error: null, errorScope: null });
     try {
       const value = await source.read(userId);
+      if (generation !== readGeneration) return;
       validate(value);
       // 조회 전 삭제 의도와 삭제 뒤의 새 방문을 순서대로 병합하여 오래된 조회의 부활을 막는다.
       const visits = new Map(
@@ -105,6 +108,7 @@ export function createReadingHistoryStore(source: ReadingHistorySource, userId: 
       });
       void drain();
     } catch {
+      if (generation !== readGeneration) return;
       reading = false;
       publish({ status: 'error', error: 'read' });
     }
@@ -120,13 +124,16 @@ export function createReadingHistoryStore(source: ReadingHistorySource, userId: 
   }
   return {
     userId,
+    getActiveScope: () => activeScope,
     activate(nextScope: string): void {
       activeScope = nextScope;
-      if (state.error === 'read') void reload();
+      if (!loaded) void reload();
     },
     deactivate(previousScope: string): void {
       if (activeScope !== previousScope) return;
       activeScope = null;
+      readGeneration += 1; reading = false;
+      if (!loaded) publish({ status: 'loading', error: null, errorScope: null });
       if (state.error === 'write') {
         intent += 1;
         dirty = false;

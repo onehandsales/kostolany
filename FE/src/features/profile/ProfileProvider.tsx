@@ -6,6 +6,7 @@ import { profilePreviewScenario } from './data/profilePreview';
 import type { Profile, ProfileSnapshot, ProfileSource } from './types';
 import { createProfilePhotoResources, type ProfilePhotoPicker } from './profilePhoto';
 import { pickProfilePhoto } from './profilePhotoPicker';
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
 const ProfileContext = createContext<ProfileStore | null>(null);
 const KnownProfilesContext = createContext<ReadonlyMap<string, ProfileStore>>(new Map());
@@ -44,10 +45,11 @@ export function ProfileProvider({ children, userId, sessionRevision, source, pho
     scope.stores.set(userId, store);
   }
   // 인증 이름으로 프로필을 덮지 않으며 세션 키는 개인 편집 화면만 정리한다.
-  return <ProfileScopeContext.Provider value={JSON.stringify([scope.version, userId, sessionRevision])}>
+  const sessionScope = JSON.stringify([scope.version, userId, sessionRevision]);
+  return <ProfileScopeContext.Provider value={sessionScope}>
     <KnownProfilesContext.Provider value={scope.stores}>
       <ProfilePhotoContext.Provider value={{ resources: scope.photos, picker: photoPicker }}>
-        <ProfileContext.Provider value={store}>{children}</ProfileContext.Provider>
+        <ProfileContext.Provider value={store}><ReadScopeBoundary store={store} scope={sessionScope} />{children}</ProfileContext.Provider>
       </ProfilePhotoContext.Provider>
     </KnownProfilesContext.Provider>
   </ProfileScopeContext.Provider>;
@@ -55,8 +57,11 @@ export function ProfileProvider({ children, userId, sessionRevision, source, pho
 
 export function useProfile(): { state: ProfileSnapshot; store: ProfileStore | null } {
   const store = useContext(ProfileContext);
-  const state = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
-  useEffect(() => { store?.ensureLoaded(); }, [store]);
+  const scope = useProfileScopeKey();
+  const raw = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
+  const state = store && store.getReadScope() !== scope
+    ? { ...raw, readStatus: raw.profile ? 'ready' as const : 'idle' as const, hasSaveError: false } : raw;
+  useEffect(() => { store?.ensureLoaded(); }, [store, scope]);
   return { state, store };
 }
 

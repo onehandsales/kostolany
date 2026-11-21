@@ -8,6 +8,7 @@ import {
 export function createRecommendationStore(source: RecommendationSource, userId: string) {
   let state: RecommendationSnapshot = { status: 'loading', value: null, readError: false, pending: [] };
   let started = false;
+  let readScope = '';
   let reading = false;
   let generation = 0;
   let queue = Promise.resolve();
@@ -32,7 +33,7 @@ export function createRecommendationStore(source: RecommendationSource, userId: 
     } catch {
       if (request === generation) publish({ status: state.value ? 'ready' : 'error', readError: true });
     } finally {
-      reading = false;
+      if (request === generation) reading = false;
     }
   }
   function execute(command: RecommendationCommand, signal?: AbortSignal): Promise<boolean> {
@@ -58,6 +59,7 @@ export function createRecommendationStore(source: RecommendationSource, userId: 
         )
           throw new Error('Invalid acknowledgement');
         generation += 1;
+        reading = false;
         publish({ value, status: 'ready', readError: false });
         return true;
       } catch {
@@ -76,6 +78,13 @@ export function createRecommendationStore(source: RecommendationSource, userId: 
     reload,
     execute,
     getSnapshot: () => state,
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      started = started && Boolean(state.value) && !reading && !state.readError;
+      readScope = scope; generation += 1; reading = false;
+      publish({ readError: false, status: state.value ? 'ready' : 'loading' });
+    },
     ensure: () => {
       if (!started) void reload();
     },

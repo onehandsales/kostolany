@@ -31,9 +31,11 @@ const noop = () => () => {};
 export function useModeration() {
   const context = useContext(ModerationContext);
   const snapshot = () => context.store?.getSnapshot() ?? null;
-  const state = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
+  const raw = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
+  const state = raw && context.store?.getReadScope() !== context.scope
+    ? { ...raw, readError: false, status: raw.value ? 'ready' as const : 'loading' as const } : raw;
   useEffect(() => {
     context.store?.ensure();
-  }, [context.store]);
+  }, [context.store, context.scope]);
   return { ...context, state };
 }

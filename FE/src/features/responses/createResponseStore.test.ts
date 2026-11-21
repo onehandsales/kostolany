@@ -16,6 +16,22 @@ const tick = async () => {
   for (let i = 0; i < 8; i++) await Promise.resolve();
 };
 
+it('인증 범위 교체 후 새 응답 목록을 이전 조회 실패가 덮거나 읽기 잠금을 풀지 않는다', async () => {
+  const base = createMockResponseSource({ delayMs: 0 });
+  const value = await base.read({ userId: 'A', target });
+  const old = deferred<ResponseValue>(); const current = deferred<ResponseValue>();
+  const read = jest.fn<ReturnType<ResponseSource['read']>, Parameters<ResponseSource['read']>>()
+    .mockReturnValueOnce(old.promise).mockReturnValueOnce(current.promise);
+  const store = createResponseStore({ ...base, read }, 'A');
+  store.setReadScope('A:1'); store.ensure(target);
+  store.setReadScope(''); store.setReadScope('A:3'); store.ensure(target);
+  old.reject(new Error('old failure')); await tick(); store.ensure(target);
+  expect(read).toHaveBeenCalledTimes(2);
+  expect(store.getSnapshot(target)).toMatchObject({ readError: false, isRefreshing: true });
+  current.resolve(value); await tick();
+  expect(store.getSnapshot(target)).toMatchObject({ value, readError: false, isRefreshing: false });
+});
+
 it('작성·답글·수정·삭제는 중복 생성 없이 적용하고 타인의 답글과 다른 계정을 보존한다', async () => {
   const source = createMockResponseSource({ delayMs: 0 });
   const a = createResponseStore(source, 'A');

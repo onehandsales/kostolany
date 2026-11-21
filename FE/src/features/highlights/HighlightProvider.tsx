@@ -4,6 +4,7 @@ import { createHighlightStore, type HighlightStore } from './createHighlightStor
 import { createMockHighlightSource } from './data/createMockHighlightSource';
 import { highlightPreviewScenario } from './data/highlightPreview';
 import type { HighlightSource } from './types';
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
 const Context = createContext<{ store: HighlightStore | null; scope: string }>({ store: null, scope: 'unavailable' });
 export function HighlightProvider({ children, userId, revision, source }: { children: ReactNode; userId: string | null; revision: number; source?: HighlightSource }) {
@@ -13,13 +14,16 @@ export function HighlightProvider({ children, userId, revision, source }: { chil
   if (cache.source !== current) { setCache({ source: current, generation: cache.generation + 1, stores: new Map() }); return null; }
   let store = userId ? cache.stores.get(userId) ?? null : null;
   if (userId && !store) { store = createHighlightStore(current, userId); cache.stores.set(userId, store); }
-  return <Context.Provider value={{ store, scope: JSON.stringify([cache.generation, userId, revision]) }}>{children}</Context.Provider>;
+  const scope = JSON.stringify([cache.generation, userId, revision]);
+  return <Context.Provider value={{ store, scope }}><ReadScopeBoundary store={store} scope={scope} />{children}</Context.Provider>;
 }
 const noop = () => () => {};
 export function useHighlights() {
   const context = useContext(Context);
   const snapshot = () => context.store?.getSnapshot() ?? null;
-  const state = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
-  useEffect(() => { context.store?.ensure(); }, [context.store]);
+  const raw = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
+  const state = raw && context.store?.getReadScope() !== context.scope
+    ? { ...raw, readError: false, status: raw.value ? 'ready' as const : 'loading' as const } : raw;
+  useEffect(() => { context.store?.ensure(); }, [context.store, context.scope]);
   return { ...context, state };
 }

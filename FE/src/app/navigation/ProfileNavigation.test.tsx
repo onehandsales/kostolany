@@ -82,7 +82,7 @@ it('이름 저장은 인증 ID·revision·좋아요·북마크·목록을 보존
   expect(screen.getByText('모의 계정: 예시 독자 A')).toBeVisible();
 }, 15000);
 
-it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 A %s 응답은 B 이름·인증을 바꾸지 않고 A 재진입에서 복구한다', async (outcome) => {
+it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 A %s를 버리고 재진입에서 새 프로필을 조회한다', async (outcome) => {
   const pending = deferred<Profile>();
   const base = createMockProfileSource({ delayMs: 0 });
   const source: ProfileSource = { ...base, readProfile: jest.fn().mockImplementationOnce(() => pending.promise)
@@ -93,13 +93,14 @@ it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 A %s 
   await switchUser(auth, mockUserB.id);
   await screen.findByText('예시 독자 B · 로그인됨');
   const revision = auth.getSnapshot().revision;
-  await act(async () => { if (outcome === 'success') pending.resolve(initial); else pending.reject(new Error('late A')); });
+  await act(async () => { if (outcome === 'success') pending.resolve({ ...initial, name: '이전 조회 이름' }); else pending.reject(new Error('late A')); });
   expect(screen.getByText('예시 독자 B · 로그인됨')).toBeVisible();
   expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
   expect(auth.getSnapshot()).toMatchObject({ user: { id: mockUserB.id }, revision });
   await switchUser(auth, mockUserA.id);
-  if (outcome === 'failure') await user.press(button('프로필 조회 다시 시도'));
+  expect(screen.queryByRole('button', { name: '프로필 조회 다시 시도' })).not.toBeOnTheScreen();
   expect(await screen.findByText('예시 독자 A · 로그인됨')).toBeVisible();
+  expect(source.readProfile).toHaveBeenNthCalledWith(3, mockUserA.id);
 });
 
 it.each(['success', 'failure'] as const)('A 저장·미제출 초안 중 B 전환 뒤 늦은 A %s는 B 편집과 인증을 건드리지 않는다', async (outcome) => {

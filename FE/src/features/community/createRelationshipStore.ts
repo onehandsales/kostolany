@@ -26,6 +26,7 @@ export function createRelationshipStore(source: RelationshipSource, userId: stri
   let sequence = 0;
   let generation = 0;
   let started = false;
+  let readScope = '';
   let reading = false;
   const scope = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
   function publish(readError = state.readError) {
@@ -68,7 +69,7 @@ export function createRelationshipStore(source: RelationshipSource, userId: stri
     } catch {
       if (request === generation) publish(true);
     } finally {
-      reading = false;
+      if (request === generation) reading = false;
     }
   }
   function submit(
@@ -97,6 +98,7 @@ export function createRelationshipStore(source: RelationshipSource, userId: stri
           throw new Error('Invalid relationship mutation');
         confirmed = returned;
         generation += 1;
+        reading = false;
         if (desired.get(key)?.intent === intent) desired.delete(key);
         publish(false);
         return true;
@@ -115,6 +117,13 @@ export function createRelationshipStore(source: RelationshipSource, userId: stri
   return {
     userId,
     getSnapshot: () => state,
+    getReadScope: () => readScope,
+    setReadScope(next: string) {
+      if (readScope === next) return;
+      started = started && Boolean(confirmed) && !reading && !state.readError;
+      readScope = next; generation += 1; reading = false;
+      publish(false);
+    },
     subscribe: (listener: () => void) => {
       listeners.add(listener);
       return () => {

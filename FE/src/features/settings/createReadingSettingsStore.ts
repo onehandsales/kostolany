@@ -2,7 +2,7 @@ import { isExplanationLevel, type ExplanationLevel } from '../article/explanatio
 import type { ReadingSettings, ReadingSettingsSnapshot, ReadingSettingsSource, SettingsSaveResult } from './types';
 
 type SettingsCommand = {
-  id: number; level: ExplanationLevel; promise: Promise<SettingsSaveResult>;
+  id: number; scope: string; level: ExplanationLevel; promise: Promise<SettingsSaveResult>;
   resolve: (result: SettingsSaveResult) => void;
 };
 
@@ -10,6 +10,7 @@ export function createReadingSettingsStore(source: ReadingSettingsSource, userId
   let snapshot: ReadingSettingsSnapshot = { settings: null, readStatus: 'idle', isSaving: false, hasSaveError: false };
   const listeners = new Set<() => void>();
   let readGeneration = 0;
+  let readScope = '';
   let commandId = 0;
   let activeCommand: SettingsCommand | null = null;
   let queuedCommand: SettingsCommand | null = null;
@@ -49,7 +50,7 @@ export function createReadingSettingsStore(source: ReadingSettingsSource, userId
     activeCommand = null;
     command.resolve({ status: next ? 'superseded' : succeeded ? 'saved' : 'failed' });
     if (next) { void runCommand(next); return; }
-    publish({ isSaving: false, hasSaveError: !succeeded });
+    publish({ isSaving: false, hasSaveError: !succeeded && command.scope === readScope });
   }
   function save(level: ExplanationLevel): Promise<SettingsSaveResult> {
     if (!snapshot.settings || !isExplanationLevel(level)) return Promise.resolve({ status: 'failed' });
@@ -63,7 +64,7 @@ export function createReadingSettingsStore(source: ReadingSettingsSource, userId
     readGeneration += 1;
     let resolveCommand: SettingsCommand['resolve'] = () => undefined;
     const promise = new Promise<SettingsSaveResult>((resolve) => { resolveCommand = resolve; });
-    const command = { id: ++commandId, level, promise, resolve: resolveCommand };
+    const command = { id: ++commandId, scope: readScope, level, promise, resolve: resolveCommand };
     publish({ isSaving: true, hasSaveError: false, readStatus: 'ready' });
     if (activeCommand) {
       queuedCommand?.resolve({ status: 'superseded' });
@@ -73,6 +74,12 @@ export function createReadingSettingsStore(source: ReadingSettingsSource, userId
   }
   return {
     getSnapshot: (): ReadingSettingsSnapshot => snapshot,
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      readScope = scope; readGeneration += 1;
+      publish({ readStatus: snapshot.settings ? 'ready' : 'idle', hasSaveError: false });
+    },
     subscribe(listener: () => void): () => void {
       listeners.add(listener); return () => { listeners.delete(listener); };
     },

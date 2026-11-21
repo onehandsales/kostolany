@@ -106,3 +106,7 @@ medium README, F01 Explore/F02 Searching Medium/F05 Home의 ANALYSIS와 실제 P
 7. `http://localhost:8081/?previewLink=kostolany%3A%2F%2Ftopic%2Fmusic`으로 초기 공개 링크를, `kostolany://private/invalid`를 인코딩한 값으로 오류와 뒤로를 확인한다. 실패/재시도는 외부 run-faults.py의 임시 주입/복원 절차를 사용한다.
 
 기능·자동 검사와 원본/native 검증을 분리해 인계한다. Goal51에서 기능 간 상태·실패·계정 격리를 이어서 검증하며 이 문서만으로 남은 시각/native 차이를 완료 처리하지 않는다.
+
+## Goal51 후속 확인 — 과거 실행 결과와 구분
+
+Goal51에서 Settings가 열린 프로필 탭을 유지한 채 홈에서 발행하면 Settings로 복귀하는 결함을 재현하고 ProfileHome 목적지를 명시했다. 또한 Goal50의 `/written` 공유 경로에 맞춰 WrittenStoryScreen 기존 테스트의 기대 URL을 수정했다. [Goal51 결과](FE_GOAL_51_RESULT.md)의 현재 전체 검사와 실제 8081 흐름을 따른다. 이 문서의 당시 검사 수치는 변경하지 않는다.

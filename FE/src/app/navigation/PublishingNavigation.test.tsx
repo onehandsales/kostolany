@@ -10,11 +10,12 @@ const button = (name: string) => screen.getByRole('button', { name });
 const flush = () => act(async () => { await jest.advanceTimersByTimeAsync(1200); });
 async function setup(source = createMockDraftSource({ delayMs: 0 })) {
   const view = await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} draftSource={source} editorImageSource={createMockEditorImageSource({ delayMs: 0 })} /></SafeAreaProvider>);
-  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime }); await user.press(button('Write a story'));
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime }); await user.press(screen.getByRole('tab', { name: '프로필' })); await user.press(button('설정 열기'));
+  await user.press(screen.getByRole('tab', { name: '홈' })); await user.press(button('Write a story'));
   await fireEvent.changeText(screen.getByLabelText('글 제목'), '실제 발행 제목'); await fireEvent.changeText(screen.getByLabelText('글 본문'), 'fixture로 바꾸지 않는 작성 내용');
   return { user, source, view };
 }
-it('실제 편집기와 토픽·미리보기·발행·내 Stories·작성 상세를 이동하며 내용과 취소 초안을 보존한다', async () => {
+it('설정을 열어 둔 뒤 실제 편집기·발행·내 Stories·작성 상세를 이동하며 내용과 취소 초안을 보존한다', async () => {
   const { user, source } = await setup(); await user.press(button('Next')); await user.press(button('Topics')); await flush();
   await fireEvent.changeText(screen.getByLabelText('발행 토픽 검색'), 'Music'); await flush(); await user.press(screen.getByRole('checkbox', { name: 'Music 3.1M followers 토픽' }));
   await user.press(button('토픽 검색어 지우기')); await flush(); expect(button('Music 선택 토픽 제거')).toBeVisible(); await user.press(button('토픽 선택 취소'));

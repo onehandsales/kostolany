@@ -17,6 +17,7 @@ export function createModerationStore(source: ModerationSource, userId: string) 
   };
   let generation = 0;
   let started = false;
+  let readScope = '';
   let reading = false;
   let queue = Promise.resolve();
   const listeners = new Set<() => void>();
@@ -40,7 +41,7 @@ export function createModerationStore(source: ModerationSource, userId: string) 
     } catch {
       if (request === generation) publish({ readError: true, status: state.value ? 'ready' : 'error' });
     } finally {
-      reading = false;
+      if (request === generation) reading = false;
     }
   }
   function execute(command: ModerationCommand, signal?: AbortSignal): Promise<ModerationResult> {
@@ -88,6 +89,7 @@ export function createModerationStore(source: ModerationSource, userId: string) 
         )
           throw new Error('invalid');
         generation += 1;
+        reading = false;
         publish({ value, status: 'ready', readError: false });
         return { ok: true };
       } catch (error) {
@@ -115,6 +117,13 @@ export function createModerationStore(source: ModerationSource, userId: string) 
     reload,
     execute,
     getSnapshot: () => state,
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      started = started && Boolean(state.value) && !reading && !state.readError;
+      readScope = scope; generation += 1; reading = false;
+      publish({ readError: false, status: state.value ? 'ready' : 'loading' });
+    },
     ensure: () => {
       if (!started) void reload();
     },

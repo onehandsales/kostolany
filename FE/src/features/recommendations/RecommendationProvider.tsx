@@ -1,3 +1,4 @@
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 import { createContext, useContext, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
@@ -68,6 +69,7 @@ export function RecommendationProvider({
         },
       }}
     >
+      <ReadScopeBoundary store={store} scope={scope} />
       {children}
       {entry?.scope === scope && (
         <ShowLessDialog key={`${scope}:${entry.operation}`} {...entry} onClose={() => setEntry(null)} />
@@ -79,10 +81,12 @@ const noop = () => () => {};
 export function useRecommendations() {
   const context = useContext(Context);
   const snapshot = () => context.store?.getSnapshot() ?? null;
-  const state = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
+  const raw = useSyncExternalStore(context.store?.subscribe ?? noop, snapshot, snapshot);
+  const state = raw && context.store?.getReadScope() !== context.scope
+    ? { ...raw, readError: false, status: raw.value ? 'ready' as const : 'loading' as const } : raw;
   useEffect(() => {
     context.store?.ensure();
-  }, [context.store]);
+  }, [context.store, context.scope]);
   return { ...context, state, hidden: (id: string) => state?.value?.hiddenArticleIds.includes(id) ?? false };
 }
 function ShowLessDialog({

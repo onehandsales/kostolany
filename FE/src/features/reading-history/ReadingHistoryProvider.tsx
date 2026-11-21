@@ -69,7 +69,8 @@ export function useReadingHistory() {
   const getState = () => store?.getSnapshot() ?? null;
   const raw = useSyncExternalStore(store?.subscribe ?? noopSubscribe, getState, getState);
   const state = raw
-    ? { ...raw, error: raw.error === 'write' && raw.errorScope !== scope ? null : raw.error }
+    ? { ...raw, error: store?.getActiveScope() !== scope || raw.error === 'write' && raw.errorScope !== scope ? null : raw.error,
+      status: store?.getActiveScope() !== scope && raw.status === 'error' ? 'loading' as const : raw.status }
     : null;
   useEffect(() => {
     store?.ensure();

@@ -12,6 +12,7 @@ type Entry = {
   state: ResponseSnapshot;
   epoch: number;
   reading: boolean;
+  needsRead: boolean;
   tail: Promise<void>;
   operations: Map<string, { fingerprint: string; promise: Promise<ResponseResult> }>;
   listeners: Set<() => void>;
@@ -26,6 +27,7 @@ const initial: ResponseSnapshot = {
 export type ResponseStore = ReturnType<typeof createResponseStore>;
 export function createResponseStore(source: ResponseSource, userId: string | null) {
   const entries = new Map<string, Entry>();
+  let readScope = '';
   function entryFor(target: ResponseTarget): Entry {
     const key = responseTargetKey(target);
     let entry = entries.get(key);
@@ -34,6 +36,7 @@ export function createResponseStore(source: ResponseSource, userId: string | nul
         state: initial,
         epoch: 0,
         reading: false,
+        needsRead: true,
         tail: Promise.resolve(),
         operations: new Map(),
         listeners: new Set(),
@@ -62,6 +65,7 @@ export function createResponseStore(source: ResponseSource, userId: string | nul
       validateResponseValue(value, userId, target);
       if (value.version < (entry.state.value?.version ?? 0)) throw new Error('invalid');
       entry.reading = false;
+      entry.needsRead = false;
       publish(entry, { value, status: 'ready', isRefreshing: false });
     } catch {
       if (epoch !== entry.epoch) return;
@@ -143,12 +147,22 @@ export function createResponseStore(source: ResponseSource, userId: string | nul
   }
   return {
     userId,
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      readScope = scope;
+      entries.forEach(entry => {
+        entry.epoch += 1; entry.reading = false; entry.needsRead = true;
+        publish(entry, { readError: false, isRefreshing: false, status: entry.state.value ? 'ready' : 'loading' });
+      });
+    },
     execute,
     refresh,
     getSnapshot: (target: ResponseTarget): ResponseSnapshot =>
       entries.get(responseTargetKey(target))?.state ?? initial,
     ensure(target: ResponseTarget): void {
-      if (entryFor(target).state.status === 'loading') void refresh(target);
+      const entry = entryFor(target);
+      if (entry.state.status === 'loading' || entry.needsRead && !entry.state.readError) void refresh(target);
     },
     subscribe(target: ResponseTarget, listener: () => void): () => void {
       const entry = entryFor(target);

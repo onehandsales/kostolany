@@ -8,6 +8,17 @@ const date = '2026-11-19T01:00:00.000Z';
 const flush = async () => {
   for (let i = 0; i < 8; i++) await Promise.resolve();
 };
+it('A 재로그인 조회 뒤 이전 조회 실패는 읽음 의도·확정 이력·오류를 되돌리지 않는다', async () => {
+  const old = deferred<HistoryValue>();
+  const read = jest.fn<Promise<HistoryValue>, [string]>().mockReturnValueOnce(old.promise)
+    .mockResolvedValue({ userId: 'A', visits: [] });
+  const store = createReadingHistoryStore({ read, save: async input => input }, 'A');
+  store.activate('A:1'); store.record('one', date, 'A:1'); store.deactivate('A:1');
+  store.activate('A:3'); await flush();
+  old.reject(new Error('old-read')); await flush();
+  expect(store.getSnapshot()).toMatchObject({ status: 'ready', error: null, visits: [{ articleId: 'one', visitedAt: date }] });
+  expect(read).toHaveBeenCalledTimes(2);
+});
 it('최초 조회 중 읽은 기사를 늦은 조회와 병합하고 다른 계정에는 노출하지 않는다', async () => {
   const read = deferred<HistoryValue>();
   const source: ReadingHistorySource = {

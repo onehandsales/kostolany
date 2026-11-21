@@ -17,6 +17,7 @@ import { createResponseStore, type ResponseStore } from './createResponseStore';
 import { createMockResponseSource } from './data/createMockResponseSource';
 import { responsePreviewScenario } from './data/responsePreview';
 import type { ResponseSource, ResponseTarget } from './types';
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
 const Context = createContext<{ store: ResponseStore; scope: string } | null>(null);
 export function ResponseProvider({
@@ -73,13 +74,15 @@ export function ResponseProvider({
     store = createResponseStore(current, userId);
     cache.stores.set(userId, store);
   }
+  const scope = JSON.stringify([cache.generation, userId, revision]);
   return (
     <Context.Provider
       value={{
         store,
-        scope: JSON.stringify([cache.generation, userId, revision]),
+        scope,
       }}
     >
+      <ReadScopeBoundary store={store} scope={scope} />
       {children}
     </Context.Provider>
   );
@@ -97,10 +100,12 @@ export function useResponses(target: ResponseTarget) {
     [store, kind, id],
   );
   const snapshot = useCallback(() => store?.getSnapshot({ kind, id }) ?? null, [store, kind, id]);
-  const state = useSyncExternalStore(subscribe, snapshot, snapshot);
+  const raw = useSyncExternalStore(subscribe, snapshot, snapshot);
+  const state = raw && store?.getReadScope() !== context?.scope
+    ? { ...raw, readError: false, status: raw.value ? 'ready' as const : 'loading' as const } : raw;
   useEffect(() => {
     store?.ensure({ kind, id });
-  }, [store, kind, id]);
+  }, [store, kind, id, context?.scope]);
   return { store, state, scope: context?.scope ?? 'unavailable' };
 }
 export function useResponseCount(target: ResponseTarget): number | null {

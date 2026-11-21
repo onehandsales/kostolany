@@ -56,3 +56,27 @@ it('저장 중 선택 취소 후 새 선택을 이전 완료가 닫지 않는다
   await waitFor(() => expect(screen.getByRole('button', { name: 'Highlight' })).not.toBeDisabled());
   expect(screen.getByLabelText('문구 선택 메뉴')).toBeVisible();
 });
+
+it.each(['success', 'failure'] as const)('A→B→A의 새 조회를 이전 A 조회 %s와 구분한다', async mode => {
+  const previous = deferred<HighlightValue>();
+  let readsA = 0;
+  const source: HighlightSource = {
+    read: async userId => {
+      if (userId === 'A' && ++readsA === 1) return previous.promise;
+      return { userId, version: 2, highlights: [] };
+    },
+    set: async () => { throw new Error('unused'); },
+  };
+  const view = await render(tree(source, 'A', 1));
+  await view.rerender(tree(source, 'B', 2));
+  await view.rerender(tree(source, 'A', 3));
+  await waitFor(() => expect(readsA).toBe(2));
+  await act(async () => {
+    if (mode === 'success') previous.resolve({ userId: 'A', version: 1, highlights: [] });
+    else previous.reject(new Error('old-read'));
+  });
+  expect(screen.queryByRole('button', { name: '하이라이트 불러오기 다시 시도' })).toBeNull();
+  await view.rerender(tree(source, 'A', 4));
+  expect(readsA).toBe(2);
+  expect(screen.queryByRole('button', { name: '하이라이트 불러오기 다시 시도' })).toBeNull();
+});

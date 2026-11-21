@@ -8,6 +8,10 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
   };
   const listeners = new Set<() => void>();
   let readGeneration = 0;
+  let readScope = '';
+  let intentScope = '';
+  let confirmed = { ...defaultDisplaySettings };
+  let loaded = false;
   let intent = 0;
   let saving = false;
   let queued = false;
@@ -24,6 +28,7 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
       const result = await source.read(owner);
       if (generation !== readGeneration) return;
       if (result.owner !== owner || !isDisplaySettings(result.settings)) throw new Error('표시 설정 소유자 또는 값 불일치');
+      confirmed = { ...result.settings }; loaded = true;
       // 조회 중 직접 고른 항목은 유지하고 아직 읽지 못했던 나머지 설정만 공급부에서 채운다.
       publish({ settings: { ...result.settings, ...readPatch }, readStatus: 'ready' });
       readPatch = {};
@@ -38,6 +43,7 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
     while (queued) {
       queued = false;
       const command = intent;
+      const commandScope = intentScope;
       const submitted = { ...snapshot.settings };
       publish({ isSaving: true, hasSaveError: false });
       try {
@@ -46,9 +52,11 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
           || Object.keys(submitted).some((key) => result.settings[key as keyof DisplaySettings] !== submitted[key as keyof DisplaySettings])) {
           throw new Error('표시 설정 저장 결과 불일치');
         }
+        confirmed = { ...submitted }; loaded = true;
         if (command === intent) publish({ readStatus: 'ready', hasSaveError: false });
       } catch {
-        if (command === intent) publish({ hasSaveError: true });
+        if (command === intent) publish(commandScope === readScope ? { hasSaveError: true }
+          : { settings: confirmed, readStatus: loaded ? 'ready' : 'idle', hasSaveError: false });
       }
     }
     saving = false;
@@ -60,6 +68,7 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
     if (!snapshot.hasSaveError && snapshot.readStatus === 'ready'
       && Object.keys(settings).every((key) => settings[key as keyof DisplaySettings] === snapshot.settings[key as keyof DisplaySettings])) return;
     intent += 1;
+    intentScope = readScope;
     queued = true;
     if (snapshot.readStatus !== 'ready') {
       readPatch = { ...readPatch, ...patch };
@@ -74,6 +83,16 @@ export function createDisplaySettingsStore(source: DisplaySettingsSource, owner:
   }
   return {
     getSnapshot: () => snapshot,
+    getReadScope: () => readScope,
+    getConfirmedSettings: () => confirmed,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      readScope = scope; readGeneration += 1;
+      // 조회 전 선택과 실패한 초안은 정리하되 이미 제출한 저장은 원래 계정에서 끝낸다.
+      if (!saving) { queued = false; readPatch = {}; }
+      publish({ settings: saving ? snapshot.settings : confirmed,
+        readStatus: loaded ? 'ready' : 'idle', hasSaveError: false });
+    },
     subscribe: (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; },
     ensureLoaded: () => { if (snapshot.readStatus === 'idle') void reload(); },
     reload,

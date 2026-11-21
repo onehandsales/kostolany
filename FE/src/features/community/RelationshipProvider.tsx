@@ -1,3 +1,4 @@
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 import {
   createContext,
   useContext,
@@ -60,13 +61,15 @@ export function RelationshipProvider({
     store = createRelationshipStore(current, userId);
     cache.stores.set(userId, store);
   }
+  const scope = JSON.stringify([cache.generation, userId, revision]);
   return (
     <Context.Provider
       value={{
         store,
-        scope: JSON.stringify([cache.generation, userId, revision]),
+        scope,
       }}
     >
+      <ReadScopeBoundary store={store} scope={scope} />
       {children}
     </Context.Provider>
   );
@@ -82,13 +85,15 @@ export function useRelationships() {
       raw
         ? {
             ...raw,
+            readError: context.store?.getReadScope() === context.scope && raw.readError,
+            status: context.store?.getReadScope() !== context.scope && raw.status === 'error' ? 'loading' as const : raw.status,
             errors: raw.errors.filter((key) => raw.errorScopes[key] === context.scope),
           }
         : null,
-    [raw, context.scope],
+    [raw, context.scope, context.store],
   );
   useEffect(() => {
     context.store?.ensure();
-  }, [context.store]);
+  }, [context.store, context.scope]);
   return { ...context, state };
 }

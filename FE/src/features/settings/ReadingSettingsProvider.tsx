@@ -5,6 +5,7 @@ import { createReadingSettingsStore, type ReadingSettingsStore } from './createR
 import { createMockReadingSettingsSource } from './data/createMockReadingSettingsSource';
 import { settingsPreviewScenario } from './data/settingsPreview';
 import type { ReadingSettingsSnapshot, ReadingSettingsSource } from './types';
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
 const SettingsContext = createContext<ReadingSettingsStore | null>(null);
 const SettingsScopeContext = createContext('unprovided');
@@ -29,15 +30,19 @@ export function ReadingSettingsProvider({ children, userId, sessionRevision, sou
     scope.stores.set(userId, store);
   }
   // 이름과 설정 값은 세션 키에 넣지 않아 개인 저장소와 공개 읽기 화면을 초기화하지 않는다.
-  return <SettingsScopeContext.Provider value={JSON.stringify([scope.version, userId, sessionRevision])}>
-    <SettingsContext.Provider value={store}>{children}</SettingsContext.Provider>
+  const sessionScope = JSON.stringify([scope.version, userId, sessionRevision]);
+  return <SettingsScopeContext.Provider value={sessionScope}>
+    <SettingsContext.Provider value={store}><ReadScopeBoundary store={store} scope={sessionScope} />{children}</SettingsContext.Provider>
   </SettingsScopeContext.Provider>;
 }
 
 export function useReadingSettings(): { state: ReadingSettingsSnapshot; store: ReadingSettingsStore | null } {
   const store = useContext(SettingsContext);
-  const state = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
-  useEffect(() => { store?.ensureLoaded(); }, [store]);
+  const scope = useSettingsScopeKey();
+  const raw = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
+  const state = store && store.getReadScope() !== scope
+    ? { ...raw, readStatus: raw.settings ? 'ready' as const : 'idle' as const, hasSaveError: false } : raw;
+  useEffect(() => { store?.ensureLoaded(); }, [store, scope]);
   return { state, store };
 }
 export function useSettingsScopeKey(): string { return useContext(SettingsScopeContext); }

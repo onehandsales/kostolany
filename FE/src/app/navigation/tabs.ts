@@ -1,10 +1,12 @@
 import type { TabIconName } from '../../shared/ui/TabIcon';
+import type { NavigatorScreenParams } from '@react-navigation/native';
+import type { ProfileStackParamList } from './ProfileNavigator';
 
 export type MainTabParamList = {
   Home: undefined;
   Explore: undefined;
   Library: undefined;
-  Profile: undefined;
+  Profile: NavigatorScreenParams<ProfileStackParamList> | undefined;
 };
 
 type TabDefinition = {

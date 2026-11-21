@@ -1,3 +1,4 @@
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 import { Text, View } from 'react-native';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 
@@ -82,6 +83,7 @@ export function ModerationProvider({
         isBlockedForUser,
       }}
     >
+      <ReadScopeBoundary store={store} scope={scope} />
       {children}
       {message?.scope === scope && (
         <View

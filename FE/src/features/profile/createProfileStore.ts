@@ -2,12 +2,13 @@ import { areProfileFieldsEqual, normalizeProfileFields, validateProfileFields } 
 import type { Profile, ProfileFields, ProfileSnapshot, ProfileSource, SaveResult } from './types';
 import type { ProfilePhotoResources } from './profilePhoto';
 
-type Command = { id: number; fields: ProfileFields; promise: Promise<SaveResult>; resolve: (result: SaveResult) => void; release: () => void };
+type Command = { id: number; scope: string; fields: ProfileFields; promise: Promise<SaveResult>; resolve: (result: SaveResult) => void; release: () => void };
 
 export function createProfileStore(source: ProfileSource, userId: string, photos?: ProfilePhotoResources) {
   let snapshot: ProfileSnapshot = { profile: null, readStatus: 'idle', isSaving: false, hasSaveError: false };
   const listeners = new Set<() => void>();
   let readGeneration = 0;
+  let readScope = '';
   let commandId = 0;
   let active: Command | null = null;
   let queued: Command | null = null;
@@ -59,7 +60,7 @@ export function createProfileStore(source: ProfileSource, userId: string, photos
     command.release();
     command.resolve({ status: next ? 'superseded' : succeeded ? 'saved' : 'failed' });
     if (next) { void run(next); return; }
-    publish({ isSaving: false, hasSaveError: !succeeded });
+    publish({ isSaving: false, hasSaveError: !succeeded && command.scope === readScope });
   }
 
   function save(fields: ProfileFields): Promise<SaveResult> {
@@ -76,7 +77,7 @@ export function createProfileStore(source: ProfileSource, userId: string, photos
     const id = ++commandId;
     let resolveCommand: (result: SaveResult) => void = () => undefined;
     const promise = new Promise<SaveResult>((resolve) => { resolveCommand = resolve; });
-    const command: Command = { id, fields: normalized, promise, resolve: resolveCommand, release: photos?.retain(normalized.photo) ?? (() => {}) };
+    const command: Command = { id, scope: readScope, fields: normalized, promise, resolve: resolveCommand, release: photos?.retain(normalized.photo) ?? (() => {}) };
     publish({ isSaving: true, hasSaveError: false, readStatus: 'ready' });
     if (active) {
       queued?.resolve({ status: 'superseded' });
@@ -88,6 +89,12 @@ export function createProfileStore(source: ProfileSource, userId: string, photos
 
   return {
     getSnapshot: () => snapshot,
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      readScope = scope; readGeneration += 1;
+      publish({ readStatus: snapshot.profile ? 'ready' : 'idle', hasSaveError: false });
+    },
     subscribe: (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; },
     ensureLoaded: () => { if (snapshot.readStatus === 'idle') void reload(); },
     reload, save,

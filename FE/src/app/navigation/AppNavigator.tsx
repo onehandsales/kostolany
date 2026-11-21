@@ -186,7 +186,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
     <MembershipProvider source={sources.membershipSource}>
     <NotificationPermissionProvider source={sources.notificationPermissionSource}>
     <NotificationProvider source={sources.notificationSource}>
-    <DisplaySettingsProvider userId={state.user?.id ?? null} source={sources.displaySource}>
+    <DisplaySettingsProvider userId={state.user?.id ?? null} revision={state.revision} source={sources.displaySource}>
       <SessionNavigationContent {...sources} />
     </DisplaySettingsProvider>
     </NotificationProvider>
@@ -651,7 +651,7 @@ function EditorSessionRoute({ route, navigation, imageSource, source, draftId }:
   useEffect(() => { if (allowExit && pending) navigation.dispatch(pending); }, [allowExit, navigation, pending]);
   return <>
     {stage ? <PublishPreview session={session} images={imageSource} authorName={profile.profile?.name ?? store.getSnapshot().user?.name ?? 'Writer'} stage={stage} onStage={setStage} onEdit={() => setStage(null)}
-      onPublished={() => { setPending(StackActions.popTo('Main', { screen: 'Profile' })); setAllowExit(true); }} /> :
+      onPublished={() => { setPending(StackActions.popTo('Main', { screen: 'Profile', params: { screen: 'ProfileHome' } })); setAllowExit(true); }} /> :
       <StoryEditorScreen session={session} onPreview={setStage} onClose={() => navigation.goBack()} onDrafts={() => navigation.replace('Drafts', { ownerId: route.params.ownerId, revision: route.params.revision })} imageSource={imageSource} />}
     {failedExit && pending && <EditorExitDialog onCancel={() => { setPending(null); setFailedExit(false); }} onRetry={() => { void saveAndExit(pending); }} onDiscard={() => setAllowExit(true)} />}
   </>;

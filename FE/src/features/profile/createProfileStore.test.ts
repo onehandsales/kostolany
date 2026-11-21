@@ -7,6 +7,20 @@ const initial: Profile = { userId: 'example-reader', name: '예시 독자 A', bi
 const fields = (name: string): ProfileFields => ({ name, bio: '새 소개' });
 const response = (name: string): Profile => ({ userId: initial.userId, ...fields(name) });
 
+it('재로그인의 새 프로필 조회를 이전 실패와 분리하고 제출한 쓰기의 오류를 새 화면에 남기지 않는다', async () => {
+  const old = deferred<Profile>(); const saving = deferred<Profile>();
+  const read = jest.fn<Promise<Profile>, [string]>().mockReturnValueOnce(old.promise).mockResolvedValue(initial);
+  const store = createProfileStore({ readProfile: read, saveProfile: () => saving.promise }, initial.userId);
+  store.setReadScope('A:1'); store.ensureLoaded();
+  store.setReadScope(''); store.setReadScope('A:3'); await store.reload();
+  old.reject(new Error('old read')); await Promise.resolve();
+  expect(store.getSnapshot()).toMatchObject({ readStatus: 'ready', profile: initial });
+  const submitted = store.save(fields('확정 요청'));
+  store.setReadScope(''); store.setReadScope('A:5');
+  saving.reject(new Error('old write')); expect(await submitted).toEqual({ status: 'failed' });
+  expect(store.getSnapshot()).toMatchObject({ profile: initial, hasSaveError: false, isSaving: false });
+});
+
 async function controlled() {
   const requests: ReturnType<typeof deferred<Profile>>[] = [];
   const source = {

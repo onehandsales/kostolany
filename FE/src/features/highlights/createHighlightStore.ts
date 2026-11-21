@@ -5,6 +5,7 @@ export function createHighlightStore(source: HighlightSource, userId: string) {
   let generation = 0;
   let loading = false;
   let started = false;
+  let readScope = '';
   let queue = Promise.resolve();
   const listeners = new Set<() => void>();
   const operations = new Map<string, { fingerprint: string; result: Promise<boolean> }>();
@@ -23,7 +24,7 @@ export function createHighlightStore(source: HighlightSource, userId: string) {
       if (!valid(value)) throw new Error('Invalid highlight result');
       if (!state.value || value.version >= state.value.version) emit({ value, status: 'ready' });
     } catch { if (request === generation) emit({ status: state.value ? 'ready' : 'error', readError: true }); }
-    finally { loading = false; }
+    finally { if (request === generation) loading = false; }
   }
   function set(command: HighlightCommand): Promise<boolean> {
     if (!command.operationId || !validHighlight(command.highlight)) return Promise.resolve(false);
@@ -38,6 +39,7 @@ export function createHighlightStore(source: HighlightSource, userId: string) {
         if (!valid(value) || Boolean(saved) !== command.selected
           || (saved && saved.text !== command.highlight.text)) throw new Error('Invalid highlight mutation');
         generation += 1;
+        loading = false;
         if (!state.value || value.version >= state.value.version) emit({ value, status: 'ready', readError: false });
         return true;
       } catch { operations.delete(command.operationId); return false; }
@@ -48,6 +50,14 @@ export function createHighlightStore(source: HighlightSource, userId: string) {
     return result;
   }
   return { userId, getSnapshot: () => state, subscribe: (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener); }; },
+    getReadScope: () => readScope,
+    setReadScope(scope: string) {
+      if (readScope === scope) return;
+      started = started && Boolean(state.value) && !loading && !state.readError;
+      readScope = scope; generation += 1; loading = false;
+      // 제출된 쓰기의 확정 수명은 유지하고 이전 인증 범위의 조회와 오류만 끝낸다.
+      emit({ readError: false, status: state.value ? 'ready' : 'loading' });
+    },
     ensure: () => { if (!started) void read(); }, retry: () => { void read(); }, set };
 }
 export type HighlightStore = ReturnType<typeof createHighlightStore>;

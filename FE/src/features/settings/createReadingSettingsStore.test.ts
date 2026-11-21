@@ -4,6 +4,20 @@ import { createMockReadingSettingsSource } from './data/createMockReadingSetting
 import type { ReadingSettings, ReadingSettingsSource } from './types';
 
 const initial: ReadingSettings = { userId: 'example-reader', defaultLevel: 'adult' };
+
+it('새 인증 범위의 기본 수준을 이전 조회·저장 실패가 오류 상태로 바꾸지 않는다', async () => {
+  const old = deferred<ReadingSettings>(); const saving = deferred<ReadingSettings>();
+  const read = jest.fn<Promise<ReadingSettings>, [string]>().mockReturnValueOnce(old.promise).mockResolvedValue(initial);
+  const store = createReadingSettingsStore({ fetchSettings: read, setDefaultLevel: () => saving.promise }, initial.userId);
+  store.setReadScope('A:1'); store.ensureLoaded();
+  store.setReadScope(''); store.setReadScope('A:3'); await store.reload();
+  old.reject(new Error('old read')); await Promise.resolve();
+  expect(store.getSnapshot()).toMatchObject({ readStatus: 'ready', settings: initial });
+  const submitted = store.save('elementary');
+  store.setReadScope(''); store.setReadScope('A:5');
+  saving.reject(new Error('old write')); expect(await submitted).toEqual({ status: 'failed' });
+  expect(store.getSnapshot()).toMatchObject({ settings: initial, hasSaveError: false, isSaving: false });
+});
 async function controlled() {
   const requests: ReturnType<typeof deferred<ReadingSettings>>[] = [];
   const source = {

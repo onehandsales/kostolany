@@ -100,7 +100,7 @@ it.each(['success', 'failure'] as const)('A 저장과 미제출 선택 중 B 전
   expect(await screen.findByText(`현재 기본값 · ${outcome === 'success' ? '중학생' : '성인'}`)).toBeVisible();
   expect(screen.queryByLabelText('기본 설명 수준 편집')).not.toBeOnTheScreen();
 });
-it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 %s는 B 기본값을 바꾸지 않고 A 복귀에서 복구한다', async (outcome) => {
+it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 %s를 버리고 A 복귀는 새 조회로 복구한다', async (outcome) => {
   const pending = deferred<ReadingSettings>(); const base = createMockReadingSettingsSource({ delayMs: 0 });
   const source: ReadingSettingsSource = { ...base,
     fetchSettings: jest.fn().mockImplementationOnce(() => pending.promise).mockImplementation(base.fetchSettings) };
@@ -109,8 +109,9 @@ it.each(['success', 'failure'] as const)('A 조회 중 B 전환 뒤 늦은 %s는
   await act(async () => { if (outcome === 'success') pending.resolve({ ...initial, defaultLevel: 'middle' }); else pending.reject(new Error('late A')); });
   expect(screen.getByText('현재 기본값 · 성인')).toBeVisible(); expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
   await switchUser(auth, mockUserA.id); await user.press(button('설정 열기'));
-  if (outcome === 'failure') await user.press(button('설정 조회 다시 시도'));
-  expect(await screen.findByText(`현재 기본값 · ${outcome === 'success' ? '중학생' : '성인'}`)).toBeVisible();
+  expect(screen.queryByRole('button', { name: '설정 조회 다시 시도' })).not.toBeOnTheScreen();
+  expect(await screen.findByText('현재 기본값 · 성인')).toBeVisible();
+  expect(source.fetchSettings).toHaveBeenNthCalledWith(3, mockUserA.id);
 });
 it('같은 A 재로그인은 확정 설정을 보존하고 열린 개인 설정과 초안은 정리한다', async () => {
   const { user, auth } = await setup(); await settings(user); await edit(user);

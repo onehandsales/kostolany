@@ -5,16 +5,18 @@ import { createDisplaySettingsStore, type DisplaySettingsStore } from './createD
 import { createMockDisplaySettingsSource } from './data/createMockDisplaySettingsSource';
 import { displayPreviewScenario } from './data/displayPreview';
 import { defaultDisplaySettings, type DisplaySettingsSource, type DisplaySnapshot } from './displayTypes';
+import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
 const Context = createContext<DisplaySettingsStore | null>(null);
+const ScopeContext = createContext('');
 const empty: DisplaySnapshot = { settings: defaultDisplaySettings, readStatus: 'ready', isSaving: false, hasSaveError: false };
 const getEmpty = () => empty;
 const subscribeEmpty = () => () => undefined;
-type DisplaySettingsProviderProps = { children: ReactNode; userId: string | null; source?: DisplaySettingsSource };
+type DisplaySettingsProviderProps = { children: ReactNode; userId: string | null; source?: DisplaySettingsSource; revision?: number };
 type DisplayThemeProps = { children: ReactNode };
 type ReaderThemeProps = { children: ReactNode };
 
-export function DisplaySettingsProvider({ children, userId, source }: DisplaySettingsProviderProps) {
+export function DisplaySettingsProvider({ children, userId, source, revision = 0 }: DisplaySettingsProviderProps) {
   const [defaultSource] = useState(() => createMockDisplaySettingsSource({
     delayMs: displayPreviewScenario === 'slow' ? 4000 : 150,
     failReadOnce: displayPreviewScenario === 'read-error',
@@ -32,7 +34,10 @@ export function DisplaySettingsProvider({ children, userId, source }: DisplaySet
     store = createDisplaySettingsStore(currentSource, owner);
     scope.stores.set(owner, store);
   }
-  return <Context.Provider value={store}><DisplayTheme>{children}</DisplayTheme></Context.Provider>;
+  const sessionScope = JSON.stringify([userId, revision]);
+  return <ScopeContext.Provider value={sessionScope}><Context.Provider value={store}>
+    <ReadScopeBoundary store={store} scope={sessionScope} /><DisplayTheme>{children}</DisplayTheme>
+  </Context.Provider></ScopeContext.Provider>;
 }
 
 function DisplayTheme({ children }: DisplayThemeProps) {
@@ -48,7 +53,11 @@ export function ReaderTheme({ children }: ReaderThemeProps) {
 
 export function useDisplaySettings() {
   const store = useContext(Context);
-  const state = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
-  useEffect(() => { store?.ensureLoaded(); }, [store]);
+  const scope = useContext(ScopeContext);
+  const raw = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
+  const state = store && store.getReadScope() !== scope
+    ? { ...raw, settings: raw.isSaving ? raw.settings : store.getConfirmedSettings(),
+      readStatus: raw.readStatus === 'error' ? 'idle' as const : raw.readStatus, hasSaveError: false } : raw;
+  useEffect(() => { store?.ensureLoaded(); }, [store, scope]);
   return { state, store };
 }

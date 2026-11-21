@@ -34,7 +34,7 @@ it('발행한 Unlisted 글은 자기 ID의 링크를 공유하고 source·adapte
   const view = await render(tree()); await fireEvent.press(await screen.findByRole('button', { name: 'Share story' }));
   expect(screen.getByText(/Unlisted 글은 링크로 접근하는 대상/)).toBeVisible();
   await fireEvent.press(screen.getByRole('button', { name: 'Copy link' }));
-  expect(adapter.copy).toHaveBeenLastCalledWith('https://kostolany.invalid/article/published-one', expect.any(AbortSignal));
+  expect(adapter.copy).toHaveBeenLastCalledWith('https://kostolany.invalid/written/published-one', expect.any(AbortSignal));
   await view.rerender(tree(other)); await screen.findByText('이 글을 찾을 수 없어요.');
   await view.rerender(tree()); await screen.findByText('발행 본문');
   expect(screen.queryByRole('heading', { name: 'Share' })).toBeNull();
