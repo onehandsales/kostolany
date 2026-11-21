@@ -56,7 +56,7 @@ export function FeedSortTabs({ selected, onSelect }: FeedSortTabsProps) {
               <Text style={[styles.label, selected === sort && styles.selectedLabel]}>
                 {feedSortLabels[sort]}
               </Text>
-              {sort === 'recommended' && <Text style={styles.badge}>New</Text>}
+              {sort === 'recommended' && selected !== sort && <Text style={styles.badge}>New</Text>}
             </View>
           </Pressable>
         ))}

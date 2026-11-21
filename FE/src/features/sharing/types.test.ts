@@ -14,7 +14,7 @@ it('대상 타입과 ID가 주소를 결정하고 제목·이름 변경은 안�
   expect(shareMessage({ ...article, title: '다른 이름', authorName: 'B' }).url).toBe(
     shareMessage(article).url,
   );
-  for (const kind of ['writer', 'publication', 'topic', 'list'] as const)
+  for (const kind of ['written', 'writer', 'publication', 'topic', 'list'] as const)
     expect(shareMessage({ ...article, kind }).url).toContain(`/${kind}/`);
   const quote = { ...article, kind: 'quote' as const, quote: '선택한 문장', start: 12, end: 20 };
   expect(shareMessage(quote)).toEqual({

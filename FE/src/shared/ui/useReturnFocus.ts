@@ -1,12 +1,12 @@
 import { useLayoutEffect, useRef } from 'react';
-import { captureSettingsReturnFocus } from './settingsReturnFocus';
+import { captureReturnFocus } from './returnFocus';
 
-export function useSettingsReturnFocus(active: boolean) {
+export function useReturnFocus(active: boolean) {
   const restore = useRef<(() => void) | null>(null);
   useLayoutEffect(() => {
     if (!active || !restore.current) return;
     const frame = requestAnimationFrame(() => { restore.current?.(); restore.current = null; });
     return () => cancelAnimationFrame(frame);
   }, [active]);
-  return (open: () => void) => { restore.current = captureSettingsReturnFocus(); open(); };
+  return (open: () => void) => { restore.current = captureReturnFocus(); open(); };
 }

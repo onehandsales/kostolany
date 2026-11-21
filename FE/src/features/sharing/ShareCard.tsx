@@ -74,7 +74,7 @@ export function ShareCard({
             ? 'A passage worth sharing'
             : target.readingMinutes
               ? `${target.readingMinutes} min read`
-              : target.kind === 'article'
+              : target.kind === 'article' || target.kind === 'written'
                 ? 'Story'
                 : target.kind === 'list'
                   ? 'Reading list'

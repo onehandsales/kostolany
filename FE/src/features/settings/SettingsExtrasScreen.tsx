@@ -1,4 +1,4 @@
-import { useSettingsReturnFocus } from './useSettingsReturnFocus';
+import { useReturnFocus } from '../../shared/ui/useReturnFocus';
 import { useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { ActivityIndicator, Text } from 'react-native';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -23,7 +23,7 @@ export function SettingsExtrasScreen({
   onBack: () => void;
   onOpen: (page: SettingsDetail) => void;
 }) {
-  const openWithFocus = useSettingsReturnFocus(active);
+  const openWithFocus = useReturnFocus(active);
   const auth = useAuth();
   const services = useSettingsServices();
   const profile = useProfile();

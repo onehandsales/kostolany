@@ -11,6 +11,21 @@ async function finishDebounce(): Promise<void> {
   await act(async () => { await jest.advanceTimersByTimeAsync(250); });
 }
 
+it('포커스를 떠나면 debounce와 진행 응답을 정리하고 복귀한 확정 결과는 재조회하지 않는다', async () => {
+  const old = deferred<SearchResult>();
+  const source = jest.fn<ReturnType<SearchSource>, Parameters<SearchSource>>().mockReturnValueOnce(old.promise)
+    .mockResolvedValue({ query: '금리', items: [article('current')] });
+  const hook = await renderHook(({ active }: { active: boolean }) => useSearch('금리', source, active), { initialProps: { active: true } });
+  await hook.rerender({ active: false }); await finishDebounce(); expect(source).not.toHaveBeenCalled();
+  await hook.rerender({ active: true }); await finishDebounce();
+  await hook.rerender({ active: false }); await act(async () => old.resolve({ query: '금리', items: [article('old')] }));
+  expect(hook.result.current.state.status).toBe('loading');
+  await hook.rerender({ active: true }); await finishDebounce();
+  expect(hook.result.current.state).toEqual({ status: 'ready', items: [article('current')] });
+  await hook.rerender({ active: false }); await hook.rerender({ active: true }); await finishDebounce();
+  expect(source).toHaveBeenCalledTimes(2);
+});
+
 it.each(['ready', 'error'] as const)('검색 공급부 A→B→A는 이전 %s를 숨기고 늦은 응답보다 새 결과를 유지한다', async (status) => {
   const response: SearchResult = { query: '금리', items: [article('current')] };
   const latest = deferred<SearchResult>();

@@ -1,4 +1,4 @@
-export function captureSettingsReturnFocus(): () => void {
+export function captureReturnFocus(): () => void {
   const trigger = document.activeElement;
   return () => {
     if (trigger instanceof HTMLElement && trigger.isConnected && !trigger.closest('[aria-hidden="true"]'))

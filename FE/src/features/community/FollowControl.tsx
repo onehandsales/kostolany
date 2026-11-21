@@ -107,6 +107,7 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, onMessag
       void submit({ target, following: true, email: false });
     }
   }
+  if (target.kind === 'writer' && target.id === auth.state.user?.id) return null;
   if (moderation.state?.readError)
     return (
       <Pressable

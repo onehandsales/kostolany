@@ -31,6 +31,7 @@ type ReferenceArticleCardProps = {
   onSelect: (id: string) => void;
   variant?: 'home' | 'search' | 'profile';
   first?: boolean;
+  recommendationFeedback?: boolean;
   onRemoveHistory?: () => void;
 };
 const balancedTitle: TextStyle & { textWrap: 'balance' } = {
@@ -41,6 +42,7 @@ export function ReferenceArticleCard({
   article,
   onSelect,
   variant = 'home',
+  recommendationFeedback = variant === 'home',
   first = false,
   onRemoveHistory,
 }: ReferenceArticleCardProps) {
@@ -123,7 +125,7 @@ export function ReferenceArticleCard({
               label={`Remove from history, ${article.title}`}
               onPress={onRemoveHistory}
             />
-          ) : variant === 'home' ? (
+          ) : recommendationFeedback ? (
             <IconButton
               icon="minus"
               label={`Show less like this, ${article.title}`}

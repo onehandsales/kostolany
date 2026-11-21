@@ -11,6 +11,7 @@ export type DraftSource = {
   publish: (command: PublishCommand, signal: AbortSignal) => Promise<PublishedStory>;
   stories: (userId: string, signal: AbortSignal, visibility?: 'public' | 'unlisted', viewerId?: string | null) => Promise<PublishedStory[]>;
   story: (storyId: string, signal: AbortSignal) => Promise<PublishedStory | null>;
+  publicStories?: (signal: AbortSignal) => Promise<PublishedStory[]>;
   subscribe: (listener: () => void) => () => void;
   getRevision: () => number;
 };
@@ -118,6 +119,14 @@ export function createMockDraftSource(options: { delayMs?: number; readFailures?
     async story(storyId, signal) {
       await wait(signal); if (signal.aborted) throw new Error('cancelled'); if (storyReadFailures-- > 0) throw new Error('story-read-failed');
       const story = stories.get(storyId); return story ? cloneStory(story) : null;
+    },
+    async publicStories(signal) {
+      await wait(signal);
+      if (signal.aborted) throw new Error('cancelled');
+      if (storyReadFailures-- > 0) throw new Error('stories-read-failed');
+      // 공개 검색은 발행 저장소의 확정 글만 읽고 Unlisted와 초안을 제외한다.
+      return [...stories.values()].filter(story => !story.publishing.unlisted)
+        .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.id.localeCompare(b.id)).map(cloneStory);
     },
   };
 }

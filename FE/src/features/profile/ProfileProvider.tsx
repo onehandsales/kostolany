@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
 
 import { createProfileStore, type ProfileStore } from './createProfileStore';
 import { createMockProfileSource } from './data/createMockProfileSource';
 import { profilePreviewScenario } from './data/profilePreview';
-import type { ProfileSnapshot, ProfileSource } from './types';
+import type { Profile, ProfileSnapshot, ProfileSource } from './types';
 import { createProfilePhotoResources, type ProfilePhotoPicker } from './profilePhoto';
 import { pickProfilePhoto } from './profilePhotoPicker';
 
@@ -72,4 +72,32 @@ export function useKnownProfile(userId: string) {
   const store = useContext(KnownProfilesContext).get(userId);
   const snapshot = useSyncExternalStore(store?.subscribe ?? subscribeEmpty, store?.getSnapshot ?? getEmpty, store?.getSnapshot ?? getEmpty);
   return snapshot.profile ? { name: snapshot.profile.name, bio: snapshot.profile.bio, photo: snapshot.profile.photo ?? null, pronouns: snapshot.profile.pronouns ?? [] } : null;
+}
+
+// 공개 검색은 확정 프로필만 구독하며 편집 초안이나 개인 설정을 새 원본으로 만들지 않는다.
+export function useKnownProfiles(): readonly Profile[] {
+  const stores = useContext(KnownProfilesContext);
+  const scope = useProfileScopeKey();
+  const selection = useMemo(() => createKnownProfileSelection(stores, scope), [stores, scope]);
+  return useSyncExternalStore(selection.subscribe, selection.getSnapshot, selection.getSnapshot);
+}
+
+function createKnownProfileSelection(stores: ReadonlyMap<string, ProfileStore>, scope: string) {
+  const currentStores = [...stores.values()];
+  let previous: readonly Profile[] = [];
+  return {
+    scope,
+    subscribe: (listener: () => void) => {
+      const disconnect = currentStores.map(store => store.subscribe(listener));
+      return () => disconnect.forEach(unsubscribe => unsubscribe());
+    },
+    getSnapshot: () => {
+      const next = currentStores.flatMap(store => {
+        const profile = store.getSnapshot().profile;
+        return profile ? [profile] : [];
+      });
+      if (next.length !== previous.length || next.some((profile, index) => profile !== previous[index])) previous = next;
+      return previous;
+    },
+  };
 }

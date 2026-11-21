@@ -159,7 +159,7 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
   });
   const actions: { kind: ShareAction; label: string }[] = [
     { kind: 'copy', label: 'Copy link' },
-    ...(target.kind === 'article' || target.kind === 'quote'
+    ...(target.kind === 'article' || target.kind === 'written' || target.kind === 'quote'
       ? [{ kind: 'friend' as const, label: 'Friend Link...' }]
       : []),
     { kind: 'via', label: 'Share via...' },

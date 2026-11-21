@@ -101,8 +101,13 @@ import { SharingProvider } from '../../features/sharing/SharingProvider';
 import { MembershipProvider } from '../../features/membership/MembershipProvider';
 import type { MembershipSource } from '../../features/membership/types';
 import type { ShareAdapter } from '../../features/sharing/types';
+import { previewLinkSource, type PreviewLinkSource } from './previewLinks';
+import { usePreviewLinks } from './usePreviewLinks';
+import { ContentStatus } from '../../shared/ui/ContentStatus';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type RootStackParamList = {
+  InvalidLink: undefined;
   Notifications: undefined;
   NotificationSettings: { section: 'push' | 'email'; originTab: keyof MainTabParamList };
   NotificationResponse: { articleId: string; responseId: string };
@@ -127,6 +132,7 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 type AppNavigatorProps = {
+  linkSource?: PreviewLinkSource;
   membershipSource?: MembershipSource;
   shareAdapter?: ShareAdapter;
   listeningOptionsSource?: ListeningOptionsSource;
@@ -191,6 +197,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
 }
 
 function SessionNavigationContent({
+  linkSource = previewLinkSource,
   shareAdapter,
   listeningOptionsSource,
   listeningSource,
@@ -244,6 +251,19 @@ function SessionNavigationContent({
     ) return;
     navigationRef.dispatch(StackActions.push('Article', { articleId, origin: currentTab() }));
   }
+  const linksReady = usePreviewLinks(linkSource, target => {
+    if (!navigationRef.isReady()) return;
+    const originTab = currentTab();
+    switch (target.kind) {
+      case 'article': navigationRef.dispatch(StackActions.push('Article', { articleId: target.id, origin: originTab })); break;
+      case 'written': navigationRef.dispatch(StackActions.push('WrittenStory', { storyId: target.id })); break;
+      case 'writer': case 'publication': navigationRef.dispatch(StackActions.push('Identity', { target: { kind: target.kind, id: target.id }, originTab })); break;
+      case 'topic': navigationRef.dispatch(StackActions.push('Topic', { topicId: target.id, originTab })); break;
+      case 'list': navigationRef.dispatch(StackActions.push('PublicList', { listId: target.id, originTab })); break;
+      case 'tab': navigationRef.dispatch(StackActions.popTo('Main', { screen: target.tab })); break;
+      case 'invalid': navigationRef.navigate('InvalidLink'); break;
+    }
+  });
   const theme = {
     ...DefaultTheme,
     dark: scheme === 'dark',
@@ -386,12 +406,16 @@ function SessionNavigationContent({
                               }}
                             >
                               <ListeningProvider source={listeningSource} optionsSource={listeningOptionsSource}>
-                              <NavigationContainer theme={theme} ref={navigationRef}>
+                              <NavigationContainer theme={theme} ref={navigationRef} onReady={linksReady}>
                                 <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
                                 <Stack.Navigator
                                   initialRouteName="Main"
                                   screenOptions={{ headerShown: false }}
                                 >
+                                  <Stack.Screen name="InvalidLink">{({ navigation }) => <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
+                                    <ContentStatus error message="이 링크를 열 수 없어요" actionLabel="링크에서 돌아가기"
+                                      onAction={() => navigation.canGoBack() ? navigation.goBack() : navigation.navigate('Main', { screen: 'Home' })} />
+                                  </SafeAreaView>}</Stack.Screen>
                                   {state.user && <Stack.Group navigationKey={`notifications:${state.user.id}:${state.revision}`}>
                                     <Stack.Screen name="Notifications">{({ navigation }) => <NotificationsRoute articleSource={articleSource}
                                       onBack={() => navigation.goBack()} onOpen={target => {

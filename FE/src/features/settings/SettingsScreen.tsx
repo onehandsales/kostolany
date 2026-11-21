@@ -1,4 +1,4 @@
-import { useSettingsReturnFocus } from './useSettingsReturnFocus';
+import { useReturnFocus } from '../../shared/ui/useReturnFocus';
 import { useAccountFacebook } from './SettingsServicesProvider';
 import { settingsDestinations } from './settingsDestinations';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -29,7 +29,7 @@ import { settingsStyles as createStyles } from './settingsStyles';
 type SettingsScreenProps = { onBack: () => void; onLogout: () => void; isFocused: boolean; onOpenStats?: () => void; onOpenDetail?: (page: SettingsDetail) => void };
 
 export function SettingsScreen({ onBack, onLogout, isFocused, onOpenStats, onOpenDetail }: SettingsScreenProps) {
-  const openWithFocus = useSettingsReturnFocus(isFocused);
+  const openWithFocus = useReturnFocus(isFocused);
   const facebook = useAccountFacebook();
   const display = useDisplaySettings();
   const visual = useThemeStyles(createVisual);

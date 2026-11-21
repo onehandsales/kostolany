@@ -12,15 +12,16 @@ import { ReferenceArticleCard } from './ReferenceArticleCard';
 type ArticleCardProps = {
   article: FeedArticle;
   onSelect: (articleId: string) => void;
+  recommendationFeedback?: boolean;
 };
 
-export function ArticleCard({ article, onSelect }: ArticleCardProps) {
+export function ArticleCard({ article, onSelect, recommendationFeedback = true }: ArticleCardProps) {
   const styles = useThemeStyles(createStyles);
   const { width, fontScale } = useWindowDimensions();
   const stacked = width < 360 || fontScale > 1.3;
   const viewed = useHasViewed(article.id);
 
-  if (article.reference) return <ReferenceArticleCard article={article} onSelect={onSelect} />;
+  if (article.reference) return <ReferenceArticleCard article={article} onSelect={onSelect} recommendationFeedback={recommendationFeedback} />;
 
   return (
     <View style={styles.card}>

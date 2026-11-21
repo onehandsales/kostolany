@@ -13,7 +13,7 @@ type SharePresentation = Readonly<{
 }>;
 export type ShareTarget = SharePresentation &
   (
-    | { kind: 'article' | 'writer' | 'publication' | 'topic' | 'list' }
+    | { kind: 'article' | 'written' | 'writer' | 'publication' | 'topic' | 'list' }
     | { kind: 'quote'; quote: string; start: number; end: number }
   );
 export type ShareMessage = Readonly<{ title: string; text: string; url: string }>;

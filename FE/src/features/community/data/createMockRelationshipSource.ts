@@ -35,6 +35,8 @@ export function createMockRelationshipSource({
     async set(userId: string, command: RelationshipCommand) {
       if (!userId || !command.operationId || !validRelationship(command.relationship))
         throw new Error('Invalid relationship');
+      if (command.relationship.target.kind === 'writer' && command.relationship.target.id === userId)
+        throw new Error('Self relationship is not supported');
       await pause();
       const operation = JSON.stringify([userId, command.operationId]);
       const fingerprint = JSON.stringify(command.relationship);

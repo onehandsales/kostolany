@@ -22,6 +22,7 @@ it('자동 저장과 중복 발행을 직렬화하고 응답 유실 뒤 같은 �
   session.edit(changeBody(original, '늦은 수정')); expect(session.getSnapshot().value).toBe(original);
   const story = await session.publish('바뀐 이름'); expect(story?.authorName).toBe('작성자'); expect(story?.document.body).toBe('실제 작성 내용');
   expect(await source.list(scope.userId, signal())).toEqual([]); expect(await source.stories(scope.userId, signal())).toEqual([]);
+  expect(await source.publicStories?.(signal())).toEqual([]);
   await expect(source.stories(scope.userId, signal(), 'unlisted', mockUserB.id)).rejects.toThrow('access-denied');
   expect(await source.stories(scope.userId, signal(), 'unlisted', scope.userId)).toHaveLength(1);
   expect((await source.story(story!.id, signal()))?.document).toEqual(original.document);
@@ -43,6 +44,7 @@ it('이미지·멘션·문단 서식의 실제 문서를 복제해 보존하고 
   value = insertImage(setBlock(value, 'quote'), { id: 'photo', assetId: 'local-sunset', source: 'library', description: '사진', credit: 'Fixture', width: 240, height: 168 }); session.edit(value);
   const story = (await session.publish('A'))!; expect(story.document).toEqual(value.document);
   story.document.images[0]!.description = '변조'; story.document.mentions[0]!.target.id = '변조';
+  expect((await source.publicStories?.(signal()))?.map(item => item.id)).toEqual([story.id]);
   const stored = (await source.story(story.id, signal()))!; expect(stored.document.images[0]?.description).toBe('사진'); expect(stored.document.mentions[0]?.target.id).toBe('mention-samlee'); close();
 });
 it('계정 전환과 같은 계정 재로그인 뒤 늦은 성공·실패는 새 화면에 반영되지 않고 확정 글은 남는다', async () => {

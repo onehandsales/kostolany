@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
+import { Image, Keyboard, Pressable, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { FollowControl } from '../community/FollowControl';
 import { followKey, type PublicDirectory, type RelationshipTarget } from '../community/types';
@@ -6,6 +6,7 @@ import type { TopicCatalog } from './types';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 
 export type DiscoveryEntry = {
   target: RelationshipTarget;
@@ -42,22 +43,22 @@ export function discoveryEntries(
     ) ?? []),
   ];
 }
-export function DiscoveryRow({ entry }: { entry: DiscoveryEntry }) {
+export function DiscoveryRow({ entry, label }: { entry: DiscoveryEntry; label?: string }) {
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
   return (
     <View style={styles.row}>
       <Pressable
         role="button"
-        accessibilityLabel={`Discover ${entry.name}`}
+        accessibilityLabel={label ?? `Discover ${entry.name}`}
         style={styles.identity}
-        onPress={() =>
-          entry.target.kind === 'topic'
-            ? navigation.openTopic(entry.target.id)
-            : navigation.openIdentity(entry.target)
-        }
+        onPress={() => {
+          Keyboard.dismiss();
+          if (entry.target.kind === 'topic') navigation.openTopic(entry.target.id);
+          else navigation.openIdentity(entry.target);
+        }}
       >
-        {entry.avatar && (
+        {entry.target.kind === 'writer' ? <ProfileAvatar userId={entry.target.id} fallback={entry.avatar} size={40} /> : entry.avatar && (
           <Image
             source={entry.avatar}
             accessible={false}

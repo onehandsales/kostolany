@@ -38,7 +38,10 @@ export function createMockSearchSource({
     }
     const terms = query.split(' ');
     // 각 검색 조각의 부분 문자열을 모두 포함하는 기사를 예시 순서대로 반환한다.
+    const seen = new Set<string>();
     const items = catalog.filter((article) => {
+      if (seen.has(article.id)) return false;
+      seen.add(article.id);
       const text = normalizeQuery(`${article.title} ${article.summary} ${article.sourceName}`);
       return terms.every((term) => text.includes(term));
     });

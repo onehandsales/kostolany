@@ -51,7 +51,7 @@ export function createMockPublicListSource({
   }
   function snapshot(userId: string | null): PublicListValue {
     const visible = currentCatalog().filter(list => accessible(userId, list));
-    return { userId, version, lists: visible.map(list => ({ ...list, owner: { ...list.owner }, articleIds: [...list.articleIds],
+    return { userId, version, lists: visible.map(list => ({ ...list, isPrivate: hidden.get(list.id) === 'private' || Boolean(list.isPrivate), owner: { ...list.owner }, articleIds: [...list.articleIds],
       ...(list.notes && { notes: { ...list.notes } }) })),
       savedIds: userId ? [...savedFor(userId)].filter(id => visible.some(list => list.id === id)) : [] };
   }

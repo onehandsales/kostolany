@@ -117,7 +117,7 @@ function FeedResults({
         onEndReached={feed.loadMore}
         onEndReachedThreshold={0.2}
         keyExtractor={(article) => article.id}
-        renderItem={({ item }) => <ArticleCard article={item} onSelect={onSelectArticle} />}
+        renderItem={({ item }) => <ArticleCard article={item} onSelect={onSelectArticle} recommendationFeedback={sort === 'latest'} />}
         ItemSeparatorComponent={ArticleSeparator}
         ListEmptyComponent={empty}
         ListFooterComponent={<FeedFooter feed={feed} />}

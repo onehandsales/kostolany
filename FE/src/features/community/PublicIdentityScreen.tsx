@@ -16,6 +16,8 @@ import { useKnownProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { mediumArticles } from '../feed/data/mediumFixtures';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
+import { usePublicStories } from '../editor/usePublicStories';
+import { PublishedStoryRow } from '../editor/PublishedStoryRow';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -45,6 +47,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const [uiScope, setUiScope] = useState(scope);
   const [section, setSection] = useState<'Stories' | 'Lists' | 'About'>('Stories');
   const [message, setMessage] = useState<string | null>(null);
+  const published = usePublicStories(active && section === 'Stories' && !blocked);
   if (uiScope !== scope) {
     setUiScope(scope);
     setMessage(null);
@@ -58,7 +61,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const identity: PublicIdentity | undefined = directory.state.data?.identities.find((item) => followKey(item) === followKey(target))
     ?? (mockOwner ? { ...target, name: knownProfile?.name ?? mockOwner.name, bio: knownProfile?.bio,
       stories: [], pinned: [], lists: [] } : undefined);
-  const lists = publicLists.state?.value?.lists.filter(list => followKey(list.owner) === followKey(target)) ?? [];
+  const lists = publicLists.state?.value?.lists.filter(list => !list.isPrivate && followKey(list.owner) === followKey(target)) ?? [];
   useEffect(() => {
     if (active && section === 'Lists') void publicLists.store?.reload();
   }, [active, section, publicLists.store]);
@@ -69,6 +72,16 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
     const article = mediumArticles.find((item) => item.id === id);
     return article ? [article] : [];
   });
+  // 발행 저장소의 공개 글만 같은 작성자 또는 publication의 프로필에 합친다.
+  const rows = [
+    ...stories.filter(article => identity?.pinned.includes(article.id))
+      .map(article => ({ kind: 'article' as const, id: `article:${article.id}`, article })),
+    ...published.items.filter(story => !moderation.state?.value?.blocked.includes(story.userId) &&
+      (target.kind === 'writer' ? story.userId === target.id : story.publishing.publicationId === target.id))
+      .map(story => ({ kind: 'written' as const, id: `written:${story.id}`, story })),
+    ...stories.filter(article => !identity?.pinned.includes(article.id))
+      .map(article => ({ kind: 'article' as const, id: `article:${article.id}`, article })),
+  ];
   const header = identity && (
     <>
       <View style={styles.identity}>
@@ -138,6 +151,12 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
           </Pressable>
         ))}
       </View>
+      {section === 'Stories' && !blocked && published.status !== 'ready' && (
+        <ContentStatus loading={published.status === 'loading'} error={published.status === 'error'}
+          message={published.status === 'error' ? 'Couldn’t load published stories.' : 'Loading published stories…'}
+          actionLabel={published.status === 'error' ? 'Retry published stories' : undefined}
+          onAction={published.status === 'error' ? published.retry : undefined} />
+      )}
       {section === 'About' && (
         <View style={styles.about}>
           {(
@@ -235,18 +254,18 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
         <FlatList
           accessibilityLabel={`${identity.name} ${section}`}
           key={section}
-          data={section === 'Stories' && !blocked ? stories : []}
+          data={section === 'Stories' && !blocked ? rows : []}
           keyExtractor={(item) => item.id}
           ListHeaderComponent={header}
-          renderItem={({ item }) => (
+          renderItem={({ item }) => item.kind === 'written' ? <PublishedStoryRow story={item.story} /> : (
             <View>
-              {identity.pinned.includes(item.id) && (
+              {identity.pinned.includes(item.article.id) && (
                 <View style={styles.pinned}>
                   <AppIcon name="pin" size={16} color={colors.secondaryText} />
                   <Text style={styles.secondary}>Pinned</Text>
                 </View>
               )}
-              <ReferenceArticleCard article={item} onSelect={onSelectArticle} variant="profile" />
+              <ReferenceArticleCard article={item.article} onSelect={onSelectArticle} variant="profile" />
             </View>
           )}
           ListFooterComponent={
@@ -254,7 +273,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
               <Text style={styles.status}>
                 You blocked this author. Unblock them from the options menu to view their stories and lists.
               </Text>
-            ) : section === 'Stories' && !stories.length ? (
+            ) : section === 'Stories' && !rows.length && published.status === 'ready' ? (
               <Text style={styles.status}>No captured stories</Text>
             ) : null
           }
