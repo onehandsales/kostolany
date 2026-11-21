@@ -390,7 +390,7 @@ export function ReferenceArticleView({
           </Pressable>
           {writer && (
             <View style={styles.menuRow}>
-              <FollowControl target={writer} name={identity?.name ?? article.sourceName} />
+              <FollowControl target={writer} name={identity?.name ?? article.sourceName} presentation="menu" />
             </View>
           )}
           {writer && (

@@ -34,7 +34,15 @@ it('실제 navigation으로 프로필 탭·목록·팔로우/이메일 재시도
   await user.press(await screen.findByRole('button', { name: 'Open Jordan Gibbs profile' }));
   await screen.findByRole('heading', { name: 'Jordan Gibbs' });
   await user.press(screen.getByRole('tab', { name: 'Lists' }));
+  await user.press(await screen.findByRole('button', { name: 'Save list AAA AI' }));
+  await screen.findByRole('button', { name: 'Unsave list AAA AI' });
+  expect(screen.getByRole('heading', { name: 'Jordan Gibbs' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: 'List options, AAA AI' }));
+  await user.press(screen.getByRole('button', { name: 'Share list' }));
+  expect(await screen.findByRole('button', { name: 'Copy link' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: '공유 닫기' }));
   await user.press(screen.getByRole('button', { name: 'Open list AAA AI' }));
+  expect(screen.getByRole('button', { name: 'Unsave list AAA AI' })).toBeVisible();
   expect(screen.getByRole('heading', { name: 'AAA AI' })).toBeVisible();
   await user.press(screen.getByRole('button', { name: 'Back from public list' }));
   expect(screen.getByRole('tab', { name: 'Lists' })).toBeSelected();

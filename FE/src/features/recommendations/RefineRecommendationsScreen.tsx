@@ -114,6 +114,8 @@ function RefineContent({
       };
       return rank(a) - rank(b);
     });
+  if (section === 'Following')
+    filtered.sort((a, b) => a.name.localeCompare(b.name) || discoveryKey(a).localeCompare(discoveryKey(b)));
   const wantsTopics = filter === 'Topics' || filter === 'All';
   const wantsDirectory = filter !== 'Topics';
   const loading =
@@ -201,21 +203,20 @@ function RefineContent({
       )}
     </>
   );
-  const rows: ({ kind: 'heading'; title: string } | { kind: 'entry'; entry: DiscoveryEntry })[] = [];
-  if (filter === 'All' && section === 'Suggestions') {
+  const rows: ({ kind: 'heading'; title: string } | { kind: 'entry'; entry: DiscoveryEntry }
+    | { kind: 'more'; filter: Filter; count: number })[] = [];
+  if (filter === 'All' && (section === 'Suggestions' || section === 'Following')) {
     for (const kind of ['writer', 'publication', 'topic'] as const) {
-      const group = filtered.filter((entry) => entry.target.kind === kind).slice(0, limit);
+      const members = filtered.filter((entry) => entry.target.kind === kind);
+      const group = members.slice(0, limit);
+      const category = kind === 'writer' ? 'Writers' : kind === 'publication' ? 'Publications' : 'Topics';
       if (group.length) {
         rows.push({
           kind: 'heading',
-          title:
-            kind === 'writer'
-              ? 'Writers to follow'
-              : kind === 'publication'
-                ? 'Publications to follow'
-                : 'Topics to follow',
+          title: section === 'Following' ? `${category} (${members.length})` : `${category} to follow`,
         });
         group.forEach((entry) => rows.push({ kind: 'entry', entry }));
+        if (section === 'Following') rows.push({ kind: 'more', filter: category, count: members.length });
       }
     }
   } else filtered.slice(0, limit).forEach((entry) => rows.push({ kind: 'entry', entry }));
@@ -224,7 +225,7 @@ function RefineContent({
       ? ['writer', 'publication', 'topic'].some(
           (kind) => filtered.filter((entry) => entry.target.kind === kind).length > limit,
         )
-      : filtered.length > limit;
+      : !(filter === 'All' && section === 'Following') && filtered.length > limit;
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
       <View style={styles.back}>
@@ -240,13 +241,18 @@ function RefineContent({
           data={loading || error ? [] : rows}
           initialNumToRender={8}
           windowSize={5}
-          keyExtractor={(item) => (item.kind === 'heading' ? item.title : discoveryKey(item.entry))}
+          keyExtractor={(item) => item.kind === 'heading' ? item.title : item.kind === 'more' ? `more:${item.filter}` : discoveryKey(item.entry)}
           ListHeaderComponent={header}
           renderItem={({ item }) =>
             item.kind === 'heading' ? (
               <Text role="heading" style={styles.group}>
                 {item.title}
               </Text>
+            ) : item.kind === 'more' ? (
+              <Pressable role="button" accessibilityLabel={`See all ${item.filter} (${item.count})`} style={styles.groupMore}
+                onPress={() => { setFilter(item.filter); setLimit(Math.max(5, item.count)); closeFilter(); }}>
+                <Text style={styles.link}>See all ({item.count})</Text>
+              </Pressable>
             ) : (
               <RecommendationRow entry={item.entry} muted={section === 'Muted'} />
             )
@@ -357,7 +363,7 @@ function RecommendationRow({ entry, muted }: { entry: DiscoveryEntry; muted: boo
             {entry.verified && <AppIcon name="verified" size={14} />}
           </View>
           {entry.target.kind === 'topic' ? (
-            <Text style={styles.meta}>{entry.meta?.replace(' stories', ' Stories')}</Text>
+            <Text style={[styles.meta, styles.topicMeta]}>{entry.meta?.replace(' stories', ' Stories')}</Text>
           ) : (
             Boolean(entry.bio) && (
               <Text numberOfLines={3} style={styles.meta}>
@@ -482,6 +488,7 @@ const createStyles = (colors: ThemeColors) =>
       fontWeight: '600',
       color: colors.text,
     },
+    topicMeta: { fontSize: 13 },
     meta: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
     group: {
       fontFamily: fonts.sans,
@@ -494,6 +501,7 @@ const createStyles = (colors: ThemeColors) =>
       marginTop: 8,
     },
     more: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 24, marginVertical: 24 },
+    groupMore: { minHeight: 48, justifyContent: 'center', marginHorizontal: 24, marginTop: 24, marginBottom: 40, paddingBottom: 24, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
     link: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.green },
     unmute: { minHeight: 48, justifyContent: 'center', paddingHorizontal: 8 },
   });

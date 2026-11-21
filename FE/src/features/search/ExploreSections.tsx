@@ -47,7 +47,7 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
                 style={styles.staff}
               >
                 <Image source={article.reference?.image} style={styles.cover} accessible={false} />
-                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} emphasized verified={article.reference?.verifiedAuthor} />
                 <Text style={styles.title}>{article.title}</Text>
                 <Text style={styles.meta}>
                   {article.readingMinutes} min read · {article.publishedLabel}
@@ -85,7 +85,7 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
                 onPress={() => onSelect(article.id)}
                 style={{ gap: 10, minHeight: 48 }}
               >
-                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} />
+                <SearchByline name={article.sourceName} avatar={article.reference?.avatar} emphasized verified={article.reference?.verifiedAuthor} />
                 <Text style={styles.title}>{article.title}</Text>
               </Pressable>
               <View style={styles.metadata}>
@@ -116,7 +116,7 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
             )
             .map(({ profile, target }) => (
               <View key={profile.name} style={styles.person}>
-                <Image source={profile.image} style={styles.avatar} accessible={false} />
+                <Image source={profile.image} style={[styles.avatar, target?.kind === 'publication' && styles.publicationAvatar]} accessible={false} />
                 {target && <IdentityLink target={target} style={styles.title} />}
                 <Text style={[styles.meta, styles.personMeta]}>{profile.followers}</Text>
                 <Text numberOfLines={3} style={styles.bio}>
@@ -212,6 +212,7 @@ const createStyles = (colors: ThemeColors) =>
       paddingBottom: 16,
     },
     avatar: { width: 64, height: 64, borderRadius: 32 },
+    publicationAvatar: { borderRadius: 4 },
     personMeta: { marginTop: -4 },
     personFollow: { alignSelf: 'flex-start', marginTop: 8 },
     bio: {

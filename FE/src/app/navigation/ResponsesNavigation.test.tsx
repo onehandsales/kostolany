@@ -80,6 +80,11 @@ it('실제 navigation에서 댓글 작성·답글·편집 취소/저장·삭제 
   expect(panel().getByText('Most Recent')).toBeVisible();
   await user.press(panel().getByRole('button', { name: 'Responses 닫기' }));
   expect(await screen.findByRole('heading', { name: title })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: '본문 응답 정책' }));
+  expect(await panel().findByRole('heading', { name: 'Medium Rules' })).toBeVisible();
+  await user.press(panel().getByRole('button', { name: 'Responses로 돌아가기' }));
+  expect(panel().getByRole('heading', { name: 'Responses (7)' })).toBeVisible();
+  await user.press(panel().getByRole('button', { name: 'Responses 닫기' }));
   await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
   expect(await screen.findByRole('button', { name: `Responses, ${title}` })).toHaveTextContent('7');
 }, 30000);

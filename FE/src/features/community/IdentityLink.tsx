@@ -6,6 +6,7 @@ import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import type { FollowTarget } from './types';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
+import { AppIcon } from '../../shared/ui/AppIcon';
 
 export function IdentityLink({
   target,
@@ -38,6 +39,7 @@ export function IdentityLink({
         />
       )}
       <Text style={[styles.label, style]}>{knownProfile?.name ?? children ?? name}</Text>
+      {identity?.verified && <AppIcon name="verified" size={14} />}
     </Pressable>
   );
 }

@@ -125,6 +125,7 @@ suggestedProfiles.forEach((profile, index) => {
     ...target,
     name: profile.name,
     avatar: profile.image,
+    verified: profile.verified,
     bio: profile.bio,
     followers: profile.followers,
     stories: [],

@@ -44,6 +44,25 @@ async function setup(scenario: UserListScenario = 'normal') {
 }
 const button = (label: string) => screen.getByRole('button', { name: label });
 
+it('기본 읽기 목록의 반응은 실제 공급부에서 조회하며 공개 공유와 계정 간 노출을 막는다', async () => {
+  const { user, switchTo } = await setup();
+  await user.press(button('라이브러리로 돌아가기'));
+  await user.press(button('읽기 목록 열기, 저장한 기사 0개'));
+  const clap = await screen.findByRole('button', { name: /^박수 보내기, 읽기 목록/ });
+  await waitFor(() => expect(clap).toBeEnabled());
+  await user.press(clap);
+  await waitFor(() => expect(clap).toHaveProp('accessibilityValue', expect.objectContaining({ now: 1 })));
+  await user.press(button('List responses'));
+  await fireEvent.changeText(screen.getByLabelText('응답 내용'), '나의 비공개 읽기 목록 응답');
+  await user.press(button('응답 게시'));
+  expect(await screen.findByText('나의 비공개 읽기 목록 응답')).toBeVisible();
+  await user.press(button('Responses 닫기'));
+  await user.press(button('Share list'));
+  expect(screen.getByText('이 대상은 공유할 수 없어요. 비공개이거나 더 이상 접근할 수 없어요.')).toBeVisible();
+  await switchTo(mockUserB.id);
+  expect(screen.queryByText('나의 비공개 읽기 목록 응답')).toBeNull();
+});
+
 it('메모 실패 초안·재시도·취소·지우기와 기사 상세 복귀 및 제거 Undo를 실제 화면에서 검증한다', async () => {
   const { user, lists } = await setup('note-error');
   await user.press(button(`Add a note, ${title}`));
@@ -104,8 +123,18 @@ it('공개 범위 확인은 확정 목표를 유지하고 취소·실패·재시
   await user.press(button('목록 비공개 확인'));
   await waitFor(() => expect(screen.queryByRole('dialog', { name: '목록 공개 범위 확인' })).toBeNull());
   expect(screen.getByText('Private')).toBeVisible(); expect(button('Share list')).toBeVisible();
+  expect(screen.getByText(`${name} is now private`)).toBeVisible();
+  await user.press(button('List responses'));
+  await fireEvent.changeText(screen.getByLabelText('응답 내용'), '소유 목록의 응답');
+  await user.press(button('응답 게시'));
+  await screen.findByText('소유 목록의 응답');
+  await user.press(button('Responses 닫기'));
   await user.press(button(`목록 관리, ${name}`)); await user.press(button('View list'));
-  await screen.findByRole('heading', { name }); await switchTo(mockUserB.id);
+  await screen.findByRole('heading', { name });
+  await user.press(button(`Responses, ${name}`));
+  await screen.findByText('소유 목록의 응답');
+  await user.press(button('Responses 닫기'));
+  await switchTo(mockUserB.id);
   await screen.findByText('This list is unavailable.');
   await user.press(button('Back from public list'));
   await user.press(screen.getByRole('tab', { name: 'Saved lists' }));

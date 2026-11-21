@@ -276,7 +276,7 @@ export function SearchScreen({
               </View>
               {!normalized ? (
                 <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.empty}>
-                  <Text role="heading" accessibilityLabel="주제로 찾아보기" style={styles.sectionTitle}>
+                  <Text role="heading" accessibilityLabel="주제로 찾아보기" style={[styles.sectionTitle, styles.directoryTitle]}>
                     Explore topics
                   </Text>
                   {topicDirectory.map((topic) => (
@@ -289,7 +289,7 @@ export function SearchScreen({
                       onPress={() => handleChooseTopic(topic)}
                       style={styles.topicRow}
                     >
-                      <Text style={styles.topic}>{topic}</Text>
+                      <Text style={styles.directoryTopic}>{topic}</Text>
                       <SearchIcon name="next" />
                     </Pressable>
                   ))}
@@ -624,6 +624,8 @@ const createStyles = (colors: ThemeColors) =>
       zIndex: 1,
     },
     empty: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 24 },
+    directoryTitle: { marginBottom: 12 },
+    directoryTopic: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text },
     emptyHint: {
       fontFamily: fonts.sans,
       fontSize: 14,

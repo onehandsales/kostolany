@@ -27,7 +27,8 @@ afterEach(async () => {
 async function renderApp(lists = createMockUserListSource({ delayMs: 0 })) {
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}
-    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0 })} />
+    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0,
+      baselineFor: ({ target }) => target.kind === 'list' ? 0 : undefined })} />
   </SafeAreaProvider>);
   await waitFor(() => expect(getBookmark()).toBeEnabled());
 }

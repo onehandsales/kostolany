@@ -6,8 +6,8 @@ import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { useBookmarkStore, useUserLists } from './useBookmarks';
 
-type ListPrivacyDialogProps = { listId: string; isPrivate: boolean; onClose: () => void };
-export function ListPrivacyDialog({ listId, isPrivate: initialPrivate, onClose }: ListPrivacyDialogProps) {
+type ListPrivacyDialogProps = { listId: string; isPrivate: boolean; onClose: () => void; onSaved: (isPrivate: boolean) => void };
+export function ListPrivacyDialog({ listId, isPrivate: initialPrivate, onClose, onSaved }: ListPrivacyDialogProps) {
   const styles = useThemeStyles(createStyles);
   const store = useBookmarkStore().userLists;
   const state = useUserLists();
@@ -16,9 +16,12 @@ export function ListPrivacyDialog({ listId, isPrivate: initialPrivate, onClose }
   const [isPrivate] = useState(initialPrivate);
   const pending = submitted && Boolean(entry?.isPending);
   useEffect(() => {
-    if (!entry?.content || (submitted && !entry.isPending && !entry.failure
-      && entry.confirmed?.isPrivate === isPrivate)) onClose();
-  }, [entry, submitted, isPrivate, onClose]);
+    if (!entry?.content) onClose();
+    else if (submitted && !entry.isPending && !entry.failure && entry.confirmed?.isPrivate === isPrivate) {
+      onSaved(isPrivate);
+      onClose();
+    }
+  }, [entry, submitted, isPrivate, onClose, onSaved]);
   return <Modal transparent animationType="fade" onRequestClose={onClose}>
     <View style={styles.overlay}>
       <View accessibilityViewIsModal role="dialog" accessibilityLabel="목록 공개 범위 확인" style={styles.dialog}>

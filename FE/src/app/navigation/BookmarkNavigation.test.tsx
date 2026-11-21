@@ -19,7 +19,9 @@ const getArticle = () => screen.getByRole('button', { name: new RegExp(`^${title
 async function renderApp(bookmarkSource = createMockBookmarkSource({ delayMs: 0 })) {
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} bookmarkSource={bookmarkSource}
     feedSource={createMockFeedSource({ delayMs: 0 })} articleSource={createMockArticleSource({ delayMs: 0 })}
-    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0 })} />
+    searchSource={createMockSearchSource({ delayMs: 0 })} clapSource={createMockClapSource({ delayMs: 0,
+      // 이 테스트의 기존 북마크 공급부는 기본 목록을 공개 카탈로그에 투영하지 않는다.
+      baselineFor: ({ target }) => target.kind === 'list' ? 0 : undefined })} />
   </SafeAreaProvider>);
   await waitFor(() => expect(getBookmark()).toBeEnabled());
 }

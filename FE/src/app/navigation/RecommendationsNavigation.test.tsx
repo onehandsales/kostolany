@@ -48,6 +48,10 @@ it('관심사 필터·팔로우와 이력 개별 삭제 취소/확정·Library/V
   await user.press(await screen.findByRole('button', { name: '설정 열기' }));
   await user.press(screen.getByRole('button', { name: 'Refine recommendations' }));
   expect(await screen.findByRole('button', { name: 'Following Self Improvement' })).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'Topics (1)' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: 'See all Topics (1)' }));
+  expect(screen.getByRole('button', { name: 'Filter recommendations: Topics' })).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Following Self Improvement' })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: 'Reading history' }));
   await user.press(await screen.findByRole('button', { name: `Remove from history, ${title}` }));
   await user.press(screen.getByRole('button', { name: 'Cancel history removal' }));

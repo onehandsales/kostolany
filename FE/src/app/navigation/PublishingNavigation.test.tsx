@@ -34,7 +34,7 @@ it('설정을 열어 둔 뒤 실제 편집기·발행·내 Stories·작성 상�
 }, 40000);
 it('발행 실패와 응답 유실 재시도 후 Unlisted는 별도 내 목록에서 읽고 발행 데이터 공급부 교체를 반영한다', async () => {
   const { user, source, view } = await setup(createMockDraftSource({ delayMs: 0, publishFailures: 1, lostPublishResponses: 1 }));
-  await user.press(button('Next')); await fireEvent(screen.getByLabelText('Unlisted'), 'valueChange', true);
+  await user.press(button('Next')); await user.press(screen.getByRole('switch', { name: 'Unlisted' }));
   await user.press(button('Publication')); await user.press(screen.getAllByRole('radio')[1]!); await user.press(button('Publication 선택 취소')); expect(screen.getByText('No publication selected')).toBeVisible();
   await user.press(button('Publish now')); await user.press(await screen.findByRole('button', { name: '발행 다시 시도' })); await flush();
   expect(screen.getByText('발행 결과를 확인하지 못했어요. 같은 요청으로 결과를 확인해 주세요.')).toBeVisible(); expect(button('발행 미리보기 Edit')).toBeDisabled();

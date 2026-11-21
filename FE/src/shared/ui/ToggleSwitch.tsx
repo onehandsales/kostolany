@@ -3,12 +3,12 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useThemeStyles } from '../theme/ThemeProvider';
 import type { ThemeColors } from '../theme/tokens';
 
-type ToggleSwitchProps = { label: string; value: boolean; onChange: (value: boolean) => void };
+type ToggleSwitchProps = { label: string; value: boolean; disabled?: boolean; onChange: (value: boolean) => void };
 
-export function ToggleSwitch({ label, value, onChange }: ToggleSwitchProps) {
+export function ToggleSwitch({ label, value, disabled = false, onChange }: ToggleSwitchProps) {
   const styles = useThemeStyles(createStyles);
-  return <Pressable role="switch" accessibilityLabel={label} accessibilityState={{ checked: value }} aria-checked={value}
-    onPress={() => onChange(!value)} style={styles.target}>
+  return <Pressable role="switch" accessibilityLabel={label} disabled={disabled} accessibilityState={{ checked: value, disabled }} aria-checked={value}
+    onPress={() => onChange(!value)} style={[styles.target, disabled && { opacity: 0.5 }]}>
     <View style={[styles.track, value && styles.enabled]}><View style={[styles.thumb, value && styles.selectedThumb]} /></View>
   </Pressable>;
 }

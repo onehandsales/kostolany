@@ -23,6 +23,7 @@ type SearchBylineProps = { name: string; avatar?: ImageSourcePropType; emphasize
 
 export function SearchByline({ name, avatar, emphasized = false, verified = false }: SearchBylineProps) {
   const styles = useThemeStyles(createStyles);
+  const { fontScale } = useWindowDimensions();
   const publication = /^In (.+) by (.+)$/.exec(name);
   return (
     <View style={styles.byline}>
@@ -33,7 +34,7 @@ export function SearchByline({ name, avatar, emphasized = false, verified = fals
           <Text style={styles.initial}>K</Text>
         </View>
       )}
-      <Text style={styles.source} accessibilityLabel={verified ? `${name}, Verified` : undefined}>
+      <Text style={styles.source} numberOfLines={fontScale > 1.2 ? undefined : 1} accessibilityLabel={verified ? `${name}, Verified` : name}>
         {emphasized && publication ? (
           <>In <Text style={styles.emphasis}>{publication[1]}</Text> by <Text style={styles.emphasis}>{publication[2]}</Text></>
         ) : <Text style={emphasized && styles.emphasis}>{name}</Text>}

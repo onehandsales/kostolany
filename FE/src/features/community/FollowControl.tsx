@@ -22,6 +22,7 @@ type Props = {
   name: string;
   wide?: boolean;
   topicStyle?: boolean;
+  presentation?: 'pill' | 'menu';
   onMessage?: (message: string) => void;
 };
 export function FollowControl(props: Props) {
@@ -34,7 +35,7 @@ export function FollowControl(props: Props) {
     />
   );
 }
-function ScopedFollow({ target, name, wide = false, topicStyle = false, onMessage }: Props) {
+function ScopedFollow({ target, name, wide = false, topicStyle = false, presentation = 'pill', onMessage }: Props) {
   const { state, store, scope } = useRelationships();
   const moderation = useModeration();
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
@@ -125,7 +126,7 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, onMessag
     );
   if (blocked) return <Text style={styles.message}>Blocked author</Text>;
   return (
-    <View style={wide && styles.wide}>
+    <View style={(wide || presentation === 'menu') && styles.wide}>
       <Pressable
         ref={button}
         role="button"
@@ -148,10 +149,12 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, onMessag
             wide && styles.widePill,
             wide && relationship.following && styles.followed,
             wide && !relationship.following && styles.filled,
+            presentation === 'menu' && styles.menuAppearance,
           ]}
         >
-          <Text style={[styles.label, (wide || topicStyle) && !relationship.following && styles.inverse]}>
-            {loading ? 'Loading…' : relationship.following ? 'Following' : 'Follow'}
+          <Text style={[styles.label, (wide || topicStyle) && !relationship.following && styles.inverse,
+            presentation === 'menu' && styles.menuLabel]}>
+            {loading ? 'Loading…' : relationship.following ? 'Following' : 'Follow'}{presentation === 'menu' ? ' author' : ''}
           </Text>
           {relationship.following && wide && (
             <View style={styles.chevron}>
@@ -269,6 +272,7 @@ function EmailOption({
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     wide: { width: '100%' },
+    menuAppearance: { borderWidth: 0, paddingHorizontal: 0, justifyContent: 'flex-start' },
     target: { minWidth: 72, minHeight: 48, justifyContent: 'center' },
     pill: {
       minHeight: 32,

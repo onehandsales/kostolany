@@ -49,12 +49,14 @@ export function createUserListStore(source: UserListSource, userId: string, arti
     hasReadError: false,
     entries: [],
   };
+  let deletionNotice: UserListsSnapshot['deletionNotice'] = null;
 
   function publish(): void {
     snapshot = {
       status: isLoaded ? 'ready' : hasReadError ? 'error' : 'loading',
       isRefreshing: isReading,
       hasReadError,
+      deletionNotice,
       entries: [...entries.values()]
         .filter((entry) => !entry.isDeleted)
         .map((entry) => ({
@@ -209,6 +211,8 @@ export function createUserListStore(source: UserListSource, userId: string, arti
       if (content === null) {
         entry.isDeleted = true;
         entry.desired = null;
+        // 현재 세션에서 확정한 삭제만 일회성 화면 안내로 전달한다.
+        if (intentScope === scope) deletionNotice = { commandId: command.id, name };
         publish();
       } else void sendNext(entry);
     } catch (error) {
@@ -278,6 +282,7 @@ export function createUserListStore(source: UserListSource, userId: string, arti
     setScope(next: string): void {
       if (scope === next) return;
       scope = next;
+      deletionNotice = null;
       readGeneration += 1;
       isReading = false;
       hasReadError = false;

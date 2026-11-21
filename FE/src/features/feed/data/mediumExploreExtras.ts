@@ -30,6 +30,7 @@ export const recommendedStories: FeedArticle[] = [
     thumbnail: null,
     reference: {
       avatar: require('../../../../assets/medium/wilson.png'),
+      verifiedAuthor: true,
       applause: 23000,
       responses: '652',
       memberOnly: true,
@@ -104,6 +105,7 @@ export const suggestedProfiles = [
   },
   {
     name: 'Alex Mathers',
+    verified: true,
     followers: '217K followers',
     bio: 'Helping you develop confidence and authentic leadership. Triple yo...',
     image: require('../../../../assets/medium/alex-mathers.png'),

@@ -57,6 +57,7 @@ export function ReferenceArticleCard({
   const stacked = fontScale > 1.3 || width < 340;
   const reference = article.reference;
   const viewed = useHasViewed(article.id) && !onRemoveHistory;
+  const summary = <Text numberOfLines={variant === 'profile' ? 2 : undefined} style={styles.summary}>{article.summary}</Text>;
   return (
     <View
       style={[
@@ -80,6 +81,7 @@ export function ReferenceArticleCard({
             stacked && styles.stacked,
           ]}
         >
+          <View style={[styles.copy, stacked && styles.stackedCopy]}>
           <Text
             textBreakStrategy={reference?.balancedHeadline ? 'balanced' : 'highQuality'}
             style={[
@@ -91,21 +93,13 @@ export function ReferenceArticleCard({
           >
             {article.title}
           </Text>
+          {!stacked && summary}
+          </View>
           {reference?.image && (
             <Image source={reference.image} style={styles.image} resizeMode="cover" accessible={false} />
           )}
         </View>
-        <Text
-          numberOfLines={variant === 'profile' ? 2 : undefined}
-          style={[
-            styles.summary,
-            Boolean(reference?.image) &&
-              !stacked &&
-              (variant === 'search' ? styles.searchSummary : styles.summaryWithImage),
-          ]}
-        >
-          {article.summary}
-        </Text>
+        {stacked && summary}
       </Pressable>
       <View style={styles.metadata}>
         <View style={styles.counts}>
@@ -238,7 +232,9 @@ const createStyles = (colors: ThemeColors) =>
       gap: 24,
       marginTop: 16,
     },
-    title: { ...typography.storyTitle, flex: 1, color: colors.text },
+    copy: { flex: 1 },
+    stackedCopy: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
+    title: { ...typography.storyTitle, flexShrink: 1, color: colors.text },
     image: { width: 80, height: 54, borderRadius: 2 },
     stacked: { flexDirection: 'column' },
     stackedTitle: {
@@ -254,8 +250,6 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.secondaryText,
       marginTop: 6,
     },
-    summaryWithImage: { marginRight: 96 },
-    searchSummary: { marginRight: 84 },
     star: { width: 24 },
     metadata: {
       marginTop: 6,

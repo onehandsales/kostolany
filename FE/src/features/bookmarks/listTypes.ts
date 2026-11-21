@@ -56,6 +56,7 @@ export type UserListsSnapshot = Readonly<{
   isRefreshing: boolean;
   hasReadError: boolean;
   entries: readonly UserListEntrySnapshot[];
+  deletionNotice?: Readonly<{ commandId: number; name: string }> | null;
 }>;
 export type ListActionResult =
   | Readonly<{ ok: true; listId: string }>

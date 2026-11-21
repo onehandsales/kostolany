@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -35,6 +35,12 @@ function ListActionControls({
   const styles = useThemeStyles(createStyles);
   const listFormStyles = useThemeStyles(createListFormStyles);
   const [mode, setMode] = useState<'rename' | 'delete' | 'privacy' | 'reorder' | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  useEffect(() => {
+    if (!notice) return;
+    const timer = setTimeout(() => setNotice(null), 2600);
+    return () => clearTimeout(timer);
+  }, [notice]);
   const store = useBookmarkStore().userLists;
   const navigation = useCommunityNavigation();
   const isDefault = listId === DEFAULT_LIST_ID;
@@ -66,7 +72,12 @@ function ListActionControls({
       {mode === 'rename' && (
         <ListEditorSheet listId={listId} initialName={name} onClose={() => setMode(null)} />
       )}
-      {mode === 'privacy' && <ListPrivacyDialog listId={listId} isPrivate={!isPrivate} onClose={() => setMode(null)} />}
+      {mode === 'privacy' && <ListPrivacyDialog listId={listId} isPrivate={!isPrivate}
+        onSaved={savedPrivate => setNotice(`${name} is now ${savedPrivate ? 'private' : 'public'}`)}
+        onClose={() => setMode(null)} />}
+      {notice && <View pointerEvents="none" style={styles.notice}>
+        <Text aria-live="polite" style={styles.noticeText}>{notice}</Text>
+      </View>}
       {mode === 'reorder' && <ReorderListSheet listId={listId} onClose={() => setMode(null)} />}
       {mode === 'delete' && (
         <LibrarySheet
@@ -100,6 +111,9 @@ function ListActionControls({
   );
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
+  notice: { position: 'absolute', top: 56, right: 8, maxWidth: 300, padding: 20,
+    borderRadius: 4, backgroundColor: '#242424', zIndex: 10 },
+  noticeText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: '#ffffff' },
   content: { gap: 24, paddingTop: 0, paddingBottom: 16 },
   description: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: colors.text, textAlign: 'center' },
   local: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText, textAlign: 'center' },

@@ -3,12 +3,30 @@ import { createMockPublicListSource } from './data/createMockPublicListSource';
 import { publicListFixtures } from './data/publicListFixtures';
 import { validatePublicLists, type PublicListSource, type PublicListValue, type SavePublicListCommand } from './types';
 import { deferred } from '../feed/tests/helpers';
+import { createMockUserListSource } from '../bookmarks/data/createMockUserListSource';
+import { DEFAULT_LIST_ID } from '../bookmarks/listTypes';
+import { ownedPublicListId } from './ownedPublicList';
 
 const id = 'public-morning-routine';
 const userId = 'reader-a';
 const scope = 'session-a';
 const base = (): PublicListValue => ({ userId, version: 0, lists: publicListFixtures, savedIds: [] });
 const flush = async () => { for (let i = 0; i < 12; i += 1) await Promise.resolve(); };
+
+it('기본 읽기 목록의 공통 반응 대상은 소유자에게만 비공개로 조회되고 타인은 저장할 수 없다', async () => {
+  const userLists = createMockUserListSource({ delayMs: 0, managesReadingList: true });
+  await userLists.fetchLists(userId);
+  const source = createMockPublicListSource({ delayMs: 0, userLists });
+  const listId = ownedPublicListId(userId, DEFAULT_LIST_ID);
+  expect((await source.read(userId)).lists.find(list => list.id === listId)).toMatchObject({ isPrivate: true });
+  expect(source.canAccess?.(userId, listId)).toBe(true);
+  for (const other of [null, 'reader-b']) {
+    expect(source.canAccess?.(other, listId)).toBe(false);
+    expect((await source.read(other)).lists.some(list => list.id === listId)).toBe(false);
+  }
+  await expect(source.save({ userId: 'reader-b', ownerId: userId, listId,
+    commandId: 'save-private-default', saved: true })).rejects.toThrow('unavailable');
+});
 
 it('권한 알림은 열린 목록을 즉시 숨기고 진행 중이던 이전 조회도 무효화한다', async () => {
   const source = createMockPublicListSource({ delayMs: 0 });

@@ -16,11 +16,11 @@ export function RichBody({ value, onChange, onSelect, onFocus, onBlur, focusRequ
   useEffect(() => { if (dismissRequest) input.current?.blur(); }, [dismissRequest]);
   function blockStyle(kind: BlockKind): TextStyle {
     return { fontFamily: ['heading', 'subheading'].includes(kind) ? fonts.sans : kind === 'code' ? Platform.OS === 'ios' ? 'Menlo' : 'monospace' : fonts.serif,
-      fontSize: kind === 'heading' ? 28 : kind === 'subheading' ? 23 : 20,
-      lineHeight: kind === 'heading' ? 36 : 30,
-      fontWeight: ['heading', 'subheading'].includes(kind) ? '700' : '400',
+      fontSize: kind === 'heading' ? 28 : 18,
+      lineHeight: kind === 'heading' ? 36 : kind === 'subheading' ? 24 : 30,
+      fontWeight: kind === 'heading' ? '700' : '400',
       fontStyle: ['quote', 'pullquote'].includes(kind) ? 'italic' : 'normal',
-      backgroundColor: kind === 'code' ? colors.surface : 'transparent', color: colors.text };
+      backgroundColor: kind === 'code' ? colors.surface : 'transparent', color: kind === 'subheading' ? colors.secondaryText : colors.text };
   }
   return <TextInput ref={input} multiline accessibilityLabel={label}
     placeholderTextColor={colors.secondaryText} selection={value.selection} scrollEnabled={false} textAlignVertical="top"
@@ -28,7 +28,7 @@ export function RichBody({ value, onChange, onSelect, onFocus, onBlur, focusRequ
     onChangeText={text => onChange(changeBody(value, text))}
     onSelectionChange={event => onSelect(event.nativeEvent.selection)}
     onContentSizeChange={event => setHeight(Math.max(minHeight, event.nativeEvent.contentSize.height))}
-    style={{ height, minHeight, fontFamily: fonts.serif, fontSize: 20, lineHeight: 30, padding: 0, color: colors.text }}>
+    style={{ height, minHeight, fontFamily: fonts.serif, fontSize: 18, lineHeight: 30, padding: 0, color: colors.text }}>
     <Text>{lines(value.document).map(line => <Text key={line.index} style={blockStyle(line.kind)}>
       {segments(value.document, line.start, line.end).map(part => <Text key={part.start} style={{
         fontWeight: part.formats.some(format => format.kind === 'bold') ? '700' : undefined,

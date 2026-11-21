@@ -26,7 +26,8 @@ it.each(['success', 'failure'])(
           <SafeAreaProvider>
             <AuthProvider initialUser={mockUserA}>
               <RelationshipProvider source={source} userId={userId} revision={revision}>
-                <FollowControl target={{ kind: 'writer', id: 'jordan' }} name="Jordan Gibbs" />
+                <FollowControl target={{ kind: 'writer', id: 'jordan' }} name="Jordan Gibbs"
+                  presentation={outcome === 'failure' ? 'menu' : 'pill'} />
               </RelationshipProvider>
             </AuthProvider>
           </SafeAreaProvider>
@@ -36,6 +37,7 @@ it.each(['success', 'failure'])(
     const user = userEvent.setup();
     const view = await render(<Harness userId="A" revision={1} />);
     await waitFor(() => expect(screen.getByRole('button', { name: 'Follow Jordan Gibbs' })).toBeEnabled());
+    if (outcome === 'failure') expect(screen.getByText('Follow author')).toBeVisible();
     await user.press(screen.getByRole('button', { name: 'Follow Jordan Gibbs' }));
     expect(screen.getByRole('radio', { name: 'Email notifications off' })).toBeVisible();
     await view.rerender(<Harness userId="B" revision={2} />);

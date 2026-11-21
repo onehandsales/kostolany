@@ -27,6 +27,7 @@ import { TopPopover } from '../../shared/ui/TopPopover';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { useAuth } from '../auth/AuthProvider';
 import { useProfile } from '../profile/ProfileProvider';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { ResponseQuoteBlock } from './ResponseQuoteBlock';
 import { ResponseCard } from './ResponseCard';
 import { useResponses } from './ResponseProvider';
@@ -49,6 +50,7 @@ export function ResponsesPanel({
   initialDeleteId,
   initialQuote,
   initialFocusId,
+  initialPolicy = false,
   onClose,
 }: {
   target: ResponseTarget;
@@ -57,6 +59,7 @@ export function ResponsesPanel({
   initialDeleteId?: string;
   initialQuote?: ResponseQuote;
   initialFocusId?: string;
+  initialPolicy?: boolean;
   onClose: () => void;
 }) {
   const styles = useThemeStyles(createStyles);
@@ -85,7 +88,7 @@ export function ResponsesPanel({
   const [deleteTarget, setDeleteTarget] = useState<ReaderResponse | null>(
     () => state?.value?.responses.find((response) => response.id === initialDeleteId) ?? null,
   );
-  const [policy, setPolicy] = useState(false);
+  const [policy, setPolicy] = useState(initialPolicy);
   const [policyError, setPolicyError] = useState(false);
   const [announcement, setAnnouncement] = useState('');
   const input = useRef<TextInput>(null);
@@ -504,6 +507,7 @@ export function ResponsesPanel({
                   )}
                   {store?.userId ? (
                     <View style={styles.inputRow}>
+                      {!draft && !quote && !selectedId && <ProfileAvatar userId={store.userId} size={32} />}
                       <TextInput
                         ref={input}
                         accessibilityLabel="응답 내용"

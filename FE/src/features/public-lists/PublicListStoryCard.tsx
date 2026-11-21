@@ -41,8 +41,8 @@ export function PublicListStoryCard({ article, onOpen }: PublicListStoryCardProp
   </View>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  card: { padding: 24, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
-  headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 20, marginTop: 8 },
+  card: { padding: 24, paddingBottom: 16, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
+  headline: { flexDirection: 'row', alignItems: 'flex-start', gap: 40, marginTop: 8 },
   stack: { flexDirection: 'column' },
   title: { flex: 1, fontFamily: fonts.sans, fontSize: 16, lineHeight: 21, fontWeight: '700', color: colors.text },
   viewed: { color: colors.secondaryText },

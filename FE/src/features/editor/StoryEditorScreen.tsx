@@ -108,9 +108,12 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
           onFocus={() => { setBodyTarget(true); setFocused(true); }} onBlur={() => setFocused(false)} onComposing={setComposing} focusRequest={focusRequest} dismissRequest={dismissRequest} />
         {insertion.pending && <View style={{ borderWidth: 3, borderColor: colors.green, marginVertical: 24 }}>
           <Image source={images.resolve(insertion.pending.asset.assetId)} accessibilityLabel={insertion.pending.asset.description}
-            style={{ width: '100%', height: 'auto', aspectRatio: insertion.pending.asset.width / insertion.pending.asset.height, opacity: 0.4 }} />
-          <Pressable role="button" accessibilityLabel="이미지 삽입 취소" style={[styles.tool, { position: 'absolute', right: 0, top: 0 }]} onPress={insertion.cancel}><Text style={styles.toolText}>×</Text></Pressable>
-          {insertion.pending.status === 'loading' ? <ActivityIndicator accessibilityLabel="이미지 삽입 중" /> : <>
+            style={{ width: '100%', height: 'auto', aspectRatio: insertion.pending.asset.width / insertion.pending.asset.height }} />
+          {insertion.pending.status === 'loading' && <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: '#00000088', alignItems: 'center', justifyContent: 'center' }]}>
+            <ActivityIndicator accessibilityLabel="이미지 삽입 중" color="#ffffff" size="large" />
+          </View>}
+          <Pressable role="button" accessibilityLabel="이미지 삽입 취소" style={[styles.tool, { position: 'absolute', right: 0, top: 0 }]} onPress={insertion.cancel}><Text style={[styles.toolText, { color: '#ffffff' }]}>×</Text></Pressable>
+          {insertion.pending.status !== 'loading' && <>
             <Text role="alert" style={styles.danger}>이미지를 삽입하지 못했어요.</Text>
             <Pressable role="button" accessibilityLabel="이미지 삽입 다시 시도" onPress={insertion.retry} style={styles.action}><Text style={styles.green}>Try again</Text></Pressable>
           </>}

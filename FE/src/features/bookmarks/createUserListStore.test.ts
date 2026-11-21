@@ -112,6 +112,9 @@ it.each(['rename-success', 'rename-failure', 'add-success', 'add-failure'])('%s 
   await flush();
   expect(setList.mock.calls[2]?.[0].content).toBeNull();
   expect(store.getSnapshot().entries).toEqual([]);
+  expect(store.getSnapshot().deletionNotice?.commandId).toEqual(expect.any(Number));
+  store.setScope('new-login');
+  expect(store.getSnapshot().deletionNotice).toBeNull();
   expect(store.renameList(id, '복원').ok).toBe(false);
 });
 

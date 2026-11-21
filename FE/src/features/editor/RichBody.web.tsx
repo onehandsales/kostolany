@@ -53,9 +53,9 @@ export function RichBody(props: RichBodyProps) {
       const block = document.createElement('div'); block.dataset.block = line.kind;
       Object.assign(block.style, { minHeight: '30px', overflowWrap: 'anywhere', whiteSpace: 'pre-wrap',
         fontFamily: ['heading', 'subheading', 'code'].includes(line.kind) ? line.kind === 'code' ? 'monospace' : fonts.sans : fonts.serif,
-        fontSize: line.kind === 'heading' ? '28px' : line.kind === 'subheading' ? '23px' : '20px',
-        lineHeight: line.kind === 'heading' ? '36px' : '30px',
-        fontWeight: ['heading', 'subheading'].includes(line.kind) ? '700' : '400',
+        fontSize: line.kind === 'heading' ? '28px' : '18px',
+        lineHeight: line.kind === 'heading' ? '36px' : line.kind === 'subheading' ? '24px' : '30px',
+        fontWeight: line.kind === 'heading' ? '700' : '400',
         fontStyle: ['quote', 'pullquote'].includes(line.kind) ? 'italic' : 'normal',
         textAlign: ['pullquote', 'divider'].includes(line.kind) ? 'center' : 'left',
         borderLeft: line.kind === 'quote' ? `3px solid ${colors.text}` : 'none',
@@ -71,7 +71,7 @@ export function RichBody(props: RichBodyProps) {
         const span = document.createElement(link ? 'a' : 'span'); span.textContent = part.text;
         if (part.mention) { span.dataset.mentionId = part.mention.id; span.title = `@${part.mention.handle}`; }
         if (span instanceof HTMLAnchorElement && link?.url) { span.href = link.url; span.tabIndex = -1; }
-        Object.assign(span.style, { color: link || part.mention ? colors.green : line.kind === 'divider' ? colors.secondaryText : colors.text,
+        Object.assign(span.style, { color: link || part.mention ? colors.green : ['divider', 'subheading'].includes(line.kind) ? colors.secondaryText : colors.text,
           fontWeight: part.formats.some(format => format.kind === 'bold') ? '700' : 'inherit',
           fontStyle: part.formats.some(format => format.kind === 'italic') ? 'italic' : 'inherit',
           textDecoration: link ? 'underline' : 'none' }); block.append(span);

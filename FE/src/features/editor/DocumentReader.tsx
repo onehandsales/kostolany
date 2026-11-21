@@ -16,8 +16,8 @@ export function DocumentReader({ document, images }: { document: EditorDocument;
       if (block.type === 'divider') return <Text key={index} style={{ textAlign: 'center', fontSize: 24, paddingVertical: 20, letterSpacing: 8, color: colors.secondaryText }}>· · ·</Text>;
       const heading = block.type === 'heading' || block.type === 'subheading';
       return <View key={index} style={{ marginVertical: 8, paddingLeft: block.type === 'quote' ? 20 : 0, borderLeftWidth: block.type === 'quote' ? 3 : 0, borderColor: colors.text, backgroundColor: block.type === 'code' ? colors.surface : undefined }}>
-        <Text selectable role={heading ? 'heading' : undefined} style={{ fontFamily: heading ? fonts.sans : block.type === 'code' ? 'monospace' : fonts.serif, fontSize: block.type === 'heading' ? 28 : block.type === 'subheading' ? 23 : 20,
-          lineHeight: heading ? 36 : 30, fontWeight: heading ? '700' : '400', color: colors.text, textAlign: block.type === 'pullquote' ? 'center' : 'left', fontStyle: block.type === 'quote' || block.type === 'pullquote' ? 'italic' : 'normal' }}>
+        <Text selectable role={heading ? 'heading' : undefined} style={{ fontFamily: heading ? fonts.sans : block.type === 'code' ? 'monospace' : fonts.serif, fontSize: block.type === 'heading' ? 28 : 18,
+          lineHeight: block.type === 'heading' ? 36 : block.type === 'subheading' ? 24 : 30, fontWeight: block.type === 'heading' ? '700' : '400', color: block.type === 'subheading' ? colors.secondaryText : colors.text, textAlign: block.type === 'pullquote' ? 'center' : 'left', fontStyle: block.type === 'quote' || block.type === 'pullquote' ? 'italic' : 'normal' }}>
           {block.type === 'bullet' ? '• ' : block.type === 'numbered' ? `${index - blocks.slice(0, index).findLastIndex(item => item.type !== 'numbered')}. ` : ''}
           {block.content.map((part, partIndex) => {
             const link = part.formats.find(format => format.kind === 'link'); const mention = 'mention' in part ? part.mention : undefined;

@@ -8,6 +8,8 @@ import { IconButton } from '../../shared/ui/IconButton';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
 import { useShareDialog } from '../sharing/SharingProvider';
 import { ShareSheet } from '../sharing/ShareSheet';
+import { ClapControl } from '../reactions/ClapControl';
+import { ResponseButton } from '../responses/ResponseButton';
 import { useProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { sizes, typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -59,6 +61,7 @@ export function ReadingListScreen({
   const status = isDefault ? state.status : custom.status;
   const name = isDefault ? '읽기 목록' : (selected?.content?.name ?? '');
   const removedId = typeof removed === 'string' ? removed : removed?.articleId;
+  const reactionTarget = { kind: 'list' as const, id: ownedPublicListId(store.userLists.userId, listId) };
   function removeStory(articleId: string) {
     if (selected) setRemoved(store.userLists.removeStory(listId, articleId));
     else { store.setArticleInList(listId, articleId, false); setRemoved(articleId); }
@@ -208,15 +211,15 @@ export function ReadingListScreen({
         }
       />
       <View style={styles.listBar}>
-        <IconButton icon="clap" label="List claps" color="#dddddd" onPress={() => setNotice('List claps')} />
-        <IconButton icon="comment" label="List responses" onPress={() => setNotice('List responses')} />
+        <ClapControl target={reactionTarget} title={name} size={20} />
+        <ResponseButton target={reactionTarget} title={name} label="List responses" size={20} />
         <IconButton icon="share" label="Share list" onPress={() => sharing.open({
           kind: 'list', id: ownedPublicListId(store.userLists.userId, listId), title: name,
           subtitle: selected?.content?.description ?? '', authorId: store.userLists.userId,
-          authorName: 'My list', visibility: selected?.content?.isPrivate ? 'private' : 'public',
+          authorName: 'My list', visibility: isDefault || selected?.content?.isPrivate ? 'private' : 'public',
         })} />
       </View>
-      {sharing.target && <ShareSheet target={sharing.target} available={!selected?.content?.isPrivate && (isDefault || Boolean(selected?.content))} onClose={sharing.close} />}
+      {sharing.target && <ShareSheet target={sharing.target} available={!isDefault && !selected?.content?.isPrivate && Boolean(selected?.content)} onClose={sharing.close} />}
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {editingNote && selected?.content && <ListNoteSheet listId={listId} article={editingNote} onClose={() => setEditingNote(null)} />}
     </SafeAreaView>

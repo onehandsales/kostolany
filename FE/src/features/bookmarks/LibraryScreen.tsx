@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -41,6 +41,17 @@ function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, dige
   const listFormStyles = useThemeStyles(createListFormStyles);
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
+  const [seenDeletion, setSeenDeletion] = useState(custom.deletionNotice);
+  const [deletionNotice, setDeletionNotice] = useState<typeof custom.deletionNotice>(null);
+  if (seenDeletion !== custom.deletionNotice) {
+    setSeenDeletion(custom.deletionNotice);
+    setDeletionNotice(custom.deletionNotice);
+  }
+  useEffect(() => {
+    if (!deletionNotice) return;
+    const timer = setTimeout(() => setDeletionNotice(null), 2600);
+    return () => clearTimeout(timer);
+  }, [deletionNotice]);
   const store = useBookmarkStore();
   const [selectedTab, setSelectedTab] = useState('Your lists');
   const [visitedDigest, setVisitedDigest] = useState(false);
@@ -73,6 +84,9 @@ function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, dige
   const header = (
     <View>
       <View style={styles.header}>
+        {deletionNotice && <View pointerEvents="none" style={styles.deletionNotice}>
+          <Text aria-live="polite" style={styles.deletionText}>List deleted and removed from Your library</Text>
+        </View>}
         <Text role="heading" accessibilityLabel="라이브러리" style={styles.title}>
           Your library
         </Text>
@@ -188,9 +202,13 @@ function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, dige
 
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
+    deletionNotice: { position: 'absolute', top: 34, left: 40, right: 40, padding: 20,
+      borderRadius: 4, backgroundColor: '#242424', zIndex: 10 },
+    deletionText: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: '#ffffff' },
     screen: { flex: 1, backgroundColor: colors.background },
     content: { flexGrow: 1, width: '100%', maxWidth: 728, alignSelf: 'center', paddingBottom: 24 },
     header: {
+      zIndex: 2,
       paddingHorizontal: 24,
       paddingTop: 12,
       paddingBottom: 0,

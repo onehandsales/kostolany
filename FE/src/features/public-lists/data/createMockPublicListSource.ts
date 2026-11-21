@@ -27,8 +27,9 @@ export function createMockPublicListSource({
   const listeners = new Set<() => void>();
   let disconnectCatalog: (() => void) | undefined;
   let version = 0;
+  // 기본 읽기 목록도 공통 반응에서 조회하되 소유자에게만 보이는 비공개 대상으로 투영한다.
   const currentCatalog = () => [...catalog, ...(userLists?.getCatalog?.() ?? [])
-    .filter(list => list.listId !== DEFAULT_LIST_ID).map(toPublicList)];
+    .map(list => toPublicList(list.listId === DEFAULT_LIST_ID ? { ...list, isPrivate: true } : list))];
   function catalogChanged() {
     const current = currentCatalog();
     values.forEach(saved => saved.forEach(id => {

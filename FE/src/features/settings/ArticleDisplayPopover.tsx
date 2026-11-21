@@ -55,7 +55,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   smallA: { color: colors.text, fontFamily: fonts.serif, fontSize: 14, lineHeight: 24 },
   largeA: { color: colors.text, fontFamily: fonts.serif, fontSize: 18, lineHeight: 24 },
   percentage: { flex: 1, color: colors.text, fontFamily: fonts.sans, fontSize: 14, textAlign: 'center' },
-  row: { minHeight: 57, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
+  row: { minHeight: 57, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', alignContent: 'center', flexWrap: 'wrap', gap: 8, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
   label: { color: colors.text, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, flexGrow: 1, flexShrink: 1 },
   value: { color: colors.green, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, flexShrink: 1 },
   choice: { minHeight: 48, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface },

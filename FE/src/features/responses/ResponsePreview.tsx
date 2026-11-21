@@ -8,12 +8,14 @@ import { fonts } from '../../shared/theme/tokens';
 import { useAuth } from '../auth/AuthProvider';
 import { useProfile } from '../profile/ProfileProvider';
 import { ResponseCard } from './ResponseCard';
+import { ProfileAvatar } from '../profile/ProfileAvatar';
+import { IconButton } from '../../shared/ui/IconButton';
 import { ResponsesPanel } from './ResponsesPanel';
 import { useResponses, useResponseScope } from './ResponseProvider';
 import { responseRows } from './responseRows';
 import { responseTargetKey, type ResponseTarget } from './types';
 
-type Entry = { kind: 'all' } | { kind: 'reply' | 'edit' | 'delete'; id: string };
+type Entry = { kind: 'all' | 'policy' } | { kind: 'reply' | 'edit' | 'delete'; id: string };
 export function ResponsePreview({ target }: { target: ResponseTarget }) {
   const context = useResponseScope();
   return <ScopedResponsePreview key={`${context?.scope}:${responseTargetKey(target)}`} target={target} />;
@@ -46,13 +48,20 @@ function ScopedResponsePreview({ target }: { target: ResponseTarget }) {
   }
   return (
     <View style={{ marginTop: 48 }}>
-      <Text role="heading" style={{ ...text, fontSize: 20, lineHeight: 26, fontWeight: '700' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <Text role="heading" style={{ ...text, fontSize: 20, lineHeight: 26, fontWeight: '700', flexShrink: 1 }}>
         Responses (
         {state?.value
           ? responses.filter((response) => !response.deleted && response.parentId === null).length
           : '—'}
         )
       </Text>
+      <IconButton icon="shield" label="본문 응답 정책" size={16} onPress={() => setEntry({ kind: 'policy' })} />
+      </View>
+      <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginVertical: 24 }}>
+      {auth.state.user && <ProfileAvatar userId={auth.state.user.id} size={32} />}
+      <View style={{ flex: 1, gap: 8 }}>
+      {auth.state.user && <Text style={text}>{profile.state.profile?.name ?? auth.state.user.name}</Text>}
       <Pressable
         role="button"
         accessibilityLabel="Write a response"
@@ -60,12 +69,13 @@ function ScopedResponsePreview({ target }: { target: ResponseTarget }) {
           minHeight: 48,
           backgroundColor: colors.input,
           padding: 12,
-          marginVertical: 24,
         }}
         onPress={() => (store?.userId ? setEntry({ kind: 'all' }) : requireLogin())}
       >
         <Text style={text}>What are your thoughts?</Text>
       </Pressable>
+      </View>
+      </View>
       {state?.readError && (
         <Pressable
           role="button"
@@ -119,6 +129,7 @@ function ScopedResponsePreview({ target }: { target: ResponseTarget }) {
       {entry && (
         <ResponsesPanel
           target={target}
+          initialPolicy={entry.kind === 'policy'}
           onClose={() => setEntry(null)}
           initialReplyId={entry.kind === 'reply' ? entry.id : undefined}
           initialEditId={entry.kind === 'edit' ? entry.id : undefined}

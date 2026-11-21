@@ -8,6 +8,11 @@ import { useCommunityNavigation } from './CommunityNavigation';
 import { FollowControl } from './FollowControl';
 import { SafeWebsiteLink } from './SafeWebsiteLink';
 import { publicListPreviews } from './data/publicDirectory';
+import { SavePublicListControl } from '../public-lists/SavePublicListControl';
+import { ActionMenu } from '../../shared/ui/ActionMenu';
+import { useShareDialog } from '../sharing/SharingProvider';
+import { ShareSheet } from '../sharing/ShareSheet';
+import { useAuth } from '../auth/AuthProvider';
 import { usePublicLists } from '../public-lists/PublicListProvider';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { followKey, type FollowTarget, type PublicIdentity } from './types';
@@ -40,6 +45,8 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
   const publicLists = usePublicLists();
+  const sharing = useShareDialog(publicLists.store ?? undefined);
+  const auth = useAuth();
   const knownProfile = useKnownProfile(target.id);
   const mockOwner = target.kind === 'writer' ? mockUsers.find(user => user.id === target.id) : undefined;
   const { scope } = moderation;
@@ -189,27 +196,37 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
             lists.map((list) => {
               const preview = publicListPreviews.find((item) => item.id === list.id);
               return (
-                <Pressable
-                  key={list.id}
-                  role="button"
-                  accessibilityLabel={`Open list ${list.title}`}
-                  onPress={() => navigation.openPublicList(list.id, list.owner.id)}
-                  style={styles.list}
-                >
+                <View key={list.id} style={styles.list}>
                   <View style={styles.listCopy}>
-                    <View style={styles.badge}>
-                      <ProfileAvatar userId={identity.kind === 'writer' ? identity.id : undefined} fallback={identity.avatar} size={20} />
-                      <Text style={styles.secondary}>{knownProfile?.name ?? identity.name}</Text>
+                    <Pressable role="button" accessibilityLabel={`Open list ${list.title}`}
+                      onPress={() => navigation.openPublicList(list.id, list.owner.id)} style={{ minHeight: 48, gap: 12 }}>
+                      <View style={styles.badge}>
+                        <ProfileAvatar userId={identity.kind === 'writer' ? identity.id : undefined} fallback={identity.avatar} size={20} />
+                        <Text style={styles.secondary}>{knownProfile?.name ?? identity.name}</Text>
+                      </View>
+                      <Text style={styles.listTitle}>{list.title}</Text>
+                    </Pressable>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                      <Text style={[styles.secondary, { flex: 1 }]}>{list.capturedStoryCount} stories</Text>
+                      <SavePublicListControl list={list} compact />
+                      <ActionMenu label={`List options, ${list.title}`} items={[
+                        { label: 'Share list', onPress: () => sharing.open({ kind: 'list', id: list.id,
+                          title: list.title, subtitle: list.description, authorName: knownProfile?.name ?? identity.name,
+                          authorId: list.owner.kind === 'writer' ? list.owner.id : undefined,
+                          avatar: identity.avatar, visibility: list.isPrivate ? 'private' : 'public' }) },
+                        ...(auth.state.user?.id !== list.owner.id ? [{ label: 'Report list', onPress: () => moderation.open({
+                          kind: 'report', target: { kind: 'list', id: list.id,
+                            writerId: list.owner.kind === 'writer' ? list.owner.id : null }, title: list.title }) }] : []),
+                      ]} />
                     </View>
-                    <Text style={styles.listTitle}>{list.title}</Text>
-                    <Text style={styles.secondary}>{list.capturedStoryCount} stories</Text>
                   </View>
-                  <View style={styles.covers}>
+                  <Pressable role="button" accessibilityLabel={`Open list stories ${list.title}`}
+                    onPress={() => navigation.openPublicList(list.id, list.owner.id)} style={styles.covers}>
                     {preview?.covers.map((source, index) => (
                       <Image key={index} source={source} style={styles.cover} accessible={false} />
                     ))}
-                  </View>
-                </Pressable>
+                  </Pressable>
+                </View>
               );
             })
           ) : (
@@ -280,6 +297,8 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
         />
       )}
       {footer}
+      {sharing.target && <ShareSheet target={sharing.target}
+        available={lists.some(list => list.id === sharing.target?.id)} onClose={sharing.close} />}
       {message && (
         <View style={styles.toast} pointerEvents="none">
           <Text aria-live="polite" style={styles.toastText}>
@@ -390,7 +409,7 @@ const createStyles = (colors: ThemeColors) =>
       borderRadius: 3,
       overflow: 'hidden',
     },
-    listCopy: { padding: 24, gap: 12 },
+    listCopy: { padding: 24, paddingBottom: 0, gap: 12 },
     smallAvatar: { width: 20, height: 20, borderRadius: 10 },
     listTitle: {
       fontFamily: fonts.sans,

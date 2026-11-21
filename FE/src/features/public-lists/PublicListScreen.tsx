@@ -97,7 +97,9 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
         ListHeaderComponent={<View style={styles.intro}>
           <Pressable role="button" accessibilityLabel={`Open ${ownerName} profile`}
             style={styles.owner} onPress={() => navigation.openIdentity(list.owner)}>
-            <ProfileAvatar userId={list.owner.kind === 'writer' ? list.owner.id : undefined} fallback={owner?.avatar} size={48} />
+            <View style={styles.ownerAvatar}>
+              <ProfileAvatar userId={list.owner.kind === 'writer' ? list.owner.id : undefined} fallback={owner?.avatar} size={40} style={styles.avatar} />
+            </View>
             <View style={styles.ownerText}>
               <Text style={styles.ownerName}>{ownerName}</Text>
               <Text style={styles.metadata}>{list.publishedLabel ? `${list.publishedLabel} · ` : ''}
@@ -120,12 +122,12 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
               <Text style={styles.moreTitle}>More from {ownerName}</Text>
               {!own && <FollowControl target={list.owner} name={ownerName} />}
             </View>
-            {!!owner?.bio && <Text style={styles.description}>{owner.bio}</Text>}
+            {!!owner?.bio && <Text style={styles.ownerBio}>{owner.bio}</Text>}
           </View>
         </View>} />
       <View style={styles.toolbar}>
-        <ClapControl target={target} title={list.title} baseline={list.baselineClaps} size={28} />
-        <ResponseButton target={target} title={list.title} size={24} />
+        <ClapControl target={target} title={list.title} baseline={list.baselineClaps} size={22} />
+        <ResponseButton target={target} title={list.title} size={20} />
         <IconButton icon="share" label={`Share list ${list.title}`} onPress={share} />
       </View>
     </View>
@@ -138,20 +140,22 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, fontStyle: 'italic', color: colors.text },
   screen: { flex: 1, backgroundColor: colors.background },
   header: { minHeight: 48, paddingHorizontal: 8, flexDirection: 'row', alignItems: 'center' },
-  headerTitle: { flex: 1, fontFamily: fonts.sans, fontSize: 16, fontWeight: '700', color: colors.text },
+  headerTitle: { flex: 1, fontFamily: fonts.sans, fontSize: 14, fontWeight: '700', color: colors.text },
   body: { flex: 1 }, content: { paddingBottom: 100 },
-  intro: { paddingHorizontal: 24, paddingBottom: 28, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
+  intro: { paddingHorizontal: 24, paddingBottom: 26, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   owner: { minHeight: 48, flexDirection: 'row', alignItems: 'center', gap: 12, marginVertical: 8 },
-  avatar: { width: 48, height: 48, borderRadius: 24 }, ownerText: { flex: 1, gap: 4 },
+  ownerAvatar: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
+  avatar: { borderWidth: 0, backgroundColor: 'transparent' }, ownerText: { flex: 1, gap: 4 },
   ownerName: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text },
   metadata: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
-  title: { fontFamily: fonts.sans, fontSize: 24, fontWeight: '800', lineHeight: 30, color: colors.text, marginTop: 8 },
-  description: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 26, color: colors.secondaryText, marginTop: 10 },
+  title: { fontFamily: fonts.sans, fontSize: 22, fontWeight: '800', lineHeight: 26, color: colors.text, marginTop: 8 },
+  description: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 22, color: colors.text, marginTop: 8 },
   missing: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, padding: 24 },
   more: { backgroundColor: colors.section, padding: 24, paddingTop: 32 },
   moreHeading: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 12 },
-  moreTitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '700', color: colors.text, flex: 1 },
-  toolbar: { position: 'absolute', bottom: 16, alignSelf: 'center', maxWidth: '96%', paddingHorizontal: 20,
-    flexDirection: 'row', alignItems: 'center', gap: 16, borderRadius: 40, backgroundColor: colors.background,
+  moreTitle: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '700', color: colors.text, flex: 1 },
+  ownerBio: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText, maxWidth: 240 },
+  toolbar: { position: 'absolute', bottom: 16, alignSelf: 'center', maxWidth: '96%', paddingHorizontal: 12,
+    flexDirection: 'row', alignItems: 'center', gap: 8, borderRadius: 40, backgroundColor: colors.background,
     borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 18px rgba(0,0,0,0.10)' },
 });
