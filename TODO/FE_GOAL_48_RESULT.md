@@ -112,3 +112,7 @@ Node24.18.0, npm, Expo57.0.33/RN0.86.3. `FE/.nvmrc`와 현재 package를 기준�
 7. 전체 새로고침 후 B는 Free로 돌아간다. 실패/늦은 응답은 외부 faults.cjs와 자동 회귀 테스트로 재현한다.
 
 기존8081 PID58453·ENV·medium 원본·사용자 변경을 보존했다. 최종 diff/staged 검토와 로컬 커밋 뒤 Goal49로 이어간다.
+
+## Goal49 후속 연결
+
+2026-11-21: 아이콘 자격 안내 잔여를 [Goal49](FE_GOAL_49_RESULT.md)의 실제 선택/취소/미지원/적용 화면과 Swift/Kotlin 어댑터로 연결했다. 실제 native 빌드/실행은 여전히 대기이며 Goal48 당시 검사 결과는 변경하지 않는다.

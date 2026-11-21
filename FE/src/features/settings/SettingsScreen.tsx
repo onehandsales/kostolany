@@ -1,3 +1,6 @@
+import { useSettingsReturnFocus } from './useSettingsReturnFocus';
+import { useAccountFacebook } from './SettingsServicesProvider';
+import { settingsDestinations } from './settingsDestinations';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,14 +9,13 @@ import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ProviderIcon } from '../../shared/ui/ProviderIcon';
-import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import type { SettingsDetail } from './SettingsExtrasScreen';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 
 import { MembershipSheet } from '../membership/MembershipSheet';
 import { useMembership } from '../membership/MembershipProvider';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
-import { useModeration } from '../moderation/ModerationContext';
 import { ProfileEditorSheet } from '../profile/ProfileEditorSheet';
 import { useProfile } from '../profile/ProfileProvider';
 import { explanationLevelLabels } from '../article/explanationTypes';
@@ -24,12 +26,13 @@ import { useDisplaySettings } from './DisplaySettingsProvider';
 import { DisplaySettingsFeedback } from './DisplaySettingsFeedback';
 import { settingsStyles as createStyles } from './settingsStyles';
 
-type SettingsScreenProps = { onBack: () => void; onLogout: () => void; isFocused: boolean };
+type SettingsScreenProps = { onBack: () => void; onLogout: () => void; isFocused: boolean; onOpenStats?: () => void; onOpenDetail?: (page: SettingsDetail) => void };
 
-export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenProps) {
+export function SettingsScreen({ onBack, onLogout, isFocused, onOpenStats, onOpenDetail }: SettingsScreenProps) {
+  const openWithFocus = useSettingsReturnFocus(isFocused);
+  const facebook = useAccountFacebook();
   const display = useDisplaySettings();
   const visual = useThemeStyles(createVisual);
-  const moderation = useModeration();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { state, store } = useReadingSettings();
@@ -38,7 +41,6 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
   const community = useCommunityNavigation();
   const membership = useMembership();
   const [showMembership, setShowMembership] = useState(false);
-  const [notice, setNotice] = useState<string | null>(null);
   const isEditing = editing !== null;
   const wasEditing = useRef(false);
   useEffect(() => {
@@ -52,7 +54,6 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
     return () => cancelAnimationFrame(frame);
   }, [isEditing]);
   if (!isFocused && isEditing) setEditing(null);
-  if (!isFocused && notice) setNotice(null);
   if (!isFocused && showMembership) setShowMembership(false);
   if (!store) return null;
   return (
@@ -74,9 +75,8 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
           onPress={() => setShowMembership(true)}
           trailing={<AppIcon name="friend" size={20} color={colors.gold} />}
         />
-        <SettingsRow title="Story stats" onPress={() => setNotice('Story stats')} chevron />
-        <SettingsRow title="Account" onPress={() => setNotice('Account')} />
-        <SettingsRow title="Blocked users" onPress={() => moderation.open({ kind: 'blocked' })} chevron />
+        <SettingsRow title="Story stats" onPress={() => openWithFocus(() => onOpenStats?.())} chevron />
+        <SettingsRow title="Account" onPress={() => openWithFocus(() => onOpenDetail?.('account'))} />
         <SettingsRow title="Membership and payment" onPress={() => setShowMembership(true)}
           trailing={<Text accessibilityLabel="현재 멤버십 상태" style={{ color: colors.secondaryText, fontSize: 12 }}>Mock: {membership?.tier ?? 'free'}</Text>} />
         <Text role="heading" style={visual.section}>
@@ -151,32 +151,31 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
         <DisplaySettingsFeedback />
         <SettingsRow title="Push notifications" onPress={() => community.openNotificationSettings?.('push')} chevron />
         <SettingsRow title="Email notifications" onPress={() => community.openNotificationSettings?.('email')} chevron />
-        <SettingsRow title="Custom app icon" onPress={() => membership?.allows('custom-icon')
-          ? setNotice('Custom app icon') : setShowMembership(true)} chevron />
+        <SettingsRow title="Custom app icon" onPress={() => openWithFocus(() => onOpenDetail?.('icons'))} chevron />
         <Text role="heading" style={visual.section}>
           Social
         </Text>
         <Pressable
           role="button"
           accessibilityLabel="Connect Facebook"
-          onPress={() => setNotice('Facebook connection')}
+          onPress={() => openWithFocus(() => onOpenDetail?.('social'))}
           style={visual.row}
         >
           <ProviderIcon provider="Facebook" />
           <Text style={[visual.text, visual.grow]}>Facebook</Text>
-          <Text style={visual.green}>Connect</Text>
+          <Text style={visual.green}>{facebook ? 'Connected (mock)' : 'Connect'}</Text>
         </Pressable>
         <Text style={visual.socialHint}>We will never post to Facebook without your permission.</Text>
         <Text role="heading" style={visual.section}>
           About Medium
         </Text>
-        {['Help', 'Terms of service', 'Privacy policy', 'Rate on the App Store'].map((title) => (
-          <SettingsRow key={title} title={title} onPress={() => setNotice(title)} />
+        {(['help', 'terms', 'privacy', 'rate'] as const).map((destination) => (
+          <SettingsRow key={destination} title={settingsDestinations[destination].title} onPress={() => openWithFocus(() => onOpenDetail?.(destination))} />
         ))}
         <Text role="heading" style={visual.section}>
           App Controls
         </Text>
-        <SettingsRow title="More app controls" onPress={() => setNotice('More app controls')} chevron />
+        <SettingsRow title="More app controls" onPress={() => openWithFocus(() => onOpenDetail?.('controls'))} chevron />
         <SettingsRow title="Sign out" label="로그아웃" onPress={onLogout} />
         <Text role="heading" style={visual.section}>
           Reading tools · local example
@@ -260,7 +259,6 @@ export function SettingsScreen({ onBack, onLogout, isFocused }: SettingsScreenPr
           onClose={() => setEditing(null)}
         />
       )}
-      <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
     </SafeAreaView>
   );
 }
@@ -365,7 +363,7 @@ const createVisual = (colors: ThemeColors) =>
     selectedText: { fontWeight: '600' },
     socialHint: {
       fontFamily: fonts.sans,
-      fontSize: 14,
+      fontSize: 13,
       lineHeight: 20,
       color: colors.secondaryText,
       backgroundColor: colors.section,

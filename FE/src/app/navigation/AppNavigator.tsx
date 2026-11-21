@@ -1,3 +1,7 @@
+import { SettingsServicesProvider } from '../../features/settings/SettingsServicesProvider';
+import type { SettingsPlatform } from '../../features/settings/settingsDestinations';
+import type { AccountConnectionSource } from '../../features/settings/accountConnectionSource';
+import type { AppIconAdapter } from '../../features/app-icon/types';
 import {
   DefaultTheme,
   NavigationContainer,
@@ -127,6 +131,9 @@ type AppNavigatorProps = {
   shareAdapter?: ShareAdapter;
   listeningOptionsSource?: ListeningOptionsSource;
   listeningSource?: ListeningSource;
+  appIconAdapter?: AppIconAdapter;
+  accountConnectionSource?: AccountConnectionSource;
+  settingsPlatform?: SettingsPlatform;
   statsSource?: StoryStatsSource;
   onboardingSource?: OnboardingSource;
   notificationPermissionSource?: NotificationPermissionSource;
@@ -169,6 +176,7 @@ export function AppNavigator({ authSource, initialUser, ...sources }: AppNavigat
 export function SessionNavigation(sources: AppNavigatorProps) {
   const { state } = useAuth();
   return (
+    <SettingsServicesProvider icons={sources.appIconAdapter} connections={sources.accountConnectionSource} platform={sources.settingsPlatform}>
     <MembershipProvider source={sources.membershipSource}>
     <NotificationPermissionProvider source={sources.notificationPermissionSource}>
     <NotificationProvider source={sources.notificationSource}>
@@ -178,6 +186,7 @@ export function SessionNavigation(sources: AppNavigatorProps) {
     </NotificationProvider>
     </NotificationPermissionProvider>
     </MembershipProvider>
+    </SettingsServicesProvider>
   );
 }
 

@@ -1,3 +1,6 @@
+import { SettingsExtrasScreen, type SettingsDetail } from '../../features/settings/SettingsExtrasScreen';
+import { AppIconScreen } from '../../features/app-icon/AppIconScreen';
+import { useSettingsServices } from '../../features/settings/SettingsServicesProvider';
 import { useIsFocused } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useMemo, useState } from 'react';
@@ -15,6 +18,7 @@ import type { StoryStatsSource } from '../../features/story-stats/types';
 type ProfileStackParamList = {
   ProfileHome: undefined;
   Settings: undefined;
+  SettingsDetail: { page: SettingsDetail };
   ProfileList: { listId: string };
   StoryStats: undefined;
   StatsStory: { storyId: string };
@@ -52,7 +56,11 @@ export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticle
           ownerId={state.user.id} onBack={() => navigation.goBack()} />}
       </Stack.Screen>
       <Stack.Screen name="Settings">
-        {({ navigation }) => <SettingsRoute onBack={() => navigation.goBack()} />}
+        {({ navigation }) => <SettingsRoute onBack={() => navigation.goBack()} onOpenStats={() => navigation.navigate('StoryStats')} onOpenDetail={page => navigation.push('SettingsDetail', { page })} />}
+      </Stack.Screen>
+      <Stack.Screen name="SettingsDetail">
+        {({ navigation, route }) => <SettingsDetailRoute page={route.params.page} onBack={() => navigation.goBack()}
+          onOpen={page => navigation.push('SettingsDetail', { page })} />}
       </Stack.Screen>
       <Stack.Screen name="ProfileList" getId={({ params }) => params.listId}>
         {({ navigation, route }) => (
@@ -107,8 +115,15 @@ function StatsRoute({ source, userId, revision, onBack, onOpenStory }: {
     userId={userId} sessionRevision={revision} active={active} onBack={onBack} onOpenStory={onOpenStory} />;
 }
 
-function SettingsRoute({ onBack }: { onBack: () => void }) {
+function SettingsRoute({ onBack, onOpenStats, onOpenDetail }: { onBack: () => void; onOpenStats: () => void; onOpenDetail: (page: SettingsDetail) => void }) {
   const { store } = useAuth();
   const isFocused = useIsFocused();
-  return <SettingsScreen onBack={onBack} onLogout={store.openLogout} isFocused={isFocused} />;
+  return <SettingsScreen onBack={onBack} onOpenStats={onOpenStats} onOpenDetail={onOpenDetail} onLogout={store.openLogout} isFocused={isFocused} />;
+}
+
+function SettingsDetailRoute({ page, onBack, onOpen }: { page: SettingsDetail; onBack: () => void; onOpen: (page: SettingsDetail) => void }) {
+  const active = useIsFocused();
+  const { scope } = useSettingsServices();
+  return page === 'icons' ? <AppIconScreen key={scope} active={active} onBack={onBack} />
+    : <SettingsExtrasScreen key={scope} page={page} active={active} onBack={onBack} onOpen={onOpen} />;
 }

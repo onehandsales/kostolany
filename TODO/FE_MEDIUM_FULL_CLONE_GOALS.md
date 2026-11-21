@@ -1,8 +1,8 @@
 # Medium 전체 화면·UX 후속 Goal 실행 계획
 
-**현재 진행 — Goal48 Member/Friend mock 기능·두 차례 자체 검토 수행, 현재 자동 검사 통과·원본/native 검증 잔여.** 월/연간·Member/Friend·로딩/성공/Welcome과 온보딩/설정/Listen/오프라인/Friend 링크의 계정별 권한을 연결했다. 브라우저11묶음·원본5쌍·실제 실행 근거와 한계는 [Goal48 결과](FE_GOAL_48_RESULT.md)를 따른다. Goal47은 `10844cb`에 로컬 커밋했다. Goal48 로컬 커밋 후 Goal49~53을 이어서 진행한다.
+**현재 진행 — Goal49 설정·아이콘 기능과 OS 어댑터 구현·두 차례 자체 검토, 현재 자동 검사 통과·원본/native 검증 잔여.** Story stats·Account·Facebook mock 연결·공식 외부 안내·More controls·8개 아이콘/Friend gate를 연결했다. 브라우저10묶음·원본3쌍·로컬 native 모듈/구성 생성의 근거와 한계는 [Goal49 결과](FE_GOAL_49_RESULT.md)를 따른다. Goal48은 `c1f8961`에 로컬 커밋했다. 이번 단계 커밋 후 Goal50~53을 이어간다.
 
-**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44·45·46·47은 `00b2527`·`ee1c299`·`a148542`·`10844cb`에 기록했고 이후 단계도 각각 검토·로컬 커밋한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
+**현재 승인:** Goal44→53을 순서대로 구현·두 차례 검토·수정·검사·문서 갱신하고 각 Goal별로 로컬 커밋한다. 사용자의 별도 승인으로 Goal42·43 기준 사본을 새로 검증해 `b11b004`에 분리 기록했다. Goal44·45·46·47·48은 `00b2527`·`ee1c299`·`a148542`·`10844cb`·`c1f8961`에 기록했고 이후 단계도 각각 검토·로컬 커밋한다. 기존 변경·ENV·medium·8081을 보존한다. push·배포·Goal54·백엔드 개발은 승인 범위가 아니다. 아래 과거 종료/커밋 금지/검사 수치/PID는 당시 이력이다.
 
 **Goal43 당시 상태 — 과거 실행 기록(2026-11-21, macOS): 구현 완료·검증 잔여.** 프로필 View stats→Monthly/Lifetime·UTC 월/날짜·Latest/Views/Reads·기존 발행 글 상세/복귀를 연결하고 두 차례 자체 검토했다. 타입/lint·전체210 suites/1188 tests(356.807초)·web/iOS/Android export를 통과했다.8081 정상/실패/계정 경합을 확인하고 원본4쌍을 대조했다. 최종 전체 검사에는 UTC 표시·발행 경합 회귀도 포함한다. [Goal43 결과·실제 전체 검사·8081 순서](FE_GOAL_43_RESULT.md)에 기능/자동 검사/시각/native를 구분한다. 월/정렬 펼친 원본·글꼴 차이·실제 native 검증이 남아 전체 완료로 표시하지 않는다.
 
@@ -141,7 +141,7 @@ Goal42 프로필은 Expo OS picker 어댑터와 웹 파일 선택을 구현했�
 | [46](#goal-46) | 재생 속도·음성·검색·AirPlay·큐 상태 | 29, 45 | mock 구현·두 차례 자체 검토·검증 잔여 ([결과](FE_GOAL_46_RESULT.md)) |
 | [47](#goal-47) | 기사·인용·작가·토픽·목록 공유와 이미지 저장 | 27, 28, 30, 32, 46 | 기능 구현·두 차례 자체 검토, native/원본 차이 잔여 |
 | [48](#goal-48) | Member·Friend 구독 화면과 mock 권한 | 33, 41, 47 | 기능 구현·두 차례 자체 검토, 현재 자동 검사 통과·원본/native 검증 잔여 |
-| [49](#goal-49) | 남은 설정·앱 아이콘·외부 안내 | 42, 44, 48 | 미착수 |
+| [49](#goal-49) | 남은 설정·앱 아이콘·외부 안내 | 42, 44, 48 | 기능·OS 어댑터 구현/원본·native 검증 잔여 |
 | [50](#goal-50) | 검색 추가 결과·홈/탭/진입 경로 마감 | 31, 34, 39, 44, 49 | 미착수 |
 | [51](#goal-51) | 기능 간 상태·실패·계정 격리 통합 검증 | 35, 43, 46, 50 | 미착수 |
 | [52](#goal-52) | iOS·Android·접근성·성능·native 경계 검증 | 51 | 미착수 |
@@ -554,7 +554,7 @@ npm.cmd test -- <영향받은 테스트 파일 또는 패턴>
 
 ### Goal 49 — 남은 설정·앱 아이콘·외부 안내
 
-- **상태/선행:** 미착수 / Goal 42, Goal 44, Goal 48.
+- **상태/선행:** 기능·OS 어댑터 구현·두 차례 자체 검토, 현재 자동 검사 통과·원본/native 검증 잔여 / Goal 42, Goal 44, Goal 48. [Goal49 결과](FE_GOAL_49_RESULT.md)의 행별 목적지·기기 수명·실제 검사와 잔여를 따른다.
 - **원본:** [F54](FE_MEDIUM_FULL_CLONE_MAP.md#f54), [F55](FE_MEDIUM_FULL_CLONE_MAP.md#f55), [F58](FE_MEDIUM_FULL_CLONE_MAP.md#f58), [F60](FE_MEDIUM_FULL_CLONE_MAP.md#f60). 해당 흐름의 PNG·상세 분석과 대응표의 메뉴/미확인 항목을 함께 적용한다.
 - **구현 범위:** Account/Membership & payment/Email/Facebook 연결·Help/Terms/Privacy/Rate/More controls 등 모든 보이는 설정 행의 목적지를 확인하고 적합한 화면 또는 외부 링크를 연결한다. Custom app icon의 변형·선택·Friend gate를 구현한다. Account의 Blocked users는29의 상태 계약에 연결하며 현재 공식 설명과 보관 캡처의 차이를 먼저 확인한다.
 - **시각 비교:** Wordmark/Founders/Friend/Throwback 연도별 아이콘·선택 테두리·잘린 항목, 계정/설정 구역·외부 링크 표식을 원본에 맞춘다.

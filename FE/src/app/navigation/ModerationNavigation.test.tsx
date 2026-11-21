@@ -71,6 +71,7 @@ it('Settings 차단 목록의 해제 취소와 성공은 해당 목록으로 돌
   );
   await user.press(await screen.findByRole('tab', { name: '프로필' }));
   await user.press(await screen.findByRole('button', { name: '설정 열기' }));
+  await user.press(await screen.findByRole('button', { name: 'Account' }));
   await user.press(await screen.findByRole('button', { name: 'Blocked users' }));
   await user.press(await screen.findByRole('button', { name: 'Unblock Jordan Gibbs' }));
   await user.press(screen.getByRole('button', { name: 'Cancel moderation change' }));
