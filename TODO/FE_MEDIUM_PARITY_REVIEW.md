@@ -1,8 +1,8 @@
 # 작업 문서 작성 후 자체 검토 기록
 
-**최신 결과: 추가 재검토에서 세부 작업화 부족과 담당 Goal 연결 오류/부족을 더 확인해 문서를 보완했다.** 앞선 링크·등록 검사 통과가 의미상 누락 없음까지 증명하지는 않았다. 아래1·2차 기록은 보존하고, 현재 판정은 [추가 재검토](#recheck-3)를 함께 따른다. FE의 원본 동일 재현은 여전히 미완료다.
+**최신 결과: 4차 검토에서도 세부 작업화와 적용 대상의 부족을 확인해 보완했다.** 앞선 링크·등록 검사 통과가 의미상 누락 없음까지 증명하지는 않았다. 아래1~3차 기록은 보존하고, 현재 판정은 [4차 재검토](#recheck-4)를 함께 따른다. FE의 원본 동일 재현은 여전히 미완료다.
 
-검토일: 2026-11-22 KST. 기준 HEAD `65cda0f598b1a0cfda78160a1274a24b846a23b3`. [전체 결론](FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](FE_MEDIUM_PARITY_BACKLOG.md).
+검토일: 2026-11-22 KST. 1~3차 기준 HEAD `65cda0f598b1a0cfda78160a1274a24b846a23b3`, 문서 커밋 후 4차 기준 HEAD `825c70e7f38360f5d44d72086dd2756cd96bddca`. [전체 결론](FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](FE_MEDIUM_PARITY_BACKLOG.md).
 
 ## 첫 번째 검토
 
@@ -114,3 +114,53 @@ S083 원본에는 웹사이트 줄이 보이지 않았다. 현재 구현의 웹�
 최종 실행 결과: 로컬 링크·앵커9,428개, R 요구1,390개 각각의 담당 Goal/작업 연결, 원본/단계/ID/관찰 보존 검사에서 오류0개다. 원본·FE·기존 Goal 결과982개 파일은 이전 기준 해시와 동일하다. 추가 검토 시작 때의997개 파일도 비교했으며 변경은 감사 문서12개뿐이다. 외부 URL 최신 접근성, 앱 타입/lint/Jest, 브라우저·native는 이번 추가 검토에서 실행하지 않았다.
 
 추가 검토의 생성·검사 자료는 저장소 밖 `/var/folders/jg/zn9h2_f91nxfpwz9hzpkqcv80000gn/T/kostolany-parity-recheck-07_dvuig`의 `changes.json`, `manifest.json`, `check.py`, `validation.json`이다. 앞선2차 검사 수치와 새 실행 수치를 구분한다. 이번에도 별도 검토자가 아닌 자체 검토다.
+
+<a id="recheck-4"></a>
+
+## 문서 커밋 후 네 번째 검토
+
+문서 커밋 `825c70e7f38360f5d44d72086dd2756cd96bddca`의 clean 상태에서 시작했다. 이번에는 앞선 Digest·발행 글 중심 점검에서 범위를 넓혀, 내 목록·다운로드·초안·발행 토픽·대명사·재생 속도/음성·플레이어·멤버십·통계의 코드와 원본 관찰을 대조했다. 원본 PNG10장(S011/S076/S077/S094/S106/S129/S131/S139/S150/S159)은 직접 다시 열었다. 200개 PNG나 현재 앱의 모든 화면을 이번에 다시 실행한 것은 아니다.
+
+### 추가로 구체화한 작업
+
+| 대상 | 이번에 확인한 부족 | 문서 반영 |
+| --- | --- | --- |
+| 내 목록 상대 시간 | S106은 `14 seconds ago`, S011은 `6 seconds ago · 4 stories`, S077은 `1 second ago · 4 stories`. 현재 상세 JSX에는 개수만 있고 `UserListContent`에는 시간 필드도 없다. Goal53의 차이 기록과 R 원문은 있었지만 표시/데이터/갱신의 구체 완료 조건이 부족했다. | [D13](FE_MEDIUM_PARITY_BACKLOG.md#d13) 신설, R-S106-D/R-S077-D 연결 및 R-S011-V 추가. 빈 상세와 Library 카드의 No stories를 구분 |
+| 내 목록 회원용 글 별표 | S077의 첫 기사에는 별표가 있고 `medium-horse` fixture도 true다. `ListStoryCard`에는 표시 분기가 없다. D11을 Digest만의 작업으로 둔 적용 대상이 부족했다. | [D11](FE_MEDIUM_PARITY_BACKLOG.md#d11)을 내 목록으로 확장, R-S077-V 추가. 공개 목록은 이미 별표 분기가 있으므로 동일 미구현으로 세지 않음 |
+| 자체 추가 UI | Q12가 오디오/멤버십의 모의 안내와 그 배치 영향을 구체 대상으로 연결하지 않았다. 외부 서비스 미연동을 기록한 Q08만으로 원본 화면 차이가 닫히지는 않는다. | [Q12](FE_MEDIUM_PARITY_BACKLOG.md#q12)·V18·V31 및 C58/C65 연결 보강. 모의임을 알리는 정보는 보존하고 원본과의 차이를 기록 |
+
+이번 세 항목은 누락된 원본 파일3개 또는 새 기능3개가 아니다. 기존에 관찰·기록된 차이를 실제로 닫을 작업 정의와 적용 대상이 부족했던 사례다. 따라서 작업 목록의 상태도 “작업 정의 완료”에서 “현재 확인한 잔여의 작업 정의 반영”으로 바꾸었다. 이후에도 코드 소비자나 원본 요소를 더 대조해 세부 작업을 보강할 수 있다.
+
+D13의 시간 기준은 원본이 생성 시각/마지막 수정 시각 중 무엇인지 확정하지 않는다. 특히 빈 목록14초와 채워진 목록6초를 하나의 실시간 전이로 해석하지 않는다. 구현할 mock 시간 계약과 관찰된 세 독립 화면을 분리해 검증하도록 했다. D12의 프로필 게시 경과 시간과 같은 포맷을 강제로 쓰는 작업도 아니다.
+
+### 누락으로 잘못 집계하지 않은 항목
+
+| 대상 | 코드·원본 대조 결과와 한계 |
+| --- | --- |
+| 초안 시간 | [DraftsScreen.tsx](../FE/src/features/editor/DraftsScreen.tsx)에 `Edited` + 분/시간/일의 상대 시간 계산이 있다. S139의 `Edited 1 minute ago`를 지원할 분기가 있으므로 D12/D13과 같은 표시 부재로 묶지 않았다. 현재 시각 fixture·배치는 V09에서 비교해야 한다. |
+| 속도·음성 | [ListeningSpeedPanel.tsx](../FE/src/features/listening/ListeningSpeedPanel.tsx)에 1x/200 WPM,2.5x/490 WPM,145% 관찰값이 있다. [ListeningVoicePanel.tsx](../FE/src/features/listening/ListeningVoicePanel.tsx)의 검색·언어 section·선택색도 확인했다. 2.5×200=500으로 원본 값을 바꾸지 않는다. 실제 음성 출력과 native 조작은 이번 검증 범위가 아니다. |
+| 목록 생성 | [ListEditorSheet.tsx](../FE/src/features/bookmarks/ListEditorSheet.tsx)에 이름60/설명280 카운터, optional, 기본 Private off, 유효성에 따른 Create 상태가 있다. 빈 폼 S076만 보고 Private 설명을 기본 비공개 정책으로 해석하지 않았다. 폼의 동일 배치는 아직 V25 잔여다. |
+| 대명사·발행 토픽 | [PronounsEditor.tsx](../FE/src/features/profile/PronounsEditor.tsx)의 4개 제한·chip 제거·Done과 [PublishTopics.tsx](../FE/src/features/editor/PublishTopics.tsx)의 최대5개·검색·chip 제거·Save 조건을 확인했다. 원본에 없는 자유 입력 저장 규칙이나 빈 선택 Save의 결과를 확정하지 않았다. |
+| 통계 | [StoryStatsScreen.tsx](../FE/src/features/story-stats/StoryStatsScreen.tsx)에 Monthly뿐 아니라 Lifetime 시작일–Today·Updated daily, 글의23 hours ago를 렌더할 분기가 있다. S150 원본에도 표시된다. V34의 비교 조건을 명시적으로 보강했으나 새 결함으로 등록하지 않았다. 월간11/2와 글0/0은 기존대로 독립 fixture로 남긴다. |
+| 멤버십 환영 문구 | S159 PNG에는 `You can now access the best of Medium.`가 실제로 있다. 현재 동일 문구를 자체 추가 UI로 잘못 분류하지 않았다. 원본 가격/혜택은 보관 시점의 값이며 실제 구독 서비스와 연결됐다는 뜻은 아니다. |
+| 다운로드·순서 편집 | 다운로드 상태 제어와 inline 순서 편집의 기존 연결은 유지했다. 발행 글 본문 다운로드는 D07, 실서비스 효력은 Q08, 실제 기기 실행은 Q07로 남긴다. 원본에 없는 복구 안내는 기존 차이를 유지하며 이번 완료로 바꾸지 않았다. |
+
+새 R 행은2개이며, 기존 R2 관찰·단계 관계와 Goal53의 과거 판정은 삭제하거나 새 실행 결과로 바꾸지 않았다. 현재 R1,392개는 배치/데이터/상태600개, 컨트롤779개, PNG 추가13개다. 기존 TODO 판정은 상위 기능 범위 포함771개/개별 조건 보완613개/정책 화면 상세 작업화8개다. D01~D13·Q01~Q12·V01~V34로 연결한다.
+
+### 네 번째 검토의 검사와 기록
+
+| 이번에 다시 실행한 검사 | 결과 |
+| --- | --- |
+| 원본 재파싱·대응 | 63흐름/273단계/200고유 화면,273 PNG/중복 UI43장 대응 오류0개 |
+| 관찰·경계 보존 | 관찰1,755개,진입/종료/미수록189개,목적63개,다음 캡처 관계273개 보존 |
+| 원본 부록 보존 | 공식 설명151개,모델 후보273개 보존; 설계 채택이나 구현 완료를 의미하지 않음 |
+| 요구·작업 연결 | R1,392/T273/U263/Goal53/C72/V34, D13개·Q12개·V34개 ID 및 담당/작업 연결 오류0개 |
+| 로컬 링크·앵커 | 감사 문서15개의9,528개 검사,오류0개. 외부 URL 최신 접근성은 미검사 |
+| 변경 범위 | 이전 기준982개 파일 해시 불변. 이번 시작997개 파일 중 감사 문서12개만 변경,HEAD 유지 |
+| diff 형식 | `git diff --check` 통과 |
+
+이 결과는 원본 기록의 보존과 문서 연결 검사다. 화면이 동일하거나 모든 기능이 완료됐다는 판정으로 사용하지 않는다.
+
+검사 자료는 저장소 밖 `/var/folders/jg/zn9h2_f91nxfpwz9hzpkqcv80000gn/T/kostolany-parity-recheck4-5vlx6o3m`에 둔다. 시작997개 파일의 `baseline.json`, 기준 `head.txt`, 이번 보강의 `changes.json`/`manifest.json`, 원본과 문서 실체를 다시 읽는 `check.py`/`validation.json`이다. 기존 스크립트의 변경 허용 범위를 현재 추적 중인 감사 문서로 갱신하고 C72→작업 연결·D/Q/V ID·현재 HEAD 보존 검사도 추가했다. 임시 경로가 정리되어도 판단 근거·코드·원본 연결·완료 조건은 이 문서와 backlog에 남는다.
+
+이번에도 자체 검토다. FE·medium·기존 Goal 결과를 수정하지 않았고 브라우저·타입/lint/Jest·native 빌드를 새로 실행하지 않았다. 보완한 것은 작업 문서이며 실제 구현 차이는 그대로 남아 있다.

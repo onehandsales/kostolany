@@ -85,7 +85,7 @@ FE 조사 경로: [ListeningPlayer.tsx](<../../FE/src/features/listening/Listeni
 
 기본 담당: [G45](CONTRACTS.md#g45) · 실행 작업: [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18)
 
-**화면별 수용 조건:** 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다.
+**화면별 수용 조건:** 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 실제 mock 준비중. native spinner 모양/로딩 이미지 도착 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):322)
 
@@ -117,7 +117,7 @@ FE 조사 경로: [MembershipSheet.tsx](<../../FE/src/features/membership/Member
 
 기본 담당: [G48](CONTRACTS.md#g48) · 실행 작업: [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31)
 
-**화면별 수용 조건:** 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다.
+**화면별 수용 조건:** 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Monthly/Member 선택화면. A기본Member라 Current plan표시; 실제 결제 원본Select와 다른 확정 계정 상태. ([과거 기록](<../FE_GOAL_53_RESULT.md>):323)
 
@@ -258,7 +258,7 @@ FE 조사 경로: [MembershipSheet.tsx](<../../FE/src/features/membership/Member
 
 기본 담당: [G48](CONTRACTS.md#g48) · 실행 작업: [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31)
 
-**화면별 수용 조건:** 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다.
+**화면별 수용 조건:** 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 모의확정 성공dialog. 원본 purchase문구를 mock membership문구로 구분; OSdialog대비앱레이어 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):327)
 
@@ -534,7 +534,7 @@ FE 조사 경로: [ListeningPlayer.tsx](<../../FE/src/features/listening/Listeni
 
 기본 담당: [G45](CONTRACTS.md#g45) · 실행 작업: [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18)
 
-**화면별 수용 조건:** 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다.
+**화면별 수용 조건:** 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 2.5x 확정 후 player, 실제 경과와 고정원본 시간 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):335)
 
@@ -854,7 +854,7 @@ FE 조사 경로: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/Stor
 
 기본 담당: [G43](CONTRACTS.md#g43) · 실행 작업: [V34](../FE_MEDIUM_PARITY_BACKLOG.md#v34)
 
-**화면별 수용 조건:** Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다.
+**화면별 수용 조건:** Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Lifetime 기간·Latest·동일 제목/23hours ago·글별0/0 비교. 정상 집계 공식으로 월간11/2와의 불일치를 설명하지 않음. 행/하단 탭 간격·원형 범례·font 차이. 별도June2025 비교 fixture11/2·Lifetime0/0; 정상F63와 구분. ([과거 기록](<../FE_GOAL_53_RESULT.md>):344)
 

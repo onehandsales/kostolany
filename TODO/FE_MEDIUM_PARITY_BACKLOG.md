@@ -2,9 +2,9 @@
 
 [검토 결론](FE_MEDIUM_PARITY_AUDIT.md) · [재검토 결과](FE_MEDIUM_PARITY_REVIEW.md) · [63흐름](MEDIUM_PARITY/FLOWS.md) · [미확인 목록](MEDIUM_PARITY/UNKNOWN.md)
 
-**상태: 작업 정의 완료, FE 수정 미착수.** 아래 ID는 이번 감사의 보완 작업 ID이며 기존 Goal1~53의 번호/승인/완료 이력을 변경하지 않는다. 실제 구현 차이(D), 근거·범위·검증(Q), 원본 화면별 보정(V)을 구분한다. V는 화면 전체를 다시 만드는 지시가 아니라 각 R 요구의 차이를 확인하고 필요한 부분을 고치는 단위다.
+**상태: 현재 확인한 잔여의 작업 정의 반영, FE 수정 미착수.** 작업 정의 자체도 재검토 대상이다. 아래 ID는 이번 감사의 보완 작업 ID이며 기존 Goal1~53의 번호/승인/완료 이력을 변경하지 않는다. 실제 구현 차이(D), 근거·범위·검증(Q), 원본 화면별 보정(V)을 구분한다. V는 화면 전체를 다시 만드는 지시가 아니라 각 R 요구의 차이를 확인하고 필요한 부분을 고치는 단위다.
 
-우선 Q01/Q02로 비교 기준을 고정하고 D08의 정책 화면 잔여, D11의 Digest 회원용 글 표시, D12의 게시 경과 시간 및 각 V의 원본 차이를 보정한다. D01~D07의 상태/연결 결함도 같은 대상에서 함께 해결한다. D09/D10 구현과 Q07 실제 기기 검증은 구별한다. Q03~Q06/Q11은 근거 없는 기능 추가를 막기 위한 범위 작업이고, Q12는 현재 앱의 자체 추가 UI를 원본 비교에서 어떻게 처리할지 정하는 작업이다. 마지막은 Q10이다.
+우선 Q01/Q02로 비교 기준을 고정하고 D08의 정책 화면 잔여, D11의 Digest·내 목록 회원용 글 표시, D12의 게시 경과 시간, D13의 목록 상대 시간 및 각 V의 원본 차이를 보정한다. D01~D07의 상태/연결 결함도 같은 대상에서 함께 해결한다. D09/D10 구현과 Q07 실제 기기 검증은 구별한다. Q03~Q06/Q11은 근거 없는 기능 추가를 막기 위한 범위 작업이고, Q12는 현재 앱의 자체 추가 UI를 원본 비교에서 어떻게 처리할지 정하는 작업이다. 마지막은 Q10이다.
 
 공통 완료 조건: 원본 PNG와 동일 데이터/상태의 비교, 관찰된 조작의 시작/종료·복귀·확정/취소, 관련 전역 상태의 연결을 기록한다. 상태를 바꾸는 구현은 의미 있는 실패·늦은 응답·A→B→A·source 교체·계정 격리 회귀를 검사한다. 단순 시각 수정마다 구현을 복사한 테스트를 추가하지 않는다. 필요한 타입/lint/기능 검사는 실제 수정 후 새 결과로 기록한다.
 
@@ -190,14 +190,17 @@
 
 <a id="d11"></a>
 
-## D11 — Digest 카드의 회원용 글 표시
+## D11 — Digest·내 목록 카드의 회원용 글 표시
 
-- 판정: **기존 시각 잔여를 구체 작업으로 분리 / 현재 코드에 표시 분기 없음**. 기존 담당 Goal23·25·34·53. 새로운 전체 기능 누락으로 집계하지 않는다.
+- 판정: **기존 시각 잔여를 구체 작업으로 분리 / 현재 코드에 표시 분기 없음**. 기존 담당 Goal23·25·33·34·53. 새로운 전체 기능 누락으로 집계하지 않는다.
 - 원본: [S116](MEDIUM_PARITY/REQUIREMENTS_05.md#s116)의 `2 min read` 앞, [S132](MEDIUM_PARITY/REQUIREMENTS_06.md#s132)의 `3 min read` 앞에 금색 별표가 보인다. Goal53의 S132에도 “회원 표시 차이”가 기록되어 있었다.
 - 코드: [DigestPanel.tsx](../FE/src/features/digest/DigestPanel.tsx) 86~104행의 `DigestStory`는 읽기 시간·박수·응답·저장·더보기를 렌더하지만 `memberOnly` 별표 분기가 없다. [mediumFixtures.ts](../FE/src/features/feed/data/mediumFixtures.ts)의 `medium-love`는 이미 `memberOnly: true`다. [IdentityLink.tsx](../FE/src/features/community/IdentityLink.tsx)의 작성자 인증 배지는 다른 의미다.
 - 작업: 원본과 같은 카드 위치·색·크기의 회원용 글 표시를 해당 기사 메타데이터에 연결한다. 현재 계정의 멤버십 등급, 작성자의 인증 배지, 프로필의 Friend 배지와 구분한다. S116 원본 기사와 현재 해당 날짜 fixture가 다른 문제는 Q01/V27에서 따로 맞춘다.
 - 완료 조건: `memberOnly`가 참인 글과 거짓/미확인인 글을 나누어 표시 조건을 확인하고, 원본 읽기 시간·반응 행과 비교한다. 날짜 전환·320/393폭·Light/Dark에서 빠지거나 반응/저장 버튼을 밀어 겹치지 않는지 확인한다. 새 UI 실행 증거 없이 완료로 닫지 않는다.
 - 이번 근거: 원본 S116/S132 PNG 재열람, 현재 JSX와 fixture의 정적 대조. 새 FE 캡처·브라우저 재현 결과는 아니다.
+
+- 4차 검토에서 확장한 대상: [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077)의 첫 기사 `How Useful is Mind Fullness on an Empty Stomach?`는 다운로드 아이콘과 `3 min read` 사이에 금색 별표가 있다. [mediumLibraryFixtures.ts](../FE/src/features/feed/data/mediumLibraryFixtures.ts)의 `medium-horse.reference.memberOnly`도 true지만 [ListStoryCard.tsx](../FE/src/features/bookmarks/ListStoryCard.tsx)의 메타데이터 행에는 별표 분기가 없다. Goal53 S011의 “회원표시 차이”와 같은 소비자에 해당하며, 기존 D11을 Digest에만 한정한 범위가 부족했다.
+- 내 목록 완료 조건: S077 원본의 회원용 글과 같은 목록의 일반 글을 각각 비교하고, 순서 편집 전후에도 기사 ID에 맞는 별표를 유지한다. 다운로드 상태·Viewed·읽기 시간·날짜·저장·더보기와 겹치지 않는지 확인한다. [PublicListStoryCard.tsx](../FE/src/features/public-lists/PublicListStoryCard.tsx)는 이미 별표 분기가 있으므로 같은 미구현으로 집계하지 않는다. 공유 데이터에 별표가 있다고 모든 카드의 표시가 구현된 것으로 처리하지 않는다.
 
 <a id="d12"></a>
 
@@ -209,6 +212,17 @@
 - 작업: 발행 글 카드의 관찰된 상대 시간 표현을 지원하고 동일 카드 재진입·시간 경과 시 갱신한다. 원본에 없는 분/시간/일 경계와 반올림 규칙은 자체 계약으로 명시하며 실제 Medium 정책으로 단정하지 않는다.
 - 완료 조건: 게시 시각과 현재 시각을 고정한 `Just now`/`23h ago` 상태, 시간이 흐른 뒤 갱신, 화면 이탈/복귀, 미래/잘못된 시각의 처리까지 검증한다. 통계의 UTC 기간이나 초안 Edited 시각과 같은 포맷으로 강제 통합하지 않는다.
 - 이번 근거: 원본 S169/S178 PNG와 JSX 조건의 정적 대조. 새 앱 실행·회귀 테스트 결과는 아니다.
+
+<a id="d13"></a>
+
+## D13 — 내 목록 상세의 상대 시간·글 개수 표시
+
+- 판정: **기존 차이 기록의 구체 작업화 부족 / 현재 표시·데이터 계약 미구현**. 기존 담당 Goal23·33·53. Goal53 S011의 “상대시각 미제공”, S106의 “원본 상대시각 대신 실제 개수 표시”가 이미 있었으므로 처음 발견한 전체 기능 누락으로 집계하지 않는다.
+- 원본: [S106](MEDIUM_PARITY/REQUIREMENTS_05.md#s106)은 소유자 아래 `14 seconds ago`이고 `No stories`는 없다. [S011](MEDIUM_PARITY/REQUIREMENTS_01.md#s011)은 `6 seconds ago · 4 stories`, [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077)은 `1 second ago · 4 stories`다. Library 카드의 `No stories`와 상세 화면의 빈 목록 메타데이터는 다른 상태다.
+- 코드: [ReadingListScreen.tsx](../FE/src/features/bookmarks/ReadingListScreen.tsx)의 소유자 아래에는 글 개수 또는 `No stories`만 있다. [listTypes.ts](../FE/src/features/bookmarks/listTypes.ts)의 `UserListContent`/`UserList`에는 시간 필드가 없다. [createUserListStore.ts](../FE/src/features/bookmarks/createUserListStore.ts)의 `Date.now()`는 명령 범위·ID 생성용이며 화면 시간의 근거로 사용하면 안 된다.
+- 작업: 목록 상대 시간의 표시와 데이터 공급을 연결하고 빈 목록/채워진 목록의 메타데이터 조합을 나눈다. 생성·내용 변경·재정렬 중 어떤 시각을 표시하는지는 원본만으로 확정되지 않으므로 mock 계약을 명시한다. 상대 시간을 단순 고정 문자열로 넣거나 ID에서 추정하지 않는다. S106→S011은 기사 추가가 미수록이고14초→6초로 역행하므로 하나의 연속 성공 시나리오로 만들지 않는다.
+- 완료 조건: 시각을 고정한 세 독립 비교 조건에서 원본 문구와 구분점·개수 표시를 확인한다. 자체 계약에 따라 재정렬 확정/취소·실패·재진입 시 시간과 내용이 일치하는지 검증하고, 계정 전환 시 다른 목록의 시각이 섞이지 않도록 한다. 초/분 등의 미수록 경계는 실제 Medium 규칙으로 단정하지 않는다. 기본 Reading list 및 공개 목록의 적용 범위도 별도로 판정한다.
+- 이번 근거: 원본 PNG3장과 현재 JSX·타입·store 정적 대조. FE 실행·수정·회귀 테스트는 이번에 수행하지 않았다.
 
 <a id="q01"></a>
 
@@ -324,11 +338,12 @@
 
 ## Q12 — 원본에 없는 자체 추가 UI의 처리
 
-- 판정: **기존 결과에 흩어져 있던 차이의 작업화 보완 / 구현 결정·시각 보정 미완료**. 기존 담당 Goal23·25·39·41·42·49·53.
+- 판정: **기존 결과에 흩어져 있던 차이의 작업화 보완 / 구현 결정·시각 보정 미완료**. 기존 담당 Goal23·25·39·41·42·45·48·49·53.
 - 근거: [ProfileScreen.tsx](../FE/src/features/profile/ProfileScreen.tsx)의 `Continue setup`/`Drafts`/모의 계정 안내, [SettingsScreen.tsx](../FE/src/features/settings/SettingsScreen.tsx)의 `Mock:`·`Reading tools · local example`, [ReferenceArticleView.tsx](../FE/src/features/article/ReferenceArticleView.tsx)의 Reading tools, [WrittenStoryScreen.tsx](../FE/src/features/editor/WrittenStoryScreen.tsx)의 `모의 발행` 등은 보관 원본과 다른 현재 UI다. 작성자 About의 추가 웹사이트 줄과 정책 발췌 안내도 기존 후속 결과에 차이로 기록되어 있다.
+- 4차 범위 보강: [ListeningPlayer.tsx](../FE/src/features/listening/ListeningPlayer.tsx)의 작성자 옆 `· Mock`/확장 화면 `Mock preview · no audio`, [MembershipSheet.tsx](../FE/src/features/membership/MembershipSheet.tsx)의 모의 결제 안내/성공 문구도 각각 V18/V31에 연결한다. 이 기능들의 외부 서비스 미연동(Q08)과 자체 안내가 배치에 미치는 영향(Q12)은 별도 판정이다. S159의 `You can now access the best of Medium.`는 원본에도 있으므로 자체 추가 문구로 분류하지 않는다.
 - 노출 판정: `Continue setup`은 온보딩 재개 가능 상태에 의존하고 Reading tools 내용도 펼침 상태에 의존한다. 코드에 요소가 있다는 사실을 모든 원본 상태에서 항상 노출된다는 뜻으로 일반화하지 않는다. 비교 fixture의 실제 노출 조건부터 맞춘다.
 - 작업: 원본에 있는 요소를 추가하는 검사와 함께, 현재 앱에만 있는 요소·추가 진입점·문구를 화면별로 목록화한다. 각 요소의 필요성·노출 조건·배치·원본 화면에 미치는 영향을 정하고 원본 재현 경로에서 어떻게 처리할지 기록한다. 문서에서 이름만 언급한 채 원본 동일 완료로 처리하지 않는다.
-- 종료 조건: V13/V14/V21/V32/V33과 발행 글 상세에서 자체 요소가 원본 제목/필터/본문/카드/스크롤 위치를 바꾸는지 비교한다. 별도 배치나 노출 조건 변경 후에도 초안·온보딩·설명 기능의 접근 경로가 끊기지 않음을 확인한다. 모의/실제 서비스의 차이를 숨기거나 실제 계정·결제·발행이 완료된 것처럼 표시하지 않는다.
+- 종료 조건: V13/V14/V18/V21/V31/V32/V33과 발행 글 상세에서 자체 요소가 원본 제목/필터/본문/카드/스크롤 위치를 바꾸는지 비교한다. 이 목록 외 화면도 같은 기준을 적용한다. 별도 배치나 노출 조건 변경 후에도 초안·온보딩·설명 기능의 접근 경로가 끊기지 않음을 확인한다. 모의/실제 서비스의 차이를 숨기거나 실제 계정·결제·발행이 완료된 것처럼 표시하지 않는다.
 - 경계: 이번 작업은 검토 문서 보완이다. 기존 기능 삭제나 원본에 없는 새 화면 설계는 아직 실행하지 않았다. 유지하기로 한 자체 UI는 명시적인 원본 차이로 남는다.
 
 <a id="v01"></a>
@@ -613,7 +628,7 @@
 
 - FE 조사 경로: [ListeningPlayer.tsx](<../FE/src/features/listening/ListeningPlayer.tsx>)
 
-- 개별 완료 조건: 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다.
+- 개별 완료 조건: 준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.
 
 - 실행 범위: 위 화면의 모든 R-ID와 FLOWS.md의 해당 T-ID를 대조하고 필요한 UI/상태/연결을 보정한다. 표면의 색/크기만 맞추고 원본 메뉴·입력·선택·복귀를 남기지 않는다.
 
@@ -723,9 +738,9 @@
 
 - 전체 대상: [S002](MEDIUM_PARITY/REQUIREMENTS_01.md#s002), [S011](MEDIUM_PARITY/REQUIREMENTS_01.md#s011), [S056](MEDIUM_PARITY/REQUIREMENTS_03.md#s056), [S076](MEDIUM_PARITY/REQUIREMENTS_04.md#s076), [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077), [S078](MEDIUM_PARITY/REQUIREMENTS_04.md#s078), [S081](MEDIUM_PARITY/REQUIREMENTS_04.md#s081), [S101](MEDIUM_PARITY/REQUIREMENTS_05.md#s101), [S105](MEDIUM_PARITY/REQUIREMENTS_05.md#s105), [S106](MEDIUM_PARITY/REQUIREMENTS_05.md#s106), [S109](MEDIUM_PARITY/REQUIREMENTS_05.md#s109), [S114](MEDIUM_PARITY/REQUIREMENTS_05.md#s114), [S121](MEDIUM_PARITY/REQUIREMENTS_05.md#s121), [S155](MEDIUM_PARITY/REQUIREMENTS_07.md#s155), [S157](MEDIUM_PARITY/REQUIREMENTS_07.md#s157), [S177](MEDIUM_PARITY/REQUIREMENTS_08.md#s177), [S191](MEDIUM_PARITY/REQUIREMENTS_08.md#s191), [S195](MEDIUM_PARITY/REQUIREMENTS_08.md#s195), [S200](MEDIUM_PARITY/REQUIREMENTS_08.md#s200)
 
-- FE 조사 경로: [ReadingListScreen.tsx](<../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ListActions.tsx](<../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ReorderListEditor.tsx](<../FE/src/features/bookmarks/ReorderListEditor.tsx>), [ListNoteSheet.tsx](<../FE/src/features/bookmarks/ListNoteSheet.tsx>)
+- FE 조사 경로: [ReadingListScreen.tsx](<../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ListActions.tsx](<../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ReorderListEditor.tsx](<../FE/src/features/bookmarks/ReorderListEditor.tsx>), [ListNoteSheet.tsx](<../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../FE/src/features/bookmarks/ListStoryCard.tsx>), [listTypes.ts](<../FE/src/features/bookmarks/listTypes.ts>), [createUserListStore.ts](<../FE/src/features/bookmarks/createUserListStore.ts>)
 
-- 개별 완료 조건: 생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다.
+- 개별 완료 조건: 생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.
 
 - 실행 범위: 위 화면의 모든 R-ID와 FLOWS.md의 해당 T-ID를 대조하고 필요한 UI/상태/연결을 보정한다. 표면의 색/크기만 맞추고 원본 메뉴·입력·선택·복귀를 남기지 않는다.
 
@@ -821,7 +836,7 @@
 
 - FE 조사 경로: [MembershipSheet.tsx](<../FE/src/features/membership/MembershipSheet.tsx>)
 
-- 개별 완료 조건: 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다.
+- 개별 완료 조건: 월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.
 
 - 실행 범위: 위 화면의 모든 R-ID와 FLOWS.md의 해당 T-ID를 대조하고 필요한 UI/상태/연결을 보정한다. 표면의 색/크기만 맞추고 원본 메뉴·입력·선택·복귀를 남기지 않는다.
 
@@ -869,7 +884,7 @@
 
 - FE 조사 경로: [StoryStatsScreen.tsx](<../FE/src/features/story-stats/StoryStatsScreen.tsx>)
 
-- 개별 완료 조건: Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다.
+- 개별 완료 조건: Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다.
 
 - 실행 범위: 위 화면의 모든 R-ID와 FLOWS.md의 해당 T-ID를 대조하고 필요한 UI/상태/연결을 보정한다. 표면의 색/크기만 맞추고 원본 메뉴·입력·선택·복귀를 남기지 않는다.
 

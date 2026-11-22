@@ -1520,9 +1520,9 @@
 | C28 | 저장: Save to·여러 목록·선택 초안·Done·새 목록 생성 | [G33](CONTRACTS.md#g33) | [V22](../FE_MEDIUM_PARITY_BACKLOG.md#v22), [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
 | C29 | 공개 목록: 전체 목록 Save/해제·저장 수·Saved lists·소유자/방문자 | [G32](CONTRACTS.md#g32) | [V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04), [V24](../FE_MEDIUM_PARITY_BACKLOG.md#v24) |
 | C30 | 공개 목록: 목록 claps·목록 responses·소유자 Follow·Share·Undo claps·박수 사용자 목록 | [G32](CONTRACTS.md#g32) | [V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04), [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| C31 | 내 목록: 목록 제목/설명 편집·읽기 목록·새 목록·행별 더보기 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25), [V24](../FE_MEDIUM_PARITY_BACKLOG.md#v24) |
+| C31 | 내 목록: 목록 제목/설명 편집·읽기 목록·새 목록·행별 더보기 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25), [V24](../FE_MEDIUM_PARITY_BACKLOG.md#v24), [D11](../FE_MEDIUM_PARITY_BACKLOG.md#d11), [D13](../FE_MEDIUM_PARITY_BACKLOG.md#d13) |
 | C32 | 내 목록: Add/Edit note·취소/저장·빈값 Done·기존 메모 지우기·공개 범위 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25), [D04](../FE_MEDIUM_PARITY_BACKLOG.md#d04) |
-| C33 | 내 목록: Reorder·드래그·Cancel/Done·확정 순서 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
+| C33 | 내 목록: Reorder·드래그·Cancel/Done·확정 순서 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25), [D13](../FE_MEDIUM_PARITY_BACKLOG.md#d13) |
 | C34 | 내 목록: Make private 확인·타인 저장 목록 경고·잠금·공유 아이콘 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
 | C35 | 내 목록: Remove story·Undo·Delete list·확인/취소 | [G33](CONTRACTS.md#g33) | [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
 | C36 | 다운로드: Download list·진행/완료·개별 기사 상태·취소/제거/실패 | [G35](CONTRACTS.md#g35) | [V26](../FE_MEDIUM_PARITY_BACKLOG.md#v26), [D07](../FE_MEDIUM_PARITY_BACKLOG.md#d07), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08) |
@@ -1547,14 +1547,14 @@
 | C55 | 알림: 유형별 목록·팔로우 버튼·작가/기사/목록/응답 대상·복귀 | [G44](CONTRACTS.md#g44) | [V05](../FE_MEDIUM_PARITY_BACKLOG.md#v05), [D05](../FE_MEDIUM_PARITY_BACKLOG.md#d05) |
 | C56 | 알림 설정: Digest/Top stories/Editors/Featured/Applause/Saves 토글 | [G44](CONTRACTS.md#g44) | [V28](../FE_MEDIUM_PARITY_BACKLOG.md#v28) |
 | C57 | 알림 설정: Tailored for you·새 글/박수/highlight/응답/mentions·Email | [G44](CONTRACTS.md#g44) | [V28](../FE_MEDIUM_PARITY_BACKLOG.md#v28) |
-| C58 | 오디오: Listen 로딩·미니/확장·play/pause/close·시간·10초/30초 이동 | [G45](CONTRACTS.md#g45) | [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08), [Q11](../FE_MEDIUM_PARITY_BACKLOG.md#q11) |
+| C58 | 오디오: Listen 로딩·미니/확장·play/pause/close·시간·10초/30초 이동 | [G45](CONTRACTS.md#g45) | [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08), [Q11](../FE_MEDIUM_PARITY_BACKLOG.md#q11), [Q12](../FE_MEDIUM_PARITY_BACKLOG.md#q12) |
 | C59 | 오디오: 속도 1→2.5·WPM·선택 확인/취소·이전/다음 상태 | [G46](CONTRACTS.md#g46) | [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18), [V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08) |
 | C60 | 오디오: Emma→Hans·음성 언어/메타데이터·검색·선택 | [G46](CONTRACTS.md#g46) | [V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08) |
 | C61 | 오디오 메뉴: AirPlay/Select voice/View story/Show less/Mute/Report·Share | [G46](CONTRACTS.md#g46) | [V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19), [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18), [V15](../FE_MEDIUM_PARITY_BACKLOG.md#v15), [V23](../FE_MEDIUM_PARITY_BACKLOG.md#v23), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08) |
 | C62 | 공유: 기사 카드·스타일 페이지 점·Copy link 토스트·Friend link | [G47](CONTRACTS.md#g47) | [V23](../FE_MEDIUM_PARITY_BACKLOG.md#v23) |
 | C63 | 공유: Share via OS sheet·Save image·앨범 권한/실패/취소 | [G47](CONTRACTS.md#g47) | [V23](../FE_MEDIUM_PARITY_BACKLOG.md#v23), [Q07](../FE_MEDIUM_PARITY_BACKLOG.md#q07) |
 | C64 | 공유: 인용·작성자·토픽·공개/내 목록의 대상별 공유 | [G47](CONTRACTS.md#g47) | [V23](../FE_MEDIUM_PARITY_BACKLOG.md#v23) |
-| C65 | 멤버십: Member/Friend·월간/연간·가격/혜택·loading/success/Welcome | [G48](CONTRACTS.md#g48) | [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31) |
+| C65 | 멤버십: Member/Friend·월간/연간·가격/혜택·loading/success/Welcome | [G48](CONTRACTS.md#g48) | [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31), [Q12](../FE_MEDIUM_PARITY_BACKLOG.md#q12) |
 | C66 | 멤버십: 구독 상태·오디오/오프라인 혜택·Friend link/아이콘 자격·기사 paywall 진입 | [G48](CONTRACTS.md#g48) | [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31), [V18](../FE_MEDIUM_PARITY_BACKLOG.md#v18), [V26](../FE_MEDIUM_PARITY_BACKLOG.md#v26), [V33](../FE_MEDIUM_PARITY_BACKLOG.md#v33), [Q08](../FE_MEDIUM_PARITY_BACKLOG.md#q08) |
 | C67 | 설정: Account/Membership & payment/Email/Facebook 연결 | [G49](CONTRACTS.md#g49) | [V33](../FE_MEDIUM_PARITY_BACKLOG.md#v33), [V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29), [V31](../FE_MEDIUM_PARITY_BACKLOG.md#v31), [V28](../FE_MEDIUM_PARITY_BACKLOG.md#v28), [Q12](../FE_MEDIUM_PARITY_BACKLOG.md#q12) |
 | C68 | 설정: Help/Terms/Privacy/Rate/More controls·외부 링크·복귀 | [G49](CONTRACTS.md#g49) | [V33](../FE_MEDIUM_PARITY_BACKLOG.md#v33) |
