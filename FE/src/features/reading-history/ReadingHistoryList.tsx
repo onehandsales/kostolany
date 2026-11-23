@@ -5,7 +5,9 @@ import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 
-import { mediumArticles } from '../feed/data/mediumFixtures';
+import { bookmarkArticles } from '../bookmarks/data/bookmarkFixtures';
+import { useCatalogArticles } from '../feed/ArticleCatalog';
+import { useArticleModeration } from '../moderation/articleModeration';
 import { ReferenceArticleCard } from '../feed/components/ReferenceArticleCard';
 import { LibrarySheet } from '../bookmarks/LibrarySheet';
 
@@ -30,6 +32,8 @@ function HistoryContent({
 }) {
   const { store, state, scope } = useReadingHistory();
   const styles = useThemeStyles(createStyles);
+  const articles = useCatalogArticles(bookmarkArticles);
+  const moderation = useArticleModeration();
   const [deleting, setDeleting] = useState<{ id: string | null; title: string } | null>(null);
   const visits = state?.visits ?? [];
   const ready = state?.status === 'ready';
@@ -80,7 +84,14 @@ function HistoryContent({
           </>
         }
         renderItem={({ item }) => {
-          const article = mediumArticles.find((story) => story.id === item.articleId);
+          // 읽은 시각과 발행일은 구분하며 접근할 수 없는 글의 제목은 노출하지 않는다.
+          const canRead = !moderation.store || Boolean(moderation.state?.value && !moderation.state.readError);
+          if (!canRead) return <ContentStatus loading={!moderation.state?.readError} error={Boolean(moderation.state?.readError)}
+            message={moderation.state?.readError ? 'Couldn’t check story access.' : 'Checking story access…'}
+            actionLabel={moderation.state?.readError ? 'Retry history access' : undefined}
+            onAction={moderation.state?.readError ? () => { void moderation.store?.reload(); } : undefined} />;
+          const article = canRead && !moderation.blocked(item.articleId)
+            ? articles.find((story) => story.id === item.articleId) : undefined;
           return article ? (
             <ReferenceArticleCard
               article={article}
@@ -160,7 +171,7 @@ const createStyles = (colors: ThemeColors) =>
     banner: { margin: 24, marginBottom: 0, padding: 24, gap: 8, backgroundColor: colors.surface },
     text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
     bold: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '600', color: colors.text },
-    empty: { alignItems: 'center', paddingTop: 32, paddingBottom: 24 },
+    empty: { alignItems: 'center', paddingTop: 32, paddingBottom: 24, borderRadius: 4 },
     center: { textAlign: 'center' },
     target: { minHeight: 48, alignSelf: 'flex-start', justifyContent: 'center' },
     clear: {

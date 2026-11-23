@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactElement } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { useStoryList, useWrittenStories } from '../editor/WrittenStoriesProvider';
-import { WrittenStoryBookmark, WrittenStoryMenu } from '../editor/WrittenStoryActions';
+import { WrittenStoryBookmark, WrittenStoryMenu, WrittenStoryViewed } from '../editor/WrittenStoryActions';
 import { WrittenStoryCardReactions } from '../editor/WrittenStoryCardReactions';
 import { useTheme } from '../../shared/theme/ThemeProvider';
 
@@ -28,6 +28,6 @@ export function ProfileStories({ userId, visibility, active, header, footer, con
       </View>
     </Pressable><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 12 }}><Text style={{ marginRight: 12, color: colors.secondaryText, fontSize: 12 }}>{now >= Date.parse(item.publishedAt) && now - Date.parse(item.publishedAt) < 60000 ? 'Just now' : new Date(item.publishedAt).toLocaleDateString()}{item.publishing.unlisted ? ' · Unlisted' : ''}</Text>
       <WrittenStoryCardReactions story={item} /><View style={{ flex: 1 }} />
-      <WrittenStoryBookmark story={item} /><WrittenStoryMenu story={item} />
+      <WrittenStoryBookmark story={item} /><WrittenStoryMenu story={item} /><WrittenStoryViewed story={item} />
     </View></View>} />;
 }

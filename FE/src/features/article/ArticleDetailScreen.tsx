@@ -98,7 +98,7 @@ export function ArticleDetailScreen({
         {state.status === 'ready' ? 'Offline · Downloaded copy' : state.status === 'error' ?
           '오프라인에서 이용할 수 있는 사본이 없어요. 연결 후 다시 시도해 주세요.' : '오프라인에서 이용할 수 있는 사본을 확인하고 있어요.'}</Text>}
       {state.status === 'ready' && (
-        <RecordArticleVisit articleId={articleId} active={isFocused} revision={sessionRevision} />
+        <RecordArticleVisit articleId={articleId} active={isFocused && !access} revision={sessionRevision} />
       )}
       <View style={styles.header}>
         <Pressable

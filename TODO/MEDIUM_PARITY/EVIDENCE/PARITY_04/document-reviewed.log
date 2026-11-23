@@ -1,0 +1,16 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand DocumentReader WrittenStoryScreen WrittenStoryLifecycle
+
+PASS Android src/features/editor/WrittenStoryLifecycle.test.tsx (6.014 s)
+PASS Android src/features/editor/DocumentReader.test.tsx
+PASS iOS src/features/editor/WrittenStoryScreen.test.tsx
+PASS iOS src/features/editor/WrittenStoryLifecycle.test.tsx
+PASS Android src/features/editor/WrittenStoryScreen.test.tsx
+PASS iOS src/features/editor/DocumentReader.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       26 passed, 26 total
+Snapshots:   0 total
+Time:        16.412 s
+Ran all test suites matching /DocumentReader|WrittenStoryScreen|WrittenStoryLifecycle/i in 2 projects.

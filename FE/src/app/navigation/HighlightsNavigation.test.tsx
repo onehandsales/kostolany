@@ -30,6 +30,11 @@ it('실제 navigation과 선택 이벤트로 저장 실패/재시도·Library �
   await user.press(await screen.findByRole('button', { name: '하이라이트 저장 다시 시도' }));
   await waitFor(() => expect(screen.queryByRole('button', { name: 'Highlight' })).toBeNull());
   expect((await highlights.read(mockUserA.id)).highlights).toHaveLength(1);
+  await user.press(screen.getByRole('button', { name: 'Story options' }));
+  await user.press(screen.getByRole('button', { name: '기사 표시 설정' }));
+  await user.press(screen.getByRole('switch', { name: '타인 하이라이트 표시' }));
+  await user.press(screen.getByRole('button', { name: '기사 표시 설정 닫기' }));
+  expect((await highlights.read(mockUserA.id)).highlights).toHaveLength(1);
   await user.press(screen.getByRole('button', { name: '홈으로 돌아가기' }));
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(screen.getByRole('tab', { name: 'Highlighted' }));

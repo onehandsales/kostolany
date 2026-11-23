@@ -1,0 +1,6 @@
+[
+  {"id":"Q12-login","navigate":"/","click":["Notifications","Google로 로그인 (모의)"],"waitText":"Home"},
+  {"id":"Q12-notification","click":["Notifications","Akinyele Olaoluwa clapped for 기준금리와 시장의 변화, 읽음"],"waitText":"금리가 오르면 예금과 대출에는 어떤 일이 생길까"},
+  {"id":"Q12-history","click":["알림으로 돌아가기","알림에서 홈으로 돌아가기","라이브러리","Reading history"],"waitText":"금리가 오르면 예금과 대출에는 어떤 일이 생길까","assert":[{"selector":"[aria-label='Remove from history, 금리가 오르면 예금과 대출에는 어떤 일이 생길까']","minHeight":48}]},
+  {"id":"Q12-reopen","click":["금리가 오르면 예금과 대출에는 어떤 일이 생길까. Kostolany · 예시. 2026.11.17"],"waitText":"금리가 오르면 예금과 대출에는 어떤 일이 생길까"}
+]

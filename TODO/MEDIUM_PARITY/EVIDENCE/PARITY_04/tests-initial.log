@@ -1,0 +1,24 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand DocumentReader WrittenStoryScreen DisplayNavigation PolicyNavigation
+
+npm.cmd : PASS Android src/features/editor/DocumentReader.test.tsx
+위치 줄:2 문자:1
++ npm.cmd test -- DocumentReader WrittenStoryScreen DisplayNavigation P ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PASS Android sr...Reader.test.tsx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+PASS iOS src/features/editor/DocumentReader.test.tsx
+PASS iOS src/app/navigation/PolicyNavigation.test.tsx (17.585 s)
+PASS Android src/app/navigation/PolicyNavigation.test.tsx (17.018 s)
+PASS iOS src/app/navigation/DisplayNavigation.test.tsx (5.584 s)
+PASS Android src/app/navigation/DisplayNavigation.test.tsx (5.634 s)
+PASS Android src/features/editor/WrittenStoryScreen.test.tsx
+PASS iOS src/features/editor/WrittenStoryScreen.test.tsx
+
+Test Suites: 8 passed, 8 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        57.835 s, estimated 70 s
+Ran all test suites matching /DocumentReader|WrittenStoryScreen|DisplayNavigation|PolicyNavigation/i in 2 projects.

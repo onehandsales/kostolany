@@ -5,7 +5,7 @@ import { useTheme } from '../../shared/theme/ThemeProvider';
 
 import { useAuth } from '../auth/AuthProvider';
 
-import { historyPreviewScenario } from './data/historyPreview';
+import { historyPreviewScenario, historyPreviewVisits } from './data/historyPreview';
 import { createReadingHistoryStore, type ReadingHistoryStore } from './createReadingHistoryStore';
 import { createMockReadingHistorySource } from './data/createMockReadingHistorySource';
 import type { ReadingHistorySource } from './types';
@@ -23,7 +23,7 @@ export function ReadingHistoryProvider({
   source,
   revision = 0,
 }: ReadingHistoryProviderProps) {
-  const [fallback] = useState(() => createMockReadingHistorySource({ scenario: historyPreviewScenario }));
+  const [fallback] = useState(() => createMockReadingHistorySource({ scenario: historyPreviewScenario, initialVisits: historyPreviewVisits }));
   const current = source ?? fallback;
   const [scope, setScope] = useState(() => ({
     source: current,

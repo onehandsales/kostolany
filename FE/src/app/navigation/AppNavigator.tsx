@@ -23,7 +23,7 @@ import type { EditorImageSource } from '../../features/editor/imageSource';
 import { createDeviceEditorImageSource } from '../../features/editor/createDeviceEditorImageSource';
 import { PublishPreview, type PublishStage } from '../../features/editor/PublishPreview';
 import { WrittenStoriesProvider } from '../../features/editor/WrittenStoriesProvider';
-import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
+import { WrittenStoryRoute } from './WrittenStoryRoute';
 import { createMockBookmarkSource } from '../../features/bookmarks/data/createMockBookmarkSource';
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 import { bookmarkArticles } from '../../features/bookmarks/data/bookmarkFixtures';
@@ -477,7 +477,7 @@ function SessionNavigationContent({
                                   </Stack.Screen>
                                   <Stack.Screen name="Editor">{props => <EditorRouteScreen {...props} source={drafts} imageSource={images} />}</Stack.Screen>
                                   <Stack.Screen name="Drafts">{props => <DraftsRouteScreen {...props} source={drafts} />}</Stack.Screen>
-                                  <Stack.Screen name="WrittenStory">{({ route, navigation }) => <WrittenStoryScreen storyId={route.params.storyId} onBack={() => navigation.goBack()} />}</Stack.Screen>
+                                  <Stack.Screen name="WrittenStory">{({ route, navigation }) => <WrittenStoryRoute storyId={route.params.storyId} onBack={() => navigation.goBack()} />}</Stack.Screen>
                                   {/* 같은 기사 새 진입과 기존 인스턴스 복귀를 구분해 설명 수준의 수명을 보존한다. */}
                                   <Stack.Screen name="Article">
                                     {({ route, navigation }) => (

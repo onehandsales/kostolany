@@ -24,6 +24,8 @@ import { ShareSheet } from '../sharing/ShareSheet';
 import { useShareDialog } from '../sharing/SharingProvider';
 import { ResponsePolicyLink } from './ResponsePolicyLink';
 import { useResponseCount } from './ResponseProvider';
+import { useAuth } from '../auth/AuthProvider';
+import { RecordArticleVisit } from '../reading-history/ReadingHistoryProvider';
 
 export const policyResponseTarget = { kind: 'article', id: mediumPolicyArticle.id } as const;
 const policyAuthor = { kind: 'writer', id: 'medium-policy-author' } as const;
@@ -59,6 +61,7 @@ function PolicyArticleAccess(props: PolicyArticleProps) {
 }
 
 function PolicyArticleContent({ onBack, onResponses, onLeave, active = true, backLabel = 'Responses로 돌아가기' }: PolicyArticleProps) {
+  const { state: auth } = useAuth();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const reader = useReaderTypography(18);
@@ -71,6 +74,7 @@ function PolicyArticleContent({ onBack, onResponses, onLeave, active = true, bac
   if (!active && share.target) share.close();
   return (
     <View style={styles.screen}>
+      <RecordArticleVisit articleId={mediumPolicyArticle.id} active={active} revision={auth.revision} />
       <View style={styles.header}>
         <IconButton icon="back" label={backLabel} onPress={onBack} />
         <View style={styles.brand}>

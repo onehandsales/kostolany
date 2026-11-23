@@ -1,0 +1,27 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand WrittenStoryLifecycle ReadingHistoryDeletion createReadingHistoryStore PublishedLibrarySession PublishingNavigation
+
+npm.cmd : PASS Android src/features/editor/WrittenStoryLifecycle.test.tsx (6.972 s)
+위치 줄:2 문자:1
++ npm.cmd test -- WrittenStoryLifecycle ReadingHistoryDeletion createRe ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PASS Android sr...t.tsx (6.972 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+PASS iOS src/features/editor/WrittenStoryLifecycle.test.tsx
+PASS Android src/app/navigation/PublishedLibrarySession.test.tsx (7.534 s)
+PASS Android src/app/navigation/PublishingNavigation.test.tsx
+PASS iOS src/app/navigation/PublishingNavigation.test.tsx (6.041 s)
+PASS iOS src/app/navigation/PublishedLibrarySession.test.tsx
+PASS iOS src/features/reading-history/ReadingHistoryDeletion.test.ts
+PASS Android src/features/reading-history/createReadingHistoryStore.test.ts
+PASS iOS src/features/reading-history/createReadingHistoryStore.test.ts
+PASS Android src/features/reading-history/ReadingHistoryDeletion.test.ts
+
+Test Suites: 10 passed, 10 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        37.133 s
+Ran all test suites matching /WrittenStoryLifecycle|ReadingHistoryDeletion|createReadingHistoryStore|PublishedLibrarySe
+ssion|PublishingNavigation/i in 2 projects.

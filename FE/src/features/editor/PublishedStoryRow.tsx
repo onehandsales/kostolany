@@ -4,6 +4,7 @@ import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { WrittenStoryViewed } from './WrittenStoryActions';
 
 export function PublishedStoryRow({ story }: { story: PublishedStory }) {
   const navigation = useCommunityNavigation();
@@ -21,6 +22,7 @@ export function PublishedStoryRow({ story }: { story: PublishedStory }) {
     >
       <Text style={styles.author}>{known?.name ?? story.authorName}</Text>
       <Text style={styles.title}>{story.document.title}</Text>
+      <WrittenStoryViewed story={story} />
       <Text style={styles.author} numberOfLines={2}>
         {story.document.body.replaceAll('\uFFFC', '')}
       </Text>

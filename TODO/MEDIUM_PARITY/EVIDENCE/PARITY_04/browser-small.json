@@ -1,0 +1,12 @@
+{
+  "command": [
+    "node",
+    "tools/medium-parity/capturePreview.mjs",
+    "--browser=C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "--scenarios=tools/medium-parity/parity04PublishedScenarios.json",
+    "--viewport=320x568",
+    "--out=D:\\git_repository\\kostolany_project\\TODO\\MEDIUM_PARITY\\EVIDENCE\\PARITY_04\\published-small"
+  ],
+  "returncode": 0,
+  "elapsedSeconds": 61.618
+}

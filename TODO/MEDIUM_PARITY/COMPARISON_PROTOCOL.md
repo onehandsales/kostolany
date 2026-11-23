@@ -83,4 +83,6 @@ node tools/medium-parity/capturePreview.mjs --browser=C:/path/to/chrome.exe --ou
 
 ## Q01/Q02 잔여와 종료
 
+Parity 4의 이력 비교는 개발 웹의 `/?parityHistory=reference-v1`에서 mock A로 로그인해 Settings → Refine recommendations → Reading history로 진입한다. 초기 세 기사와 방문 시각은 명시적인 비교용 합성 값이며 일반 실행이나 production에 주입하지 않는다. 전체 원본 카드와 집계가 일치하는 fixture는 아니다. [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md)와 새 manifest/실행 로그를 보고 재현하며 P1의 `currentEvidence`를 덮어쓰지 않는다. 후속 실행은 새 증거 디렉터리와 source 해시로 구분한다.
+
 200개 모두의 조건이 정의되어도 모든 동일 fixture가 실행된 것은 아니다. source 주입, 누락된 구현, 원본 없는 정책, native 전용 화면은 각 담당 묶음에 남긴다. 데이터·상태가 같은 실제 capture 쌍과 조건 로그가 확보된 화면부터 비교 준비 상태를 올린다. Q02의 폰트·자산·배치 변경과 개별 V 보정은 이번 기준 정리로 완료 처리하지 않는다. Q10은 모든 미확인·잔여·기기 대기를 포함해 마지막에 판정한다.

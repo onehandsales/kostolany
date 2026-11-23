@@ -273,7 +273,7 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "4b7dc9e3b070c6b6aee5a562b3f3920916d8594f446922e8f5a39e7d4e0bb4aa"
+      "sha256": "c759dca9e5f7c9ce17b45af00b123d76dc7046c0c2c18ed5ca6d58cfe6af9ea7"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
@@ -329,7 +329,7 @@
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
-      "sha256": "0e353fe67081dae25b31e8d1146280d72c280e748de978f483b086ac519ba446"
+      "sha256": "611ffde51af0e88fe97124a7f3cc4355d193ede84846e2c595fedd28e1620f6a"
     },
     {
       "path": "tools/medium-parity/currentEvidence.json",
@@ -337,7 +337,7 @@
     },
     {
       "path": "tools/medium-parity/executionBatches.json",
-      "sha256": "d83eaa32cd9f64b2d6a4819e7de90c472bc4e689871c7e57fab6573074a5ed21"
+      "sha256": "d58aaa24022edf761e5c95d2686085703943264c0f38ec3131cc19fe807aa5f1"
     }
   ],
   "codeInputs": [
@@ -371,7 +371,7 @@
     },
     {
       "path": "FE/src/app/navigation/AppNavigator.tsx",
-      "sha256": "d98f94970a71ff357a43085f29d62694b5617c9e284de11a033e3a03764a04d1"
+      "sha256": "7e1408c3d483fbe31e72e3fac88b4919ba33ebb8c94dae09dc99255342556d7f"
     },
     {
       "path": "FE/src/app/navigation/ArticlePresentation.tsx",
@@ -383,7 +383,7 @@
     },
     {
       "path": "FE/src/app/navigation/ArticleRouteScreen.tsx",
-      "sha256": "c086efca81ff4b4e29390ea7b6f73fc0f7092c03a708435950d43d7097291a5c"
+      "sha256": "013a718f8e6d709790b754010728c0d11e9c6dde6dbb06091db76a518159fc2a"
     },
     {
       "path": "FE/src/app/navigation/AuthBoundaryNavigation.test.tsx",
@@ -443,7 +443,7 @@
     },
     {
       "path": "FE/src/app/navigation/HighlightsNavigation.test.tsx",
-      "sha256": "ea48579b83c8bdba185162dfdc6cd6e7a9e5f8c19ef28c89e3966222b9ee640d"
+      "sha256": "d63debc0df6549d4b9b286d0b20dd3700281529540ab237dafd2273360900b27"
     },
     {
       "path": "FE/src/app/navigation/LibraryNavigator.tsx",
@@ -507,7 +507,7 @@
     },
     {
       "path": "FE/src/app/navigation/ProfileNavigator.tsx",
-      "sha256": "f7506dc6a055f3e0920250954b5e3e102c61cd5d7a177ef268a342b975c1b9de"
+      "sha256": "c5d8cd21c5738d4884b46b4a59ae05c26cd9fc80ea2a302d4517c22898b9f415"
     },
     {
       "path": "FE/src/app/navigation/ProfileRouteScreen.tsx",
@@ -523,11 +523,15 @@
     },
     {
       "path": "FE/src/app/navigation/PublishedLibrarySession.test.tsx",
-      "sha256": "8d56b9fa1a5c345460cd386925ff8f394b1a83f849ba4136e41f6577bdb2f03d"
+      "sha256": "9b621a82d04f5208a2f3926014cadd230a473abc8342f9bbabcee4c1132f8016"
     },
     {
       "path": "FE/src/app/navigation/PublishingNavigation.test.tsx",
       "sha256": "efc54a97bda7cf994c659b28a298aaacff433ec880bf6bfc0380473880d82e10"
+    },
+    {
+      "path": "FE/src/app/navigation/ReadingParityNavigation.test.tsx",
+      "sha256": "8de17d7b8bff2248b52380ea777ed2e0e4e47fabc3f4a0945cc1011b8fe25ede"
     },
     {
       "path": "FE/src/app/navigation/RecommendationsNavigation.test.tsx",
@@ -578,6 +582,10 @@
       "sha256": "c0cd5bcfd49ccb93c4c6a2fa39fd8295d8fa6aac5a08bd8691a5f05b1a49e776"
     },
     {
+      "path": "FE/src/app/navigation/WrittenStoryRoute.tsx",
+      "sha256": "6788f5498cae0e5e3fa67c342bc3a3e15c0283991d202003c1e31b7bacd861fd"
+    },
+    {
       "path": "FE/src/features/app-icon/appIconAdapter.ts",
       "sha256": "395234cc1cc944007217694522884288bc4e72755fa4da6b6b98e1a0b9ab6e78"
     },
@@ -615,7 +623,7 @@
     },
     {
       "path": "FE/src/features/article/ArticleDetailScreen.tsx",
-      "sha256": "a87b0ebf0b98ab2eba9fef7634d6a48f84fdb2bea7136b1e21af780af6ade642"
+      "sha256": "e6f15a5e23f282c81f2cb2273771b468f60b42ead373d166116dbb79e81d6aa8"
     },
     {
       "path": "FE/src/features/article/articleSelectionDocument.ts",
@@ -1074,8 +1082,12 @@
       "sha256": "45e5b4b9a31e3f827da917a28ed5bd7578923793900cc8201ed19d946d49a4e1"
     },
     {
+      "path": "FE/src/features/editor/DocumentReader.test.tsx",
+      "sha256": "e4c5c4fece0b0082b94ea31b488952bb12ba824fc5e048eae6d3f69cefee6322"
+    },
+    {
       "path": "FE/src/features/editor/DocumentReader.tsx",
-      "sha256": "e265b18fe5d262e12ac0025ea331c51ca91bc04a013b6ac3851a7e779588cc97"
+      "sha256": "8fa45504e2808e3439ebfa6dad2d711ccdee4fe19b4da97d9320a0fcffe9d840"
     },
     {
       "path": "FE/src/features/editor/draftSession.test.ts",
@@ -1131,7 +1143,7 @@
     },
     {
       "path": "FE/src/features/editor/PublishedStoryRow.tsx",
-      "sha256": "532487170ce006912f3cd16fc0c92b4b7661a0cda314acc30f380b0913031ab6"
+      "sha256": "e92035cf4a952cb1b61b802b5f34f1aabf43e859cfd9edc79b0c508edafc3420"
     },
     {
       "path": "FE/src/features/editor/publishing.test.ts",
@@ -1191,11 +1203,15 @@
     },
     {
       "path": "FE/src/features/editor/WrittenStoryActions.tsx",
-      "sha256": "84f642b8ebd679b44e26ebd5e2d5e17df451c9e410976220a7349340bfcdaaee"
+      "sha256": "25f66fbc9e27764a0a187e370b7c8d57fbe8cfe7e43019d3cda9e2b67049b43c"
     },
     {
       "path": "FE/src/features/editor/WrittenStoryCardReactions.tsx",
       "sha256": "b6addd5c8722d4ba5266ee607ca43e451476697695223985a3124e574d6d634a"
+    },
+    {
+      "path": "FE/src/features/editor/WrittenStoryLifecycle.test.tsx",
+      "sha256": "bd378c3354ea1b735964d3266c7af40ed36bdf8411c4866c0547a5693ac7e0af"
     },
     {
       "path": "FE/src/features/editor/WrittenStoryScreen.test.tsx",
@@ -1203,7 +1219,7 @@
     },
     {
       "path": "FE/src/features/editor/WrittenStoryScreen.tsx",
-      "sha256": "1b83d30f1a774afb5de7fac9205f26e907c0145f90c5552cc851cf8e04eda5de"
+      "sha256": "72e83733173ee8d272e38d9606f6ea00c568cca156cbb1d7f0a24407d3cb88d8"
     },
     {
       "path": "FE/src/features/feed/ArticleCatalog.tsx",
@@ -1707,7 +1723,7 @@
     },
     {
       "path": "FE/src/features/profile/ProfileStories.tsx",
-      "sha256": "6e0e273924d29765b5e743a378875c902313e984fed325c060f19a8915b8d826"
+      "sha256": "fb706ea9797eb0e8c9555ddb810bbc2d9de36683d71f2cf10041f6865dad8c47"
     },
     {
       "path": "FE/src/features/profile/profileStyles.ts",
@@ -1839,11 +1855,19 @@
     },
     {
       "path": "FE/src/features/reading-history/data/createMockReadingHistorySource.ts",
-      "sha256": "7ec4458abfb137e3399a9660bf1f69a6a792c83c79a323500c0bdefd1cf2bccf"
+      "sha256": "366d45a88035300db3fbe4ceb9fd32964f2ad8946fb57f4746bdfe2d1894de21"
+    },
+    {
+      "path": "FE/src/features/reading-history/data/historyPreview.test.ts",
+      "sha256": "eb86d49f25e4b977cca6fb4724eda38a2093398f0dcf5818c4842470f1b7f9a4"
     },
     {
       "path": "FE/src/features/reading-history/data/historyPreview.ts",
-      "sha256": "890815346d07e1711f1050573edc12c5d525d84074af15caf527568d2cb82508"
+      "sha256": "533f7fb8a97314997e29d2cf0a6de3ec53e90e0b328c112eceb2d13339b14ca0"
+    },
+    {
+      "path": "FE/src/features/reading-history/ReadingHistoryCatalog.test.tsx",
+      "sha256": "8ae0039f1b0b7aaf4a989c411875e6dd461f197b6a506621b3cd802f5c17a8ff"
     },
     {
       "path": "FE/src/features/reading-history/ReadingHistoryDeletion.test.ts",
@@ -1851,11 +1875,11 @@
     },
     {
       "path": "FE/src/features/reading-history/ReadingHistoryList.tsx",
-      "sha256": "b065145982bd2c16c9df7a8be701de344abea0cf9996bbbfa45018aae826b8f5"
+      "sha256": "03472d1d151429c047a561274dc0ede26b8d663149f911828713795c323bd3b7"
     },
     {
       "path": "FE/src/features/reading-history/ReadingHistoryProvider.tsx",
-      "sha256": "927e1718fec3c816197ee969c019221782774c2f8fa59c426d9114eafbe1ccdf"
+      "sha256": "0158244bc675d32366a56c2d9f5ec39323010558c3e3be4cf061f7f8142d4c79"
     },
     {
       "path": "FE/src/features/reading-history/types.ts",
@@ -1915,7 +1939,7 @@
     },
     {
       "path": "FE/src/features/responses/PolicyArticle.tsx",
-      "sha256": "bf4ddb9e117e454ff75c8f262117c2847dd1aba26a5612b150fd7e977c0988ca"
+      "sha256": "57eb21707a07e07c15d28305d3064bf28db2a8617799881f34cb8bb7b306d515"
     },
     {
       "path": "FE/src/features/responses/PolicyArticleScreen.tsx",
@@ -2047,7 +2071,7 @@
     },
     {
       "path": "FE/src/features/settings/ArticleDisplayPopover.tsx",
-      "sha256": "dbe207dda80b093beb9b4d5a51a9ba3417c0464ccb184dd86951d98d9783eaa3"
+      "sha256": "a07295e80244d70361a90192c4ac2d2590156e2262f27cb2851a90bc3c92724d"
     },
     {
       "path": "FE/src/features/settings/createDisplaySettingsStore.test.ts",
@@ -2315,7 +2339,7 @@
     },
     {
       "path": "FE/src/shared/ui/ActionMenu.tsx",
-      "sha256": "c79803531e6ee673d0424842376891b9c1ea4e91502344903e4d4b50ee84bcb7"
+      "sha256": "1efb4fec0ba1779f8f22a5bffcb6f1efc93d1ae7e49db842438bb0f7ad81a5ec"
     },
     {
       "path": "FE/src/shared/ui/AppIcon.tsx",
@@ -2834,13 +2858,13 @@
     },
     "V12": {
       "title": "읽기 이력",
-      "route": "Home → Refine recommendations → Reading history → 카드·삭제·Clear history",
+      "route": "개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인",
       "features": [
         "reading-history",
         "feed"
       ],
       "account": "A 개인 방문 이력; Viewed와 실제 Views/Reads 구분",
-      "fixture": "ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결",
+      "fixture": "ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조",
       "entry": "ReadingHistoryList"
     },
     "V13": {
@@ -3146,7 +3170,7 @@
       ],
       "scope": "발행/일반 카탈로그 이력·Viewed·reader 설정 및 본문 링크 수명; Undo/읽기도구 범위 판정",
       "done": "알림/발행→본문→이력→재열기; 늦은 실패·문서A→B→A·권한철회; Q05 근거대기는 완료 아님",
-      "status": "미착수"
+      "status": "D01/D03/D05 mock 연결 보완; Q05 미확인 유지·Q11 부분 판정; V12/V16 시각 잔여 및 native 대기"
     },
     {
       "number": 5,
@@ -3883,7 +3907,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S001",
@@ -3915,7 +3939,12 @@
           "capturedAt": "2026-11-23T04:28:18.783Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S002",
@@ -4626,7 +4655,7 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님",
+      "blocker": "Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [],
       "acceptance": "S008에서 보이는 정책 기사 헤더·작성자·Follow·본문 강조·세 번째 문단 시작·상하단 도구를 개별 재현한다. 정책 전문의 미확인 영역과 보이는 요소의 누락을 혼동하지 않는다.",
       "previousReviews": [
@@ -4634,12 +4663,17 @@
           "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md",
           "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03/flow-review/captures.json",
           "scope": "S008 mock 연결과 S100 복귀; 원본 동일성 미완료"
+        },
+        {
+          "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review",
+          "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json",
+          "scope": "추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료"
         }
       ],
       "latestReview": {
-        "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review",
-        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json",
-        "scope": "추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료"
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/policy/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
       }
     },
     {
@@ -8204,9 +8238,9 @@
         "FE/src/features/reading-history/data/createMockReadingHistorySource.ts",
         "FE/src/features/reading-history/data/historyPreview.ts"
       ],
-      "routeRecipe": "Home → Refine recommendations → Reading history → 카드·삭제·Clear history",
+      "routeRecipe": "개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인",
       "accountAndPermission": "A 개인 방문 이력; Viewed와 실제 Views/Reads 구분",
-      "fixtureRecipe": "ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결",
+      "fixtureRecipe": "ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조",
       "referenceObservations": {
         "L": "배치: Reading history 탭 내 안내 카드",
         "D": "표시값·입력: 읽은 글이 없다는 문구",
@@ -8254,9 +8288,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다."
+      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/reference-history/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S046",
@@ -8862,9 +8901,9 @@
         "FE/src/features/reading-history/data/createMockReadingHistorySource.ts",
         "FE/src/features/reading-history/data/historyPreview.ts"
       ],
-      "routeRecipe": "Home → Refine recommendations → Reading history → 카드·삭제·Clear history",
+      "routeRecipe": "개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인",
       "accountAndPermission": "A 개인 방문 이력; Viewed와 실제 Views/Reads 구분",
-      "fixtureRecipe": "ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결",
+      "fixtureRecipe": "ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조",
       "referenceObservations": {
         "L": "배치: 읽기 기록 탭 아래 다른 기사 카드",
         "D": "표시값·입력: 각 카드 휴지통",
@@ -8917,9 +8956,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다."
+      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/reference-history/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S053",
@@ -10025,7 +10069,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S063",
@@ -10061,7 +10105,12 @@
           "capturedAt": "2026-11-23T04:28:14.964Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S064",
@@ -15658,7 +15707,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S119",
@@ -15696,7 +15745,12 @@
           "capturedAt": "2026-11-23T04:28:16.875Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S120",
@@ -16307,7 +16361,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S125",
@@ -16337,7 +16391,12 @@
           "capturedAt": "2026-11-23T04:28:15.964Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S126",
@@ -20412,7 +20471,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S168",
@@ -20436,7 +20495,12 @@
           "capturedAt": "2026-11-23T04:28:13.940Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S169",
@@ -22660,9 +22724,9 @@
         "FE/src/features/reading-history/data/createMockReadingHistorySource.ts",
         "FE/src/features/reading-history/data/historyPreview.ts"
       ],
-      "routeRecipe": "Home → Refine recommendations → Reading history → 카드·삭제·Clear history",
+      "routeRecipe": "개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인",
       "accountAndPermission": "A 개인 방문 이력; Viewed와 실제 Views/Reads 구분",
-      "fixtureRecipe": "ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결",
+      "fixtureRecipe": "ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조",
       "referenceObservations": {
         "L": "배치: Reading history 탭, 전체 삭제 안내, 기사 카드",
         "D": "표시값·입력: 읽은 글·날짜·집계 표시",
@@ -22724,9 +22788,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다."
+      "acceptance": "전체 Clear history와 개별 휴지통을 분리하고 빈 상태 Explore·목록 스크롤을 확인한다. 발행일을 읽은 시각으로 바꾸지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/reference-history/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S191",
@@ -23504,7 +23573,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
+      "blocker": "Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S198",
@@ -23544,7 +23613,12 @@
           "capturedAt": "2026-11-23T04:28:17.850Z"
         }
       ],
-      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다."
+      "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      }
     },
     {
       "id": "S199",

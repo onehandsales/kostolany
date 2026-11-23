@@ -1,0 +1,9 @@
+{"captured":"S008","assertions":0}
+{"captured":"Q12-login","assertions":0}
+{"captured":"Q12-draft","assertions":0}
+{"captured":"Q12-display","assertions":0}
+{"captured":"Q12-reader","assertions":1}
+{"captured":"Q12-return","assertions":1}
+{"captured":"Q12-history","assertions":0}
+{"captured":"Q12-reopen","assertions":1}
+{"captured":"Q12-history-return","assertions":0}

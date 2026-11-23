@@ -1,0 +1,8 @@
+[
+  {"id":"Q12-refine","navigate":"/?parityHistory=reference-v1","click":["프로필","모의 로그인 시작","Google로 로그인 (모의)","설정 열기","Refine recommendations","Reading history"],"waitText":"The 7 Unsexy Habits"},
+  {"id":"S190","measure":["[role='heading']","[aria-label='Clear history']","[aria-label='Reading history stories']","[aria-label='Remove from history, The 7 Unsexy Habits That Make You Instantly More Attractive']"],"assert":[{"selector":"[aria-label='Clear history']","minHeight":48}]},
+  {"id":"S052","scroll":{"selector":"[aria-label='Reading history stories']","top":360},"waitText":"A Battle Of Titans"},
+  {"id":"Q12-history-confirm","scroll":{"selector":"[aria-label='Reading history stories']","top":0},"click":["Clear history"],"waitText":"Clear reading history?"},
+  {"id":"S045","click":["Confirm history removal"],"waitText":"You haven’t read any stories yet","assert":[{"selector":"[aria-label='Clear history']","visible":false}]},
+  {"id":"Q12-history-explore","click":["Explore"],"waitText":"Trending"}
+]

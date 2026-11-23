@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, type RefObject } from 'react';
+import { Text, type View } from 'react-native';
 
 import { ActionMenu } from '../../shared/ui/ActionMenu';
 import { IconButton } from '../../shared/ui/IconButton';
@@ -12,19 +13,28 @@ import { ShareSheet } from '../sharing/ShareSheet';
 import { publishedArticleId } from './publishedArticle';
 import type { PublishedStory } from './publishing';
 import { useWrittenStories } from './WrittenStoriesProvider';
+import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
+import { useTheme } from '../../shared/theme/ThemeProvider';
+import { fonts } from '../../shared/theme/tokens';
+
+export function WrittenStoryViewed({ story }: { story: PublishedStory }) {
+  const viewed = useHasViewed(publishedArticleId(story.id));
+  const { colors } = useTheme();
+  return viewed ? <Text accessibilityLabel={`읽음, ${story.document.title}`} style={{ color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 12, lineHeight: 18 }}>Viewed</Text> : null;
+}
 
 export function WrittenStoryBookmark({ story }: { story: PublishedStory }) {
   return <ArticleBookmarkControl articleId={publishedArticleId(story.id)} articleTitle={story.document.title} compact />;
 }
 
-type WrittenStoryMenuProps = { story: PublishedStory; showShareButton?: boolean };
+type WrittenStoryMenuProps = { story: PublishedStory; showShareButton?: boolean; onDisplay?: () => void; buttonRef?: RefObject<View | null> };
 export function WrittenStoryMenu(props: WrittenStoryMenuProps) {
   const scope = useBookmarkScopeKey();
   const auth = useAuth();
   return <ScopedWrittenStoryMenu key={`${scope}:${auth.state.revision}:${props.story.id}`} {...props} />;
 }
 
-function ScopedWrittenStoryMenu({ story, showShareButton = false }: WrittenStoryMenuProps) {
+function ScopedWrittenStoryMenu({ story, showShareButton = false, onDisplay, buttonRef }: WrittenStoryMenuProps) {
   const context = useWrittenStories();
   const sharing = useShareDialog(context?.source);
   const claps = useClapStore();
@@ -36,7 +46,8 @@ function ScopedWrittenStoryMenu({ story, showShareButton = false }: WrittenStory
     visibility: story.publishing.unlisted ? 'unlisted' : 'public' });
   return <>
     {showShareButton && <IconButton icon="share" label="Share story" onPress={share} />}
-    <ActionMenu label={`Story options, ${story.document.title}`} items={[
+    <ActionMenu buttonRef={buttonRef} label={`Story options, ${story.document.title}`} items={[
+      ...(onDisplay ? [{ label: 'Display settings…', accessibilityLabel: '발행 글 표시 설정', onPress: onDisplay }] : []),
       { label: 'Share story', onPress: share },
       ...(auth.state.user ? [{ label: 'Save to list', onPress: () => setSaving(true) }] : []),
       ...(claps ? [{ label: 'Undo claps', onPress: () => claps.undo({ kind: 'article', id: articleId }) }] : []),

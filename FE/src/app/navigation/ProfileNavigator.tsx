@@ -10,7 +10,7 @@ import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
 import { ProfileScreen } from '../../features/profile/ProfileScreen';
 import { SettingsScreen } from '../../features/settings/SettingsScreen';
 import { useWrittenStories } from '../../features/editor/WrittenStoriesProvider';
-import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
+import { WrittenStoryRoute } from './WrittenStoryRoute';
 import { createMockStoryStatsSource } from '../../features/story-stats/createMockStoryStatsSource';
 import { StoryStatsScreen } from '../../features/story-stats/StoryStatsScreen';
 import type { StoryStatsSource } from '../../features/story-stats/types';
@@ -52,7 +52,7 @@ export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticle
           onOpenStory={storyId => navigation.navigate('StatsStory', { storyId })} />}
       </Stack.Screen>
       <Stack.Screen name="StatsStory">
-        {({ navigation, route }) => state.user && <WrittenStoryScreen storyId={route.params.storyId}
+        {({ navigation, route }) => state.user && <WrittenStoryRoute storyId={route.params.storyId}
           ownerId={state.user.id} onBack={() => navigation.goBack()} />}
       </Stack.Screen>
       <Stack.Screen name="Settings">

@@ -1,5 +1,5 @@
 import { AccessibleModal as Modal } from './AccessibleModal';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type RefObject } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -9,12 +9,13 @@ import { IconButton } from './IconButton';
 import { restoreModalFocus } from './restoreModalFocus';
 
 type MenuItem = { label: string; accessibilityLabel?: string; destructive?: boolean; onPress: () => void };
-type ActionMenuProps = { label: string; items: readonly MenuItem[] };
+type ActionMenuProps = { label: string; items: readonly MenuItem[]; buttonRef?: RefObject<View | null> };
 
-export function ActionMenu({ label, items }: ActionMenuProps) {
+export function ActionMenu({ label, items, buttonRef }: ActionMenuProps) {
   const styles = useThemeStyles(createStyles);
   const anchor = useRef<View>(null);
-  const button = useRef<View>(null);
+  const localButton = useRef<View>(null);
+  const button = buttonRef ?? localButton;
   const measurementRevision = useRef(0);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const { width, height } = useWindowDimensions();

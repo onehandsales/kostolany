@@ -1,0 +1,35 @@
+[
+  {
+    "label": "typecheck-reviewed",
+    "command": [
+      "npm.cmd",
+      "run",
+      "typecheck"
+    ],
+    "returncode": 0,
+    "elapsedSeconds": 11.602
+  },
+  {
+    "label": "lint-reviewed",
+    "command": [
+      "npm.cmd",
+      "run",
+      "lint"
+    ],
+    "returncode": 0,
+    "elapsedSeconds": 33.061
+  },
+  {
+    "label": "document-reviewed",
+    "command": [
+      "npm.cmd",
+      "test",
+      "--",
+      "DocumentReader",
+      "WrittenStoryScreen",
+      "WrittenStoryLifecycle"
+    ],
+    "returncode": 0,
+    "elapsedSeconds": 22.687
+  }
+]

@@ -169,6 +169,14 @@ def extract():
                 item['latestReview'] = {'result': 'TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review',
                     'evidence': 'TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json',
                     'scope': '추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료'}
+            if sid in ('S001', 'S045', 'S052', 'S063', 'S119', 'S125', 'S168', 'S190', 'S198', 'S008'):
+                if 'latestReview' in item:
+                    item.setdefault('previousReviews', []).append(item['latestReview'])
+                phase = 'policy' if sid == 'S008' else 'reference-history' if sid in ('S045', 'S052', 'S190') else 'display-final'
+                item['latestReview'] = {'result': 'TODO/FE_MEDIUM_PARITY_04_RESULT.md',
+                    'evidence': f'TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/{phase}/captures.json',
+                    'scope': '읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기'}
+                item['blocker'] += '; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음'
             screens.append(item)
     byScreen = {s['id']: s for s in screens}
     for item in unknowns:
@@ -304,7 +312,7 @@ def renderScreens(data):
 
 
 def renderPlan(data):
-    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
+    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
         '이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음3의 D08 mock 연결·복귀를 검증했고 V21 시각 잔여와 U 미확인·native 대기는 유지한다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16)이며 미착수다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.', '',
         '공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.', '']
     for b in data['batches']:
@@ -341,6 +349,7 @@ def renderAssets(data):
         '| 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |',
         '| 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |',
         '| 정책 기사 | [Parity 3](../FE_MEDIUM_PARITY_03_RESULT.md): reader 본문18/30, Medium Policy/Medium 아바타는 M 대체, 기존 SVG 도구·48px 조작 영역 | S008/V21 원본 로고/아바타·서체·정확 간격·숫자 크기 잔여; 독립 원본 자산을 새로 확보한 것은 아님 |',
+        '| 읽기 설정·이력 | [Parity 4](../FE_MEDIUM_PARITY_04_RESULT.md): 발행 본문18/30에 공통 크기/글꼴/테마 적용, 큰 글자의 하위 메뉴 실제 행 기준 배치, 이력 빈 카드 모서리 보정 | 원본 글꼴 미확보·이력 중간 기사/응답 집계·OS 영역과 정확 간격은 잔여; 새 자산 확보 없음 |',
         '| 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |',
         '| 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |',
         '| 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |',

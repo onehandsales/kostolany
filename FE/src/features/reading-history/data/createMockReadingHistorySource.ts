@@ -3,11 +3,13 @@ import type { ReadingHistorySource, ReadingVisit } from '../types';
 export function createMockReadingHistorySource({
   delayMs = 120,
   scenario = 'normal',
+  initialVisits = {},
 }: {
   delayMs?: number;
   scenario?: 'normal' | 'read-error' | 'write-error' | 'remove-error' | 'slow';
+  initialVisits?: Readonly<Record<string, readonly ReadingVisit[]>>;
 } = {}): ReadingHistorySource {
-  const users = new Map<string, readonly ReadingVisit[]>();
+  const users = new Map(Object.entries(initialVisits).map(([id, visits]) => [id, visits.map(visit => ({ ...visit }))]));
   const failures = new Set<string>();
   const applied = new Map<string, { fingerprint: string; visits: readonly ReadingVisit[] }>();
   async function wait(key: string, fail: boolean): Promise<void> {

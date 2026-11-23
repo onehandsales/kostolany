@@ -1,6 +1,6 @@
 # Medium Parity 실행 계획
 
-[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
+[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
 
 이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음3의 D08 mock 연결·복귀를 검증했고 V21 시각 잔여와 U 미확인·native 대기는 유지한다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16)이며 미착수다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.
 
@@ -52,7 +52,7 @@
 
 ## 묶음 4 — 읽기 설정·이력·발행 링크
 
-- 직접 대상: D01, D03, D05, Q05, Q11, V12, V16. 상태: 미착수.
+- 직접 대상: D01, D03, D05, Q05, Q11, V12, V16. 상태: D01/D03/D05 mock 연결 보완; Q05 미확인 유지·Q11 부분 판정; V12/V16 시각 잔여 및 native 대기.
 - 선행: 2.
 - 구현/판정 범위: 발행/일반 카탈로그 이력·Viewed·reader 설정 및 본문 링크 수명; Undo/읽기도구 범위 판정.
 - 검증·종료 조건: 알림/발행→본문→이력→재열기; 늦은 실패·문서A→B→A·권한철회; Q05 근거대기는 완료 아님.

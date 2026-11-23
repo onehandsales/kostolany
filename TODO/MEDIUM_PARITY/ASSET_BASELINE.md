@@ -10,6 +10,7 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |
 | 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |
 | 정책 기사 | [Parity 3](../FE_MEDIUM_PARITY_03_RESULT.md): reader 본문18/30, Medium Policy/Medium 아바타는 M 대체, 기존 SVG 도구·48px 조작 영역 | S008/V21 원본 로고/아바타·서체·정확 간격·숫자 크기 잔여; 독립 원본 자산을 새로 확보한 것은 아님 |
+| 읽기 설정·이력 | [Parity 4](../FE_MEDIUM_PARITY_04_RESULT.md): 발행 본문18/30에 공통 크기/글꼴/테마 적용, 큰 글자의 하위 메뉴 실제 행 기준 배치, 이력 빈 카드 모서리 보정 | 원본 글꼴 미확보·이력 중간 기사/응답 집계·OS 영역과 정확 간격은 잔여; 새 자산 확보 없음 |
 | 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |
 | 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
 | 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |

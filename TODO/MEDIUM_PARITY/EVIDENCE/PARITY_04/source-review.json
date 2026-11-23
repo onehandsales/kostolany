@@ -1,0 +1,158 @@
+{
+  "inventoryScope": "63 flows / 273 steps / 200 unique screens; inventory is not full behavior or visual verification",
+  "viewedSteps": 25,
+  "viewedUniqueHashes": 22,
+  "originals": [
+    {
+      "path": "medium/flows/Home/Refine recommendations/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png",
+      "sha256": "5d639844414ce950cd746d4d7520afb24874849e2ef5ec664a9e8a3b0ec39d1c",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/screens/02_sc_90bc6a79e86d436e89d94d7dc82b624c.png",
+      "sha256": "f09eb2eb0004ed0a858a4094c6f85f0342bd51ebf0f517631f9884ed4ed15b72",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+      "sha256": "19b57ffd45e4251fc7d61314026008883f6d1508f409f8dda0a4e7d9a956b61c",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/screens/04_sc_944b2eea3834408b8c04981e5eb2adf8.png",
+      "sha256": "f00c1de18563820ffd9e487a5f6f9140d2494e83aabeac65da9d9b9bdf7e69db",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/screens/05_sc_1c666fb7aadc411c9add1aa2b19bd56c.png",
+      "sha256": "e26d49720b00ba26637957cce836deac2afea4f7dae952974523496b4b6310f8",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/Reading history/screens/01_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+      "sha256": "19b57ffd45e4251fc7d61314026008883f6d1508f409f8dda0a4e7d9a956b61c",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/Reading history/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+      "sha256": "00d5f568a4615a11c0f8710e5393ab6ffd25261f91a821561b7912d5d38606f2",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/Reading history/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/01_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+      "sha256": "19b57ffd45e4251fc7d61314026008883f6d1508f409f8dda0a4e7d9a956b61c",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png",
+      "sha256": "61bd887322a8e61ab5443e590a4fd131f595ec17c3f326c988f048e9ccb0c089",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/01_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+      "sha256": "1cb063764223db62bfd4fe07c55c4c8e2590c736fa52a65355c2447e08d56a89",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+      "sha256": "86a6b146d06d9925629767a65e48699504ba22b65903d7d179b7837545f0503d",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+      "sha256": "5967e16b839ed791c5f9d5cbbbfb69d702b2f0674cca620b5106b458083bb7cc",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+      "sha256": "641a74c643c973b08ba9f0c4be6df05b6237d9bf9dfcd762e0e9c4ddd31916f8",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+      "sha256": "aa5f21d8ece7bd074691b440d50606749d5298210ebf5723abc7d241875746b3",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+      "sha256": "2397cb4a436585537a36b182e209a3973e13f2afe28f5bad0faf0618b04f447b",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png",
+      "sha256": "e1a3f16c9e6fecee16d6721979bf40011cb46c18dbdcb90b4754dfbaadb3f10d",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/08_sc_ee957cf03e9848948f9ec8189264d8d8.png",
+      "sha256": "ab985e752314fe5f11d983c07104eea9259313070b0c3a14f2b8b1e7f812a44e",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Changing display/screens/09_sc_d1d05d6500f349d89c5a3e5646ff238b.png",
+      "sha256": "834eddba07f06df35c400026756b9f9f043239f219f70eac7d554f70469f8c76",
+      "scope": "direct full flow",
+      "analysis": "medium/flows/Home/Story detail/Changing display/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Publishing a story/screens/10_sc_39fb71a1ee0d43f09bab33c7ef775259.png",
+      "sha256": "85f5eca96fc737d2bc40edda49f8ea647f3112fcd5b4bf6393038ed0a030db61",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Publishing a story/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Publishing a story/screens/11_sc_e3b2276c9abd4bc7b08e6e4c322dee9e.png",
+      "sha256": "e152c4234ad6e7ab6316d9e18a3fd779b111b3e0f20d8b49bc1f1662cc0ce2fb",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Publishing a story/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Library/screens/05_sc_c37aefd0916548dda3cb46d61cc25193.png",
+      "sha256": "bb0f0d8320a49adfbaa712679a3751d2e3275b25ff31445051e0afadbf44ca2f",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Library/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png",
+      "sha256": "1cb063764223db62bfd4fe07c55c4c8e2590c736fa52a65355c2447e08d56a89",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Story detail/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/screens/03_sc_f4b06612bdbf48ecbd8a7b6e2607d117.png",
+      "sha256": "d2d1964d0933c3a8ffe1501523f683e72da26714d8c737518659354cfbd74150",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Story detail/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Responses/Medium policy/screens/01_sc_915888473ac24e8987c996b8954f54c6.png",
+      "sha256": "34e1574d4b427e460f7c4c39b3272694ed17ed6df00b95025d02212f90fb15b8",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md"
+    },
+    {
+      "path": "medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png",
+      "sha256": "a14af430eabae143f56b7018798aca32b12c0a408e14eec178bb0d31bbebff39",
+      "scope": "entry/exit context selected step",
+      "analysis": "medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md"
+    }
+  ],
+  "unreviewed": "Other original images were not newly visually verified in this batch; parents beyond selected context remain assigned to their batches."
+}

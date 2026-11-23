@@ -1,5 +1,7 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**현재 — Parity 4:** [읽기 설정·이력·발행 링크 구현과 자기 재검토](FE_MEDIUM_PARITY_04_RESULT.md). D01/D03/D05의 mock 연결·수명 보호를 보완했다. Q05 Undo는 미확인, Q11은 도구별 판정 후 11/12 후속, V12/V16 원본 데이터·서체·플랫폼 차이는 잔여다. 다음은 [묶음 5 D06/V11/V14/V15](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-05)이며 미착수다. 아래 과거 판정은 삭제하지 않고 당시 증거로 유지한다.
+
 **Parity 3 추가 재검토:** [정책 View story 이동 시 잔존 모달과 접근권 상실 시 응답 초안 노출 수정](FE_MEDIUM_PARITY_03_RESULT.md#additional-review). D08의 수명 연결을 보완하며 V21/U/Q07 잔여와 다음 묶음4 범위는 유지한다. 최초 증거와 추가 실행은 별도 manifest로 구분한다.
 
 **현재 — Parity 3(2026-11-23):** [D08/V21 구현·검증·재검토 결과](FE_MEDIUM_PARITY_03_RESULT.md). D08의 보이는 기사 영역과 기존 mock 도구/복귀를 연결했다. V21 자산·서체·272 응답 동일 재현은 잔여, U-S008/U-F34 미확인과 Q07 기기 대기는 유지한다. 다음은 [묶음4](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-04), 미착수다. 아래 Parity 2 이전의 현재/미착수/다음 문구는 당시 이력이며 원본 요구·증거를 삭제하지 않는다.
@@ -21,6 +23,8 @@
 <a id="d01"></a>
 
 ## D01 — 발행 본문 링크의 늦은 실패 차단
+
+- 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 문서/공급부/포커스 수명과 최신 요청 순번 보호·현재 오류 재시도를 보완했다. 아래 재현 기록은 수정 전 근거다.
 
 - 판정: **수정 필요 / 이전 재현 A01 + 현재 코드 확인**. 기존 담당 Goal 36·39·51.
 
@@ -58,6 +62,8 @@
 
 ## D03 — 발행 글의 읽기 이력·Viewed·읽기 설정 연결
 
+- 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 공통 카탈로그/이력·카드 Viewed·직접/Article 경유 reader 설정을 연결했다. 아래 수정 전 근거는 보존하고 native/원본 동일성은 별도 잔여다.
+
 - 판정: **적용 범위 판정·연결 필요 / 이전 재현 A03 + 현재 코드 확인**. 기존 담당 Goal 24·25·31·39·51.
 
 - 원본 맥락: [F08](MEDIUM_PARITY/FLOWS.md#f08), [F14](MEDIUM_PARITY/FLOWS.md#f14), [F24](MEDIUM_PARITY/FLOWS.md#f24), [F41](MEDIUM_PARITY/FLOWS.md#f41), [F55](MEDIUM_PARITY/FLOWS.md#f55), [F62](MEDIUM_PARITY/FLOWS.md#f62)
@@ -93,6 +99,8 @@
 <a id="d05"></a>
 
 ## D05 — 일반 기사 읽기 이력의 ID 해석 누락
+
+- 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 일반 fixture·발행·정책 기사를 reactive 카탈로그로 해석하고 unavailable/차단/실패 재시도를 구분했다. 아래 기록은 수정 전 근거다.
 
 - 판정: **수정 필요 / 이전 재현 A07 + 현재 코드 확인**. 기존 담당 Goal 25·31·44·51.
 
@@ -282,6 +290,8 @@
 
 ## Q05 — 읽기 이력 삭제 후 Undo의 범위 판정
 
+- 최신 판정: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)의 F14/F15 대조에서도 Undo는 미확인이다. 확인/취소는 자체 mock 정책이며 다른 기능 Undo를 근거로 사용하지 않는다. 근거 대기는 완료가 아니다.
+
 - 판정: **이번 판정: 원본 근거 확인 대기**. 기존 담당 Goal 31.
 
 - 작업: F14의 Undo 질문과 현재 삭제 전 확인/취소를 구분한다. 원본 이력 Undo 실행은 미수록이며 Show less/목록 글 제거 Undo를 근거로 재사용하지 않는다.
@@ -341,6 +351,8 @@
 <a id="q11"></a>
 
 ## Q11 — 발행 글과 일반 기사의 읽기 기능 적용 범위
+
+- 최신 부분 판정: [Parity 4 도구별 지원표](FE_MEDIUM_PARITY_04_RESULT.md)에서 이력/표시 설정과 미지원 Highlight·인용·Listen을 구분했다. 묶음 4의 판정만 반영하며 묶음 11/12의 채택·구현·검증은 미완료다.
 
 - 판정: **후속 기록에 남은 별도 연결 범위 / 미확정**. 기존 담당 Goal 25·27·39·45·46·51.
 
@@ -542,6 +554,8 @@
 
 ## V12 — 읽기 이력
 
+- 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 S190/S052/S045 웹 촬영과 삭제·재열기·Explore를 확인했다. 부분 노출 원본 카드/집계·원본 서체·OS 영역·정확 스크롤 차이는 남아 동일 재현 완료가 아니다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 31, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S045](MEDIUM_PARITY/REQUIREMENTS_02.md#s045), [S052](MEDIUM_PARITY/REQUIREMENTS_03.md#s052), [S190](MEDIUM_PARITY/REQUIREMENTS_08.md#s190)
@@ -605,6 +619,8 @@
 <a id="v16"></a>
 
 ## V16 — 읽기 설정
+
+- 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 S001/S063/S119/S125/S168/S198과 일반/발행/정책 소비를 대조하고 큰 글자의 하위 메뉴 위치를 보완했다. 원본 서체·세부 간격·실제 OS/native 검증은 잔여다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 24, 공통 Goal23/50/51/53.
 

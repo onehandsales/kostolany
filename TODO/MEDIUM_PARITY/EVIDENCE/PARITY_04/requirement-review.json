@@ -1,0 +1,938 @@
+[
+  {
+    "id": "R-S001-L",
+    "observation": "배치: 다크 설정 팝오버 토글 회색",
+    "screen": "S001",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png",
+    "steps": [
+      "T-F24-07"
+    ],
+    "unknowns": [
+      "U-S001",
+      "U-F24"
+    ],
+    "evidence": "display-final/S001.png"
+  },
+  {
+    "id": "R-S001-D",
+    "observation": "표시값·입력: Highlights from others 꺼짐",
+    "screen": "S001",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png",
+    "steps": [
+      "T-F24-07"
+    ],
+    "unknowns": [
+      "U-S001",
+      "U-F24"
+    ],
+    "evidence": "display-final/S001.png"
+  },
+  {
+    "id": "R-S001-S",
+    "observation": "상태: 타인 하이라이트 표시 설정 변경",
+    "screen": "S001",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png",
+    "steps": [
+      "T-F24-07"
+    ],
+    "unknowns": [
+      "U-S001",
+      "U-F24"
+    ],
+    "evidence": "display-final/S001.png"
+  },
+  {
+    "id": "R-S001-C01",
+    "observation": "컨트롤: 토글",
+    "screen": "S001",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png",
+    "steps": [
+      "T-F24-07"
+    ],
+    "unknowns": [
+      "U-S001",
+      "U-F24"
+    ],
+    "evidence": "display-final/S001.png"
+  },
+  {
+    "id": "R-S045-L",
+    "observation": "배치: Reading history 탭 내 안내 카드",
+    "screen": "S045",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png",
+    "steps": [
+      "T-F15-02"
+    ],
+    "unknowns": [
+      "U-S045",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S045.png"
+  },
+  {
+    "id": "R-S045-D",
+    "observation": "표시값·입력: 읽은 글이 없다는 문구",
+    "screen": "S045",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png",
+    "steps": [
+      "T-F15-02"
+    ],
+    "unknowns": [
+      "U-S045",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S045.png"
+  },
+  {
+    "id": "R-S045-S",
+    "observation": "상태: 기록 목록 없음",
+    "screen": "S045",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png",
+    "steps": [
+      "T-F15-02"
+    ],
+    "unknowns": [
+      "U-S045",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S045.png"
+  },
+  {
+    "id": "R-S045-C01",
+    "observation": "컨트롤: Explore",
+    "screen": "S045",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png",
+    "steps": [
+      "T-F15-02"
+    ],
+    "unknowns": [
+      "U-S045",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S045.png"
+  },
+  {
+    "id": "R-S052-L",
+    "observation": "배치: 읽기 기록 탭 아래 다른 기사 카드",
+    "screen": "S052",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "steps": [
+      "T-F14-02"
+    ],
+    "unknowns": [
+      "U-S052",
+      "U-F14"
+    ],
+    "evidence": "reference-history/S052.png"
+  },
+  {
+    "id": "R-S052-D",
+    "observation": "표시값·입력: 각 카드 휴지통",
+    "screen": "S052",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증; 중간 카드 전체 제목과 집계 fixture 차이",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "steps": [
+      "T-F14-02"
+    ],
+    "unknowns": [
+      "U-S052",
+      "U-F14"
+    ],
+    "evidence": "reference-history/S052.png"
+  },
+  {
+    "id": "R-S052-S",
+    "observation": "상태: 개별 기록 삭제 진입 가능",
+    "screen": "S052",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "steps": [
+      "T-F14-02"
+    ],
+    "unknowns": [
+      "U-S052",
+      "U-F14"
+    ],
+    "evidence": "reference-history/S052.png"
+  },
+  {
+    "id": "R-S052-C01",
+    "observation": "컨트롤: 휴지통",
+    "screen": "S052",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "steps": [
+      "T-F14-02"
+    ],
+    "unknowns": [
+      "U-S052",
+      "U-F14"
+    ],
+    "evidence": "reference-history/S052.png"
+  },
+  {
+    "id": "R-S052-C02",
+    "observation": "컨트롤: 더보기",
+    "screen": "S052",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png",
+    "steps": [
+      "T-F14-02"
+    ],
+    "unknowns": [
+      "U-S052",
+      "U-F14"
+    ],
+    "evidence": "reference-history/S052.png"
+  },
+  {
+    "id": "R-S063-L",
+    "observation": "배치: 상단 크기 조절과 3개 설정 행",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-D",
+    "observation": "표시값·입력: 100%, Font Default, System default (Light), Highlights from others 켜짐",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-S",
+    "observation": "상태: 이 캡처의 현재 표시 설정: 100%, Default 글꼴, System default (Light), 타인 하이라이트 On. 제품 전체 초기 기본값 여부는 미확인.",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-C01",
+    "observation": "컨트롤: 작은 A",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-C02",
+    "observation": "컨트롤: 큰 A",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-C03",
+    "observation": "컨트롤: Font family",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-C04",
+    "observation": "컨트롤: Appearance",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S063-C05",
+    "observation": "컨트롤: Highlights from others 토글",
+    "screen": "S063",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png",
+    "steps": [
+      "T-F24-03"
+    ],
+    "unknowns": [
+      "U-S063",
+      "U-F24"
+    ],
+    "evidence": "display-final/S063.png"
+  },
+  {
+    "id": "R-S119-L",
+    "observation": "배치: Appearance 아래 팝오버",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S119-D",
+    "observation": "표시값·입력: System default 체크",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S119-S",
+    "observation": "상태: 테마 선택 중",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S119-C01",
+    "observation": "컨트롤: System default",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S119-C02",
+    "observation": "컨트롤: Light",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S119-C03",
+    "observation": "컨트롤: Dark",
+    "screen": "S119",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png",
+    "steps": [
+      "T-F24-05"
+    ],
+    "unknowns": [
+      "U-S119",
+      "U-F24"
+    ],
+    "evidence": "display-final/S119.png"
+  },
+  {
+    "id": "R-S125-L",
+    "observation": "배치: 설정 유지·배경 제목 줄바꿈 증가",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-D",
+    "observation": "표시값·입력: 120%",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-S",
+    "observation": "상태: 크기 변경이 화면에 반영",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-C01",
+    "observation": "컨트롤: 작은 A",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-C02",
+    "observation": "컨트롤: 큰 A",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-C03",
+    "observation": "컨트롤: Font family",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-C04",
+    "observation": "컨트롤: Appearance",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S125-C05",
+    "observation": "컨트롤: Highlights from others 토글",
+    "screen": "S125",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png",
+    "steps": [
+      "T-F24-04"
+    ],
+    "unknowns": [
+      "U-S125",
+      "U-F24"
+    ],
+    "evidence": "display-final/S125.png"
+  },
+  {
+    "id": "R-S168-L",
+    "observation": "배치: 상단 팝오버 5행",
+    "screen": "S168",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-D",
+    "observation": "표시값·입력: 추가 입력 없음",
+    "screen": "S168",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-S",
+    "observation": "상태: 읽기·추천·작가·신고 행동",
+    "screen": "S168",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-C01",
+    "observation": "컨트롤: Show less like this",
+    "screen": "S168",
+    "status": "이번 표시·연결 회귀 범위, 기능별 원본 보정은 묶음 5/10",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-C02",
+    "observation": "컨트롤: Display settings",
+    "screen": "S168",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-C03",
+    "observation": "컨트롤: Follow author",
+    "screen": "S168",
+    "status": "이번 표시·연결 회귀 범위, 기능별 원본 보정은 묶음 5/10",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-C04",
+    "observation": "컨트롤: Mute author",
+    "screen": "S168",
+    "status": "이번 표시·연결 회귀 범위, 기능별 원본 보정은 묶음 5/10",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S168-C05",
+    "observation": "컨트롤: Report story",
+    "screen": "S168",
+    "status": "이번 표시·연결 회귀 범위, 기능별 원본 보정은 묶음 5/10",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png",
+    "steps": [
+      "T-F24-02"
+    ],
+    "unknowns": [
+      "U-S168",
+      "U-F24"
+    ],
+    "evidence": "display-final/S168.png"
+  },
+  {
+    "id": "R-S190-L",
+    "observation": "배치: Reading history 탭, 전체 삭제 안내, 기사 카드",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S190-D",
+    "observation": "표시값·입력: 읽은 글·날짜·집계 표시",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증; 중간 카드 전체 제목과 집계 fixture 차이",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S190-S",
+    "observation": "상태: 읽기 기록 존재",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S190-C01",
+    "observation": "컨트롤: Clear history",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S190-C02",
+    "observation": "컨트롤: 개별 휴지통",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S190-C03",
+    "observation": "컨트롤: 더보기",
+    "screen": "S190",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png",
+    "steps": [
+      "T-F12-03",
+      "T-F14-01",
+      "T-F15-01"
+    ],
+    "unknowns": [
+      "U-S190",
+      "U-F12",
+      "U-F14",
+      "U-F15"
+    ],
+    "evidence": "reference-history/S190.png"
+  },
+  {
+    "id": "R-S198-L",
+    "observation": "배치: 배경·설정 팝오버 검정 계열",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-D",
+    "observation": "표시값·입력: Dark, 120%, 타인 하이라이트 켜짐",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-S",
+    "observation": "상태: 다크 테마 반영",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-C01",
+    "observation": "컨트롤: 작은 A",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-C02",
+    "observation": "컨트롤: 큰 A",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-C03",
+    "observation": "컨트롤: Font family",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-C04",
+    "observation": "컨트롤: Appearance",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  },
+  {
+    "id": "R-S198-C05",
+    "observation": "컨트롤: Highlights from others 토글",
+    "screen": "S198",
+    "status": "mock 동작/웹 상태 검증, 원본 시각 동일성 미완료",
+    "residual": "원본 서체·OS 영역·정확 간격과 실제 native 미검증",
+    "png": "medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png",
+    "steps": [
+      "T-F24-06"
+    ],
+    "unknowns": [
+      "U-S198",
+      "U-F24"
+    ],
+    "evidence": "display-final/S198.png"
+  }
+]

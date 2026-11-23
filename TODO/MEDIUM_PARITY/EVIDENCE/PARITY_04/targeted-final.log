@@ -1,0 +1,20 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand ReadingHistoryCatalog historyPreview PublishedLibrarySession HighlightsNavigation WrittenStoryLifecycle
+
+PASS Android src/features/editor/WrittenStoryLifecycle.test.tsx (7.894 s)
+PASS Android src/app/navigation/PublishedLibrarySession.test.tsx (5.71 s)
+PASS Android src/features/reading-history/ReadingHistoryCatalog.test.tsx
+PASS iOS src/features/reading-history/ReadingHistoryCatalog.test.tsx
+PASS Android src/features/reading-history/data/historyPreview.test.ts
+PASS iOS src/features/reading-history/data/historyPreview.test.ts
+PASS iOS src/app/navigation/HighlightsNavigation.test.tsx (9.38 s)
+PASS Android src/app/navigation/HighlightsNavigation.test.tsx (6.829 s)
+PASS iOS src/features/editor/WrittenStoryLifecycle.test.tsx
+PASS iOS src/app/navigation/PublishedLibrarySession.test.tsx
+
+Test Suites: 10 passed, 10 total
+Tests:       18 passed, 18 total
+Snapshots:   0 total
+Time:        43.976 s
+Ran all test suites matching /ReadingHistoryCatalog|historyPreview|PublishedLibrarySession|HighlightsNavigation|WrittenStoryLifecycle/i in 2 projects.

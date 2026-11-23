@@ -1,0 +1,16 @@
+[
+  {"id":"Q12-login","navigate":"/","click":["프로필","모의 로그인 시작","Google로 로그인 (모의)","홈","Write a story"],"waitText":"Next"},
+  {"id":"Q12-edit","input":[{"label":"글 제목","text":"읽기 연결 검증을 위한 긴 한국어 발행 제목"},{"label":"글 본문","text":"이 문서는 발행 후 읽기 이력과 글자 크기, 글꼴, 테마를 확인하기 위한 모의 글입니다. 다시 열어도 같은 내용을 읽을 수 있습니다."}]},
+  {"id":"Q12-publish","click":["Next","Publish now"],"waitText":"읽기 연결 검증을 위한 긴 한국어 발행 제목"},
+  {"id":"Q12-reader","click":["읽기 연결 검증을 위한 긴 한국어 발행 제목 발행한 글 열기"],"waitText":"모의 글입니다"},
+  {"id":"Q12-display","click":["Story options, 읽기 연결 검증을 위한 긴 한국어 발행 제목","발행 글 표시 설정","글자 크기 키우기","글꼴 선택 열기","글꼴: Sans serif","기사 테마 선택 열기","기사 테마: Dark"],"waitText":"120%"},
+  {"id":"Q12-reader-settings","keys":["Escape"],"measure":["[role='heading']","[aria-label='작성 문서 본문']","[aria-label='발행 글 본문']"],"assert":[{"selector":":focus","attributes":{"aria-label":"Story options, 읽기 연결 검증을 위한 긴 한국어 발행 제목"}}]},
+  {"id":"Q12-viewed","click":["작성 글 뒤로"],"assert":[{"selector":"[aria-label='읽음, 읽기 연결 검증을 위한 긴 한국어 발행 제목']","visible":true}]},
+  {"id":"Q12-history","click":["라이브러리","Reading history"],"waitText":"읽기 연결 검증을 위한 긴 한국어 발행 제목"},
+  {"id":"Q12-reopen","click":["읽기 연결 검증을 위한 긴 한국어 발행 제목. 예시 독자 A. 6/13/2025"],"waitText":"모의 글입니다","measure":["[role='heading']","[aria-label='작성 문서 본문']"]},
+  {"id":"Q12-remove-cancel","click":["작성 글 뒤로","Remove from history, 읽기 연결 검증을 위한 긴 한국어 발행 제목","Cancel history removal"],"waitText":"읽기 연결 검증을 위한 긴 한국어 발행 제목"},
+  {"id":"Q12-remove","click":["Remove from history, 읽기 연결 검증을 위한 긴 한국어 발행 제목","Confirm history removal"],"waitText":"You haven’t read any stories yet"},
+  {"id":"Q12-viewed-cleared","click":["프로필"],"assert":[{"selector":"[aria-label='읽음, 읽기 연결 검증을 위한 긴 한국어 발행 제목']","visible":false}]},
+  {"id":"Q12-logout","click":["설정 열기","로그아웃","Confirm"]},
+  {"id":"Q12-b-login","click":["예시 독자 B","Google로 로그인 (모의)","라이브러리","Reading history"],"waitText":"You haven’t read any stories yet"}
+]

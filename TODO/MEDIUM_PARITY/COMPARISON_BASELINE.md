@@ -10,7 +10,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s001>) · `sc_00409287a68f4416941e39326f6df6b9`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S001.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -157,7 +157,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s008>) · `sc_063290fab51b4acd913212f85acde70d`
 
-- 담당: V21 / 묶음 3. 상태: **recipe-only**. Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님
+- 담당: V21 / 묶음 3. 상태: **recipe-only**. Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article → Responses/본문 shield → PolicyArticle → 원래 응답/기사 복귀; 저장 후 Library → PolicyArticleScreen 재열기
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponsePolicyLink.tsx](<../../FE/src/features/responses/ResponsePolicyLink.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>)
@@ -934,12 +934,12 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/Reading history/Clearing history/screens/02_sc_3ab5043fa7b649908c6dde30faf290ab.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/Reading history/Clearing history/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s045>) · `sc_3ab5043fa7b649908c6dde30faf290ab`
 
-- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
-- 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
+- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
+- 실제 FE 진입 절차(정적 확인): 개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
-- fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
+- fixture 구성: ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조
 - 원본 관찰 표시값: 표시값·입력: 읽은 글이 없다는 문구
 - 원본 관찰 상태: 상태: 기록 목록 없음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1081,12 +1081,12 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/Reading history/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s052>) · `sc_4239d69cbdce4194a5a34c7472131dfd`
 
-- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
-- 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
+- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
+- 실제 FE 진입 절차(정적 확인): 개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
-- fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
+- fixture 구성: ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조
 - 원본 관찰 표시값: 표시값·입력: 각 카드 휴지통
 - 원본 관찰 상태: 상태: 개별 기록 삭제 진입 가능
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1312,7 +1312,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s063>) · `sc_557c1fb7c6bf4dcc82ba1d6aba677f94`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S063.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -2488,7 +2488,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s119>) · `sc_a5d80c9e0226452cbb67e018702c5f1b`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S119.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -2614,7 +2614,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s125>) · `sc_ad140eae0b7e409aa2204c1f36bfa385`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S125.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -3517,7 +3517,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s168>) · `sc_d62e32234117483b85b4c73ed63249cd`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S168.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -3979,12 +3979,12 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s190>) · `sc_f4bb3fa34f32466b9bd12eea57ea518f`
 
-- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
-- 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
+- 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
+- 실제 FE 진입 절차(정적 확인): 개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
-- fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
+- fixture 구성: ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조
 - 원본 관찰 표시값: 표시값·입력: 읽은 글·날짜·집계 표시
 - 원본 관찰 상태: 상태: 읽기 기록 존재
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4147,7 +4147,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s198>) · `sc_fd7de1ebfba14fbca6ddbe3ff642c42c`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S198.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)

@@ -115,13 +115,13 @@
   },
   "V12": {
     "title": "읽기 이력",
-    "route": "Home → Refine recommendations → Reading history → 카드·삭제·Clear history",
+    "route": "개발 웹 /?parityHistory=reference-v1 → mock A → Profile/Settings → Refine recommendations → Reading history → 카드·삭제·Clear history; 일반 방문은 Library 이력 경로도 확인",
     "features": [
       "reading-history",
       "feed"
     ],
     "account": "A 개인 방문 이력; Viewed와 실제 Views/Reads 구분",
-    "fixture": "ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결",
+    "fixture": "ReadingHistorySource + reactive 카탈로그; Parity 4의 명시적 reference-v1 seed는 알려진 세 기사와 합성 방문 시각만 제공; 원본 중간 카드·집계 차이는 V12 잔여; D03/D05 연결 검증은 FE_MEDIUM_PARITY_04_RESULT 참조",
     "entry": "ReadingHistoryList"
   },
   "V13": {
