@@ -16,16 +16,18 @@ export function ModerationProvider({
   userId,
   revision,
   source,
+  routeKey = '',
 }: {
   children: ReactNode;
   userId: string | null;
   revision: number;
   source?: ModerationSource;
+  routeKey?: string;
 }) {
   const auth = useAuth();
   const { colors } = useTheme();
   const sequence = useRef(0);
-  const [message, setMessage] = useState<{ scope: string; text: string } | null>(null);
+  const [message, setMessage] = useState<{ scope: string; routeKey: string; text: string } | null>(null);
   useEffect(() => {
     if (!message) return;
     const timer = setTimeout(() => setMessage(null), 2400);
@@ -40,6 +42,7 @@ export function ModerationProvider({
   }));
   const [dialog, setDialog] = useState<{
     scope: string;
+    routeKey: string;
     entry: ModerationEntry;
     id: number;
   } | null>(null);
@@ -64,7 +67,9 @@ export function ModerationProvider({
     cache.stores.set(userId, store);
   }
   const scope = JSON.stringify([cache.generation, userId, revision]);
-  if (dialog && dialog.scope !== scope) setDialog(null);
+  // 화면 이탈은 초안·요청 UI만 폐기하며 계정별 확정 저장소와 조회 수명은 유지한다.
+  if (dialog && (dialog.scope !== scope || dialog.routeKey !== routeKey)) setDialog(null);
+  if (message && (message.scope !== scope || message.routeKey !== routeKey)) setMessage(null);
   function open(entry: ModerationEntry) {
     if (!userId && (entry.kind === 'confirm' || entry.kind === 'report' || entry.kind === 'blocked')) {
       setDialog(null);
@@ -72,7 +77,7 @@ export function ModerationProvider({
       return;
     }
     sequence.current += 1;
-    setDialog({ scope, entry, id: sequence.current });
+    setDialog({ scope, routeKey, entry, id: sequence.current });
   }
   return (
     <ModerationContext.Provider
@@ -85,7 +90,7 @@ export function ModerationProvider({
     >
       <ReadScopeBoundary store={store} scope={scope} />
       {children}
-      {message?.scope === scope && (
+      {message?.scope === scope && message.routeKey === routeKey && (
         <View
           pointerEvents="none"
           style={{
@@ -104,7 +109,7 @@ export function ModerationProvider({
           </Text>
         </View>
       )}
-      {dialog?.scope === scope && (
+      {dialog?.scope === scope && dialog.routeKey === routeKey && (
         <ModerationDialogs
           key={`${scope}:${dialog.id}`}
           entry={dialog.entry}
@@ -113,7 +118,7 @@ export function ModerationProvider({
             if (dialog.entry.kind === 'confirm' && dialog.entry.returnTo === 'blocked')
               open({ kind: 'blocked' });
             else setDialog(null);
-            setMessage({ scope, text });
+            setMessage({ scope, routeKey, text });
           }}
         />
       )}

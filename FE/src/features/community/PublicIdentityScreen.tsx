@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useDirectory } from './DirectoryProvider';
+import { useIdentityCatalog } from './useIdentityCatalog';
 import { useModeration } from '../moderation/ModerationContext';
 import { useCommunityNavigation } from './CommunityNavigation';
 import { FollowControl } from './FollowControl';
@@ -15,8 +15,7 @@ import { ShareSheet } from '../sharing/ShareSheet';
 import { useAuth } from '../auth/AuthProvider';
 import { usePublicLists } from '../public-lists/PublicListProvider';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
-import { followKey, type FollowTarget, type PublicIdentity } from './types';
-import { mockUsers } from '../auth/data/mockUsers';
+import { followKey, type FollowTarget } from './types';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { mediumArticles } from '../feed/data/mediumFixtures';
@@ -41,14 +40,13 @@ export function PublicIdentityScreen(props: Props) {
 function IdentityContent({ target, onBack, onSelectArticle, footer, active = true }: Props) {
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
-  const directory = useDirectory();
+  const directory = useIdentityCatalog();
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
   const publicLists = usePublicLists();
   const sharing = useShareDialog(publicLists.store ?? undefined);
   const auth = useAuth();
-  const knownProfile = useKnownProfile(target.id);
-  const mockOwner = target.kind === 'writer' ? mockUsers.find(user => user.id === target.id) : undefined;
+  const knownProfile = useKnownProfile(target.kind === 'writer' ? target.id : '');
   const { scope } = moderation;
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
   const [uiScope, setUiScope] = useState(scope);
@@ -65,9 +63,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
     const timer = setTimeout(() => setMessage(null), 2400);
     return () => clearTimeout(timer);
   }, [message]);
-  const identity: PublicIdentity | undefined = directory.state.data?.identities.find((item) => followKey(item) === followKey(target))
-    ?? (mockOwner ? { ...target, name: knownProfile?.name ?? mockOwner.name, bio: knownProfile?.bio,
-      stories: [], pinned: [], lists: [] } : undefined);
+  const identity = directory.state.data?.identities.find((item) => followKey(item) === followKey(target));
   const lists = publicLists.state?.value?.lists.filter(list => !list.isPrivate && followKey(list.owner) === followKey(target)) ?? [];
   useEffect(() => {
     if (active && section === 'Lists') void publicLists.store?.reload();
@@ -140,7 +136,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
         </View>
       </View>
       <View style={styles.follow}>
-        <FollowControl target={target} name={identity.name} wide onMessage={setMessage} />
+        <FollowControl target={target} name={identity.name} active={active} wide onMessage={setMessage} />
       </View>
       <View style={styles.tabs}>
         {(['Stories', 'Lists', 'About'] as const).map((tab) => (

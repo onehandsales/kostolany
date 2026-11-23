@@ -2,7 +2,7 @@
 
 [Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)
 
-자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 새 전후·회귀 증거는 결과 문서와 별도 evidence-manifest.json을 따른다.
+자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 당시 전후·회귀 기록은 해당 결과 문서를 따른다. 사용자 커밋 6853256에서 기존 EVIDENCE 파일이 삭제됐으며 복원하지 않는다. Parity 5는 사용자 지시로 캡처·manifest를 저장하지 않고 결과 문서만 갱신한다. 입력의 null SHA는 삭제된 과거 capture log이며 현재 무결성 통과가 아니다.
 
 <a id="s001"></a>
 
@@ -451,12 +451,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/screens/05_sc_1c666fb7aadc411c9add1aa2b19bd56c.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s022>) · `sc_1c666fb7aadc411c9add1aa2b19bd56c`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: Writers 1, Topics 3
 - 원본 관찰 상태: 상태: 작가·토픽 팔로우 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -514,12 +515,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Following an author/screens/04_sc_1da36ea095e64ec0a5b6b9478b032524.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Following an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s025>) · `sc_1da36ea095e64ec0a5b6b9478b032524`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: 팔로우 상태 활성
 - 원본 관찰 상태: 상태: 관계 설정 메뉴 닫힘
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -682,12 +684,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s033>) · `sc_28a0bd2548fc4800b2b024bdc06bb115`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: 작가 소개·인증 배지 일부
 - 원본 관찰 상태: 상태: 전체 추천 중 작가 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -787,12 +790,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/screens/03_sc_334d50df678445baaa7ba445c96861ba.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s038>) · `sc_334d50df678445baaa7ba445c96861ba`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: 2 stories·이미지 모음
 - 원본 관찰 상태: 상태: 작가 목록 탐색
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -997,12 +1001,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/screens/02_sc_3de359a1c13340968c4b733188faa6d1.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s048>) · `sc_3de359a1c13340968c4b733188faa6d1`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: Jordan Gibbs, 10.2K followers·25 following
 - 원본 관찰 상태: 상태: 고정 글 Pinned 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1018,12 +1023,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Following an author/screens/02_sc_3ecf6d2988a6418fa4d2006fa4497b23.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Following an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s049>) · `sc_3ecf6d2988a6418fa4d2006fa4497b23`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: Email notifications on 체크
 - 원본 관찰 상태: 상태: 팔로우 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1732,12 +1738,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/screens/04_sc_74429222aa3d45a89f1980b3aa0b6f9e.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s083>) · `sc_74429222aa3d45a89f1980b3aa0b6f9e`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: Medium member since October 2023, Friend since December 2023
 - 원본 관찰 상태: 상태: 소개·회원 이력 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1879,12 +1886,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Following list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s090>) · `sc_7c89f4496e7f4cb0b5c23b776080b6bf`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: 여러 사용자와 The Medium Blog 표시
 - 원본 관찰 상태: 상태: 관계 목록 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1942,12 +1950,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/screens/04_sc_8208a84fba4c4046aa1d364055d14db7.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s093>) · `sc_8208a84fba4c4046aa1d364055d14db7`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: 10.8K followers, 25 following
 - 원본 관찰 상태: 상태: 차단 흐름 후 별도 프로필 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2068,12 +2077,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/screens/02_sc_90bc6a79e86d436e89d94d7dc82b624c.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s099>) · `sc_90bc6a79e86d436e89d94d7dc82b624c`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: Suggestions 활성, Topics 필터
 - 원본 관찰 상태: 상태: 추천 토픽과 기사·팔로워 집계
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2152,12 +2162,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Following an author/screens/03_sc_937a1fdc91724d1ca5cc41b1d43d5132.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Following an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s103>) · `sc_937a1fdc91724d1ca5cc41b1d43d5132`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: Email notifications on 체크
 - 원본 관찰 상태: 상태: 팔로우 해제 진입점
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2173,12 +2184,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/screens/04_sc_944b2eea3834408b8c04981e5eb2adf8.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s104>) · `sc_944b2eea3834408b8c04981e5eb2adf8`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: You don't follow anything yet
 - 원본 관찰 상태: 상태: 팔로우 대상 없음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2656,12 +2668,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/screens/04_sc_af0ecdded03643ca8cea85ec5341d906.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s127>) · `sc_af0ecdded03643ca8cea85ec5341d906`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: Spam 선택·차단 미체크
 - 원본 관찰 상태: 상태: 신고 제출 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2719,12 +2732,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Following an author/Unfollowing an author/screens/02_sc_b606d8b25cf248c28200cbfd24da865f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Following an author/Unfollowing an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s130>) · `sc_b606d8b25cf248c28200cbfd24da865f`
 
-- 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V14 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
-- fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
+- fixture 구성: useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석
 - 원본 관찰 표시값: 표시값·입력: You unfollowed Jordan Gibbs
 - 원본 관찰 상태: 상태: 해제 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2992,12 +3006,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/screens/02_sc_c25f22caf7cd49ba88c8611fb7480932.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s143>) · `sc_c25f22caf7cd49ba88c8611fb7480932`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: 추가 입력 없음
 - 원본 관찰 상태: 상태: 작가 관리 메뉴
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3160,12 +3175,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/04_sc_c7deda6b53824957b587bd922cd55399.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s151>) · `sc_c7deda6b53824957b587bd922cd55399`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: Self Improvement·Writing·Relationships는 Following
 - 원본 관찰 상태: 상태: 일부 팔로우 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3181,12 +3197,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Muting an author/screens/03_sc_c8b24e7669734e74922bee69b751350b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Muting an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s152>) · `sc_c8b24e7669734e74922bee69b751350b`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: 기사 목록 계속 표시
 - 원본 관찰 상태: 상태: 음소거 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3370,12 +3387,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/screens/03_sc_d07b03740ecc44328719d4d21703bb06.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s161>) · `sc_d07b03740ecc44328719d4d21703bb06`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: Spam·Harassment·Rules violation·AI-generated 모두 미선택, 차단 미체크
 - 원본 관찰 상태: 상태: 신고 입력 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3517,7 +3535,8 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s168>) · `sc_d62e32234117483b85b4c73ed63249cd`
 
-- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
 - Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S168.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
@@ -3559,12 +3578,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/screens/05_sc_d9ba56fa632249c7908f15a8e3082d97.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Reporting an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s170>) · `sc_d9ba56fa632249c7908f15a8e3082d97`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: Successfully reported user
 - 원본 관찰 상태: 상태: 신고 접수 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4063,12 +4083,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/02_sc_f978feb6af9f44b5a5fa8f514899f3da.png>) · [원본 분석](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s194>) · `sc_f978feb6af9f44b5a5fa8f514899f3da`
 
-- 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V11 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
-- fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
+- fixture 구성: RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인
 - 원본 관찰 표시값: 표시값·입력: Topics 체크
 - 원본 관찰 상태: 상태: 유형 선택 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4168,12 +4189,13 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/screens/03_sc_ff143e1e9b4d4e5ab0579b3fdc61dc1a.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Blocking an author/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s199>) · `sc_ff143e1e9b4d4e5ab0579b3fdc61dc1a`
 
-- 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V15 / 묶음 5. 상태: **recipe-only**. Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음
+- 최신 검토: [Parity 5 결과](<../FE_MEDIUM_PARITY_05_RESULT.md>); 관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
-- fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
+- fixture 구성: ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태
 - 원본 관찰 표시값: 표시값·입력: 기사 목록은 그대로 보임
 - 원본 관찰 상태: 상태: 차단 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음

@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity 5 사용자 지시 예외:** 이번 작업은 “절대로 evidence는 만들지마”를 우선한다. [결과 문서](../FE_MEDIUM_PARITY_05_RESULT.md)에 실제 검사·메모리 캡처 대조·한계를 기록하고 새 이미지/로그/manifest를 저장하지 않는다. 사용자 커밋 `6853256`에서 삭제된 기존 EVIDENCE도 복원하지 않는다. 따라서 과거 파일 무결성 검사와 `ready` 승격은 수행 완료로 주장하지 않는다. 아래 저장/manifest 절차는 과거 실행 및 파일 보존을 요청하는 후속 작업의 기준이다.
+
 [200개 화면 조건](COMPARISON_BASELINE.md) · [실행 계획](EXECUTION_PLAN.md) · [결과](../FE_MEDIUM_PARITY_01_RESULT.md)
 
 **Parity 2 보강:** [자체 UI 노출·비교 처리](OWN_UI_POLICY.md)와 [현재 전후/회귀 증거](../FE_MEDIUM_PARITY_02_RESULT.md)를 추가했다. 캡처 도구의 `--viewport`/`--text-scale=2`는 별도 웹 진단 조건이며 CSS 확대를 RN/OS fontScale 검증으로 사용하지 않는다. PNG는 raw SHA-256, 텍스트는 UTF-8 BOM 제거·LF 정규화 SHA-256으로 보관하며 [증거 검사 도구](../../tools/medium-parity/verifyParity02.py)가 이후 checkout의 파일·로그·해시를 검증한다. 기존 Parity 1 증거와 현재 실행은 분리한다.

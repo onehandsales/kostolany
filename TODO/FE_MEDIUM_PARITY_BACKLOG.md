@@ -1,6 +1,10 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
-**현재 — Parity 4:** [읽기 설정·이력·발행 링크 구현과 자기 재검토](FE_MEDIUM_PARITY_04_RESULT.md). D01/D03/D05의 mock 연결·수명 보호를 보완했다. Q05 Undo는 미확인, Q11은 도구별 판정 후 11/12 후속, V12/V16 원본 데이터·서체·플랫폼 차이는 잔여다. 다음은 [묶음 5 D06/V11/V14/V15](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-05)이며 미착수다. 아래 과거 판정은 삭제하지 않고 당시 증거로 유지한다.
+**Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.
+
+**현재 — Parity 5:** [D06 공통 카탈로그·이름·해제와 V11/V14/V15 검증 결과](FE_MEDIUM_PARITY_05_RESULT.md). 동적 B의 검색→Follow/Mute→Following/Muted/Blocked→해제와 이름 변경·A→B→A를 연결했다. 시각 동일성·U 미확인·native 대기는 남는다. 다음 순서는 묶음 6이며 자동 시작하지 않는다. 사용자 지시로 evidence를 생성/복원하지 않았다. 아래 과거 판정은 당시 이력이다.
+
+**Parity 4 당시:** [읽기 설정·이력·발행 링크 구현과 자기 재검토](FE_MEDIUM_PARITY_04_RESULT.md). D01/D03/D05의 mock 연결·수명 보호를 보완했다. Q05 Undo는 미확인, Q11은 도구별 판정 후 11/12 후속, V12/V16 원본 데이터·서체·플랫폼 차이는 잔여다. 다음은 [묶음 5 D06/V11/V14/V15](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-05)이며 미착수다. 아래 과거 판정은 삭제하지 않고 당시 증거로 유지한다.
 
 **Parity 3 추가 재검토:** [정책 View story 이동 시 잔존 모달과 접근권 상실 시 응답 초안 노출 수정](FE_MEDIUM_PARITY_03_RESULT.md#additional-review). D08의 수명 연결을 보완하며 V21/U/Q07 잔여와 다음 묶음4 범위는 유지한다. 최초 증거와 추가 실행은 별도 manifest로 구분한다.
 
@@ -119,6 +123,8 @@
 <a id="d06"></a>
 
 ## D06 — 동적 mock 사용자의 관계 관리 목록 누락
+
+- 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). D06 mock 연결 완료: 공통 카탈로그로 검색·공개 프로필·Following/Muted/Blocked를 연결하고 이름 변경·계정 전환·각 해제를 검증했다. 아래 판정은 수정 전/당시 기록이다.
 
 - 판정: **수정 필요 / 이전 재현 A08 + 현재 코드 확인**. 기존 담당 Goal 28·29·31·42·50·51.
 
@@ -538,6 +544,8 @@
 
 ## V11 — 추천 관리
 
+- 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 추천 행 소개 폭·동적 사용자 목록을 보완하고 탭/필터/빈 상태/See all·See more·해제를 확인했다. 원본 서체·정확 배치/추가 데이터는 잔여다. 아래 판정은 수정 전/당시 기록이다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 31, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S022](MEDIUM_PARITY/REQUIREMENTS_01.md#s022), [S033](MEDIUM_PARITY/REQUIREMENTS_02.md#s033), [S099](MEDIUM_PARITY/REQUIREMENTS_04.md#s099), [S104](MEDIUM_PARITY/REQUIREMENTS_05.md#s104), [S151](MEDIUM_PARITY/REQUIREMENTS_07.md#s151), [S194](MEDIUM_PARITY/REQUIREMENTS_08.md#s194)
@@ -588,6 +596,8 @@
 
 ## V14 — 작성자·관계
 
+- 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 공개 프로필·관계 목록·follow/email과 이름 반영을 검증하고 메뉴 수명·행 배치를 보완했다. S093 별도 snapshot·원본 반응 수/서체·About 자체 website 차이는 남는다. 아래 판정은 수정 전/당시 기록이다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 28, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S025](MEDIUM_PARITY/REQUIREMENTS_01.md#s025), [S038](MEDIUM_PARITY/REQUIREMENTS_02.md#s038), [S048](MEDIUM_PARITY/REQUIREMENTS_02.md#s048), [S049](MEDIUM_PARITY/REQUIREMENTS_02.md#s049), [S083](MEDIUM_PARITY/REQUIREMENTS_04.md#s083), [S090](MEDIUM_PARITY/REQUIREMENTS_04.md#s090), [S103](MEDIUM_PARITY/REQUIREMENTS_05.md#s103), [S130](MEDIUM_PARITY/REQUIREMENTS_06.md#s130)
@@ -603,6 +613,8 @@
 <a id="v15"></a>
 
 ## V15 — 음소거·차단·신고
+
+- 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 메뉴·확인/취소·신고 선택/실패/재시도/초안 수명을 검증했다. 원본에서 미확인한 차단 효과·실제 신고 효력을 완료로 판정하지 않는다. 아래 판정은 수정 전/당시 기록이다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 29, 공통 Goal23/50/51/53.
 

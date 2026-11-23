@@ -75,7 +75,7 @@
     ],
     "scope": "동적 A/B 사용자·follow/mute/block 관리 목록/숫자와 원본 상태",
     "done": "검색B→Follow/Mute→세 관리목록→해제; B 이름변경·계정전환·신고·취소",
-    "status": "미착수"
+    "status": "D06 mock 관계 카탈로그·관리 해제 연결 및 추가 재검토 완료; 차단 중 Unfollow·이름 조회 재시도·팔로우/신고 이탈 보완; V11/V14/V15 동작·부분 시각 보정, 원본 차이·U 미확인·native 대기"
   },
   {
     "number": 6,

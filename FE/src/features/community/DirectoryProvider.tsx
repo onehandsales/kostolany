@@ -26,7 +26,7 @@ export function DirectoryProvider({ source, children }: { source?: DirectorySour
   const [fallback] = useState(() => createMockDirectorySource({ scenario: directoryPreviewScenario }));
   const current = source ?? fallback;
   return (
-    <DirectoryScope key={current === fallback ? 'fallback' : 'injected'} source={current}>
+    <DirectoryScope source={current}>
       {children}
     </DirectoryScope>
   );

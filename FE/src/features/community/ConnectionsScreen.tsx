@@ -3,7 +3,7 @@ import { discoveryEntries, discoveryKey, DiscoveryRow } from '../topics/Discover
 import type { ReactNode } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useDirectory } from './DirectoryProvider';
+import { useIdentityCatalog } from './useIdentityCatalog';
 import { useRelationships } from './RelationshipProvider';
 import { useCommunityNavigation } from './CommunityNavigation';
 import { FollowControl } from './FollowControl';
@@ -17,18 +17,20 @@ export function ConnectionsScreen({
   owner,
   section,
   permitted = true,
+  active = true,
   onBack,
   footer,
 }: {
   owner: FollowTarget | null;
   section: 'following' | 'followers';
   permitted?: boolean;
+  active?: boolean;
   onBack: () => void;
   footer?: ReactNode;
 }) {
   const styles = useThemeStyles(createStyles);
   const topics = useTopics();
-  const directory = useDirectory();
+  const directory = useIdentityCatalog();
   const { state, store } = useRelationships();
   const navigation = useCommunityNavigation();
   const targets =
@@ -86,7 +88,7 @@ export function ConnectionsScreen({
           initialNumToRender={8}
           windowSize={5}
           keyExtractor={discoveryKey}
-          renderItem={({ item }) => <DiscoveryRow entry={item} />}
+          renderItem={({ item }) => <DiscoveryRow active={active} entry={item} />}
           ListEmptyComponent={
             <Text style={styles.status}>
               {section === 'followers'
@@ -104,38 +106,26 @@ export function ConnectionsScreen({
           windowSize={5}
           renderItem={({ item }) => (
             <View style={styles.row}>
-              <Pressable
-                role="button"
-                accessibilityLabel={`Open ${item.name}`}
-                onPress={() => navigation.openIdentity(item)}
-                style={styles.identity}
-              >
-                {item.avatar ? (
-                  <Image
-                    source={item.avatar}
-                    style={[styles.avatar, item.kind === 'publication' && styles.square]}
-                    accessible={false}
-                  />
-                ) : (
-                  <View style={[styles.avatar, item.id === 'jo' && styles.joAvatar]}>
-                    <Text style={[styles.initial, item.id === 'jo' && styles.joInitial]}>
-                      {item.name.slice(0, 2)}
-                    </Text>
-                  </View>
-                )}
-                <View style={styles.grow}>
-                  <View style={styles.nameRow}>
+              <Pressable accessible={false} style={styles.avatarTarget} onPress={() => navigation.openIdentity(item)}>
+              {item.avatar ? (
+                <Image source={item.avatar} style={[styles.avatar, item.kind === 'publication' && styles.square]} accessible={false} />
+              ) : (
+                <View style={[styles.avatar, item.id === 'jo' && styles.joAvatar]}>
+                  <Text style={[styles.initial, item.id === 'jo' && styles.joInitial]}>{item.name.slice(0, 2)}</Text>
+                </View>
+              )}
+              </Pressable>
+              <View style={styles.grow}>
+                <View style={styles.nameRow}>
+                  <Pressable role="button" accessibilityLabel={`Open ${item.name}`}
+                    onPress={() => navigation.openIdentity(item)} style={styles.identity}>
                     <Text style={styles.name}>{item.name}</Text>
                     {item.verified && <AppIcon name="verified" size={14} />}
-                  </View>
-                  {item.bio && (
-                    <Text numberOfLines={3} style={styles.secondary}>
-                      {item.bio}
-                    </Text>
-                  )}
+                  </Pressable>
+                  <FollowControl active={active} target={item} name={item.name} />
                 </View>
-              </Pressable>
-              <FollowControl target={item} name={item.name} />
+                {item.bio && <Text numberOfLines={3} style={styles.secondary}>{item.bio}</Text>}
+              </View>
             </View>
           )}
           ListEmptyComponent={
@@ -170,12 +160,14 @@ const createStyles = (colors: ThemeColors) =>
     row: {
       flexDirection: 'row',
       alignItems: 'flex-start',
-      gap: 16,
+      gap: 0,
       paddingHorizontal: 24,
       paddingVertical: 12,
     },
-    identity: { minHeight: 48, flex: 1, flexDirection: 'row', alignItems: 'flex-start', gap: 16 },
+    identity: { minWidth: 48, minHeight: 48, flex: 1, flexDirection: 'row', alignItems: 'center', gap: 4 },
+    avatarTarget: { width: 48, minHeight: 48 },
     avatar: {
+      marginTop: 8,
       width: 32,
       height: 32,
       borderRadius: 16,
@@ -187,8 +179,8 @@ const createStyles = (colors: ThemeColors) =>
     initial: { fontSize: 14, color: colors.text },
     joAvatar: { backgroundColor: '#f33277' },
     joInitial: { color: '#ffffff' },
-    grow: { flex: 1, gap: 4 },
-    nameRow: { flexDirection: 'row', gap: 4, alignItems: 'center' },
+    grow: { flex: 1, minWidth: 0 },
+    nameRow: { flexDirection: 'row', gap: 8, alignItems: 'center', flexWrap: 'wrap' },
     name: {
       fontFamily: fonts.sans,
       fontSize: 16,

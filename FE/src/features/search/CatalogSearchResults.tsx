@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { FlatList, Keyboard, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useDirectory } from '../community/DirectoryProvider';
+import { useIdentityCatalog } from '../community/useIdentityCatalog';
 import { useTopics } from '../topics/TopicProvider';
-import { discoveryEntries, discoveryKey, DiscoveryRow, type DiscoveryEntry } from '../topics/DiscoveryRow';
+import { discoveryEntries, discoveryKey, DiscoveryRow } from '../topics/DiscoveryRow';
 import { usePublicLists } from '../public-lists/PublicListProvider';
 import { useModeration } from '../moderation/ModerationContext';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
-import { useKnownProfile, useKnownProfiles } from '../profile/ProfileProvider';
-import { mockUsers } from '../auth/data/mockUsers';
+import { useKnownProfile } from '../profile/ProfileProvider';
 import type { PublicList } from '../public-lists/types';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -21,11 +20,10 @@ type CatalogSearchResultsProps = {
 };
 
 export function CatalogSearchResults({ query, category, active }: CatalogSearchResultsProps) {
-  const directory = useDirectory();
+  const directory = useIdentityCatalog();
   const topics = useTopics();
   const lists = usePublicLists();
   const moderation = useModeration();
-  const profiles = useKnownProfiles();
   const styles = useThemeStyles(createStyles);
   const [settled, setSettled] = useState(false);
   const [limit, setLimit] = useState(SEARCH_PAGE_SIZE);
@@ -60,24 +58,7 @@ export function CatalogSearchResults({ query, category, active }: CatalogSearchR
     );
   if (loading) return <ContentStatus loading message="검색하고 있어요" />;
   const blocked = moderation.state?.value?.blocked ?? [];
-  const entries = [
-    ...discoveryEntries(directory.state.data, topics.state.data),
-    ...mockUsers
-      .filter(
-        (user) =>
-          !directory.state.data?.identities.some(
-            (identity) => identity.kind === 'writer' && identity.id === user.id,
-          ),
-      )
-      .map((user): DiscoveryEntry => ({ target: { kind: 'writer', id: user.id }, name: user.name, bio: '' })),
-  ]
-    .map((entry) => {
-      const profile =
-        entry.target.kind === 'writer'
-          ? profiles.find((profile) => profile.userId === entry.target.id)
-          : null;
-      return profile ? { ...entry, name: profile.name, bio: profile.bio } : entry;
-    })
+  const entries = discoveryEntries(directory.state.data, topics.state.data)
     .filter(
       (entry) =>
         (category === 'People'
@@ -140,6 +121,7 @@ export function CatalogSearchResults({ query, category, active }: CatalogSearchR
           ListFooterComponent={footer}
           renderItem={({ item }) => (
             <DiscoveryRow
+              active={active}
               entry={item}
               label={
                 matches.some(
@@ -159,8 +141,8 @@ export function CatalogSearchResults({ query, category, active }: CatalogSearchR
 function SearchListRow({ list }: { list: PublicList }) {
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
-  const directory = useDirectory();
-  const known = useKnownProfile(list.owner.id);
+  const directory = useIdentityCatalog();
+  const known = useKnownProfile(list.owner.kind === 'writer' ? list.owner.id : '');
   const owner = directory.state.data?.identities.find(
     (identity) => identity.id === list.owner.id && identity.kind === list.owner.kind,
   );

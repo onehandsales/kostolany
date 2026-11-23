@@ -43,7 +43,7 @@ export function discoveryEntries(
     ) ?? []),
   ];
 }
-export function DiscoveryRow({ entry, label }: { entry: DiscoveryEntry; label?: string }) {
+export function DiscoveryRow({ entry, label, active = true }: { entry: DiscoveryEntry; label?: string; active?: boolean }) {
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
   return (
@@ -78,7 +78,7 @@ export function DiscoveryRow({ entry, label }: { entry: DiscoveryEntry; label?: 
           )}
         </View>
       </Pressable>
-      <FollowControl target={entry.target} name={entry.name} />
+      <FollowControl active={active} target={entry.target} name={entry.name} />
     </View>
   );
 }

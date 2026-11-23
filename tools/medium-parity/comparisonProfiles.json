@@ -110,7 +110,7 @@
       "community"
     ],
     "account": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-    "fixture": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+    "fixture": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
     "entry": "RefineRecommendationsScreen"
   },
   "V12": {
@@ -143,7 +143,7 @@
       "community"
     ],
     "account": "공개 프로필; follow/email 관계는 A",
-    "fixture": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+    "fixture": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
     "entry": "PublicIdentityScreen"
   },
   "V15": {
@@ -154,7 +154,7 @@
       "community"
     ],
     "account": "A; follow/mute/block/report 각각 별도 상태",
-    "fixture": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+    "fixture": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
     "entry": "ModerationDialogs"
   },
   "V16": {

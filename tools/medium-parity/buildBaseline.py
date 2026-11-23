@@ -177,6 +177,16 @@ def extract():
                     'evidence': f'TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/{phase}/captures.json',
                     'scope': '읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기'}
                 item['blocker'] += '; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음'
+            if visual in ('V11', 'V14', 'V15') or sid == 'S168':
+                if 'latestReview' in item:
+                    item.setdefault('previousReviews', []).append(item['latestReview'])
+                item['latestReview'] = {
+                    'result': 'TODO/FE_MEDIUM_PARITY_05_RESULT.md',
+                    'scope': '관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기',
+                    'artifacts': '사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록',
+                }
+                item['previousBlocker'] = item['blocker']
+                item['blocker'] = 'Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음'
             screens.append(item)
     byScreen = {s['id']: s for s in screens}
     for item in unknowns:
@@ -188,11 +198,11 @@ def extract():
     assets = []
     for record in json.loads(read(ROOT / 'FE/assets/medium/SOURCES.json')):
         assets.append({**record, 'image': pngInfo(ROOT / record['asset']), 'sourceImage': pngInfo(ROOT / record['source']), 'status': '로컬 비교용 crop 확보; 원본 독립 자산/배포 권리/렌더 동일성 확인 아님'})
-    inputs = sorted(set([ROOT / 'TODO/FE_MEDIUM_PARITY_BACKLOG.md', HERE / 'comparisonProfiles.json', HERE / 'executionBatches.json', HERE / 'currentEvidence.json', ROOT / evidence['captureLog'], *DOCS.glob('REQUIREMENTS_*.md'), *(DOCS / name for name in ('FLOWS.md', 'CONTRACTS.md', 'UNKNOWN.md', 'SCOPE.md')), *(ROOT / f['analysis'] for f in flows.values())]))
-    codeInputs = sorted([p for p in (ROOT / 'FE/src').rglob('*') if p.suffix in ('.ts', '.tsx')] + [ROOT / 'FE/App.tsx', ROOT / 'FE/app.json', ROOT / 'FE/package.json', ROOT / 'FE/package-lock.json', ROOT / 'FE/assets/medium/SOURCES.json'])
+    inputs = sorted(set([ROOT / 'TODO/FE_MEDIUM_PARITY_BACKLOG.md', HERE / 'comparisonProfiles.json', HERE / 'executionBatches.json', HERE / 'currentEvidence.json', ROOT / evidence['captureLog'], *DOCS.glob('REQUIREMENTS_*.md'), *(DOCS / name for name in ('FLOWS.md', 'CONTRACTS.md', 'UNKNOWN.md', 'SCOPE.md')), *(ROOT / f['analysis'] for f in flows.values())]), key=lambda p: tuple(part.casefold() for part in p.relative_to(ROOT).parts))
+    codeInputs = sorted([p for p in (ROOT / 'FE/src').rglob('*') if p.suffix in ('.ts', '.tsx')] + [ROOT / 'FE/App.tsx', ROOT / 'FE/app.json', ROOT / 'FE/package.json', ROOT / 'FE/package-lock.json', ROOT / 'FE/assets/medium/SOURCES.json'], key=lambda p: tuple(part.casefold() for part in p.relative_to(ROOT).parts))
     return {'schemaVersion': 1, 'comparisonProfile': {'id': 'CP-WEB-01', 'viewportCssPx': [390, 844], 'deviceScaleFactor': 1, 'locale': 'en-US', 'timezone': 'UTC', 'clockIso': '2025-06-13T12:00:00.000Z', 'fontScale': 1, 'orientation': 'portrait', 'osInsets': 'web=0; 원본은 미확인', 'crop': None, 'color': '원본 ICC 보존; 캡처 색공간 검증 전 픽셀 점수 금지', 'legacy': '393x852는 과거 정규화 조건; DPR/원본 기기 확정 근거 아님'},
         'textFingerprint': 'SHA-256 of UTF-8 text without BOM and with LF newlines; PNG hashes use original bytes',
-        'inputs': [{'path': relative(p), 'sha256': textDigest(p)} for p in inputs], 'codeInputs': [{'path': relative(p), 'sha256': textDigest(p)} for p in codeInputs], 'evidenceContext': evidence, 'profiles': profiles, 'batches': batches,
+        'inputs': [{'path': relative(p), 'sha256': textDigest(p) if p.is_file() else None} for p in inputs], 'codeInputs': [{'path': relative(p), 'sha256': textDigest(p)} for p in codeInputs], 'evidenceContext': evidence, 'profiles': profiles, 'batches': batches,
         'taskAssignments': assignments, 'taskTitles': taskTitles, 'screens': screens, 'flows': list(flows.values()),
         'transitions': transitions, 'unknowns': unknowns, 'controls': controls, 'assets': assets}
 
@@ -290,11 +300,12 @@ def validate(data):
 
 def renderScreens(data):
     lines = ['# Medium Parity — 200개 화면 비교 조건', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)', '',
-        '자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 새 전후·회귀 증거는 결과 문서와 별도 evidence-manifest.json을 따른다.', '']
+        '자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 당시 전후·회귀 기록은 해당 결과 문서를 따른다. 사용자 커밋 6853256에서 기존 EVIDENCE 파일이 삭제됐으며 복원하지 않는다. Parity 5는 사용자 지시로 캡처·manifest를 저장하지 않고 결과 문서만 갱신한다. 입력의 null SHA는 삭제된 과거 capture log이며 현재 무결성 통과가 아니다.', '']
     for s in data['screens']:
         lines += [f"<a id=\"{s['id'].lower()}\"></a>", '', f"## {s['id']} — {s['title']}", '',
             f"{link(ROOT / s['png'], '원본 PNG')} · {link(ROOT / s['analysis'], '원본 분석')} · {link(ROOT / s['requirementsDocument'], 'R 수용 조건', '#' + s['id'].lower())} · `{s['referenceId']}`", '',
             f"- 담당: {s['visualTask']} / 묶음 {', '.join(map(str, s['batches']))}. 상태: **{s['readiness']}**. {s['blocker']}",
+            *([f"- 최신 검토: {link(ROOT / s['latestReview']['result'], 'Parity 5 결과')}; {s['latestReview']['scope']}"] if s.get('latestReview', {}).get('result') == 'TODO/FE_MEDIUM_PARITY_05_RESULT.md' else []),
             f"- 실제 FE 진입 절차(정적 확인): {s['routeRecipe']}",
             f"- Parity 1 당시 증거: {', '.join(link(ROOT / c['path'], '과거 웹 캡처') for c in s['currentEvidence']) or '없음; 정적 절차만 연결'}. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.",
             f"- 코드: {', '.join(link(ROOT / p) for p in s['code'])}",
@@ -312,8 +323,8 @@ def renderScreens(data):
 
 
 def renderPlan(data):
-    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
-        '이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음3의 D08 mock 연결·복귀를 검증했고 V21 시각 잔여와 U 미확인·native 대기는 유지한다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16)이며 미착수다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.', '',
+    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
+        '이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음4의 읽기 연결 보완에 이어 묶음5의 D06 관계 카탈로그·관리 목록과 V11/V14/V15의 동작·부분 시각 보정을 진행했다. 현재 결과는 Parity 5 문서와 추가 재검토를 따른다. 차단 중 명시적 Unfollow·목록 이름 조회 재시도·관계 메뉴와 신고 초안의 화면 이탈 처리를 보완했다. 원본 차이·U 미확인·native 대기는 유지한다. 다음 순서는 묶음6이며 미착수이고 자동 시작하지 않는다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.', '',
         '공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.', '']
     for b in data['batches']:
         number = b['number']
@@ -324,7 +335,7 @@ def renderPlan(data):
         lines += [f'<a id="batch-{number:02}"></a>', '', f"## 묶음 {number} — {b['title']}", '',
             f"- 직접 대상: {', '.join(b['items']) or '해당 V 화면의 R/T/U/C'}. 상태: {b['status']}.",
             f"- 선행: {', '.join(map(str, b['depends'])) or '없음'}.", f"- 구현/판정 범위: {b['scope']}.", f"- 검증·종료 조건: {b['done']}.",
-            f"- 결과 문서: " + (link(ROOT / f'TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md') if number <= 3 else f"`TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md` (예정 경로)") + '.',
+            f"- 결과 문서: " + (link(ROOT / f'TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md') if number <= 5 else f"`TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md` (예정 경로)") + '.',
             f"- 화면: {', '.join(s['id'] for s in owned) or '공통 기준 또는 전수/기기 검증 범위; 아래 배정표 참조'}.",
             f"- 흐름/단계: {', '.join(trace['steps']) or '대상 전체에 적용; 각 화면 추적과 JSON에서 조회'}.",
             f"- 미확인 담당: {', '.join(unknowns) or '각 화면 담당과 공통 경계 조율'}.",

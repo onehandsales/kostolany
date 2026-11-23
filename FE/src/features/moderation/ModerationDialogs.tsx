@@ -17,9 +17,10 @@ import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
+import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
-import { publicIdentity } from '../community/data/publicDirectory';
-import { mockUsers } from '../auth/data/mockUsers';
+import { followKey } from '../community/types';
+import { useIdentityCatalog } from '../community/useIdentityCatalog';
 import { responseFixtures } from '../responses/data/responseFixtures';
 import { SafeWebsiteLink } from '../community/SafeWebsiteLink';
 import { SharePanel } from '../sharing/ShareSheet';
@@ -32,17 +33,6 @@ import {
   type ReportReason,
 } from './types';
 
-function blockedName(writerId: string): string {
-  return (
-    publicIdentity({ kind: 'writer', id: writerId })?.name ??
-    mockUsers.find((user) => user.id === writerId)?.name ??
-    responseFixtures({ kind: 'article', id: 'medium-brain' }).find(
-      (response) => response.authorId === writerId,
-    )?.authorName ??
-    'Blocked author'
-  );
-}
-
 export function ModerationDialogs({
   entry,
   onClose,
@@ -53,6 +43,12 @@ export function ModerationDialogs({
   onSuccess: (message: string) => void;
 }) {
   const { state, store, open } = useModeration();
+  const directory = useIdentityCatalog();
+  function blockedName(writerId: string): string {
+    return directory.state.data?.identities.find((identity) => identity.kind === 'writer' && identity.id === writerId)?.name
+      ?? responseFixtures({ kind: 'article', id: 'medium-brain' }).find((response) => response.authorId === writerId)?.authorName
+      ?? `Blocked author (${writerId})`;
+  }
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const [reason, setReason] = useState<ReportReason | null>(null);
@@ -176,7 +172,12 @@ export function ModerationDialogs({
               <IconButton icon="close" label="Close blocked users" onPress={close} />
             </View>
             {errorContent}
-            <FlatList
+            {directory.state.status !== 'ready' ? (
+              <ContentStatus loading={directory.state.status === 'loading'} error={directory.state.status === 'error'}
+                message={directory.state.status === 'error' ? 'Couldn’t load blocked user names.' : 'Loading blocked user names…'}
+                actionLabel={directory.state.status === 'error' ? 'Retry blocked user names' : undefined}
+                onAction={directory.state.status === 'error' ? directory.retry : undefined} />
+            ) : <FlatList
               data={state?.value?.blocked ?? []}
               keyExtractor={(id) => id}
               ListEmptyComponent={
@@ -204,7 +205,7 @@ export function ModerationDialogs({
                   </Pressable>
                 </View>
               )}
-            />
+            />}
           </View>
         ) : author ? (
           <View style={styles.bottom}>
@@ -418,9 +419,9 @@ export function ModerationDialogs({
           </View>
         ) : (
           <SharePanel target={{ kind: entry.target.kind, id: entry.target.id, title: entry.name,
-            subtitle: publicIdentity(entry.target)?.bio ?? '', authorName: entry.name,
+            subtitle: directory.state.data?.identities.find((identity) => followKey(identity) === followKey(entry.target))?.bio ?? '', authorName: entry.name,
             authorId: entry.target.kind === 'writer' ? entry.target.id : undefined,
-            avatar: publicIdentity(entry.target)?.avatar, visibility: 'public' }} onClose={close} />
+            avatar: directory.state.data?.identities.find((identity) => followKey(identity) === followKey(entry.target))?.avatar, visibility: 'public' }} onClose={close} />
         )}
       </SafeAreaView>
     </Modal>

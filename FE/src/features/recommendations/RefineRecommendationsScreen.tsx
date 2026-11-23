@@ -18,8 +18,9 @@ import { TopPopover } from '../../shared/ui/TopPopover';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 
+import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useAuth } from '../auth/AuthProvider';
-import { useDirectory } from '../community/DirectoryProvider';
+import { useIdentityCatalog } from '../community/useIdentityCatalog';
 import { useRelationships } from '../community/RelationshipProvider';
 import { followKey } from '../community/types';
 import { FollowControl } from '../community/FollowControl';
@@ -34,6 +35,7 @@ type Filter = 'All' | 'Writers' | 'Publications' | 'Topics';
 type Props = {
   initialSection: RecommendationSection;
   interests?: boolean;
+  active?: boolean;
   onBack: () => void;
   onExplore: () => void;
   onSelectArticle: (id: string) => void;
@@ -46,6 +48,7 @@ export function RefineRecommendationsScreen(props: Props) {
 function RefineContent({
   initialSection,
   interests = false,
+  active = true,
   onBack,
   onExplore,
   onSelectArticle,
@@ -53,7 +56,7 @@ function RefineContent({
 }: Props) {
   const styles = useThemeStyles(createStyles);
   const { width } = useWindowDimensions();
-  const directory = useDirectory();
+  const directory = useIdentityCatalog();
   const topics = useTopics();
   const relationships = useRelationships();
   const moderation = useModeration();
@@ -65,7 +68,7 @@ function RefineContent({
     () => () => {
       filterRequest.current += 1;
     },
-    [],
+    [active],
   );
   const [section, setSection] = useState(initialSection);
   const [filter, setFilter] = useState<Filter>(interests ? 'Topics' : 'All');
@@ -75,6 +78,7 @@ function RefineContent({
     filterRequest.current += 1;
     setMenu(null);
   }
+  if (!active && menu !== null) setMenu(null);
   function openFilter() {
     const request = ++filterRequest.current;
     setMenu(240);
@@ -90,6 +94,7 @@ function RefineContent({
     (filter === 'Topics' && entry.target.kind === 'topic');
   const filtered = entries.filter((entry) => {
     if (!matchesFilter(entry)) return false;
+    if (section === 'Suggestions' && entry.target.kind === 'writer' && entry.target.id === auth.state.user?.id) return false;
     const key = discoveryKey(entry);
     const muted = moderation.state?.value?.muted.some((item) => followKey(item) === key);
     if (section === 'Muted') return muted;
@@ -254,7 +259,7 @@ function RefineContent({
                 <Text style={styles.link}>See all ({item.count})</Text>
               </Pressable>
             ) : (
-              <RecommendationRow entry={item.entry} muted={section === 'Muted'} />
+              <RecommendationRow active={active} entry={item.entry} muted={section === 'Muted'} />
             )
           }
           ListEmptyComponent={
@@ -330,70 +335,46 @@ function RefineContent({
     </SafeAreaView>
   );
 }
-function RecommendationRow({ entry, muted }: { entry: DiscoveryEntry; muted: boolean }) {
+function RecommendationRow({ entry, muted, active }: { entry: DiscoveryEntry; muted: boolean; active: boolean }) {
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
+  const openIdentity = () => entry.target.kind === 'topic'
+    ? navigation.openTopic(entry.target.id) : navigation.openIdentity(entry.target);
   return (
     <View style={styles.row}>
-      <Pressable
-        role="button"
-        accessibilityLabel={`Recommendation ${entry.name}`}
-        style={styles.identity}
-        onPress={() =>
-          entry.target.kind === 'topic'
-            ? navigation.openTopic(entry.target.id)
-            : navigation.openIdentity(entry.target)
-        }
-      >
-        {entry.avatar ? (
-          <Image
-            source={entry.avatar}
-            style={[styles.avatar, entry.target.kind === 'publication' && styles.square]}
-            accessible={false}
-          />
-        ) : (
-          <View style={styles.topicIcon}>
-            <AppIcon name="document" size={16} />
-          </View>
-        )}
-        <View style={styles.content}>
-          <View style={styles.nameRow}>
+      <Pressable accessible={false} style={styles.avatarTarget} onPress={openIdentity}>
+      {entry.target.kind === 'writer' ? (
+        <ProfileAvatar userId={entry.target.id} fallback={entry.avatar} size={32} style={styles.avatar} />
+      ) : entry.avatar ? (
+        <Image source={entry.avatar} style={[styles.avatar, styles.square]} accessible={false} />
+      ) : (
+        <View style={styles.topicIcon}><AppIcon name="document" size={16} /></View>
+      )}
+      </Pressable>
+      <View style={styles.content}>
+        <View style={styles.rowHeader}>
+          <Pressable role="button" accessibilityLabel={`Recommendation ${entry.name}`} style={styles.identity}
+            onPress={openIdentity}>
             <Text style={styles.name}>{entry.name}</Text>
             {entry.verified && <AppIcon name="verified" size={14} />}
-          </View>
-          {entry.target.kind === 'topic' ? (
-            <Text style={[styles.meta, styles.topicMeta]}>{entry.meta?.replace(' stories', ' Stories')}</Text>
-          ) : (
-            Boolean(entry.bio) && (
-              <Text numberOfLines={3} style={styles.meta}>
-                {entry.bio}
-              </Text>
-            )
-          )}
+          </Pressable>
+          {muted ? (
+            <Pressable role="button" accessibilityLabel={`Unmute ${entry.name}`} style={styles.unmute}
+              onPress={() => {
+                if (entry.target.kind !== 'topic') moderation.open({
+                  kind: 'confirm', action: { kind: 'mute', target: entry.target, active: false },
+                  title: `Unmute ${entry.name}?`,
+                  description: 'Stories from this writer or publication can appear in recommendations again.',
+                  success: 'Unmuted',
+                });
+              }}><Text style={styles.text}>Unmute</Text></Pressable>
+          ) : <FollowControl active={active} target={entry.target} name={entry.name} />}
         </View>
-      </Pressable>
-      {muted ? (
-        <Pressable
-          role="button"
-          accessibilityLabel={`Unmute ${entry.name}`}
-          style={styles.unmute}
-          onPress={() => {
-            if (entry.target.kind !== 'topic')
-              moderation.open({
-                kind: 'confirm',
-                action: { kind: 'mute', target: entry.target, active: false },
-                title: `Unmute ${entry.name}?`,
-                description: 'Stories from this writer or publication can appear in recommendations again.',
-                success: 'Unmuted',
-              });
-          }}
-        >
-          <Text style={styles.text}>Unmute</Text>
-        </Pressable>
-      ) : (
-        <FollowControl target={entry.target} name={entry.name} />
-      )}
+        {entry.target.kind === 'topic' ? (
+          <Text style={[styles.meta, styles.topicMeta]}>{entry.meta?.replace(' stories', ' Stories')}</Text>
+        ) : Boolean(entry.bio) && <Text numberOfLines={3} style={styles.meta}>{entry.bio}</Text>}
+      </View>
     </View>
   );
 }
@@ -464,22 +445,23 @@ const createStyles = (colors: ThemeColors) =>
       alignItems: 'flex-start',
       paddingHorizontal: 24,
       paddingVertical: 12,
-      gap: 16,
+      gap: 0,
     },
-    identity: { flex: 1, minHeight: 48, flexDirection: 'row', alignItems: 'flex-start', gap: 16 },
-    avatar: { width: 32, height: 32, borderRadius: 16, marginTop: 4 },
+    identity: { flex: 1, minWidth: 48, minHeight: 48, flexDirection: 'row', alignItems: 'center', gap: 4 },
+    avatarTarget: { width: 48, minHeight: 48 },
+    avatar: { width: 32, height: 32, borderRadius: 16, marginTop: 8 },
     square: { borderRadius: 2 },
     topicIcon: {
       width: 32,
       height: 32,
       borderRadius: 16,
-      marginTop: 4,
+      marginTop: 8,
       backgroundColor: colors.input,
       alignItems: 'center',
       justifyContent: 'center',
     },
-    content: { flex: 1, paddingTop: 8, gap: 2 },
-    nameRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+    content: { flex: 1, minWidth: 0 },
+    rowHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
     name: {
       flexShrink: 1,
       fontFamily: fonts.sans,

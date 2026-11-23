@@ -273,7 +273,7 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "c759dca9e5f7c9ce17b45af00b123d76dc7046c0c2c18ed5ca6d58cfe6af9ea7"
+      "sha256": "3151b57b882049fd0281464ded33f6e44d0111d305ab821fcc5f4687e7a2cbaa"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
@@ -281,7 +281,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
-      "sha256": "3903d841fed6c391fc67cfb8afb0a89885ca541b7ce74baea90c83a43e438b55"
+      "sha256": null
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
@@ -329,7 +329,7 @@
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
-      "sha256": "611ffde51af0e88fe97124a7f3cc4355d193ede84846e2c595fedd28e1620f6a"
+      "sha256": "dc5d856f10e2fc85ea0d02ebde746c3127d4f4a417055ceb908d468120ad1c93"
     },
     {
       "path": "tools/medium-parity/currentEvidence.json",
@@ -337,7 +337,7 @@
     },
     {
       "path": "tools/medium-parity/executionBatches.json",
-      "sha256": "d58aaa24022edf761e5c95d2686085703943264c0f38ec3131cc19fe807aa5f1"
+      "sha256": "19d495a41bf59b6ccd06681be7e5469dfda99bacd98d45b92de4fa7766cb87bc"
     }
   ],
   "codeInputs": [
@@ -371,7 +371,7 @@
     },
     {
       "path": "FE/src/app/navigation/AppNavigator.tsx",
-      "sha256": "7e1408c3d483fbe31e72e3fac88b4919ba33ebb8c94dae09dc99255342556d7f"
+      "sha256": "0f146acee89b2ce4eebdb4c3afa14a34960143723167fa699a3da84d45c2f22e"
     },
     {
       "path": "FE/src/app/navigation/ArticlePresentation.tsx",
@@ -478,6 +478,10 @@
       "sha256": "dcac0eb85681977fe875abb36d7a94235d28cf4592c96b54bce286eb7089b37e"
     },
     {
+      "path": "FE/src/app/navigation/ModerationRouteLifetime.test.tsx",
+      "sha256": "a62d81d0cf3abf085188c9e746c6b32c39fac0cea8b0d0bbaa34bfca3431f16d"
+    },
+    {
       "path": "FE/src/app/navigation/NotificationNavigation.test.tsx",
       "sha256": "61764bf60994b379dacfff3c8d9346cbe6e57cf6c3447c5258da8b9225977339"
     },
@@ -536,6 +540,10 @@
     {
       "path": "FE/src/app/navigation/RecommendationsNavigation.test.tsx",
       "sha256": "9848693588e1f04a98bc62be019196c64376b7845ae87afea29a0458ce1d4ae9"
+    },
+    {
+      "path": "FE/src/app/navigation/RelationshipManagementNavigation.test.tsx",
+      "sha256": "bf38fa911d821f20a59127f67a0812a4ce1a663fdfff8a05333641cb009020d3"
     },
     {
       "path": "FE/src/app/navigation/ResponsesNavigation.test.tsx",
@@ -691,7 +699,7 @@
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.tsx",
-      "sha256": "2be005f8bedab18433c49c0746683f7cc6fedef7d2d417b4dbb8fcd42231ee28"
+      "sha256": "4fdaf2934acca744ef094f4ef7926c5e4b98b34e77d51debe6f36978b20c0d68"
     },
     {
       "path": "FE/src/features/article/types.ts",
@@ -955,7 +963,7 @@
     },
     {
       "path": "FE/src/features/community/ConnectionsScreen.tsx",
-      "sha256": "aeb542fcb81b0c37b8982f5ff0eec9f166310615e45700002da566317b2563a9"
+      "sha256": "102d8fd84d3ec93027d5064e17fa1edba4b0bcfe876288195cf95785093ee27c"
     },
     {
       "path": "FE/src/features/community/createRelationshipStore.test.ts",
@@ -979,19 +987,19 @@
     },
     {
       "path": "FE/src/features/community/DirectoryProvider.test.tsx",
-      "sha256": "f35b7ade2f250f00527da6c24093e256a0b45782bb4dd7da66a156cd5e932ddb"
+      "sha256": "d1d83bfea8aab4b6801997d369f0a2c26756f034fa2a6d217c56731f6f6a9a95"
     },
     {
       "path": "FE/src/features/community/DirectoryProvider.tsx",
-      "sha256": "3eb3408a11c8d7699785473c9f152724df9dc5bab84af92c1d75e29e92de938c"
+      "sha256": "05a854bc2571f041f2b43a65da95dd3f36b3a5cede21cc1864c90ac92dd902da"
     },
     {
       "path": "FE/src/features/community/FollowControl.test.tsx",
-      "sha256": "02c42ff7aa7d63154b74f0db27a35a1542d028cc72db2eae1dcc3dd3287873b4"
+      "sha256": "79b96e3ed0f78f30adbf1b9e7b8b28c1a42dd9ab07ac8632c6421d99a868e924"
     },
     {
       "path": "FE/src/features/community/FollowControl.tsx",
-      "sha256": "5a9f0c17dae2380abbfc29fa13b8dad2c84620df47596583cdbdf8896871fd65"
+      "sha256": "e841937b2c515812b959372adaa2bcb89b271221a9b71b2e15d83a243ed88d91"
     },
     {
       "path": "FE/src/features/community/FollowingFeed.tsx",
@@ -1003,11 +1011,15 @@
     },
     {
       "path": "FE/src/features/community/PublicIdentityScreen.tsx",
-      "sha256": "4b2006e0e1164948d696074a6286a27c91981f5f3d8f5f670a746c630b74c693"
+      "sha256": "8edc3be3a1773ca134918d56d4d04f5739e14b8127f56d2757f3070ed63cbbcf"
     },
     {
       "path": "FE/src/features/community/RelationshipProvider.tsx",
       "sha256": "0b8a400492e10005265d44a34a58dde334939f1b1d78cbbcb75af1fc8e7465e1"
+    },
+    {
+      "path": "FE/src/features/community/RelationshipScreenLifetime.test.tsx",
+      "sha256": "8564435765bfccf65e47ccf1dff77c97c66a5f7d7cc714b6760c719ae99529e8"
     },
     {
       "path": "FE/src/features/community/SafeWebsiteLink.test.tsx",
@@ -1020,6 +1032,10 @@
     {
       "path": "FE/src/features/community/types.ts",
       "sha256": "151183dae381fd164cea4268bf3978e0f391cc2df824956288a26b146f6e32d1"
+    },
+    {
+      "path": "FE/src/features/community/useIdentityCatalog.ts",
+      "sha256": "b1bc3f54032e7a7e1ff172499146feeecde1c5dc0bb7a2cab024a81c7cd7f326"
     },
     {
       "path": "FE/src/features/digest/createDigestStore.test.ts",
@@ -1562,12 +1578,16 @@
       "sha256": "bfee81b334f60f7ddfe5476ced7c1941c763251daa21260bcce43557859c74e0"
     },
     {
+      "path": "FE/src/features/moderation/ModerationDialogs.test.tsx",
+      "sha256": "c1177ee9cd5dd91a30ed37fbb525bae081664a899edc84667ae2214d51a0b020"
+    },
+    {
       "path": "FE/src/features/moderation/ModerationDialogs.tsx",
-      "sha256": "112cca7548c37c8b72a29754064d396733d1c8a75bb56c0eede4ef8d3e70293b"
+      "sha256": "b7922109187a4a9e34a096543a6aeb9c0a7019b5cf107dde2d1bd57c95b32e44"
     },
     {
       "path": "FE/src/features/moderation/ModerationProvider.tsx",
-      "sha256": "da1cbb65f24ac7c9481ed3f98cf740e728284be7411a8b0718ced967021f6c1d"
+      "sha256": "1e1fc2c8c0c2bdf42d6492807a1a7450bb034686594fa76b125358607bbaf648"
     },
     {
       "path": "FE/src/features/moderation/types.ts",
@@ -1907,7 +1927,7 @@
     },
     {
       "path": "FE/src/features/recommendations/RefineRecommendationsScreen.tsx",
-      "sha256": "3f188d1c38b9c0676fd3bde014034aa7d3253b41d4bc42521877d3709f3d8179"
+      "sha256": "092397a705721ab07fcf17617e8bc94c1d1e3d20f264da326323ce8444f4e8f3"
     },
     {
       "path": "FE/src/features/recommendations/types.ts",
@@ -2011,7 +2031,7 @@
     },
     {
       "path": "FE/src/features/search/CatalogSearchResults.tsx",
-      "sha256": "9333e784e062189b8acbe41cca81ce6bf1b2c498a263edd6849bee5da5c0eb52"
+      "sha256": "87dd6be9991e4408822fcd56d3db5407b5d6ea4d6e9e22fc78c56f7ad7d7280f"
     },
     {
       "path": "FE/src/features/search/data/mockSearchSource.test.ts",
@@ -2027,7 +2047,7 @@
     },
     {
       "path": "FE/src/features/search/ExploreSections.tsx",
-      "sha256": "4bef0dbc802627ca0908a5d4f6f292952db05bddfd0b954b989fb0491356bc36"
+      "sha256": "70ff71ba66543ce9e67229aa803fc00f7dc48ea1280b58239e4d83403ca0df26"
     },
     {
       "path": "FE/src/features/search/SearchCard.tsx",
@@ -2043,7 +2063,7 @@
     },
     {
       "path": "FE/src/features/search/SearchScreen.tsx",
-      "sha256": "46a6c1b0f417b53f0bbef83d425ab31328a895ebc41ab39941fadb2b0a4da054"
+      "sha256": "c5924c490c61cd08448c8c8df57294446c58a9da29617db9dcce9199298f4baa"
     },
     {
       "path": "FE/src/features/search/types.ts",
@@ -2271,7 +2291,7 @@
     },
     {
       "path": "FE/src/features/topics/DiscoveryRow.tsx",
-      "sha256": "cdf351b3e5a7a485a7482c0dd6b31e19d107dd6577d8bbeba27dd640404a10ba"
+      "sha256": "feb4903b2eaac9334cbaeb11cd816f4fd9877aa539479d10cc9d9e8b6d847eb1"
     },
     {
       "path": "FE/src/features/topics/DiscoveryScreen.tsx",
@@ -2853,7 +2873,7 @@
         "community"
       ],
       "account": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixture": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixture": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "entry": "RefineRecommendationsScreen"
     },
     "V12": {
@@ -2886,7 +2906,7 @@
         "community"
       ],
       "account": "공개 프로필; follow/email 관계는 A",
-      "fixture": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixture": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "entry": "PublicIdentityScreen"
     },
     "V15": {
@@ -2897,7 +2917,7 @@
         "community"
       ],
       "account": "A; follow/mute/block/report 각각 별도 상태",
-      "fixture": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixture": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "entry": "ModerationDialogs"
     },
     "V16": {
@@ -3186,7 +3206,7 @@
       ],
       "scope": "동적 A/B 사용자·follow/mute/block 관리 목록/숫자와 원본 상태",
       "done": "검색B→Follow/Mute→세 관리목록→해제; B 이름변경·계정전환·신고·취소",
-      "status": "미착수"
+      "status": "D06 mock 관계 카탈로그·관리 해제 연결 및 추가 재검토 완료; 차단 중 Unfollow·이름 조회 재시도·팔로우/신고 이탈 보완; V11/V14/V15 동작·부분 시각 보정, 원본 차이·U 미확인·native 대기"
     },
     {
       "number": 6,
@@ -6007,7 +6027,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: Writers·Topics 섹션과 개수",
         "D": "표시값·입력: Writers 1, Topics 3",
@@ -6060,9 +6080,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S023",
@@ -6283,7 +6309,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: Following 버튼·Stories 목록",
         "D": "표시값·입력: 팔로우 상태 활성",
@@ -6329,9 +6355,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S026",
@@ -7039,7 +7071,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: All 필터 아래 Writers to follow",
         "D": "표시값·입력: 작가 소개·인증 배지 일부",
@@ -7087,9 +7119,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S034",
@@ -7541,7 +7579,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: Lists 탭에 AAA AI 카드",
         "D": "표시값·입력: 2 stories·이미지 모음",
@@ -7597,9 +7635,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S039",
@@ -8510,7 +8554,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: 프로필·관계 집계·Friend 배지·팔로우 버튼·탭",
         "D": "표시값·입력: Jordan Gibbs, 10.2K followers·25 following",
@@ -8586,9 +8630,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S049",
@@ -8618,7 +8668,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: 성공 토스트 위에 Following 메뉴",
         "D": "표시값·입력: Email notifications on 체크",
@@ -8679,9 +8729,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S050",
@@ -12079,7 +12135,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: About 탭에 소개 단락·회원 기간",
         "D": "표시값·입력: Medium member since October 2023, Friend since December 2023",
@@ -12130,9 +12186,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S084",
@@ -12722,7 +12784,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: 아바타·이름·소개·Follow 반복 행",
         "D": "표시값·입력: 여러 사용자와 The Medium Blog 표시",
@@ -12778,9 +12840,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S091",
@@ -12981,7 +13049,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: 상단 작가 제목, Stories·About만, Follow 버튼 없음",
         "D": "표시값·입력: 10.8K followers, 25 following",
@@ -13055,9 +13123,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S094",
@@ -13588,7 +13662,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: 상단 설명과 Following·Reading history·Muted·Suggestions 탭",
         "D": "표시값·입력: Suggestions 활성, Topics 필터",
@@ -13648,9 +13722,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S100",
@@ -14033,7 +14113,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: 프로필 Following 팝오버",
         "D": "표시값·입력: Email notifications on 체크",
@@ -14086,9 +14166,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S104",
@@ -14118,7 +14204,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: Following 탭과 All 필터, 중앙 안내",
         "D": "표시값·입력: You don't follow anything yet",
@@ -14166,9 +14252,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S105",
@@ -16514,7 +16606,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: Spam 라디오 선택, 하단 빨간 버튼",
         "D": "표시값·입력: Spam 선택·차단 미체크",
@@ -16563,9 +16655,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S128",
@@ -16766,7 +16864,7 @@
       ],
       "routeRecipe": "Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections",
       "accountAndPermission": "공개 프로필; follow/email 관계는 A",
-      "fixtureRecipe": "DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음",
+      "fixtureRecipe": "useIdentityCatalog·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음; 동적 B 이름은 확정 프로필과 같은 ID로 해석",
       "referenceObservations": {
         "L": "배치: 검정 토스트와 Follow 버튼",
         "D": "표시값·입력: You unfollowed Jordan Gibbs",
@@ -16812,9 +16910,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다."
+      "acceptance": "Stories/Lists/About, Pinned, member/Friend 시작 월, Follow 성공·메뉴·해제 토스트, Email on/off, 작가와 publication 관계 목록을 각각 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S131",
@@ -18031,7 +18135,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: 프로필 위 하단 시트",
         "D": "표시값·입력: 추가 입력 없음",
@@ -18104,9 +18208,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S144",
@@ -18810,7 +18920,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: Topics to follow 목록과 추가 추천 링크",
         "D": "표시값·입력: Self Improvement·Writing·Relationships는 Following",
@@ -18868,9 +18978,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S152",
@@ -18901,7 +19017,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: Author muted 토스트, Following 버튼 유지",
         "D": "표시값·입력: 기사 목록 계속 표시",
@@ -18955,9 +19071,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S153",
@@ -19722,7 +19844,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: Report user 시트, 라디오 사유·추가 차단 체크·정책 링크",
         "D": "표시값·입력: Spam·Harassment·Rules violation·AI-generated 모두 미선택, 차단 미체크",
@@ -19811,9 +19933,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S162",
@@ -20471,7 +20599,7 @@
         "crop": null
       },
       "readiness": "historical-web-capture-parity-01",
-      "blocker": "Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [
         {
           "id": "S168",
@@ -20497,10 +20625,18 @@
       ],
       "acceptance": "100→120과 배경 제목 줄바꿈, Font family 행, Appearance 하위 선택, 타인 Highlight on/off와 어두운 팝오버를 비교한다. 본인 저장 강조 삭제와 분리한다.",
       "latestReview": {
-        "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
-        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
-        "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
-      }
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousReviews": [
+        {
+          "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
+          "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/display-final/captures.json",
+          "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+        }
+      ],
+      "previousBlocker": "Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조; Parity 4 새 실행은 latestReview 참조; 과거 캡처를 현재 코드 증거로 승격하지 않음"
     },
     {
       "id": "S169",
@@ -20679,7 +20815,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: 프로필에 검정 토스트",
         "D": "표시값·입력: Successfully reported user",
@@ -20733,9 +20869,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S171",
@@ -23133,7 +23275,7 @@
       ],
       "routeRecipe": "Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터",
       "accountAndPermission": "A 개인 관계; 빈 상태와 Writers1/Topics3 독립",
-      "fixtureRecipe": "RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분",
+      "fixtureRecipe": "RelationshipSource·ModerationSource·TopicSource + useIdentityCatalog(DirectorySource/mockUsers/확정 공개 프로필); Writers1/Topics3는 UI 팔로우로 구성, 숫자와 목록·해제를 함께 확인",
       "referenceObservations": {
         "L": "배치: Suggestions 위 팝오버",
         "D": "표시값·입력: Topics 체크",
@@ -23196,9 +23338,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다."
+      "acceptance": "네 탭, All/Writers/Publications/Topics, 빈 Following, 종류별 count/See all, Follow/Following, See more suggestions를 개별 확인한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S195",
@@ -23649,7 +23797,7 @@
       ],
       "routeRecipe": "Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트",
       "accountAndPermission": "A; follow/mute/block/report 각각 별도 상태",
-      "fixtureRecipe": "ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음",
+      "fixtureRecipe": "ModerationSource·RelationshipSource와 공통 사용자 카탈로그; S093은 별도 snapshot이며 차단 결과로 단정하지 않음; 신고/차단/음소거 별도 상태",
       "referenceObservations": {
         "L": "배치: Author blocked 토스트, Follow 표시",
         "D": "표시값·입력: 기사 목록은 그대로 보임",
@@ -23703,9 +23851,15 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "Parity 5에서 mock 연결/웹 부분 대조를 수행함; 원본 차이·미확인·native 대기. 사용자 지시로 캡처 파일을 저장하지 않았으며 원본 동일성이나 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다."
+      "acceptance": "메뉴 순서·파랑/빨강·Cancel, 성공 토스트, 신고 radio와 Also block checkbox, 사유 전후 Report 상태를 비교한다. 차단 후 원본 카드 잔존과 자체 접근 제한의 충돌을 기록한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_05_RESULT.md",
+        "scope": "관계 카탈로그·관리 목록·동작 및 웹 부분 비교; 원본 시각 차이·U 미확인·native 대기",
+        "artifacts": "사용자 지시로 evidence 및 캡처 파일을 생성하지 않음; 실행 결과는 결과 문서에 기록"
+      },
+      "previousBlocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함."
     },
     {
       "id": "S200",

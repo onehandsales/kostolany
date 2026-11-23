@@ -21,21 +21,24 @@ type Props = {
   target: RelationshipTarget;
   name: string;
   wide?: boolean;
+  active?: boolean;
   topicStyle?: boolean;
   presentation?: 'pill' | 'menu';
   onMessage?: (message: string) => void;
 };
 export function FollowControl(props: Props) {
   const { scope } = useRelationships();
+  const moderation = useModeration();
+  const blocked = props.target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(props.target.id));
   return (
     <ScopedFollow
-      key={`${scope}:${followKey(props.target)}`}
+      key={`${scope}:${followKey(props.target)}:${props.active !== false}:${blocked}`}
       {...props}
       target={{ kind: props.target.kind, id: props.target.id }}
     />
   );
 }
-function ScopedFollow({ target, name, wide = false, topicStyle = false, presentation = 'pill', onMessage }: Props) {
+function ScopedFollow({ target, name, active = true, wide = false, topicStyle = false, presentation = 'pill', onMessage }: Props) {
   const { state, store, scope } = useRelationships();
   const moderation = useModeration();
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
@@ -47,11 +50,13 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
   const button = useRef<View>(null);
   const mounted = useRef(true);
   const intent = useRef(0);
+  const measurement = useRef(0);
   useEffect(() => {
     mounted.current = true;
     return () => {
       mounted.current = false;
       intent.current += 1;
+      measurement.current += 1;
     };
   }, []);
   const key = followKey(target);
@@ -62,13 +67,19 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
   const loading = Boolean(
     (store && state?.status === 'loading') || (moderation.store && !moderation.state?.value),
   );
+  function closeMenu() {
+    intent.current += 1;
+    measurement.current += 1;
+    setMenu(null);
+  }
   function openMenu(pageY = 160) {
+    const request = ++measurement.current;
     setMenu({
       top: Math.max(8, Math.min(pageY + 24, height - 180)),
       right: Math.max(8, (width - 250) / 2),
     });
     button.current?.measureInWindow((x, y, w, h) => {
-      if (mounted.current)
+      if (mounted.current && request === measurement.current)
         setMenu({
           top: Math.max(8, Math.min(y + h, height - 180)),
           right: Math.max(8, width - Math.min(width - 8, x + w / 2 + 125)),
@@ -76,13 +87,14 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
     });
   }
   async function submit(value: Relationship) {
-    if (!store || blocked) return;
+    // 차단은 새 팔로우·수신 설정을 막지만 기존 관계의 해제까지 막지 않는다.
+    if (!store || !active || (blocked && value.following)) return;
     const request = ++intent.current;
     const success = await store.set(value, scope);
     if (!mounted.current || request !== intent.current || !success) return;
     if (value.following !== relationship.following)
       onMessage?.(value.following ? `Success! You’re now following ${name}.` : `You unfollowed ${name}.`);
-    if (!value.following) setMenu(null);
+    if (!value.following) closeMenu();
   }
   function press(event: GestureResponderEvent) {
     if (!auth.state.user) {
@@ -93,9 +105,13 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
       });
       return;
     }
-    if (!store || loading || blocked) return;
+    if (!store || loading || !active) return;
     if (state?.status === 'error') {
       void store.reload();
+      return;
+    }
+    if (blocked) {
+      if (relationship.following) void submit({ target, following: false, email: false });
       return;
     }
     if (target.kind === 'topic') {
@@ -124,20 +140,20 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
         </Text>
       </Pressable>
     );
-  if (blocked) return <Text style={styles.message}>Blocked author</Text>;
+  if (blocked && !relationship.following) return <Text style={styles.message}>Blocked author</Text>;
   return (
     <View style={(wide || presentation === 'menu') && styles.wide}>
       <Pressable
         ref={button}
         role="button"
         aria-pressed={relationship.following}
-        accessibilityLabel={`${relationship.following ? 'Following' : 'Follow'} ${name}`}
+        accessibilityLabel={`${blocked ? 'Unfollow' : relationship.following ? 'Following' : 'Follow'} ${name}`}
         accessibilityState={{
           busy: pending || loading,
-          disabled: loading,
+          disabled: loading || !active,
           selected: relationship.following,
         }}
-        disabled={loading}
+        disabled={loading || !active}
         onPress={press}
         style={styles.target}
       >
@@ -147,17 +163,17 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
             topicStyle && styles.topicPill,
             topicStyle && !relationship.following && styles.filled,
             wide && styles.widePill,
-            wide && relationship.following && styles.followed,
+            relationship.following && styles.followed,
             wide && !relationship.following && styles.filled,
             presentation === 'menu' && styles.menuAppearance,
           ]}
         >
           <Text style={[styles.label, (wide || topicStyle) && !relationship.following && styles.inverse,
             presentation === 'menu' && styles.menuLabel]}>
-            {loading ? 'Loading…' : relationship.following ? 'Following' : 'Follow'}{presentation === 'menu' ? ' author' : ''}
+            {loading ? 'Loading…' : blocked ? 'Unfollow' : relationship.following ? 'Following' : 'Follow'}{presentation === 'menu' ? ' author' : ''}
           </Text>
-          {relationship.following && wide && (
-            <View style={styles.chevron}>
+          {relationship.following && !blocked && target.kind !== 'topic' && presentation !== 'menu' && (
+            <View style={[styles.chevron, wide && styles.wideChevron]}>
               <AppIcon name="chevron" size={12} />
             </View>
           )}
@@ -178,13 +194,10 @@ function ScopedFollow({ target, name, wide = false, topicStyle = false, presenta
           </Text>
         </Pressable>
       )}
-      {menu && (
+      {menu && active && !blocked && (
         <TopPopover
           title={`Following ${name} options`}
-          onClose={() => {
-            intent.current += 1;
-            setMenu(null);
-          }}
+          onClose={closeMenu}
           width={250}
           top={menu.top}
           right={menu.right}
@@ -297,11 +310,8 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text,
     },
     inverse: { color: colors.onInverse },
-    chevron: {
-      position: 'absolute',
-      right: 14,
-      transform: [{ rotate: '90deg' }],
-    },
+    chevron: { transform: [{ rotate: '90deg' }] },
+    wideChevron: { position: 'absolute', right: 14 },
     row: {
       minHeight: 48,
       paddingHorizontal: 12,

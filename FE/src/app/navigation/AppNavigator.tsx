@@ -255,6 +255,7 @@ function SessionNavigationContent({
   const currentBookmarks = bookmarkSource ?? bookmarkScope.source;
   const [defaultDigests] = useState(() => createMockDigestSource());
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
+  const [moderationRouteKey, setModerationRouteKey] = useState('');
   function currentTab(): keyof MainTabParamList {
     const tabState = navigationRef.getRootState()?.routes.find((route) => route.name === 'Main')?.state;
     const name = tabState?.routes[tabState.index ?? 0]?.name;
@@ -312,8 +313,10 @@ function SessionNavigationContent({
             userId={state.user?.id ?? null}
             revision={state.revision}
           >
+            <DirectoryProvider source={directorySource}>
             <ModerationProvider
               source={moderationSource}
+              routeKey={moderationRouteKey}
               userId={state.user?.id ?? null}
               revision={state.revision}
             >
@@ -331,7 +334,6 @@ function SessionNavigationContent({
                 >
                   <RecommendationProvider source={recommendationSource}>
                     <TopicProvider source={topicSource}>
-                      <DirectoryProvider source={directorySource}>
                         <RelationshipProvider
                           source={relationshipSource}
                           userId={state.user?.id ?? null}
@@ -423,7 +425,12 @@ function SessionNavigationContent({
                               }}
                             >
                               <ListeningProvider source={listeningSource} optionsSource={listeningOptionsSource}>
-                              <NavigationContainer theme={theme} ref={navigationRef} onReady={linksReady}>
+                              <NavigationContainer theme={theme} ref={navigationRef}
+                                onReady={() => {
+                                  setModerationRouteKey(navigationRef.getCurrentRoute()?.key ?? '');
+                                  linksReady();
+                                }}
+                                onStateChange={() => setModerationRouteKey(navigationRef.getCurrentRoute()?.key ?? '')}>
                                 <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
                                 <Stack.Navigator
                                   initialRouteName="Main"
@@ -520,7 +527,7 @@ function SessionNavigationContent({
                                   </Stack.Screen>
                                   <Stack.Screen name="Connections">
                                     {({ route, navigation }) => (
-                                      <ConnectionsScreen
+                                      <FocusedConnections
                                         key={`${state.user?.id}:${state.revision}`}
                                         owner={route.params.owner}
                                         section={route.params.section}
@@ -542,7 +549,7 @@ function SessionNavigationContent({
                                   </Stack.Screen>
                                   <Stack.Screen name="Recommendations">
                                     {({ route, navigation }) => (
-                                      <RefineRecommendationsScreen
+                                      <FocusedRecommendations
                                         initialSection={route.params.section}
                                         interests={route.params.interests}
                                         onBack={() => navigation.goBack()}
@@ -613,7 +620,6 @@ function SessionNavigationContent({
                             </DownloadProvider>
                           </BookmarkProvider>
                         </RelationshipProvider>
-                      </DirectoryProvider>
                     </TopicProvider>
                   </RecommendationProvider>
                 </HighlightProvider>
@@ -621,6 +627,7 @@ function SessionNavigationContent({
               </ClapProvider>
               </PublicListProvider>
             </ModerationProvider>
+            </DirectoryProvider>
           </ReadingHistoryProvider>
         </SharingProvider>
       </ProfileProvider>
@@ -688,6 +695,16 @@ function FocusedPublicList(props: React.ComponentProps<typeof PublicListScreen>)
 function SessionAuthDialogs() {
   const { state } = useProfile();
   return <AuthDialogs profileName={state.profile?.name} />;
+}
+
+function FocusedConnections(props: React.ComponentProps<typeof ConnectionsScreen>) {
+  const focused = useIsFocused();
+  return <ConnectionsScreen {...props} active={focused} />;
+}
+
+function FocusedRecommendations(props: React.ComponentProps<typeof RefineRecommendationsScreen>) {
+  const focused = useIsFocused();
+  return <RefineRecommendationsScreen {...props} active={focused} />;
 }
 
 function FocusedIdentity(props: React.ComponentProps<typeof PublicIdentityScreen>) {

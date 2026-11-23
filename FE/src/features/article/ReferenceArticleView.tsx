@@ -193,7 +193,7 @@ export function ReferenceArticleView({
             ) : (
               <Text style={styles.authorName}>{article.sourceName}</Text>
             )}
-            {writer && <FollowControl target={writer} name={identity?.name ?? article.sourceName} />}
+            {writer && <FollowControl active={active} target={writer} name={identity?.name ?? article.sourceName} />}
           </View>
           {reference?.image && (
             <AspectImage
@@ -281,7 +281,7 @@ export function ReferenceArticleView({
                   {reference?.avatar && (
                     <Image source={reference.avatar} style={styles.largeAvatar} accessible={false} />
                   )}
-                  {writer && <FollowControl target={writer} name={identity?.name ?? article.sourceName} />}
+                  {writer && <FollowControl active={active} target={writer} name={identity?.name ?? article.sourceName} />}
                 </View>
                 {writer ? (
                   <IdentityLink
@@ -396,7 +396,7 @@ export function ReferenceArticleView({
           </Pressable>
           {writer && (
             <View style={styles.menuRow}>
-              <FollowControl target={writer} name={identity?.name ?? article.sourceName} presentation="menu" />
+              <FollowControl active={active} target={writer} name={identity?.name ?? article.sourceName} presentation="menu" />
             </View>
           )}
           {writer && (

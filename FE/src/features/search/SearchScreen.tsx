@@ -196,7 +196,7 @@ export function SearchScreen({
                     </Pressable>
                   ))}
               </View>
-              <ExploreSections onSelect={handleSelectArticle} />
+              <ExploreSections active={isFocused} onSelect={handleSelectArticle} />
               <View style={styles.reading}>
                 <Text role="heading" style={styles.sectionTitle}>
                   읽어볼 기사

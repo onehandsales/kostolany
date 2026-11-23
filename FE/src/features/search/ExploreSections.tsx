@@ -19,9 +19,9 @@ import { ResponseButton } from '../responses/ResponseButton';
 
 import { SearchByline } from './SearchCard';
 
-type ExploreSectionsProps = { onSelect: (id: string) => void };
+type ExploreSectionsProps = { onSelect: (id: string) => void; active?: boolean };
 
-export function ExploreSections({ onSelect }: ExploreSectionsProps) {
+export function ExploreSections({ onSelect, active = true }: ExploreSectionsProps) {
   const navigation = useCommunityNavigation();
   const privacy = useModeration();
   const moderation = useRecommendedArticles();
@@ -124,7 +124,7 @@ export function ExploreSections({ onSelect }: ExploreSectionsProps) {
                 </Text>
                 {target && (
                   <View style={styles.personFollow}>
-                    <FollowControl target={target} name={profile.name} />
+                    <FollowControl active={active} target={target} name={profile.name} />
                   </View>
                 )}
               </View>

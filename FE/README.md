@@ -1,10 +1,14 @@
 # Kostolany Mobile
 
-**현재 — Parity 4:** [결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_04_RESULT.md). 발행 reader의 공통 읽기 설정/Viewed, 일반·발행·정책 이력 재열기, 본문 링크의 오래된 응답 보호를 보완했다. 개발 웹의 `?parityHistory=reference-v1`은 명시적인 이력 비교용이며 정상 기본값을 변경하지 않는다. Q05 미확인·Q11 후속·V12/V16 시각 잔여와 실제 native 검증 대기를 유지한다. 다음은 묶음 5이며 자동 시작하지 않는다. 아래 이전 결과는 당시 이력이다.
+**Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](../TODO/FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.
+
+**현재 — Parity 5:** [관계·추천 관리 결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_05_RESULT.md). 검색·공개 프로필·Following/Muted/Blocked의 동적 사용자 카탈로그와 이름/해제 연결, 목록 배치, 팔로우 메뉴 수명을 보완했다. D06 mock 연결과 V11/V14/V15 부분 시각 보정을 구분하며 원본 차이·미확인·실제 native 검증은 남는다. 사용자 지시로 evidence/캡처 파일은 생성하지 않았고 기존 삭제도 보존했다. 커밋·push·배포하지 않으며 묶음 6은 미착수다. 아래 이전 결과는 당시 이력이다.
+
+**Parity 4 당시:** [결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_04_RESULT.md). 발행 reader의 공통 읽기 설정/Viewed, 일반·발행·정책 이력 재열기, 본문 링크의 오래된 응답 보호를 보완했다. 개발 웹의 `?parityHistory=reference-v1`은 명시적인 이력 비교용이며 정상 기본값을 변경하지 않는다. Q05 미확인·Q11 후속·V12/V16 시각 잔여와 실제 native 검증 대기를 유지한다. 다음은 묶음 5이며 자동 시작하지 않는다. 아래 이전 결과는 당시 이력이다.
 
 **Parity 3 추가 재검토:** [View story 이동 후 남는 Responses와 정책 접근권 상실 시 남는 입력창 수정·추가 검증](../TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review). 현재 코드의 검증과 최초 P3 기록을 구분하며 V21 시각 잔여·기기 검증 대기는 유지한다.
 
-**현재 — Parity 3(2026-11-23).** 정책 기사 S008의 헤더/작성자/강조/도구를 기존 mock 상태에 연결하고 Responses 복귀·초안/정렬/스크롤/포커스·Library 재열기를 검증했다. [결과·이번 실행·재검토·잔여](../TODO/FE_MEDIUM_PARITY_03_RESULT.md)를 따른다. V21 원본 자산/서체/272 응답 재현과 실제 기기 검증은 미완료다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16), 미착수다. 아래 Parity 2의 다음 작업/검증 수치는 당시 이력이다. 커밋·push·배포하지 않았다.
+**Parity 3 당시(2026-11-23).** 정책 기사 S008의 헤더/작성자/강조/도구를 기존 mock 상태에 연결하고 Responses 복귀·초안/정렬/스크롤/포커스·Library 재열기를 검증했다. [결과·이번 실행·재검토·잔여](../TODO/FE_MEDIUM_PARITY_03_RESULT.md)를 따른다. V21 원본 자산/서체/272 응답 재현과 실제 기기 검증은 미완료다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16), 미착수다. 아래 Parity 2의 다음 작업/검증 수치는 당시 이력이다. 커밋·push·배포하지 않았다.
 
 **추가 재검토 — Parity 2(2026-11-23).** 공통 팝오버와 읽기 설정의 키보드 포커스 복귀 결함, 증거 검사 누락을 수정했다. 이번 타입/lint·관련10 suites30 tests·새32캡처·Android/iOS JS export와 잔여는 [추가 결과](../TODO/FE_MEDIUM_PARITY_02_RESULT.md#additional-review)를 따른다. 아래 최초53캡처/82테스트는 당시 기록이며 현재 검증을 대신하지 않는다. 기기 검증 대기와 묶음3 미착수, 커밋·push·배포 금지는 유지한다.
 

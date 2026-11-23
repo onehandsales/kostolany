@@ -1,8 +1,8 @@
 # Medium Parity 실행 계획
 
-[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
+[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
 
-이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음3의 D08 mock 연결·복귀를 검증했고 V21 시각 잔여와 U 미확인·native 대기는 유지한다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16)이며 미착수다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.
+이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음4의 읽기 연결 보완에 이어 묶음5의 D06 관계 카탈로그·관리 목록과 V11/V14/V15의 동작·부분 시각 보정을 진행했다. 현재 결과는 Parity 5 문서와 추가 재검토를 따른다. 차단 중 명시적 Unfollow·목록 이름 조회 재시도·관계 메뉴와 신고 초안의 화면 이탈 처리를 보완했다. 원본 차이·U 미확인·native 대기는 유지한다. 다음 순서는 묶음6이며 미착수이고 자동 시작하지 않는다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.
 
 공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.
 
@@ -56,7 +56,7 @@
 - 선행: 2.
 - 구현/판정 범위: 발행/일반 카탈로그 이력·Viewed·reader 설정 및 본문 링크 수명; Undo/읽기도구 범위 판정.
 - 검증·종료 조건: 알림/발행→본문→이력→재열기; 늦은 실패·문서A→B→A·권한철회; Q05 근거대기는 완료 아님.
-- 결과 문서: `TODO/FE_MEDIUM_PARITY_04_RESULT.md` (예정 경로).
+- 결과 문서: [FE_MEDIUM_PARITY_04_RESULT.md](<../FE_MEDIUM_PARITY_04_RESULT.md>).
 - 화면: S001, S045, S052, S063, S119, S125, S168, S190, S198.
 - 흐름/단계: T-F12-03, T-F14-01, T-F14-02, T-F15-01, T-F15-02, T-F24-02, T-F24-03, T-F24-04, T-F24-05, T-F24-06, T-F24-07.
 - 미확인 담당: U-S001, U-S045, U-S052, U-S063, U-S119, U-S125, U-S168, U-S190, U-S198, U-F12, U-F14, U-F15, U-F24.
@@ -66,11 +66,11 @@
 
 ## 묶음 5 — 관계·추천 관리
 
-- 직접 대상: D06, V11, V14, V15. 상태: 미착수.
+- 직접 대상: D06, V11, V14, V15. 상태: D06 mock 관계 카탈로그·관리 해제 연결 및 추가 재검토 완료; 차단 중 Unfollow·이름 조회 재시도·팔로우/신고 이탈 보완; V11/V14/V15 동작·부분 시각 보정, 원본 차이·U 미확인·native 대기.
 - 선행: 2.
 - 구현/판정 범위: 동적 A/B 사용자·follow/mute/block 관리 목록/숫자와 원본 상태.
 - 검증·종료 조건: 검색B→Follow/Mute→세 관리목록→해제; B 이름변경·계정전환·신고·취소.
-- 결과 문서: `TODO/FE_MEDIUM_PARITY_05_RESULT.md` (예정 경로).
+- 결과 문서: [FE_MEDIUM_PARITY_05_RESULT.md](<../FE_MEDIUM_PARITY_05_RESULT.md>).
 - 화면: S022, S025, S033, S038, S048, S049, S083, S090, S093, S099, S103, S104, S127, S130, S143, S151, S152, S161, S170, S194, S199.
 - 흐름/단계: T-F12-02, T-F12-04, T-F12-05, T-F13-01, T-F13-02, T-F13-03, T-F13-04, T-F17-02, T-F17-03, T-F17-04, T-F18-01, T-F18-02, T-F18-03, T-F18-04, T-F19-01, T-F19-02, T-F19-03, T-F19-04, T-F20-01, T-F20-02, T-F21-01, T-F21-02, T-F22-01, T-F22-02, T-F22-03, T-F23-01, T-F23-02, T-F23-03, T-F23-04, T-F23-05.
 - 미확인 담당: U-S022, U-S025, U-S033, U-S038, U-S048, U-S049, U-S083, U-S090, U-S093, U-S099, U-S103, U-S104, U-S127, U-S130, U-S143, U-S151, U-S152, U-S161, U-S170, U-S194, U-S199, U-F12, U-F13, U-F17, U-F18, U-F19, U-F20, U-F21, U-F22, U-F23.
