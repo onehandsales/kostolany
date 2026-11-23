@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -7,7 +7,9 @@ import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
+import { AspectImage } from '../../shared/ui/AspectImage';
 import { TopPopover } from '../../shared/ui/TopPopover';
+import { useReturnFocus } from '../../shared/ui/useReturnFocus';
 
 import { useRecommendations } from '../recommendations/RecommendationProvider';
 import { topicByName } from '../topics/data/topicCatalog';
@@ -72,7 +74,6 @@ export function ReferenceArticleView({
   const recommendations = useRecommendations();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
-  const { width } = useWindowDimensions();
   const scope = preference?.scopeKey ?? 'guest';
   const [ui, setUi] = useState<{
     scope: string;
@@ -88,6 +89,8 @@ export function ReferenceArticleView({
     notice: null,
   });
   const matchesScope = ui.scope === scope;
+  // 더보기에서 표시 설정으로 이동해도 두 메뉴를 닫은 뒤 최초 진입 버튼으로 돌아간다.
+  const openMenuWithFocus = useReturnFocus(active && matchesScope && !access && !ui.isMenuOpen && !ui.isDisplayOpen);
   if (!matchesScope)
     setUi({
       scope,
@@ -130,7 +133,7 @@ export function ReferenceArticleView({
           icon="more"
           label="Story options"
           disabled={Boolean(access)}
-          onPress={() => setUi((previous) => ({ ...previous, scope, isMenuOpen: true }))}
+          onPress={() => openMenuWithFocus(() => setUi((previous) => ({ ...previous, scope, isMenuOpen: true })))}
         />
       </View>
       {access && (
@@ -193,10 +196,11 @@ export function ReferenceArticleView({
             {writer && <FollowControl target={writer} name={identity?.name ?? article.sourceName} />}
           </View>
           {reference?.image && (
-            <Image
+            <AspectImage
               source={reference.image}
+              aspectRatio={1.5}
               accessibilityLabel={`${article.title} cover`}
-              style={[styles.cover, { height: Math.min(width - 48, 680) / 1.5 }]}
+              style={styles.cover}
               resizeMode="cover"
             />
           )}
@@ -303,6 +307,7 @@ export function ReferenceArticleView({
                 {identity?.website && <SafeWebsiteLink url={identity.website} />}
               </View>
               <ReferenceArticleFooter
+                active={active}
                 articleId={article.id}
                 onNotice={notice}
                 onSelectArticle={onSelectArticle}
@@ -345,6 +350,7 @@ export function ReferenceArticleView({
       >
         <ClapControl target={{ kind: 'article', id: article.id }} title={article.title} size={24} />
         <ResponseButton
+          active={active}
           target={{ kind: 'article', id: article.id }}
           title={article.title}
           label="Responses"
@@ -449,7 +455,6 @@ export function ReferenceArticleView({
 
 function ReferenceDecoration({ block }: { block: Exclude<ReferenceBlock, { kind: 'text' }> }) {
   const styles = useThemeStyles(createStyles);
-  const { width } = useWindowDimensions();
   if (block.kind === 'divider')
     return (
       <Text aria-hidden style={styles.divider}>
@@ -459,13 +464,10 @@ function ReferenceDecoration({ block }: { block: Exclude<ReferenceBlock, { kind:
   if (block.kind === 'missing') return <Text style={styles.missing}>[Uncaptured paragraphs omitted]</Text>;
   return (
     <View>
-      <Image
+      <AspectImage
         source={block.source}
         accessibilityLabel={block.description}
-        style={{
-          width: '100%',
-          height: Math.min(width - 48, 680) / block.aspectRatio,
-        }}
+        aspectRatio={block.aspectRatio}
         resizeMode="contain"
       />
       <Text style={[styles.caption, styles.inlineCaption]}>{block.caption}</Text>
@@ -569,7 +571,7 @@ const createStyles = (colors: ThemeColors) =>
       lineHeight: 20,
       color: colors.text,
     },
-    cover: { width: '100%', aspectRatio: 1.5, marginTop: 24 },
+    cover: { marginTop: 24 },
     caption: {
       fontFamily: fonts.sans,
       fontSize: 12,

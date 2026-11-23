@@ -1,5 +1,6 @@
 import { feedFixtures } from '../../feed/data/fixtures';
 import { mediumArticles } from '../../feed/data/mediumFixtures';
+import { mediumPolicyArticle, policyArticleDetail } from '../../feed/data/mediumPolicyArticle';
 import type { ArticleDetail } from '../types';
 import { referenceArticleContent } from './referenceArticleContent';
 
@@ -138,7 +139,7 @@ const financialArticles: ArticleDetail[] = Object.values(feedFixtures)
 
 export const articleFixtures: ArticleDetail[] = [
   ...financialArticles,
-  ...mediumArticles.map((item) => ({
+  ...mediumArticles.map((item) => item.id === mediumPolicyArticle.id ? policyArticleDetail : ({
     id: item.id,
     title: item.title,
     subtitle: item.summary,

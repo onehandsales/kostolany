@@ -243,6 +243,10 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 
 ## S008 — Medium Rules 정책 문서
 
+**Parity 3 추가 기록:** [구현·실행·재검토 결과](../FE_MEDIUM_PARITY_03_RESULT.md). 아래 감사 당시의 미구현/차이 판정은 과거 근거로 보존한다. 현재 [PolicyArticle](../../FE/src/features/responses/PolicyArticle.tsx)와 [전용 route 화면](../../FE/src/features/responses/PolicyArticleScreen.tsx)에 기사 구조·기존 mock 도구·복귀를 연결했다. R별 최신 상태는 결과 표를 따른다. V21 자산·서체·응답272 재현, U-S008/U-F34는 미완료/미확인이다. R-S008-V의 추가 원본 관찰로 세 번째 문단의 `newsworthiness` 밑줄을 확인해 구현했다.
+
+현재 표시/본문 fixture: [mediumPolicyArticle.ts](../../FE/src/features/feed/data/mediumPolicyArticle.ts). 원본 표시값과 실제 mock 응답 수를 구분한다.
+
 안정 원본 ID: `sc_063290fab51b4acd913212f85acde70d` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>):84 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png>)
 
 흐름 맥락: [F34/02](FLOWS.md#f34)

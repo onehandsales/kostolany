@@ -1,0 +1,1780 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand ListeningNavigation
+
+PASS Android src/app/navigation/ListeningNavigation.test.tsx (25.562 s)
+FAIL iOS src/app/navigation/ListeningNavigation.test.tsx (26.518 s)
+  ● Console
+
+    console.error
+      You seem to have overlapping act() calls, this is not supported. Be sure to await previous act() calls before making a new one.
+
+      at popActScope (node_modules/react/cjs/react.development.js:556:17)
+      at node_modules/react/cjs/react.development.js:844:17
+
+    console.error
+      You seem to have overlapping act() calls, this is not supported. Be sure to await previous act() calls before making a new one.
+
+      at popActScope (node_modules/react/cjs/react.development.js:556:17)
+      at node_modules/react/cjs/react.development.js:844:17
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      17 |   function publish(patch: Partial<ReadingSettingsSnapshot>): void {
+      18 |     snapshot = { ...snapshot, ...patch };
+    > 19 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      20 |   }
+      21 |   function isValidResponse(settings: ReadingSettings): boolean {
+      22 |     return settings?.userId === userId && isExplanationLevel(settings.defaultLevel);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/settings/createReadingSettingsStore.ts:19:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/settings/createReadingSettingsStore.ts:19:15)
+      at publish (src/features/settings/createReadingSettingsStore.ts:27:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/settings/createReadingSettingsStore.ts:36:4)
+      at apply (src/features/settings/createReadingSettingsStore.ts:24:24)
+      at Object.reload [as ensureLoaded] (src/features/settings/createReadingSettingsStore.ts:86:74)
+      at ensureLoaded (src/features/settings/ReadingSettingsProvider.tsx:45:28)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13327:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13380:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at reconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13319:11)
+      at recursivelyTraverseReconnectPassiveEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:13279:9)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13170:17)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13128:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      22 |       if (article.id !== articleId) throw new Error('Article response does not match the requested ID');
+      23 |       inFlight.current = false;
+    > 24 |       setResult({ articleId, source, value: { status: 'ready', article } });
+         |       ^
+      25 |     }).catch(() => {
+      26 |       if (!active) return;
+      27 |       inFlight.current = false;
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at dispatchSetStateInternal (node_modules/react-reconciler/cjs/react-reconciler.development.js:6784:13)
+      at dispatchSetState (node_modules/react-reconciler/cjs/react-reconciler.development.js:6741:7)
+      at setResult (src/features/article/useArticle.ts:24:7)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:121:5)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13161:17)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13128:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:121:5)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13161:17)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13128:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:121:5)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13161:17)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13128:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:55:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/reading-history/createReadingHistoryStore.ts:45:23)
+      at drain (src/features/reading-history/createReadingHistoryStore.ts:123:15)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:55:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/reading-history/createReadingHistoryStore.ts:45:23)
+      at drain (src/features/reading-history/createReadingHistoryStore.ts:123:15)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      26 |   function publish(patch: Partial<HistorySnapshot>): void {
+      27 |     state = { ...state, ...patch };
+    > 28 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      29 |   }
+      30 |   function validate(value: HistoryValue): void {
+      31 |     if (
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reading-history/createReadingHistoryStore.ts:28:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reading-history/createReadingHistoryStore.ts:28:15)
+      at publish (src/features/reading-history/createReadingHistoryStore.ts:55:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/reading-history/createReadingHistoryStore.ts:45:23)
+      at drain (src/features/reading-history/createReadingHistoryStore.ts:123:15)
+      at Object.update (src/features/reading-history/createReadingHistoryStore.ts:158:7)
+      at record (src/features/reading-history/ReadingHistoryProvider.tsx:100:24)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      10 |   const listeners = new Set<() => void>();
+      11 |   const operations = new Map<string, { fingerprint: string; result: Promise<boolean> }>();
+    > 12 |   const emit = (patch: Partial<HighlightSnapshot>) => { state = { ...state, ...patch }; listeners.forEach(listener => listener()); };
+         |                                                                                                                       ^
+      13 |   const valid = (value: HighlightValue) => value.userId === userId && Number.isSafeInteger(value.version) && value.version >= 0
+      14 |     && Array.isArray(value.highlights) && value.highlights.every(validHighlight)
+      15 |     && new Set(value.highlights.map(item => item.id)).size === value.highlights.length;
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/highlights/createHighlightStore.ts:12:119)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/highlights/createHighlightStore.ts:12:99)
+      at emit (src/features/highlights/createHighlightStore.ts:20:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/highlights/createHighlightStore.ts:28:4)
+      at apply (src/features/highlights/createHighlightStore.ts:16:22)
+      at Object.read [as ensure] (src/features/highlights/createHighlightStore.ts:61:40)
+      at ensure (src/features/highlights/HighlightProvider.tsx:27:36)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at updateStoreInstance (node_modules/react-reconciler/cjs/react-reconciler.development.js:5914:39)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      42 |       isSaving: entry.command !== null, isRefreshing: entry.reading, error,
+      43 |     };
+    > 44 |     entry.listeners.forEach(listener => listener());
+         |                                         ^
+      45 |   }
+      46 |   function validate(value: ClapValue, target: ClapTarget, expected?: number): void {
+      47 |     if (!value || value.userId !== userId || !value.target
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/reactions/createClapStore.ts:44:41)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/reactions/createClapStore.ts:44:21)
+      at publish (src/features/reactions/createClapStore.ts:59:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/reactions/createClapStore.ts:54:25)
+      at Object.refresh [as ensure] (src/features/reactions/createClapStore.ts:133:73)
+      at ensure (src/features/reactions/ClapProvider.tsx:62:27)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      48 |   function publish(entry: Entry, patch: Partial<ResponseSnapshot>): void {
+      49 |     entry.state = { ...entry.state, ...patch };
+    > 50 |     entry.listeners.forEach((listener) => listener());
+         |                                           ^
+      51 |   }
+      52 |   async function refresh(target: ResponseTarget): Promise<void> {
+      53 |     const entry = entryFor(target);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/responses/createResponseStore.ts:50:43)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/responses/createResponseStore.ts:50:21)
+      at publish (src/features/responses/createResponseStore.ts:57:5)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/features/responses/createResponseStore.ts:52:25)
+      at Object.refresh [as ensure] (src/features/responses/createResponseStore.ts:165:95)
+      at ensure (src/features/responses/ResponseProvider.tsx:120:12)
+      at Object.react_stack_bottom_frame (node_modules/react-reconciler/cjs/react-reconciler.development.js:17681:20)
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at commitHookEffectListMount (node_modules/react-reconciler/cjs/react-reconciler.development.js:10861:29)
+      at commitHookPassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:10948:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12979:13)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12999:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:12971:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+      at commitPassiveMountOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:13213:11)
+      at recursivelyTraversePassiveMountEffects (node_modules/react-reconciler/cjs/react-reconciler.development.js:12934:11)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      22 |       if (article.id !== articleId) throw new Error('Article response does not match the requested ID');
+      23 |       inFlight.current = false;
+    > 24 |       setResult({ articleId, source, value: { status: 'ready', article } });
+         |       ^
+      25 |     }).catch(() => {
+      26 |       if (!active) return;
+      27 |       inFlight.current = false;
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at dispatchSetStateInternal (node_modules/react-reconciler/cjs/react-reconciler.development.js:6784:13)
+      at dispatchSetState (node_modules/react-reconciler/cjs/react-reconciler.development.js:6741:7)
+      at setResult (src/features/article/useArticle.ts:24:7)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      25 |   const publish = (next: ListeningSnapshot) => {
+      26 |     snapshot = next;
+    > 27 |     listeners.forEach((listener) => listener());
+         |                                     ^
+      28 |   };
+      29 |   function stopTimer() {
+      30 |     clearInterval(timer);
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at forceStoreRerender (node_modules/react-reconciler/cjs/react-reconciler.development.js:5935:24)
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:5920:11
+      at listener (src/features/listening/createListeningStore.ts:27:37)
+          at Set.forEach (<anonymous>)
+      at forEach (src/features/listening/createListeningStore.ts:27:15)
+      at publish (src/features/listening/createListeningStore.ts:43:5)
+      at callTimer (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:744:24)
+      at doTickInner (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1312:29)
+      at doTick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1393:20)
+      at Object.tick (node_modules/@sinonjs/fake-timers/src/fake-timers-src.js:1401:20)
+      at FakeTimers.advanceTimersByTime (node_modules/@jest/fake-timers/build/modernFakeTimers.js:94:19)
+      at advanceTimers (node_modules/@testing-library/react-native/src/user-event/utils/wait.ts:14:12)
+      at emitPressabilityPressEvents (node_modules/@testing-library/react-native/src/user-event/press/press.ts:158:13)
+      at basePress (node_modules/@testing-library/react-native/src/user-event/press/press.ts:74:5)
+      at Object.press (node_modules/@testing-library/react-native/src/user-event/press/press.ts:32:3)
+      at wrapAsync (node_modules/@testing-library/react-native/src/helpers/wrap-async.ts:17:20)
+
+    console.error
+      The current testing environment is not configured to support act(...)
+
+      15 |       .then(() => AccessibilityInfo.isReduceMotionEnabled())
+      16 |       .then((value) => {
+    > 17 |         if (active && !changed && typeof value === 'boolean') setReduced(value);
+         |                                                               ^
+      18 |       })
+      19 |       .catch(() => {});
+      20 |     return () => {
+
+      at isConcurrentActEnvironment (node_modules/react-reconciler/cjs/react-reconciler.development.js:13990:17)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16304:7)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at dispatchSetStateInternal (node_modules/react-reconciler/cjs/react-reconciler.development.js:6784:13)
+      at dispatchSetState (node_modules/react-reconciler/cjs/react-reconciler.development.js:6741:7)
+      at setReduced (src/shared/ui/useReducedMotion.ts:17:63)
+
+  ● 실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View story·닫기를 한 재생 상태로 연결한다
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      82 | }
+      83 |
+    > 84 | it('실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View story·닫기를 한 재생 상태로 연결한다', async () => {
+         | ^
+      85 |   const { user } = await setup();
+      86 |   await user.press(button(/^ChatGPT Is Poisoning/));
+      87 |   await flush();
+
+      at Object.it (src/app/navigation/ListeningNavigation.test.tsx:84:1)
+
+  ● 재생 중 작가 차단을 확정하면 미니 플레이어와 타이머를 닫고 해제만으로 재개하지 않는다
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      122 | });
+      123 |
+    > 124 | it('재생 중 작가 차단을 확정하면 미니 플레이어와 타이머를 닫고 해제만으로 재개하지 않는다', async () => {
+          | ^
+      125 |   const { user } = await setup();
+      126 |   await user.press(button(/^ChatGPT Is Poisoning/));
+      127 |   await flush();
+
+      at Object.it (src/app/navigation/ListeningNavigation.test.tsx:124:1)
+
+  ● 계정·같은 계정·source 교체 후 늦은 success는 이전 플레이어를 복원하지 않는다
+
+    Missing auth
+
+      74 |   const view = await render(tree(source));
+      75 |   await flush();
+    > 76 |   if (!auth) throw new Error('Missing auth');
+         |                    ^
+      77 |   return {
+      78 |     auth,
+      79 |     replace: (next: ListeningSource) => view.rerender(tree(next)),
+
+      at src/app/navigation/ListeningNavigation.test.tsx:76:20
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 계정·같은 계정·source 교체 후 늦은 failure는 이전 플레이어를 복원하지 않는다
+
+    Missing auth
+
+      74 |   const view = await render(tree(source));
+      75 |   await flush();
+    > 76 |   if (!auth) throw new Error('Missing auth');
+         |                    ^
+      77 |   return {
+      78 |     auth,
+      79 |     replace: (next: ListeningSource) => view.rerender(tree(next)),
+
+      at src/app/navigation/ListeningNavigation.test.tsx:76:20
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 속도 선택 취소·실패 재시도와 음성 검색·선택·Done은 같은 플레이어의 확정값만 바꾼다
+
+    Missing auth
+
+      74 |   const view = await render(tree(source));
+      75 |   await flush();
+    > 76 |   if (!auth) throw new Error('Missing auth');
+         |                    ^
+      77 |   return {
+      78 |     auth,
+      79 |     replace: (next: ListeningSource) => view.rerender(tree(next)),
+
+      at src/app/navigation/ListeningNavigation.test.tsx:76:20
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 음성 적용 중 A→B 전환 뒤 늦은 success가 설정·플레이어를 노출하지 않는다
+
+    Missing auth
+
+      74 |   const view = await render(tree(source));
+      75 |   await flush();
+    > 76 |   if (!auth) throw new Error('Missing auth');
+         |                    ^
+      77 |   return {
+      78 |     auth,
+      79 |     replace: (next: ListeningSource) => view.rerender(tree(next)),
+
+      at src/app/navigation/ListeningNavigation.test.tsx:76:20
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 음성 적용 중 A→B 전환 뒤 늦은 failure가 설정·플레이어를 노출하지 않는다
+
+    Missing auth
+
+      74 |   const view = await render(tree(source));
+      75 |   await flush();
+    > 76 |   if (!auth) throw new Error('Missing auth');
+         |                    ^
+      77 |   return {
+      78 |     auth,
+      79 |     replace: (next: ListeningSource) => view.rerender(tree(next)),
+
+      at src/app/navigation/ListeningNavigation.test.tsx:76:20
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       7 failed, 9 passed, 16 total
+Snapshots:   0 total
+Time:        53.703 s, estimated 57 s
+Ran all test suites matching /ListeningNavigation/i in 2 projects.

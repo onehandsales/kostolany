@@ -64,6 +64,7 @@
 <a id="u-s008"></a>
 
 ### U-S008
+- Parity 3 후속: [현재 결과](../FE_MEDIUM_PARITY_03_RESULT.md). 보관 화면의 발췌/도구를 구현했으나 전문·현재 버전·실제 Medium 실행은 새로 확인하지 않았다. 미확인 유지.
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>):107
 - 미확인 내용: 현재 정책과 캡처 버전 차이
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1872,6 +1873,7 @@
 <a id="u-f34"></a>
 
 ### U-F34
+- Parity 3 후속: [현재 결과](../FE_MEDIUM_PARITY_03_RESULT.md). 자체 mock 뒤로 복귀·도구 실행/실패는 검증했다. 실제 Medium의 링크/뒤로 결과·전문은 미확인 유지; 현재 mock 동작을 원본 관찰로 바꾸지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>):144
 - 미확인 내용: 문서 전체 내용·버전 차이·링크 이동·뒤로 복귀 결과. 캡처 날짜와 게시 날짜를 구분한다.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료

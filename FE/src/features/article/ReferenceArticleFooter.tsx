@@ -14,12 +14,14 @@ import { ClapControl } from '../reactions/ClapControl';
 
 type ReferenceArticleFooterProps = {
   articleId: string;
+  active?: boolean;
   onNotice: (title: string) => void;
   onSelectArticle?: (articleId: string) => void;
 };
 
 export function ReferenceArticleFooter({
   articleId,
+  active = true,
   onNotice,
   onSelectArticle,
 }: ReferenceArticleFooterProps) {
@@ -29,7 +31,7 @@ export function ReferenceArticleFooter({
   const { width } = useWindowDimensions();
   return (
     <>
-      <ResponsePreview target={{ kind: 'article', id: articleId }} />
+      <ResponsePreview target={{ kind: 'article', id: articleId }} active={active} />
       <View style={styles.more}>
         <Text role="heading" style={styles.heading}>
           More from Jordan Gibbs
@@ -77,7 +79,7 @@ export function ReferenceArticleFooter({
                   <AppIcon name="star" color={colors.gold} size={20} />
                   <Text style={styles.muted}>May 24</Text>
                   <ClapControl target={{ kind: 'article', id: story.id }} title={story.title} />
-                  <ResponseButton target={{ kind: 'article', id: story.id }} title={story.title} />
+                  <ResponseButton target={{ kind: 'article', id: story.id }} title={story.title} active={active} />
                   <ArticleBookmarkControl articleId={story.id} articleTitle={story.title} compact />
                   <IconButton
                     icon="more"

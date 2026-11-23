@@ -1,5 +1,13 @@
 # Kostolany Mobile
 
+**Parity 3 추가 재검토:** [View story 이동 후 남는 Responses와 정책 접근권 상실 시 남는 입력창 수정·추가 검증](../TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review). 현재 코드의 검증과 최초 P3 기록을 구분하며 V21 시각 잔여·기기 검증 대기는 유지한다.
+
+**현재 — Parity 3(2026-11-23).** 정책 기사 S008의 헤더/작성자/강조/도구를 기존 mock 상태에 연결하고 Responses 복귀·초안/정렬/스크롤/포커스·Library 재열기를 검증했다. [결과·이번 실행·재검토·잔여](../TODO/FE_MEDIUM_PARITY_03_RESULT.md)를 따른다. V21 원본 자산/서체/272 응답 재현과 실제 기기 검증은 미완료다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16), 미착수다. 아래 Parity 2의 다음 작업/검증 수치는 당시 이력이다. 커밋·push·배포하지 않았다.
+
+**추가 재검토 — Parity 2(2026-11-23).** 공통 팝오버와 읽기 설정의 키보드 포커스 복귀 결함, 증거 검사 누락을 수정했다. 이번 타입/lint·관련10 suites30 tests·새32캡처·Android/iOS JS export와 잔여는 [추가 결과](../TODO/FE_MEDIUM_PARITY_02_RESULT.md#additional-review)를 따른다. 아래 최초53캡처/82테스트는 당시 기록이며 현재 검증을 대신하지 않는다. 기기 검증 대기와 묶음3 미착수, 커밋·push·배포 금지는 유지한다.
+
+**현재 상태 — Parity 2(2026-11-23).** [공통 UI 보정·재검토 결과](../TODO/FE_MEDIUM_PARITY_02_RESULT.md): 모바일 웹 본문 폭·원문 이미지 비율·팝오버 안전 영역·표시 설정 구획/아이콘을 보정하고 자체 UI의 상태별 비교 기준을 정리했다. 타입/lint·관련16 suites82 tests·현재 브라우저53캡처·iOS/Android JS export를 확인했다. Q02/Q12 화면별 잔여와 실제 네이티브 검증은 미완료다. 다음은 묶음3(D08/V21), 미착수이며 커밋·push·배포하지 않았다. 아래 Parity 1/Goal 기록은 과거 상태다.
+
 **현재 상태 — Parity 1(2026-11-23).** [비교 기준·실행 배정 결과](../TODO/FE_MEDIUM_PARITY_01_RESULT.md)와 [실행 계획](../TODO/MEDIUM_PARITY/EXECUTION_PLAN.md)을 추가했다. 200화면 조건·R/T/U/C 연결, 59개 보완 항목의 22묶음 배정과 도구 검증·웹 진단10캡처까지 진행했다. Q01 전수 동일 fixture 재현과 Q02 실제 UI 보정은 미완료다. FE 제품 코드/정상 fixture는 변경하지 않았고 실제 외부 서비스/native 검증은 기존 경계를 유지한다. 아래 Goal53 결과·커밋 문구는 과거 이력이다.
 
 **현재 상태 — Goal53 후속 보완(2026-11-21).** 기본 Reading list 메뉴, 작성 글의 박수·응답·저장/Library 연결, 목록 안 순서 편집·자동 스크롤, 외부 링크 오류 복구, guest 터치 영역과 문서 정합성을 보완했다. 현재 코드의 두 차례 자체 검토·자동/8081/JS export 결과와 잔여는 [후속 결과](../TODO/FE_GOAL_53_FOLLOWUP_RESULT.md)를 따른다. 아래 Goal53 및 이전 수치·캡처·승인은 과거 이력이다. 실제 native 빌드·기기 실행은 이번 사용자 제외 범위이고, 원본 미확인·서체/자산·선택 UX 차이는 남아 전체 클론/출시 완료가 아니다. 이번 변경만 로컬 커밋 1회로 기록하며 push·배포·Goal54는 진행하지 않는다.

@@ -4,6 +4,7 @@ import { followKey, type FollowTarget, type PublicDirectory, type PublicIdentity
 
 // 공개 fixture의 고정 ID를 사용하며 편집 가능한 내 프로필 이름과 식별자를 섞지 않는다.
 const writerAssignments: Readonly<Record<string, string>> = {
+  'medium-rules': 'medium-policy-author',
   'medium-unsexy-habits': 'akinyele',
   'medium-titans': 'fedeminozzi',
   'medium-personality': 'singh-bhai',

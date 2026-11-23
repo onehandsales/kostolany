@@ -1,0 +1,23 @@
+[
+  { "id": "Q12-guest", "navigate": "/", "click": ["프로필"], "waitText": "로그인하지 않은 상태예요." },
+  { "id": "Q12-login", "click": ["모의 로그인 시작"], "waitText": "MOCK · no real authentication" },
+  { "id": "Q12-profile", "click": ["Google로 로그인 (모의)"], "waitText": "Continue setup", "assert": [
+    { "selector": "[aria-label='온보딩 이어서 하기']", "minHeight": 48 }
+  ] },
+  { "id": "Q12-onboarding", "click": ["온보딩 이어서 하기"], "waitText": "Welcome", "assert": [
+    { "selector": "[aria-label='온보딩 닫기']", "minWidth": 48, "minHeight": 48 }
+  ] },
+  { "id": "Q12-drafts", "click": ["온보딩 닫기", "내 초안"], "waitText": "You don’t have any drafts yet." },
+  { "id": "Q12-settings", "click": ["초안 목록 닫기", "설정 열기"], "waitText": "Mock: member" },
+  { "id": "Q12-default-level", "click": ["기본 설명 수준 변경"], "waitText": "취소" },
+  { "id": "Q12-membership", "click": ["기본 설명 수준 취소", "Membership and payment"], "waitText": "모의 선택 · 보관본 가격 · 결제 없음" },
+  { "id": "Q12-member-success", "click": ["Friend 모의 선택"], "waitText": "Your mock membership is ready." },
+  { "id": "Q12-member-welcome", "click": ["멤버십 성공 확인"], "waitText": "모의 멤버십이 적용됐어요. 실제 결제는 없어요." },
+  { "id": "Q12-tools", "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain", "click": ["Reading tools"], "waitText": "Hide reading tools" },
+  { "id": "Q12-tools-closed", "click": ["Reading tools"], "waitText": "Reading tools · local example", "assert": [
+    { "selector": "[aria-label='Reading tools']", "contains": "Reading tools · local example", "minHeight": 48 }
+  ] },
+  { "id": "Q12-long-search", "navigate": "/", "click": ["탐색", "기사 검색 열기"], "input": [
+    { "label": "기사 검색어", "text": "금리와 환율이 우리 생활에 미치는 영향에 관한 긴 한국어 검색 문장" }
+  ], "waitText": "검색 결과" }
+]

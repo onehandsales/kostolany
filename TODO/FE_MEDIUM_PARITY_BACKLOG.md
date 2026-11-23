@@ -1,5 +1,13 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**Parity 3 추가 재검토:** [정책 View story 이동 시 잔존 모달과 접근권 상실 시 응답 초안 노출 수정](FE_MEDIUM_PARITY_03_RESULT.md#additional-review). D08의 수명 연결을 보완하며 V21/U/Q07 잔여와 다음 묶음4 범위는 유지한다. 최초 증거와 추가 실행은 별도 manifest로 구분한다.
+
+**현재 — Parity 3(2026-11-23):** [D08/V21 구현·검증·재검토 결과](FE_MEDIUM_PARITY_03_RESULT.md). D08의 보이는 기사 영역과 기존 mock 도구/복귀를 연결했다. V21 자산·서체·272 응답 동일 재현은 잔여, U-S008/U-F34 미확인과 Q07 기기 대기는 유지한다. 다음은 [묶음4](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-04), 미착수다. 아래 Parity 2 이전의 현재/미착수/다음 문구는 당시 이력이며 원본 요구·증거를 삭제하지 않는다.
+
+**Parity 2 추가 재검토:** [포커스 복귀·검사기 누락 수정과 새 검증](FE_MEDIUM_PARITY_02_RESULT.md#additional-review)을 반영했다. Q02/C03의 공통 메뉴 복귀를 보완했으며 원본200화면 전체·Q02/Q12 전체 완료로 승격하지 않는다. 다음은 여전히 묶음3(D08/V21)이다.
+
+**현재 — Parity 2(2026-11-23):** [공통 UI 보정·재검토 결과](FE_MEDIUM_PARITY_02_RESULT.md), [자체 UI 처리 기준](MEDIUM_PARITY/OWN_UI_POLICY.md)을 반영했다. Q02의 본문 폭/이미지 비율/표시 설정/팝오버와 Q12의 상태별 기준을 보완했다. Q02/Q12의 각 화면 잔여·Q01 전수 재현·Q07 기기 대기는 미완료다. 다음은 [묶음3 D08/V21](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-03)이며 미착수다. 아래 감사·Parity 1의 미착수/다음 작업 문구는 당시 이력으로 보존한다.
+
 [검토 결론](FE_MEDIUM_PARITY_AUDIT.md) · [재검토 결과](FE_MEDIUM_PARITY_REVIEW.md) · [63흐름](MEDIUM_PARITY/FLOWS.md) · [미확인 목록](MEDIUM_PARITY/UNKNOWN.md)
 
 **Parity 1 후속 기록(2026-11-23):** [200화면 비교 조건](MEDIUM_PARITY/COMPARISON_BASELINE.md), [비교 프로토콜](MEDIUM_PARITY/COMPARISON_PROTOCOL.md), [공통 자산 기준](MEDIUM_PARITY/ASSET_BASELINE.md), [22개 실행 묶음·D/Q/V 전 항목 배정](MEDIUM_PARITY/EXECUTION_PLAN.md), [이번 실행 결과](FE_MEDIUM_PARITY_01_RESULT.md)를 추가했다. 200화면의 조건·추적 연결과 10개 웹 진단 캡처를 확보했으며, 동일 fixture/플랫폼의 전수 재현은 미완료다. Q01은 미완료, Q02는 기준 정리만 진행했다. 아래 기능 보완 FE 코드는 아직 수정하지 않았다. 다음 실행 대상은 묶음2의 공통 UI 기반이며 자동 착수하지 않는다.
@@ -140,6 +148,8 @@
 
 ## D08 — Medium Rules의 원본 기사 요소·기능 연결
 
+- **Parity 3 현재 판정:** [이번 결과](FE_MEDIUM_PARITY_03_RESULT.md)의 범위에서 헤더/작성자/강조/도구와 기존 mock 상태·복귀 연결 완료. 실제 Medium 도구 결과·전문은 미확인, 원본 자산/서체/응답272는 V21 잔여다. 아래는 감사 당시 근거/요구를 보존한 것이다.
+
 - 판정: **상위 범위·차이 기록 있음 / 상세 작업화·구현 잔여**. 기존 담당 Goal 26 + 25·28·33·45·47.
 
 - 원본 맥락: [F34](MEDIUM_PARITY/FLOWS.md#f34)
@@ -240,6 +250,8 @@
 
 ## Q02 — 공통 서체·아이콘·자산·레이아웃 계약 보정
 
+- Parity 2: [공통 보정·실행·재검토](FE_MEDIUM_PARITY_02_RESULT.md) 완료. 원본 폰트/vector 미확보와 각 V의 서체·간격·색·아이콘/crop 차이는 계속 미완료. 묶음2 결과를 화면 전체 완료로 전파하지 않는다.
+
 - 판정: **구현/시각 잔여**. 기존 담당 Goal 23·24·49·53.
 
 - 작업: System/Georgia/Times 등 대체 폰트, 원본과 다른 아이콘·아바타·표지·앱 자산을 목록화하고 확보/대체/미확인을 나눈다. 글꼴 크기·행간·굵기·자간·줄바꿈·색·좌표·crop을 비교한다. 48×48 터치 영역과 보이는 아이콘 크기를 분리한다.
@@ -339,6 +351,8 @@
 <a id="q12"></a>
 
 ## Q12 — 원본에 없는 자체 추가 UI의 처리
+
+- Parity 2: [상태별 기준](MEDIUM_PARITY/OWN_UI_POLICY.md)·[실행 결과](FE_MEDIUM_PARITY_02_RESULT.md)를 추가했다. A/B·탭·펼침·모달 단계에 따른 노출을 구분하고 기능 접근/mock 고지를 유지한다. 작성 글·About·Rules·듣기의 이번 확인은 코드 조건이며 각 담당 묶음의 실제 배치 검증은 남았다.
 
 - 판정: **기존 결과에 흩어져 있던 차이의 작업화 보완 / 구현 결정·시각 보정 미완료**. 기존 담당 Goal23·25·39·41·42·45·48·49·53.
 - 근거: [ProfileScreen.tsx](../FE/src/features/profile/ProfileScreen.tsx)의 `Continue setup`/`Drafts`/모의 계정 안내, [SettingsScreen.tsx](../FE/src/features/settings/SettingsScreen.tsx)의 `Mock:`·`Reading tools · local example`, [ReferenceArticleView.tsx](../FE/src/features/article/ReferenceArticleView.tsx)의 Reading tools, [WrittenStoryScreen.tsx](../FE/src/features/editor/WrittenStoryScreen.tsx)의 `모의 발행` 등은 보관 원본과 다른 현재 UI다. 작성자 About의 추가 웹사이트 줄과 정책 발췌 안내도 기존 후속 결과에 차이로 기록되어 있다.
@@ -671,6 +685,8 @@
 <a id="v21"></a>
 
 ## V21 — 정책 기사
+
+- **Parity 3 현재 판정:** [S008 구조·도구·F34 연결과 전후 캡처](FE_MEDIUM_PARITY_03_RESULT.md)를 확보했다. 로고/아바타 M 대체, 원본 서체/정확 간격/아이콘·수치 크기, 272→실제 mock 0/1 차이가 남아 전체 완료가 아니다. 잔여는 묶음3 소유로 유지하고 최종22에서 재대조한다. 아래 원본 수용 조건은 유지한다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 26, 공통 Goal23/50/51/53.
 

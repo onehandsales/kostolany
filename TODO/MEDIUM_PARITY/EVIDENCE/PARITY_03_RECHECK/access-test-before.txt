@@ -1,0 +1,61 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand ResponsesPanel --selectProjects iOS --testNamePattern read-error
+
+Running one project: iOS
+  console.error
+    An update to VirtualizedList inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      at node_modules/react-reconciler/cjs/react-reconciler.development.js:16307:19
+      at runWithFiberInDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:2508:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-reconciler/cjs/react-reconciler.development.js:16306:9)
+      at scheduleUpdateOnFiber (node_modules/react-reconciler/cjs/react-reconciler.development.js:14070:11)
+      at Object.enqueueSetState (node_modules/react-reconciler/cjs/react-reconciler.development.js:18909:13)
+      at VirtualizedList.Object.<anonymous>.process.env.NODE_ENV.Component.setState (node_modules/react/cjs/react.development.js:655:20)
+      at node_modules/@babel/runtime/helpers/superPropGet.js:6:14
+      at VirtualizedList.setState (node_modules/@react-native/virtualized-lists/Lists/StateSafePureComponent.js:40:7)
+      at VirtualizedList.setState [as _updateCellsToRender] (node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js:1909:10)
+      at Timeout._updateCellsToRender [as _onTimeout] (node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js:1806:16)
+
+FAIL iOS src/features/responses/ResponsesPanel.test.tsx (16.963 s)
+  × 직접 연 정책 응답에서 read-error 발생 시 입력을 폐기하고 복구 후 되살리지 않는다 (3777 ms)
+  ○ skipped 직접 연 정책 응답에서 block 발생 시 입력을 폐기하고 복구 후 되살리지 않는다
+  ○ skipped 직접 연 정책 응답도 A→B→A와 같은 A 재로그인 때 이전 입력·정렬을 초기화한다
+  ○ skipped 답글 전송 뒤 접기를 유지하고 초안 변경 여부 false에서도 늦은 성공을 격리한다
+  ○ skipped 답글 전송 뒤 접기를 유지하고 초안 변경 여부 true에서도 늦은 성공을 격리한다
+  ○ skipped A 작성 중 B와 같은 A 재로그인에서 늦은 success와 이전 초안·메뉴를 격리한다
+  ○ skipped A 작성 중 B와 같은 A 재로그인에서 늦은 failure와 이전 초안·메뉴를 격리한다
+  ○ skipped 최초 조회 실패에서 재시도하고 source 교체 시 이전 읽기와 열린 패널을 폐기한다
+
+  ● 직접 연 정책 응답에서 read-error 발생 시 입력을 폐기하고 복구 후 되살리지 않는다
+
+    expect(received).toBeNull()
+
+    Received: <Modal accessibilityLabel="Responses 패널" animationType="slide" onRequestClose={[Function onClose]} transparent={true}><RNCSafeAreaView accessibilityViewIsModal={true} edges={{"bottom": "additive", "left": "additive", "right": "additive", "top": "additive"}} style={[{"backgroundColor": "rgba(0,0,0,0.45)", "flex": 1, "paddingTop": 10}, false]}><View onLayout={[Function anonymous]} style={[[Object], [Object]]}><View style={[Array]}><View … /><View … /></View></View></RNCSafeAreaView></Modal>
+
+      56 |     else { failRead = true; await moderation.reload(); }
+      57 |   });
+    > 58 |   expect(screen.queryByLabelText('Responses 패널')).toBeNull();
+         |                                                   ^
+      59 |   await act(async () => {
+      60 |     if (failure === 'block') await moderation.execute({ operationId: 'unblock-policy', action: { kind: 'block', writerId: 'medium-policy-author', active: false } });
+      61 |     else { failRead = false; await moderation.reload(); }
+
+      at toBeNull (src/features/responses/ResponsesPanel.test.tsx:58:51)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 7 skipped, 8 total
+Snapshots:   0 total
+Time:        18.955 s
+Ran all test suites matching /ResponsesPanel/i with tests matching "read-error".

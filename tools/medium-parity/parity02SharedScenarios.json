@@ -1,0 +1,15 @@
+[
+  { "id": "Q12-existing-profile", "navigate": "/", "click": ["프로필", "모의 로그인 시작", "예시 독자 B", "Google로 로그인 (모의)"], "waitText": "Edit your profile", "assert": [
+    { "selector": "[aria-label='온보딩 이어서 하기']", "visible": false },
+    { "selector": "[aria-label='내 초안']", "minHeight": 48 }
+  ] },
+  { "id": "Q12-lists", "click": ["Lists"], "assert": [
+    { "selector": "[aria-label='내 초안']", "visible": false }
+  ] },
+  { "id": "Q12-response-menu", "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain", "click": ["Bérnie response options"], "waitText": "Report response", "assert": [
+    { "selector": "[aria-label='Report response, brain-bernie']", "inside": true, "minHeight": 48 }
+  ] },
+  { "id": "Q12-response-dismiss", "keys": ["Escape"], "assert": [
+    { "selector": "[aria-label='응답 메뉴 닫기']", "visible": false }
+  ] }
+]

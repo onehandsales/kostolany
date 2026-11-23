@@ -273,7 +273,7 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "2ea401ad4c3376df350e8655d602b6fcee525ca8de4426a33029652267a00eff"
+      "sha256": "4b7dc9e3b070c6b6aee5a562b3f3920916d8594f446922e8f5a39e7d4e0bb4aa"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
@@ -285,11 +285,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "b5c0c837323e354b877264701b48d9444bdf55d61c2c50571f3075214ec5251b"
+      "sha256": "ac68eba21bcf5b734732bcce97694c9ccaae11def6f2fbaa067d7f26ef83ba17"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "8e8dd7daf0b45b889a5d34d815c266a5c2916249b434749e668c6d259280bc48"
+      "sha256": "94f658ad6bf5ce7a3785152f2e2f469a61386c7fb2e42c90a85d0756cf946ff2"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
@@ -325,11 +325,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "2f9c8ba22798ee4508ca22a99288fbfb0157437fc11752a48f99f9eb2d20e78d"
+      "sha256": "d3c12ab28a7edb4ed56ba07f608bb3516189a5f43e10074504090a6713f28c4c"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
-      "sha256": "ec6b8a86f8f114a0be7bbc9d5443aef2b481af93ca9e3f4c74f528394b758f7a"
+      "sha256": "0e353fe67081dae25b31e8d1146280d72c280e748de978f483b086ac519ba446"
     },
     {
       "path": "tools/medium-parity/currentEvidence.json",
@@ -337,13 +337,17 @@
     },
     {
       "path": "tools/medium-parity/executionBatches.json",
-      "sha256": "7090993b4a7b1bca5430455b35dc441fe7c02b70ef5593a0ce3c48dfb14c5142"
+      "sha256": "d83eaa32cd9f64b2d6a4819e7de90c472bc4e689871c7e57fab6573074a5ed21"
     }
   ],
   "codeInputs": [
     {
       "path": "FE/app.json",
       "sha256": "29dcf9ee7a9a44117a679dfa686283385b6fa5f621417ae11e2640edb3cc7568"
+    },
+    {
+      "path": "FE/App.tsx",
+      "sha256": "005c37591165bf07a2c52e5a7093b65873df1412d83d91982316a24f1c8d6977"
     },
     {
       "path": "FE/assets/medium/SOURCES.json",
@@ -379,7 +383,7 @@
     },
     {
       "path": "FE/src/app/navigation/ArticleRouteScreen.tsx",
-      "sha256": "63c0f3a0149c5dda2375bc29d3345da9b215b80f22b70af66149e21e344dfefb"
+      "sha256": "c086efca81ff4b4e29390ea7b6f73fc0f7092c03a708435950d43d7097291a5c"
     },
     {
       "path": "FE/src/app/navigation/AuthBoundaryNavigation.test.tsx",
@@ -480,6 +484,10 @@
     {
       "path": "FE/src/app/navigation/OnboardingNavigation.test.tsx",
       "sha256": "1d48ce8c2c2f8dd658b35d697bc193a01759f59de8c7939335b230601c7328b5"
+    },
+    {
+      "path": "FE/src/app/navigation/PolicyNavigation.test.tsx",
+      "sha256": "bb1c4e51d709333fca55d0b4b6a9eae0c3f6932f4bd4c760e163e11e1442cc97"
     },
     {
       "path": "FE/src/app/navigation/previewLinks.test.ts",
@@ -607,7 +615,7 @@
     },
     {
       "path": "FE/src/features/article/ArticleDetailScreen.tsx",
-      "sha256": "65fbab9aae7458e4903a1638525ecdaf072dd1cff0e9cf1c749fb2b63d29e5d4"
+      "sha256": "a87b0ebf0b98ab2eba9fef7634d6a48f84fdb2bea7136b1e21af780af6ade642"
     },
     {
       "path": "FE/src/features/article/articleSelectionDocument.ts",
@@ -627,7 +635,7 @@
     },
     {
       "path": "FE/src/features/article/data/fixtures.ts",
-      "sha256": "ff7c0cb2da51086e2d597e228a265eb7d407b10926558c9478ecfb6b50e7e7b2"
+      "sha256": "0018dbe5b502efaf07315399c6378f1469c8e9ba4d39a51c0939b225122d7571"
     },
     {
       "path": "FE/src/features/article/data/mockArticleSource.test.ts",
@@ -667,7 +675,7 @@
     },
     {
       "path": "FE/src/features/article/ReferenceArticleFooter.tsx",
-      "sha256": "1cbc49226d9370f6f677c6e2dff54439ae7457f1cc7512187579711f72445943"
+      "sha256": "434395d5b1305856c290f2f5f68548720b4d500dfd6a03d7f45a6a7d757e3716"
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.test.tsx",
@@ -675,7 +683,7 @@
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.tsx",
-      "sha256": "64217558e5fb6574791264a4b2239bf94c1efa38bd10d207def5a9eb0af35fbf"
+      "sha256": "2be005f8bedab18433c49c0746683f7cc6fedef7d2d417b4dbb8fcd42231ee28"
     },
     {
       "path": "FE/src/features/article/types.ts",
@@ -955,7 +963,7 @@
     },
     {
       "path": "FE/src/features/community/data/publicDirectory.ts",
-      "sha256": "5bd64f4a30e82372e3f7bef0c420fb885f7cb45c1ce7c1143c8cd2f81da5ab54"
+      "sha256": "7ce315ddcb512d50157dfd6e4a88143f74f5b02413c5e85a99d31e5ae9d1148f"
     },
     {
       "path": "FE/src/features/community/data/relationshipPreview.ts",
@@ -1243,7 +1251,7 @@
     },
     {
       "path": "FE/src/features/feed/data/mediumFixtures.ts",
-      "sha256": "00a470a548b0999609c050a0d73ea045bf1a32c4cae43f75cda4ef2f1f1e9918"
+      "sha256": "b0bd0dd464e5b6bb9e593e392e85c2f9c84d1d25386a8a8bc5e59060685b7743"
     },
     {
       "path": "FE/src/features/feed/data/mediumHistoryStories.ts",
@@ -1252,6 +1260,10 @@
     {
       "path": "FE/src/features/feed/data/mediumLibraryFixtures.ts",
       "sha256": "5a951133424e85156a580411004a422fcc04bd14578ade15196589c3831965b7"
+    },
+    {
+      "path": "FE/src/features/feed/data/mediumPolicyArticle.ts",
+      "sha256": "c19bfdc77b4199b6017206d203aab758aa8f7ef9d1ac9b42b8e81873fa05cf6c"
     },
     {
       "path": "FE/src/features/feed/data/mediumPublicListStories.ts",
@@ -1902,8 +1914,16 @@
       "sha256": "e3f061cef6d3f8f2579b534a0c8a138f39852d7bb65e23133a8b85d035bba5d4"
     },
     {
+      "path": "FE/src/features/responses/PolicyArticle.tsx",
+      "sha256": "bf4ddb9e117e454ff75c8f262117c2847dd1aba26a5612b150fd7e977c0988ca"
+    },
+    {
+      "path": "FE/src/features/responses/PolicyArticleScreen.tsx",
+      "sha256": "ce978acb5d92ca6ea125dd989d2f95afa8d5a62b53d4ac3852e0fc215fedd1d7"
+    },
+    {
       "path": "FE/src/features/responses/ResponseButton.tsx",
-      "sha256": "9b7eb0593d14afed4df07281ca98f170f01a8599de03251b8c41c2e6a4727016"
+      "sha256": "2abbc4f6258800807a24672ba60958de5529a6a32575792384141abeff3683e0"
     },
     {
       "path": "FE/src/features/responses/ResponseCard.tsx",
@@ -1923,7 +1943,7 @@
     },
     {
       "path": "FE/src/features/responses/ResponsePreview.tsx",
-      "sha256": "3ac32e93d1b9af82b68fb3d2a9b3c88dceb8f3d1cf67087e7ea693dbd80ebf23"
+      "sha256": "28666fac148b21cef493a2ac9fdcaf58eeffd312022580f45cdc352c2aac5898"
     },
     {
       "path": "FE/src/features/responses/ResponseProvider.tsx",
@@ -1939,11 +1959,11 @@
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.test.tsx",
-      "sha256": "c89b0151c96d27f73ac3f89681a1383a894d9691ca4be0abbfed2ed87a4c4826"
+      "sha256": "7c7a67bb5deb5c7838eedd531a89d41244d29658006d39b66e9319ba075f6f15"
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.tsx",
-      "sha256": "f70dab4294dc750aee7bd7c7801dd78993f0c1924029647ea40c806975e04953"
+      "sha256": "7ef4a96236cf3a6c1a3bb1ac486d59df953dae91bb0975e0d803a8dd8b2c8421"
     },
     {
       "path": "FE/src/features/responses/responseVisibility.ts",
@@ -2027,7 +2047,7 @@
     },
     {
       "path": "FE/src/features/settings/ArticleDisplayPopover.tsx",
-      "sha256": "fc3d00a8d5c9f34103b5d8a92a6b80e3d02376e083199bbade5614b665a21605"
+      "sha256": "dbe207dda80b093beb9b4d5a51a9ba3417c0464ccb184dd86951d98d9783eaa3"
     },
     {
       "path": "FE/src/features/settings/createDisplaySettingsStore.test.ts",
@@ -2302,6 +2322,10 @@
       "sha256": "2457326036c51a3ef4614cb75efb7e0c95ecc38af9206ed9ad1ea8c041108563"
     },
     {
+      "path": "FE/src/shared/ui/AspectImage.tsx",
+      "sha256": "dde4172612426752784f1f5737149ed18956839fbca481a0f49989cd0b32eb77"
+    },
+    {
       "path": "FE/src/shared/ui/ContentIllustration.tsx",
       "sha256": "612d18926e1fac824a1135482b70dfb12bfafff8ef30efe397c08ff2a551c96e"
     },
@@ -2318,6 +2342,14 @@
       "sha256": "9803549967e7c8a43993ae91202f59fb45bd64382c50ead0cfca27d206a74884"
     },
     {
+      "path": "FE/src/shared/ui/getPopoverFrame.test.ts",
+      "sha256": "28e44fdb6e2bc7e0a75df5cca0177a2a40ba7e51590d01be38e0eb505d93dc23"
+    },
+    {
+      "path": "FE/src/shared/ui/getPopoverFrame.ts",
+      "sha256": "171f50e7bfa8cdd6f742091bc0cf6bc1c2d106b4faa9a7519a064fc5129412be"
+    },
+    {
       "path": "FE/src/shared/ui/IconButton.tsx",
       "sha256": "6b48714f86983a235e83d9fccca4be9104f223ee2cb3052de8fd680d2194b751"
     },
@@ -2328,6 +2360,14 @@
     {
       "path": "FE/src/shared/ui/modalIsolation.web.ts",
       "sha256": "a0e5fc1d0f0e3dd4e6a79873d9d85854c8f483d403a8f9b2881e5c1c26aed097"
+    },
+    {
+      "path": "FE/src/shared/ui/PreviewLayout.tsx",
+      "sha256": "b1c12a76bde6094a4aa140e84756a00883a2c0452f3b2e7456c202256739a2ba"
+    },
+    {
+      "path": "FE/src/shared/ui/PreviewLayout.web.tsx",
+      "sha256": "7f2b3d0ed59abfdd81c209158421a87dba9894e938d02e84c7133ab3970c0134"
     },
     {
       "path": "FE/src/shared/ui/ProviderIcon.tsx",
@@ -2363,7 +2403,7 @@
     },
     {
       "path": "FE/src/shared/ui/TopPopover.tsx",
-      "sha256": "93608bfe64594426e13f36220727af86f2af0ce28fa83a8d0c478f7fe593f32a"
+      "sha256": "7c6d939b70d15c117aa991a5fa42f301c8d3a0f8aaebe96d72e7a246297da3ca"
     },
     {
       "path": "FE/src/shared/ui/useReducedMotion.test.tsx",
@@ -2890,13 +2930,21 @@
     },
     "V21": {
       "title": "정책 기사",
-      "route": "Article → Responses → Rules/정책 아이콘 → policy 분기 → 닫기·복귀",
+      "route": "Article → Responses/본문 shield → PolicyArticle → 원래 응답/기사 복귀; 저장 후 Library → PolicyArticleScreen 재열기",
       "features": [
-        "responses"
+        "responses",
+        "feed",
+        "community",
+        "reactions",
+        "bookmarks",
+        "listening",
+        "sharing",
+        "settings",
+        "moderation"
       ],
-      "account": "공개 정책 읽기; 반응/관계 도구는 D08 범위 판정 필요",
-      "fixture": "현재 두 발췌문 분기; 원본 Medium Rules 전체 도구·반응 fixture 미연결",
-      "entry": "ResponsePolicyLink"
+      "account": "공개 정책 읽기; 기존 차단 정책 적용; 팔로우/박수/저장/작성은 mock A, guest 로그인 후 재행동",
+      "fixture": "medium-rules/medium-policy-author; 보이는 2문단과 세 번째 문단 시작/54K 초기 박수; 실제 mock 응답 0→1, 원본272와 차이 유지",
+      "entry": "PolicyArticle"
     },
     "V22": {
       "title": "기사 저장",
@@ -3051,7 +3099,7 @@
       "depends": [],
       "scope": "200화면 조건/원본 해시/경로/미확인과 전 항목 배정; Q02는 기준 정리만",
       "done": "기록·추적 검사와 도구 재현; 실제 준비 완료는 실행 증거가 있는 화면만",
-      "status": "이번 범위"
+      "status": "기준·배정 완료; Q01 전수 재현 미완료"
     },
     {
       "number": 2,
@@ -3065,7 +3113,7 @@
       ],
       "scope": "대체 폰트·SVG·crop·48px hit영역/보이는 크기를 정리하고 확보된 근거로 공통 기반 보정; 자체 UI 노출 기준 판정",
       "done": "영향 화면의 동일 fixture 전후 캡처·작은 폭/큰 글자; Q02/Q12 화면별 잔여는 후속 묶음에 유지",
-      "status": "미착수"
+      "status": "공통 보정·자체 UI 처리 기준 완료; Q02/Q12 화면별 잔여 및 native 검증 대기"
     },
     {
       "number": 3,
@@ -3079,7 +3127,7 @@
       ],
       "scope": "Rules 보이는 기사 영역과 도구의 mock 연결 범위·복귀",
       "done": "Responses→Rules→복귀; 원본에 없는 전문/실행 결과 생성 금지",
-      "status": "미착수"
+      "status": "D08 mock 연결·복귀 및 추가 재검토의 route 이탈/접근권 상실 보완; V21 자산/서체/272 재현 잔여, U 미확인·native 대기"
     },
     {
       "number": 4,
@@ -3834,8 +3882,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S001",
@@ -4150,8 +4198,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "빈 검색과 토픽 목록 진입. 원본에 없는 한국어 금융 토픽과 focus 밑줄·글자/간격 차이; Q12와 V02.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: 빈 검색과 토픽 목록 진입. 원본에 없는 한국어 금융 토픽과 focus 밑줄·글자/간격 차이; Q12와 V02.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S004",
@@ -4460,13 +4508,35 @@
         "FE/src/features/responses/ResponsesPanel.tsx"
       ],
       "sourceCandidates": [
+        "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
+        "FE/src/features/bookmarks/data/bookmarkPreview.ts",
+        "FE/src/features/bookmarks/data/createMockBookmarkSource.ts",
+        "FE/src/features/bookmarks/data/createMockUserListSource.ts",
+        "FE/src/features/bookmarks/data/userListPreview.ts",
+        "FE/src/features/community/data/createMockRelationshipSource.ts",
+        "FE/src/features/community/data/relationshipPreview.ts",
+        "FE/src/features/feed/data/feedPreview.ts",
+        "FE/src/features/feed/data/fixtures.ts",
+        "FE/src/features/feed/data/mediumFixtures.ts",
+        "FE/src/features/feed/data/mediumLibraryFixtures.ts",
+        "FE/src/features/feed/data/mockFeedSource.ts",
+        "FE/src/features/listening/createMockListeningSource.ts",
+        "FE/src/features/moderation/data/createMockModerationSource.ts",
+        "FE/src/features/moderation/data/moderationPreview.ts",
+        "FE/src/features/reactions/data/clapPreview.ts",
+        "FE/src/features/reactions/data/createMockClapSource.ts",
         "FE/src/features/responses/data/createMockResponseSource.ts",
         "FE/src/features/responses/data/responseFixtures.ts",
-        "FE/src/features/responses/data/responsePreview.ts"
+        "FE/src/features/responses/data/responsePreview.ts",
+        "FE/src/features/settings/accountConnectionSource.ts",
+        "FE/src/features/settings/data/createMockDisplaySettingsSource.ts",
+        "FE/src/features/settings/data/createMockReadingSettingsSource.ts",
+        "FE/src/features/settings/data/displayPreview.ts",
+        "FE/src/features/settings/data/settingsPreview.ts"
       ],
-      "routeRecipe": "Article → Responses → Rules/정책 아이콘 → policy 분기 → 닫기·복귀",
-      "accountAndPermission": "공개 정책 읽기; 반응/관계 도구는 D08 범위 판정 필요",
-      "fixtureRecipe": "현재 두 발췌문 분기; 원본 Medium Rules 전체 도구·반응 fixture 미연결",
+      "routeRecipe": "Article → Responses/본문 shield → PolicyArticle → 원래 응답/기사 복귀; 저장 후 Library → PolicyArticleScreen 재열기",
+      "accountAndPermission": "공개 정책 읽기; 기존 차단 정책 적용; 팔로우/박수/저장/작성은 mock A, guest 로그인 후 재행동",
+      "fixtureRecipe": "medium-rules/medium-policy-author; 보이는 2문단과 세 번째 문단 시작/54K 초기 박수; 실제 mock 응답 0→1, 원본272와 차이 유지",
       "referenceObservations": {
         "L": "배치: Medium Policy 헤더·문서 제목·작성자·본문",
         "D": "표시값·입력: 문서 표시일 May 26 2021, 11 min read",
@@ -4556,9 +4626,21 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "현재 정책 발췌문과 원본 기사 구조가 달라 D08 구현 후 실행 필요.",
+      "blocker": "Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님",
       "currentEvidence": [],
-      "acceptance": "S008에서 보이는 정책 기사 헤더·작성자·Follow·본문 강조·세 번째 문단 시작·상하단 도구를 개별 재현한다. 정책 전문의 미확인 영역과 보이는 요소의 누락을 혼동하지 않는다."
+      "acceptance": "S008에서 보이는 정책 기사 헤더·작성자·Follow·본문 강조·세 번째 문단 시작·상하단 도구를 개별 재현한다. 정책 전문의 미확인 영역과 보이는 요소의 누락을 혼동하지 않는다.",
+      "previousReviews": [
+        {
+          "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md",
+          "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03/flow-review/captures.json",
+          "scope": "S008 mock 연결과 S100 복귀; 원본 동일성 미완료"
+        }
+      ],
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json",
+        "scope": "추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료"
+      }
     },
     {
       "id": "S009",
@@ -5836,8 +5918,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "Trending 상위 기사 순서는 대응. OS 영역·웹 스크롤바·제목/행간·세로 배치 차이; 전수 동일성 아님.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: Trending 상위 기사 순서는 대응. OS 영역·웹 스크롤바·제목/행간·세로 배치 차이; 전수 동일성 아님.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S021",
@@ -7372,8 +7454,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "medium-brain 상단 진입. 제목/작가/커버 대응, 원본834와 현재7 응답·부제 줄바꿈·본문 크기 차이.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: medium-brain 상단 진입. 제목/작가/커버 대응, 원본834와 현재7 응답·부제 줄바꿈·본문 크기 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S037",
@@ -9942,8 +10024,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S063",
@@ -10599,8 +10681,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "guest/기본 feed 실제 진입. 원본 1.3K·529 응답 대신 현재0; OS 영역·폰트·카드 높이·자체 잘린 기사 안내 차이. 원본과 같은 상태 아님.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: guest/기본 feed 실제 진입. 원본 1.3K·529 응답 대신 현재0; OS 영역·폰트·카드 높이·자체 잘린 기사 안내 차이. 원본과 같은 상태 아님.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S069",
@@ -13628,9 +13710,21 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "previousReviews": [
+        {
+          "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md",
+          "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03/flow-review/captures.json",
+          "scope": "S008 mock 연결과 S100 복귀; 원본 동일성 미완료"
+        }
+      ],
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review",
+        "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json",
+        "scope": "추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료"
+      }
     },
     {
       "id": "S101",
@@ -15563,8 +15657,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S119",
@@ -16212,8 +16306,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S125",
@@ -20317,8 +20411,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S168",
@@ -23409,8 +23503,8 @@
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
-      "readiness": "current-web-capture",
-      "blocker": "Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.",
+      "readiness": "historical-web-capture-parity-01",
+      "blocker": "Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조",
       "currentEvidence": [
         {
           "id": "S198",

@@ -1,8 +1,8 @@
-# Parity 1 — 200개 화면 비교 조건
+# Medium Parity — 200개 화면 비교 조건
 
-[결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)
+[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)
 
-자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다.
+자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 새 전후·회귀 증거는 결과 문서와 별도 evidence-manifest.json을 따른다.
 
 <a id="s001"></a>
 
@@ -10,14 +10,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/07_sc_00409287a68f4416941e39326f6df6b9.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s001>) · `sc_00409287a68f4416941e39326f6df6b9`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: others 토글 off 확인; 강조 데이터 삭제 여부는 이번 검증 대상 아님; 배경·서체·반응 집계 차이 유지.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S001.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S001.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: Highlights from others 꺼짐
-- 이번 화면 상태: 상태: 타인 하이라이트 표시 설정 변경
+- 원본 관찰 표시값: 표시값·입력: Highlights from others 꺼짐
+- 원본 관찰 상태: 상태: 타인 하이라이트 표시 설정 변경
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 다크 설정 팝오버 토글 회색
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -33,12 +33,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 입력한 메모 표시
-- 이번 화면 상태: 상태: 메모 저장 결과 표시
+- 원본 관찰 표시값: 표시값·입력: 입력한 메모 표시
+- 원본 관찰 상태: 상태: 메모 저장 결과 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 대상 기사 위 세로선·이탤릭 메모
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -54,12 +54,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: 현재 1x
-- 이번 화면 상태: 상태: 음성·출력·콘텐츠 행동 메뉴
+- 원본 관찰 표시값: 표시값·입력: 현재 1x
+- 원본 관찰 상태: 상태: 음성·출력·콘텐츠 행동 메뉴
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 재생기 위 6행 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -73,14 +73,14 @@
 
 [원본 PNG](<../../medium/flows/Explore/Searching Medium/screens/02_sc_047c91d900aa47448d61e4faacd68ad5.png>) · [원본 분석](<../../medium/flows/Explore/Searching Medium/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s004>) · `sc_047c91d900aa47448d61e4faacd68ad5`
 
-- 담당: V02 / 묶음 17. 상태: **current-web-capture**. 빈 검색과 토픽 목록 진입. 원본에 없는 한국어 금융 토픽과 focus 밑줄·글자/간격 차이; Q12와 V02.
+- 담당: V02 / 묶음 17. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 빈 검색과 토픽 목록 진입. 원본에 없는 한국어 금융 토픽과 focus 밑줄·글자/간격 차이; Q12와 V02.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S004.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S004.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: Life·Self Improvement·Work·Technology 등
-- 이번 화면 상태: 상태: 검색어 없는 탐색 화면
+- 원본 관찰 표시값: 표시값·입력: Life·Self Improvement·Work·Technology 등
+- 원본 관찰 상태: 상태: 검색어 없는 탐색 화면
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창 아래 Explore topics 세로 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -96,12 +96,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 이름 유지·대명사와 소개 빈값
-- 이번 화면 상태: 상태: 선택 사진 미리보기
+- 원본 관찰 표시값: 표시값·입력: 이름 유지·대명사와 소개 빈값
+- 원본 관찰 상태: 상태: 선택 사진 미리보기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 편집 폼 아바타 변경
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -117,12 +117,12 @@
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다.
-- 이번 화면 상태: 상태: 5개 주제 선택과 진행 버튼 변화가 관찰된다.
+- 원본 관찰 표시값: 표시값·입력: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다.
+- 원본 관찰 상태: 상태: 5개 주제 선택과 진행 버튼 변화가 관찰된다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 동일 칩 목록에서 선택 항목이 녹색으로 채워진다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -138,12 +138,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 18K 집계, 응답 832
-- 이번 화면 상태: 상태: 박수 입력 피드백 표시
+- 원본 관찰 표시값: 표시값·입력: 18K 집계, 응답 832
+- 원본 관찰 상태: 상태: 박수 입력 피드백 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 하단 박수 위 녹색 +16 애니메이션
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -157,14 +157,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s008>) · `sc_063290fab51b4acd913212f85acde70d`
 
-- 담당: V21 / 묶음 3. 상태: **recipe-only**. 현재 정책 발췌문과 원본 기사 구조가 달라 D08 구현 후 실행 필요.
-- 실제 FE 진입 절차(정적 확인): Article → Responses → Rules/정책 아이콘 → policy 분기 → 닫기·복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- 담당: V21 / 묶음 3. 상태: **recipe-only**. Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님
+- 실제 FE 진입 절차(정적 확인): Article → Responses/본문 shield → PolicyArticle → 원래 응답/기사 복귀; 저장 후 Library → PolicyArticleScreen 재열기
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponsePolicyLink.tsx](<../../FE/src/features/responses/ResponsePolicyLink.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>)
-- 계정·권한: 공개 정책 읽기; 반응/관계 도구는 D08 범위 판정 필요
-- fixture 구성: 현재 두 발췌문 분기; 원본 Medium Rules 전체 도구·반응 fixture 미연결
-- 이번 화면 표시값: 표시값·입력: 문서 표시일 May 26 2021, 11 min read
-- 이번 화면 상태: 상태: 응답에서 연결된 정책 읽기
+- 계정·권한: 공개 정책 읽기; 기존 차단 정책 적용; 팔로우/박수/저장/작성은 mock A, guest 로그인 후 재행동
+- fixture 구성: medium-rules/medium-policy-author; 보이는 2문단과 세 번째 문단 시작/54K 초기 박수; 실제 mock 응답 0→1, 원본272와 차이 유지
+- 원본 관찰 표시값: 표시값·입력: 문서 표시일 May 26 2021, 11 min read
+- 원본 관찰 상태: 상태: 응답에서 연결된 정책 읽기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Medium Policy 헤더·문서 제목·작성자·본문
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -180,12 +180,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Replying to Alex Smith 표시, 기존 내용 채움
-- 이번 화면 상태: 상태: 편집 흐름이나 UI 문구는 Replying
+- 원본 관찰 표시값: 표시값·입력: Replying to Alex Smith 표시, 기존 내용 채움
+- 원본 관찰 상태: 상태: 편집 흐름이나 UI 문구는 Replying
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기존 응답 회색 강조, 키보드·기존 문장 입력창
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -201,12 +201,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: 기존 문장 끝 하트 3개 추가
-- 이번 화면 상태: 상태: 수정 제출 전
+- 원본 관찰 표시값: 표시값·입력: 기존 문장 끝 하트 3개 추가
+- 원본 관찰 상태: 상태: 수정 제출 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 같은 입력창·키보드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -222,12 +222,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 4 stories, 저장 아이콘 채움
-- 이번 화면 상태: 상태: 리스트에 글 4개
+- 원본 관찰 표시값: 표시값·입력: 4 stories, 저장 아이콘 채움
+- 원본 관찰 상태: 상태: 리스트에 글 4개
 - 시간: 목록 표시6초+4개; S106과 독립 snapshot/D13
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 4개 글 중 상위 2개·각 항목 Add a note
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -243,12 +243,12 @@
 
 - 담당: V17 / 묶음 11. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 본문 구절 선택 → Highlight/Respond/Share → 강조 표시
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NativePassagePicker.tsx](<../../FE/src/features/highlights/NativePassagePicker.tsx>), [PassageReader.tsx](<../../FE/src/features/highlights/PassageReader.tsx>)
 - 계정·권한: A 개인 강조; 타인 강조 표시와 구분
 - fixture 구성: HighlightSource + 본문 version/UTF16 범위; native는 별도 Select a passage로 D09 차이
-- 이번 화면 표시값: 표시값·입력: 선택했던 구절 강조
-- 이번 화면 상태: 상태: 하이라이트 적용 표시
+- 원본 관찰 표시값: 표시값·입력: 선택했던 구절 강조
+- 원본 관찰 상태: 상태: 하이라이트 적용 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 선택 핸들·메뉴 없이 연녹색 강조 유지
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -264,12 +264,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.
-- 이번 화면 상태: 상태: 코드 미입력 상태다.
+- 원본 관찰 표시값: 표시값·입력: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.
+- 원본 관찰 상태: 상태: 코드 미입력 상태다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 닫기 X가 있는 전면 시트에 인증 안내와 여섯 칸 입력란이 배치된다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -285,12 +285,12 @@
 
 - 담당: V04 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Topic → 큐레이션 카드 → PublicList(listId); S135는 More from Medium Staff까지 스크롤
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleBookmarkControl.tsx](<../../FE/src/features/bookmarks/ArticleBookmarkControl.tsx>), [PublicListScreen.tsx](<../../FE/src/features/public-lists/PublicListScreen.tsx>), [PublicListStoryCard.tsx](<../../FE/src/features/public-lists/PublicListStoryCard.tsx>), [SavePublicListControl.tsx](<../../FE/src/features/public-lists/SavePublicListControl.tsx>)
 - 계정·권한: 공개 목록; 저장·반응은 A
 - fixture 구성: publicListFixtures / PublicListSource; 8 stories·108 saves 원본 상태를 별도로 대조
-- 이번 화면 표시값: 표시값·입력: 8 stories, 108 saves, Medium Staff
-- 이번 화면 상태: 상태: 공개 리스트 읽기
+- 원본 관찰 표시값: 표시값·입력: 8 stories, 108 saves, Medium Staff
+- 원본 관찰 상태: 상태: 공개 리스트 읽기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 소유자·날짜·제목·설명·기사 목록·부유 반응 바
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -306,12 +306,12 @@
 
 - 담당: V10 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor 본문 @ → samlee → 후보 선택 → Sam Lee 삽입
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DocumentReader.tsx](<../../FE/src/features/editor/DocumentReader.tsx>), [MentionSuggestions.tsx](<../../FE/src/features/editor/MentionSuggestions.tsx>)
 - 계정·권한: A 소유 초안
 - fixture 구성: mention 검색 source와 문서 snapshot; S015 문자열 위치·키보드 별도
-- 이번 화면 표시값: 표시값·입력: 이름 링크처럼 표시
-- 이번 화면 상태: 상태: 멘션 후보 선택 반영
+- 원본 관찰 표시값: 표시값·입력: 이름 링크처럼 표시
+- 원본 관찰 상태: 상태: 멘션 후보 선택 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 결과 대신 녹색 Sam Lee 텍스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -327,12 +327,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: 1x, 200 WPM
-- 이번 화면 상태: 상태: 현재 속도 표시
+- 원본 관찰 표시값: 표시값·입력: 1x, 200 WPM
+- 원본 관찰 상태: 상태: 현재 속도 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Select Speed 시트, 세로 슬라이더·등급 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -348,12 +348,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 사진 블록 선택
-- 이번 화면 상태: 상태: 블록 구분선 노출
+- 원본 관찰 표시값: 표시값·입력: 사진 블록 선택
+- 원본 관찰 상태: 상태: 블록 구분선 노출
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 목록 아래 점 3개 구분선, 이미지 녹색 테두리
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -369,12 +369,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 단일 목록 항목
-- 이번 화면 상태: 상태: 글머리 목록 표시
+- 원본 관찰 표시값: 표시값·입력: 단일 목록 항목
+- 원본 관찰 상태: 상태: 글머리 목록 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 단락 앞 점과 들여쓰기, 목록 도구 녹색
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -390,12 +390,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Can't agree more!
-- 이번 화면 상태: 상태: 인용 응답 제출 준비
+- 원본 관찰 표시값: 표시값·입력: Can't agree more!
+- 원본 관찰 상태: 상태: 인용 응답 제출 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 인용 카드 아래 문장 입력
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -411,12 +411,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Alex Smith, 0 followers·1 following
-- 이번 화면 상태: 상태: 발행 글 없음
+- 원본 관찰 표시값: 표시값·입력: Alex Smith, 0 followers·1 following
+- 원본 관찰 상태: 상태: 발행 글 없음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필·통계·편집·탭·Public 필터·빈 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -430,14 +430,14 @@
 
 [원본 PNG](<../../medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png>) · [원본 분석](<../../medium/flows/Explore/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s021>) · `sc_1c3e4349171248378eada528f7942269`
 
-- 담당: V02 / 묶음 17. 상태: **current-web-capture**. Trending 상위 기사 순서는 대응. OS 영역·웹 스크롤바·제목/행간·세로 배치 차이; 전수 동일성 아님.
+- 담당: V02 / 묶음 17. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: Trending 상위 기사 순서는 대응. OS 영역·웹 스크롤바·제목/행간·세로 배치 차이; 전수 동일성 아님.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S021.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S021.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: Search Medium 빈값
-- 이번 화면 상태: 상태: 발견 탐색
+- 원본 관찰 표시값: 표시값·입력: Search Medium 빈값
+- 원본 관찰 상태: 상태: 발견 탐색
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창·가로 토픽 칩·번호 매긴 Trending
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -453,12 +453,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: Writers 1, Topics 3
-- 이번 화면 상태: 상태: 작가·토픽 팔로우 표시
+- 원본 관찰 표시값: 표시값·입력: Writers 1, Topics 3
+- 원본 관찰 상태: 상태: 작가·토픽 팔로우 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Writers·Topics 섹션과 개수
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -474,12 +474,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: No topics added, No publication selected, Unlisted 꺼짐
-- 이번 화면 상태: 상태: 공개 전 설정
+- 원본 관찰 표시값: 표시값·입력: No topics added, No publication selected, Unlisted 꺼짐
+- 원본 관찰 상태: 상태: 공개 전 설정
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 예상 기사 카드와 Topics·Publication 행, 하단 Publish now
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -495,12 +495,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 샘플 계정 이메일 입력
-- 이번 화면 상태: 상태: 로그인 요청 전
+- 원본 관찰 표시값: 표시값·입력: 샘플 계정 이메일 입력
+- 원본 관찰 상태: 상태: 로그인 요청 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 동일 로그인 폼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -516,12 +516,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: 팔로우 상태 활성
-- 이번 화면 상태: 상태: 관계 설정 메뉴 닫힘
+- 원본 관찰 표시값: 표시값·입력: 팔로우 상태 활성
+- 원본 관찰 상태: 상태: 관계 설정 메뉴 닫힘
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Following 버튼·Stories 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -537,12 +537,12 @@
 
 - 담당: V01 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Home → For you·Featured 선택; S026은 헤더가 접힌 하단 카드, S176은 Featured 빈 상태
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [FollowingFeed.tsx](<../../FE/src/features/community/FollowingFeed.tsx>), [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScreen.tsx>)
 - 계정·권한: 공개 열람; 원본 개인화 상태 비교는 A
 - fixture 구성: mediumFeedFixtures / feedPreviewScenario(normal); Featured empty는 별도 feedSource 필요
-- 이번 화면 표시값: 표시값·입력: 다른 기사 카드와 집계 표시
-- 이번 화면 상태: 상태: For you 하단 목록
+- 원본 관찰 표시값: 표시값·입력: 다른 기사 카드와 집계 표시
+- 원본 관찰 상태: 상태: For you 하단 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 제목 접힘, 가로 탭과 하단 탐색 유지
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -558,12 +558,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 2/4, 소개 빈값
-- 이번 화면 상태: 상태: 선택값 폼에 반영
+- 원본 관찰 표시값: 표시값·입력: 2/4, 소개 빈값
+- 원본 관찰 상태: 상태: 선택값 폼에 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 편집 폼 Pronouns he·him
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -579,12 +579,12 @@
 
 - 담당: V23 / 묶음 13. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article/인용/Identity/PublicList 공유 → 카드 → Copy link/Save image/Share via
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ShareCard.tsx](<../../FE/src/features/sharing/ShareCard.tsx>), [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx>)
 - 계정·권한: A; 공개 권한/모의 회원 링크 자격 각각 검증
 - fixture 구성: ShareAdapter; 공개 공유 target + 카드 style index; OS 저장·공유는 Q07
-- 이번 화면 표시값: 표시값·입력: 동일 카드
-- 이번 화면 상태: 상태: Save image 전체 표시
+- 원본 관찰 표시값: 표시값·입력: 동일 카드
+- 원본 관찰 상태: 상태: Save image 전체 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 공유 시트 하단 가로 행동 영역 이동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -600,12 +600,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: Music 입력
-- 이번 화면 상태: 상태: 유사 철자·다른 토픽 결과
+- 원본 관찰 표시값: 표시값·입력: Music 입력
+- 원본 관찰 상태: 상태: 유사 철자·다른 토픽 결과
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색어 아래 유사 이름과 팔로워 수 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -621,12 +621,12 @@
 
 - 담당: V09 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor 더보기 또는 Profile Drafts → Drafts; 저장한 같은 draftId 재열기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DraftsScreen.tsx](<../../FE/src/features/editor/DraftsScreen.tsx>), [createDraftSession.ts](<../../FE/src/features/editor/createDraftSession.ts>)
 - 계정·권한: A 개인 초안; 빈 목록과 1개 초안 구분
 - fixture 구성: DraftSource; 제목 The Silence between Notes, editedAt=비교 시계-60초
-- 이번 화면 표시값: 표시값·입력: 본문 유지
-- 이번 화면 상태: 상태: 발행 보조 메뉴 열림
+- 원본 관찰 표시값: 표시값·입력: 본문 유지
+- 원본 관찰 상태: 상태: 발행 보조 메뉴 열림
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 더보기 아래 4행 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -642,12 +642,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 제목 유지, 단락 스타일 변경
-- 이번 화면 상태: 상태: 텍스트 서식 선택 상태
+- 원본 관찰 표시값: 표시값·입력: 제목 유지, 단락 스타일 변경
+- 원본 관찰 상태: 상태: 텍스트 서식 선택 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 회색 산세리프 단락과 녹색 문자 도구
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -663,12 +663,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: 1 hour ago, 4 hours ago, 7 hours ago
-- 이번 화면 상태: 상태: 최근 응답이 먼저 보임
+- 원본 관찰 표시값: 표시값·입력: 1 hour ago, 4 hours ago, 7 hours ago
+- 원본 관찰 상태: 상태: 최근 응답이 먼저 보임
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Most Recent 선택·새로운 작성자 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -684,12 +684,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: 작가 소개·인증 배지 일부
-- 이번 화면 상태: 상태: 전체 추천 중 작가 목록
+- 원본 관찰 표시값: 표시값·입력: 작가 소개·인증 배지 일부
+- 원본 관찰 상태: 상태: 전체 추천 중 작가 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: All 필터 아래 Writers to follow
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -705,12 +705,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 로그아웃 의사 확인
-- 이번 화면 상태: 상태: 세션 종료 전 확인
+- 원본 관찰 표시값: 표시값·입력: 로그아웃 의사 확인
+- 원본 관찰 상태: 상태: 세션 종료 전 확인
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 설정 위 중앙 Sign out 대화상자
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -726,12 +726,12 @@
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: 별도 입력란 없음. 작가와 Publication이 함께 표시됨
-- 이번 화면 상태: 상태: 팔로우 전 추천 목록
+- 원본 관찰 표시값: 표시값·입력: 별도 입력란 없음. 작가와 Publication이 함께 표시됨
+- 원본 관찰 상태: 상태: 팔로우 전 추천 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 환영 제목 아래 아바타·소개·Follow 행, 하단 고정 Finish
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -747,12 +747,12 @@
 
 - 담당: V22 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 하단 저장 → Save to → Reading list 선택 → Done/닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleBookmarkControl.tsx](<../../FE/src/features/bookmarks/ArticleBookmarkControl.tsx>), [SaveToListSheet.tsx](<../../FE/src/features/bookmarks/SaveToListSheet.tsx>)
 - 계정·권한: A 개인 기본 목록; guest는 로그인 복귀 후 재행동
 - fixture 구성: BookmarkSource·UserListStore; reading-list 체크와 canonical articleId
-- 이번 화면 표시값: 표시값·입력: Reading list 체크·자물쇠
-- 이번 화면 상태: 상태: 비공개 읽기 목록 선택
+- 원본 관찰 표시값: 표시값·입력: Reading list 체크·자물쇠
+- 원본 관찰 상태: 상태: 비공개 읽기 목록 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 하단 Save to 시트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -766,14 +766,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s037>) · `sc_332d5b0923e546fcbf6a8fc613cda6a4`
 
-- 담당: V13 / 묶음 10. 상태: **current-web-capture**. medium-brain 상단 진입. 제목/작가/커버 대응, 원본834와 현재7 응답·부제 줄바꿈·본문 크기 차이.
+- 담당: V13 / 묶음 10. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: medium-brain 상단 진입. 제목/작가/커버 대응, 원본834와 현재7 응답·부제 줄바꿈·본문 크기 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S037.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S037.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 5 min read, Apr 30 2025, Jordan Gibbs, 18K 박수·834 응답
-- 이번 화면 상태: 상태: 멤버 전용 기사 읽기 화면
+- 원본 관찰 표시값: 표시값·입력: 5 min read, Apr 30 2025, Jordan Gibbs, 18K 박수·834 응답
+- 원본 관찰 상태: 상태: 멤버 전용 기사 읽기 화면
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Member-only 배지·제목·부제·읽기 시간·작가·커버, 고정 반응 바
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -789,12 +789,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: 2 stories·이미지 모음
-- 이번 화면 상태: 상태: 작가 목록 탐색
+- 원본 관찰 표시값: 표시값·입력: 2 stories·이미지 모음
+- 원본 관찰 상태: 상태: 작가 목록 탐색
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Lists 탭에 AAA AI 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -810,12 +810,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: About mindfulness, No stories, 자물쇠 없음
-- 이번 화면 상태: 상태: 새 목록 생성 결과
+- 원본 관찰 표시값: 표시값·입력: About mindfulness, No stories, 자물쇠 없음
+- 원본 관찰 상태: 상태: 새 목록 생성 결과
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Your lists에 기본 목록과 새 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -831,12 +831,12 @@
 
 - 담당: V28 / 묶음 16. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Digest 설정 또는 Profile/Settings → Email/Push → NotificationSettings(section)
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>)
 - 계정·권한: A; 앱 설정과 OS권한을 별도 기록
 - fixture 구성: NotificationSource·설정 source; Daily/PushOn/EmailOn와 개별 토글 상태
-- 이번 화면 표시값: 표시값·입력: Your top story of the day·Editors 꺼짐, Digest 켜짐
-- 이번 화면 상태: 상태: 선택 알림만 비활성
+- 원본 관찰 표시값: 표시값·입력: Your top story of the day·Editors 꺼짐, Digest 켜짐
+- 원본 관찰 상태: 상태: 선택 알림만 비활성
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 같은 알림 폼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -852,12 +852,12 @@
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: 입력 필드는 없다.
-- 이번 화면 상태: 상태: 앱 업데이트와 팔로잉 재검토를 안내한다.
+- 원본 관찰 표시값: 표시값·입력: 입력 필드는 없다.
+- 원본 관찰 상태: 상태: 앱 업데이트와 팔로잉 재검토를 안내한다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 큰 환영 제목, 추천 개선 설명, 작가 아바타 묶음, 하단 CTA가 있다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -873,12 +873,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 본문 빈값
-- 이번 화면 상태: 상태: 작성 시작·키보드 활성
+- 원본 관찰 표시값: 표시값·입력: 본문 빈값
+- 원본 관찰 상태: 상태: 작성 시작·키보드 활성
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 Close·더보기·Next, 본문 커서, 키보드 위 서식 도구
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -894,12 +894,12 @@
 
 - 담당: V30 / 묶음 14, 18, 21. 상태: **native-required**. 대응 splash 설정 없음(D10); 웹 Home은 대체 증거가 아님; 실제 cold start는 Q07.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: 입력 필드는 없다.
-- 이번 화면 상태: 상태: 앱 진입 시 브랜드 표시 캡처다.
+- 원본 관찰 표시값: 표시값·입력: 입력 필드는 없다.
+- 원본 관찰 상태: 상태: 앱 진입 시 브랜드 표시 캡처다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검은 전면 배경 중앙에 흰 Medium 로고가 크게 배치된다.
 - 테마: black-brand-frame; app theme 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -915,12 +915,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: Publication 미지정, Unlisted 꺼짐
-- 이번 화면 상태: 상태: 링크 소지자 접근·공개 목록 제외라는 안내
+- 원본 관찰 표시값: 표시값·입력: Publication 미지정, Unlisted 꺼짐
+- 원본 관찰 상태: 상태: 링크 소지자 접근·공개 목록 제외라는 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 미리보기 하단 스크롤, Publication과 Unlisted 설명
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -936,12 +936,12 @@
 
 - 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
 - fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
-- 이번 화면 표시값: 표시값·입력: 읽은 글이 없다는 문구
-- 이번 화면 상태: 상태: 기록 목록 없음
+- 원본 관찰 표시값: 표시값·입력: 읽은 글이 없다는 문구
+- 원본 관찰 상태: 상태: 기록 목록 없음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Reading history 탭 내 안내 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -957,12 +957,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: Emma 선택, Matthew·Salli 등
-- 이번 화면 상태: 상태: Emma가 현재 선택된 음성 목록. 모든 계정의 기본 음성이라는 의미는 아니다.
+- 원본 관찰 표시값: 표시값·입력: Emma 선택, Matthew·Salli 등
+- 원본 관찰 상태: 상태: Emma가 현재 선택된 음성 목록. 모든 계정의 기본 음성이라는 의미는 아니다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색·FEATURED·ENGLISH 섹션과 국기·이름·성별·국가
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -978,12 +978,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Curious mind sharing thoughts one story at a time
-- 이번 화면 상태: 상태: 프로필 정보 반영
+- 원본 관찰 표시값: 표시값·입력: Curious mind sharing thoughts one story at a time
+- 원본 관찰 상태: 상태: 프로필 정보 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 아바타·이름 옆 he/him·About 본문
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -999,12 +999,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: Jordan Gibbs, 10.2K followers·25 following
-- 이번 화면 상태: 상태: 고정 글 Pinned 표시
+- 원본 관찰 표시값: 표시값·입력: Jordan Gibbs, 10.2K followers·25 following
+- 원본 관찰 상태: 상태: 고정 글 Pinned 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필·관계 집계·Friend 배지·팔로우 버튼·탭
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1020,12 +1020,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: Email notifications on 체크
-- 이번 화면 상태: 상태: 팔로우 성공 안내
+- 원본 관찰 표시값: 표시값·입력: Email notifications on 체크
+- 원본 관찰 상태: 상태: 팔로우 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 성공 토스트 위에 Following 메뉴
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1041,12 +1041,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 동일 기사
-- 이번 화면 상태: 상태: 재생 중을 나타내는 UI
+- 원본 관찰 표시값: 표시값·입력: 동일 기사
+- 원본 관찰 상태: 상태: 재생 중을 나타내는 UI
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 및 미니 플레이어 일시정지 아이콘
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1062,12 +1062,12 @@
 
 - 담당: V23 / 묶음 13. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article/인용/Identity/PublicList 공유 → 카드 → Copy link/Save image/Share via
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ShareCard.tsx](<../../FE/src/features/sharing/ShareCard.tsx>), [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx>)
 - 계정·권한: A; 공개 권한/모의 회원 링크 자격 각각 검증
 - fixture 구성: ShareAdapter; 공개 공유 target + 카드 style index; OS 저장·공유는 Q07
-- 이번 화면 표시값: 표시값·입력: Link copied
-- 이번 화면 상태: 상태: 복사 완료 안내
+- 원본 관찰 표시값: 표시값·입력: Link copied
+- 원본 관찰 상태: 상태: 복사 완료 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 공유 시트 상단 검정 토스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1083,12 +1083,12 @@
 
 - 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
 - fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
-- 이번 화면 표시값: 표시값·입력: 각 카드 휴지통
-- 이번 화면 상태: 상태: 개별 기록 삭제 진입 가능
+- 원본 관찰 표시값: 표시값·입력: 각 카드 휴지통
+- 원본 관찰 상태: 상태: 개별 기록 삭제 진입 가능
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 읽기 기록 탭 아래 다른 기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1104,12 +1104,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: 기사 읽기 시간·날짜·집계
-- 이번 화면 상태: 상태: 발견 페이지 중간
+- 원본 관찰 표시값: 표시값·입력: 기사 읽기 시간·날짜·집계
+- 원본 관찰 상태: 상태: 발견 페이지 중간
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Staff Picks 가로 큰 카드·Recommended for you 세로 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1125,12 +1125,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: Alex Smith와 이메일 샘플이 채워졌다. 비밀번호 입력은 없다.
-- 이번 화면 상태: 상태: 입력 후 제출 전 캡처다.
+- 원본 관찰 표시값: 표시값·입력: Alex Smith와 이메일 샘플이 채워졌다. 비밀번호 입력은 없다.
+- 원본 관찰 상태: 상태: 입력 후 제출 전 캡처다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 가입 폼이 위로 이동한 상태로 이름·이메일 입력란과 하단 약관이 보인다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1146,12 +1146,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 00:05, -04:35, 1x
-- 이번 화면 상태: 상태: 확장 재생 화면
+- 원본 관찰 표시값: 표시값·입력: 00:05, -04:35, 1x
+- 원본 관찰 상태: 상태: 확장 재생 화면
 - 시간: 재생00:05/-04:35/1x; mock 진행 고정
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 커버·작가·제목·진행 바·조작 버튼·Speechify 표시
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1167,12 +1167,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 4 stories·자물쇠, 한 기사 Viewed 표시
-- 이번 화면 상태: 상태: 읽은 기사 표시와 다크 테마
+- 원본 관찰 표시값: 표시값·입력: 4 stories·자물쇠, 한 기사 Viewed 표시
+- 원본 관찰 상태: 상태: 읽은 기사 표시와 다크 테마
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목·메모·기사 카드 어두운 테마
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1188,12 +1188,12 @@
 
 - 담당: V03 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → Life 또는 Self Improvement → Topic(topicId); 큐레이션까지 스크롤
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.tsx>)
 - 계정·권한: 공개 열람; Following은 A의 topic 관계 필요
 - fixture 구성: topicSource + relationshipSource; topicId와 following을 독립 설정
-- 이번 화면 표시값: 표시값·입력: 7.1M followers, 1.3M Stories
-- 이번 화면 상태: 상태: Life 미팔로우 상태
+- 원본 관찰 표시값: 표시값·입력: 7.1M followers, 1.3M Stories
+- 원본 관찰 상태: 상태: Life 미팔로우 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 가로 관련 토픽·중앙 이름·집계·추천 기사
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1209,12 +1209,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: Reading list4 stories·자물쇠
-- 이번 화면 상태: 상태: 라이브러리 테마 적용
+- 원본 관찰 표시값: 표시값·입력: Reading list4 stories·자물쇠
+- 원본 관찰 상태: 상태: 라이브러리 테마 적용
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 어두운 리스트 카드·썸네일 유지
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1230,12 +1230,12 @@
 
 - 담당: V31 / 묶음 19. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings Upgrade 또는 onboarding 구독 → MembershipSheet → monthly/yearly → 모의 선택·성공
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [MembershipSheet.tsx](<../../FE/src/features/membership/MembershipSheet.tsx>)
 - 계정·권한: A free/member/friend 비교 snapshot; 실제 결제 없음
 - fixture 구성: MembershipSource; SGD 보관 가격·독립 pending/success fixture; OS 구매 알림과 web Alert 차이
-- 이번 화면 표시값: 표시값·입력: Member $6.98 SGD/month, Friend $19.98 SGD/month
-- 이번 화면 상태: 상태: 오프라인·오디오 등 혜택 설명
+- 원본 관찰 표시값: 표시값·입력: Member $6.98 SGD/month, Friend $19.98 SGD/month
+- 원본 관찰 상태: 상태: 오프라인·오디오 등 혜택 설명
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 멤버십 시트 스크롤 중 Member 전체 카드와 다음 Friend 카드 일부
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1251,12 +1251,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: The Silence between Notes 제목과 음악 관련 단락 입력
-- 이번 화면 상태: 상태: 본문 끝 커서
+- 원본 관찰 표시값: 표시값·입력: The Silence between Notes 제목과 음악 관련 단락 입력
+- 원본 관찰 상태: 상태: 본문 끝 커서
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 굵은 제목과 세리프 본문, 키보드 위 편집 도구
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -1272,12 +1272,12 @@
 
 - 담당: V01 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Home → For you·Featured 선택; S026은 헤더가 접힌 하단 카드, S176은 Featured 빈 상태
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [FollowingFeed.tsx](<../../FE/src/features/community/FollowingFeed.tsx>), [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScreen.tsx>)
 - 계정·권한: 공개 열람; 원본 개인화 상태 비교는 A
 - fixture 구성: mediumFeedFixtures / feedPreviewScenario(normal); Featured empty는 별도 feedSource 필요
-- 이번 화면 표시값: 표시값·입력: Featured 선택. 저장 아이콘 표시
-- 이번 화면 상태: 상태: Featured 콘텐츠가 있는 상태
+- 원본 관찰 표시값: 표시값·입력: Featured 선택. 저장 아이콘 표시
+- 원본 관찰 상태: 상태: Featured 콘텐츠가 있는 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 동일 홈 구조에 발행물별 기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1293,12 +1293,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Responses 833, 2 seconds ago, 입력한 문장
-- 이번 화면 상태: 상태: Responses 833 및 본인 새 응답 표시. Commenting a story 흐름의 직전 입력 화면에서는 832였다
+- 원본 관찰 표시값: 표시값·입력: Responses 833, 2 seconds ago, 입력한 문장
+- 원본 관찰 상태: 상태: Responses 833 및 본인 새 응답 표시. Commenting a story 흐름의 직전 입력 화면에서는 832였다
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 응답 목록 맨 위 Alex Smith YOU
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1312,14 +1312,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/03_sc_557c1fb7c6bf4dcc82ba1d6aba677f94.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s063>) · `sc_557c1fb7c6bf4dcc82ba1d6aba677f94`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: guest 표시 설정100%/Default/System Light/others on 실제 확인; 원본 직접 대조에서 팝오버 글자·열 구획·OS 영역·응답7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S063.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S063.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: 100%, Font Default, System default (Light), Highlights from others 켜짐
-- 이번 화면 상태: 상태: 이 캡처의 현재 표시 설정: 100%, Default 글꼴, System default (Light), 타인 하이라이트 On. 제품 전체 초기 기본값 여부는 미확인.
+- 원본 관찰 표시값: 표시값·입력: 100%, Font Default, System default (Light), Highlights from others 켜짐
+- 원본 관찰 상태: 상태: 이 캡처의 현재 표시 설정: 100%, Default 글꼴, System default (Light), 타인 하이라이트 On. 제품 전체 초기 기본값 여부는 미확인.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 크기 조절과 3개 설정 행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1335,12 +1335,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 6자리 숫자가 입력돼 있다. 실제 인증 값은 문서에 재기록하지 않는다.
-- 이번 화면 상태: 상태: 입력 완성에 따른 제출 가능 표현이다.
+- 원본 관찰 표시값: 표시값·입력: 6자리 숫자가 입력돼 있다. 실제 인증 값은 문서에 재기록하지 않는다.
+- 원본 관찰 상태: 상태: 입력 완성에 따른 제출 가능 표현이다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 동일한 인증 시트에서 입력 여섯 칸이 채워졌다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1356,12 +1356,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: Music 1개 선택
-- 이번 화면 상태: 상태: 선택 상태 표시
+- 원본 관찰 표시값: 표시값·입력: Music 1개 선택
+- 원본 관찰 상태: 상태: 선택 상태 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 아래 삭제 가능한 칩과 결과 체크
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1377,12 +1377,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: 3 stories·자물쇠
-- 이번 화면 상태: 상태: 기본 목록에 글 존재
+- 원본 관찰 표시값: 표시값·입력: 3 stories·자물쇠
+- 원본 관찰 상태: 상태: 기본 목록에 글 존재
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Your lists의 Reading list 카드·3개 썸네일
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1398,12 +1398,12 @@
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: 주제 3개 이상 선택 안내가 있고 보이는 칩은 미선택이다.
-- 이번 화면 상태: 상태: 최소 선택 개수를 안내하는 초기 상태다.
+- 원본 관찰 표시값: 표시값·입력: 주제 3개 이상 선택 안내가 있고 보이는 칩은 미선택이다.
+- 원본 관찰 상태: 상태: 최소 선택 개수를 안내하는 초기 상태다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목·설명 아래 다수 주제 칩을 줄바꿈 배치하고 하단에 Next를 둔다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1419,12 +1419,12 @@
 
 - 담당: V05 / 묶음 16. 상태: **recipe-only**. 원본 알림 이벤트 배열·시간과 같은 fixture 미확정; 기존 Goal53 캡처는 새 증거 아님.
 - 실제 FE 진입 절차(정적 확인): A 로그인 → Home 알림 버튼 → Notifications; 알림 유형별 목적지와 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NotificationsScreen.tsx](<../../FE/src/features/notifications/NotificationsScreen.tsx>)
 - 계정·권한: A 개인 알림; 원본과 같은 이벤트 배열은 별도 필요
 - fixture 구성: notificationFixtures + NotificationSource; 현재 목록과 S068 원본 배열의 동일성 미확인
-- 이번 화면 표시값: 표시값·입력: 새 팔로워·저장 리스트 새 글·박수 이벤트
-- 이번 화면 상태: 상태: 여러 종류 알림 존재
+- 원본 관찰 표시값: 표시값·입력: 새 팔로워·저장 리스트 새 글·박수 이벤트
+- 원본 관찰 상태: 상태: 여러 종류 알림 존재
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 행별 아바타·이벤트 문장·날짜, 일부 왼쪽 녹색선
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1438,14 +1438,14 @@
 
 [원본 PNG](<../../medium/flows/Explore/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) · [원본 분석](<../../medium/flows/Explore/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s069>) · `sc_5e0ba0e498ff49579bf838096aec4b5e`
 
-- 담당: V01 / 묶음 17. 상태: **current-web-capture**. guest/기본 feed 실제 진입. 원본 1.3K·529 응답 대신 현재0; OS 영역·폰트·카드 높이·자체 잘린 기사 안내 차이. 원본과 같은 상태 아님.
+- 담당: V01 / 묶음 17. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: guest/기본 feed 실제 진입. 원본 1.3K·529 응답 대신 현재0; OS 영역·폰트·카드 높이·자체 잘린 기사 안내 차이. 원본과 같은 상태 아님.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Main/Home → For you·Featured 선택; S026은 헤더가 접힌 하단 카드, S176은 Featured 빈 상태
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S069.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S069.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [FollowingFeed.tsx](<../../FE/src/features/community/FollowingFeed.tsx>), [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScreen.tsx>)
 - 계정·권한: 공개 열람; 원본 개인화 상태 비교는 A
 - fixture 구성: mediumFeedFixtures / feedPreviewScenario(normal); Featured empty는 별도 feedSource 필요
-- 이번 화면 표시값: 표시값·입력: For you 활성. 작가·제목·요약·썸네일·날짜·박수·응답 수 표시
-- 이번 화면 상태: 상태: 추천 기사 목록
+- 원본 관찰 표시값: 표시값·입력: For you 활성. 작가·제목·요약·썸네일·날짜·박수·응답 수 표시
+- 원본 관찰 상태: 상태: 추천 기사 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 Home·알림, 가로 탭, 세로 기사 카드, 하단 4탭과 작성 플로팅 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1461,12 +1461,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: Health·Science·Business·Life 등
-- 이번 화면 상태: 상태: 가로 탐색 상태
+- 원본 관찰 표시값: 표시값·입력: Health·Science·Business·Life 등
+- 원본 관찰 상태: 상태: 가로 탐색 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 가로 칩 영역에 다른 주제
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1482,12 +1482,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Agree!, Responses 832 유지
-- 이번 화면 상태: 상태: 새 답글 표시
+- 원본 관찰 표시값: 표시값·입력: Agree!, Responses 832 유지
+- 원본 관찰 상태: 상태: 새 답글 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 들여쓴 YOU 응답·1 second ago
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1503,12 +1503,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Replying to Bérnie, 빈 작성창
-- 이번 화면 상태: 상태: 특정 응답에 답글 모드
+- 원본 관찰 표시값: 표시값·입력: Replying to Bérnie, 빈 작성창
+- 원본 관찰 상태: 상태: 특정 응답에 답글 모드
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 부모 응답과 하위 답글 위 회색 배경, 하단 대상 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1524,12 +1524,12 @@
 
 - 담당: V23 / 묶음 13. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article/인용/Identity/PublicList 공유 → 카드 → Copy link/Save image/Share via
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ShareCard.tsx](<../../FE/src/features/sharing/ShareCard.tsx>), [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx>)
 - 계정·권한: A; 공개 권한/모의 회원 링크 자격 각각 검증
 - fixture 구성: ShareAdapter; 공개 공유 target + 카드 style index; OS 저장·공유는 Q07
-- 이번 화면 표시값: 표시값·입력: 동일 카드
-- 이번 화면 상태: 상태: 이미지 저장 성공 안내
+- 원본 관찰 표시값: 표시값·입력: 동일 카드
+- 원본 관찰 상태: 상태: 이미지 저장 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 Image saved to library 토스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1545,12 +1545,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 4 stories·자물쇠
-- 이번 화면 상태: 상태: 소유자가 비공개 목록을 봄
+- 원본 관찰 표시값: 표시값·입력: 4 stories·자물쇠
+- 원본 관찰 상태: 상태: 소유자가 비공개 목록을 봄
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Lists 탭의 기본 Reading list
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1566,12 +1566,12 @@
 
 - 담당: V33 / 묶음 18. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings → Account/Appearance/App icon/각 상세 → 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AppIconScreen.tsx](<../../FE/src/features/app-icon/AppIconScreen.tsx>), [SettingsExtrasScreen.tsx](<../../FE/src/features/settings/SettingsExtrasScreen.tsx>), [SettingsScreen.tsx](<../../FE/src/features/settings/SettingsScreen.tsx>)
 - 계정·권한: A; friend icon 자격과 OS launcher 상태 별도
 - fixture 구성: DisplaySettingsSource·AppIconAdapter; 자체 K 아이콘, S075 원본과 비동등
-- 이번 화면 표시값: 표시값·입력: Wordmark Black 선택, 다른 아이콘 흐림
-- 이번 화면 상태: 상태: 아이콘 변경 기능 잠금 안내
+- 원본 관찰 표시값: 표시값·입력: Wordmark Black 선택, 다른 아이콘 흐림
+- 원본 관찰 상태: 상태: 아이콘 변경 기능 잠금 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 2열 아이콘 카드·하단 업그레이드 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1587,12 +1587,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 이름0/60, 설명0/280, Private 꺼짐
-- 이번 화면 상태: 상태: 생성 전 입력
+- 원본 관찰 표시값: 표시값·입력: 이름0/60, 설명0/280, Private 꺼짐
+- 원본 관찰 상태: 상태: 생성 전 입력
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Create new list 시트·이름·선택 설명·비공개 토글
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1608,12 +1608,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 첫 2개 항목이 변경 순서와 일치, 1 second ago
-- 이번 화면 상태: 상태: 재정렬 결과 표시
+- 원본 관찰 표시값: 표시값·입력: 첫 2개 항목이 변경 순서와 일치, 1 second ago
+- 원본 관찰 상태: 상태: 재정렬 결과 표시
 - 시간: 목록 표시1초+4개; 재정렬 확정 상태/D13
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 카드 목록 복귀
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1629,12 +1629,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 기존 순서 유지
-- 이번 화면 상태: 상태: 재정렬 모드
+- 원본 관찰 표시값: 표시값·입력: 기존 순서 유지
+- 원본 관찰 상태: 상태: 재정렬 모드
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목만 있는 4행과 드래그 핸들
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1650,12 +1650,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: 작가와 Publication·소개·팔로워
-- 이번 화면 상태: 상태: 팔로우 대상 추천
+- 원본 관찰 표시값: 표시값·입력: 작가와 Publication·소개·팔로워
+- 원본 관찰 상태: 상태: 팔로우 대상 추천
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Who to follow 가로 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1671,12 +1671,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: he, her 후보
-- 이번 화면 상태: 상태: 검색어에 맞춘 대명사 선택
+- 원본 관찰 표시값: 표시값·입력: he, her 후보
+- 원본 관찰 상태: 상태: 검색어에 맞춘 대명사 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: he 입력 아래 후보 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1692,12 +1692,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 공개 상태 메뉴
-- 이번 화면 상태: 상태: 목록 관리 작업 선택
+- 원본 관찰 표시값: 표시값·입력: 공개 상태 메뉴
+- 원본 관찰 상태: 상태: 목록 관리 작업 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목 옆 더보기 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1713,12 +1713,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 0/4
-- 이번 화면 상태: 상태: 대명사 미선택
+- 원본 관찰 표시값: 표시값·입력: 0/4
+- 원본 관찰 상태: 상태: 대명사 미선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Pronouns 시트·선택 입력란
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1734,12 +1734,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: Medium member since October 2023, Friend since December 2023
-- 이번 화면 상태: 상태: 소개·회원 이력 표시
+- 원본 관찰 표시값: 표시값·입력: Medium member since October 2023, Friend since December 2023
+- 원본 관찰 상태: 상태: 소개·회원 이력 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: About 탭에 소개 단락·회원 기간
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1755,12 +1755,12 @@
 
 - 담당: V31 / 묶음 19. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings Upgrade 또는 onboarding 구독 → MembershipSheet → monthly/yearly → 모의 선택·성공
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [MembershipSheet.tsx](<../../FE/src/features/membership/MembershipSheet.tsx>)
 - 계정·권한: A free/member/friend 비교 snapshot; 실제 결제 없음
 - fixture 구성: MembershipSource; SGD 보관 가격·독립 pending/success fixture; OS 구매 알림과 web Alert 차이
-- 이번 화면 표시값: 표시값·입력: 선택 버튼 흐리게 표시
-- 이번 화면 상태: 상태: 요청 처리 중으로 보이는 로딩 상태
+- 원본 관찰 표시값: 표시값·입력: 선택 버튼 흐리게 표시
+- 원본 관찰 상태: 상태: 요청 처리 중으로 보이는 로딩 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 플랜 카드 위 반투명 덮개와 중앙 녹색 로딩
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1776,12 +1776,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: List deleted and removed from Your library, Reading list 4 stories
-- 이번 화면 상태: 상태: 대상 리스트 제거 표시
+- 원본 관찰 표시값: 표시값·입력: List deleted and removed from Your library, Reading list 4 stories
+- 원본 관찰 상태: 상태: 대상 리스트 제거 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 목록 화면과 삭제 토스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1797,12 +1797,12 @@
 
 - 담당: V01 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Home → For you·Featured 선택; S026은 헤더가 접힌 하단 카드, S176은 Featured 빈 상태
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [FollowingFeed.tsx](<../../FE/src/features/community/FollowingFeed.tsx>), [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScreen.tsx>)
 - 계정·권한: 공개 열람; 원본 개인화 상태 비교는 A
 - fixture 구성: mediumFeedFixtures / feedPreviewScenario(normal); Featured empty는 별도 feedSource 필요
-- 이번 화면 표시값: 표시값·입력: For you 활성
-- 이번 화면 상태: 상태: 홈에도 테마 적용
+- 원본 관찰 표시값: 표시값·입력: For you 활성
+- 원본 관찰 상태: 상태: 홈에도 테마 적용
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검정 배경·밝은 카드 텍스트·녹색 작성 버튼
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1818,12 +1818,12 @@
 
 - 담당: V08 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor → 이미지 메뉴 → Camera/Library/Unsplash → 선택·삽입; 로딩은 지연 source로 제어
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ImagePickerSheet.tsx](<../../FE/src/features/editor/ImagePickerSheet.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; OS 권한은 native에서 별도
 - fixture 구성: EditorImageSource; 로컬 예시 자산·삽입 지연·성공 snapshot; 실제 외부 검색 아님
-- 이번 화면 표시값: 표시값·입력: Search photos 빈값
-- 이번 화면 상태: 상태: 외부 사진 탐색 시트
+- 원본 관찰 표시값: 표시값·입력: Search photos 빈값
+- 원본 관찰 상태: 상태: 외부 사진 탐색 시트
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 필드 아래 2열 가변 높이 사진과 작가 이름
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1839,12 +1839,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: Hans 선택
-- 이번 화면 상태: 상태: 음성 선택 변경
+- 원본 관찰 표시값: 표시값·입력: Hans 선택
+- 원본 관찰 상태: 상태: 음성 선택 변경
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 독일어 Hans 행 회색·녹색 체크
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1860,12 +1860,12 @@
 
 - 담당: V26 / 묶음 8. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList → Download → 진행·완료·취소·본문 열기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DownloadControl.tsx](<../../FE/src/features/downloads/DownloadControl.tsx>)
 - 계정·권한: A 모의 회원; 소유 목록 접근권 필요
 - fixture 구성: DownloadSource; 4개 일반 글 및 발행 혼합; 진행률·취소 source 제어; 영속 파일 없음
-- 이번 화면 표시값: 표시값·입력: 4 stories
-- 이번 화면 상태: 상태: 다운로드 완료를 나타내는 표시
+- 원본 관찰 표시값: 표시값·입력: 4 stories
+- 원본 관찰 상태: 상태: 다운로드 완료를 나타내는 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 및 기사별 내려받기 아이콘 채움
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1881,12 +1881,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: 여러 사용자와 The Medium Blog 표시
-- 이번 화면 상태: 상태: 관계 목록 표시
+- 원본 관찰 표시값: 표시값·입력: 여러 사용자와 The Medium Blog 표시
+- 원본 관찰 상태: 상태: 관계 목록 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 아바타·이름·소개·Follow 반복 행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1902,12 +1902,12 @@
 
 - 담당: V03 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → Life 또는 Self Improvement → Topic(topicId); 큐레이션까지 스크롤
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.tsx>)
 - 계정·권한: 공개 열람; Following은 A의 topic 관계 필요
 - fixture 구성: topicSource + relationshipSource; topicId와 following을 독립 설정
-- 이번 화면 표시값: 표시값·입력: 10.6M followers, 1M Stories, Following
-- 이번 화면 상태: 상태: 팔로우 중인 다른 토픽
+- 원본 관찰 표시값: 표시값·입력: 10.6M followers, 1M Stories, Following
+- 원본 관찰 상태: 상태: 팔로우 중인 다른 토픽
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 선택 칩 변경·추천 기사 교체
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1923,12 +1923,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Agree! 입력
-- 이번 화면 상태: 상태: 답글 제출 전
+- 원본 관찰 표시값: 표시값·입력: Agree! 입력
+- 원본 관찰 상태: 상태: 답글 제출 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 대상 안내 아래 키보드와 작성창
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -1944,12 +1944,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: 10.8K followers, 25 following
-- 이번 화면 상태: 상태: 차단 흐름 후 별도 프로필 상태
+- 원본 관찰 표시값: 표시값·입력: 10.8K followers, 25 following
+- 원본 관찰 상태: 상태: 차단 흐름 후 별도 프로필 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 작가 제목, Stories·About만, Follow 버튼 없음
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1965,12 +1965,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 2/4
-- 이번 화면 상태: 상태: 두 대명사 선택
+- 원본 관찰 표시값: 표시값·입력: 2/4
+- 원본 관찰 상태: 상태: 두 대명사 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: he·him 칩
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -1986,12 +1986,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: Your lists 활성, No stories·자물쇠
-- 이번 화면 상태: 상태: 기본 읽기 목록이 비어 있음
+- 원본 관찰 표시값: 표시값·입력: Your lists 활성, No stories·자물쇠
+- 원본 관찰 상태: 상태: 기본 읽기 목록이 비어 있음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Your library·New list·가로 탭·시작 배너·Reading list 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2007,12 +2007,12 @@
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
 - fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
-- 이번 화면 표시값: 표시값·입력: June 8 2025 체크
-- 이번 화면 상태: 상태: 다른 날짜 임시 선택
+- 원본 관찰 표시값: 표시값·입력: June 8 2025 체크
+- 원본 관찰 상태: 상태: 다른 날짜 임시 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 같은 날짜 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2028,12 +2028,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: 인용 문구 자동 포함, 본문 빈값
-- 이번 화면 상태: 상태: 인용 포함 응답 초안
+- 원본 관찰 표시값: 표시값·입력: 인용 문구 자동 포함, 본문 빈값
+- 원본 관찰 상태: 상태: 인용 포함 응답 초안
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 응답 시트 하단 인용 카드·입력창·키보드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -2049,12 +2049,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: Mindfulness 검색, Stories 활성
-- 이번 화면 상태: 상태: 기사 검색 결과
+- 원본 관찰 표시값: 표시값·입력: Mindfulness 검색, Stories 활성
+- 원본 관찰 상태: 상태: 기사 검색 결과
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창·유형 탭·기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2070,12 +2070,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: Suggestions 활성, Topics 필터
-- 이번 화면 상태: 상태: 추천 토픽과 기사·팔로워 집계
+- 원본 관찰 표시값: 표시값·입력: Suggestions 활성, Topics 필터
+- 원본 관찰 상태: 상태: 추천 토픽과 기사·팔로워 집계
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 설명과 Following·Reading history·Muted·Suggestions 탭
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2089,14 +2089,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s100>) · `sc_915888473ac24e8987c996b8954f54c6`
 
-- 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: 하단 빈 작성창
-- 이번 화면 상태: 상태: 복수 깊이 답글 표시
+- 원본 관찰 표시값: 표시값·입력: 하단 빈 작성창
+- 원본 관찰 상태: 상태: 복수 깊이 답글 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Responses 834 시트, Most Relevant 필터, 들여쓴 답글
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2112,12 +2112,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 4 stories·자물쇠
-- 이번 화면 상태: 상태: 비공개 상태 표시
+- 원본 관찰 표시값: 표시값·입력: 4 stories·자물쇠
+- 원본 관찰 상태: 상태: 비공개 상태 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 리스트 메타데이터에 자물쇠
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2133,12 +2133,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 기사별 날짜·박수·응답
-- 이번 화면 상태: 상태: 읽기 후 작가 콘텐츠 추천
+- 원본 관찰 표시값: 표시값·입력: 기사별 날짜·박수·응답
+- 원본 관찰 상태: 상태: 읽기 후 작가 콘텐츠 추천
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: More from Jordan Gibbs 아래 큰 이미지 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2154,12 +2154,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: Email notifications on 체크
-- 이번 화면 상태: 상태: 팔로우 해제 진입점
+- 원본 관찰 표시값: 표시값·입력: Email notifications on 체크
+- 원본 관찰 상태: 상태: 팔로우 해제 진입점
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 Following 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2175,12 +2175,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: You don't follow anything yet
-- 이번 화면 상태: 상태: 팔로우 대상 없음
+- 원본 관찰 표시값: 표시값·입력: You don't follow anything yet
+- 원본 관찰 상태: 상태: 팔로우 대상 없음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Following 탭과 All 필터, 중앙 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2196,12 +2196,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내
-- 이번 화면 상태: 상태: 비공개 전 영향 안내
+- 원본 관찰 표시값: 표시값·입력: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내
+- 원본 관찰 상태: 상태: 비공개 전 영향 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 중앙 확인 대화상자
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2217,12 +2217,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: About mindfulness, 14 seconds ago
-- 이번 화면 상태: 상태: 콘텐츠 없는 리스트
+- 원본 관찰 표시값: 표시값·입력: About mindfulness, 14 seconds ago
+- 원본 관찰 상태: 상태: 콘텐츠 없는 리스트
 - 시간: 목록 표시14초; 기준 필드 의미는 원본 미확인/D13 미정
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 소유자·제목·빈 상태·하단 리스트 반응
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2238,12 +2238,12 @@
 
 - 담당: V03 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → Life 또는 Self Improvement → Topic(topicId); 큐레이션까지 스크롤
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.tsx>)
 - 계정·권한: 공개 열람; Following은 A의 topic 관계 필요
 - fixture 구성: topicSource + relationshipSource; topicId와 following을 독립 설정
-- 이번 화면 표시값: 표시값·입력: List curated by Medium Staff
-- 이번 화면 상태: 상태: 편집 리스트 미리보기
+- 원본 관찰 표시값: 표시값·입력: List curated by Medium Staff
+- 원본 관찰 상태: 상태: 편집 리스트 미리보기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: The power of a morning routine 가로 기사 묶음
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2259,12 +2259,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: Highlighted 활성
-- 이번 화면 상태: 상태: 하이라이트 대비 변경
+- 원본 관찰 표시값: 표시값·입력: Highlighted 활성
+- 원본 관찰 상태: 상태: 하이라이트 대비 변경
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 어두운 녹색 강조·밝은 본문
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2280,12 +2280,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: About mindfulness is now private
-- 이번 화면 상태: 상태: 비공개 전환 안내
+- 원본 관찰 표시값: 표시값·입력: About mindfulness is now private
+- 원본 관찰 상태: 상태: 비공개 전환 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 리스트 상세 위 검정 토스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2301,12 +2301,12 @@
 
 - 담당: V33 / 묶음 18. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings → Account/Appearance/App icon/각 상세 → 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AppIconScreen.tsx](<../../FE/src/features/app-icon/AppIconScreen.tsx>), [SettingsExtrasScreen.tsx](<../../FE/src/features/settings/SettingsExtrasScreen.tsx>), [SettingsScreen.tsx](<../../FE/src/features/settings/SettingsScreen.tsx>)
 - 계정·권한: A; friend icon 자격과 OS launcher 상태 별도
 - fixture 구성: DisplaySettingsSource·AppIconAdapter; 자체 K 아이콘, S075 원본과 비동등
-- 이번 화면 표시값: 표시값·입력: Appearance Dark 선택
-- 이번 화면 상태: 상태: 앱 설정 다크 적용
+- 원본 관찰 표시값: 표시값·입력: Appearance Dark 선택
+- 원본 관찰 상태: 상태: 앱 설정 다크 적용
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 설정 전체 검정 배경
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2322,12 +2322,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Most Relevant 체크
-- 이번 화면 상태: 상태: 정렬 선택 중
+- 원본 관찰 표시값: 표시값·입력: Most Relevant 체크
+- 원본 관찰 상태: 상태: 정렬 선택 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Most Relevant 드롭다운 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2343,12 +2343,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: See more replies (4)
-- 이번 화면 상태: 상태: 접힌 본문·부분 로딩 답글
+- 원본 관찰 표시값: 표시값·입력: See more replies (4)
+- 원본 관찰 상태: 상태: 접힌 본문·부분 로딩 답글
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: edited 표시·대명사·답글 1개·추가 답글 링크
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2364,12 +2364,12 @@
 
 - 담당: V32 / 묶음 15, 21. 상태: **native-required**. OS Photos/앨범4장/권한 환경 필요; 웹 파일 선택기로 동일 재현 불가(Q07).
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 사진 4개, Location Is Included
-- 이번 화면 상태: 상태: OS 사진 선택 UI
+- 원본 관찰 표시값: 표시값·입력: 사진 4개, Location Is Included
+- 원본 관찰 상태: 상태: OS 사진 선택 UI
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Mobbin 앨범의 3열 사진 그리드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2385,12 +2385,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내
-- 이번 화면 상태: 상태: 삭제 전 영향 확인
+- 원본 관찰 표시값: 표시값·입력: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내
+- 원본 관찰 상태: 상태: 삭제 전 영향 확인
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 하단 Delete list 설명·빨간 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2406,12 +2406,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: 검색어 비움, 3개 선택
-- 이번 화면 상태: 상태: 최대 5개 중 3개
+- 원본 관찰 표시값: 표시값·입력: 검색어 비움, 3개 선택
+- 원본 관찰 상태: 상태: 최대 5개 중 3개
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창 3/5와 Music·Culture·Art 칩
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2427,12 +2427,12 @@
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. June8 현 fixture와 원본 Goodbye Notion 불일치; issue/article source 대조·주입 필요.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
 - fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
-- 이번 화면 표시값: 표시값·입력: June 8 2025, Goodbye Notion
-- 이번 화면 상태: 상태: 선택한 날짜 콘텐츠 표시
+- 원본 관찰 표시값: 표시값·입력: June 8 2025, Goodbye Notion
+- 원본 관찰 상태: 상태: 선택한 날짜 콘텐츠 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Digest 날짜·기사 교체
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2448,12 +2448,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: Your full name과 Your email에 예시 placeholder가 보이며 비밀번호 필드는 없다.
-- 이번 화면 상태: 상태: 빈 이메일 가입 폼이다.
+- 원본 관찰 표시값: 표시값·입력: Your full name과 Your email에 예시 placeholder가 보이며 비밀번호 필드는 없다.
+- 원본 관찰 상태: 상태: 빈 이메일 가입 폼이다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 뒤로 가기·로고·가입 제목, 중앙 이름/이메일 입력, 하단 약관 안내가 있다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2469,12 +2469,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: 0/5, 최대 5개 안내
-- 이번 화면 상태: 상태: 미선택
+- 원본 관찰 표시값: 표시값·입력: 0/5, 최대 5개 안내
+- 원본 관찰 상태: 상태: 미선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 설명·검색·Your topics 목록·하단 Save
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2488,14 +2488,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/05_sc_a5d80c9e0226452cbb67e018702c5f1b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s119>) · `sc_a5d80c9e0226452cbb67e018702c5f1b`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 기사 테마 선택 메뉴 실제 열림; System/Light/Dark 선택지 확인; 원본과 같은 좌표·서체 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S119.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S119.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: System default 체크
-- 이번 화면 상태: 상태: 테마 선택 중
+- 원본 관찰 표시값: 표시값·입력: System default 체크
+- 원본 관찰 상태: 상태: 테마 선택 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Appearance 아래 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2511,12 +2511,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 1/4
-- 이번 화면 상태: 상태: 첫 대명사 선택
+- 원본 관찰 표시값: 표시값·입력: 1/4
+- 원본 관찰 상태: 상태: 첫 대명사 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 입력란 he 칩과 X
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2532,12 +2532,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: This item has been removed from your list
-- 이번 화면 상태: 상태: 항목 제거와 되돌리기 제공
+- 원본 관찰 표시값: 표시값·입력: This item has been removed from your list
+- 원본 관찰 상태: 상태: 항목 제거와 되돌리기 제공
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 알림·대상 기사 사라짐
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2553,12 +2553,12 @@
 
 - 담당: V17 / 묶음 11. 상태: **recipe-only**. native 별도 Select a passage 화면과 원본 본문 선택이 다름(D09).
 - 실제 FE 진입 절차(정적 확인): Article 본문 구절 선택 → Highlight/Respond/Share → 강조 표시
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NativePassagePicker.tsx](<../../FE/src/features/highlights/NativePassagePicker.tsx>), [PassageReader.tsx](<../../FE/src/features/highlights/PassageReader.tsx>)
 - 계정·권한: A 개인 강조; 타인 강조 표시와 구분
 - fixture 구성: HighlightSource + 본문 version/UTF16 범위; native는 별도 Select a passage로 D09 차이
-- 이번 화면 표시값: 표시값·입력: 여러 줄 텍스트 선택
-- 이번 화면 상태: 상태: 텍스트 선택 상태
+- 원본 관찰 표시값: 표시값·입력: 여러 줄 텍스트 선택
+- 원본 관찰 상태: 상태: 텍스트 선택 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 녹색 선택 핸들·플로팅 행동 메뉴
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2574,12 +2574,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Alex Smith10/50, Pronouns0/4, Short bio0/160
-- 이번 화면 상태: 상태: 이름 필수 표시·소개 선택
+- 원본 관찰 표시값: 표시값·입력: Alex Smith10/50, Pronouns0/4, Short bio0/160
+- 원본 관찰 상태: 상태: 이름 필수 표시·소개 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 사진·Name*·Pronouns·Short bio·About Page 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2595,12 +2595,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Successfully deleted response
-- 이번 화면 상태: 상태: 삭제 성공 안내
+- 원본 관찰 표시값: 표시값·입력: Successfully deleted response
+- 원본 관찰 상태: 상태: 삭제 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 검정 토스트·본인 응답 사라진 목록
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2614,14 +2614,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/04_sc_ad140eae0b7e409aa2204c1f36bfa385.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s125>) · `sc_ad140eae0b7e409aa2204c1f36bfa385`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 글자 크기 키우기 실제 조작으로120%, 배경 제목 줄바꿈 변경 확인; 원본 동일 배치·집계 미확정.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S125.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S125.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: 120%
-- 이번 화면 상태: 상태: 크기 변경이 화면에 반영
+- 원본 관찰 표시값: 표시값·입력: 120%
+- 원본 관찰 상태: 상태: 크기 변경이 화면에 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 설정 유지·배경 제목 줄바꿈 증가
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2637,12 +2637,12 @@
 
 - 담당: V08 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor → 이미지 메뉴 → Camera/Library/Unsplash → 선택·삽입; 로딩은 지연 source로 제어
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ImagePickerSheet.tsx](<../../FE/src/features/editor/ImagePickerSheet.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; OS 권한은 native에서 별도
 - fixture 구성: EditorImageSource; 로컬 예시 자산·삽입 지연·성공 snapshot; 실제 외부 검색 아님
-- 이번 화면 표시값: 표시값·입력: 사진 블록 선택
-- 이번 화면 상태: 상태: 이미지 삽입 처리 중
+- 원본 관찰 표시값: 표시값·입력: 사진 블록 선택
+- 원본 관찰 상태: 상태: 이미지 삽입 처리 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 본문 아래 사진 위 어두운 덮개·스피너·녹색 선택 테두리
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2658,12 +2658,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: Spam 선택·차단 미체크
-- 이번 화면 상태: 상태: 신고 제출 준비
+- 원본 관찰 표시값: 표시값·입력: Spam 선택·차단 미체크
+- 원본 관찰 상태: 상태: 신고 제출 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Spam 라디오 선택, 하단 빨간 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2679,12 +2679,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 작가·기사 제목·커버
-- 이번 화면 상태: 상태: 오디오 준비 중
+- 원본 관찰 표시값: 표시값·입력: 작가·기사 제목·커버
+- 원본 관찰 상태: 상태: 오디오 준비 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 상단과 하단 미니 플레이어에 스피너
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2700,12 +2700,12 @@
 
 - 담당: V31 / 묶음 19. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings Upgrade 또는 onboarding 구독 → MembershipSheet → monthly/yearly → 모의 선택·성공
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [MembershipSheet.tsx](<../../FE/src/features/membership/MembershipSheet.tsx>)
 - 계정·권한: A free/member/friend 비교 snapshot; 실제 결제 없음
 - fixture 구성: MembershipSource; SGD 보관 가격·독립 pending/success fixture; OS 구매 알림과 web Alert 차이
-- 이번 화면 표시값: 표시값·입력: Pay monthly 선택. 캡처 금액 $6.98 SGD/month
-- 이번 화면 상태: 상태: 월간 플랜 소개와 혜택 목록
+- 원본 관찰 표시값: 표시값·입력: Pay monthly 선택. 캡처 금액 $6.98 SGD/month
+- 원본 관찰 상태: 상태: 월간 플랜 소개와 혜택 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 닫기 가능한 시트, 결제 주기 탭과 Member 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2721,12 +2721,12 @@
 
 - 담당: V14 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 작성자 → Identity(writer Jordan) → Stories/Lists/About → Following·followers → Connections
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ConnectionsScreen.tsx](<../../FE/src/features/community/ConnectionsScreen.tsx>), [FollowControl.tsx](<../../FE/src/features/community/FollowControl.tsx>), [PublicIdentityScreen.tsx](<../../FE/src/features/community/PublicIdentityScreen.tsx>)
 - 계정·권한: 공개 프로필; follow/email 관계는 A
 - fixture 구성: DirectorySource·RelationshipSource; Jordan10.2K/25, 기사말미24를 억지로 통일하지 않음
-- 이번 화면 표시값: 표시값·입력: You unfollowed Jordan Gibbs
-- 이번 화면 상태: 상태: 해제 성공 안내
+- 원본 관찰 표시값: 표시값·입력: You unfollowed Jordan Gibbs
+- 원본 관찰 상태: 상태: 해제 성공 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검정 토스트와 Follow 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2742,12 +2742,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: 2.5x, 490 WPM, 145% productivity boost
-- 이번 화면 상태: 상태: 변경값 표시
+- 원본 관찰 표시값: 표시값·입력: 2.5x, 490 WPM, 145% productivity boost
+- 원본 관찰 상태: 상태: 변경값 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 슬라이더 손잡이 위로 이동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2763,12 +2763,12 @@
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
 - fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
-- 이번 화면 표시값: 표시값·입력: June 12 2025
-- 이번 화면 상태: 상태: 특정 날짜 다이제스트
+- 원본 관찰 표시값: 표시값·입력: June 12 2025
+- 원본 관찰 상태: 상태: 특정 날짜 다이제스트
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Digest 탭·날짜 선택·설정·Today's highlights
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2784,12 +2784,12 @@
 
 - 담당: V31 / 묶음 19. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings Upgrade 또는 onboarding 구독 → MembershipSheet → monthly/yearly → 모의 선택·성공
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [MembershipSheet.tsx](<../../FE/src/features/membership/MembershipSheet.tsx>)
 - 계정·권한: A free/member/friend 비교 snapshot; 실제 결제 없음
 - fixture 구성: MembershipSource; SGD 보관 가격·독립 pending/success fixture; OS 구매 알림과 web Alert 차이
-- 이번 화면 표시값: 표시값·입력: 입력 없음
-- 이번 화면 상태: 상태: 캡처에 구매 성공 메시지 표시
+- 원본 관찰 표시값: 표시값·입력: 입력 없음
+- 원본 관찰 상태: 상태: 캡처에 구매 성공 메시지 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 플랜 시트 위 iOS 형식 중앙 알림
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2805,12 +2805,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 6자리 코드 채워짐. 인증값은 문서에 재기록하지 않음
-- 이번 화면 상태: 상태: 이메일 코드 검증 준비
+- 원본 관찰 표시값: 표시값·입력: 6자리 코드 채워짐. 인증값은 문서에 재기록하지 않음
+- 원본 관찰 상태: 상태: 이메일 코드 검증 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Check your inbox 시트·6칸 코드·하단 행동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2826,12 +2826,12 @@
 
 - 담당: V04 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Topic → 큐레이션 카드 → PublicList(listId); S135는 More from Medium Staff까지 스크롤
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleBookmarkControl.tsx](<../../FE/src/features/bookmarks/ArticleBookmarkControl.tsx>), [PublicListScreen.tsx](<../../FE/src/features/public-lists/PublicListScreen.tsx>), [PublicListStoryCard.tsx](<../../FE/src/features/public-lists/PublicListStoryCard.tsx>), [SavePublicListControl.tsx](<../../FE/src/features/public-lists/SavePublicListControl.tsx>)
 - 계정·권한: 공개 목록; 저장·반응은 A
 - fixture 구성: publicListFixtures / PublicListSource; 8 stories·108 saves 원본 상태를 별도로 대조
-- 이번 화면 표시값: 표시값·입력: 리스트 제목 상단 고정
-- 이번 화면 상태: 상태: 목록 말미
+- 원본 관찰 표시값: 표시값·입력: 리스트 제목 상단 고정
+- 원본 관찰 상태: 상태: 목록 말미
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 후반 기사와 More from Medium Staff
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2847,12 +2847,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 이름·기사 유지
-- 이번 화면 상태: 상태: 사진·대명사 반영
+- 원본 관찰 표시값: 표시값·입력: 이름·기사 유지
+- 원본 관찰 상태: 상태: 사진·대명사 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 사진·he/him 표시·Stories
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2868,12 +2868,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 제목·본문·사진 표시
-- 이번 화면 상태: 상태: 이미지 로딩 표시 사라짐
+- 원본 관찰 표시값: 표시값·입력: 제목·본문·사진 표시
+- 원본 관찰 상태: 상태: 이미지 로딩 표시 사라짐
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목·본문 아래 산과 호수 사진, 키보드 숨김
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 숨김 관찰
@@ -2889,12 +2889,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Pronouns2/4, Short bio49/160
-- 이번 화면 상태: 상태: 저장 전 정보 완성
+- 원본 관찰 표시값: 표시값·입력: Pronouns2/4, Short bio49/160
+- 원본 관찰 상태: 상태: 저장 전 정보 완성
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: he·him 칩·소개 입력
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2910,12 +2910,12 @@
 
 - 담당: V09 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor 더보기 또는 Profile Drafts → Drafts; 저장한 같은 draftId 재열기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DraftsScreen.tsx](<../../FE/src/features/editor/DraftsScreen.tsx>), [createDraftSession.ts](<../../FE/src/features/editor/createDraftSession.ts>)
 - 계정·권한: A 개인 초안; 빈 목록과 1개 초안 구분
 - fixture 구성: DraftSource; 제목 The Silence between Notes, editedAt=비교 시계-60초
-- 이번 화면 표시값: 표시값·입력: The Silence between Notes, Edited 1 minute ago
-- 이번 화면 상태: 상태: 초안 1건 표시
+- 원본 관찰 표시값: 표시값·입력: The Silence between Notes, Edited 1 minute ago
+- 원본 관찰 상태: 상태: 초안 1건 표시
 - 시간: editedAt=고정 now-60초; 초안1개
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Drafts 시트와 단일 제목 행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2931,12 +2931,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: Read more, See all responses
-- 이번 화면 상태: 상태: 부분 응답 목록의 끝
+- 원본 관찰 표시값: 표시값·입력: Read more, See all responses
+- 원본 관찰 상태: 상태: 부분 응답 목록의 끝
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 긴 응답 생략과 전체 응답 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2952,12 +2952,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 2.5x, 00:10, -01:44
-- 이번 화면 상태: 상태: 배속 변경 반영
+- 원본 관찰 표시값: 표시값·입력: 2.5x, 00:10, -01:44
+- 원본 관찰 상태: 상태: 배속 변경 반영
 - 시간: 재생00:10/-01:44/2.5x; 독립 duration/position
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 플레이어 하단 속도 변경
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2973,12 +2973,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Responses 833 유지
-- 이번 화면 상태: 상태: 내용 변경과 edited 확인
+- 원본 관찰 표시값: 표시값·입력: Responses 833 유지
+- 원본 관찰 상태: 상태: 내용 변경과 edited 확인
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: YOU 응답에 하트 3개·edited 표시
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -2994,12 +2994,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: 추가 입력 없음
-- 이번 화면 상태: 상태: 작가 관리 메뉴
+- 원본 관찰 표시값: 표시값·입력: 추가 입력 없음
+- 원본 관찰 상태: 상태: 작가 관리 메뉴
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 위 하단 시트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3015,12 +3015,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: he/him·Public·기존 글
-- 이번 화면 상태: 상태: 프로필 테마 적용
+- 원본 관찰 표시값: 표시값·입력: he/him·Public·기존 글
+- 원본 관찰 상태: 상태: 프로필 테마 적용
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 탭·기사 카드·버튼 색상 변경
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3036,12 +3036,12 @@
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Your lists / Saved lists / Highlighted; 새 목록·삭제 후 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [HighlightList.tsx](<../../FE/src/features/highlights/HighlightList.tsx>)
 - 계정·권한: A 개인 목록; 기본 reading-list는 항상 private
 - fixture 구성: UserListStore·HighlightSource; empty/3/4 stories·About mindfulness를 각 상태별 구성
-- 이번 화면 표시값: 표시값·입력: Alex Smith highlighted
-- 이번 화면 상태: 상태: 여러 글의 개인 하이라이트 모음
+- 원본 관찰 표시값: 표시값·입력: Alex Smith highlighted
+- 원본 관찰 상태: 상태: 여러 글의 개인 하이라이트 모음
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Highlighted 탭·강조 구절·원문 제목·작성자
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3057,12 +3057,12 @@
 
 - 담당: V06 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor → Next/PublishPreview → Topics → 검색·선택·Save → preview
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopics.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; Public/Unlisted 별도
 - fixture 구성: DraftSource·PublishTopics; The Silence between Notes, Music/Culture/Art, 별도 Publication 없음
-- 이번 화면 표시값: 표시값·입력: Music, Culture, Art 3개
-- 이번 화면 상태: 상태: 토픽 선택 반영
+- 원본 관찰 표시값: 표시값·입력: Music, Culture, Art 3개
+- 원본 관찰 상태: 상태: 토픽 선택 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 카드 아래 토픽 칩
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3078,12 +3078,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 10.2K followers·24 following
-- 이번 화면 상태: 상태: 기사 말미 도달
+- 원본 관찰 표시값: 표시값·입력: 10.2K followers·24 following
+- 원본 관찰 상태: 상태: 기사 말미 도달
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 마지막 문단 아래 토픽 5개와 작성자 소개
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3099,12 +3099,12 @@
 
 - 담당: V08 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor → 이미지 메뉴 → Camera/Library/Unsplash → 선택·삽입; 로딩은 지연 source로 제어
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ImagePickerSheet.tsx](<../../FE/src/features/editor/ImagePickerSheet.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)
 - 계정·권한: A 소유 초안; OS 권한은 native에서 별도
 - fixture 구성: EditorImageSource; 로컬 예시 자산·삽입 지연·성공 snapshot; 실제 외부 검색 아님
-- 이번 화면 표시값: 표시값·입력: 추가 입력 없음
-- 이번 화면 상태: 상태: 이미지 소스 선택
+- 원본 관찰 표시값: 표시값·입력: 추가 입력 없음
+- 원본 관찰 상태: 상태: 이미지 소스 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 편집기 위 하단 액션 시트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3120,12 +3120,12 @@
 
 - 담당: V33 / 묶음 18. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings → Account/Appearance/App icon/각 상세 → 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AppIconScreen.tsx](<../../FE/src/features/app-icon/AppIconScreen.tsx>), [SettingsExtrasScreen.tsx](<../../FE/src/features/settings/SettingsExtrasScreen.tsx>), [SettingsScreen.tsx](<../../FE/src/features/settings/SettingsScreen.tsx>)
 - 계정·권한: A; friend icon 자격과 OS launcher 상태 별도
 - fixture 구성: DisplaySettingsSource·AppIconAdapter; 자체 K 아이콘, S075 원본과 비동등
-- 이번 화면 표시값: 표시값·입력: Facebook Connect, Version 4.263.185257
-- 이번 화면 상태: 상태: 설정과 앱 버전 표시
+- 원본 관찰 표시값: 표시값·입력: Facebook Connect, Version 4.263.185257
+- 원본 관찰 상태: 상태: 설정과 앱 버전 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Social·About Medium·App Controls
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3141,12 +3141,12 @@
 
 - 담당: V34 / 묶음 20. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile → View stats → StoryStats → Monthly/Lifetime·날짜·글 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/StoryStatsScreen.tsx>)
 - 계정·권한: A 소유 발행 글; 이력 방문과 분석집계 별개
 - fixture 구성: StoryStatsSource; June1–13 UTC11/2와 글 Lifetime0/0 독립 initial/asOf fixture
-- 이번 화면 표시값: 표시값·입력: Latest, The Silence between Notes, Views0·Reads0
-- 이번 화면 상태: 상태: 글별 누적 통계 표시
+- 원본 관찰 표시값: 표시값·입력: Latest, The Silence between Notes, Views0·Reads0
+- 원본 관찰 상태: 상태: 글별 누적 통계 표시
 - 시간: 별도 글 Lifetime0/0·23hours ago; 월간11/2에서 계산하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 월간 그래프 아래 Lifetime·정렬·글 행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3162,12 +3162,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: Self Improvement·Writing·Relationships는 Following
-- 이번 화면 상태: 상태: 일부 팔로우 반영
+- 원본 관찰 표시값: 표시값·입력: Self Improvement·Writing·Relationships는 Following
+- 원본 관찰 상태: 상태: 일부 팔로우 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Topics to follow 목록과 추가 추천 링크
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3183,12 +3183,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: 기사 목록 계속 표시
-- 이번 화면 상태: 상태: 음소거 성공 표시
+- 원본 관찰 표시값: 표시값·입력: 기사 목록 계속 표시
+- 원본 관찰 상태: 상태: 음소거 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Author muted 토스트, Following 버튼 유지
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3204,12 +3204,12 @@
 
 - 담당: V34 / 묶음 20. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile → View stats → StoryStats → Monthly/Lifetime·날짜·글 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/StoryStatsScreen.tsx>)
 - 계정·권한: A 소유 발행 글; 이력 방문과 분석집계 별개
 - fixture 구성: StoryStatsSource; June1–13 UTC11/2와 글 Lifetime0/0 독립 initial/asOf fixture
-- 이번 화면 표시값: 표시값·입력: Jun 12 2025, Views11·Reads2
-- 이번 화면 상태: 상태: 특정 날짜 선택
+- 원본 관찰 표시값: 표시값·입력: Jun 12 2025, Views11·Reads2
+- 원본 관찰 상태: 상태: 특정 날짜 선택
 - 시간: 선택 Jun12 2025 UTC; Views11/Reads2
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 그래프에 수직선·두 지점 강조
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3225,12 +3225,12 @@
 
 - 담당: V19 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/ListeningSpeedPanel.tsx>), [ListeningVoicePanel.tsx](<../../FE/src/features/listening/ListeningVoicePanel.tsx>)
 - 계정·권한: A; 권한과 현재 선택을 별도 설정
 - fixture 구성: ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture
-- 이번 화면 표시값: 표시값·입력: 한국어 Seoyeon 등
-- 이번 화면 상태: 상태: 다국어 음성 선택지 표시
+- 원본 관찰 표시값: 표시값·입력: 한국어 Seoyeon 등
+- 원본 관찰 상태: 상태: 다국어 음성 선택지 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: GERMAN·ITALIAN·KOREAN·PORTUGUESE 섹션
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3246,12 +3246,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: About mindfulness 17/60, 설명 없음, Private 꺼짐
-- 이번 화면 상태: 상태: 이름만 입력해 생성 가능 표시
+- 원본 관찰 표시값: 표시값·입력: About mindfulness 17/60, 설명 없음, Private 꺼짐
+- 원본 관찰 상태: 상태: 이름만 입력해 생성 가능 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 동일 생성 폼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3267,12 +3267,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 기존 폼 유지
-- 이번 화면 상태: 상태: 사진 추가 방식 선택
+- 원본 관찰 표시값: 표시값·입력: 기존 폼 유지
+- 원본 관찰 상태: 상태: 사진 추가 방식 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 편집 폼 위 하단 액션 시트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3288,12 +3288,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…
-- 이번 화면 상태: 상태: 저장 전 새 순서
+- 원본 관찰 표시값: 표시값·입력: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…
+- 원본 관찰 상태: 상태: 저장 전 새 순서
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 4행의 위치 변경
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3309,12 +3309,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Loved this kind of story 입력, Responses 832
-- 이번 화면 상태: 상태: 응답 제출 전
+- 원본 관찰 표시값: 표시값·입력: Loved this kind of story 입력, Responses 832
+- 원본 관찰 상태: 상태: 응답 제출 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 시트 하단 작성창과 키보드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -3330,12 +3330,12 @@
 
 - 담당: V31 / 묶음 19. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings Upgrade 또는 onboarding 구독 → MembershipSheet → monthly/yearly → 모의 선택·성공
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [MembershipSheet.tsx](<../../FE/src/features/membership/MembershipSheet.tsx>)
 - 계정·권한: A free/member/friend 비교 snapshot; 실제 결제 없음
 - fixture 구성: MembershipSource; SGD 보관 가격·독립 pending/success fixture; OS 구매 알림과 web Alert 차이
-- 이번 화면 표시값: 표시값·입력: 입력 없음
-- 이번 화면 상태: 상태: 멤버십 완료 안내
+- 원본 관찰 표시값: 표시값·입력: 입력 없음
+- 원본 관찰 상태: 상태: 멤버십 완료 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 흰 배경 중앙 감사 문구와 단일 버튼
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3351,12 +3351,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 00:40, -04:00, 1x
-- 이번 화면 상태: 상태: 재생 위치 증가
+- 원본 관찰 표시값: 표시값·입력: 00:40, -04:00, 1x
+- 원본 관찰 상태: 상태: 재생 위치 증가
 - 시간: 재생00:40/-04:00/1x; mock 진행 고정
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 확장 플레이어 진행 바 이동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3372,12 +3372,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: Spam·Harassment·Rules violation·AI-generated 모두 미선택, 차단 미체크
-- 이번 화면 상태: 상태: 신고 입력 전
+- 원본 관찰 표시값: 표시값·입력: Spam·Harassment·Rules violation·AI-generated 모두 미선택, 차단 미체크
+- 원본 관찰 상태: 상태: 신고 입력 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Report user 시트, 라디오 사유·추가 차단 체크·정책 링크
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3393,12 +3393,12 @@
 
 - 담당: V28 / 묶음 16. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Digest 설정 또는 Profile/Settings → Email/Push → NotificationSettings(section)
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>)
 - 계정·권한: A; 앱 설정과 OS권한을 별도 기록
 - fixture 구성: NotificationSource·설정 source; Daily/PushOn/EmailOn와 개별 토글 상태
-- 이번 화면 표시값: 표시값·입력: Daily, Push On, Email On
-- 이번 화면 상태: 상태: 다이제스트 주기·알림 채널 표시
+- 원본 관찰 표시값: 표시값·입력: Daily, Push On, Email On
+- 원본 관찰 상태: 상태: 다이제스트 주기·알림 채널 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Frequency·Push·Email 세 행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3414,12 +3414,12 @@
 
 - 담당: V23 / 묶음 13. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article/인용/Identity/PublicList 공유 → 카드 → Copy link/Save image/Share via
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ShareCard.tsx](<../../FE/src/features/sharing/ShareCard.tsx>), [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx>)
 - 계정·권한: A; 공개 권한/모의 회원 링크 자격 각각 검증
 - fixture 구성: ShareAdapter; 공개 공유 target + 카드 style index; OS 저장·공유는 Q07
-- 이번 화면 표시값: 표시값·입력: 읽기 시간·제목·부제·작가·Medium 표시
-- 이번 화면 상태: 상태: 공유 미리보기
+- 원본 관찰 표시값: 표시값·입력: 읽기 시간·제목·부제·작가·Medium 표시
+- 원본 관찰 상태: 상태: 공유 미리보기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 정보로 만든 이미지 카드·테마 페이지 점·하단 행동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3435,12 +3435,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 본문 이미지의 밝은 배경 유지
-- 이번 화면 상태: 상태: 스크롤 중 읽기 UI
+- 원본 관찰 표시값: 표시값·입력: 본문 이미지의 밝은 배경 유지
+- 원본 관찰 상태: 상태: 스크롤 중 읽기 UI
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검정 배경 세리프 본문·링크·삽입 이미지
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3456,12 +3456,12 @@
 
 - 담당: V26 / 묶음 8. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList → Download → 진행·완료·취소·본문 열기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DownloadControl.tsx](<../../FE/src/features/downloads/DownloadControl.tsx>)
 - 계정·권한: A 모의 회원; 소유 목록 접근권 필요
 - fixture 구성: DownloadSource; 4개 일반 글 및 발행 혼합; 진행률·취소 source 제어; 영속 파일 없음
-- 이번 화면 표시값: 표시값·입력: 4 stories 유지
-- 이번 화면 상태: 상태: 다운로드 진행으로 보이는 상태
+- 원본 관찰 표시값: 표시값·입력: 4 stories 유지
+- 원본 관찰 상태: 상태: 다운로드 진행으로 보이는 상태
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 다운로드 아이콘이 정지 사각형으로 변경
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3477,12 +3477,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 직접 입력 필드는 없다.
-- 이번 화면 상태: 상태: 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.
+- 원본 관찰 표시값: 표시값·입력: 직접 입력 필드는 없다.
+- 원본 관찰 상태: 상태: 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 중앙 서비스 소개 아래 네 개의 둥근 테두리 버튼을 세로 배치하고 하단에 로그인 링크를 둔다.
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3498,12 +3498,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Medium member since June 2025
-- 이번 화면 상태: 상태: 소개 미작성
+- 원본 관찰 표시값: 표시값·입력: Medium member since June 2025
+- 원본 관찰 상태: 상태: 소개 미작성
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: About 탭에 빈 안내·회원 기간
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3517,14 +3517,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/02_sc_d62e32234117483b85b4c73ed63249cd.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s168>) · `sc_d62e32234117483b85b4c73ed63249cd`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: 실제 Story options 메뉴 열림. 다섯 행동 확인; popover 위치·분리선·폰트는 원본 조건 보정 대기.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S168.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S168.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: 추가 입력 없음
-- 이번 화면 상태: 상태: 읽기·추천·작가·신고 행동
+- 원본 관찰 표시값: 표시값·입력: 추가 입력 없음
+- 원본 관찰 상태: 상태: 읽기·추천·작가·신고 행동
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 팝오버 5행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3540,12 +3540,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: 23h ago, 박수29·응답1
-- 이번 화면 상태: 상태: 발행 후 반응 집계
+- 원본 관찰 표시값: 표시값·입력: 23h ago, 박수29·응답1
+- 원본 관찰 상태: 상태: 발행 후 반응 집계
 - 시간: publishedAt=고정 now-23시간; D12 상대 표시 미구현
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Stories Public에 기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3561,12 +3561,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: Successfully reported user
-- 이번 화면 상태: 상태: 신고 접수 성공 표시
+- 원본 관찰 표시값: 표시값·입력: Successfully reported user
+- 원본 관찰 상태: 상태: 신고 접수 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필에 검정 토스트
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3582,12 +3582,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: janedoe@gmail.com 예시 문자열
-- 이번 화면 상태: 상태: 이메일 입력 전
+- 원본 관찰 표시값: 표시값·입력: janedoe@gmail.com 예시 문자열
+- 원본 관찰 상태: 상태: 이메일 입력 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 이메일 필드와 녹색 Continue
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3603,12 +3603,12 @@
 
 - 담당: V22 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article 하단 저장 → Save to → Reading list 선택 → Done/닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleBookmarkControl.tsx](<../../FE/src/features/bookmarks/ArticleBookmarkControl.tsx>), [SaveToListSheet.tsx](<../../FE/src/features/bookmarks/SaveToListSheet.tsx>)
 - 계정·권한: A 개인 기본 목록; guest는 로그인 복귀 후 재행동
 - fixture 구성: BookmarkSource·UserListStore; reading-list 체크와 canonical articleId
-- 이번 화면 표시값: 표시값·입력: 기사 내용·집계 유지
-- 이번 화면 상태: 상태: 저장 선택 반영
+- 원본 관찰 표시값: 표시값·입력: 기사 내용·집계 유지
+- 원본 관찰 상태: 상태: 저장 선택 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 상세 하단 북마크 채움
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3624,12 +3624,12 @@
 
 - 담당: V33 / 묶음 18. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile/Settings → Account/Appearance/App icon/각 상세 → 복귀
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AppIconScreen.tsx](<../../FE/src/features/app-icon/AppIconScreen.tsx>), [SettingsExtrasScreen.tsx](<../../FE/src/features/settings/SettingsExtrasScreen.tsx>), [SettingsScreen.tsx](<../../FE/src/features/settings/SettingsScreen.tsx>)
 - 계정·권한: A; friend icon 자격과 OS launcher 상태 별도
 - fixture 구성: DisplaySettingsSource·AppIconAdapter; 자체 K 아이콘, S075 원본과 비동등
-- 이번 화면 표시값: 표시값·입력: Appearance System default 선택
-- 이번 화면 상태: 상태: 주요 설정 진입점
+- 원본 관찰 표시값: 표시값·입력: Appearance System default 선택
+- 원본 관찰 상태: 상태: 주요 설정 진입점
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Account·Configure Medium 섹션
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3645,12 +3645,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: The Daily Dollar·Alex Mathers
-- 이번 화면 상태: 상태: 캐러셀 이동
+- 원본 관찰 표시값: 표시값·입력: The Daily Dollar·Alex Mathers
+- 원본 관찰 상태: 상태: 캐러셀 이동
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 다른 추천 카드 노출
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3666,12 +3666,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: Alex Smith, What are your thoughts?
-- 이번 화면 상태: 상태: 응답 일부 표시
+- 원본 관찰 표시값: 표시값·입력: Alex Smith, What are your thoughts?
+- 원본 관찰 상태: 상태: 응답 일부 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Responses 834, 입력 유도, 응답 작성자·날짜·본문
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3687,12 +3687,12 @@
 
 - 담당: V01 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Home → For you·Featured 선택; S026은 헤더가 접힌 하단 카드, S176은 Featured 빈 상태
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [FollowingFeed.tsx](<../../FE/src/features/community/FollowingFeed.tsx>), [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScreen.tsx>)
 - 계정·권한: 공개 열람; 원본 개인화 상태 비교는 A
 - fixture 구성: mediumFeedFixtures / feedPreviewScenario(normal); Featured empty는 별도 feedSource 필요
-- 이번 화면 표시값: 표시값·입력: No featured stories
-- 이번 화면 상태: 상태: 팔로우 발행물의 추천 글이 없다는 안내
+- 원본 관찰 표시값: 표시값·입력: No featured stories
+- 원본 관찰 상태: 상태: 팔로우 발행물의 추천 글이 없다는 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Featured 선택 탭 아래 회색 안내 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3708,12 +3708,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: 동일 리스트 후반 항목
-- 이번 화면 상태: 상태: 목록 후반
+- 원본 관찰 표시값: 표시값·입력: 동일 리스트 후반 항목
+- 원본 관찰 상태: 상태: 목록 후반
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 나머지 기사·읽기시간·날짜·메모 영역
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3729,12 +3729,12 @@
 
 - 담당: V32 / 묶음 15. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [WrittenStoryActions.tsx](<../../FE/src/features/editor/WrittenStoryActions.tsx>), [WrittenStoryCardReactions.tsx](<../../FE/src/features/editor/WrittenStoryCardReactions.tsx>), [ProfileEditorSheet.tsx](<../../FE/src/features/profile/ProfileEditorSheet.tsx>), [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScreen.tsx>), [ProfileStories.tsx](<../../FE/src/features/profile/ProfileStories.tsx>), [PronounsEditor.tsx](<../../FE/src/features/profile/PronounsEditor.tsx>), [useProfilePhotoSelection.ts](<../../FE/src/features/profile/useProfilePhotoSelection.ts>)
 - 계정·권한: A 소유; 표시 이름 Alex Smith와 userId는 별개
 - fixture 구성: ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도
-- 이번 화면 표시값: 표시값·입력: Alex Smith, 0 followers·1 following, Just now
-- 이번 화면 상태: 상태: 발행된 것으로 보이는 글 카드
+- 원본 관찰 표시값: 표시값·입력: Alex Smith, 0 followers·1 following, Just now
+- 원본 관찰 상태: 상태: 발행된 것으로 보이는 글 카드
 - 시간: publishedAt=고정 now; Just now
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 프로필 Stories 탭 Public 필터 아래 새 글
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3750,12 +3750,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 박수 아이콘 검정, 18K, 응답 832
-- 이번 화면 상태: 상태: 일시적 +16 배지 사라짐
+- 원본 관찰 표시값: 표시값·입력: 박수 아이콘 검정, 18K, 응답 832
+- 원본 관찰 상태: 상태: 일시적 +16 배지 사라짐
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 상단과 고정 반응 바
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3771,12 +3771,12 @@
 
 - 담당: V10 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor 본문 @ → samlee → 후보 선택 → Sam Lee 삽입
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DocumentReader.tsx](<../../FE/src/features/editor/DocumentReader.tsx>), [MentionSuggestions.tsx](<../../FE/src/features/editor/MentionSuggestions.tsx>)
 - 계정·권한: A 소유 초안
 - fixture 구성: mention 검색 source와 문서 snapshot; S015 문자열 위치·키보드 별도
-- 이번 화면 표시값: 표시값·입력: @만 입력
-- 이번 화면 상태: 상태: 멘션 검색 대기
+- 원본 관찰 표시값: 표시값·입력: @만 입력
+- 원본 관찰 상태: 상태: 멘션 검색 대기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 본문 새 줄에 @, 키보드 위 사용자 이름 입력 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 보임 관찰; web은 OS 키보드 비동등
@@ -3792,12 +3792,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: 응답 유지
-- 이번 화면 상태: 상태: 수정·삭제 선택 가능
+- 원본 관찰 표시값: 표시값·입력: 응답 유지
+- 원본 관찰 상태: 상태: 수정·삭제 선택 가능
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 본인 응답 더보기 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3813,12 +3813,12 @@
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Profile 또는 Library guest → AuthDialogs → 이메일 signup/login/code; Profile/Settings → Sign out
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>), [EmailLogin.tsx](<../../FE/src/features/auth/EmailLogin.tsx>), [createEmailAttempt.ts](<../../FE/src/features/auth/createEmailAttempt.ts>)
 - 계정·권한: guest→A 모의 인증; 기존 세션 로그아웃은 A 시작
 - fixture 구성: mockUsers + emailAuthSource; 개인정보·원본 인증코드 복사 없이 합성 테스트값 사용
-- 이번 화면 표시값: 표시값·입력: 입력 없음
-- 이번 화면 상태: 상태: 로그인 시작
+- 원본 관찰 표시값: 표시값·입력: 입력 없음
+- 원본 관찰 상태: 상태: 로그인 시작
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 브랜드 문구 아래 공급자 버튼 5개
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3834,12 +3834,12 @@
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 작성 → Editor; 제목·본문 입력 → 해당 서식·이미지 블록 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocumentBody.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>), [editorModel.ts](<../../FE/src/features/editor/editorModel.ts>)
 - 계정·권한: A 소유 초안; 같은 draftId 유지
 - fixture 구성: DraftSource·EditorSession; 음악 제목/단락/인용/목록/구분선은 각 S의 문서 snapshot 별도
-- 이번 화면 표시값: 표시값·입력: 동일 문장·이미지 유지
-- 이번 화면 상태: 상태: 인용 블록 표시
+- 원본 관찰 표시값: 표시값·입력: 동일 문장·이미지 유지
+- 원본 관찰 상태: 상태: 인용 블록 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 단락 왼쪽 세로선과 이탤릭, 인용 도구 녹색
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3855,12 +3855,12 @@
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): guest signup → Onboarding → interests → recommendations → permission → welcome; S043은 실제 cold start
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/OnboardingScreen.tsx>), [createOnboardingSession.ts](<../../FE/src/features/onboarding/createOnboardingSession.ts>)
 - 계정·권한: 신규 A; 기존 A와 분리된 새 메모리 세션
 - fixture 구성: OnboardingSource·NotificationPermissionSource; 관심5개/추천Follow/안내 상태; S043 대응 splash 없음
-- 이번 화면 표시값: 표시값·입력: 입력란 없음
-- 이번 화면 상태: 상태: 알림 권한 요청 전 앱 안내
+- 원본 관찰 표시값: 표시값·입력: 입력란 없음
+- 원본 관찰 상태: 상태: 알림 권한 요청 전 앱 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 중앙 Stay up to date 안내와 하단 두 행동
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3876,12 +3876,12 @@
 
 - 담당: V02 / 묶음 17. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Explore → 검색 진입·Mindfulness 입력·Stories; Staff Picks/Who to follow 위치까지 세로·가로 이동
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [CatalogSearchResults.tsx](<../../FE/src/features/search/CatalogSearchResults.tsx>), [ExploreSections.tsx](<../../FE/src/features/search/ExploreSections.tsx>), [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.tsx>)
 - 계정·권한: 공개 열람; 관계 조작은 A
 - fixture 구성: mediumFeedFixtures / SearchScreen·CatalogSearchResults; 칩·캐러셀 위치는 화면별 설정
-- 이번 화면 표시값: 표시값·입력: 검색 빈값
-- 이번 화면 상태: 상태: 탐색 화면 테마 적용
+- 원본 관찰 표시값: 표시값·입력: 검색 빈값
+- 원본 관찰 상태: 상태: 탐색 화면 테마 적용
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창·칩·Trending 모두 어두운 배경
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3897,12 +3897,12 @@
 
 - 담당: V28 / 묶음 16. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Digest 설정 또는 Profile/Settings → Email/Push → NotificationSettings(section)
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>)
 - 계정·권한: A; 앱 설정과 OS권한을 별도 기록
 - fixture 구성: NotificationSource·설정 source; Daily/PushOn/EmailOn와 개별 토글 상태
-- 이번 화면 표시값: 표시값·입력: Digest·Top story·Editors·Featured·Applause·Saves 켜짐, 여러 항목 Tailored for you
-- 이번 화면 상태: 상태: 이벤트별 푸시 제어
+- 원본 관찰 표시값: 표시값·입력: Digest·Top story·Editors·Featured·Applause·Saves 켜짐, 여러 항목 Tailored for you
+- 원본 관찰 상태: 상태: 이벤트별 푸시 제어
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 여러 이벤트 유형의 토글·선택값
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3918,12 +3918,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 120% 설정 후 제목 3줄
-- 이번 화면 상태: 상태: 표시 설정 적용 결과
+- 원본 관찰 표시값: 표시값·입력: 120% 설정 후 제목 3줄
+- 원본 관찰 상태: 상태: 표시 설정 적용 결과
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 확대 글자·검정 배경·기사 상단
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3939,12 +3939,12 @@
 
 - 담당: V34 / 묶음 20. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Profile → View stats → StoryStats → Monthly/Lifetime·날짜·글 선택
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/StoryStatsScreen.tsx>)
 - 계정·권한: A 소유 발행 글; 이력 방문과 분석집계 별개
 - fixture 구성: StoryStatsSource; June1–13 UTC11/2와 글 Lifetime0/0 독립 initial/asOf fixture
-- 이번 화면 표시값: 표시값·입력: Jun 1–13 2025 UTC, Updated daily, Views11·Reads2
-- 이번 화면 상태: 상태: 일별 통계 시각화
+- 원본 관찰 표시값: 표시값·입력: Jun 1–13 2025 UTC, Updated daily, Views11·Reads2
+- 원본 관찰 상태: 상태: 일별 통계 시각화
 - 시간: asOf와 June1–13 2025 UTC 기간 고정; 합계11/2
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 월 선택·두 집계·라인 그래프
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3960,12 +3960,12 @@
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home/Explore 기사 → Article(articleId); 본문·말미·응답 미리보기까지 스크롤; 박수 조작
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDetailScreen.tsx](<../../FE/src/features/article/ArticleDetailScreen.tsx>), [ReferenceArticleView.tsx](<../../FE/src/features/article/ReferenceArticleView.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>)
 - 계정·권한: 공개 읽기와 회원 제한 상태 분리; 반응은 A
 - fixture 구성: medium-brain 기본 기사; F16의834와 박수 흐름832는 독립 response fixture
-- 이번 화면 표시값: 표시값·입력: 여러 텍스트 강조 범위
-- 이번 화면 상태: 상태: 본문 중간 읽기
+- 원본 관찰 표시값: 표시값·입력: 여러 텍스트 강조 범위
+- 원본 관찰 상태: 상태: 본문 중간 읽기
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 세리프 본문과 굵은 단락·점 구분선·연녹색 강조
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -3981,12 +3981,12 @@
 
 - 담당: V12 / 묶음 4. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home → Refine recommendations → Reading history → 카드·삭제·Clear history
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ReadingHistoryList.tsx](<../../FE/src/features/reading-history/ReadingHistoryList.tsx>)
 - 계정·권한: A 개인 방문 이력; Viewed와 실제 Views/Reads 구분
 - fixture 구성: ReadingHistorySource + 카탈로그; 원본 history 기사 배열·방문시각 별도; D03/D05 미해결
-- 이번 화면 표시값: 표시값·입력: 읽은 글·날짜·집계 표시
-- 이번 화면 상태: 상태: 읽기 기록 존재
+- 원본 관찰 표시값: 표시값·입력: 읽은 글·날짜·집계 표시
+- 원본 관찰 상태: 상태: 읽기 기록 존재
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Reading history 탭, 전체 삭제 안내, 기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4002,12 +4002,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: A very good explanation of mindfulness
-- 이번 화면 상태: 상태: 메모 제출 준비
+- 원본 관찰 표시값: 표시값·입력: A very good explanation of mindfulness
+- 원본 관찰 상태: 상태: 메모 제출 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 대상 기사 카드 위 입력란
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4023,12 +4023,12 @@
 
 - 담당: V18 / 묶음 12. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article Listen → 미니 플레이어 → 확장 → 재생·정지·seek·닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListeningPlayer.tsx](<../../FE/src/features/listening/ListeningPlayer.tsx>)
 - 계정·권한: A 모의 회원 자격; 실제 음성 없음
 - fixture 구성: ListeningSource·mock 시계; 00:05/00:10/00:20/00:40 각 snapshot과 duration 독립
-- 이번 화면 표시값: 표시값·입력: 1x, 00:20, -04:27
-- 이번 화면 상태: 상태: 재생 UI 복귀
+- 원본 관찰 표시값: 표시값·입력: 1x, 00:20, -04:27
+- 원본 관찰 상태: 상태: 재생 UI 복귀
 - 시간: 재생00:20/-04:27/1x; 독립 duration/position
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 확장 재생 화면 복귀
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4044,12 +4044,12 @@
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
 - fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
-- 이번 화면 표시값: 표시값·입력: June 12 2025 선택, June 3까지
-- 이번 화면 상태: 상태: 최근 10개까지 볼 수 있다는 안내
+- 원본 관찰 표시값: 표시값·입력: June 12 2025 선택, June 3까지
+- 원본 관찰 상태: 상태: 최근 10개까지 볼 수 있다는 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Digest history 시트·라디오 10개·하단 안내
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4065,12 +4065,12 @@
 
 - 담당: V11 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Home 더보기/Refine recommendations → Recommendations → Following/Reading history/Muted/Suggestions → All·Topics 등 필터
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recommendations/RefineRecommendationsScreen.tsx>)
 - 계정·권한: A 개인 관계; 빈 상태와 Writers1/Topics3 독립
 - fixture 구성: RecommendationSource·RelationshipSource·DirectorySource; 추천 목록과 현재 관계 구분
-- 이번 화면 표시값: 표시값·입력: Topics 체크
-- 이번 화면 상태: 상태: 유형 선택 중
+- 원본 관찰 표시값: 표시값·입력: Topics 체크
+- 원본 관찰 상태: 상태: 유형 선택 중
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Suggestions 위 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4086,12 +4086,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: Mind Fullness or Emptiness? 대상
-- 이번 화면 상태: 상태: 항목별 관리
+- 원본 관찰 표시값: 표시값·입력: Mind Fullness or Emptiness? 대상
+- 원본 관찰 상태: 상태: 항목별 관리
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 특정 기사 더보기 3행 팝오버
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4107,12 +4107,12 @@
 
 - 담당: V10 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Editor 본문 @ → samlee → 후보 선택 → Sam Lee 삽입
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DocumentReader.tsx](<../../FE/src/features/editor/DocumentReader.tsx>), [MentionSuggestions.tsx](<../../FE/src/features/editor/MentionSuggestions.tsx>)
 - 계정·권한: A 소유 초안
 - fixture 구성: mention 검색 source와 문서 snapshot; S015 문자열 위치·키보드 별도
-- 이번 화면 표시값: 표시값·입력: 검색어 samlee
-- 이번 화면 상태: 상태: 동명이인 구분 가능한 후보 목록
+- 원본 관찰 표시값: 표시값·입력: 검색어 samlee
+- 원본 관찰 상태: 상태: 동명이인 구분 가능한 후보 목록
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: @samlee 입력 아래 아바타·이름·핸들 3행
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4128,12 +4128,12 @@
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Article → Responses; 정렬·답글·본인 더보기·편집·삭제 또는 구절 Respond
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ResponseManagement.tsx](<../../FE/src/features/responses/ResponseManagement.tsx>), [ResponsesPanel.tsx](<../../FE/src/features/responses/ResponsesPanel.tsx>), [responseRows.ts](<../../FE/src/features/responses/responseRows.ts>)
 - 계정·권한: A를 작성자 YOU에 대응; 본인/타인 응답 분리
 - fixture 구성: ResponseSource·responseFixtures; root counts832/833/834, reply·edit·delete 별도 상태
-- 이번 화면 표시값: 표시값·입력: Now, 총수 834 유지
-- 이번 화면 상태: 상태: 인용 응답 목록에 표시
+- 원본 관찰 표시값: 표시값·입력: Now, 총수 834 유지
+- 원본 관찰 상태: 상태: 인용 응답 목록에 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: YOU 응답에 인용 상자와 본문
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4147,14 +4147,14 @@
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/06_sc_fd7de1ebfba14fbca6ddbe3ff642c42c.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s198>) · `sc_fd7de1ebfba14fbca6ddbe3ff642c42c`
 
-- 담당: V16 / 묶음 4. 상태: **current-web-capture**. Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.
+- 담당: V16 / 묶음 4. 상태: **historical-web-capture-parity-01**. Parity 1 당시 관찰: Dark 선택 후120%/others on 확인; 원본 직접 대조에서 흰 웹 스크롤바·부제 줄바꿈·폰트·반응7 차이.; 현재 공통 보정과 잔여는 Parity 2 결과 참조
 - 실제 FE 진입 절차(정적 확인): Article 더보기 → Display settings → 100/120%, font, appearance, highlights
-- 이번 실행 증거: [웹 캡처](<EVIDENCE/PARITY_01/S198.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: [과거 웹 캡처](<EVIDENCE/PARITY_01/S198.png>). 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/ArticleDisplayPopover.tsx>), [useReaderTypography.ts](<../../FE/src/features/settings/useReaderTypography.ts>)
 - 계정·권한: reader 설정 A; 앱 전역 theme와 별도
 - fixture 구성: DisplaySettingsSource; S063 기본관찰값, S125=120%, S198=Dark120%, S001=others off
-- 이번 화면 표시값: 표시값·입력: Dark, 120%, 타인 하이라이트 켜짐
-- 이번 화면 상태: 상태: 다크 테마 반영
+- 원본 관찰 표시값: 표시값·입력: Dark, 120%, 타인 하이라이트 켜짐
+- 원본 관찰 상태: 상태: 다크 테마 반영
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 배경·설정 팝오버 검정 계열
 - 테마: Dark 관찰; 앱/reader 각각 설정; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4170,12 +4170,12 @@
 
 - 담당: V15 / 묶음 5. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Identity 또는 Article 더보기 → Mute/Block/Report → 선택·확정·토스트
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ModerationDialogs.tsx](<../../FE/src/features/moderation/ModerationDialogs.tsx>), [articleModeration.ts](<../../FE/src/features/moderation/articleModeration.ts>)
 - 계정·권한: A; follow/mute/block/report 각각 별도 상태
 - fixture 구성: ModerationSource·RelationshipSource; S093은 별도 프로필 snapshot이며 차단 결과로 단정하지 않음
-- 이번 화면 표시값: 표시값·입력: 기사 목록은 그대로 보임
-- 이번 화면 상태: 상태: 차단 성공 표시
+- 원본 관찰 표시값: 표시값·입력: 기사 목록은 그대로 보임
+- 원본 관찰 상태: 상태: 차단 성공 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Author blocked 토스트, Follow 표시
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
@@ -4191,12 +4191,12 @@
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
 - 실제 FE 진입 절차(정적 확인): Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo
-- 이번 실행 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
+- Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
 - fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
-- 이번 화면 표시값: 표시값·입력: Add a brief description 빈값
-- 이번 화면 상태: 상태: 메모 입력 전
+- 원본 관찰 표시값: 표시값·입력: Add a brief description 빈값
+- 원본 관찰 상태: 상태: 메모 입력 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Add note 시트·설명 입력·대상 기사 카드
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요

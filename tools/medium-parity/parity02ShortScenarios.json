@@ -1,0 +1,15 @@
+[
+  { "id": "S063", "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain", "click": ["Story options", "기사 표시 설정"], "waitText": "100%", "assert": [
+    { "selector": "[aria-label='글자 크기 키우기']", "minHeight": 48, "inside": true }
+  ] },
+  { "id": "S119", "click": ["기사 테마 선택 열기"], "waitText": "System default", "assert": [
+    { "selector": "[aria-label='기사 테마: System default']", "minHeight": 48, "inside": true }
+  ] },
+  { "id": "S198", "click": ["기사 테마: Dark"], "waitText": "Dark", "assert": [
+    { "selector": "[aria-label='기사 테마 선택 열기']", "contains": "Dark" }
+  ] },
+  { "id": "Q12-dismiss", "keys": ["Escape"], "assert": [
+    { "selector": "[aria-label='기사 표시 설정 닫기']", "visible": false },
+    { "selector": "[aria-label='Story options']", "inside": true }
+  ] }
+]

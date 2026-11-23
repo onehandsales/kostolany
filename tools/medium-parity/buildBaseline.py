@@ -118,7 +118,7 @@ def extract():
             special = {
                 'S043': '대응 splash 설정 없음(D10); 웹 Home은 대체 증거가 아님; 실제 cold start는 Q07.',
                 'S113': 'OS Photos/앨범4장/권한 환경 필요; 웹 파일 선택기로 동일 재현 불가(Q07).',
-                'S008': '현재 정책 발췌문과 원본 기사 구조가 달라 D08 구현 후 실행 필요.',
+                'S008': 'Parity 3에서 기사 구조·mock 도구·복귀를 실행했다. V21 자산/서체/272 재현 잔여와 U 미확인을 유지한다.',
                 'S116': 'June8 현 fixture와 원본 Goodbye Notion 불일치; issue/article source 대조·주입 필요.',
                 'S068': '원본 알림 이벤트 배열·시간과 같은 fixture 미확정; 기존 Goal53 캡처는 새 증거 아님.',
                 'S122': 'native 별도 Select a passage 화면과 원본 본문 선택이 다름(D09).',
@@ -159,8 +159,16 @@ def extract():
                 item['batches'] = unique(item['batches'] + [21])
             item['currentEvidence'] = [c for c in evidence['captures'] if c['id'] == sid]
             if item['currentEvidence']:
-                item['readiness'] = 'current-web-capture'
-                item['blocker'] = item['currentEvidence'][0]['note']
+                item['readiness'] = 'historical-web-capture-parity-01'
+                item['blocker'] = 'Parity 1 당시 관찰: ' + item['currentEvidence'][0]['note'] + '; 현재 공통 보정과 잔여는 Parity 2 결과 참조'
+            if sid in ('S008', 'S100'):
+                item['blocker'] += '; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님'
+                item['previousReviews'] = [{'result': 'TODO/FE_MEDIUM_PARITY_03_RESULT.md',
+                    'evidence': 'TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03/flow-review/captures.json',
+                    'scope': 'S008 mock 연결과 S100 복귀; 원본 동일성 미완료'}]
+                item['latestReview'] = {'result': 'TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review',
+                    'evidence': 'TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json',
+                    'scope': '추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료'}
             screens.append(item)
     byScreen = {s['id']: s for s in screens}
     for item in unknowns:
@@ -173,7 +181,7 @@ def extract():
     for record in json.loads(read(ROOT / 'FE/assets/medium/SOURCES.json')):
         assets.append({**record, 'image': pngInfo(ROOT / record['asset']), 'sourceImage': pngInfo(ROOT / record['source']), 'status': '로컬 비교용 crop 확보; 원본 독립 자산/배포 권리/렌더 동일성 확인 아님'})
     inputs = sorted(set([ROOT / 'TODO/FE_MEDIUM_PARITY_BACKLOG.md', HERE / 'comparisonProfiles.json', HERE / 'executionBatches.json', HERE / 'currentEvidence.json', ROOT / evidence['captureLog'], *DOCS.glob('REQUIREMENTS_*.md'), *(DOCS / name for name in ('FLOWS.md', 'CONTRACTS.md', 'UNKNOWN.md', 'SCOPE.md')), *(ROOT / f['analysis'] for f in flows.values())]))
-    codeInputs = sorted([p for p in (ROOT / 'FE/src').rglob('*') if p.suffix in ('.ts', '.tsx')] + [ROOT / 'FE/app.json', ROOT / 'FE/package.json', ROOT / 'FE/package-lock.json', ROOT / 'FE/assets/medium/SOURCES.json'])
+    codeInputs = sorted([p for p in (ROOT / 'FE/src').rglob('*') if p.suffix in ('.ts', '.tsx')] + [ROOT / 'FE/App.tsx', ROOT / 'FE/app.json', ROOT / 'FE/package.json', ROOT / 'FE/package-lock.json', ROOT / 'FE/assets/medium/SOURCES.json'])
     return {'schemaVersion': 1, 'comparisonProfile': {'id': 'CP-WEB-01', 'viewportCssPx': [390, 844], 'deviceScaleFactor': 1, 'locale': 'en-US', 'timezone': 'UTC', 'clockIso': '2025-06-13T12:00:00.000Z', 'fontScale': 1, 'orientation': 'portrait', 'osInsets': 'web=0; 원본은 미확인', 'crop': None, 'color': '원본 ICC 보존; 캡처 색공간 검증 전 픽셀 점수 금지', 'legacy': '393x852는 과거 정규화 조건; DPR/원본 기기 확정 근거 아님'},
         'textFingerprint': 'SHA-256 of UTF-8 text without BOM and with LF newlines; PNG hashes use original bytes',
         'inputs': [{'path': relative(p), 'sha256': textDigest(p)} for p in inputs], 'codeInputs': [{'path': relative(p), 'sha256': textDigest(p)} for p in codeInputs], 'evidenceContext': evidence, 'profiles': profiles, 'batches': batches,
@@ -233,8 +241,8 @@ def validate(data):
         for path in screen['code'] + screen['sourceCandidates']:
             require((ROOT / path).is_file(), f'missing code {path}')
         require(bool(screen['code']) and bool(screen['steps']) and bool(screen['requirements']), f"empty trace {screen['id']}")
-        require(screen['readiness'] in ('recipe-only', 'native-required', 'current-web-capture', 'ready'), f"unknown readiness {screen['id']}")
-        require(screen['readiness'] not in ('ready', 'current-web-capture') or bool(screen['currentEvidence']), f"no evidence {screen['id']}")
+        require(screen['readiness'] in ('recipe-only', 'native-required', 'current-web-capture', 'historical-web-capture-parity-01', 'ready'), f"unknown readiness {screen['id']}")
+        require(screen['readiness'] not in ('ready', 'current-web-capture', 'historical-web-capture-parity-01') or bool(screen['currentEvidence']), f"no evidence {screen['id']}")
         require(screen['currentEvidence'] == [c for c in captured if c['id'] == screen['id']], f"evidence context differs {screen['id']}")
         for evidence in screen['currentEvidence']:
             file = ROOT / evidence['path']
@@ -273,19 +281,19 @@ def validate(data):
 
 
 def renderScreens(data):
-    lines = ['# Parity 1 — 200개 화면 비교 조건', '', '[결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)', '',
-        '자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다.', '']
+    lines = ['# Medium Parity — 200개 화면 비교 조건', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)', '',
+        '자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 새 전후·회귀 증거는 결과 문서와 별도 evidence-manifest.json을 따른다.', '']
     for s in data['screens']:
         lines += [f"<a id=\"{s['id'].lower()}\"></a>", '', f"## {s['id']} — {s['title']}", '',
             f"{link(ROOT / s['png'], '원본 PNG')} · {link(ROOT / s['analysis'], '원본 분석')} · {link(ROOT / s['requirementsDocument'], 'R 수용 조건', '#' + s['id'].lower())} · `{s['referenceId']}`", '',
             f"- 담당: {s['visualTask']} / 묶음 {', '.join(map(str, s['batches']))}. 상태: **{s['readiness']}**. {s['blocker']}",
             f"- 실제 FE 진입 절차(정적 확인): {s['routeRecipe']}",
-            f"- 이번 실행 증거: {', '.join(link(ROOT / c['path'], '웹 캡처') for c in s['currentEvidence']) or '없음; 정적 절차만 연결'}. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.",
+            f"- Parity 1 당시 증거: {', '.join(link(ROOT / c['path'], '과거 웹 캡처') for c in s['currentEvidence']) or '없음; 정적 절차만 연결'}. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.",
             f"- 코드: {', '.join(link(ROOT / p) for p in s['code'])}",
             f"- 계정·권한: {s['accountAndPermission']}",
             f"- fixture 구성: {s['fixtureRecipe']}",
-            f"- 이번 화면 표시값: {s['referenceObservations']['D']}",
-            f"- 이번 화면 상태: {s['referenceObservations']['S']}",
+            f"- 원본 관찰 표시값: {s['referenceObservations']['D']}",
+            f"- 원본 관찰 상태: {s['referenceObservations']['S']}",
             f"- 시간: {s['conditions']['clock']}",
             f"- 스크롤: {s['conditions']['scroll']}",
             f"- 테마: {s['conditions']['theme']}; 키보드: {s['conditions']['keyboard']}",
@@ -296,8 +304,8 @@ def renderScreens(data):
 
 
 def renderPlan(data):
-    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
-        '이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 이번 실행은 묶음1까지다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.', '',
+    lines = ['# Medium Parity 실행 계획', '', '[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)', '',
+        '이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음3의 D08 mock 연결·복귀를 검증했고 V21 시각 잔여와 U 미확인·native 대기는 유지한다. 다음은 묶음4(D01/D03/D05/Q05/Q11/V12/V16)이며 미착수다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.', '',
         '공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.', '']
     for b in data['batches']:
         number = b['number']
@@ -308,7 +316,7 @@ def renderPlan(data):
         lines += [f'<a id="batch-{number:02}"></a>', '', f"## 묶음 {number} — {b['title']}", '',
             f"- 직접 대상: {', '.join(b['items']) or '해당 V 화면의 R/T/U/C'}. 상태: {b['status']}.",
             f"- 선행: {', '.join(map(str, b['depends'])) or '없음'}.", f"- 구현/판정 범위: {b['scope']}.", f"- 검증·종료 조건: {b['done']}.",
-            f"- 결과 문서: `TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md` (아직 없는 후속 결과는 예정 경로이며 링크로 만들지 않음).",
+            f"- 결과 문서: " + (link(ROOT / f'TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md') if number <= 3 else f"`TODO/FE_MEDIUM_PARITY_{number:02}_RESULT.md` (예정 경로)") + '.',
             f"- 화면: {', '.join(s['id'] for s in owned) or '공통 기준 또는 전수/기기 검증 범위; 아래 배정표 참조'}.",
             f"- 흐름/단계: {', '.join(trace['steps']) or '대상 전체에 적용; 각 화면 추적과 JSON에서 조회'}.",
             f"- 미확인 담당: {', '.join(unknowns) or '각 화면 담당과 공통 경계 조율'}.",
@@ -327,17 +335,18 @@ def renderPlan(data):
 
 def renderAssets(data):
     lines = ['# Q02 — 공통 자산과 레이아웃 기준', '', '[비교 프로토콜](COMPARISON_PROTOCOL.md) · [실행 계획](EXECUTION_PLAN.md#batch-02)', '',
-        '이번 결과는 파일·코드·출처의 재확인이다. 원본 폰트 확보·모든 화면 렌더 일치·실제 아이콘 적용 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.', '',
+        'Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.md)에서 모바일 웹의 본문 폭·이미지 비율·팝오버 안전 영역과 표시 설정 구획/선택 아이콘을 보정했다. 원본 폰트 확보·모든 화면 렌더 일치·아이콘 전체 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.', '',
         '| 영역 | 실제 코드/확보 상태 | 남은 차이·담당 |', '| --- | --- | --- |',
-        '| 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체 | 원본 font 파일·weight mapping 미확보; 실제 Windows fallback과 줄바꿈을 묶음2·각 V에서 확인 |',
+        '| 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체. Parity 2 CDP에서 영어 제목 Arial Bold, 설정 Arial, 한국어 프로필 Malgun Gothic Bold 확인 | 원본 font 파일·weight mapping 미확보; 각 V의 서체/줄바꿈 잔여 |',
         '| 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |',
         '| 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |',
+        '| 정책 기사 | [Parity 3](../FE_MEDIUM_PARITY_03_RESULT.md): reader 본문18/30, Medium Policy/Medium 아바타는 M 대체, 기존 SVG 도구·48px 조작 영역 | S008/V21 원본 로고/아바타·서체·정확 간격·숫자 크기 잔여; 독립 원본 자산을 새로 확보한 것은 아님 |',
         '| 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |',
         '| 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |',
         '| 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |',
         '| 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 원본 Medium 자산과 차이 유지; D10/묶음18, 실제 적용Q07/21 |',
         '| 시작 화면 | app.json 대응 splash 설정 없음 | assets/splash-icon.png 존재만으로 S043 구현으로 처리 금지; D10 |',
-        '| 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | Q12: 상태별 노출 확인, 기능 접근·mock 사실 보존, 각 V에서 배치 영향 검증 |', '',
+        '| 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | [상태별 처리 기준](OWN_UI_POLICY.md); 기준 정리 완료/화면별 적용 잔여 |', '',
         '근거: [tokens.ts](../../FE/src/shared/theme/tokens.ts), [reader 설정](../../FE/src/features/settings/useReaderTypography.ts), [발행 본문](../../FE/src/features/editor/DocumentReader.tsx), [앱 설정](../../FE/app.json), [아이콘 출처](../../FE/assets/app-icons/SOURCES.md).', '',
         '## 출처가 연결된 비교 이미지', '', '| 파일 | 실제 크기(px) | 원본·crop(물리px) | 상태 |', '| --- | --- | --- | --- |']
     for asset in data['assets']:

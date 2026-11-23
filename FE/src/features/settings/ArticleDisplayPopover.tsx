@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useTheme, useThemeStyles, type ThemeMode } from '../../shared/theme/ThemeProvider';
-import { fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { fonts, sizes, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { TopPopover } from '../../shared/ui/TopPopover';
 import { ToggleSwitch } from '../../shared/ui/ToggleSwitch';
@@ -17,7 +17,7 @@ const families: { value: DisplaySettings['fontFamily']; label: string }[] = [{ v
 
 export function ArticleDisplayPopover({ onClose }: ArticleDisplayPopoverProps) {
   const styles = useThemeStyles(createStyles);
-  const { scheme } = useTheme();
+  const { scheme, colors } = useTheme();
   const { state, store } = useDisplaySettings();
   const [picker, setPicker] = useState<'font' | 'theme' | null>(null);
   const settings = state.settings;
@@ -26,14 +26,14 @@ export function ArticleDisplayPopover({ onClose }: ArticleDisplayPopoverProps) {
   return <TopPopover title="기사 표시 설정" onClose={onClose}>
     <View style={styles.scaleRow}>
       <Pressable role="button" accessibilityLabel="글자 크기 줄이기" disabled={settings.fontScale <= 80} accessibilityState={{ disabled: settings.fontScale <= 80 }} style={styles.scaleButton} onPress={() => store?.update({ fontScale: settings.fontScale - 20 })}><Text style={styles.smallA}>A</Text></Pressable>
-      <Text accessibilityLabel="글자 크기" accessibilityValue={{ text: `${settings.fontScale}%` }} style={styles.percentage}>{settings.fontScale}%</Text>
+      <View style={styles.scaleValue}><Text accessibilityLabel="글자 크기" accessibilityValue={{ text: `${settings.fontScale}%` }} style={styles.percentage}>{settings.fontScale}%</Text></View>
       <Pressable role="button" accessibilityLabel="글자 크기 키우기" disabled={settings.fontScale >= 200} accessibilityState={{ disabled: settings.fontScale >= 200 }} style={styles.scaleButton} onPress={() => store?.update({ fontScale: settings.fontScale + 20 })}><Text style={styles.largeA}>A</Text></Pressable>
     </View>
     <Pressable role="button" accessibilityLabel="글꼴 선택 열기" accessibilityState={{ expanded: picker === 'font' }} onPress={() => setPicker(picker === 'font' ? null : 'font')} style={styles.row}>
-      <Text style={styles.label}>Font family</Text><Text style={styles.value}>{family} ⌃⌄</Text>
+      <Text style={styles.label}>Font family</Text><View style={styles.selection}><Text style={styles.value}>{family}</Text><AppIcon name="select" size={14} color={colors.saveGreen} /></View>
     </Pressable>
     <Pressable role="button" accessibilityLabel="기사 테마 선택 열기" accessibilityState={{ expanded: picker === 'theme' }} onPress={() => setPicker(picker === 'theme' ? null : 'theme')} style={styles.row}>
-      <Text style={styles.label}>Appearance</Text><Text style={styles.value}>{appearance} ⌃⌄</Text>
+      <Text style={styles.label}>Appearance</Text><View style={styles.selection}><Text style={styles.value}>{appearance}</Text><AppIcon name="select" size={14} color={colors.saveGreen} /></View>
     </Pressable>
     <View style={styles.row}>
       <Text style={styles.label}>Highlights from others</Text>
@@ -50,14 +50,16 @@ export function ArticleDisplayPopover({ onClose }: ArticleDisplayPopoverProps) {
   </TopPopover>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
-  scaleRow: { minHeight: 56, flexDirection: 'row', alignItems: 'center', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
-  scaleButton: { flex: 1, minHeight: 56, minWidth: 48, alignItems: 'center', justifyContent: 'center' },
-  smallA: { color: colors.text, fontFamily: fonts.serif, fontSize: 14, lineHeight: 24 },
-  largeA: { color: colors.text, fontFamily: fonts.serif, fontSize: 18, lineHeight: 24 },
-  percentage: { flex: 1, color: colors.text, fontFamily: fonts.sans, fontSize: 14, textAlign: 'center' },
-  row: { minHeight: 57, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', alignContent: 'center', flexWrap: 'wrap', gap: 8, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
+  scaleRow: { minHeight: 56, flexDirection: 'row', alignItems: 'stretch', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
+  scaleButton: { flex: 1, minHeight: 56, minWidth: sizes.minimumTouchTarget, alignItems: 'center', justifyContent: 'center' },
+  scaleValue: { flex: 1, justifyContent: 'center', borderLeftWidth: StyleSheet.hairlineWidth, borderRightWidth: StyleSheet.hairlineWidth, borderColor: colors.divider, paddingVertical: 12 },
+  smallA: { color: colors.text, fontFamily: fonts.serif, fontSize: 16, lineHeight: 24 },
+  largeA: { color: colors.text, fontFamily: fonts.serif, fontSize: 20, lineHeight: 28 },
+  percentage: { color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, textAlign: 'center' },
+  row: { minHeight: 57, paddingHorizontal: 24, paddingVertical: 8, flexDirection: 'row', alignItems: 'center', alignContent: 'center', flexWrap: 'wrap', gap: 8, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.divider },
   label: { color: colors.text, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, flexGrow: 1, flexShrink: 1 },
-  value: { color: colors.green, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, flexShrink: 1 },
+  selection: { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 4, flexShrink: 1, maxWidth: '100%' },
+  value: { color: colors.saveGreen, fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, flexShrink: 1 },
   choice: { minHeight: 48, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface },
   check: { width: 20 },
   choiceText: { color: colors.text, fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, flexShrink: 1 },

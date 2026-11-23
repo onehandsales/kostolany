@@ -1,0 +1,36 @@
+# Q12 — 자체 UI의 노출과 원본 비교 처리
+
+**Parity 3 갱신:** [정책 기사 실제 실행](../FE_MEDIUM_PARITY_03_RESULT.md)을 추가했다. 아래 표의 Rules/듣기에 대한 Parity 2 코드 확인 기록은 당시 이력이다. 현재 [PolicyArticle](../../FE/src/features/responses/PolicyArticle.tsx)은 발췌 끝에 전문/현재 버전 차이와 mock 상호작용 안내·기존 공식 링크를 유지한다. 초기 응답은 실제 mock 0, 작성 후 1이며 원본272와 차이를 명시한다. 더보기의 표시 설정/현재 링크와 작성자 프로필 이동은 자체 mock 연결이고 원본에서 실행 결과를 관찰한 기능이 아니다. Listen은 기존 무음 mock·권한을 재사용한다. 조건별 캡처의 안내 노출과 남은 차이는 Parity 3 결과를 따른다.
+
+[Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Q12 요구](../FE_MEDIUM_PARITY_BACKLOG.md#q12) · [실행 계획](EXECUTION_PLAN.md)
+
+2026-11-23. 기존 mock 앱의 비교·기록 기준이다. 새 제품 정책이나 Medium 원본 동작을 확정한 문서가 아니다. 자체 기능과 모의 동작 안내를 유지하고, 현재 상태에서 실제 보이는 요소만 해당 원본의 차이로 기록한다. CSS로 안내를 숨기거나 별도 촬영 전용 제품 화면을 만들지 않는다.
+
+## 상태별 처리
+
+| 요소·코드 | 실제 노출 조건 | 비교 처리와 이번 확인 | 잔여 담당 |
+| --- | --- | --- | --- |
+| [프로필](../../FE/src/features/profile/ProfileScreen.tsx) `Continue setup` | 로그인 후 `onboarding.canResume` | 신규 A에서 표시·재개·닫기, 기존 B에서 미표시를 이번 브라우저로 확인. 원본에 없는 재개 진입으로 분류; 모든 프로필에 항상 있다고 쓰지 않음 | 묶음14 온보딩/V30, 15 프로필/V32 |
+| 프로필 `Drafts` | 로그인·Stories 탭 | A의 빈 초안 목록 진입/닫기와 B의 Stories 표시·Lists 미표시 확인. 초안 접근 경로 유지 | 묶음9 작성/V06~V10, 15 프로필/V32 |
+| 프로필 모의 계정 안내 | guest/로그인별 문구, 스크롤 하단 | 실제 인증 아님을 보존. 첫 viewport에 없으면 그 원본의 가시 차이로 세지 않고 아래쪽 진입 상태를 별도 기록 | 묶음13 인증/V28~V29, 15 프로필 |
+| [인증](../../FE/src/features/auth/AuthDialogs.tsx) MOCK 배지·독자/결과 선택 | 인증 모달의 상태에 따라 표시 | A 로그인과 B 선택을 실제 확인. 실제 Google 인증·Medium 계정 선택으로 표현 금지 | 묶음13 |
+| [설정](../../FE/src/features/settings/SettingsScreen.tsx) `Mock: member/free/friend` | 로그인·membership 상태에 의존 | A의 초기 Member 표시와 Friend 모의 변경 확인. 이름만 원본 구독 상태처럼 바꾸지 않음 | 묶음13/V31, 18/V33 |
+| 설정 `Reading tools · local example`·기본 설명 수준 | 설정 아래 자체 읽기 영역 | 아래로 스크롤해 기본 설명 수준 선택 모달 진입/취소 확인. 원본 설정 섹션과 구분하여 유지 | 묶음4 읽기 정책, 18 설정 |
+| [원문 기사](../../FE/src/features/article/ReferenceArticleView.tsx) `Reading tools` | 기사 하단 접힘 버튼; 펼침 때 설명 수준·자체 예시 | 열기/닫기 재검증. 접힌 내용은 원본 첫 viewport 차이로 세지 않음. 자체 설명을 원저자의 본문·Medium 기능으로 기록 금지 | 묶음4/V12·V16, 10/V13 |
+| 기사 `[Uncaptured paragraphs omitted]`·응답 unavailable 등 | 보관 발췌의 missing 블록·미수록 응답 확장 | 근거 없는 전문 생성 없이 안내 유지. 가시 위치·문단 높이 차이는 원문 대조 시 잔여로 표시 | 묶음10/V13·V20 |
+| [작성 글](../../FE/src/features/editor/WrittenStoryScreen.tsx) `모의 발행`·Unlisted | 로컬 발행 글 표시; Unlisted는 선택값에 의존 | 이번에는 코드 조건 확인. 현재 브라우저 발행·상태별 재촬영은 하지 않음. 실제 발행 효력으로 오인할 안내 삭제 금지 | 묶음9·10 |
+| [공개 작성자 About](../../FE/src/features/community/PublicIdentityScreen.tsx) 웹사이트 줄 | About 탭이며 `identity.website` 존재 | 코드 조건 확인. 원본에 같은 줄이 있는 화면만 원본 항목; 없는 경우 추가 항목으로 기록. 모든 작성자/탭에 있는 것으로 일반화 금지 | 묶음5/V14 |
+| [Rules](../../FE/src/features/responses/ResponsesPanel.tsx) 발췌 안내·현재 정책 링크 | 응답에서 Rules 분기 진입 | 코드 조건 확인. 현재 발췌 화면·기사 도구 연결 결함은 D08에 그대로 남김. 외부 최신 전문을 이번 근거로 확보했다고 쓰지 않음 | 묶음3/D08·V21 |
+| [듣기](../../FE/src/features/listening/ListeningPlayer.tsx) 작성자 `· Mock` / `Mock preview · no audio` | 플레이어 세션 존재; 미니/확장 상태별 안내 | 이번에는 코드 조건 확인, 실제 재생·네이티브 오디오 미검증. 안내로 늘어난 행·높이는 V18 비교 차이로 유지 | 묶음12/V18·V19; 외부 서비스 Q08 |
+| [멤버십](../../FE/src/features/membership/MembershipSheet.tsx) 모의 가격·선택·성공 안내 | 선택/완료/Welcome 단계별 표시 | A Member→Friend 선택·성공·Welcome까지 실행. 실제 결제 없음. S159 `You can now access the best of Medium.`는 원본 문구이므로 자체 추가로 분류하지 않음 | 묶음13/V31, Q08 |
+| 검색의 한국어 금융 토픽·홈 미수록 기사 placeholder | 현재 fixture의 추가 토픽·미수록 기사 | 이번 S004/S069에서 확인. 전역 fixture에서 삭제하거나 원본 문구로 위장하지 않음 | 묶음17/V01~V05 |
+
+## 후속 비교의 공통 기준
+
+1. 원본 S/R/T/U/C와 같은 계정·권한·탭·선택·스크롤 조건을 먼저 지정한다. 원본 계정이 미확인이면 대응 fixture는 비교용 기본안으로 표시한다.
+2. 자체 요소가 안 보이는 상태와 펼친/스크롤 후 상태를 분리한다. 존재만 확인한 코드, 현재 실행한 상태, 원본에서 관찰한 상태를 혼합하지 않는다.
+3. 비교 표에는 원본 영역의 차이와 자체 UI가 차지하는 영역을 각각 적는다. OS 영역 또는 자체 안내를 임의 crop해 동일성 점수를 높이지 않는다.
+4. 기능 접근을 유지한 채 위치를 바꿀 필요가 생기면 담당 묶음에서 전후 캡처·접근성·복귀·계정 수명을 재검증한다. 안내 삭제 또는 서비스 정책 변경은 이번에 채택하지 않았다.
+5. Q12의 상태별 처리 기준은 정리했지만 모든 기능의 배치 보정은 미완료다. 특히 작성 글·About·Rules·듣기의 이번 판정은 코드 확인이며 실행 통과가 아니다.
+
+원본 폰트·벡터·글꼴 선택 전체·범위 밖 mock 기능의 최종 제품 채택은 미확인이다. 근거 확보 후 보존/이동/별도 진입을 결정할 수 있으며, 현재는 기능 접근과 모의 효력 고지를 유지하는 기존 동작을 따른다.

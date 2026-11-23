@@ -1063,6 +1063,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F34 — Home/Story detail/Responses/Medium policy
 
+**Parity 3 추가 실행:** [S100→S008→원래 응답/기사 복귀·도구 연결·재검토](../FE_MEDIUM_PARITY_03_RESULT.md)를 새로 수행했다. 초안/선택/정렬/스크롤/포커스 보존은 검증한 mock 정책이며 원본의 미수록 복귀 결과를 확정하지 않는다. 아래 FE 검토는 감사 당시 이력이다. T-F34-01의 S100 전체 보정은 묶음10, T-F34-02의 V21 자산/서체/272 잔여는 묶음3에 유지한다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>)
 
 **원본 흐름 목적:** 응답 시트의 정책 접근점에서 Medium Rules 문서를 읽는 경로를 확인한다.

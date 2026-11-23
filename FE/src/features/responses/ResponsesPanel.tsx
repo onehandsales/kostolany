@@ -6,7 +6,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -16,9 +15,11 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ResponseManagement } from './ResponseManagement';
-import { ResponsePolicyLink } from './ResponsePolicyLink';
+import { PolicyArticle, policyResponseTarget } from './PolicyArticle';
+import { useReturnFocus } from '../../shared/ui/useReturnFocus';
 import { visibleResponses } from './responseVisibility';
 import { useModeration } from '../moderation/ModerationContext';
+import { useArticleModeration } from '../moderation/articleModeration';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
@@ -30,7 +31,7 @@ import { useProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { ResponseQuoteBlock } from './ResponseQuoteBlock';
 import { ResponseCard } from './ResponseCard';
-import { useResponses } from './ResponseProvider';
+import { useResponses, useResponseScope } from './ResponseProvider';
 import { responseRows, type ResponseSort } from './responseRows';
 import {
   RESPONSE_MAX_LENGTH,
@@ -43,7 +44,34 @@ import {
 } from './types';
 
 type Composer = { mode: 'create'; parentId: string | null } | { mode: 'edit'; id: string };
-export function ResponsesPanel({
+type ResponsesPanelProps = {
+  target: ResponseTarget;
+  active?: boolean;
+  initialReplyId?: string;
+  initialEditId?: string;
+  initialDeleteId?: string;
+  initialQuote?: ResponseQuote;
+  initialFocusId?: string;
+  initialPolicy?: boolean;
+  onClose: () => void;
+};
+
+export function ResponsesPanel(props: ResponsesPanelProps) {
+  const scope = useResponseScope();
+  const moderation = useArticleModeration();
+  const unavailable = props.active === false || (props.target.kind === 'article' && (
+    moderation.blocked(props.target.id) || Boolean(moderation.state?.readError)
+    || (props.target.id === policyResponseTarget.id && Boolean(moderation.store) && moderation.state?.status === 'loading')
+  ));
+  const { onClose } = props;
+  // 배경 경로와 접근권을 잃은 응답은 즉시 숨기고 소유 화면의 열림 상태도 끝낸다.
+  useEffect(() => { if (unavailable) onClose(); }, [unavailable, onClose]);
+  if (unavailable) return null;
+  // 직접 열린 정책 패널도 계정과 대상이 바뀌면 이전 초안과 메뉴 수명을 끝낸다.
+  return <ScopedResponsesPanel key={`${scope?.scope}:${props.target.kind}:${props.target.id}`} {...props} />;
+}
+
+function ScopedResponsesPanel({
   target,
   initialReplyId,
   initialEditId,
@@ -52,16 +80,7 @@ export function ResponsesPanel({
   initialFocusId,
   initialPolicy = false,
   onClose,
-}: {
-  target: ResponseTarget;
-  initialReplyId?: string;
-  initialEditId?: string;
-  initialDeleteId?: string;
-  initialQuote?: ResponseQuote;
-  initialFocusId?: string;
-  initialPolicy?: boolean;
-  onClose: () => void;
-}) {
+}: ResponsesPanelProps) {
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { store, state } = useResponses(target);
@@ -89,6 +108,10 @@ export function ResponsesPanel({
     () => state?.value?.responses.find((response) => response.id === initialDeleteId) ?? null,
   );
   const [policy, setPolicy] = useState(initialPolicy);
+  const [policyResponses, setPolicyResponses] = useState(false);
+  // 진입 버튼과 원래 응답 목록은 숨긴 채 보존해 복귀 시 포커스와 스크롤을 되돌린다.
+  const openPolicy = useReturnFocus(!policy);
+  const openPolicyResponses = useReturnFocus(!policyResponses);
   const [announcement, setAnnouncement] = useState('');
   const input = useRef<TextInput>(null);
   const mounted = useRef(true);
@@ -242,43 +265,32 @@ export function ResponsesPanel({
       onRequestClose={policy ? () => setPolicy(false) : onClose}
     >
       <SafeAreaView
-        style={styles.backdrop}
+        style={[styles.backdrop, policy && styles.policyBackdrop]}
         edges={['top', 'bottom', 'left', 'right']}
         accessibilityViewIsModal
       >
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.flex}>
-          <View style={styles.sheet}>
-            <View style={styles.header}>
+          <View style={[styles.sheet, policy && styles.policySheet]}>
+            <View style={[styles.header, policy && styles.hidden]}
+              accessibilityElementsHidden={policy}
+              importantForAccessibility={policy ? 'no-hide-descendants' : 'auto'}>
               <IconButton
-                icon={policy ? 'back' : 'close'}
+                icon="close"
                 size={18}
-                label={policy ? 'Responses로 돌아가기' : 'Responses 닫기'}
-                onPress={policy ? () => setPolicy(false) : onClose}
+                label="Responses 닫기"
+                onPress={onClose}
               />
               <Text role="heading" style={styles.heading}>
-                {policy ? 'Medium Policy' : `Responses (${state?.value ? count : '—'})`}
+                {`Responses (${state?.value ? count : '—'})`}
               </Text>
-              <IconButton icon="shield" size={16} label="Medium policy" onPress={() => setPolicy(true)} />
+              {(target.kind !== 'article' || target.id !== policyResponseTarget.id) && <IconButton icon="shield" size={16} label="Medium policy"
+                onPress={() => openPolicy(() => { Keyboard.dismiss(); setPolicy(true); })} />}
             </View>
             {policy && (
-              <ScrollView contentContainerStyle={styles.policy}>
-                <Text role="heading" style={styles.policyTitle}>
-                  Medium Rules
-                </Text>
-                <Text style={styles.secondary}>11 min read · May 26, 2021</Text>
-                <Text style={styles.policyBody}>
-                  Medium is an open platform that exists to share ideas and perspectives from the world’s most
-                  insightful writers, thinkers, and storytellers.
-                </Text>
-                <Text style={styles.policyBody}>
-                  We welcome thoughtful and civil discussion from a broad spectrum of viewpoints. To maintain
-                  a safe, respectful, and welcoming environment for a wide range of people to engage in
-                  meaningful conversations, we prohibit certain conduct.
-                </Text>
-                <Text style={styles.secondary}>This is an excerpt. The current rules may have changed.</Text>
-                <ResponsePolicyLink />
-              </ScrollView>
+              <PolicyArticle onBack={() => setPolicy(false)} onLeave={onClose}
+                onResponses={() => openPolicyResponses(() => setPolicyResponses(true))} />
             )}
+            {policy && policyResponses && <ResponsesPanel target={policyResponseTarget} onClose={() => setPolicyResponses(false)} />}
             <View
               style={[styles.flex, policy && styles.hidden]}
               accessibilityElementsHidden={policy}
@@ -314,6 +326,7 @@ export function ResponsesPanel({
               {store && state?.value && (
                 <FlatList
                   ref={responseList}
+                  accessibilityLabel="응답 목록"
                   data={rows}
                   onContentSizeChange={() => {
                     if (focusIndex >= 0 && !scrolledToFocus.current) {
@@ -595,6 +608,8 @@ const createStyles = (colors: ThemeColors) =>
     flex: { flex: 1 },
     hidden: { display: 'none' },
     backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)', paddingTop: 10 },
+    policyBackdrop: { paddingTop: 0, backgroundColor: colors.background },
+    policySheet: { borderTopLeftRadius: 0, borderTopRightRadius: 0 },
     sheet: {
       flex: 1,
       width: '100%',
@@ -736,19 +751,5 @@ const createStyles = (colors: ThemeColors) =>
       gap: 12,
       borderTopWidth: 1,
       borderTopColor: colors.border,
-    },
-    policy: { padding: 24, gap: 24 },
-    policyTitle: {
-      fontFamily: fonts.sans,
-      fontSize: 32,
-      lineHeight: 38,
-      fontWeight: '700',
-      color: colors.text,
-    },
-    policyBody: {
-      fontFamily: fonts.serif,
-      fontSize: 20,
-      lineHeight: 30,
-      color: colors.text,
     },
   });

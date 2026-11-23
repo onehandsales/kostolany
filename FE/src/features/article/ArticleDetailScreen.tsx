@@ -194,6 +194,7 @@ function ArticleReader({
             <View style={styles.like}>
               <ClapControl target={{ kind: 'article', id: state.article.id }} title={state.article.title} />
               <ResponseButton
+                active={active}
                 target={{ kind: 'article', id: state.article.id }}
                 title={state.article.title}
                 label="Responses"

@@ -2,19 +2,20 @@
 
 [비교 프로토콜](COMPARISON_PROTOCOL.md) · [실행 계획](EXECUTION_PLAN.md#batch-02)
 
-이번 결과는 파일·코드·출처의 재확인이다. 원본 폰트 확보·모든 화면 렌더 일치·실제 아이콘 적용 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.
+Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.md)에서 모바일 웹의 본문 폭·이미지 비율·팝오버 안전 영역과 표시 설정 구획/선택 아이콘을 보정했다. 원본 폰트 확보·모든 화면 렌더 일치·아이콘 전체 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.
 
 | 영역 | 실제 코드/확보 상태 | 남은 차이·담당 |
 | --- | --- | --- |
-| 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체 | 원본 font 파일·weight mapping 미확보; 실제 Windows fallback과 줄바꿈을 묶음2·각 V에서 확인 |
+| 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체. Parity 2 CDP에서 영어 제목 Arial Bold, 설정 Arial, 한국어 프로필 Malgun Gothic Bold 확인 | 원본 font 파일·weight mapping 미확보; 각 V의 서체/줄바꿈 잔여 |
 | 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |
 | 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |
+| 정책 기사 | [Parity 3](../FE_MEDIUM_PARITY_03_RESULT.md): reader 본문18/30, Medium Policy/Medium 아바타는 M 대체, 기존 SVG 도구·48px 조작 영역 | S008/V21 원본 로고/아바타·서체·정확 간격·숫자 크기 잔여; 독립 원본 자산을 새로 확보한 것은 아님 |
 | 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |
 | 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
 | 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |
 | 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 원본 Medium 자산과 차이 유지; D10/묶음18, 실제 적용Q07/21 |
 | 시작 화면 | app.json 대응 splash 설정 없음 | assets/splash-icon.png 존재만으로 S043 구현으로 처리 금지; D10 |
-| 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | Q12: 상태별 노출 확인, 기능 접근·mock 사실 보존, 각 V에서 배치 영향 검증 |
+| 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | [상태별 처리 기준](OWN_UI_POLICY.md); 기준 정리 완료/화면별 적용 잔여 |
 
 근거: [tokens.ts](../../FE/src/shared/theme/tokens.ts), [reader 설정](../../FE/src/features/settings/useReaderTypography.ts), [발행 본문](../../FE/src/features/editor/DocumentReader.tsx), [앱 설정](../../FE/app.json), [아이콘 출처](../../FE/assets/app-icons/SOURCES.md).
 

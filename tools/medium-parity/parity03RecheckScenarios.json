@@ -1,0 +1,12 @@
+[
+  {"id":"S008","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["Responses","Medium policy"],"waitText":"Medium Rules"},
+  {"id":"Q12-auth","click":["Follow Medium","Google로 로그인 (모의)"],"waitText":"Jordan Gibbs"},
+  {"id":"Q12-listen","click":["Responses","Medium policy","Listen","플레이어 확장: Medium Rules"],"waitText":"Mock"},
+  {"id":"Q12-menu","click":["플레이어 더보기"],"waitText":"View story"},
+  {"id":"Q12-view-story","click":["View story"],"assert":[{"selector":"[aria-label='이전 화면으로 돌아가기']","inside":true},{"selector":"[aria-label='Responses 패널']","visible":false}]},
+  {"id":"Q12-back","click":["이전 화면으로 돌아가기"],"assert":[{"selector":"[aria-label='Responses 패널']","visible":false},{"selector":"[aria-label='홈으로 돌아가기']","inside":true}]},
+  {"id":"Q12-reopen","click":["Responses","Medium policy"],"waitText":"Medium Rules"},
+  {"id":"Q12-inline-menu","click":["Responses로 돌아가기","Responses 닫기","본문 응답 정책","플레이어 확장: Medium Rules","플레이어 더보기"],"waitText":"View story"},
+  {"id":"Q12-inline-view","click":["View story"],"assert":[{"selector":"[aria-label='이전 화면으로 돌아가기']","inside":true},{"selector":"[aria-label='Responses 패널']","visible":false}]},
+  {"id":"Q12-inline-back","click":["이전 화면으로 돌아가기"],"assert":[{"selector":"[aria-label='Responses 패널']","visible":false},{"selector":"[aria-label='본문 응답 정책']","inside":true}]}
+]

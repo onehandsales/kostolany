@@ -16,11 +16,11 @@ import { responseRows } from './responseRows';
 import { responseTargetKey, type ResponseTarget } from './types';
 
 type Entry = { kind: 'all' | 'policy' } | { kind: 'reply' | 'edit' | 'delete'; id: string };
-export function ResponsePreview({ target }: { target: ResponseTarget }) {
+export function ResponsePreview({ target, active = true }: { target: ResponseTarget; active?: boolean }) {
   const context = useResponseScope();
-  return <ScopedResponsePreview key={`${context?.scope}:${responseTargetKey(target)}`} target={target} />;
+  return <ScopedResponsePreview key={`${context?.scope}:${responseTargetKey(target)}`} target={target} active={active} />;
 }
-function ScopedResponsePreview({ target }: { target: ResponseTarget }) {
+function ScopedResponsePreview({ target, active }: { target: ResponseTarget; active: boolean }) {
   const { state, store } = useResponses(target);
   const auth = useAuth();
   const profile = useProfile();
@@ -129,6 +129,7 @@ function ScopedResponsePreview({ target }: { target: ResponseTarget }) {
       {entry && (
         <ResponsesPanel
           target={target}
+          active={active}
           initialPolicy={entry.kind === 'policy'}
           onClose={() => setEntry(null)}
           initialReplyId={entry.kind === 'reply' ? entry.id : undefined}

@@ -1,0 +1,3501 @@
+{
+  "profile": "CP-WEB-01",
+  "run": {
+    "startedAt": "2026-11-23T05:26:27.064Z",
+    "finishedAt": "2026-11-23T05:27:00.113Z",
+    "status": "completed",
+    "requestedScreens": [
+      "Q12-guest",
+      "Q12-login",
+      "Q12-profile",
+      "Q12-onboarding",
+      "Q12-drafts",
+      "Q12-settings",
+      "Q12-default-level",
+      "Q12-membership",
+      "Q12-member-success",
+      "Q12-member-welcome",
+      "Q12-tools",
+      "Q12-tools-closed",
+      "Q12-long-search"
+    ],
+    "consoleErrors": 0,
+    "viewport": [
+      390,
+      844
+    ],
+    "textScale": 1,
+    "textScaleMethod": "CSS diagnostic only; RN/OS fontScale unchanged"
+  },
+  "captures": [
+    {
+      "id": "Q12-guest",
+      "capturedAt": "2026-11-23T05:26:33.254Z",
+      "steps": {
+        "id": "Q12-guest",
+        "navigate": "/",
+        "click": [
+          "프로필"
+        ],
+        "waitText": "로그인하지 않은 상태예요."
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\n프로필\n모의 로그인 · 실제 Google 계정과 연결되지 않아요.\n로그인하지 않은 상태예요.\n기사는 자유롭게 읽고, 로그인하면 박수와 저장 목록을 사용할 수 있어요.\n로그인",
+        "labels": [
+          "모의 로그인 시작",
+          "주요 메뉴",
+          "홈",
+          "탐색",
+          "라이브러리",
+          "프로필"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": "프로필",
+          "text": ""
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "프로필",
+            "x": 24,
+            "y": 24,
+            "width": 342,
+            "height": 32,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Malgun Gothic",
+                "postScriptName": "MalgunGothicBold",
+                "isCustomFont": false,
+                "glyphCount": 3
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "e6c9a7ab737dca593d660fe35a9b2f925fc8adee79f7ac9d1b2fe354c2a695eb",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-login",
+      "capturedAt": "2026-11-23T05:26:34.627Z",
+      "steps": {
+        "id": "Q12-login",
+        "click": [
+          "모의 로그인 시작"
+        ],
+        "waitText": "MOCK · no real authentication"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\n프로필\n모의 로그인 · 실제 Google 계정과 연결되지 않아요.\n로그인하지 않은 상태예요.\n기사는 자유롭게 읽고, 로그인하면 박수와 저장 목록을 사용할 수 있어요.\n로그인\nMedium\nMOCK · no real authentication\nHuman\nstories and\nideas.\nDiscover perspectives that deepen\nunderstanding.\nSign in with Google\nSign in with Facebook\nSign in with Apple\nSign in with X\nSign in with Email\nNew here?  Create account.\n모의 로그인 · 실제 Google 인증이 아닙니다\n예시 독자 A\n예시 독자 B\n로그인 후 이 화면으로 돌아가요.\n모의 동작 선택 열기",
+        "labels": [
+          "모의 로그인",
+          "로그인 닫기",
+          "Google로 로그인 (모의)",
+          "Sign in with Facebook",
+          "Sign in with Apple",
+          "Sign in with X",
+          "Sign in with Email",
+          "Create account",
+          "예시 독자 A",
+          "예시 독자 B"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+          "Georgia, \"Times New Roman\", serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": "로그인 닫기",
+          "text": ""
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "프로필",
+            "x": 24,
+            "y": 24,
+            "width": 342,
+            "height": 32,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Human\nstories and\nideas.",
+            "x": 24,
+            "y": 128,
+            "width": 342,
+            "height": 240,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "Georgia, \"Times New Roman\", serif",
+            "fontSize": "72px",
+            "lineHeight": "80px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Georgia",
+                "postScriptName": "Georgia",
+                "isCustomFont": false,
+                "glyphCount": 22
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "b251f0d9668738bf6d4cb2af5fb1edff11a7ed19cab279b559536f3fb56a309a",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-profile",
+      "capturedAt": "2026-11-23T05:26:36.434Z",
+      "steps": {
+        "id": "Q12-profile",
+        "click": [
+          "Google로 로그인 (모의)"
+        ],
+        "waitText": "Continue setup",
+        "assert": [
+          {
+            "selector": "[aria-label='온보딩 이어서 하기']",
+            "minHeight": 48
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "selector": "[aria-label='온보딩 이어서 하기']",
+          "visible": true,
+          "text": "Continue setup",
+          "fontSize": 13.3333,
+          "width": 390,
+          "height": 48,
+          "inside": true,
+          "attributes": {}
+        }
+      ],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\n예시 독자 A\n0 followers\n·\n0 following\nView stats\nEdit your profile\nContinue setup\nStories\nLists\nAbout\nPublic\nDrafts\nYou haven’t published any stories\nGet started\n모의 로그인 · 실제 Google 계정과 연결되지 않아요.\n모의 계정: 예시 독자 A\n예시 독자 A · 로그인됨\n팔로우는 이 모의 계정의 상태이며 Member 시작 월은 원본 화면 예시입니다.\n박수와 저장 목록은 이 독자의 공간에 보관돼요.\n로그아웃",
+        "labels": [
+          "설정 열기",
+          "My followers",
+          "My following",
+          "프로필 편집",
+          "온보딩 이어서 하기",
+          "Public stories",
+          "내 초안",
+          "Write a story",
+          "주요 메뉴",
+          "홈",
+          "탐색",
+          "라이브러리",
+          "프로필"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": null,
+          "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBec"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 96,
+            "y": 36,
+            "width": 126.671875,
+            "height": 30,
+            "clientWidth": 127,
+            "scrollWidth": 127,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 3
+              },
+              {
+                "familyName": "Malgun Gothic",
+                "postScriptName": "MalgunGothicBold",
+                "isCustomFont": false,
+                "glyphCount": 4
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "2faf0cd151e07af14e588531f4450a5f3d9257787cbcea515504e5ebd3092a0e",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-onboarding",
+      "capturedAt": "2026-11-23T05:26:37.689Z",
+      "steps": {
+        "id": "Q12-onboarding",
+        "click": [
+          "온보딩 이어서 하기"
+        ],
+        "waitText": "Welcome",
+        "assert": [
+          {
+            "selector": "[aria-label='온보딩 닫기']",
+            "minWidth": 48,
+            "minHeight": 48
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "selector": "[aria-label='온보딩 닫기']",
+          "visible": true,
+          "text": "",
+          "fontSize": 13.3333,
+          "width": 48,
+          "height": 48,
+          "inside": true,
+          "attributes": {}
+        }
+      ],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\n예시 독자 A\n0 followers\n·\n0 following\nView stats\nEdit your profile\nContinue setup\nStories\nLists\nAbout\nPublic\nDrafts\nYou haven’t published any stories\nGet started\n모의 로그인 · 실제 Google 계정과 연결되지 않아요.\n모의 계정: 예시 독자 A\n예시 독자 A · 로그인됨\n팔로우는 이 모의 계정의 상태이며 Member 시작 월은 원본 화면 예시입니다.\n박수와 저장 목록은 이 독자의 공간에 보관돼요.\n로그아웃\nWelcome to Medium\nWelcome to\nyour new\nexperience.\nWe’ve updated our app. Let’s review who you’re following to improve your home screen and recommendations.\nContinue",
+        "labels": [
+          "관심사 온보딩",
+          "온보딩 이전 단계",
+          "온보딩 닫기",
+          "온보딩 계속"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+          "Georgia, \"Times New Roman\", serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": null,
+          "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBec"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 96,
+            "y": 36,
+            "width": 126.671875,
+            "height": 30,
+            "clientWidth": 127,
+            "scrollWidth": 127,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Welcome to\nyour new\nexperience.",
+            "x": 24,
+            "y": 167.5,
+            "width": 342,
+            "height": 162,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "Georgia, \"Times New Roman\", serif",
+            "fontSize": "48px",
+            "lineHeight": "54px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Georgia",
+                "postScriptName": "Georgia",
+                "isCustomFont": false,
+                "glyphCount": 29
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "7286bb2c5767e85a2764bcbd76edf408740d06cdd8e9c924beabc0de42521ddf",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-drafts",
+      "capturedAt": "2026-11-23T05:26:40.063Z",
+      "steps": {
+        "id": "Q12-drafts",
+        "click": [
+          "온보딩 닫기",
+          "내 초안"
+        ],
+        "waitText": "You don’t have any drafts yet."
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Close\nDrafts\nYou don’t have any drafts yet.",
+        "labels": [
+          "초안 목록 닫기"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": null,
+          "text": "Close\nDrafts\nYou don’t have any drafts yet."
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Drafts",
+            "x": 171.890625,
+            "y": 77,
+            "width": 46.234375,
+            "height": 18,
+            "clientWidth": 46,
+            "scrollWidth": 46,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 6
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "45afe9f1d91c981d3f42f59ae21d55b9025386452bf856fd5df59cf64a707191",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-settings",
+      "capturedAt": "2026-11-23T05:26:42.511Z",
+      "steps": {
+        "id": "Q12-settings",
+        "click": [
+          "초안 목록 닫기",
+          "설정 열기"
+        ],
+        "waitText": "Mock: member"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nSettings\nAccount\nBecome a Friend of Medium\nStory stats\nAccount\nMembership and payment\nMock: member\nConfigure Medium\nEdit profile\nRefine recommendations\nAppearance\nSystem default\nLight\nDark\nPush notifications\nEmail notifications\nCustom app icon\nSocial\nFacebook\nConnect\nWe will never post to Facebook without your permission.\nAbout Medium\nHelp\nTerms of service\nPrivacy policy\nRate on the App Store\nApp Controls\nMore app controls\nSign out\nReading tools · local example\n기본 설명 수준\n현재 기본값 · 성인\n›\n기본값은 다음 기사 진입에 적용돼요. 열려 있는 기사의 선택은 유지돼요.\n모의 계정의 설정이에요. 앱을 다시 실행하거나 새로고침하면 초기값으로 돌아가요.\nLocal prototype · Version 0.1.0",
+        "labels": [
+          "프로필로 돌아가기",
+          "설정",
+          "Become a Friend of Medium",
+          "Story stats",
+          "Account",
+          "Membership and payment",
+          "현재 멤버십 상태",
+          "설정에서 프로필 편집",
+          "Refine recommendations",
+          "앱 테마: System default",
+          "앱 테마: Light",
+          "앱 테마: Dark",
+          "Push notifications",
+          "Email notifications",
+          "Custom app icon",
+          "Connect Facebook",
+          "Help",
+          "Terms of service",
+          "Privacy policy",
+          "Rate on the App Store",
+          "More app controls",
+          "로그아웃",
+          "기본 설명 수준 변경",
+          "주요 메뉴",
+          "홈",
+          "탐색",
+          "라이브러리",
+          "프로필"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": null,
+          "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBec"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "설정",
+            "text": "Settings",
+            "x": 48,
+            "y": 0,
+            "width": 294,
+            "height": 30,
+            "clientWidth": 294,
+            "scrollWidth": 294,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Account",
+            "x": 0,
+            "y": 49,
+            "width": 390,
+            "height": 51,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Configure Medium",
+            "x": 0,
+            "y": 304,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Social",
+            "x": 0,
+            "y": 671,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "About Medium",
+            "x": 0,
+            "y": 811,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "App Controls",
+            "x": 0,
+            "y": 1076,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Reading tools · local example",
+            "x": 0,
+            "y": 1239,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 8
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "a90c07c7d00f0352d5456b0cdb788246e054691ec1d3d9d013ec263b8b70ef90",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-default-level",
+      "capturedAt": "2026-11-23T05:26:43.793Z",
+      "steps": {
+        "id": "Q12-default-level",
+        "click": [
+          "기본 설명 수준 변경"
+        ],
+        "waitText": "취소"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nSettings\nAccount\nBecome a Friend of Medium\nStory stats\nAccount\nMembership and payment\nMock: member\nConfigure Medium\nEdit profile\nRefine recommendations\nAppearance\nSystem default\nLight\nDark\nPush notifications\nEmail notifications\nCustom app icon\nSocial\nFacebook\nConnect\nWe will never post to Facebook without your permission.\nAbout Medium\nHelp\nTerms of service\nPrivacy policy\nRate on the App Store\nApp Controls\nMore app controls\nSign out\nReading tools · local example\n기본 설명 수준\n현재 기본값 · 성인\n›\n기본값은 다음 기사 진입에 적용돼요. 열려 있는 기사의 선택은 유지돼요.\n모의 계정의 설정이에요. 앱을 다시 실행하거나 새로고침하면 초기값으로 돌아가요.\nLocal prototype · Version 0.1.0\n닫기\n기본 설명 수준\n저장\n다음에 여는 기사의 설명 수준이에요. 기사 안에서 바꾼 수준은 이 설정에 저장되지 않아요.\n○\n초등학생\n○\n중학생\n○\n고등학생\n●\n성인\n닫으면 아직 제출하지 않은 선택은 사라져요. 이미 제출한 저장은 계속돼요.\n취소",
+        "labels": [
+          "기본 설명 수준 편집",
+          "기본 설명 수준 닫기",
+          "기본 수준 저장",
+          "기본 설명 수준 선택",
+          "초등학생 기본 수준",
+          "중학생 기본 수준",
+          "고등학생 기본 수준",
+          "성인 기본 수준",
+          "기본 설명 수준 취소"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [
+          {
+            "label": null,
+            "top": 826,
+            "left": 0
+          }
+        ],
+        "focus": {
+          "label": "기본 설명 수준 닫기",
+          "text": "닫기"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "설정",
+            "text": "Settings",
+            "x": 48,
+            "y": 0,
+            "width": 294,
+            "height": 30,
+            "clientWidth": 294,
+            "scrollWidth": 294,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Account",
+            "x": 0,
+            "y": -777,
+            "width": 390,
+            "height": 51,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Configure Medium",
+            "x": 0,
+            "y": -522,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Social",
+            "x": 0,
+            "y": -155,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "About Medium",
+            "x": 0,
+            "y": -15,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "App Controls",
+            "x": 0,
+            "y": 250,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Reading tools · local example",
+            "x": 0,
+            "y": 413,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "기본 설명 수준",
+            "x": 80,
+            "y": 283,
+            "width": 230,
+            "height": 30,
+            "clientWidth": 230,
+            "scrollWidth": 230,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "22px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 2
+              },
+              {
+                "familyName": "Malgun Gothic",
+                "postScriptName": "MalgunGothicBold",
+                "isCustomFont": false,
+                "glyphCount": 6
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "500862bf1ce2530e0b5895d35f6a3e3e98e83642b07fa6b5fe637601794e8b31",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-membership",
+      "capturedAt": "2026-11-23T05:26:46.179Z",
+      "steps": {
+        "id": "Q12-membership",
+        "click": [
+          "기본 설명 수준 취소",
+          "Membership and payment"
+        ],
+        "waitText": "모의 선택 · 보관본 가격 · 결제 없음"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nSettings\nAccount\nBecome a Friend of Medium\nStory stats\nAccount\nMembership and payment\nMock: member\nConfigure Medium\nEdit profile\nRefine recommendations\nAppearance\nSystem default\nLight\nDark\nPush notifications\nEmail notifications\nCustom app icon\nSocial\nFacebook\nConnect\nWe will never post to Facebook without your permission.\nAbout Medium\nHelp\nTerms of service\nPrivacy policy\nRate on the App Store\nApp Controls\nMore app controls\nSign out\nReading tools · local example\n기본 설명 수준\n현재 기본값 · 성인\n›\n기본값은 다음 기사 진입에 적용돼요. 열려 있는 기사의 선택은 유지돼요.\n모의 계정의 설정이에요. 앱을 다시 실행하거나 새로고침하면 초기값으로 돌아가요.\nLocal prototype · Version 0.1.0\n모의 선택 · 보관본 가격 · 결제 없음\nSupport independent writing and get\nthe best of Medium.\nSelect a billing option\nPay monthly\nPay annually\nSave up to $39\nSelect a membership plan\nMember\n$6.98 SGD/month\nAccess member-only stories and enjoy an enhanced reading and writing experience. Cancel anytime.\nCurrent plan\n✓\nRead member-only stories\n✓\nSupport writers you read most\n✓\nEarn money for your writing\n✓\nListen to audio narrations\n✓\nRead offline with the Medium app\n✓\nAccess our Mastodon community\n✓\nConnect your custom domain\n✓\nCreate your own publications\nFriend\n$19.98 SGD/month\nSupport independent writing with all Member benefits and Friend features.\nSelect\n✓\nAll Medium Member benefits\n✓\nShare Friend Links\n✓\nCustom app icons\nCurrent: member monthly\n원본의 가격·혜택 안내를 재현한 화면이에요. 실제 결제·갱신·해지·수익화는 연결하지 않았어요.",
+        "labels": [
+          "멤버십 선택",
+          "멤버십 닫기",
+          "멤버십 플랜",
+          "Pay monthly",
+          "Pay annually",
+          "Member 모의 선택",
+          "Friend 모의 선택",
+          "현재 모의 멤버십"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+          "Georgia, \"Times New Roman\", serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": "멤버십 닫기",
+          "text": ""
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "설정",
+            "text": "Settings",
+            "x": 48,
+            "y": 0,
+            "width": 294,
+            "height": 30,
+            "clientWidth": 294,
+            "scrollWidth": 294,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Account",
+            "x": 0,
+            "y": 49,
+            "width": 390,
+            "height": 51,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Configure Medium",
+            "x": 0,
+            "y": 304,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Social",
+            "x": 0,
+            "y": 671,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "About Medium",
+            "x": 0,
+            "y": 811,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "App Controls",
+            "x": 0,
+            "y": 1076,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Reading tools · local example",
+            "x": 0,
+            "y": 1239,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Support independent writing and get\nthe best of Medium.",
+            "x": 24,
+            "y": 94,
+            "width": 342,
+            "height": 99,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "Georgia, \"Times New Roman\", serif",
+            "fontSize": "29px",
+            "lineHeight": "33px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Member",
+            "x": 57,
+            "y": 472,
+            "width": 276,
+            "height": 23,
+            "clientWidth": 276,
+            "scrollWidth": 276,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Friend",
+            "x": 57,
+            "y": 1089,
+            "width": 276,
+            "height": 23,
+            "clientWidth": 276,
+            "scrollWidth": 276,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Georgia",
+                "postScriptName": "Georgia",
+                "isCustomFont": false,
+                "glyphCount": 54
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "158a2d68b6687ddb5f7be761a23009c9f06d00e7acb37641b6ac303106e4a323",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-member-success",
+      "capturedAt": "2026-11-23T05:26:47.411Z",
+      "steps": {
+        "id": "Q12-member-success",
+        "click": [
+          "Friend 모의 선택"
+        ],
+        "waitText": "Your mock membership is ready."
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nSettings\nAccount\nBecome a Friend of Medium\nStory stats\nAccount\nMembership and payment\nMock: friend\nConfigure Medium\nEdit profile\nRefine recommendations\nAppearance\nSystem default\nLight\nDark\nPush notifications\nEmail notifications\nCustom app icon\nSocial\nFacebook\nConnect\nWe will never post to Facebook without your permission.\nAbout Medium\nHelp\nTerms of service\nPrivacy policy\nRate on the App Store\nApp Controls\nMore app controls\nSign out\nReading tools · local example\n기본 설명 수준\n현재 기본값 · 성인\n›\n기본값은 다음 기사 진입에 적용돼요. 열려 있는 기사의 선택은 유지돼요.\n모의 계정의 설정이에요. 앱을 다시 실행하거나 새로고침하면 초기값으로 돌아가요.\nLocal prototype · Version 0.1.0\n모의 선택 · 보관본 가격 · 결제 없음\nSupport independent writing and get\nthe best of Medium.\nSelect a billing option\nPay monthly\nPay annually\nSave up to $39\nSelect a membership plan\nMember\n$6.98 SGD/month\nAccess member-only stories and enjoy an enhanced reading and writing experience. Cancel anytime.\nFriend active\n✓\nRead member-only stories\n✓\nSupport writers you read most\n✓\nEarn money for your writing\n✓\nListen to audio narrations\n✓\nRead offline with the Medium app\n✓\nAccess our Mastodon community\n✓\nConnect your custom domain\n✓\nCreate your own publications\nFriend\n$19.98 SGD/month\nSupport independent writing with all Member benefits and Friend features.\nCurrent plan\n✓\nAll Medium Member benefits\n✓\nShare Friend Links\n✓\nCustom app icons\nCurrent: friend monthly\n원본의 가격·혜택 안내를 재현한 화면이에요. 실제 결제·갱신·해지·수익화는 연결하지 않았어요.\nYou're all set\nYour mock membership is ready.\nOK",
+        "labels": [
+          "멤버십 선택",
+          "멤버십 닫기",
+          "멤버십 플랜",
+          "Pay monthly",
+          "Pay annually",
+          "Member 모의 선택",
+          "Friend 모의 선택",
+          "현재 모의 멤버십",
+          "멤버십 성공 확인"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+          "Georgia, \"Times New Roman\", serif"
+        ],
+        "scroll": [
+          {
+            "label": "멤버십 플랜",
+            "top": 719,
+            "left": 0
+          }
+        ],
+        "focus": {
+          "label": "멤버십 성공 확인",
+          "text": "OK"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "설정",
+            "text": "Settings",
+            "x": 48,
+            "y": 0,
+            "width": 294,
+            "height": 30,
+            "clientWidth": 294,
+            "scrollWidth": 294,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Account",
+            "x": 0,
+            "y": 49,
+            "width": 390,
+            "height": 51,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Configure Medium",
+            "x": 0,
+            "y": 304,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Social",
+            "x": 0,
+            "y": 671,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "About Medium",
+            "x": 0,
+            "y": 811,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "App Controls",
+            "x": 0,
+            "y": 1076,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Reading tools · local example",
+            "x": 0,
+            "y": 1239,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Support independent writing and get\nthe best of Medium.",
+            "x": 24,
+            "y": -625,
+            "width": 342,
+            "height": 99,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "Georgia, \"Times New Roman\", serif",
+            "fontSize": "29px",
+            "lineHeight": "33px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Member",
+            "x": 57,
+            "y": -247,
+            "width": 276,
+            "height": 23,
+            "clientWidth": 276,
+            "scrollWidth": 276,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Friend",
+            "x": 57,
+            "y": 370,
+            "width": 276,
+            "height": 23,
+            "clientWidth": 276,
+            "scrollWidth": 276,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "You're all set",
+            "x": 143.046875,
+            "y": 374,
+            "width": 103.890625,
+            "height": 20,
+            "clientWidth": 104,
+            "scrollWidth": 104,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "17px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 6
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "d95abff90b8be8c8c4b4ab12672fbb5dcb9e436d9bf094500b24161186e71123",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-member-welcome",
+      "capturedAt": "2026-11-23T05:26:48.630Z",
+      "steps": {
+        "id": "Q12-member-welcome",
+        "click": [
+          "멤버십 성공 확인"
+        ],
+        "waitText": "모의 멤버십이 적용됐어요. 실제 결제는 없어요."
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nSettings\nAccount\nBecome a Friend of Medium\nStory stats\nAccount\nMembership and payment\nMock: friend\nConfigure Medium\nEdit profile\nRefine recommendations\nAppearance\nSystem default\nLight\nDark\nPush notifications\nEmail notifications\nCustom app icon\nSocial\nFacebook\nConnect\nWe will never post to Facebook without your permission.\nAbout Medium\nHelp\nTerms of service\nPrivacy policy\nRate on the App Store\nApp Controls\nMore app controls\nSign out\nReading tools · local example\n기본 설명 수준\n현재 기본값 · 성인\n›\n기본값은 다음 기사 진입에 적용돼요. 열려 있는 기사의 선택은 유지돼요.\n모의 계정의 설정이에요. 앱을 다시 실행하거나 새로고침하면 초기값으로 돌아가요.\nLocal prototype · Version 0.1.0\nThanks for becoming a Medium Friend\nYou can now access the best of Medium.\nStart reading\n모의 멤버십이 적용됐어요. 실제 결제는 없어요.",
+        "labels": [
+          "멤버십 선택",
+          "멤버십 완료 후 돌아가기"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+          "Georgia, \"Times New Roman\", serif"
+        ],
+        "scroll": [],
+        "focus": {
+          "label": "멤버십 완료 후 돌아가기",
+          "text": "Start reading"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "예시 독자 A",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "설정",
+            "text": "Settings",
+            "x": 48,
+            "y": 0,
+            "width": 294,
+            "height": 30,
+            "clientWidth": 294,
+            "scrollWidth": 294,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Account",
+            "x": 0,
+            "y": 49,
+            "width": 390,
+            "height": 51,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Configure Medium",
+            "x": 0,
+            "y": 304,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Social",
+            "x": 0,
+            "y": 671,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "About Medium",
+            "x": 0,
+            "y": 811,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "App Controls",
+            "x": 0,
+            "y": 1076,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Reading tools · local example",
+            "x": 0,
+            "y": 1239,
+            "width": 390,
+            "height": 61,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "background": "rgb(250, 250, 250)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Thanks for becoming a Medium Friend",
+            "x": 24,
+            "y": 307,
+            "width": 342,
+            "height": 60,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "Georgia, \"Times New Roman\", serif",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Georgia",
+                "postScriptName": "Georgia",
+                "isCustomFont": false,
+                "glyphCount": 35
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "0c29a4747ef754846fb509b431db3cc9de63692b4b4e58b4c4190969a1b26531",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-tools",
+      "capturedAt": "2026-11-23T05:26:52.116Z",
+      "steps": {
+        "id": "Q12-tools",
+        "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain",
+        "click": [
+          "Reading tools"
+        ],
+        "waitText": "Hide reading tools"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Member-only story\nChatGPT Is Poisoning Your Brain...\nHere’s How to Stop It Before It’s Too Late.\n5 min read · Apr 30, 2025\nJordan Gibbs\nFollow\nGenerated by the author with AI.\nChatGPT’s tendency to be overly supportive and encouraging is eating your…\n[Uncaptured paragraphs omitted]\nA ChatGPT session is an echo chamber to end all other echo chambers — it’s just you, an overly friendly AI, and all your thoughts, dreams, desires, and secrets endlessly affirmed, validated, and supported.\nWhy is this dangerous? Well, like any feedback loop, it becomes vicious. One day you’re casually brainstorming some ideas with ChatGPT, and the next you’re sucked into a delusion of grandeur.\nA real screenshot from a recent GPT session...\n[Uncaptured paragraphs omitted]\nMaybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.\nI’m writing this article to help you be as conscious of this problem as possible, and to give you some prompts to avoid it.\n· · ·\nThis “yes man” problem has existed since the birth of ChatGPT, but it was brought to the public eye at large last week when a simple platform-wide system prompt update from OpenAI made it so much worse.\nChatGPT is inherently programmed to be a yes man… it’s a sycophant, your biggest fan, and most undying supporter for a reason.\n[Uncaptured paragraphs omitted]\nI hope these prompts can help you escape the ChatGPT confirmation bias trap, and focus on true growth.\nThanks for reading!\n-Jordan\nChatGPT\nAI\nArtificial Intelligence\nOpenAI\nProductivity\nFollow\nWritten by Jordan Gibbs\n10.2K followers · 24 following\nNeed an AI prototype ASAP? Let's chat.\nhttps://jordangibbs.xyz\nResponses (7)\nWhat are your thoughts?\nBérnie\nApr 29, 2025\nYes, Claude is like this too. Open AI already said today (on X) that they've tweaked the AI a little and it should be improving this week. The AI should be more like a professor/counsellor/business partner working with you not as a friend who will agree with everything you do.\n1K\n1 replies\nReply\nSunil Bajpai\nApr 30, 2025\nSpot on! Consultants do the same because they need to get hired by you :-)\n844\nReply\nAlfred Akech\nMay 2, 2025 (edited)\nGreat read! I could not agree more. I just wrote about this, but you beat me to it 👏.\nThe way AI functions today must change. Who knows…\nRead more...\n733\n1 replies\nReply\nSee all responses\nMore from Jordan Gibbs\nJordan Gibbs\nBehold...The Prompt Bible is Here\nThe Most Useful Tips from Google’s Epic 70-Page AI Prompt Engineering Guide\nMay 24\n670\n0\nJordan Gibbs\nChatGPT Users...Should You Make the Switch to Gemini?\nHide reading tools\nAI 해석\n직접 작성한 해석 예시입니다. 실제 AI 생성 결과나 코스톨라니의 인용문이 아닙니다.\n설명 수준\n편하게 읽을 수 있는 수준을 선택하세요.\n초등학생\n중학생\n고등학생\n✓ 성인\n성인 수준 설명\nChatGPT Is Poisoning Your Brain... — This is a local reading exercise, not the author’s explanation.\nEvaluate the scope of the available excerpt independently of the title’s rhetoric. An incomplete screenshot cannot establish the author’s full argument or supporting evidence.\n이해를 돕는 예시\nCompare the captured headline and subtitle, identify their framing, and reserve judgment on claims that require unavailable context.\n끝까지 읽었습니다.",
+        "labels": [
+          "기사 본문",
+          "Open Jordan Gibbs profile",
+          "Follow Jordan Gibbs",
+          "ChatGPT Is Poisoning Your Brain... cover",
+          "Captured ChatGPT conversation excerpt beginning with “Dude.”",
+          "Topic: ChatGPT",
+          "Topic: AI",
+          "Topic: Artificial Intelligence",
+          "Topic: OpenAI",
+          "Topic: Productivity",
+          "Follow Jordan Gibbs",
+          "Open Jordan Gibbs profile",
+          "Author followers and following",
+          "Author website",
+          "본문 응답 정책",
+          "Write a response",
+          "Bérnie response options",
+          "Clap response, brain-bernie",
+          "Show replies, brain-bernie",
+          "Reply to Bérnie",
+          "Sunil Bajpai response options",
+          "Clap response, brain-sunil",
+          "Reply to Sunil Bajpai",
+          "Alfred Akech response options",
+          "Read more, brain-alfred",
+          "Clap response, brain-alfred",
+          "Show replies, brain-alfred",
+          "Reply to Alfred Akech",
+          "See all responses",
+          "Behold...The Prompt Bible is Here",
+          "박수, Behold...The Prompt Bible is Here, 로그인 필요",
+          "Responses, Behold...The Prompt Bible is Here",
+          "북마크, Behold...The Prompt Bible is Here, 로그인 필요",
+          "Recommended story options",
+          "ChatGPT Users...Should You Make the Switch to Gemini?",
+          "Reading tools",
+          "설명 수준",
+          "초등학생",
+          "중학생",
+          "고등학생",
+          "성인",
+          "수준별 설명과 예시"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [
+          {
+            "label": "기사 본문",
+            "top": 5033,
+            "left": 0
+          }
+        ],
+        "focus": {
+          "label": "Reading tools",
+          "text": "Hide reading tools"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "ChatGPT Is Poisoning Your Brain...",
+            "x": 24,
+            "y": -4958,
+            "width": 342,
+            "height": 76,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "32px",
+            "lineHeight": "38px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Responses (7)",
+            "x": 24,
+            "y": -2053.140625,
+            "width": 136.734375,
+            "height": 26,
+            "clientWidth": 137,
+            "scrollWidth": 137,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "More from Jordan Gibbs",
+            "x": 24,
+            "y": -1047.140625,
+            "width": 342,
+            "height": 26,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "AI 해석",
+            "x": 24,
+            "y": -98.140625,
+            "width": 342,
+            "height": 26,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "성인 수준 설명",
+            "x": 24,
+            "y": 229.859375,
+            "width": 342,
+            "height": 24,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "이해를 돕는 예시",
+            "x": 42,
+            "y": 573.859375,
+            "width": 324,
+            "height": 24,
+            "clientWidth": 324,
+            "scrollWidth": 324,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[aria-label=\"기사 본문\"]",
+            "label": "기사 본문",
+            "text": "Member-only story\nChatGPT Is Poisoning Your Brain...\nHere’s How to Stop It Before It’s Too Late.\n5 m",
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "\"Malgun Gothic\"",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 2
+              },
+              {
+                "familyName": "Malgun Gothic",
+                "postScriptName": "MalgunGothicBold",
+                "isCustomFont": false,
+                "glyphCount": 6
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "989ee3c00353bffe14d1eee55c088a6ae7781281ce5abcf8b86dda3313661195",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-tools-closed",
+      "capturedAt": "2026-11-23T05:26:53.357Z",
+      "steps": {
+        "id": "Q12-tools-closed",
+        "click": [
+          "Reading tools"
+        ],
+        "waitText": "Reading tools · local example",
+        "assert": [
+          {
+            "selector": "[aria-label='Reading tools']",
+            "contains": "Reading tools · local example",
+            "minHeight": 48
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "selector": "[aria-label='Reading tools']",
+          "visible": true,
+          "text": "Reading tools · local example",
+          "fontSize": 13.3333,
+          "width": 217.65625,
+          "height": 48,
+          "inside": true,
+          "attributes": {}
+        }
+      ],
+      "snapshot": {
+        "text": "Member-only story\nChatGPT Is Poisoning Your Brain...\nHere’s How to Stop It Before It’s Too Late.\n5 min read · Apr 30, 2025\nJordan Gibbs\nFollow\nGenerated by the author with AI.\nChatGPT’s tendency to be overly supportive and encouraging is eating your…\n[Uncaptured paragraphs omitted]\nA ChatGPT session is an echo chamber to end all other echo chambers — it’s just you, an overly friendly AI, and all your thoughts, dreams, desires, and secrets endlessly affirmed, validated, and supported.\nWhy is this dangerous? Well, like any feedback loop, it becomes vicious. One day you’re casually brainstorming some ideas with ChatGPT, and the next you’re sucked into a delusion of grandeur.\nA real screenshot from a recent GPT session...\n[Uncaptured paragraphs omitted]\nMaybe I’m being a little dramatic here. However, even on a small scale, this feedback loop can be problematic, especially if you’re like me and use LLMs daily.\nI’m writing this article to help you be as conscious of this problem as possible, and to give you some prompts to avoid it.\n· · ·\nThis “yes man” problem has existed since the birth of ChatGPT, but it was brought to the public eye at large last week when a simple platform-wide system prompt update from OpenAI made it so much worse.\nChatGPT is inherently programmed to be a yes man… it’s a sycophant, your biggest fan, and most undying supporter for a reason.\n[Uncaptured paragraphs omitted]\nI hope these prompts can help you escape the ChatGPT confirmation bias trap, and focus on true growth.\nThanks for reading!\n-Jordan\nChatGPT\nAI\nArtificial Intelligence\nOpenAI\nProductivity\nFollow\nWritten by Jordan Gibbs\n10.2K followers · 24 following\nNeed an AI prototype ASAP? Let's chat.\nhttps://jordangibbs.xyz\nResponses (7)\nWhat are your thoughts?\nBérnie\nApr 29, 2025\nYes, Claude is like this too. Open AI already said today (on X) that they've tweaked the AI a little and it should be improving this week. The AI should be more like a professor/counsellor/business partner working with you not as a friend who will agree with everything you do.\n1K\n1 replies\nReply\nSunil Bajpai\nApr 30, 2025\nSpot on! Consultants do the same because they need to get hired by you :-)\n844\nReply\nAlfred Akech\nMay 2, 2025 (edited)\nGreat read! I could not agree more. I just wrote about this, but you beat me to it 👏.\nThe way AI functions today must change. Who knows…\nRead more...\n733\n1 replies\nReply\nSee all responses\nMore from Jordan Gibbs\nJordan Gibbs\nBehold...The Prompt Bible is Here\nThe Most Useful Tips from Google’s Epic 70-Page AI Prompt Engineering Guide\nMay 24\n670\n0\nJordan Gibbs\nChatGPT Users...Should You Make the Switch to Gemini?\nReading tools · local example\n18K\n7",
+        "labels": [
+          "홈으로 돌아가기",
+          "Listen",
+          "Story options",
+          "기사 본문",
+          "Open Jordan Gibbs profile",
+          "Follow Jordan Gibbs",
+          "ChatGPT Is Poisoning Your Brain... cover",
+          "Captured ChatGPT conversation excerpt beginning with “Dude.”",
+          "Topic: ChatGPT",
+          "Topic: AI",
+          "Topic: Artificial Intelligence",
+          "Topic: OpenAI",
+          "Topic: Productivity",
+          "Follow Jordan Gibbs",
+          "Open Jordan Gibbs profile",
+          "Author followers and following",
+          "Author website",
+          "본문 응답 정책",
+          "Write a response",
+          "Bérnie response options",
+          "Clap response, brain-bernie",
+          "Show replies, brain-bernie",
+          "Reply to Bérnie",
+          "Sunil Bajpai response options",
+          "Clap response, brain-sunil",
+          "Reply to Sunil Bajpai",
+          "Alfred Akech response options",
+          "Read more, brain-alfred",
+          "Clap response, brain-alfred",
+          "Show replies, brain-alfred",
+          "Reply to Alfred Akech",
+          "See all responses",
+          "Behold...The Prompt Bible is Here",
+          "박수, Behold...The Prompt Bible is Here, 로그인 필요",
+          "Responses, Behold...The Prompt Bible is Here",
+          "북마크, Behold...The Prompt Bible is Here, 로그인 필요",
+          "Recommended story options",
+          "ChatGPT Users...Should You Make the Switch to Gemini?",
+          "Reading tools",
+          "박수, ChatGPT Is Poisoning Your Brain..., 로그인 필요",
+          "Responses",
+          "북마크, ChatGPT Is Poisoning Your Brain..., 로그인 필요",
+          "Share story"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [
+          {
+            "label": "기사 본문",
+            "top": 4188,
+            "left": 0
+          }
+        ],
+        "focus": {
+          "label": "Reading tools",
+          "text": "Reading tools · local example"
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "ChatGPT Is Poisoning Your Brain...",
+            "x": 24,
+            "y": -4064,
+            "width": 342,
+            "height": 76,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "32px",
+            "lineHeight": "38px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "Responses (7)",
+            "x": 24,
+            "y": -1159.140625,
+            "width": 136.734375,
+            "height": 26,
+            "clientWidth": 137,
+            "scrollWidth": 137,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "More from Jordan Gibbs",
+            "x": 24,
+            "y": -153.140625,
+            "width": 342,
+            "height": 26,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "AI 해석",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "성인 수준 설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "이해를 돕는 예시",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[aria-label=\"기사 본문\"]",
+            "label": "기사 본문",
+            "text": "Member-only story\nChatGPT Is Poisoning Your Brain...\nHere’s How to Stop It Before It’s Too Late.\n5 m",
+            "x": 0,
+            "y": 49,
+            "width": 390,
+            "height": 746,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "fontFamily": "\"Malgun Gothic\"",
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": []
+      },
+      "imageSha256": "84e04791d5ecf645bd799833124f8ea9dffec259f216dd2ed13d2b3d0c23657f",
+      "status": "current-web-capture; reference parity not passed"
+    },
+    {
+      "id": "Q12-long-search",
+      "capturedAt": "2026-11-23T05:27:00.111Z",
+      "steps": {
+        "id": "Q12-long-search",
+        "navigate": "/",
+        "click": [
+          "탐색",
+          "기사 검색 열기"
+        ],
+        "input": [
+          {
+            "label": "기사 검색어",
+            "text": "금리와 환율이 우리 생활에 미치는 영향에 관한 긴 한국어 검색 문장"
+          }
+        ],
+        "waitText": "검색 결과"
+      },
+      "assertions": [],
+      "snapshot": {
+        "text": "Home\nFor you\nFollowing\nFeatured\nNew\nData Science\nRelationships\nWriting\nKris Gage\nHow to *really* know you’re in love\nBecause most of “the signs” they tell you are garbage\nAug 3, 2017\n157K\n0\nIn Better Advice\nby\nAleid ter Weel\n10 Things To Do In The Evening Instead Of Watching Netflix\nDevice-free habits to increase your productivity and happiness.\nFeb 15, 2022\n30K\n0\nJeremiah Warren\nStory not included in the reference capture\n0\n0\n더 많은 이야기를 읽어보세요\n기사 더 보기\nStories\nPeople\nPublications\nTopics\nLists\n0개\n검색 결과가 없어요\n다른 검색어로 찾아보세요.",
+        "labels": [
+          "탐색 첫 화면으로 돌아가기",
+          "기사 검색어",
+          "검색어 지우기",
+          "금리와 환율이 우리 생활에 미치는 영향에 관한 긴 한국어 검색 문장 검색 결과",
+          "Search categories",
+          "Stories",
+          "People",
+          "Publications",
+          "Topics",
+          "Lists",
+          "검색 기사 목록",
+          "주요 메뉴",
+          "홈",
+          "탐색",
+          "라이브러리",
+          "프로필"
+        ],
+        "viewport": [
+          390,
+          844
+        ],
+        "dpr": 1,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+        "date": "2025-06-13T12:00:00.000Z",
+        "timezone": "UTC",
+        "fonts": [
+          "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        ],
+        "scroll": [
+          {
+            "label": "기사 검색어",
+            "top": 0,
+            "left": 154
+          }
+        ],
+        "focus": {
+          "label": "기사 검색어",
+          "text": ""
+        },
+        "layout": [
+          {
+            "selector": "[role=\"heading\"]",
+            "label": "홈",
+            "text": "Home",
+            "x": 24,
+            "y": 24,
+            "width": 66.6875,
+            "height": 32,
+            "clientWidth": 67,
+            "scrollWidth": 67,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "background": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "selector": "[role=\"heading\"]",
+            "label": null,
+            "text": "검색 결과가 없어요",
+            "x": 24,
+            "y": 151,
+            "width": 342,
+            "height": 28,
+            "clientWidth": 342,
+            "scrollWidth": 342,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "background": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "resolvedFonts": [
+          {
+            "selector": "[role=\"heading\"]",
+            "fonts": [
+              {
+                "familyName": "Arial",
+                "postScriptName": "Arial-BoldMT",
+                "isCustomFont": false,
+                "glyphCount": 2
+              },
+              {
+                "familyName": "Malgun Gothic",
+                "postScriptName": "MalgunGothicBold",
+                "isCustomFont": false,
+                "glyphCount": 8
+              }
+            ]
+          }
+        ]
+      },
+      "imageSha256": "2153aeb8a6b9b3dc1fb8f6320ea173bbc8b39cbd66e8a17e5e43d06aa3c658c0",
+      "status": "current-web-capture; reference parity not passed"
+    }
+  ],
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "info",
+        "args": [
+          {
+            "type": "string",
+            "value": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools"
+          },
+          {
+            "type": "string",
+            "value": "font-weight:bold"
+          }
+        ],
+        "executionContextId": 2,
+        "timestamp": 1795411589684.268,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21461,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21507,
+              "columnNumber": 3
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6377,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6331,
+              "columnNumber": 24
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6209,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5891,
+              "columnNumber": 27
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5854,
+              "columnNumber": 46
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5804,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1414,
+              "columnNumber": 37
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1287,
+              "columnNumber": 14
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "log",
+        "args": [
+          {
+            "type": "string",
+            "value": "Running application \"main\" with appParams:\n"
+          },
+          {
+            "type": "object",
+            "className": "Object",
+            "description": "Object",
+            "objectId": "-4933875559890429.2.1",
+            "preview": {
+              "type": "object",
+              "description": "Object",
+              "overflow": false,
+              "properties": [
+                {
+                  "name": "rootTag",
+                  "type": "string",
+                  "value": "#root"
+                },
+                {
+                  "name": "hydrate",
+                  "type": "undefined",
+                  "value": "undefined"
+                }
+              ]
+            }
+          },
+          {
+            "type": "string",
+            "value": "\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+          }
+        ],
+        "executionContextId": 2,
+        "timestamp": 1795411589834.844,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "runApplication",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5947,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "registerRootComponent",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5830,
+              "columnNumber": 26
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1291,
+              "columnNumber": 34
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Log.entryAdded",
+      "params": {
+        "entry": {
+          "source": "rendering",
+          "level": "warning",
+          "text": "Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidden from assistive technology users. Avoid using aria-hidden on a focused element or its ancestor. Consider using the inert attribute instead, which will also prevent focus. For more details, see the aria-hidden section of the WAI-ARIA specification at https://w3c.github.io/aria/#aria-hidden.\nElement with focus: <button.css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73 r-justifyContent-1777fci r-minHeight-1pl7oy7 r-minWidth-1v6e3re>\nAncestor with aria-hidden: <div.css-view-g5y9jx r-flex-13awgt0 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af>",
+          "timestamp": 1795411599182.54,
+          "url": "http://localhost:8081/",
+          "args": [
+            {
+              "type": "object",
+              "subtype": "node",
+              "className": "HTMLDivElement",
+              "description": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af",
+              "objectId": "-4933875559890429.2.6"
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Log.entryAdded",
+      "params": {
+        "entry": {
+          "source": "rendering",
+          "level": "warning",
+          "text": "Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidden from assistive technology users. Avoid using aria-hidden on a focused element or its ancestor. Consider using the inert attribute instead, which will also prevent focus. For more details, see the aria-hidden section of the WAI-ARIA specification at https://w3c.github.io/aria/#aria-hidden.\nElement with focus: <button.css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-minHeight-1pl7oy7 r-minWidth-1v6e3re r-position-u8s1d r-right-1pgswnq r-top-ipm5af>\nAncestor with aria-hidden: <div.css-view-g5y9jx r-flex-13awgt0 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af>",
+          "timestamp": 1795411601611.246,
+          "url": "http://localhost:8081/",
+          "args": [
+            {
+              "type": "object",
+              "subtype": "node",
+              "className": "HTMLDivElement",
+              "description": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af",
+              "objectId": "-4933875559890429.2.8"
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "info",
+        "args": [
+          {
+            "type": "string",
+            "value": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools"
+          },
+          {
+            "type": "string",
+            "value": "font-weight:bold"
+          }
+        ],
+        "executionContextId": 3,
+        "timestamp": 1795411608962.231,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21461,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21507,
+              "columnNumber": 3
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6377,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6331,
+              "columnNumber": 24
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6209,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5891,
+              "columnNumber": 27
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5854,
+              "columnNumber": 46
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5804,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1414,
+              "columnNumber": 37
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1287,
+              "columnNumber": 14
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "log",
+        "args": [
+          {
+            "type": "string",
+            "value": "Running application \"main\" with appParams:\n"
+          },
+          {
+            "type": "object",
+            "className": "Object",
+            "description": "Object",
+            "objectId": "-4933875559890429.3.1",
+            "preview": {
+              "type": "object",
+              "description": "Object",
+              "overflow": false,
+              "properties": [
+                {
+                  "name": "rootTag",
+                  "type": "string",
+                  "value": "#root"
+                },
+                {
+                  "name": "hydrate",
+                  "type": "undefined",
+                  "value": "undefined"
+                }
+              ]
+            }
+          },
+          {
+            "type": "string",
+            "value": "\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+          }
+        ],
+        "executionContextId": 3,
+        "timestamp": 1795411608995.638,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "runApplication",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5947,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "registerRootComponent",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5830,
+              "columnNumber": 26
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1291,
+              "columnNumber": 34
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "info",
+        "args": [
+          {
+            "type": "string",
+            "value": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools"
+          },
+          {
+            "type": "string",
+            "value": "font-weight:bold"
+          }
+        ],
+        "executionContextId": 4,
+        "timestamp": 1795411613706.575,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21461,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21507,
+              "columnNumber": 3
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6377,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6331,
+              "columnNumber": 24
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6209,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5891,
+              "columnNumber": 27
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5854,
+              "columnNumber": 46
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5804,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1414,
+              "columnNumber": 37
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1287,
+              "columnNumber": 14
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "log",
+        "args": [
+          {
+            "type": "string",
+            "value": "Running application \"main\" with appParams:\n"
+          },
+          {
+            "type": "object",
+            "className": "Object",
+            "description": "Object",
+            "objectId": "-4933875559890429.4.1",
+            "preview": {
+              "type": "object",
+              "description": "Object",
+              "overflow": false,
+              "properties": [
+                {
+                  "name": "rootTag",
+                  "type": "string",
+                  "value": "#root"
+                },
+                {
+                  "name": "hydrate",
+                  "type": "undefined",
+                  "value": "undefined"
+                }
+              ]
+            }
+          },
+          {
+            "type": "string",
+            "value": "\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+          }
+        ],
+        "executionContextId": 4,
+        "timestamp": 1795411613738.405,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "runApplication",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5947,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "registerRootComponent",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5830,
+              "columnNumber": 26
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1291,
+              "columnNumber": 34
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "7",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135676,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "8A1F6929F3A42563E01C3BFCA70B556E"
+    }
+  ]
+}

@@ -211,13 +211,13 @@
   },
   "V21": {
     "title": "정책 기사",
-    "route": "Article → Responses → Rules/정책 아이콘 → policy 분기 → 닫기·복귀",
+      "route": "Article → Responses/본문 shield → PolicyArticle → 원래 응답/기사 복귀; 저장 후 Library → PolicyArticleScreen 재열기",
     "features": [
-      "responses"
+        "responses", "feed", "community", "reactions", "bookmarks", "listening", "sharing", "settings", "moderation"
     ],
-    "account": "공개 정책 읽기; 반응/관계 도구는 D08 범위 판정 필요",
-    "fixture": "현재 두 발췌문 분기; 원본 Medium Rules 전체 도구·반응 fixture 미연결",
-    "entry": "ResponsePolicyLink"
+      "account": "공개 정책 읽기; 기존 차단 정책 적용; 팔로우/박수/저장/작성은 mock A, guest 로그인 후 재행동",
+      "fixture": "medium-rules/medium-policy-author; 보이는 2문단과 세 번째 문단 시작/54K 초기 박수; 실제 mock 응답 0→1, 원본272와 차이 유지",
+      "entry": "PolicyArticle"
   },
   "V22": {
     "title": "기사 저장",

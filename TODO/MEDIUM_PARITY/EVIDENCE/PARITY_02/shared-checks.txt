@@ -1,0 +1,23 @@
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand --runTestsByPath src/features/community/FollowControl.test.tsx src/features/responses/ResponsesPanel.test.tsx src/app/navigation/RecommendationsNavigation.test.tsx
+
+npm.cmd : PASS Android src/features/responses/ResponsesPanel.test.tsx (15.096 s)
+위치 줄:3 문자:1
++ & npm.cmd test -- --runTestsByPath src/features/community/FollowContr ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PASS Android sr....tsx (15.096 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+PASS iOS src/features/responses/ResponsesPanel.test.tsx (14.127 s)
+PASS iOS src/app/navigation/RecommendationsNavigation.test.tsx (7.759 s)
+PASS Android src/app/navigation/RecommendationsNavigation.test.tsx (6.232 s)
+PASS iOS src/features/community/FollowControl.test.tsx
+PASS Android src/features/community/FollowControl.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       22 passed, 22 total
+Snapshots:   0 total
+Time:        47.906 s
+Ran all test suites within paths "src/features/community/FollowControl.test.tsx", "src/features/responses/ResponsesPane
+l.test.tsx", "src/app/navigation/RecommendationsNavigation.test.tsx" in 2 projects.

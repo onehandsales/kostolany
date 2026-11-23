@@ -2,7 +2,13 @@
 
 [200개 화면 조건](COMPARISON_BASELINE.md) · [실행 계획](EXECUTION_PLAN.md) · [결과](../FE_MEDIUM_PARITY_01_RESULT.md)
 
+**Parity 2 보강:** [자체 UI 노출·비교 처리](OWN_UI_POLICY.md)와 [현재 전후/회귀 증거](../FE_MEDIUM_PARITY_02_RESULT.md)를 추가했다. 캡처 도구의 `--viewport`/`--text-scale=2`는 별도 웹 진단 조건이며 CSS 확대를 RN/OS fontScale 검증으로 사용하지 않는다. PNG는 raw SHA-256, 텍스트는 UTF-8 BOM 제거·LF 정규화 SHA-256으로 보관하며 [증거 검사 도구](../../tools/medium-parity/verifyParity02.py)가 이후 checkout의 파일·로그·해시를 검증한다. 기존 Parity 1 증거와 현재 실행은 분리한다.
+
 ## 범위와 상태
+
+**Parity 3 보강:** [새 결과](../FE_MEDIUM_PARITY_03_RESULT.md)는 S008/S100 연결과 정책 도구의 별도 증거다. `capturePreview.mjs`는 input value·선택 위치와 실제 scrollTop을 기록하고 시나리오에서 검증한다. RN Web ref의 `scrollTo({top})`가 실제 위치를 바꾸지 않는 경우를 발견해 DOM scrollTop을 사용하도록 수정했다. 이전 캡처를 새 스크롤 검증으로 간주하지 않는다. [verifyParity03.py](../../tools/medium-parity/verifyParity03.py)의 `--inventory`는 63/273/200의 등록·링크·배정 검사이며 기능 전수 검증이 아니다.
+
+추가 재검토에서는 실행 조건의 시계/DPR/시간대/viewport, 빈·중복 촬영, 실제 콘솔 오류와 소스 목록의 누락까지 검사한다. 채택한 manifest는 덮어쓰지 않는다. 후속 코드 변경 후 과거 증거는 기본 무결성 검사로 확인하고, 새 증거는 별도 `--evidence` 폴더와 manifest에 연결한다. [재검토 명령과 한계](../FE_MEDIUM_PARITY_02_RESULT.md#additional-review)를 따른다.
 
 2026-11-23 Windows checkout `82968fe`를 기준으로 한다. 보관 원본은 Medium iOS catalog version ID1419다. 최신 앱·Android 원본·실제 기기 모델·촬영 시각은 이 자료로 확정하지 않는다. Goal53 당시 macOS 증거와 이번 Windows 실행은 별개다.
 

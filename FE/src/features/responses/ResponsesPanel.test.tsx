@@ -7,13 +7,17 @@ import { deferred } from '../feed/tests/helpers';
 import { ProfileProvider } from '../profile/ProfileProvider';
 import { createMockProfileSource } from '../profile/data/createMockProfileSource';
 import { ResponseButton } from './ResponseButton';
+import { ResponsesPanel } from './ResponsesPanel';
 import { ResponseProvider } from './ResponseProvider';
 import { createMockResponseSource } from './data/createMockResponseSource';
 import type { ResponseCommand, ResponseSource, ResponseValue } from './types';
+import { ModerationContext } from '../moderation/ModerationContext';
+import { createModerationStore } from '../moderation/createModerationStore';
+import { createMockModerationSource } from '../moderation/data/createMockModerationSource';
 
 const target = { kind: 'article' as const, id: 'medium-brain' };
 const profile = createMockProfileSource({ delayMs: 0 });
-function tree(source: ResponseSource, userId = mockUserA.id, revision = 0) {
+function tree(source: ResponseSource, userId = mockUserA.id, revision = 0, directPolicy = false) {
   return (
     <SafeAreaProvider>
       <ResponseProvider source={source} userId={userId} revision={revision}>
@@ -22,7 +26,9 @@ function tree(source: ResponseSource, userId = mockUserA.id, revision = 0) {
           initialUser={userId === mockUserA.id ? mockUserA : mockUserB}
         >
           <ProfileProvider userId={userId} sessionRevision={revision} source={profile}>
-            <ResponseButton target={target} title="기사" />
+            {directPolicy
+              ? <ResponsesPanel target={{ kind: 'article', id: 'medium-rules' }} onClose={() => {}} />
+              : <ResponseButton target={target} title="기사" />}
           </ProfileProvider>
         </AuthProvider>
       </ResponseProvider>
@@ -30,6 +36,48 @@ function tree(source: ResponseSource, userId = mockUserA.id, revision = 0) {
   );
 }
 const panel = () => within(screen.getByLabelText('Responses 패널'));
+
+it.each(['block', 'read-error'] as const)('직접 연 정책 응답에서 %s 발생 시 입력을 폐기하고 복구 후 되살리지 않는다', async (failure) => {
+  const base = createMockModerationSource({ delay: 0 });
+  let failRead = false;
+  const moderation = createModerationStore({ ...base, read: async (id) => {
+    if (failRead) throw new Error('unavailable');
+    return base.read(id);
+  } }, mockUserA.id);
+  await moderation.reload();
+  const user = userEvent.setup();
+  await render(<ModerationContext.Provider value={{ store: moderation, scope: '', open: () => {}, isBlockedForUser: () => false }}>
+    {tree(createMockResponseSource({ delayMs: 0 }), mockUserA.id, 0, true)}
+  </ModerationContext.Provider>);
+  await panel().findByRole('heading', { name: 'Responses (0)' });
+  await user.type(panel().getByLabelText('응답 내용'), '접근권 상실 전 정책 응답 초안');
+  await act(async () => {
+    if (failure === 'block') await moderation.execute({ operationId: 'block-policy', action: { kind: 'block', writerId: 'medium-policy-author', active: true } });
+    else { failRead = true; await moderation.reload(); }
+  });
+  expect(screen.queryByLabelText('Responses 패널')).toBeNull();
+  await act(async () => {
+    if (failure === 'block') await moderation.execute({ operationId: 'unblock-policy', action: { kind: 'block', writerId: 'medium-policy-author', active: false } });
+    else { failRead = false; await moderation.reload(); }
+  });
+  expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue('');
+});
+
+it('직접 연 정책 응답도 A→B→A와 같은 A 재로그인 때 이전 입력·정렬을 초기화한다', async () => {
+  const source = createMockResponseSource({ delayMs: 0 });
+  const user = userEvent.setup();
+  const view = await render(tree(source, mockUserA.id, 0, true));
+  await panel().findByRole('heading', { name: 'Responses (0)' });
+  await user.type(panel().getByLabelText('응답 내용'), '이전 세션의 비공개 초안');
+  await user.press(panel().getByRole('button', { name: '응답 정렬 선택' }));
+  await user.press(screen.getByRole('radio', { name: 'Most Recent' }));
+  for (const [id, revision] of [[mockUserB.id, 1], [mockUserA.id, 2], [mockUserA.id, 3]] as const) {
+    await view.rerender(tree(source, id, revision, true));
+    expect(panel().getByLabelText('응답 내용')).toHaveDisplayValue('');
+    expect(panel().getByText('Most Relevant')).toBeVisible();
+    await user.type(panel().getByLabelText('응답 내용'), '이번 세션의 새 초안');
+  }
+});
 
 it.each([false, true])(
   '답글 전송 뒤 접기를 유지하고 초안 변경 여부 %s에서도 늦은 성공을 격리한다',

@@ -11,6 +11,7 @@ import { responseTargetKey, type ResponseTarget } from './types';
 
 type ResponseButtonProps = {
   target: ResponseTarget;
+  active?: boolean;
   title: string;
   label?: string;
   text?: string;
@@ -23,6 +24,7 @@ export function ResponseButton(props: ResponseButtonProps) {
 }
 function ScopedResponseButton({
   target,
+  active = true,
   title,
   text,
   label = `Responses, ${title}`,
@@ -62,7 +64,7 @@ function ScopedResponseButton({
         </Text>
       </Pressable>
       {open && (
-        <ResponsesPanel target={target} initialReplyId={initialReplyId} onClose={() => setOpen(false)} />
+        <ResponsesPanel target={target} active={active} initialReplyId={initialReplyId} onClose={() => setOpen(false)} />
       )}
     </View>
   );

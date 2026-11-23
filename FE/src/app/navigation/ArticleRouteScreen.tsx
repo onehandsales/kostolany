@@ -9,6 +9,8 @@ import { useDownloadArticleSource } from '../../features/downloads/DownloadProvi
 import { previewArticleSource } from '../../features/article/data/articlePreview';
 import { writtenStoryId } from '../../features/editor/publishedArticle';
 import { WrittenStoryScreen } from '../../features/editor/WrittenStoryScreen';
+import { PolicyArticleScreen } from '../../features/responses/PolicyArticleScreen';
+import { mediumPolicyArticle } from '../../features/feed/data/mediumPolicyArticle';
 
 export type ArticleRouteParams = {
   articleId: string;
@@ -29,6 +31,7 @@ type ArticleRouteScreenProps = {
 };
 
 export function ArticleRouteScreen(props: ArticleRouteScreenProps) {
+  if (props.params.articleId === mediumPolicyArticle.id) return <PolicyArticleScreen onBack={props.onBack} active={props.isFocused} />;
   const storyId = writtenStoryId(props.params.articleId);
   return storyId ? <WrittenStoryScreen storyId={storyId} onBack={props.onBack} /> : <FeedArticleRouteScreen {...props} />;
 }

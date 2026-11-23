@@ -1,0 +1,420 @@
+{
+  "profile": "CP-WEB-01",
+  "run": {
+    "startedAt": "2026-11-23T06:33:24.170Z",
+    "finishedAt": "2026-11-23T06:34:35.880Z",
+    "status": "failed",
+    "requestedScreens": [
+      "S100",
+      "S008"
+    ],
+    "consoleErrors": null,
+    "viewport": [
+      390,
+      844
+    ],
+    "textScale": 1,
+    "textScaleMethod": "CSS diagnostic only; RN/OS fontScale unchanged"
+  },
+  "captures": [],
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "info",
+        "args": [
+          {
+            "type": "string",
+            "value": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools"
+          },
+          {
+            "type": "string",
+            "value": "font-weight:bold"
+          }
+        ],
+        "executionContextId": 2,
+        "timestamp": 1795415611158.207,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21461,
+              "columnNumber": 51
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 21507,
+              "columnNumber": 3
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6377,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6331,
+              "columnNumber": 24
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 6209,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5891,
+              "columnNumber": 27
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5854,
+              "columnNumber": 46
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5804,
+              "columnNumber": 21
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1414,
+              "columnNumber": 37
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 165,
+              "columnNumber": 13
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1287,
+              "columnNumber": 14
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135685,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "A3400EF82A78164C66E00EEC35C579EF"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "params": {
+        "type": "log",
+        "args": [
+          {
+            "type": "string",
+            "value": "Running application \"main\" with appParams:\n"
+          },
+          {
+            "type": "object",
+            "className": "Object",
+            "description": "Object",
+            "objectId": "-6863737815778072042.2.1",
+            "preview": {
+              "type": "object",
+              "description": "Object",
+              "overflow": false,
+              "properties": [
+                {
+                  "name": "rootTag",
+                  "type": "string",
+                  "value": "#root"
+                },
+                {
+                  "name": "hydrate",
+                  "type": "undefined",
+                  "value": "undefined"
+                }
+              ]
+            }
+          },
+          {
+            "type": "string",
+            "value": "\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+          }
+        ],
+        "executionContextId": 2,
+        "timestamp": 1795415611288.93,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "console.<computed>",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 2102,
+              "columnNumber": 25
+            },
+            {
+              "functionName": "runApplication",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5947,
+              "columnNumber": 16
+            },
+            {
+              "functionName": "registerRootComponent",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 5830,
+              "columnNumber": 26
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 1291,
+              "columnNumber": 34
+            },
+            {
+              "functionName": "loadModuleImplementation",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 253,
+              "columnNumber": 33
+            },
+            {
+              "functionName": "guardedLoadModule",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 158,
+              "columnNumber": 22
+            },
+            {
+              "functionName": "metroRequire",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 78,
+              "columnNumber": 74
+            },
+            {
+              "functionName": "",
+              "scriptId": "5",
+              "url": "http://localhost:8081/index.ts.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=src%2Fapp&unstable_transformProfile=hermes-stable",
+              "lineNumber": 135685,
+              "columnNumber": 0
+            }
+          ]
+        }
+      },
+      "sessionId": "A3400EF82A78164C66E00EEC35C579EF"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  { "id": "S037", "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain", "waitText": "Jordan Gibbs", "assert": [
+    { "selector": "[aria-label$=' cover']", "aspectRatio": 1.5, "geometryOnly": true },
+    { "selector": "[aria-label='기사 본문'] [role='heading']", "baseFontSize": 32 }
+  ], "measure": ["[role='heading']", "[aria-label$=' cover']", "[aria-label='기사 본문']"] },
+  { "id": "S168", "click": ["Story options"], "waitText": "Display settings", "assert": [
+    { "selector": "[aria-label='기사 표시 설정']", "minHeight": 48, "inside": true }
+  ] },
+  { "id": "S063", "click": ["기사 표시 설정"], "waitText": "100%", "assert": [
+    { "selector": "[aria-label='글자 크기 키우기']", "minWidth": 48, "minHeight": 48, "inside": true },
+    { "selector": "[aria-label='타인 하이라이트 표시']", "minWidth": 48, "minHeight": 48, "inside": true }
+  ] },
+  { "id": "S119", "click": ["기사 테마 선택 열기"], "waitText": "System default", "assert": [
+    { "selector": "[aria-label='기사 테마: Dark']", "minHeight": 48, "inside": true }
+  ] },
+  { "id": "Q12-dismiss", "keys": ["Escape", "Escape"], "assert": [
+    { "selector": "[aria-label='기사 표시 설정 닫기']", "visible": false },
+    { "selector": "[aria-label='Story options']", "inside": true, "minWidth": 48, "minHeight": 48 }
+  ] },
+  { "id": "Q12-long-search", "navigate": "/", "click": ["탐색", "기사 검색 열기"], "input": [
+    { "label": "기사 검색어", "text": "금리와 환율이 우리 생활에 미치는 영향에 관한 긴 한국어 검색 문장" }
+  ], "waitText": "검색 결과가 없어요" }
+]

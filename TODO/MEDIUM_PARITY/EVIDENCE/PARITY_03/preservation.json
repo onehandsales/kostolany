@@ -1,0 +1,27 @@
+{
+  "baseCommit": "d7dd71294ca4c5b815551f13921f73d4f33410c5",
+  "mediumFilesChecked": 382,
+  "mediumChanges": [],
+  "preexistingUIChangesPreserved": {
+    "FE/App.tsx": true,
+    "FE/src/features/article/ReferenceArticleView.tsx": true,
+    "FE/src/features/settings/ArticleDisplayPopover.tsx": true,
+    "FE/src/shared/ui/TopPopover.tsx": true,
+    "FE/src/shared/ui/AspectImage.tsx": true,
+    "FE/src/shared/ui/PreviewLayout.tsx": true,
+    "FE/src/shared/ui/PreviewLayout.web.tsx": true
+  },
+  "changedPreflightFiles": [
+    "FE/src/features/responses/ResponsesPanel.test.tsx",
+    "FE/src/features/responses/ResponsesPanel.tsx",
+    "FE/src/features/feed/data/mediumFixtures.ts",
+    "FE/src/features/community/data/publicDirectory.ts",
+    "FE/src/features/article/data/fixtures.ts",
+    "FE/src/app/navigation/ArticleRouteScreen.tsx",
+    "tools/medium-parity/buildBaseline.py",
+    "tools/medium-parity/capturePreview.mjs",
+    "tools/medium-parity/comparisonProfiles.json",
+    "tools/medium-parity/executionBatches.json"
+  ],
+  "scope": "Raw byte preservation versus preflight; intentionally changed FE/tools listed separately"
+}

@@ -1,0 +1,4 @@
+[
+  {"id":"S100","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["Responses"],"waitText":"Most Relevant"},
+  {"id":"S008","click":["Medium policy"],"waitText":"Medium Rules"}
+]

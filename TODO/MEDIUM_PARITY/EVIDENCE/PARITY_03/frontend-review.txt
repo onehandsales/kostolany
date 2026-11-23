@@ -1,0 +1,52 @@
+COMMAND: npm.cmd run typecheck
+
+> kostolany-mobile@0.1.0 typecheck
+> tsc --noEmit
+
+
+EXIT: 0
+COMMAND: npm.cmd run lint
+
+> kostolany-mobile@0.1.0 lint
+> eslint . --max-warnings=0
+
+
+EXIT: 0
+COMMAND: npm.cmd test -- PolicyNavigation ResponsesPanel ListeningNavigation DisplayNavigation BookmarkNavigation
+
+> kostolany-mobile@0.1.0 test
+> jest --runInBand PolicyNavigation ResponsesPanel ListeningNavigation DisplayNavigation BookmarkNavigation
+
+PASS iOS src/app/navigation/PolicyNavigation.test.tsx (36.669 s)
+FAIL Android src/app/navigation/ListeningNavigation.test.tsx (34.522 s)
+  ● 실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View story·닫기를 한 재생 상태로 연결한다
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+      82 | }
+      83 |
+    > 84 | it('실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View story·닫기를 한 재생 상태로 연결한다', async () => {
+         | ^
+      85 |   const { user } = await setup();
+      86 |   await user.press(button(/^ChatGPT Is Poisoning/));
+      87 |   await flush();
+
+      at Object.it (src/app/navigation/ListeningNavigation.test.tsx:84:1)
+
+PASS iOS src/app/navigation/ListeningNavigation.test.tsx (20.918 s)
+PASS Android src/features/responses/ResponsesPanel.test.tsx (13.777 s)
+PASS iOS src/features/responses/ResponsesPanel.test.tsx (13.228 s)
+PASS iOS src/app/navigation/DisplayNavigation.test.tsx (5.421 s)
+PASS iOS src/app/navigation/BookmarkNavigation.test.tsx (11.226 s)
+PASS Android src/app/navigation/BookmarkNavigation.test.tsx (12.547 s)
+PASS Android src/app/navigation/PolicyNavigation.test.tsx (9.908 s)
+PASS Android src/app/navigation/DisplayNavigation.test.tsx (6.107 s)
+
+Test Suites: 1 failed, 9 passed, 10 total
+Tests:       1 failed, 51 passed, 52 total
+Snapshots:   0 total
+Time:        166.989 s
+Ran all test suites matching /PolicyNavigation|ResponsesPanel|ListeningNavigation|DisplayNavigation|BookmarkNavigation/i in 2 projects.
+
+EXIT: 1

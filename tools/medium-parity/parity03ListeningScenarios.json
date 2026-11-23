@@ -1,0 +1,8 @@
+[
+  {"id":"S008","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["Responses","Medium policy"],"waitText":"Medium Rules"},
+  {"id":"Q12-auth","click":["Follow Medium","Google로 로그인 (모의)"],"waitText":"Jordan Gibbs"},
+  {"id":"Q12-listen","click":["Responses","Medium policy","Listen"],"assert":[{"selector":"[aria-label='Responses 패널'] [aria-label='플레이어 확장: Medium Rules']","inside":true}]},
+  {"id":"Q12-expanded","click":["플레이어 확장: Medium Rules"],"waitText":"Mock"},
+  {"id":"Q12-collapsed","click":["플레이어 접기"],"waitText":"Medium Rules"},
+  {"id":"Q12-closed","click":["플레이어 닫기"],"assert":[{"selector":"[aria-label='Responses 패널'] [aria-label='플레이어 확장: Medium Rules']","visible":false}]}
+]
