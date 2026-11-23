@@ -24,6 +24,7 @@ import { useBookmarkScopeKey, useBookmarkStore, useReadingList, useUserLists } f
 import { UserListFeedback } from './UserListFeedback';
 
 type LibraryScreenProps = {
+  active?: boolean;
   digestSource?: DigestSource;
   onOpenDigestArticle?: (articleId: string) => void;
   onOpenList: (listId: string, reorder?: boolean) => void;
@@ -35,7 +36,7 @@ export function LibraryScreen(props: LibraryScreenProps) {
   return <LibraryContent key={scopeKey} {...props} />;
 }
 
-function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, digestSource }: LibraryScreenProps) {
+function LibraryContent({ active = true, onOpenList, onOpenHighlight, onOpenDigestArticle, digestSource }: LibraryScreenProps) {
   const navigation = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const listFormStyles = useThemeStyles(createListFormStyles);
@@ -59,6 +60,7 @@ function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, dige
   const tabScroll = useRef<ScrollView>(null);
   const [dismissed, setDismissed] = useState(false);
   const [creating, setCreating] = useState(false);
+  if (!active && creating) setCreating(false);
   const showIntroduction =
     !dismissed &&
     state.status === 'ready' &&
@@ -167,7 +169,7 @@ function LibraryContent({ onOpenList, onOpenHighlight, onOpenDigestArticle, dige
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
       {visitedDigest && <View style={[styles.screen, selectedTab !== 'Digest' && { display: 'none' }]}>
-        <DigestPanel source={digestSource ?? defaultDigests} userId={store.userLists.userId} header={header} onOpen={onOpenDigestArticle ?? navigation.openHistoryArticle} />
+        <DigestPanel active={active && selectedTab === 'Digest'} source={digestSource ?? defaultDigests} userId={store.userLists.userId} header={header} onOpen={onOpenDigestArticle ?? navigation.openHistoryArticle} />
       </View>}
       {selectedTab === 'Digest' ? null : selectedTab === 'Saved lists' ? <SavedLists header={header} /> : selectedTab === 'Reading history' ? (
         <ReadingHistoryList

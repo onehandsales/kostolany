@@ -1779,7 +1779,7 @@
 ### U-F22
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Author detail/Muting an author/ANALYSIS.md>):176
 - 미확인 내용: Muted 관리 목록·음소거 해제·새 피드/Digest 확인·실제 알림.
-- 현재 판정: 음소거 적용은 화면 관찰과 보관 공식 설명을 분리해 기존/새 Digest 정책 확정 필요
+- 현재 판정: 원본의 기존/새 Digest 적용 시점은 미확인 유지. [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md)에서 원본을 보존한 현재 관계 표시 필터를 자체 mock 정책으로 확정·검증했다.
 - 기존 담당 계약: [G28](CONTRACTS.md#g28), [G29](CONTRACTS.md#g29)
 - 후속 작업: [D02](../FE_MEDIUM_PARITY_BACKLOG.md#d02); 위 미확인 내용을 개별 질문으로 삼아 근거/코드 정책/종료 판정을 남긴다.
 <a id="u-f23"></a>

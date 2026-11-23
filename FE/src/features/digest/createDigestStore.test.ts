@@ -22,10 +22,13 @@ it('서로 다른 시간대의 발행을 실제 시각으로 정렬하고 달력
 });
 
 it('발행 묶음 열 개를 고르며 날짜 간격과 빈 기사를 수신 주기와 혼동하지 않는다', async () => {
-  const source = createMockDigestSource({ delayMs: 0 });
+  const initial = digestFixtures.map((issue, index) => index < 6 ? issue : {
+    ...issue, date: `2025-05-${31 - index}`, publishedAt: `2025-05-${31 - index}T08:00:00Z`,
+  });
+  const source = createMockDigestSource({ delayMs: 0, initial });
   const store = createDigestStore(source, 'A'); const close = store.connect(); await flush();
   expect(store.getSnapshot().issues).toHaveLength(10);
-  expect(store.getSnapshot().issues[9]?.date).toBe('2025-05-31');
+  expect(store.getSnapshot().issues[9]?.date).toBe('2025-05-22');
   await store.select('digest-2025-06-07');
   expect(store.getSnapshot()).toMatchObject({ status: 'ready', digest: { articleIds: [] } });
   close();
@@ -88,4 +91,37 @@ it('카탈로그 실패와 빈 원본을 구분하고 수동 복구한다', asyn
   expect(store.getSnapshot().catalogStatus).toBe('error');
   await store.retry(); expect(store.getSnapshot().catalogStatus).toBe('ready');
   source.replaceIssues([]); await flush(); expect(store.getSnapshot().status).toBe('ready'); close();
+});
+
+it('화면 이탈 중 늦은 상세 성공/실패를 폐기하고 확정 날짜만 복귀 조회에 사용한다', async () => {
+  const source = createMockDigestSource({ delayMs: 0 });
+  const store = createDigestStore(source, 'A'); let close = store.connect(); await flush();
+  const original = source.fetchDigest;
+  for (const outcome of ['success', 'failure']) {
+    const old = deferred<Awaited<ReturnType<DigestSource['fetchDigest']>>>();
+    source.fetchDigest = jest.fn().mockReturnValueOnce(old.promise).mockImplementation(original);
+    const pending = store.select('digest-2025-06-08'); close();
+    expect(store.getSnapshot()).toMatchObject({ digest: null, status: 'loading', selectedId: 'digest-2025-06-08' });
+    close = store.connect(); await flush();
+    if (outcome === 'success') old.resolve({ userId: 'A', digest: { ...digestFixtures[4]!, articleIds: ['stale'] } });
+    else old.reject(new Error('STALE_FAILURE'));
+    await pending;
+    expect(store.getSnapshot()).toMatchObject({ status: 'ready', digest: { articleIds: ['medium-goodbye-notion', 'medium-digest-alex'] } });
+  }
+  close();
+});
+
+it('같은 ID의 다른 발행 시각과 중복 기사 응답을 거절하고 재시도한다', async () => {
+  const source = createMockDigestSource({ delayMs: 0 });
+  const store = createDigestStore(source, 'A'); const close = store.connect(); await flush();
+  const original = source.fetchDigest;
+  for (const digest of [
+    { ...digestFixtures[0]!, publishedAt: '2025-06-12T09:00:00Z' },
+    { ...digestFixtures[0]!, articleIds: ['medium-love', 'medium-love'] },
+  ]) {
+    source.fetchDigest = jest.fn().mockResolvedValueOnce({ userId: 'A', digest }).mockImplementation(original);
+    await store.retry(); expect(store.getSnapshot()).toMatchObject({ status: 'error', digest: null });
+    await store.retry(); expect(store.getSnapshot().status).toBe('ready');
+  }
+  close();
 });

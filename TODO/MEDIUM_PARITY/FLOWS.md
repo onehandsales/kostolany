@@ -682,6 +682,8 @@ Email notifications on은 캡처 선택값이다. 모든 계정의 최초 기본
 
 ## F22 — Home/Story detail/Author detail/Muting an author
 
+**Parity 6:** [이번 결과](../FE_MEDIUM_PARITY_06_RESULT.md)에서 D02 관련 현재 음소거 표시 정책을 검증했다. 이 흐름의 다른 단계·미수록 효과·원본 동일성 전체를 완료로 승격하지 않는다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Author detail/Muting an author/ANALYSIS.md>)
 
 **원본 흐름 목적:** 작가 더보기의 Mute author와 완료 토스트를 확인한다.
@@ -1275,6 +1277,8 @@ Copy link 결과만 보인다. Friend Link와 외부 공유 앱은 버튼 존재
 
 ## F41 — Library
 
+**Parity 6:** [이번 결과](../FE_MEDIUM_PARITY_06_RESULT.md)에서 T-F41-04의 Digest 진입·행동 연결을 검증했다. 이 흐름의 다른 단계·미수록 효과·원본 동일성 전체를 완료로 승격하지 않는다.
+
 [원본 분석](<../../medium/flows/Library/ANALYSIS.md>)
 
 **원본 흐름 목적:** 내 리스트의 빈/채워진 상태와 Digest·Highlighted 탭을 비교한다.
@@ -1340,6 +1344,8 @@ Saved lists·Reading history 탭이 보여도 이 부모 흐름에 그 내용은
 
 ## F43 — Library/Filtering digest
 
+**Parity 6:** [이번 결과](../FE_MEDIUM_PARITY_06_RESULT.md)에서 T-F43-01~04의 날짜 임시 선택/취소/확정·날짜별 기사를 검증했다. 이 흐름의 다른 단계·미수록 효과·원본 동일성 전체를 완료로 승격하지 않는다.
+
 [원본 분석](<../../medium/flows/Library/Filtering digest/ANALYSIS.md>)
 
 **원본 흐름 목적:** 최근 다이제스트 10개 중 다른 날짜를 고르고 해당 기사 묶음으로 전환한다.
@@ -1372,6 +1378,8 @@ June 12→June 8 변화는 선택한 다이제스트 날짜다. Today's highligh
 <a id="f44"></a>
 
 ## F44 — Library/Filtering digest/Digest settings
+
+**Parity 6:** [이번 결과](../FE_MEDIUM_PARITY_06_RESULT.md)에서 T-F44-01의 Digest 설정 진입과 복귀를 검증했다. 이 흐름의 다른 단계·미수록 효과·원본 동일성 전체를 완료로 승격하지 않는다.
 
 [원본 분석](<../../medium/flows/Library/Filtering digest/Digest settings/ANALYSIS.md>)
 

@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**Parity 6:** [Digest 비교 결과](../FE_MEDIUM_PARITY_06_RESULT.md). S116의 Goodbye Notion 커버·xeladu 아바타는 기존 FE 자산에 없어 시각 잔여로 남는다. 새 이미지 파일은 만들지 않았다. S132는 기존 love/kris 자산을 재사용하지만 원본 Digest와 crop 구도·해상도 차이가 있다. 회원용 별은 기존 gold SVG16이며 원본 독립 벡터의 동일성을 확정하지 않는다.
+
 [비교 프로토콜](COMPARISON_PROTOCOL.md) · [실행 계획](EXECUTION_PLAN.md#batch-02)
 
 Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.md)에서 모바일 웹의 본문 폭·이미지 비율·팝오버 안전 영역과 표시 설정 구획/선택 아이콘을 보정했다. 원본 폰트 확보·모든 화면 렌더 일치·아이콘 전체 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.

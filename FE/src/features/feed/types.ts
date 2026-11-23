@@ -7,7 +7,7 @@ export type ReferenceStory = {
   avatar?: ImageSourcePropType;
   applause: number;
   responses: string;
-  memberOnly: boolean;
+  memberOnly?: boolean;
   balancedHeadline?: boolean;
   verifiedAuthor?: boolean;
 };

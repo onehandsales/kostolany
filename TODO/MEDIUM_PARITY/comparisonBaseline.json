@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "3151b57b882049fd0281464ded33f6e44d0111d305ab821fcc5f4687e7a2cbaa"
+      "sha256": "20db47429f3df67d85a95b7d372dc81801365a3a385948a5baed7c92ac61fa3a"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "64ddbeaa82106ed6b367b4f7f28836b9fcb75d0dae199370200fefca564feede"
+      "sha256": "e57a16c7be9819a2fe3cf5e0c1900d19f60460e8358bfa23a91c1411d0bc4862"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,7 +285,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "ac68eba21bcf5b734732bcce97694c9ccaae11def6f2fbaa067d7f26ef83ba17"
+      "sha256": "79cd40200ab19a7615c3f48367ff314c2feca3da9bd615e85e70bb71146db7f0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
@@ -301,15 +301,15 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "3fbea917440f6ff309dfb29bf5e8ffc4ae525f6e88dd9ce7c43ba6bed1e4dc70"
+      "sha256": "d20f265d5c3d20548a2de119b223f6227007d007fbfa694078f5f185a4c0eb51"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "207d2bc7ac247cf2eaa22fafe261756a6353eb642e2f1f1583fed19f3d26c3ac"
+      "sha256": "d8af8a9fe1402cf6e14961cf30f0182238ab49a4e14d0ed556f1e82dc149393c"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "87e9f3bac34b760c08a192feda121584674622afa89a50f28feaaf4436b4e371"
+      "sha256": "5ea1e1acc26fa5938c2a2fed8fd52baec2c4fc9113242f9ca6f23089c59d7753"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
@@ -317,7 +317,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "c2d0a9a02909f46a3e8ccd86149339220fbb730655bbb6fbae3234b109edbd6c"
+      "sha256": "72fd4bc7866df3e7b0fa36c8382dc2a4279fb69d9150e155fbee1dde5be93c6d"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "d3c12ab28a7edb4ed56ba07f608bb3516189a5f43e10074504090a6713f28c4c"
+      "sha256": "e03b641e0f3d56fee54d8e70189bf46f140ee2d2f6d2fa63924743e910b8eaf2"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -411,7 +411,7 @@
     },
     {
       "path": "FE/src/app/navigation/DigestNavigation.test.tsx",
-      "sha256": "13ede5b387639e5a27c8d2925239300a5e71c252583ba1f8a0b862b7be7c44aa"
+      "sha256": "52f35605a35b26562d51dacab4ced4dbd285cadc865ea2725d95b19c899099fd"
     },
     {
       "path": "FE/src/app/navigation/DisplayNavigation.test.tsx",
@@ -447,7 +447,7 @@
     },
     {
       "path": "FE/src/app/navigation/LibraryNavigator.tsx",
-      "sha256": "cba4fa2dba7e79db2ceae0c378de40eb2471e4560c839ddbc5f94f308c451357"
+      "sha256": "3e6a812ca5f4ebdf11dc1ced9fee928e78f0e439fdc8108f28c0c60609a3121d"
     },
     {
       "path": "FE/src/app/navigation/LikeNavigation.test.tsx",
@@ -875,7 +875,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/LibraryScreen.tsx",
-      "sha256": "a06330e9c09d7c6d2ea4a77e39d5fbd257197b521cfb4933e3a564b6caae54da"
+      "sha256": "275d75240393b753a1e0ba2ac779f4a1401c3690434117acd669c3e2ba74a206"
     },
     {
       "path": "FE/src/features/bookmarks/LibrarySheet.tsx",
@@ -979,7 +979,7 @@
     },
     {
       "path": "FE/src/features/community/data/publicDirectory.ts",
-      "sha256": "7ce315ddcb512d50157dfd6e4a88143f74f5b02413c5e85a99d31e5ae9d1148f"
+      "sha256": "efe1ed707b52cee140e062077edc72f7f5dba2ade9ea543c6599c55248e29b4d"
     },
     {
       "path": "FE/src/features/community/data/relationshipPreview.ts",
@@ -1039,19 +1039,23 @@
     },
     {
       "path": "FE/src/features/digest/createDigestStore.test.ts",
-      "sha256": "b716be540cd87e67a966737c8dc3a280f806a14bfa6698f92d647999dfe3570f"
+      "sha256": "c679bb45b40bf040dbd624d0ce292846230ab59504fe3b75cbd4e0499a71fbb2"
     },
     {
       "path": "FE/src/features/digest/createDigestStore.ts",
-      "sha256": "058385e6bc2144229f5cceff92bbeb1f96049e0eca673ec678007694465c2e0d"
+      "sha256": "9afa3637a7d11f6e6c0b4e60f152887e902fe63d68df93d4e349cdf4d0147292"
     },
     {
       "path": "FE/src/features/digest/createMockDigestSource.ts",
-      "sha256": "272c9e82c09054797869038a56ec54724eb806c1b96c35a08fc68d1621308b51"
+      "sha256": "1ebf5c1f11aff6ce114035981a897f9504061925fecaf43b202bf199e9c02a5b"
+    },
+    {
+      "path": "FE/src/features/digest/DigestPanel.test.tsx",
+      "sha256": "e51197c36193006007b956311e09f72892c612b681f1316016f2a6bd3a2c09e7"
     },
     {
       "path": "FE/src/features/digest/DigestPanel.tsx",
-      "sha256": "298520647fe2dcc6fae79d926713b96f281dff108f195eccecc8cecb56088e2d"
+      "sha256": "1d231968598447e208845a3bf351f863e4117963cfeb526d616d47a058827ecd"
     },
     {
       "path": "FE/src/features/digest/types.ts",
@@ -1278,12 +1282,16 @@
       "sha256": "e2f3318cd4aa7fffc16ca6b1b77cc0269315e877a93f1c4bd896a9c041408dd1"
     },
     {
+      "path": "FE/src/features/feed/data/mediumDigestStories.ts",
+      "sha256": "86152d3c7f913d50ebd73cbba8976f9a43b7cebdd495826574e9c492bd386b76"
+    },
+    {
       "path": "FE/src/features/feed/data/mediumExploreExtras.ts",
       "sha256": "f6c1c5c4dfabd7e947205635a6a682c0023c8abb63d33bc091704589e8b5f5c4"
     },
     {
       "path": "FE/src/features/feed/data/mediumFixtures.ts",
-      "sha256": "b0bd0dd464e5b6bb9e593e392e85c2f9c84d1d25386a8a8bc5e59060685b7743"
+      "sha256": "7e0848718f67cdd202466d19ef70dc0824712c16022d5149aac55874398a56e6"
     },
     {
       "path": "FE/src/features/feed/data/mediumHistoryStories.ts",
@@ -1331,7 +1339,7 @@
     },
     {
       "path": "FE/src/features/feed/types.ts",
-      "sha256": "0657930a70940229ad9009b9f8f72a4835d76a3984f77ef38fc82ecc30a959b4"
+      "sha256": "264ea83f6638f7d822831d89b5f2396f43e1b5cb31990e794b922713444e4e1f"
     },
     {
       "path": "FE/src/features/feed/useFeed.test.ts",
@@ -3049,7 +3057,7 @@
         "digest"
       ],
       "account": "A; 읽기용 모의 issue; 실제 발송 없음",
-      "fixture": "digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요",
+      "fixture": "digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여",
       "entry": "DigestPanel"
     },
     "V28": {
@@ -3223,7 +3231,7 @@
       ],
       "scope": "D04/D11 중 Digest 소비자; 기존호/새호 mute 정책·날짜 fixture",
       "done": "Mute/Unmute·날짜왕복·늦은조회·0/양수/미확인시간·memberOnly·A/B",
-      "status": "미착수"
+      "status": "Digest 구현·mock 검증 완료; V27 시각 차이·원본 미확인·native 대기"
     },
     {
       "number": 7,
@@ -13393,7 +13401,7 @@
       ],
       "routeRecipe": "Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기",
       "accountAndPermission": "A; 읽기용 모의 issue; 실제 발송 없음",
-      "fixtureRecipe": "digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요",
+      "fixtureRecipe": "digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여",
       "referenceObservations": {
         "L": "배치: 같은 날짜 목록",
         "D": "표시값·입력: June 8 2025 체크",
@@ -13439,9 +13447,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능·날짜 fixture 보완; S116 사진/아바타·원본 집계/서체/OS 차이 및 U/native 잔여, 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다."
+      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+        "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
+        "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S097",
@@ -15412,7 +15425,7 @@
       ],
       "routeRecipe": "Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기",
       "accountAndPermission": "A; 읽기용 모의 issue; 실제 발송 없음",
-      "fixtureRecipe": "digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요",
+      "fixtureRecipe": "digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여",
       "referenceObservations": {
         "L": "배치: Digest 날짜·기사 교체",
         "D": "표시값·입력: June 8 2025, Goodbye Notion",
@@ -15503,9 +15516,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "June8 현 fixture와 원본 Goodbye Notion 불일치; issue/article source 대조·주입 필요.",
+      "blocker": "기능·날짜 fixture 보완; S116 사진/아바타·원본 집계/서체/OS 차이 및 U/native 잔여, 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다."
+      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+        "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
+        "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S117",
@@ -17032,7 +17050,7 @@
       ],
       "routeRecipe": "Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기",
       "accountAndPermission": "A; 읽기용 모의 issue; 실제 발송 없음",
-      "fixtureRecipe": "digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요",
+      "fixtureRecipe": "digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여",
       "referenceObservations": {
         "L": "배치: Digest 탭·날짜 선택·설정·Today's highlights",
         "D": "표시값·입력: June 12 2025",
@@ -17127,9 +17145,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능·날짜 fixture 보완; S116 사진/아바타·원본 집계/서체/OS 차이 및 U/native 잔여, 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다."
+      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+        "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
+        "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S133",
@@ -23187,7 +23210,7 @@
       ],
       "routeRecipe": "Main/Library → Digest → 날짜 선택 → June12/June8 → 닫기",
       "accountAndPermission": "A; 읽기용 모의 issue; 실제 발송 없음",
-      "fixtureRecipe": "digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요",
+      "fixtureRecipe": "digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여",
       "referenceObservations": {
         "L": "배치: Digest history 시트·라디오 10개·하단 안내",
         "D": "표시값·입력: June 12 2025 선택, June 3까지",
@@ -23243,9 +23266,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능·날짜 fixture 보완; S116 사진/아바타·원본 집계/서체/OS 차이 및 U/native 잔여, 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다."
+      "acceptance": "June12→June8의 임시 radio/Done·확정 날짜·바뀐 기사, last10 안내와 제목/카드 반응/저장을 비교한다. 날짜10일과 발행10개를 구분한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+        "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
+        "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S194",
@@ -28370,9 +28398,15 @@
       "id": "U-F22",
       "questions": "Muted 관리 목록·음소거 해제·새 피드/Digest 확인·실제 알림.",
       "batches": [
-        5
+        5,
+        6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; Parity 6은 기존/새 호의 최신 관계 표시 필터를 자체 mock 정책으로 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+        "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
+        "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "U-F23",
@@ -31712,5 +31746,10 @@
       },
       "status": "로컬 비교용 crop 확보; 원본 독립 자산/배포 권리/렌더 동일성 확인 아님"
     }
-  ]
+  ],
+  "manualUpdate": {
+    "batch": 6,
+    "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+    "reason": "tools 생성/수정 금지로 현재 TODO만 수동 갱신; tools의 기존 profile/batch 원본과 차이 보존"
+  }
 }

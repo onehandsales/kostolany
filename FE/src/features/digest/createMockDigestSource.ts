@@ -1,10 +1,11 @@
 import type { Digest, DigestSource } from './types';
 
-// 날짜 사이의 간격과 빈 발행 묶음은 최근 열 개를 열흘로 해석하지 않도록 둔 모의 자료다.
-export const digestFixtures: readonly Digest[] = [12, 11, 10, 9, 8, 7, 5, 3, 1, 0, -2].map((day, index) => {
+// June 12/8은 원본 카드 구성이고 나머지 호의 기사와 June 7의 빈 상태는 자체 모의 자료다.
+export const digestFixtures: readonly Digest[] = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2].map((day, index) => {
   const date = new Date(Date.UTC(2025, 5, day)).toISOString().slice(0, 10);
   return { id: `digest-${date}`, date, publishedAt: `${date}T08:00:00Z`,
-    articleIds: index === 5 ? [] : index % 2 ? ['medium-brain', 'medium-evening'] : ['medium-love', 'medium-jeremiah'] };
+    articleIds: day === 8 ? ['medium-goodbye-notion', 'medium-digest-alex'] :
+      day === 7 ? [] : index % 2 ? ['medium-brain', 'medium-evening'] : ['medium-love', 'medium-jeremiah'] };
 });
 
 export function createMockDigestSource({ delayMs = 180, scenario = 'normal', initial = digestFixtures }: {

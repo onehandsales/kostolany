@@ -13,6 +13,8 @@ const writerAssignments: Readonly<Record<string, string>> = {
   'medium-morning-routine': 'darius',
   'medium-productivity-obsession': 'ryan',
   'medium-love': 'kris',
+  'medium-goodbye-notion': 'xeladu',
+  'medium-digest-alex': 'alex-mathers',
   'medium-evening': 'aleid',
   'medium-jeremiah': 'jeremiah',
   'medium-brain': 'jordan',
@@ -122,6 +124,7 @@ export const suggestedTargets: FollowTarget[] = [
 suggestedProfiles.forEach((profile, index) => {
   const target = suggestedTargets[index];
   if (!target) return;
+  const previous = identities.get(followKey(target));
   identities.set(followKey(target), {
     ...target,
     name: profile.name,
@@ -129,7 +132,7 @@ suggestedProfiles.forEach((profile, index) => {
     verified: profile.verified,
     bio: profile.bio,
     followers: profile.followers,
-    stories: [],
+    stories: previous?.stories ?? [],
     pinned: [],
     lists: [],
   });

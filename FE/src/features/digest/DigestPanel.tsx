@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { FlatList, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ActionMenu } from '../../shared/ui/ActionMenu';
+import { useReturnFocus } from '../../shared/ui/useReturnFocus';
 import { DigestSettingsSheet } from '../notifications/NotificationSettingsScreen';
 import { LibrarySheet } from '../bookmarks/LibrarySheet';
 import { useBookmarkStore } from '../bookmarks/useBookmarks';
@@ -20,7 +21,7 @@ import type { FeedArticle } from '../feed/types';
 import { createDigestStore } from './createDigestStore';
 import type { DigestSource } from './types';
 
-type DigestPanelProps = { source: DigestSource; userId: string; header: ReactNode; onOpen: (id: string) => void };
+type DigestPanelProps = { source: DigestSource; userId: string; active?: boolean; header: ReactNode; onOpen: (id: string) => void };
 export function DigestPanel(props: DigestPanelProps) {
   const [owner, setOwner] = useState(() => ({ source: props.source, userId: props.userId, key: 0 }));
   if (owner.source !== props.source || owner.userId !== props.userId) {
@@ -30,32 +31,49 @@ export function DigestPanel(props: DigestPanelProps) {
   return <DigestContent key={owner.key} {...props} />;
 }
 
-function DigestContent({ source, userId, header, onOpen }: DigestPanelProps) {
+function DigestContent({ source, userId, active = true, header, onOpen }: DigestPanelProps) {
   const [store] = useState(() => createDigestStore(source, userId));
   const state = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
-  useEffect(() => store.connect(), [store]);
+  useEffect(() => active ? store.connect() : undefined, [active, store]);
   const styles = useThemeStyles(createStyles);
   const articles = useBookmarkStore().articles;
   const moderation = useArticleModeration();
   const list = useRef<FlatList<FeedArticle>>(null);
+  const scrollOffset = useRef(0);
+  useLayoutEffect(() => { scrollOffset.current = 0; }, [state.selectedId]);
   const [draft, setDraft] = useState<string | null>(null);
   const [settings, setSettings] = useState(false);
+  const openDates = useReturnFocus(active && draft === null);
+  const openSettings = useReturnFocus(active && !settings);
+  // 확정 날짜는 복귀에 사용하되 이탈한 화면의 초안과 모달은 재사용하지 않는다.
+  if (!active && draft !== null) setDraft(null);
+  if (!active && settings) setSettings(false);
   const selected = state.issues.find(issue => issue.id === state.selectedId);
   const validDraft = state.catalogStatus === 'ready' && state.issues.some(issue => issue.id === draft);
   const awaitingModeration = Boolean(moderation.store && !moderation.state?.value);
-  const stories = awaitingModeration || moderation.state?.readError ? [] : state.digest?.articleIds.flatMap(id =>
-    moderation.blocked(id) ? [] : articles.find(article => article.id === id) ?? []) ?? [];
+  // 발행 원본을 보존하고 기존/새 호의 표시만 최신 관계로 파생하는 자체 mock 정책을 적용한다.
+  const stories = !active || awaitingModeration || moderation.state?.readError ? [] : state.digest?.articleIds.flatMap(id =>
+    moderation.excluded(id) ? [] : articles.find(article => article.id === id) ?? []) ?? [];
   return <>
-    <FlatList ref={list} data={stories} keyExtractor={article => article.id}
+    <FlatList ref={list} data={stories} keyExtractor={article => article.id} accessibilityLabel="Digest 기사 목록"
       contentContainerStyle={styles.content}
+      onScroll={event => {
+        if (active && state.catalogStatus === 'ready' && state.status === 'ready')
+          scrollOffset.current = event.nativeEvent.contentOffset.y;
+      }}
+      onContentSizeChange={() => {
+        // 복귀 조회의 로딩으로 줄어든 목록 높이가 확정 날짜의 스크롤 위치를 지우지 않게 한다.
+        if (active && state.catalogStatus === 'ready' && state.status === 'ready' && scrollOffset.current)
+          list.current?.scrollToOffset({ offset: scrollOffset.current, animated: false });
+      }}
       refreshing={state.catalogStatus === 'loading'} onRefresh={() => { void store.refresh(); }}
       ListHeaderComponent={<>{header}<View style={styles.filter}>
         <Pressable role="button" accessibilityLabel="Digest 날짜 선택" style={styles.date}
-          disabled={!selected} accessibilityState={{ disabled: !selected }} onPress={() => setDraft(state.selectedId)}>
+          disabled={!selected} accessibilityState={{ disabled: !selected }} onPress={() => openDates(() => setDraft(state.selectedId))}>
           <Text style={styles.text}>{selected ? formatDigestDate(selected.date) : 'Digest history'}</Text>
           <View style={styles.down}><AppIcon name="chevron" size={16} /></View>
         </Pressable>
-        <IconButton icon="settings" label="Digest 설정" onPress={() => setSettings(true)} />
+        <IconButton icon="settings" label="Digest 설정" style={styles.settingsButton} onPress={() => openSettings(() => setSettings(true))} />
       </View><Text role="heading" style={styles.heading}>Today’s highlights</Text>
       {(state.catalogStatus === 'loading' || state.status === 'loading') && <ContentStatus loading message="Digest를 불러오고 있어요." />}
       {(state.catalogStatus === 'error' || state.status === 'error') && <ContentStatus error message="Digest를 불러오지 못했어요." actionLabel="Digest 다시 시도" onAction={() => { void store.retry(); }} />}
@@ -65,16 +83,16 @@ function DigestContent({ source, userId, header, onOpen }: DigestPanelProps) {
         <ContentStatus message={selected ? '이 날짜에는 읽을 기사가 없어요.' : '아직 발행된 Digest가 없어요.'} actionLabel="Digest 새로고침" onAction={() => { void store.refresh(); }} />}
       </>}
       renderItem={({ item, index }) => <DigestStory article={item} hero={index === 0} onOpen={onOpen} />} />
-    {draft !== null && <LibrarySheet title="Digest history" titleLabel="Digest 날짜" closeLabel="취소" closeText="×" closeSide="left" contentStyle={styles.sheetContent} expanded onClose={() => setDraft(null)}>
+    {draft !== null && <LibrarySheet title="Digest history" titleLabel="Digest 날짜" closeLabel="취소" closeIcon="close" closeSide="left" contentStyle={styles.sheetContent} expanded onClose={() => setDraft(null)}>
       {state.issues.map(issue => <Pressable key={issue.id} role="radio" accessibilityLabel={formatDigestDate(issue.date)}
         accessibilityState={{ checked: draft === issue.id }} onPress={() => setDraft(issue.id)} style={styles.choice}>
-        <Text style={styles.radio}>{draft === issue.id ? '◉' : '○'}</Text><Text style={styles.text}>{formatDigestDate(issue.date)}</Text>
+        <Text style={styles.radio}>{draft === issue.id ? '◉' : '○'}</Text><Text style={styles.choiceText}>{formatDigestDate(issue.date)}</Text>
       </Pressable>)}
       {!validDraft && <Text role="alert" style={styles.secondary}>발행 목록이 변경되었어요. 날짜를 다시 선택해 주세요.</Text>}
       <View style={styles.historyFooter}><Text style={styles.historyHelp}>You can view up to 10 of your most recent digests</Text>
       <Pressable role="button" accessibilityLabel="Digest 날짜 적용" disabled={!validDraft} accessibilityState={{ disabled: !validDraft }}
         style={[styles.done, !validDraft && styles.disabled]} onPress={() => {
-          if (draft !== state.selectedId) { list.current?.scrollToOffset({ offset: 0, animated: false }); void store.select(draft); }
+          if (draft !== state.selectedId) { scrollOffset.current = 0; list.current?.scrollToOffset({ offset: 0, animated: false }); void store.select(draft); }
           setDraft(null);
         }}><Text style={styles.doneText}>Done</Text></Pressable></View>
     </LibrarySheet>}
@@ -84,6 +102,7 @@ function DigestContent({ source, userId, header, onOpen }: DigestPanelProps) {
 
 function DigestStory({ article, hero, onOpen }: { article: FeedArticle; hero: boolean; onOpen: (id: string) => void }) {
   const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
   const viewed = useHasViewed(article.id);
   const moderation = useArticleModeration();
   const { width } = useWindowDimensions();
@@ -94,7 +113,13 @@ function DigestStory({ article, hero, onOpen }: { article: FeedArticle; hero: bo
       <Text style={[styles.storyTitle, viewed && styles.viewed]}>{article.title}</Text><Text style={styles.summary}>{article.summary}</Text>
     </Pressable>
     <View style={styles.actions}>
-      <Text style={styles.secondary}>{article.readingMinutes} min read{viewed ? ' · Viewed' : ''}</Text>
+      <View style={styles.metadata}>
+        {article.reference?.memberOnly === true && <View accessible accessibilityLabel={`회원용 기사, ${article.title}`}>
+          <AppIcon name="star" color={colors.gold} size={16} />
+        </View>}
+        {article.readingMinutes > 0 && <Text style={styles.secondary}>{article.readingMinutes} min read</Text>}
+        {viewed && <Text style={styles.secondary}>Viewed</Text>}
+      </View>
       <ClapControl target={{ kind: 'article', id: article.id }} title={article.title} />
       <ResponseButton target={{ kind: 'article', id: article.id }} title={article.title} />
       <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} compact />
@@ -111,9 +136,11 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   content: { flexGrow: 1, maxWidth: 728, width: '100%', alignSelf: 'center', paddingBottom: 24 },
   filter: { flexDirection: 'row', gap: 8, alignItems: 'center', marginHorizontal: 20, marginTop: 20 },
   date: { minHeight: 48, flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, borderRadius: 28, borderWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
+  settingsButton: { borderRadius: 24, borderWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
   down: { transform: [{ rotate: '90deg' }] },
   heading: { fontFamily: fonts.serif, fontSize: 24, lineHeight: 32, color: colors.text, marginHorizontal: 24, marginTop: 32, marginBottom: 30 },
-  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text },
+  text: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 22, color: colors.text, flexShrink: 1 },
+  choiceText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text, flexShrink: 1 },
   secondary: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 20, color: colors.secondaryText },
   choice: { flexDirection: 'row', minHeight: 48, alignItems: 'center', gap: 20 },
   radio: { fontSize: 24, color: colors.text },
@@ -130,4 +157,5 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   viewed: { color: colors.secondaryText },
   summary: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.secondaryText },
   actions: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
+  metadata: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8, maxWidth: '100%' },
 });

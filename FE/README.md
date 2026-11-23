@@ -1,8 +1,10 @@
 # Kostolany Mobile
 
+**현재 — Parity 6:** [Digest 결과·검사·8081 확인 순서](../TODO/FE_MEDIUM_PARITY_06_RESULT.md). 기존/새 호의 현재 관계 필터, June 8 기사 구성, 미확인 읽기 시간·회원용 별표, 화면 이탈·조회 수명과 포커스를 보완했다. 구현·mock 검증과 시각 잔여·U 미확인·native 대기를 구분한다. D04/D11의 다른 소비자는 묶음7에 남는다. tools·evidence·캡처/로그/manifest 파일은 생성·수정하지 않는다. 커밋·push·배포·묶음7은 수행하지 않았다. 아래 기록은 각 실행 당시 이력이다.
+
 **Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](../TODO/FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.
 
-**현재 — Parity 5:** [관계·추천 관리 결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_05_RESULT.md). 검색·공개 프로필·Following/Muted/Blocked의 동적 사용자 카탈로그와 이름/해제 연결, 목록 배치, 팔로우 메뉴 수명을 보완했다. D06 mock 연결과 V11/V14/V15 부분 시각 보정을 구분하며 원본 차이·미확인·실제 native 검증은 남는다. 사용자 지시로 evidence/캡처 파일은 생성하지 않았고 기존 삭제도 보존했다. 커밋·push·배포하지 않으며 묶음 6은 미착수다. 아래 이전 결과는 당시 이력이다.
+**Parity 5 당시:** [관계·추천 관리 결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_05_RESULT.md). 검색·공개 프로필·Following/Muted/Blocked의 동적 사용자 카탈로그와 이름/해제 연결, 목록 배치, 팔로우 메뉴 수명을 보완했다. D06 mock 연결과 V11/V14/V15 부분 시각 보정을 구분하며 원본 차이·미확인·실제 native 검증은 남는다. 사용자 지시로 evidence/캡처 파일은 생성하지 않았고 기존 삭제도 보존했다. 커밋·push·배포하지 않으며 묶음 6은 미착수다. 아래 이전 결과는 당시 이력이다.
 
 **Parity 4 당시:** [결과와 8081 확인 순서](../TODO/FE_MEDIUM_PARITY_04_RESULT.md). 발행 reader의 공통 읽기 설정/Viewed, 일반·발행·정책 이력 재열기, 본문 링크의 오래된 응답 보호를 보완했다. 개발 웹의 `?parityHistory=reference-v1`은 명시적인 이력 비교용이며 정상 기본값을 변경하지 않는다. Q05 미확인·Q11 후속·V12/V16 시각 잔여와 실제 native 검증 대기를 유지한다. 다음은 묶음 5이며 자동 시작하지 않는다. 아래 이전 결과는 당시 이력이다.
 

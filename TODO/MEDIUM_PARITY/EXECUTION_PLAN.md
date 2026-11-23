@@ -1,8 +1,8 @@
 # Medium Parity 실행 계획
 
-[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
+[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [Parity 6 결과](../FE_MEDIUM_PARITY_06_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
 
-이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 묶음4의 읽기 연결 보완에 이어 묶음5의 D06 관계 카탈로그·관리 목록과 V11/V14/V15의 동작·부분 시각 보정을 진행했다. 현재 결과는 Parity 5 문서와 추가 재검토를 따른다. 차단 중 명시적 Unfollow·목록 이름 조회 재시도·관계 메뉴와 신고 초안의 화면 이탈 처리를 보완했다. 원본 차이·U 미확인·native 대기는 유지한다. 다음 순서는 묶음6이며 미착수이고 자동 시작하지 않는다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다.
+이 번호는 새 실행 묶음이며 기존 Goal1~53의 번호·완료 이력을 변경하지 않는다. 현재는 묶음6의 Digest 보완 결과를 따른다. D02의 기존/새 호 표시 정책, D04/D11의 Digest 소비자, V27의 날짜·기사 구성·화면 수명을 보완했다. 기능 검증과 시각 잔여·U 미확인·native 대기를 구분한다. D04의 메모와 D11의 내 목록 카드는 묶음7 잔여다. 다음 순서는 묶음7이며 미착수이고 자동 시작하지 않는다. 번호는 추천 순서이고 depends는 선행 범위다. 선행 묶음의 미확인·native 대기는 독립 작업을 막지 않지만 해당 조건을 완료로 승격하지 않는다. 묶음5와 추가 재검토는 해당 결과 문서에 보존한다.
 
 공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.
 
@@ -80,11 +80,11 @@
 
 ## 묶음 6 — Digest
 
-- 직접 대상: D02, D04, D11, V27. 상태: 미착수.
+- 직접 대상: D02, D04, D11, V27. 상태: Digest 구현·mock 검증 완료; V27 시각 차이·원본 미확인·native 대기.
 - 선행: 2, 5.
 - 구현/판정 범위: D04/D11 중 Digest 소비자; 기존호/새호 mute 정책·날짜 fixture.
 - 검증·종료 조건: Mute/Unmute·날짜왕복·늦은조회·0/양수/미확인시간·memberOnly·A/B.
-- 결과 문서: `TODO/FE_MEDIUM_PARITY_06_RESULT.md` (예정 경로).
+- 결과 문서: [FE_MEDIUM_PARITY_06_RESULT.md](../FE_MEDIUM_PARITY_06_RESULT.md).
 - 화면: S096, S116, S132, S193.
 - 흐름/단계: T-F41-04, T-F43-01, T-F43-02, T-F43-03, T-F43-04, T-F44-01.
 - 미확인 담당: U-S096, U-S116, U-S132, U-S193, U-F41, U-F43, U-F44.

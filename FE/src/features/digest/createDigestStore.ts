@@ -17,9 +17,12 @@ export function createDigestStore(source: DigestSource, userId: string) {
       const result = await source.fetchDigest(userId, id);
       if (!active || revision !== detailRevision) return;
       const issue = state.issues.find(entry => entry.id === id);
-      if (result.userId !== userId || result.digest.id !== id || result.digest.date !== issue?.date)
+      if (result.userId !== userId || result.digest.id !== id || result.digest.date !== issue?.date ||
+        result.digest.publishedAt !== issue?.publishedAt || !Array.isArray(result.digest.articleIds) ||
+        result.digest.articleIds.some(articleId => typeof articleId !== 'string' || !articleId.trim()) ||
+        new Set(result.digest.articleIds).size !== result.digest.articleIds.length)
         throw new Error('DIGEST_IDENTITY_MISMATCH');
-      publish({ digest: result.digest, status: 'ready' });
+      publish({ digest: { ...result.digest, articleIds: [...result.digest.articleIds] }, status: 'ready' });
     } catch {
       if (active && revision === detailRevision) publish({ status: 'error' });
     }
@@ -34,7 +37,7 @@ export function createDigestStore(source: DigestSource, userId: string) {
       const result = await source.fetchIssues(userId);
       if (!active || revision !== catalogRevision) return;
       if (result.userId !== userId || new Set(result.issues.map(issue => issue.id)).size !== result.issues.length ||
-        result.issues.some(issue => !/^\d{4}-\d{2}-\d{2}$/.test(issue.date) || !Number.isFinite(Date.parse(issue.date)) ||
+        result.issues.some(issue => !issue.id?.trim() || !/^\d{4}-\d{2}-\d{2}$/.test(issue.date) || !Number.isFinite(Date.parse(issue.date)) ||
           new Date(issue.date).toISOString().slice(0, 10) !== issue.date || !Number.isFinite(Date.parse(issue.publishedAt))))
         throw new Error('DIGEST_CATALOG_MISMATCH');
       const issues = [...result.issues].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, 10);
@@ -52,7 +55,11 @@ export function createDigestStore(source: DigestSource, userId: string) {
       active = true;
       const unsubscribe = source.subscribe?.(() => { void refresh(); });
       void refresh();
-      return () => { active = false; ++catalogRevision; ++detailRevision; unsubscribe?.(); };
+      return () => {
+        active = false; ++catalogRevision; ++detailRevision; unsubscribe?.();
+        // 확정 선택만 유지하고 이전 조회/오류는 복귀 때 새로 확인한다.
+        publish({ digest: null, catalogStatus: 'loading', status: 'loading' });
+      };
     },
     select,
     refresh,

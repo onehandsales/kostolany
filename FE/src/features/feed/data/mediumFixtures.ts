@@ -6,6 +6,7 @@ import { mediumPublicListStories } from './mediumPublicListStories';
 import { mediumTopicStories } from './mediumTopicStories';
 import { mediumAuthorStories } from './mediumAuthorStories';
 import { mediumLibraryArticles } from './mediumLibraryFixtures';
+import { mediumDigestStories } from './mediumDigestStories';
 import { mediumRelatedStories } from './mediumRelatedStories';
 import { recommendedStories, staffPicks } from './mediumExploreExtras';
 
@@ -245,6 +246,7 @@ export const mediumArticles: FeedArticle[] = [
   ...staffPicks,
   ...recommendedStories,
   ...mediumLibraryArticles,
+  ...mediumDigestStories,
   ...mediumRelatedStories,
   ...mediumAuthorStories,
   ...mediumTopicStories,

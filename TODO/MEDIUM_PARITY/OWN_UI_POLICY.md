@@ -1,5 +1,7 @@
 # Q12 — 자체 UI의 노출과 원본 비교 처리
 
+**Parity 6 — Digest 자체 정책:** [결과](../FE_MEDIUM_PARITY_06_RESULT.md). 과거/새 호의 원본 기사 ID는 수정하지 않고 화면 표시 때 최신 Mute/Block을 적용한다. Unmute는 해당 호의 기존 글을 복원하며 Follow·이메일 설정은 바꾸지 않는다. 실제 발행/발송은 없다. June12/8 외 기사 조합·June7 빈 호·08:00Z 발행 시각은 mock fixture다. 원본 과거 호 변경/캐시 정책은 미확인이다. 미수록 본문·사진을 생성하지 않고 기존 안내·placeholder를 유지한다.
+
 **Parity 5 추가 정책 명시:** 차단은 기존 follow를 자동 삭제하지 않는다. 관리 목록에서 사용자가 명시적으로 Unfollow하면 follow/email만 해제하고 mute/block은 유지한다. 기존 mock source가 허용하던 해제 계약을 UI에 연결한 자체 보완이며, 원본에서 확인한 차단 효과로 기록하지 않는다. [추가 재검토](../FE_MEDIUM_PARITY_05_RESULT.md#additional-review).
 
 **Parity 5 갱신:** [관계·추천 관리 실행](../FE_MEDIUM_PARITY_05_RESULT.md)에서 About의 website 줄, 신고의 선택적 설명·Demo 안내, Mute/Block 확인/해제와 관리 목록을 실제 웹에서 확인했다. 원본 미수록 요소로 유지하며 촬영을 위해 숨기지 않았다. 이메일 신규 follow 기본 Off와 차단 시 접근 제한은 기존 mock 정책이다. S049의 On, S093의 다른 프로필 상태, S199의 남아 있는 카드를 하나의 실제 효과로 단정하지 않는다. 아래 코드 확인만 수행했다는 문구는 당시 이력이다.

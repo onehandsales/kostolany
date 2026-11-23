@@ -2,7 +2,9 @@
 
 [Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)
 
-자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 당시 전후·회귀 기록은 해당 결과 문서를 따른다. 사용자 커밋 6853256에서 기존 EVIDENCE 파일이 삭제됐으며 복원하지 않는다. Parity 5는 사용자 지시로 캡처·manifest를 저장하지 않고 결과 문서만 갱신한다. 입력의 null SHA는 삭제된 과거 capture log이며 현재 무결성 통과가 아니다.
+최초 자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 당시 전후·회귀 기록은 해당 결과 문서를 따른다. 사용자 커밋 6853256에서 기존 EVIDENCE 파일이 삭제됐으며 복원하지 않는다. Parity 5는 사용자 지시로 캡처·manifest를 저장하지 않고 결과 문서만 갱신한다. 입력의 null SHA는 삭제된 과거 capture log이며 현재 무결성 통과가 아니다.
+
+**Parity 6 수동 갱신:** 사용자 지시에 따라 tools를 수정·실행해 생성물을 덮어쓰지 않고 S096/S116/S132/S193의 이번 결과를 직접 연결했다. [결과](../FE_MEDIUM_PARITY_06_RESULT.md). 캡처·manifest를 저장하지 않아 ready/current-web-capture로 승격하지 않는다. tools의 기존 profile/batch 원본에는 묶음6 미착수·June8 불일치라는 당시 값이 남아 재생성 시 이 수동 갱신을 보존해야 한다.
 
 <a id="s001"></a>
 
@@ -2012,6 +2014,8 @@
 
 ## S096 — 과거 다이제스트 선택
 
+- 최신 실행: [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md). 임시 June8 라디오·Done·취소와 화면 이탈 시 초안 폐기를 확인했다. 시각 차이·U/native 대기는 유지한다.
+
 [원본 PNG](<../../medium/flows/Library/Filtering digest/screens/03_sc_8866044a55164824903265c3b8b97337.png>) · [원본 분석](<../../medium/flows/Library/Filtering digest/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s096>) · `sc_8866044a55164824903265c3b8b97337`
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2019,7 +2023,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
-- fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
+- fixture 구성: digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여
 - 원본 관찰 표시값: 표시값·입력: June 8 2025 체크
 - 원본 관찰 상태: 상태: 다른 날짜 임시 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2435,6 +2439,8 @@
 
 ## S116 — 선택 날짜 다이제스트
 
+- 최신 실행: [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md). June8 Goodbye Notion/xeladu·2분·회원용 별·기사/작성자/반응/저장/설정/목록 연결을 확인했다. 사진·아바타 및 실제 응답 수 차이는 남는다. 시각 차이·U/native 대기는 유지한다.
+
 [원본 PNG](<../../medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>) · [원본 분석](<../../medium/flows/Library/Filtering digest/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s116>) · `sc_a42fffc3afb34954bc5e4afcc2e08e04`
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. June8 현 fixture와 원본 Goodbye Notion 불일치; issue/article source 대조·주입 필요.
@@ -2442,7 +2448,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
-- fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
+- fixture 구성: digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여
 - 원본 관찰 표시값: 표시값·입력: June 8 2025, Goodbye Notion
 - 원본 관찰 상태: 상태: 선택한 날짜 콘텐츠 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2773,6 +2779,8 @@
 
 ## S132 — Digest 일자별 추천
 
+- 최신 실행: [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md). June12 Kris Gage·3분·회원용 별·날짜/설정·기사 행동을 확인했다. 원본158K/1.3K와 현재 mock157K/0의 차이는 보존한다. 시각 차이·U/native 대기는 유지한다.
+
 [원본 PNG](<../../medium/flows/Library/screens/04_sc_bafbf7b80b154e25aec15e120a13f72a.png>) · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s132>) · `sc_bafbf7b80b154e25aec15e120a13f72a`
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2780,7 +2788,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
-- fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
+- fixture 구성: digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여
 - 원본 관찰 표시값: 표시값·입력: June 12 2025
 - 원본 관찰 상태: 상태: 특정 날짜 다이제스트
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4060,6 +4068,8 @@
 
 ## S193 — 다이제스트 날짜 선택
 
+- 최신 실행: [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md). June12~June3 라디오10개·최근10발행분 안내·Done/닫기/포커스 복귀를 확인했다. 달력10일을 보관 계약으로 사용하지 않는다. 시각 차이·U/native 대기는 유지한다.
+
 [원본 PNG](<../../medium/flows/Library/Filtering digest/screens/02_sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe.png>) · [원본 분석](<../../medium/flows/Library/Filtering digest/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s193>) · `sc_f647f3c6b04d48e9bb1b31f5d0fb2cfe`
 
 - 담당: V27 / 묶음 6. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4067,7 +4077,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibraryScreen.tsx>), [IdentityLink.tsx](<../../FE/src/features/community/IdentityLink.tsx>), [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.tsx>), [NotificationSettingsScreen.tsx](<../../FE/src/features/notifications/NotificationSettingsScreen.tsx>), [ClapControl.tsx](<../../FE/src/features/reactions/ClapControl.tsx>), [ResponseButton.tsx](<../../FE/src/features/responses/ResponseButton.tsx>)
 - 계정·권한: A; 읽기용 모의 issue; 실제 발송 없음
-- fixture 구성: digestFixtures/replaceIssues; 기존 June8 내용이 원본 Goodbye Notion과 달라 별도 initial 필요
+- fixture 구성: digestFixtures/replaceIssues; June12 love/jeremiah, June8 Goodbye Notion/xeladu·Alex; 다른 호는 자체 mock, 사진·응답 snapshot 차이 잔여
 - 원본 관찰 표시값: 표시값·입력: June 12 2025 선택, June 3까지
 - 원본 관찰 상태: 상태: 최근 10개까지 볼 수 있다는 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음

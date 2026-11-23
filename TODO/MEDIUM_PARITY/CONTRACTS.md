@@ -466,6 +466,8 @@
 
 ## G34 — Digest·날짜 필터·Library 연결
 
+**현재 Digest 소비자:** [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md)의 기존/새 호 관계 표시 정책·확정 날짜와 초안 수명·읽기 시간/회원용 별·실제 navigation 검증을 따른다. 아래 Goal34 계약과 이력은 보존하며 Library의 다른 소비자/원본 동일성/native까지 완료한 뜻은 아니다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):347 · [당시 결과](<../FE_GOAL_34_RESULT.md>)
 
 - **구현 범위** (원문 351행): Library의 Your lists/Saved lists/Highlights/Reading history 및 Digest 진입을 연결하고 Digest 날짜 선택/Done·Digest settings·빈 날짜를 구현한다.
