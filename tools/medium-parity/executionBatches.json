@@ -1,0 +1,392 @@
+[
+  {
+    "number": 1,
+    "title": "비교 조건과 실행 배정",
+    "items": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q08",
+      "Q09"
+    ],
+    "depends": [],
+    "scope": "200화면 조건/원본 해시/경로/미확인과 전 항목 배정; Q02는 기준 정리만",
+    "done": "기록·추적 검사와 도구 재현; 실제 준비 완료는 실행 증거가 있는 화면만",
+    "status": "이번 범위"
+  },
+  {
+    "number": 2,
+    "title": "공통 서체·자산·레이아웃",
+    "items": [
+      "Q02",
+      "Q12"
+    ],
+    "depends": [
+      1
+    ],
+    "scope": "대체 폰트·SVG·crop·48px hit영역/보이는 크기를 정리하고 확보된 근거로 공통 기반 보정; 자체 UI 노출 기준 판정",
+    "done": "영향 화면의 동일 fixture 전후 캡처·작은 폭/큰 글자; Q02/Q12 화면별 잔여는 후속 묶음에 유지",
+    "status": "미착수"
+  },
+  {
+    "number": 3,
+    "title": "정책 기사",
+    "items": [
+      "D08",
+      "V21"
+    ],
+    "depends": [
+      2
+    ],
+    "scope": "Rules 보이는 기사 영역과 도구의 mock 연결 범위·복귀",
+    "done": "Responses→Rules→복귀; 원본에 없는 전문/실행 결과 생성 금지",
+    "status": "미착수"
+  },
+  {
+    "number": 4,
+    "title": "읽기 설정·이력·발행 링크",
+    "items": [
+      "D01",
+      "D03",
+      "D05",
+      "Q05",
+      "Q11",
+      "V12",
+      "V16"
+    ],
+    "depends": [
+      2
+    ],
+    "scope": "발행/일반 카탈로그 이력·Viewed·reader 설정 및 본문 링크 수명; Undo/읽기도구 범위 판정",
+    "done": "알림/발행→본문→이력→재열기; 늦은 실패·문서A→B→A·권한철회; Q05 근거대기는 완료 아님",
+    "status": "미착수"
+  },
+  {
+    "number": 5,
+    "title": "관계·추천 관리",
+    "items": [
+      "D06",
+      "V11",
+      "V14",
+      "V15"
+    ],
+    "depends": [
+      2
+    ],
+    "scope": "동적 A/B 사용자·follow/mute/block 관리 목록/숫자와 원본 상태",
+    "done": "검색B→Follow/Mute→세 관리목록→해제; B 이름변경·계정전환·신고·취소",
+    "status": "미착수"
+  },
+  {
+    "number": 6,
+    "title": "Digest",
+    "items": [
+      "D02",
+      "D04",
+      "D11",
+      "V27"
+    ],
+    "depends": [
+      2,
+      5
+    ],
+    "scope": "D04/D11 중 Digest 소비자; 기존호/새호 mute 정책·날짜 fixture",
+    "done": "Mute/Unmute·날짜왕복·늦은조회·0/양수/미확인시간·memberOnly·A/B",
+    "status": "미착수"
+  },
+  {
+    "number": 7,
+    "title": "저장·목록·메모·순서",
+    "items": [
+      "D04",
+      "D11",
+      "D13",
+      "V22",
+      "V24",
+      "V25"
+    ],
+    "depends": [
+      2,
+      4
+    ],
+    "scope": "D04 중 note, D11 중 ListStoryCard; 목록 시간 계약·저장/공개범위/메모/순서",
+    "done": "생성→저장→메모→reorder취소/확정→private/delete/removeUndo; 다중소속·늦은응답·A/B",
+    "status": "미착수"
+  },
+  {
+    "number": 8,
+    "title": "목록 다운로드",
+    "items": [
+      "D07",
+      "V26"
+    ],
+    "depends": [
+      4,
+      7
+    ],
+    "scope": "일반/발행 혼합 목록의 본문·이미지·version/접근권을 mock 사본에 공급",
+    "done": "진행/완료/취소/실패/재시도·수정/삭제/권한철회; 영속 offline 제외",
+    "status": "미착수"
+  },
+  {
+    "number": 9,
+    "title": "작성·초안·발행",
+    "items": [
+      "Q04",
+      "Q06",
+      "V06",
+      "V07",
+      "V08",
+      "V09",
+      "V10"
+    ],
+    "depends": [
+      2
+    ],
+    "scope": "편집 서식·이미지·멘션·초안·발행 원본 상태; 삭제/연속선택의 근거 판정",
+    "done": "autosave/exit/retry·발행멱등·범위보존·키보드/web; native IME Q07",
+    "status": "미착수"
+  },
+  {
+    "number": 10,
+    "title": "기사·응답",
+    "items": [
+      "V13",
+      "V20"
+    ],
+    "depends": [
+      2,
+      3,
+      4,
+      9
+    ],
+    "scope": "본문 상단/말미·반응832/833/834·reply/edit/delete/quote 원본 상태",
+    "done": "기사→응답→정렬/답글/편집/삭제→복귀; 본인소유권·수/시간·늦은응답",
+    "status": "미착수"
+  },
+  {
+    "number": 11,
+    "title": "본문 선택·강조",
+    "items": [
+      "D09",
+      "Q11",
+      "V17"
+    ],
+    "depends": [
+      4,
+      10
+    ],
+    "scope": "native 본문 선택 UX 구현과 발행 글 Highlight 적용 판정",
+    "done": "version/UTF16·다중문단/한글·스크롤·취소·인용; 실제기기 별도 Q07",
+    "status": "미착수"
+  },
+  {
+    "number": 12,
+    "title": "오디오 UI",
+    "items": [
+      "Q11",
+      "V18",
+      "V19"
+    ],
+    "depends": [
+      2,
+      4,
+      10
+    ],
+    "scope": "모의 시계의 플레이어·속도·음성; 발행 Listen 범위 판정",
+    "done": "각 duration/position fixture·Emma→Hans·Done/취소/복귀; TTS/AirPlay 제외",
+    "status": "미착수"
+  },
+  {
+    "number": 13,
+    "title": "공유",
+    "items": [
+      "V23"
+    ],
+    "depends": [
+      2,
+      7,
+      10,
+      11
+    ],
+    "scope": "기사/인용/작성자/목록 공유 카드·행동",
+    "done": "실제 web clipboard/export 성공/실패/취소; OS공유/사진은Q07; returned≠delivered",
+    "status": "미착수"
+  },
+  {
+    "number": 14,
+    "title": "인증·온보딩",
+    "items": [
+      "V29",
+      "V30"
+    ],
+    "depends": [
+      2
+    ],
+    "scope": "모의 이메일/signup/login/code·기존/신규·관심사/추천/권한안내; S043 자산/시작은18에도 배정",
+    "done": "guest→A·취소/실패·A/B/A·세션수명; 외부OAuth/메일제외; splash는18+21후판정",
+    "status": "미착수"
+  },
+  {
+    "number": 15,
+    "title": "프로필·게시 경과 시간",
+    "items": [
+      "D12",
+      "V32"
+    ],
+    "depends": [
+      2,
+      9,
+      14
+    ],
+    "scope": "photo/pronouns/소개·Stories/Lists/About·Just now/23h ago",
+    "done": "자식Done/부모Cancel·Save재진입·시각경계·권한·A/B; OS사진Q07",
+    "status": "미착수"
+  },
+  {
+    "number": 16,
+    "title": "알림·설정",
+    "items": [
+      "V05",
+      "V28"
+    ],
+    "depends": [
+      2,
+      4,
+      6,
+      14
+    ],
+    "scope": "원본 알림 사건 fixture와 목적지; Digest/Push/Email 설정",
+    "done": "각 알림→대상→복귀·삭제/불가목적지·설정롤백·A/B; 발송제외",
+    "status": "미착수"
+  },
+  {
+    "number": 17,
+    "title": "홈·탐색·토픽·공개 목록",
+    "items": [
+      "V01",
+      "V02",
+      "V03",
+      "V04"
+    ],
+    "depends": [
+      2,
+      5,
+      7,
+      10
+    ],
+    "scope": "원본 카드·탭·가로/세로위치·빈Featured·큐레이션/공개목록",
+    "done": "같은fixture/개인관계·검색복귀·선택/저장/공유·헤더접힘·Light/Dark",
+    "status": "미착수"
+  },
+  {
+    "number": 18,
+    "title": "설정·시작 자산·아이콘",
+    "items": [
+      "D10",
+      "V33"
+    ],
+    "depends": [
+      2,
+      14
+    ],
+    "scope": "설정상세·appIcon·S043 splash 자산/설정 차이; 자체K≠원본",
+    "done": "파일/설정/선택UI검사; cold start·launcher적용은21로 대기",
+    "status": "미착수"
+  },
+  {
+    "number": 19,
+    "title": "멤버십 UI",
+    "items": [
+      "V31"
+    ],
+    "depends": [
+      2,
+      12,
+      14,
+      18
+    ],
+    "scope": "보관가격·혜택·monthly/yearly·loading/success/welcome·자체모의안내",
+    "done": "원본상태별비교·선택/취소/실패·자격소비자; 실제결제 제외",
+    "status": "미착수"
+  },
+  {
+    "number": 20,
+    "title": "글 통계",
+    "items": [
+      "V34"
+    ],
+    "depends": [
+      2,
+      9,
+      15
+    ],
+    "scope": "UTC/asOf 고정 Monthly/Lifetime·그래프·글 행",
+    "done": "독립11/2와0/0·날짜선택/정렬/복귀·null≠0; 실제analytics 제외",
+    "status": "미착수"
+  },
+  {
+    "number": 21,
+    "title": "실제 기기 검증",
+    "items": [
+      "Q07"
+    ],
+    "depends": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "scope": "사용자 후속 진행 대기; iOS/Android 권한·사진·선택·공유·IME·접근성·cold start·아이콘",
+    "done": "실제build/install/device 증거; web/Jest/export로대체금지",
+    "status": "사용자 후속 진행 대기"
+  },
+  {
+    "number": 22,
+    "title": "전수 종료 판정",
+    "items": [
+      "Q10"
+    ],
+    "depends": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "scope": "R/T/U/C·200화면·63흐름·273단계 재대조 및 FE 계약 갱신",
+    "done": "미확인/차이/native대기가 남으면 전체동일완료금지; 대기상태로도 독립감사는 진행",
+    "status": "미착수"
+  }
+]

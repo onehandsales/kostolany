@@ -2,6 +2,8 @@
 
 [검토 결론](FE_MEDIUM_PARITY_AUDIT.md) · [재검토 결과](FE_MEDIUM_PARITY_REVIEW.md) · [63흐름](MEDIUM_PARITY/FLOWS.md) · [미확인 목록](MEDIUM_PARITY/UNKNOWN.md)
 
+**Parity 1 후속 기록(2026-11-23):** [200화면 비교 조건](MEDIUM_PARITY/COMPARISON_BASELINE.md), [비교 프로토콜](MEDIUM_PARITY/COMPARISON_PROTOCOL.md), [공통 자산 기준](MEDIUM_PARITY/ASSET_BASELINE.md), [22개 실행 묶음·D/Q/V 전 항목 배정](MEDIUM_PARITY/EXECUTION_PLAN.md), [이번 실행 결과](FE_MEDIUM_PARITY_01_RESULT.md)를 추가했다. 200화면의 조건·추적 연결과 10개 웹 진단 캡처를 확보했으며, 동일 fixture/플랫폼의 전수 재현은 미완료다. Q01은 미완료, Q02는 기준 정리만 진행했다. 아래 기능 보완 FE 코드는 아직 수정하지 않았다. 다음 실행 대상은 묶음2의 공통 UI 기반이며 자동 착수하지 않는다.
+
 **상태: 현재 확인한 잔여의 작업 정의 반영, FE 수정 미착수.** 작업 정의 자체도 재검토 대상이다. 아래 ID는 이번 감사의 보완 작업 ID이며 기존 Goal1~53의 번호/승인/완료 이력을 변경하지 않는다. 실제 구현 차이(D), 근거·범위·검증(Q), 원본 화면별 보정(V)을 구분한다. V는 화면 전체를 다시 만드는 지시가 아니라 각 R 요구의 차이를 확인하고 필요한 부분을 고치는 단위다.
 
 우선 Q01/Q02로 비교 기준을 고정하고 D08의 정책 화면 잔여, D11의 Digest·내 목록 회원용 글 표시, D12의 게시 경과 시간, D13의 목록 상대 시간 및 각 V의 원본 차이를 보정한다. D01~D07의 상태/연결 결함도 같은 대상에서 함께 해결한다. D09/D10 구현과 Q07 실제 기기 검증은 구별한다. Q03~Q06/Q11은 근거 없는 기능 추가를 막기 위한 범위 작업이고, Q12는 현재 앱의 자체 추가 UI를 원본 비교에서 어떻게 처리할지 정하는 작업이다. 마지막은 Q10이다.

@@ -1,0 +1,133 @@
+# Q02 — 공통 자산과 레이아웃 기준
+
+[비교 프로토콜](COMPARISON_PROTOCOL.md) · [실행 계획](EXECUTION_PLAN.md#batch-02)
+
+이번 결과는 파일·코드·출처의 재확인이다. 원본 폰트 확보·모든 화면 렌더 일치·실제 아이콘 적용 완료가 아니다. 원본 crop은 로컬 비교 자료로만 분류하며 독립 원본 자산이나 서비스 사용 권리 확보로 확대하지 않는다.
+
+| 영역 | 실제 코드/확보 상태 | 남은 차이·담당 |
+| --- | --- | --- |
+| 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체 | 원본 font 파일·weight mapping 미확보; 실제 Windows fallback과 줄바꿈을 묶음2·각 V에서 확인 |
+| 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |
+| 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |
+| 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |
+| 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
+| 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |
+| 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 원본 Medium 자산과 차이 유지; D10/묶음18, 실제 적용Q07/21 |
+| 시작 화면 | app.json 대응 splash 설정 없음 | assets/splash-icon.png 존재만으로 S043 구현으로 처리 금지; D10 |
+| 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | Q12: 상태별 노출 확인, 기능 접근·mock 사실 보존, 각 V에서 배치 영향 검증 |
+
+근거: [tokens.ts](../../FE/src/shared/theme/tokens.ts), [reader 설정](../../FE/src/features/settings/useReaderTypography.ts), [발행 본문](../../FE/src/features/editor/DocumentReader.tsx), [앱 설정](../../FE/app.json), [아이콘 출처](../../FE/assets/app-icons/SOURCES.md).
+
+## 출처가 연결된 비교 이미지
+
+| 파일 | 실제 크기(px) | 원본·crop(물리px) | 상태 |
+| --- | --- | --- | --- |
+| [chimichurri.png](<../../FE/assets/medium/chimichurri.png>) | 240×168 | [원본](<../../medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>) / [867, 981, 1107, 1149] | 확보/렌더 비교 대기 |
+| [challenged.png](<../../FE/assets/medium/challenged.png>) | 72×72 | [원본](<../../medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>) / [72, 885, 144, 957] | 확보/렌더 비교 대기 |
+| [mind-flower.png](<../../FE/assets/medium/mind-flower.png>) | 240×168 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [867, 462, 1107, 630] | 확보/렌더 비교 대기 |
+| [mind-logo.png](<../../FE/assets/medium/mind-logo.png>) | 72×72 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [72, 367, 144, 439] | 확보/렌더 비교 대기 |
+| [horse.png](<../../FE/assets/medium/horse.png>) | 240×168 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [867, 1131, 1107, 1299] | 확보/렌더 비교 대기 |
+| [caroline.png](<../../FE/assets/medium/caroline.png>) | 72×72 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [72, 1035, 144, 1107] | 확보/렌더 비교 대기 |
+| [sunset.png](<../../FE/assets/medium/sunset.png>) | 240×168 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [867, 1800, 1107, 1968] | 확보/렌더 비교 대기 |
+| [know-thyself.png](<../../FE/assets/medium/know-thyself.png>) | 72×72 | [원본](<../../medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) / [72, 1704, 144, 1776] | 확보/렌더 비교 대기 |
+| [bernie.png](<../../FE/assets/medium/bernie.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png>) / [72, 845, 168, 941] | 확보/렌더 비교 대기 |
+| [alfred.png](<../../FE/assets/medium/alfred.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png>) / [72, 2105, 168, 2201] | 확보/렌더 비교 대기 |
+| [prompt-bible.png](<../../FE/assets/medium/prompt-bible.png>) | 1035×519 | [원본](<../../medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png>) / [72, 430, 1107, 949] | 확보/렌더 비교 대기 |
+| [gemini.png](<../../FE/assets/medium/gemini.png>) | 1035×519 | [원본](<../../medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png>) / [72, 1635, 1107, 2154] | 확보/렌더 비교 대기 |
+| [love.png](<../../FE/assets/medium/love.png>) | 240×160 | [원본](<../../medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) / [867, 773, 1107, 933] | 확보/렌더 비교 대기 |
+| [evening.png](<../../FE/assets/medium/evening.png>) | 240×160 | [원본](<../../medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) / [867, 1516, 1107, 1676] | 확보/렌더 비교 대기 |
+| [kris.png](<../../FE/assets/medium/kris.png>) | 60×60 | [원본](<../../medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) / [72, 662, 132, 722] | 확보/렌더 비교 대기 |
+| [advice.png](<../../FE/assets/medium/advice.png>) | 60×60 | [원본](<../../medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) / [72, 1404, 132, 1464] | 확보/렌더 비교 대기 |
+| [jeremiah.png](<../../FE/assets/medium/jeremiah.png>) | 60×60 | [원본](<../../medium/flows/Home/screens/01_sc_5e0ba0e498ff49579bf838096aec4b5e.png>) / [72, 2224, 132, 2284] | 확보/렌더 비교 대기 |
+| [brain.png](<../../FE/assets/medium/brain.png>) | 1035×690 | [원본](<../../medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>) / [72, 1269, 1107, 1959] | 확보/렌더 비교 대기 |
+| [jordan.png](<../../FE/assets/medium/jordan.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>) / [72, 1077, 168, 1173] | 확보/렌더 비교 대기 |
+| [ide.png](<../../FE/assets/medium/ide.png>) | 240×160 | [원본](<../../medium/flows/Home/screens/02_sc_1ef4e2f769774d2c958fcb38b96dc94f.png>) / [867, 1258, 1107, 1418] | 확보/렌더 비교 대기 |
+| [coding.png](<../../FE/assets/medium/coding.png>) | 60×60 | [원본](<../../medium/flows/Home/screens/02_sc_1ef4e2f769774d2c958fcb38b96dc94f.png>) / [72, 1146, 132, 1206] | 확보/렌더 비교 대기 |
+| [trauma.png](<../../FE/assets/medium/trauma.png>) | 240×160 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [867, 649, 1107, 809] | 확보/렌더 비교 대기 |
+| [awareness.png](<../../FE/assets/medium/awareness.png>) | 240×160 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [867, 1331, 1107, 1491] | 확보/렌더 비교 대기 |
+| [vinyl.png](<../../FE/assets/medium/vinyl.png>) | 240×160 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [867, 2042, 1107, 2202] | 확보/렌더 비교 대기 |
+| [mitch.png](<../../FE/assets/medium/mitch.png>) | 60×60 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [72, 537, 132, 597] | 확보/렌더 비교 대기 |
+| [lalithaa.png](<../../FE/assets/medium/lalithaa.png>) | 60×60 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [72, 1219, 132, 1279] | 확보/렌더 비교 대기 |
+| [ironkeel.png](<../../FE/assets/medium/ironkeel.png>) | 60×60 | [원본](<../../medium/flows/Explore/Searching Medium/screens/03_sc_8dc9eeb5f9d244ca9fa6fb7a973de82f.png>) / [72, 1962, 132, 2022] | 확보/렌더 비교 대기 |
+| [ux.png](<../../FE/assets/medium/ux.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png>) / [138, 1001, 198, 1061] | 확보/렌더 비교 대기 |
+| [thomas.png](<../../FE/assets/medium/thomas.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png>) / [138, 1431, 198, 1491] | 확보/렌더 비교 대기 |
+| [scott.png](<../../FE/assets/medium/scott.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png>) / [138, 1799, 198, 1859] | 확보/렌더 비교 대기 |
+| [eh.png](<../../FE/assets/medium/eh.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/02_sc_1c3e4349171248378eada528f7942269.png>) / [138, 2167, 198, 2227] | 확보/렌더 비교 대기 |
+| [curious.png](<../../FE/assets/medium/curious.png>) | 240×160 | [원본](<../../medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png>) / [867, 773, 1107, 933] | 확보/렌더 비교 대기 |
+| [forgiven.png](<../../FE/assets/medium/forgiven.png>) | 240×160 | [원본](<../../medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png>) / [867, 1516, 1107, 1676] | 확보/렌더 비교 대기 |
+| [thinkers.png](<../../FE/assets/medium/thinkers.png>) | 60×60 | [원본](<../../medium/flows/Home/screens/04_sc_4ec0a8b65f954b0984ece5b3b9f258e4.png>) / [72, 662, 132, 722] | 확보/렌더 비교 대기 |
+| [podcast.png](<../../FE/assets/medium/podcast.png>) | 816×492 | [원본](<../../medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png>) / [72, 525, 888, 1017] | 확보/렌더 비교 대기 |
+| [staff-fragment.png](<../../FE/assets/medium/staff-fragment.png>) | 219×492 | [원본](<../../medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png>) / [960, 525, 1179, 1017] | 확보/렌더 비교 대기 |
+| [colin.png](<../../FE/assets/medium/colin.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png>) / [72, 1053, 132, 1113] | 확보/렌더 비교 대기 |
+| [wilson.png](<../../FE/assets/medium/wilson.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png>) / [72, 1779, 132, 1839] | 확보/렌더 비교 대기 |
+| [ronan.png](<../../FE/assets/medium/ronan.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/04_sc_4352273aa0654f939705613dfa224e75.png>) / [72, 2179, 132, 2239] | 확보/렌더 비교 대기 |
+| [mcp.png](<../../FE/assets/medium/mcp.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png>) / [72, 1, 132, 61] | 확보/렌더 비교 대기 |
+| [obsidian.png](<../../FE/assets/medium/obsidian.png>) | 60×60 | [원본](<../../medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png>) / [72, 432, 132, 492] | 확보/렌더 비교 대기 |
+| [iris.png](<../../FE/assets/medium/iris.png>) | 192×192 | [원본](<../../medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png>) / [144, 1173, 336, 1365] | 확보/렌더 비교 대기 |
+| [coinmonks.png](<../../FE/assets/medium/coinmonks.png>) | 192×192 | [원본](<../../medium/flows/Explore/screens/05_sc_6bc604f45031400d9cebd252cd89e7a2.png>) / [904, 1173, 1096, 1365] | 확보/렌더 비교 대기 |
+| [daily-dollar.png](<../../FE/assets/medium/daily-dollar.png>) | 192×192 | [원본](<../../medium/flows/Explore/screens/06_sc_dfdd5f6377a848c59b3512417cb47490.png>) / [93, 1173, 285, 1365] | 확보/렌더 비교 대기 |
+| [alex-mathers.png](<../../FE/assets/medium/alex-mathers.png>) | 192×192 | [원본](<../../medium/flows/Explore/screens/06_sc_dfdd5f6377a848c59b3512417cb47490.png>) / [847, 1173, 1039, 1365] | 확보/렌더 비교 대기 |
+| [brain-chat-excerpt.png](<../../FE/assets/medium/brain-chat-excerpt.png>) | 1035×393 | [원본](<../../medium/flows/Home/Story detail/Changing display/screens/09_sc_d1d05d6500f349d89c5a3e5646ff238b.png>) / [72, 1776, 1107, 2169] | 확보/렌더 비교 대기 |
+| [radu-response.png](<../../FE/assets/medium/radu-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>) / [132, 1404, 228, 1500] | 확보/렌더 비교 대기 |
+| [frbarrosl-response.png](<../../FE/assets/medium/frbarrosl-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>) / [192, 2052, 288, 2148] | 확보/렌더 비교 대기 |
+| [elena-response.png](<../../FE/assets/medium/elena-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png>) / [132, 1101, 228, 1197] | 확보/렌더 비교 대기 |
+| [gabriela-response.png](<../../FE/assets/medium/gabriela-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png>) / [72, 1857, 168, 1953] | 확보/렌더 비교 대기 |
+| [gwyneth-response.png](<../../FE/assets/medium/gwyneth-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/Sorting responses/screens/03_sc_280ed6ce41b24f6f876aac698f4a8119.png>) / [72, 1275, 168, 1371] | 확보/렌더 비교 대기 |
+| [melanie-response.png](<../../FE/assets/medium/melanie-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/Sorting responses/screens/03_sc_280ed6ce41b24f6f876aac698f4a8119.png>) / [72, 1947, 168, 2043] | 확보/렌더 비교 대기 |
+| [bernie-response.png](<../../FE/assets/medium/bernie-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>) / [72, 654, 168, 750] | 확보/렌더 비교 대기 |
+| [alfred-response.png](<../../FE/assets/medium/alfred-response.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png>) / [72, 456, 168, 552] | 확보/렌더 비교 대기 |
+| [important-prompt.png](<../../FE/assets/medium/important-prompt.png>) | 240×168 | [원본](<../../medium/ui-elements/medium-sc_3de359a1c13340968c4b733188faa6d1.png>) / [867, 1824, 1107, 1992] | 확보/렌더 비교 대기 |
+| [aaa-ai-first.png](<../../FE/assets/medium/aaa-ai-first.png>) | 441×318 | [원본](<../../medium/flows/Home/Story detail/Author detail/screens/03_sc_334d50df678445baaa7ba445c96861ba.png>) / [72, 1404, 513, 1722] | 확보/렌더 비교 대기 |
+| [aaa-ai-second.png](<../../FE/assets/medium/aaa-ai-second.png>) | 375×318 | [원본](<../../medium/flows/Home/Story detail/Author detail/screens/03_sc_334d50df678445baaa7ba445c96861ba.png>) / [525, 1404, 900, 1722] | 확보/렌더 비교 대기 |
+| [medium-blog.png](<../../FE/assets/medium/medium-blog.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 564, 168, 660] | 확보/렌더 비교 대기 |
+| [keith.png](<../../FE/assets/medium/keith.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 846, 168, 942] | 확보/렌더 비교 대기 |
+| [roy.png](<../../FE/assets/medium/roy.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 1188, 168, 1284] | 확보/렌더 비교 대기 |
+| [douglas.png](<../../FE/assets/medium/douglas.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 1530, 168, 1626] | 확보/렌더 비교 대기 |
+| [aaron.png](<../../FE/assets/medium/aaron.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 1872, 168, 1968] | 확보/렌더 비교 대기 |
+| [sheila.png](<../../FE/assets/medium/sheila.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Author detail/Following list/screens/02_sc_7c89f4496e7f4cb0b5c23b776080b6bf.png>) / [72, 2214, 168, 2310] | 확보/렌더 비교 대기 |
+| [jordan-profile.png](<../../FE/assets/medium/jordan-profile.png>) | 168×168 | [원본](<../../medium/ui-elements/medium-sc_3de359a1c13340968c4b733188faa6d1.png>) / [72, 288, 240, 456] | 확보/렌더 비교 대기 |
+| [topic-life.png](<../../FE/assets/medium/topic-life.png>) | 1035×486 | [원본](<../../medium/flows/Explore/Topic detail/screens/02_sc_4602e853aca341a697239bc9f55b6da3.png>) / [72, 1452, 1107, 1938] | 확보/렌더 비교 대기 |
+| [topic-self-improvement.png](<../../FE/assets/medium/topic-self-improvement.png>) | 1035×486 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/02_sc_7de88da749774d0483716f2e861fb080.png>) / [72, 1452, 1107, 1938] | 확보/렌더 비교 대기 |
+| [morning-routine.png](<../../FE/assets/medium/morning-routine.png>) | 720×360 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png>) / [72, 717, 792, 1077] | 확보/렌더 비교 대기 |
+| [darius.png](<../../FE/assets/medium/darius.png>) | 60×60 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png>) / [72, 1128, 132, 1188] | 확보/렌더 비교 대기 |
+| [morning-productivity.png](<../../FE/assets/medium/morning-productivity.png>) | 291×360 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/03_sc_974be74d8855401e84cbad9f01dc8e93.png>) / [888, 717, 1179, 1077] | 확보/렌더 비교 대기 |
+| [medium-staff.png](<../../FE/assets/medium/medium-staff.png>) | 144×108 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/04_sc_15a122b14ac84b3d80c37fb84dfae4c7.png>) / [72, 351, 216, 459] | 확보/렌더 비교 대기 |
+| [southern-winds.png](<../../FE/assets/medium/southern-winds.png>) | 60×60 | [원본](<../../medium/flows/Explore/Topic detail/screens/02_sc_4602e853aca341a697239bc9f55b6da3.png>) / [72, 1995, 132, 2055] | 확보/렌더 비교 대기 |
+| [daniel-gallagher.png](<../../FE/assets/medium/daniel-gallagher.png>) | 60×60 | [원본](<../../medium/flows/Explore/Topic detail/Browse curated list/screens/02_sc_7de88da749774d0483716f2e861fb080.png>) / [72, 1995, 132, 2055] | 확보/렌더 비교 대기 |
+| [kim-witten.png](<../../FE/assets/medium/kim-witten.png>) | 96×96 | [원본](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png>) / [72, 1329, 168, 1425] | 확보/렌더 비교 대기 |
+| [zulie-medium.png](<../../FE/assets/medium/zulie-medium.png>) | 96×96 | [원본](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png>) / [72, 1671, 168, 1767] | 확보/렌더 비교 대기 |
+| [perry-wilson.png](<../../FE/assets/medium/perry-wilson.png>) | 96×96 | [원본](<../../medium/flows/Home/Refine recommendations/Filtering suggestions/screens/03_sc_28a0bd2548fc4800b2b024bdc06bb115.png>) / [72, 1953, 168, 2049] | 확보/렌더 비교 대기 |
+| [history-unsexy.png](<../../FE/assets/medium/history-unsexy.png>) | 240×162 | [원본](<../../medium/ui-elements/medium-sc_f4bb3fa34f32466b9bd12eea57ea518f.png>) / [867, 1521, 1107, 1683] | 확보/렌더 비교 대기 |
+| [write-catalyst.png](<../../FE/assets/medium/write-catalyst.png>) | 60×60 | [원본](<../../medium/ui-elements/medium-sc_f4bb3fa34f32466b9bd12eea57ea518f.png>) / [72, 1410, 132, 1470] | 확보/렌더 비교 대기 |
+| [history-titans.png](<../../FE/assets/medium/history-titans.png>) | 240×162 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [867, 936, 1107, 1098] | 확보/렌더 비교 대기 |
+| [history-personality.png](<../../FE/assets/medium/history-personality.png>) | 240×162 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [867, 1602, 1107, 1764] | 확보/렌더 비교 대기 |
+| [stem-parenting.png](<../../FE/assets/medium/stem-parenting.png>) | 60×60 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [72, 828, 132, 888] | 확보/렌더 비교 대기 |
+| [think-draft.png](<../../FE/assets/medium/think-draft.png>) | 60×60 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [72, 1491, 132, 1551] | 확보/렌더 비교 대기 |
+
+## 별도 앱/기본 자산
+
+| 파일 | 크기(px) | 분류 |
+| --- | --- | --- |
+| [android-icon-background.png](<../../FE/assets/android-icon-background.png>) | 512×512 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [android-icon-foreground.png](<../../FE/assets/android-icon-foreground.png>) | 512×512 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [android-icon-monochrome.png](<../../FE/assets/android-icon-monochrome.png>) | 432×432 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [founder-black.png](<../../FE/assets/app-icons/founder-black.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [founder-white.png](<../../FE/assets/app-icons/founder-white.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [friend.png](<../../FE/assets/app-icons/friend.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [throwback-2012.png](<../../FE/assets/app-icons/throwback-2012.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [throwback-2015.png](<../../FE/assets/app-icons/throwback-2015.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [throwback-2017.png](<../../FE/assets/app-icons/throwback-2017.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [wordmark-black.png](<../../FE/assets/app-icons/wordmark-black.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [wordmark-white.png](<../../FE/assets/app-icons/wordmark-white.png>) | 1024×1024 | 자체 K; 원본과 다름 |
+| [favicon.png](<../../FE/assets/favicon.png>) | 48×48 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [icon.png](<../../FE/assets/icon.png>) | 1024×1024 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [daily-notes.png](<../../FE/assets/medium/daily-notes.png>) | 240×168 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [denis-volkov.png](<../../FE/assets/medium/denis-volkov.png>) | 72×72 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [insider.png](<../../FE/assets/medium/insider.png>) | 72×72 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [knowable.png](<../../FE/assets/medium/knowable.png>) | 72×72 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [oprah-morning.png](<../../FE/assets/medium/oprah-morning.png>) | 240×168 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [public-list-curious.png](<../../FE/assets/medium/public-list-curious.png>) | 72×72 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [working-morning.png](<../../FE/assets/medium/working-morning.png>) | 240×168 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+| [splash-icon.png](<../../FE/assets/splash-icon.png>) | 1024×1024 | 기본 자산; 존재/실제 사용/원본 동일성을 별도 확인 |
+
+원본 데이터·자산 차이를 공통 CSS/토큰 변경만으로 숨기지 않는다. Q02의 공통 보정 후 모든 영향을 받는 V의 개별 조건을 다시 확인한다. 보관 원본에 없는 폰트명·자산·배치 허용치를 사실로 채우지 않는다.

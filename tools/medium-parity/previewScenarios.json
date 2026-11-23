@@ -1,0 +1,26 @@
+[
+  { "id": "S069", "navigate": "/", "waitText": "Home" },
+  { "id": "S021", "click": ["탐색"], "waitText": "Trending" },
+  { "id": "S004", "click": ["기사 검색 열기"], "waitText": "Explore topics" },
+  { "id": "S037", "navigate": "/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain", "waitText": "Jordan Gibbs" },
+  { "id": "S168", "click": ["Story options"], "waitText": "Display settings" },
+  { "id": "S063", "click": ["기사 표시 설정"], "waitText": "100%", "assert": [
+    { "selector": "[aria-label='글자 크기']", "text": "100%" },
+    { "selector": "[aria-label='타인 하이라이트 표시']", "attributes": { "aria-checked": "true" } }
+  ] },
+  { "id": "S125", "click": ["글자 크기 키우기"], "waitText": "120%", "assert": [
+    { "selector": "[aria-label='글자 크기']", "text": "120%" }
+  ] },
+  { "id": "S119", "click": ["기사 테마 선택 열기"], "waitText": "System default", "assert": [
+    { "selector": "[aria-label='기사 테마: System default']", "attributes": { "aria-checked": "true" } },
+    { "selector": "[aria-label='기사 테마: Dark']", "attributes": { "aria-checked": "false" } }
+  ] },
+  { "id": "S198", "click": ["기사 테마: Dark"], "waitText": "Dark", "assert": [
+    { "selector": "[aria-label='기사 테마 선택 열기']", "contains": "Dark" },
+    { "selector": "[aria-label='글자 크기']", "text": "120%" },
+    { "selector": "[aria-label='타인 하이라이트 표시']", "attributes": { "aria-checked": "true" } }
+  ] },
+  { "id": "S001", "click": ["타인 하이라이트 표시"], "waitText": "Highlights from others", "assert": [
+    { "selector": "[aria-label='타인 하이라이트 표시']", "attributes": { "aria-checked": "false" } }
+  ] }
+]
