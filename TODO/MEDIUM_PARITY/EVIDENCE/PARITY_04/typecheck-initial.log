@@ -1,6 +1,0 @@
-
-> kostolany-mobile@0.1.0 typecheck
-> tsc --noEmit
-
-src/features/editor/WrittenStoryScreen.tsx(51,48): error TS18047: 'result' is possibly 'null'.
-src/features/editor/WrittenStoryScreen.tsx(51,80): error TS18047: 'result' is possibly 'null'.
