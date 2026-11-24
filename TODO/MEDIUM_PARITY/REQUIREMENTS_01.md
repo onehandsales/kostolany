@@ -584,6 +584,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 ## S017 — 구분선 삽입과 이미지 선택
 
+- Parity9 추가 보완: 구분선 자간/보조 색과 iOS 문단 정렬을 연결했다. Android 혼합 문단 가운데 정렬은 구현 잔여이며 iOS도 실제 렌더/IME 검증 대기다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
+
 - Parity9: 기존 점3개 구분선·사진 선택/삭제 연결 확인; native 가운데 배치/자산 차이 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_19b2bef0854047f5b17cfeca07781ca5` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):176 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/05_sc_19b2bef0854047f5b17cfeca07781ca5.png>)
@@ -619,6 +621,8 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 <a id="s018"></a>
 
 ## S018 — 글머리 목록 적용
+
+- Parity9 추가 보완: native 목록 내어쓰기는 알려진 구현 잔여다. 설치 RN의 문단 속성 한계와 단일 입력/선택 계약을 확인했고 입력 분리/모델 확대는 도입하지 않았다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
 
 - Parity9: 기존 bullet와 선택 도구 확인; native 들여쓰기 렌더 차이를 기기 대기와 별도로 유지. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 

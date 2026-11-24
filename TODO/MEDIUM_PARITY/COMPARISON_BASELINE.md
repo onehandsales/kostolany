@@ -1,5 +1,7 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity9 추가 갱신(2026-11-24):** [S017/S018/S183 현재 부분 판정](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 인용 전용 구간/구분선은 부분 구현했으며 혼합 문단·native 내어쓰기와 실제 렌더는 잔여다. 현재 코드/문서 해시와 추가 판정을 갱신하되 기존 원본 관찰·readiness/currentEvidence/evidenceContext를 변경하지 않는다. 등록63/273/200과 원본29단계 열람은 실제 FE 쌍 비교와 별도다.
+
 **Parity9 갱신(2026-11-24):** [22화면별 조건·현재 상태](../FE_MEDIUM_PARITY_09_RESULT.md). F07~F11의29단계 원본(고유24, 직접22)을 메모리에서 열람했다. Chrome 시작 자동 승인 차단으로 실제 FE 렌더/동일 fixture 쌍은 미검증이다. 기존 readiness/currentEvidence/evidenceContext를 승격하거나 새 코드의 증거로 재작성하지 않았다.
 
 **2026-11-24 갱신:** [1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md). 현재 수동 비교/검증은 메모리 화면과 터미널 출력만 사용하며 과거 ready/capture/hash를 새 실행 증거로 갱신하지 않는다. `parityResponses=reference-v1`의 개발 웹 비교 집계와 FE 이미지5개를 연결했다. 역사적 입력 중 삭제된 tools/evidence4경로는 현재 실행 불가이며 복원하지 않았다.
@@ -356,6 +358,8 @@
 
 ## S017 — 구분선 삽입과 이미지 선택
 
+- Parity9 추가 보완: 구분선 자간/보조 색과 iOS 문단 정렬을 연결했다. Android 혼합 문단 가운데 정렬은 구현 잔여이며 iOS도 실제 렌더/IME 검증 대기다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
+
 [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/05_sc_19b2bef0854047f5b17cfeca07781ca5.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s017>) · `sc_19b2bef0854047f5b17cfeca07781ca5`
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -376,6 +380,8 @@
 <a id="s018"></a>
 
 ## S018 — 글머리 목록 적용
+
+- Parity9 추가 보완: native 목록 내어쓰기는 알려진 구현 잔여다. 설치 RN의 문단 속성 한계와 단일 입력/선택 계약을 확인했고 입력 분리/모델 확대는 도입하지 않았다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
 
 [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/04_sc_1b0cd82ee04a4c8c9d52b9a2d088823b.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s018>) · `sc_1b0cd82ee04a4c8c9d52b9a2d088823b`
 
@@ -3917,6 +3923,8 @@
 <a id="s183"></a>
 
 ## S183 — 인용 서식 적용
+
+- Parity9 추가 보완: 전체 quote 입력 구간의 내용 높이 인용선/여백을 보완했다. 혼합 문단별 인용선은 구현 잔여이며 실제 native 줄바꿈/선택/IME는 미검증이다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
 
 [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/03_sc_e5826f356093493a86c19716420e8fdf.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s183>) · `sc_e5826f356093493a86c19716420e8fdf`
 

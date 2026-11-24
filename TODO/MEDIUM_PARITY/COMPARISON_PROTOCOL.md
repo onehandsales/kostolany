@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity9 추가 확인(2026-11-24):** [현재 환경·비교 한계](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 허용된 브라우저 도구/연결 세션이 없어 과거 차단된 Chrome 시작을 반복하지 않았다. 원본29단계는 메모리로 열람했고 현재 앱 렌더/console은 미실행이다. HTTP/JS 구문 통과나 native 스타일 연결을 시각 비교/기기 실행으로 대체하지 않는다. 새 캡처·로그·manifest 없음.
+
 **Parity9 실행 방식(2026-11-24):** [이번 검사·한계](../FE_MEDIUM_PARITY_09_RESULT.md). 기존8081 보존, 테스트/타입/lint와 메모리 Metro JS 검사를 사용한다. 원본 프레임은390×844로 축소해 파일 없이 열람했으며 실제 렌더 비교는 Chrome 시작 자동 승인 차단으로 미실행이다. 이번에 웹 viewport/DPR/시계를 실행 확인했다고 기록하지 않는다. 캡처/로그/검증 manifest/tools 생성·복원 금지와 과거 증거 보존을 유지한다.
 
 **현재 실행 방식 — 2026-11-24:** [1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md)를 따른다. HEAD2fee9eb에서 기존 tools가 제거되어 아래 재사용 명령/생성기 경로는 당시 이력이며 현재 실행 명령이 아니다. 사용자 지시로 tools/evidence/캡처/로그/검증 manifest를 생성·복원하지 않는다. 기존 앱·Jest·타입/lint와 파일을 남기지 않는 inline 조회/CDP를 사용한다. 현재 실행은 Date 고정 없는390×844/320px·DSF1·UTC·Light/reader Dark이므로 아래 고정 시계 profile의 완전 재현으로 기록하지 않는다.

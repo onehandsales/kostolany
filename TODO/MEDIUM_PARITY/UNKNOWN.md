@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity9 추가 판정(2026-11-24):** [원본 질문·구현 잔여·환경의 분리](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). Q04 삭제 근거 대기, Q06 연속 선택 미지원/원본 미수록/제품 결정 필요를 유지한다. S183 인용 전용 구간은 부분 보완했으나 혼합 인용선·내어쓰기·Android 혼합 정렬은 알려진 구현 잔여다. 이를 원본 미확인이나 기기 대기로 대체하지 않는다.
+
 **Parity9 질문별 판정(2026-11-24):** [직접22화면+5흐름의27개 U](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 원본 미수록 질문을 삭제하지 않고 현재 mock 정책·제외·제품 결정·기기 대기를 구분했다. Q04 사용자 삭제는 근거 대기, Q06 경계 연속 선택은 알려진 미지원이다. mock 자동 검증을 원본 답변으로 처리하지 않는다.
 
 **2026-11-24 질문별 재분류:** [Parity1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md). 직접 화면·연결 흐름의91개 U 항목에 현재 mock 해결과 원본 근거 부족/다른 묶음/기기/제외를 별도로 기록했다. 원본 질문을 삭제하거나 mock 통과로 닫지 않는다. 다음 원본 확인의 종료 조건은 해당 질문에 답하는 버전·계정·행동 근거 확보이며, 범위 제외 기능은 이번 실행 대기가 아니다.
@@ -1576,6 +1578,7 @@
 <a id="u-s183"></a>
 
 ### U-S183
+- Parity9 추가 보완: 반복 탭/해제 원본 근거는 여전히 없다. 전체 quote 구간의 인용선은 부분 구현했고 혼합 문단 선은 구현 잔여다. [최신 구분](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review).
 - Parity9: 반복 탭/해제 원본 미확인; mock 순환 유지, native 인용선은 구현 잔여. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):139
 - 미확인 내용: 인용 반복 탭·해제 방식
@@ -1799,6 +1802,7 @@
 <a id="u-f09"></a>
 
 ### U-F09
+- Parity9 추가 보완: [native 부분 보완·결정 경계](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). Q06/서식 원본 미수록은 유지하고 혼합 인용선·native 내어쓰기·Android 혼합 정렬을 구현 잔여로 구분한다.
 - Parity9: 서식 해제/범위·코드는mock; 중첩/이미지 경계 선택 미지원, 저장 실패 검증, 원본 조합/코드 모습 미확인. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):242
 - 미확인 내용: 서식 해제·중첩·코드 블록, 선택 범위별 적용, 취소·자동 저장 실패.

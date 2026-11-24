@@ -1,5 +1,9 @@
 # Kostolany Project — AGENT
 
+**커밋 전 재검토 — 2026-11-24:** [최신 검토](../TODO/FE_MEDIUM_PARITY_09_RESULT.md#pre-commit-review). 추가 코드 결함은 발견하지 못했고 관련90 tests·타입/lint를 새로 통과했다. 후속 사용자 요청으로 이 문서와 추가 보완분을 로컬 커밋 대상으로 확정했다. 아래 미커밋 문구는 이전 실행 이력이며9 전체 미완료·10 미착수·push/배포 미실행은 유지한다.
+
+**최신 — Parity9 추가 보완(2026-11-24):** [추가 검토·종료 판정](../TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 기존 변경을 `30907e2`에 커밋했고 이후 native 인용/구분선 부분 보완은 미커밋이다. 관련90 tests·타입/lint·메모리 JS 통과와 실제 브라우저 차단·native 구현 잔여/기기 대기를 분리한다. 아래 최초 실행 이력보다 이 판정을 우선하며 묶음9 전체 종료·묶음10 시작·push·배포는 하지 않았다.
+
 **현재 FE 작업 — Parity9(2026-11-24):** [작성·초안·발행 결과](../TODO/FE_MEDIUM_PARITY_09_RESULT.md)와 [현재 상태](SOFTWARE_AGENT/COMMON/IMPLEMENTATION_STATUS.md)를 따른다. 구현/자동 검증, 브라우저 실행 차단, 원본 미확인·native 구현 잔여/기기 대기를 구분한다. 새 tools/evidence/캡처/로그/manifest는 만들지 않으며 묶음10·커밋·push·배포는 별도 요청 전 진행하지 않는다.
 
 작성일: 2026-11-17

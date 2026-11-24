@@ -262,6 +262,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 
 ## S183 — 인용 서식 적용
 
+- Parity9 추가 보완: 전체 quote 입력 구간의 내용 높이 인용선/여백을 보완했다. 혼합 문단별 인용선은 구현 잔여이며 실제 native 줄바꿈/선택/IME는 미검증이다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
+
 - Parity9: 웹 인용선과 native TextInput의 인용선 부재를 구분; 원본 반복 탭 정책 미확인. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_e5826f356093493a86c19716420e8fdf` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/03_sc_e5826f356093493a86c19716420e8fdf.png>)

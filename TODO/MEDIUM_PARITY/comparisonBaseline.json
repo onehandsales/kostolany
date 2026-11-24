@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "56eb290e24f056ea957bbc7ef21b6559813606ad5e9a505921a84cdd37ba7bf0"
+      "sha256": "a527063c2dffbc0bcc1b615273d8963cb22668f0ba59dc48d28b09a02f784eb0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "eb37ef41a291fa19aa69943ef54cf7f5b36104ac9782d00e0a244f214c25f4cf"
+      "sha256": "29ac23012d59c814451985ac6c14e112d8005766e9f8c122358874776a2c5ed8"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,11 +285,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "c99c6b98ec03941cea040b49ddb6886be2a184abcd230af6e950ada1b6019b0b"
+      "sha256": "61645c6fc17fffabd34ba49ab76257dd5133c7c6461d7015915ad301bccebd1a"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "b795b8be0296e1c2fdfb8c771e7288c20d0e5220090e77318af2a7aa2373baea"
+      "sha256": "0e293ee6949e2090f053e568484b75dc7376c9b99eca045dee120cd253e34676"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
@@ -317,7 +317,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "067b726684d1ed2a06a7ba4c94e5f137fd60eddef28c0fd3a831e736c0ea7768"
+      "sha256": "b2fbb6ab7f52ce634620c73135def91bab4b3841885f3d7b66c6d3b063e7b7e7"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "83ce698dfc753a53cea8f2e677fcb838778a5a2de5050989fbb95b1249db42cb"
+      "sha256": "5037a597d54396c1a7350937b3357272b7e3ccd6f5feb69d144389cce43da3df"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -431,7 +431,7 @@
     },
     {
       "path": "FE/src/app/navigation/EditorNavigation.test.tsx",
-      "sha256": "8dbbbe457208903d8d084668ce528a44350ae978ab0a9bb9427db6cdddeddc6b"
+      "sha256": "f9d60fd5935c556c944c57869db26a640515ff9c56723df74517aa01095e22c8"
     },
     {
       "path": "FE/src/app/navigation/EmailAuthNavigation.test.tsx",
@@ -1183,7 +1183,7 @@
     },
     {
       "path": "FE/src/features/editor/RichBody.tsx",
-      "sha256": "ad617d4b336e3c9bbf5418a496ada28efbfd6ae989ce4aab55f8b9cb452ae945"
+      "sha256": "6e80fe7052957c3dee3a7332961457fbab41e523e285c9742b495a683efc5b73"
     },
     {
       "path": "FE/src/features/editor/RichBody.web.tsx",
@@ -3334,7 +3334,21 @@
       "scope": "편집 서식·이미지·멘션·초안·발행 원본 상태; 삭제/연속선택의 근거 판정",
       "done": "autosave/exit/retry·발행멱등·범위보존·키보드/web; native IME Q07",
       "status": "구현 보완·자동 검증 수행; 웹 실행 차단·시각/native 구현 잔여·Q04/Q06 근거/결정 대기·Q07 기기 대기, 전체 완료 아님",
-      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+      "additionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "native 인용 전용 구간/구분선 부분 보완·관련90 tests 통과; 필수 실제 웹 및 native 구현/자산 잔여로 전체 종료 미충족",
+        "commitBeforeReview": "30907e21d78e75b1ce95cd2903fe4072bab64238",
+        "newChangesCommitted": false,
+        "batch10Prerequisites": "문서/ID 기능 계약 재검증; 9 전체 종료 선행은 미충족, 10 미착수"
+      },
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#pre-commit-review",
+        "scope": "19파일 추가 보완분 재검토; 새 코드 결함 발견 없음; 후속 사용자 요청에 따른 로컬 커밋 범위",
+        "checks": "새 관련22 suites/90 tests 101.962초 및 타입/lint 통과; 실제 렌더/native 미검증",
+        "boundary": "묶음9 전체 종료 미충족 유지; 10/push/배포 미실행; additionalReview의 미커밋 표시는 당시 상태"
+      }
     },
     {
       "number": 10,
@@ -5622,7 +5636,8 @@
       "code": [
         "FE/src/features/editor/RichDocumentBody.tsx",
         "FE/src/features/editor/StoryEditorScreen.tsx",
-        "FE/src/features/editor/editorModel.ts"
+        "FE/src/features/editor/editorModel.ts",
+        "FE/src/features/editor/RichBody.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/editor/createDeviceEditorImageSource.ts",
@@ -5693,6 +5708,12 @@
         "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
         "status": "기존 점3개 구분선·사진 선택/삭제 연결 확인; native 가운데 배치/자산 차이 잔여.",
         "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      },
+      "parity09AdditionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "구분선 자간/보조 색과 iOS 문단 정렬 연결; Android 혼합 정렬은 구현 잔여, iOS도 실기기 미검증.",
+        "verification": "최종 관련22 suites/90 tests·타입/lint·3플랫폼 메모리 JS 통과; 실제 렌더/console/native/IME 미검증",
+        "previousReview": "parity09Review는 최초 실행 이력이며 readiness/evidence는 유지한다."
       }
     },
     {
@@ -5715,7 +5736,8 @@
       "code": [
         "FE/src/features/editor/RichDocumentBody.tsx",
         "FE/src/features/editor/StoryEditorScreen.tsx",
-        "FE/src/features/editor/editorModel.ts"
+        "FE/src/features/editor/editorModel.ts",
+        "FE/src/features/editor/RichBody.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/editor/createDeviceEditorImageSource.ts",
@@ -5781,6 +5803,12 @@
         "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
         "status": "기존 bullet와 선택 도구 확인; native 들여쓰기 렌더 차이를 기기 대기와 별도로 유지.",
         "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      },
+      "parity09AdditionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "native 목록 내어쓰기는 알려진 구현 잔여; RN 문단 속성/단일 입력 계약 확인, 임의 입력 분리나 모델 확대 안 함.",
+        "verification": "최종 관련22 suites/90 tests·타입/lint·3플랫폼 메모리 JS 통과; 실제 렌더/console/native/IME 미검증",
+        "previousReview": "parity09Review는 최초 실행 이력이며 readiness/evidence는 유지한다."
       }
     },
     {
@@ -22517,7 +22545,8 @@
       "code": [
         "FE/src/features/editor/RichDocumentBody.tsx",
         "FE/src/features/editor/StoryEditorScreen.tsx",
-        "FE/src/features/editor/editorModel.ts"
+        "FE/src/features/editor/editorModel.ts",
+        "FE/src/features/editor/RichBody.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/editor/createDeviceEditorImageSource.ts",
@@ -22583,6 +22612,12 @@
         "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
         "status": "웹 인용선과 native TextInput의 인용선 부재를 구분; 원본 반복 탭 정책 미확인.",
         "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      },
+      "parity09AdditionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "전체 quote 구간에 내용 높이 인용선/여백 부분 구현; 혼합 문단 선은 구현 잔여, 실제 native 선택/IME/렌더 미검증.",
+        "verification": "최종 관련22 suites/90 tests·타입/lint·3플랫폼 메모리 JS 통과; 실제 렌더/console/native/IME 미검증",
+        "previousReview": "parity09Review는 최초 실행 이력이며 readiness/evidence는 유지한다."
       }
     },
     {
@@ -29064,7 +29099,11 @@
         9
       ],
       "status": "반복 탭/해제 원본 미확인; mock 순환 유지, native 인용선은 구현 잔여.",
-      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns",
+      "parity09AdditionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "원본 반복/해제/코드/선택 근거 대기 유지; 전체 quote 선은 부분 구현, 혼합 선/목록/Android 혼합 정렬은 구현 잔여."
+      }
     },
     {
       "id": "U-S184",
@@ -29331,7 +29370,11 @@
         9
       ],
       "status": "서식 해제/범위·코드는mock; 중첩/이미지 경계 선택 미지원, 저장 실패 검증, 원본 조합/코드 모습 미확인.",
-      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns",
+      "parity09AdditionalReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+        "status": "원본 반복/해제/코드/선택 근거 대기 유지; 전체 quote 선은 부분 구현, 혼합 선/목록/Android 혼합 정렬은 구현 잔여."
+      }
     },
     {
       "id": "U-F10",
@@ -33086,10 +33129,17 @@
   "manualUpdate": {
     "date": "2026-11-24",
     "batch": 9,
-    "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
-    "reason": "22화면·27개U 현재 판정/원본 키보드 관찰, Edited와 이미지 입력 복귀 추가 검토·수정, 현재 코드·문서 해시 갱신",
-    "artifacts": "새 캡처/로그/manifest/tools 없음; 기존 evidenceContext/currentEvidence/readiness와 원본 관찰 보존",
-    "verificationBoundary": "테스트/코드 조사와 시각/기기 검증 구분; 브라우저 시작 자동 승인 차단"
+    "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+    "reason": "선행 커밋 후 native 표시 부분 보완·재검토; 기존 단일 입력 계약 유지; 코드/문서 현재 해시 갱신",
+    "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
+    "verificationBoundary": "최종 관련22 suites/90 tests와 타입/lint/메모리 JS; 브라우저 연결 없음, native 실행 도구/기기 없음; 혼합 문단/목록 구현 잔여 별도",
+    "preCommitReview": {
+      "date": "2026-11-24",
+      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#pre-commit-review",
+      "scope": "19파일 추가 보완분 재검토; 새 코드 결함 발견 없음; 후속 사용자 요청에 따른 로컬 커밋 범위",
+      "checks": "새 관련22 suites/90 tests 101.962초 및 타입/lint 통과; 실제 렌더/native 미검증",
+      "boundary": "묶음9 전체 종료 미충족 유지; 10/push/배포 미실행; additionalReview의 미커밋 표시는 당시 상태"
+    }
   },
   "manualUpdateHistory": [
     {
@@ -33126,6 +33176,14 @@
         "scope": "응답 집계/상태/원본 crop/추적 문서 재검토 및 미제출 초안 A-B-A 회귀 보강",
         "boundary": "후속 사용자 승인에 따른 로컬 커밋만; 브라우저 재실행 자동 승인 차단, native 미실행; 과거 evidence/readiness 불변"
       }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 9,
+      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+      "reason": "22화면·27개U 현재 판정/원본 키보드 관찰, Edited와 이미지 입력 복귀 추가 검토·수정, 현재 코드·문서 해시 갱신",
+      "artifacts": "새 캡처/로그/manifest/tools 없음; 기존 evidenceContext/currentEvidence/readiness와 원본 관찰 보존",
+      "verificationBoundary": "테스트/코드 조사와 시각/기기 검증 구분; 브라우저 시작 자동 승인 차단"
     }
   ]
 }
