@@ -5,6 +5,20 @@ import { createEmailAttempt } from './createEmailAttempt';
 import { createMockEmailAuthSource, emailFixtures } from './emailAuthSource';
 
 const signal = () => new AbortController().signal;
+it('이메일 화면 수명이 다시 연결되면 취소한 요청의 busy·코드를 버리고 새 요청을 허용한다', async () => {
+  const source = createMockEmailAuthSource({ delayMs: 0 });
+  const auth = createAuthStore(createMockAuthSource({ delayMs: 0 })); auth.openLogin({ kind: 'write' });
+  let reject!: (error: Error) => void;
+  const request = jest.fn(source.request).mockImplementationOnce(() => new Promise((_resolve, fail) => { reject = fail; }));
+  const attempt = createEmailAttempt({ ...source, request }, auth, false);
+  const stop = attempt.activate(); attempt.input('email', emailFixtures[0].email);
+  const pending = attempt.request(); stop(); const resume = attempt.activate();
+  expect(attempt.getSnapshot()).toMatchObject({ stage: 'email', busy: false, challenge: null, code: '', email: emailFixtures[0].email });
+  await attempt.request(); const current = attempt.getSnapshot().challenge;
+  reject(new Error('old failure')); await pending;
+  expect(attempt.getSnapshot()).toMatchObject({ stage: 'code', busy: false, challenge: current, error: null });
+  resume();
+});
 it('이메일 fixture와 이름·코드 형식·만료를 검사하고 재전송은 이전 challenge와 코드를 무효화한다', async () => {
   let time = 1000; const source = createMockEmailAuthSource({ delayMs: 0, now: () => time, lifetimeMs: 100 }); const attemptId = source.begin();
   const request = { attemptId, email: emailFixtures[0].email, name: mockUserA.name, joining: true };

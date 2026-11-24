@@ -71,7 +71,12 @@ export function createOnboardingSession(source: OnboardingSource, auth: AuthStor
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     activate() {
       active = true;
-      if (controller.signal.aborted) controller = new AbortController();
+      if (controller.signal.aborted) {
+        // 이전 저장의 응답 대신 공급부의 확정 단계를 다시 읽는다.
+        controller = new AbortController();
+        pending = null;
+        publish({ busy: false, error: null });
+      }
       const unsubscribe = auth.subscribe(() => { if (!valid()) { active = false; controller.abort(); sequence++; } });
       void load();
       return () => { active = false; controller.abort(); sequence++; unsubscribe(); };

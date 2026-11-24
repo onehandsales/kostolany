@@ -202,6 +202,20 @@ const following: PublicIdentity[] = [
   },
 ];
 following.forEach((identity) => identities.set(followKey(identity), identity));
+// S035의 관찰 이름·소개만 공급하고 미수록 글·아바타·프로필 본문은 생성하지 않는다.
+const onboardingIdentities: PublicIdentity[] = [
+  { kind: 'writer', id: 'geeksociety', name: 'GeekSociety',
+    bio: "I'm a Software Engineer. I love to talk about all of the things that interest me in life, from technol…",
+    stories: [], pinned: [], lists: [] },
+  { kind: 'publication', id: 'level-up-coding', name: 'Level Up Coding',
+    bio: 'Coding tutorials and news. The developer homepage gitconnected.com && skilled.d…',
+    stories: [], pinned: [], lists: [] },
+];
+onboardingIdentities.forEach(identity => identities.set(followKey(identity), identity));
+const writeCatalyst = identities.get('publication:write-catalyst');
+if (writeCatalyst) identities.set('publication:write-catalyst', {
+  ...writeCatalyst, bio: 'Write A Catalyst and Build it into Existence.',
+});
 identities.set('writer:medium-staff', {
   kind: 'writer',
   id: 'medium-staff',

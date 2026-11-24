@@ -16,9 +16,17 @@ async function setup(source: AuthSource = { ...createMockAuthSource({ delayMs: 0
   const view = await render(tree()); const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await user.press(button('Write a story')); return { user, replace: (next: AuthSource) => view.rerender(tree(next)) };
 }
-it('이메일 가입의 예시 이름·이메일·코드 오류·재전송·검증을 연결하고 원래 홈에서 개인 행동을 다시 실행한다', async () => {
+it('이메일 가입의 약관 왕복·입력·코드 오류·재전송·검증을 연결하고 원래 홈에서 개인 행동을 다시 실행한다', async () => {
   const { user } = await setup(); await user.press(button('Create account')); await user.press(button('Sign up with Email'));
-  expect(button('이메일 모의 가입')).toBeDisabled(); await user.press(button('예시 독자 A 이메일 예시 사용')); await user.press(button('이메일 모의 가입'));
+  expect(button('이메일 모의 가입')).toBeDisabled(); await user.press(button('예시 독자 A 이메일 예시 사용'));
+  await user.press(screen.getByRole('link', { name: 'Terms of Service' }));
+  expect(screen.getByText(/Kostolany의 약관/)).toBeVisible();
+  await fireEvent(screen.getByLabelText('모의 로그인'), 'requestClose');
+  expect(screen.getByLabelText('모의 이메일')).toHaveDisplayValue(emailFixtures[0].email);
+  await user.press(screen.getByRole('link', { name: 'Privacy Policy' }));
+  await user.press(button('Privacy policy에서 뒤로'));
+  expect(screen.getByLabelText('가입 모의 이름')).toHaveDisplayValue(mockUserA.name);
+  await user.press(button('이메일 모의 가입'));
   await screen.findByText('모의 코드: 123456 · 5분 동안 유효'); await fireEvent.changeText(screen.getByLabelText('모의 인증 코드 6자리'), '12345'); expect(button('모의 코드 검증')).toBeDisabled();
   await fireEvent.changeText(screen.getByLabelText('모의 인증 코드 6자리'), '000000'); await user.press(button('모의 코드 검증')); await screen.findByText('모의 코드가 일치하지 않아요. 입력을 확인해 주세요.'); expect(screen.getByLabelText('모의 인증 코드 6자리')).toHaveDisplayValue('000000');
   await user.press(button('모의 코드 재전송')); await screen.findByText('모의 코드: 123457 · 5분 동안 유효'); await fireEvent.changeText(screen.getByLabelText('모의 인증 코드 6자리'), '123456'); await user.press(button('모의 코드 검증')); await screen.findByText('모의 코드가 일치하지 않아요. 입력을 확인해 주세요.');

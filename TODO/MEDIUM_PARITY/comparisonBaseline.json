@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "75adc83c9b48b70fd0e110cc9429570400e32fce813aaf5aae6ee34c5197e153"
+      "sha256": "f21b76cae8cae4d44093136b3222c3cbe6b0435696c0d2421b06150233167de4"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "ab48361c1efd16a950774de828a775efd622cf4e4a9d5367518341bf621b38fe"
+      "sha256": "460aa9dd0c05b334a8eae824a1b239a63d96bb980367b70081833f5ec132835b"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,19 +285,19 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "3fe42ad8b3d9c6e73231ae593d8e5735800dd9bae49463e4eb7785f9e5c6b3fe"
+      "sha256": "dbc3b341087aed42297c83f9b49e5c96a87e4bb2c625730fbf66e7419ae6d786"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "faffce831dfc972b9132bb2ca047bae3d550f5089d3eb27ee43336cd24906bd2"
+      "sha256": "aa8c5f30e8e32fb60bfdd1859e90570459d5f9f20844daaab615f55f228b0129"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "2843127ae1dc3725e7e7c8f20047e7dfd5a427f267cd7c2f815b2096ce6866d9"
+      "sha256": "14fcd403d878f4f199b5384b1ba9ab0d1b22ab3fec793d3417f95ef1c0f24fd7"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "ef400aecb387954536750df087d8ca64d4589cb4e981ae9be61310410b16ec74"
+      "sha256": "a53951f8998943ac1e5cfb1aeba4a8c8be7bbe045ccf49ca0b067cc59129c9c1"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
@@ -305,27 +305,27 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "a34a134b83726358c72aee50938bc884e19212dff95d5f9d7076a63ac864a04f"
+      "sha256": "7ec47293f614e650172543bb126497c6befba35c560135a7213da66f07c123a6"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "338d363a83eb5c7d4bf4f038fcb14293a6a1cee05b7e98a43a3dc6dc70c268fb"
+      "sha256": "45c0b4c32a27a15f1e35eeef6a01aab17d0b46c3d93c726424f3036253887ad3"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "12e6173331d50eb69b0803db0f9091b0d66f235cc15b2666a205360d7c43ec55"
+      "sha256": "59fd6d5c3de9c9be976e9e4568183c3ff88a1d4311924a09f771a0a0296b16df"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "8d577afffef58c1070508e25844f5dd8421efed77332ffe20931da536e74cdf5"
+      "sha256": "c65505c7c0a0e7bc45b5616b7db761b8ada6fe66d67519a29f91338f53510b1f"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "bba61e36084ca1c08433b0ae18dd2acb8eb81335a35d77d3b149dccbe5bfd0de"
+      "sha256": "cf4b9b822ee912d4970c5a66d39e062e9bbc954dfdafacd16bc977122cdf8096"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "d25eaa3c92e4ba7d995529be1ecf6b3bd37a4a3ed28ca25c332c53eecd46af8e"
+      "sha256": "becf62472f1f0d79bca225972a9cc8520ea9b17580036fdb39fdf5ac43b1f1c3"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -371,7 +371,7 @@
     },
     {
       "path": "FE/src/app/navigation/AppNavigator.tsx",
-      "sha256": "8b1d3ea632bc67d65a7ae3b8254e805fce0565b8a017cc2c11d0f5e349743825"
+      "sha256": "e07efd88202234480e51b71a8ac19ed3be2c5ebb8f706c53a768bd4ebfd9a324"
     },
     {
       "path": "FE/src/app/navigation/ArticlePresentation.tsx",
@@ -395,7 +395,7 @@
     },
     {
       "path": "FE/src/app/navigation/BookmarkNavigation.test.tsx",
-      "sha256": "3291c58c8c0ca2461e1b6dd8e8d18988e687ea0b699e1c282e54fee98ec0f56b"
+      "sha256": "5117d0e1cb07bfd760f98053b6f9414fdbe92799c1f20c66a55f73fe5f144090"
     },
     {
       "path": "FE/src/app/navigation/BottomTabBar.tsx",
@@ -435,7 +435,7 @@
     },
     {
       "path": "FE/src/app/navigation/EmailAuthNavigation.test.tsx",
-      "sha256": "70be00cf565598ea811753cf2a6de35db32b684d23f7a3ee00c6ae85a5823869"
+      "sha256": "39144be5318bde0c9c66c9a38a94c4110c11f9919b380f875c56171c090536dd"
     },
     {
       "path": "FE/src/app/navigation/ExplanationBackStack.test.tsx",
@@ -487,7 +487,7 @@
     },
     {
       "path": "FE/src/app/navigation/OnboardingNavigation.test.tsx",
-      "sha256": "1d48ce8c2c2f8dd658b35d697bc193a01759f59de8c7939335b230601c7328b5"
+      "sha256": "6dd667dd02c888c949b8ebf90696e69601f7cf678e40a16a27f44919eb675457"
     },
     {
       "path": "FE/src/app/navigation/PolicyNavigation.test.tsx",
@@ -751,7 +751,7 @@
     },
     {
       "path": "FE/src/features/auth/createEmailAttempt.ts",
-      "sha256": "939f83b21d066d5e522e0d0af88f5aaa63ec9f81aa0f855bae7ba55a1d18a466"
+      "sha256": "0d298a23fab11485b8db64ddcabcc406ece57ad889a0659b77e8c52847436522"
     },
     {
       "path": "FE/src/features/auth/data/createMockAuthSource.test.ts",
@@ -767,7 +767,7 @@
     },
     {
       "path": "FE/src/features/auth/emailAuth.test.ts",
-      "sha256": "2995a113696a92e6072116ef2a78ce5067ea3cf9f8f2726922a96de82ca7d502"
+      "sha256": "80fb6c54942febb229f8f2933a9dfa667a531aed5e3aef170081ca2834bf9753"
     },
     {
       "path": "FE/src/features/auth/emailAuthSource.ts",
@@ -775,7 +775,7 @@
     },
     {
       "path": "FE/src/features/auth/EmailLogin.tsx",
-      "sha256": "d6b8345b8aeb225fe35daa58033549c4fc61932a667a0cfdd97bb8985fdc7ea7"
+      "sha256": "c41b643f55099517455bf70af373794addd6ce8beceb5b3d7c7fa53d57a8fa57"
     },
     {
       "path": "FE/src/features/auth/LoginRequestButton.tsx",
@@ -979,7 +979,7 @@
     },
     {
       "path": "FE/src/features/community/data/publicDirectory.ts",
-      "sha256": "efe1ed707b52cee140e062077edc72f7f5dba2ade9ea543c6599c55248e29b4d"
+      "sha256": "7bb7688ffa849c237981a99e524cfd5aa8823183ec332f74ba0ce1fa3c35b9f0"
     },
     {
       "path": "FE/src/features/community/data/relationshipPreview.ts",
@@ -1655,7 +1655,7 @@
     },
     {
       "path": "FE/src/features/onboarding/createOnboardingSession.ts",
-      "sha256": "d5262268473a94f9db85b355810a17c6069f50514aba56c798b80bac257c98f5"
+      "sha256": "a6f53a58172b40c9b26a5f1fa830e9808e6bac3bae6d7a48c45808f521a7172f"
     },
     {
       "path": "FE/src/features/onboarding/notificationPermission.ts",
@@ -1663,15 +1663,15 @@
     },
     {
       "path": "FE/src/features/onboarding/onboarding.test.ts",
-      "sha256": "f1aa0303492a95b79ea6f9fa3441f8601656672632e17ba11f5f78d344369155"
+      "sha256": "e550cef134b012cc1aa50b65fff69fdd7cdb688166c5549a82a5d87b674a39c2"
     },
     {
       "path": "FE/src/features/onboarding/OnboardingProvider.tsx",
-      "sha256": "cf2f87f4fd6c3f078e51831b7eeeea7c7040012f76101ef3c7b701239f15180d"
+      "sha256": "64945561cbf3ed21d0a78ca3da574b71430b73a8d41b9e88d4e4a05beb8274d0"
     },
     {
       "path": "FE/src/features/onboarding/OnboardingScreen.tsx",
-      "sha256": "93c639a62b1185af277da30fae31da3ad0bedbc2901567d3a24cb6236e52aedb"
+      "sha256": "1611a689a5f6d3a0c18c623b147bf5820a663be12bcf5f57201e7a9c2a047d4a"
     },
     {
       "path": "FE/src/features/onboarding/onboardingSource.ts",
@@ -3484,7 +3484,8 @@
       ],
       "scope": "모의 이메일/signup/login/code·기존/신규·관심사/추천/권한안내; S043 자산/시작은18에도 배정",
       "done": "guest→A·취소/실패·A/B/A·세션수명; 외부OAuth/메일제외; splash는18+21후판정",
-      "status": "미착수"
+      "status": "mock 기능 보완·타입/lint/전체316 suites·1722 tests 통과; 시각/원본·S043/native 잔여",
+      "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md"
     },
     {
       "number": 15,
@@ -4588,7 +4589,20 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S006-L",
+          "R-S006-D",
+          "R-S006-S",
+          "R-S006-C01"
+        ],
+        "status": "관찰된 5개 선택과 0/1/2/3개 경계, 해제·재선택·진행을 확인. 추가 토픽은 기존 mock.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S007",
@@ -5396,7 +5410,23 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S013-L",
+          "R-S013-D",
+          "R-S013-S",
+          "R-S013-C01",
+          "R-S013-C02",
+          "R-S013-C03",
+          "R-S013-C04"
+        ],
+        "status": "빈 6칸·Validate 비활성·Resend·뒤로/X 확인. 원본 sign up 공용 캡처와 런타임 모드 문구 구분.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S014",
@@ -6528,7 +6558,21 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S024-L",
+          "R-S024-D",
+          "R-S024-S",
+          "R-S024-C01",
+          "R-S024-C02"
+        ],
+        "status": "mock A/B 이메일 입력·검증·실패 입력 보존·계속·뒤로 확인. 실제 메일/소유권 검증 없음.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S025",
@@ -7496,7 +7540,21 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S034-L",
+          "R-S034-D",
+          "R-S034-S",
+          "R-S034-C01",
+          "R-S034-C02"
+        ],
+        "status": "Settings→Sign out→Cancel/Confirm·실패·재시도→가입 화면 확인. 메모리 계정 경계 유지.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S035",
@@ -7585,7 +7643,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S035-L",
+          "R-S035-D",
+          "R-S035-S",
+          "R-S035-C01",
+          "R-S035-C02",
+          "R-S035-C03"
+        ],
+        "status": "추천 4항목 순서/소개 보완, 동적 B/Publication ID 분리·Follow/Unfollow·실패 재시도·관리 목록 연결. 아바타 2개 미확보.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S036",
@@ -8253,7 +8326,20 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S041-L",
+          "R-S041-D",
+          "R-S041-S",
+          "R-S041-C01"
+        ],
+        "status": "새 경험 안내·Continue·기존 자산 7개 묶음 확인. 원본 7인 이미지/정확 배치와 다름; 모든 계정 공통 단계로 확정하지 않음.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S042",
@@ -8472,7 +8558,21 @@
       "readiness": "native-required",
       "blocker": "대응 splash 설정 없음(D10); 웹 Home은 대체 증거가 아님; 실제 cold start는 Q07.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S043-L",
+          "R-S043-D",
+          "R-S043-S",
+          "R-S043-C01",
+          "R-S043-V"
+        ],
+        "status": "원본 PNG 직접 확인. JS 홈 진입은 native splash와 다름. splash 미구현·18 자산/구현 및21 실제 cold start 검증 대기.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S044",
@@ -9551,7 +9651,25 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S054-L",
+          "R-S054-D",
+          "R-S054-S",
+          "R-S054-C01",
+          "R-S054-C02",
+          "R-S054-C03",
+          "R-S054-C04",
+          "R-S054-C05",
+          "R-S054-C06"
+        ],
+        "status": "이름/이메일 입력과 약관 왕복, 오류 시 보존·수정·재시도 확인. 예시 이름 제한은 기존 mock.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S055",
@@ -10644,7 +10762,23 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S064-L",
+          "R-S064-D",
+          "R-S064-S",
+          "R-S064-C01",
+          "R-S064-C02",
+          "R-S064-C03",
+          "R-S064-C04"
+        ],
+        "status": "가입 코드 입력·오입력·재전송·Validate·신규 A 온보딩 연결 확인. 메일 발송/실제 인증 없음.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S065",
@@ -10927,7 +11061,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S067-L",
+          "R-S067-D",
+          "R-S067-S",
+          "R-S067-C01",
+          "R-S067-C02",
+          "R-S067-C03"
+        ],
+        "status": "최소3개 안내·0/1/2 비활성/3 활성·선택 초안·뒤로·확정 재개 확인.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S068",
@@ -16205,7 +16354,25 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S117-L",
+          "R-S117-D",
+          "R-S117-S",
+          "R-S117-C01",
+          "R-S117-C02",
+          "R-S117-C03",
+          "R-S117-C04",
+          "R-S117-C05",
+          "R-S117-C06"
+        ],
+        "status": "빈 가입 폼의 녹색 버튼 유지, 유효 제출은 별도 검증. 누락 Terms/Privacy를 기존 안내 화면에 연결.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S118",
@@ -17963,7 +18130,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S134-L",
+          "R-S134-D",
+          "R-S134-S",
+          "R-S134-C01",
+          "R-S134-C02",
+          "R-S134-C03"
+        ],
+        "status": "로그인 코드 sign in·입력/삭제/붙여넣기·Validate·원래 개인 진입 복귀 확인. 자동 개인 행동 재실행 없음.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S135",
@@ -21205,7 +21387,24 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S166-L",
+          "R-S166-D",
+          "R-S166-S",
+          "R-S166-C01",
+          "R-S166-C02",
+          "R-S166-C03",
+          "R-S166-C04",
+          "R-S166-C05"
+        ],
+        "status": "가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S167",
@@ -21765,7 +21964,21 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S171-L",
+          "R-S171-D",
+          "R-S171-S",
+          "R-S171-C01",
+          "R-S171-C02"
+        ],
+        "status": "빈 로그인 이메일·녹색 Continue·실제 제출 비활성·뒤로 확인.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S172",
@@ -22935,7 +23148,24 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다."
+      "acceptance": "가입4/로그인5 제공자, 이메일/이름/약관/뒤로·6칸 코드와Validate·Resend·닫기, Sign out Cancel/Confirm→intro를 비교한다. 빈 폼의 녹색 버튼과 실제 입력 검증은 별개다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S182-L",
+          "R-S182-D",
+          "R-S182-S",
+          "R-S182-C01",
+          "R-S182-C02",
+          "R-S182-C03",
+          "R-S182-C04",
+          "R-S182-C05"
+        ],
+        "status": "로그인 Google/Facebook/Apple/X/Email 5개 확인. 외부 제공자 화면/실제 OAuth 제외.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S183",
@@ -23114,7 +23344,21 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다."
+      "acceptance": "브랜드 시작, 새 경험 소개, 최소3개 안내와 관찰5개 선택, Follow/Finish, Enable/Skip와 다음 목적지를 확인한다. 모든 계정에 동일 순서를 강제하지 않는다.",
+      "parity14Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "requirementIds": [
+          "R-S184-L",
+          "R-S184-D",
+          "R-S184-S",
+          "R-S184-C01",
+          "R-S184-C02"
+        ],
+        "status": "Enable/Skip·미지원 오류·다음 멤버십/홈 연결 확인. mock 거절·실패·늦은 응답/A→B→A는 자동 navigation 검사; 실제 OS 권한 대기.",
+        "verification": "원본 PNG 직접 열람·코드/회귀 검사·실제 웹 부분 대조. S043은 원본/결손 확인만; native 미실행.",
+        "boundary": "기존 R/T/U/C·관찰·원본/증거/readiness 보존. 원본 동일성 완료 아님."
+      }
     },
     {
       "id": "S185",
@@ -27406,42 +27650,66 @@
       "flowId": "F52",
       "screenId": "S166",
       "png": "medium/flows/Logging in/screens/01_sc_d55739aa2ac1495da026006235e7c0a7.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 로그인 수단 선택 — 로그인 시작<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 로그인 수단 선택 — 로그인 시작<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인."
+      }
     },
     {
       "id": "T-F52-02",
       "flowId": "F52",
       "screenId": "S182",
       "png": "medium/flows/Logging in/screens/02_sc_e4d414380a1047a2b7970cf7869a0866.png",
-      "acceptance": "가입 공급자 선택 → 로그인 수단 선택. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 로그인 빈 폼 — 이메일 입력 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "가입 공급자 선택 → 로그인 수단 선택. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 로그인 빈 폼 — 이메일 입력 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "로그인 Google/Facebook/Apple/X/Email 5개 확인. 외부 제공자 화면/실제 OAuth 제외."
+      }
     },
     {
       "id": "T-F52-03",
       "flowId": "F52",
       "screenId": "S171",
       "png": "medium/flows/Logging in/screens/03_sc_da2ab413cfe5481d9abe4f23eeaeb426.png",
-      "acceptance": "로그인 수단 선택 → 이메일 로그인 빈 폼. 현재 관찰값: janedoe@gmail.com 예시 문자열. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 로그인 입력 완료 — 로그인 요청 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "로그인 수단 선택 → 이메일 로그인 빈 폼. 현재 관찰값: janedoe@gmail.com 예시 문자열. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 로그인 입력 완료 — 로그인 요청 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "빈 로그인 이메일·녹색 Continue·실제 제출 비활성·뒤로 확인."
+      }
     },
     {
       "id": "T-F52-04",
       "flowId": "F52",
       "screenId": "S024",
       "png": "medium/flows/Logging in/screens/04_sc_1d3dc01005c343c18427fe2c199e4075.png",
-      "acceptance": "이메일 로그인 빈 폼 → 이메일 로그인 입력 완료. 현재 관찰값: 샘플 계정 이메일 입력. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 인증 코드 입력 대기 — 코드 미입력 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "이메일 로그인 빈 폼 → 이메일 로그인 입력 완료. 현재 관찰값: 샘플 계정 이메일 입력. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 인증 코드 입력 대기 — 코드 미입력 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "mock A/B 이메일 입력·검증·실패 입력 보존·계속·뒤로 확인. 실제 메일/소유권 검증 없음."
+      }
     },
     {
       "id": "T-F52-05",
       "flowId": "F52",
       "screenId": "S013",
       "png": "medium/flows/Logging in/screens/05_sc_10e0a1c6f1154b3b85f8d5ed18b692d7.png",
-      "acceptance": "이메일 로그인 입력 완료 → 이메일 인증 코드 입력 대기. 현재 관찰값: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 로그인 인증 코드 입력 — 이메일 코드 검증 준비<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "이메일 로그인 입력 완료 → 이메일 인증 코드 입력 대기. 현재 관찰값: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 로그인 인증 코드 입력 — 이메일 코드 검증 준비<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "빈 6칸·Validate 비활성·Resend·뒤로/X 확인. 원본 sign up 공용 캡처와 런타임 모드 문구 구분."
+      }
     },
     {
       "id": "T-F52-06",
       "flowId": "F52",
       "screenId": "S134",
       "png": "medium/flows/Logging in/screens/06_sc_bc8c0aff71644874a42b97e6c7fd4ce2.png",
-      "acceptance": "이메일 인증 코드 입력 대기 → 로그인 인증 코드 입력. 현재 관찰값: 6자리 코드 채워짐. 인증값은 문서에 재기록하지 않음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다."
+      "acceptance": "이메일 인증 코드 입력 대기 → 로그인 인증 코드 입력. 현재 관찰값: 6자리 코드 채워짐. 인증값은 문서에 재기록하지 않음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 공유된 빈 코드 캡처는to sign up, 채워진 로그인 캡처는to sign in이다. fixture별 문구 차이와 런타임 인증 정책을 구분한다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "로그인 코드 sign in·입력/삭제/붙여넣기·Validate·원래 개인 진입 복귀 확인. 자동 개인 행동 재실행 없음."
+      }
     },
     {
       "id": "T-F52-07",
@@ -27455,77 +27723,121 @@
       "flowId": "F53",
       "screenId": "S043",
       "png": "medium/flows/Onboarding/screens/01_sc_39bd15e8585d404daa48b34a448b0e32.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "원본 PNG 직접 확인. JS 홈 진입은 native splash와 다름. splash 미구현·18 자산/구현 및21 실제 cold start 검증 대기."
+      }
     },
     {
       "id": "T-F53-02",
       "flowId": "F53",
       "screenId": "S166",
       "png": "medium/flows/Onboarding/screens/02_sc_d55739aa2ac1495da026006235e7c0a7.png",
-      "acceptance": "브랜드 시작 화면 → 가입 공급자 선택. 현재 관찰값: 직접 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 가입 기본 폼 — 빈 이메일 가입 폼이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "브랜드 시작 화면 → 가입 공급자 선택. 현재 관찰값: 직접 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 가입 기본 폼 — 빈 이메일 가입 폼이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인."
+      }
     },
     {
       "id": "T-F53-03",
       "flowId": "F53",
       "screenId": "S117",
       "png": "medium/flows/Onboarding/screens/03_sc_a4438be77c814444b7f0c005ee44e8b6.png",
-      "acceptance": "가입 공급자 선택 → 이메일 가입 기본 폼. 현재 관찰값: Your full name과 Your email에 예시 placeholder가 보이며 비밀번호 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이름과 이메일 입력 완료 — 입력 후 제출 전 캡처다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "가입 공급자 선택 → 이메일 가입 기본 폼. 현재 관찰값: Your full name과 Your email에 예시 placeholder가 보이며 비밀번호 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이름과 이메일 입력 완료 — 입력 후 제출 전 캡처다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "빈 가입 폼의 녹색 버튼 유지, 유효 제출은 별도 검증. 누락 Terms/Privacy를 기존 안내 화면에 연결."
+      }
     },
     {
       "id": "T-F53-04",
       "flowId": "F53",
       "screenId": "S054",
       "png": "medium/flows/Onboarding/screens/04_sc_4510def6bbb1459ab0b5f18d07b8427e.png",
-      "acceptance": "이메일 가입 기본 폼 → 이름과 이메일 입력 완료. 현재 관찰값: Alex Smith와 이메일 샘플이 채워졌다. 비밀번호 입력은 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 인증 코드 입력 대기 — 코드 미입력 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "이메일 가입 기본 폼 → 이름과 이메일 입력 완료. 현재 관찰값: Alex Smith와 이메일 샘플이 채워졌다. 비밀번호 입력은 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이메일 인증 코드 입력 대기 — 코드 미입력 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "이름/이메일 입력과 약관 왕복, 오류 시 보존·수정·재시도 확인. 예시 이름 제한은 기존 mock."
+      }
     },
     {
       "id": "T-F53-05",
       "flowId": "F53",
       "screenId": "S013",
       "png": "medium/flows/Onboarding/screens/05_sc_10e0a1c6f1154b3b85f8d5ed18b692d7.png",
-      "acceptance": "이름과 이메일 입력 완료 → 이메일 인증 코드 입력 대기. 현재 관찰값: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 가입 인증 코드 입력 완료 — 입력 완성에 따른 제출 가능 표현이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "이름과 이메일 입력 완료 → 이메일 인증 코드 입력 대기. 현재 관찰값: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 가입 인증 코드 입력 완료 — 입력 완성에 따른 제출 가능 표현이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "빈 6칸·Validate 비활성·Resend·뒤로/X 확인. 원본 sign up 공용 캡처와 런타임 모드 문구 구분."
+      }
     },
     {
       "id": "T-F53-06",
       "flowId": "F53",
       "screenId": "S064",
       "png": "medium/flows/Onboarding/screens/06_sc_55d8ee5f826740d69ebd2e163aaa6486.png",
-      "acceptance": "이메일 인증 코드 입력 대기 → 가입 인증 코드 입력 완료. 현재 관찰값: 6자리 숫자가 입력돼 있다. 실제 인증 값은 문서에 재기록하지 않는다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 새 읽기 경험 소개 — 앱 업데이트와 팔로잉 재검토를 안내한다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "이메일 인증 코드 입력 대기 → 가입 인증 코드 입력 완료. 현재 관찰값: 6자리 숫자가 입력돼 있다. 실제 인증 값은 문서에 재기록하지 않는다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 새 읽기 경험 소개 — 앱 업데이트와 팔로잉 재검토를 안내한다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "가입 코드 입력·오입력·재전송·Validate·신규 A 온보딩 연결 확인. 메일 발송/실제 인증 없음."
+      }
     },
     {
       "id": "T-F53-07",
       "flowId": "F53",
       "screenId": "S041",
       "png": "medium/flows/Onboarding/screens/07_sc_3795c955a89d404c85112e637857e74a.png",
-      "acceptance": "가입 인증 코드 입력 완료 → 새 읽기 경험 소개. 현재 관찰값: 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심 주제 미선택 — 최소 선택 개수를 안내하는 초기 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "가입 인증 코드 입력 완료 → 새 읽기 경험 소개. 현재 관찰값: 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심 주제 미선택 — 최소 선택 개수를 안내하는 초기 상태다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "새 경험 안내·Continue·기존 자산 7개 묶음 확인. 원본 7인 이미지/정확 배치와 다름; 모든 계정 공통 단계로 확정하지 않음."
+      }
     },
     {
       "id": "T-F53-08",
       "flowId": "F53",
       "screenId": "S067",
       "png": "medium/flows/Onboarding/screens/08_sc_5843ae43bf154aadb5507c6fa51d150d.png",
-      "acceptance": "새 읽기 경험 소개 → 관심 주제 미선택. 현재 관찰값: 주제 3개 이상 선택 안내가 있고 보이는 칩은 미선택이다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심 주제 다중 선택 — 5개 주제 선택과 진행 버튼 변화가 관찰된다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "새 읽기 경험 소개 → 관심 주제 미선택. 현재 관찰값: 주제 3개 이상 선택 안내가 있고 보이는 칩은 미선택이다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심 주제 다중 선택 — 5개 주제 선택과 진행 버튼 변화가 관찰된다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "최소3개 안내·0/1/2 비활성/3 활성·선택 초안·뒤로·확정 재개 확인."
+      }
     },
     {
       "id": "T-F53-09",
       "flowId": "F53",
       "screenId": "S006",
       "png": "medium/flows/Onboarding/screens/09_sc_05f2a886f5464a728dd61a6291707a3d.png",
-      "acceptance": "관심 주제 미선택 → 관심 주제 다중 선택. 현재 관찰값: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심사 기반 작가·발행물 추천 — 팔로우 전 추천 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "관심 주제 미선택 → 관심 주제 다중 선택. 현재 관찰값: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 관심사 기반 작가·발행물 추천 — 팔로우 전 추천 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "관찰된 5개 선택과 0/1/2/3개 경계, 해제·재선택·진행을 확인. 추가 토픽은 기존 mock."
+      }
     },
     {
       "id": "T-F53-10",
       "flowId": "F53",
       "screenId": "S035",
       "png": "medium/flows/Onboarding/screens/10_sc_301ef788e5514bb5b8e9c1fc9afcfa61.png",
-      "acceptance": "관심 주제 다중 선택 → 관심사 기반 작가·발행물 추천. 현재 관찰값: 별도 입력란 없음. 작가와 Publication이 함께 표시됨. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 알림 활성화 안내 — 알림 권한 요청 전 앱 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "관심 주제 다중 선택 → 관심사 기반 작가·발행물 추천. 현재 관찰값: 별도 입력란 없음. 작가와 Publication이 함께 표시됨. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 알림 활성화 안내 — 알림 권한 요청 전 앱 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "추천 4항목 순서/소개 보완, 동적 B/Publication ID 분리·Follow/Unfollow·실패 재시도·관리 목록 연결. 아바타 2개 미확보."
+      }
     },
     {
       "id": "T-F53-11",
       "flowId": "F53",
       "screenId": "S184",
       "png": "medium/flows/Onboarding/screens/11_sc_e9f4c426cfb3426d9ca05121dea00ce3.png",
-      "acceptance": "관심사 기반 작가·발행물 추천 → 알림 활성화 안내. 현재 관찰값: 입력란 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 월간 멤버십 선택 — 월간 플랜 소개와 혜택 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "관심사 기반 작가·발행물 추천 → 알림 활성화 안내. 현재 관찰값: 입력란 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 월간 멤버십 선택 — 월간 플랜 소개와 혜택 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "Enable/Skip·미지원 오류·다음 멤버십/홈 연결 확인. mock 거절·실패·늦은 응답/A→B→A는 자동 navigation 검사; 실제 OS 권한 대기."
+      }
     },
     {
       "id": "T-F53-12",
@@ -27791,14 +28103,22 @@
       "flowId": "F61",
       "screenId": "S034",
       "png": "medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png",
-      "acceptance": "설정 하단 → 로그아웃 확인. 현재 관찰값: 로그아웃 의사 확인. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "설정 하단 → 로그아웃 확인. 현재 관찰값: 로그아웃 의사 확인. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 가입 공급자 선택 — 신규 가입과 기존 사용자 로그인을 구분하는 진입 화면이다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "Settings→Sign out→Cancel/Confirm·실패·재시도→가입 화면 확인. 메모리 계정 경계 유지."
+      }
     },
     {
       "id": "T-F61-03",
       "flowId": "F61",
       "screenId": "S166",
       "png": "medium/flows/Profile/Settings/Logging out/screens/03_sc_d55739aa2ac1495da026006235e7c0a7.png",
-      "acceptance": "로그아웃 확인 → 가입 공급자 선택. 현재 관찰값: 직접 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "로그아웃 확인 → 가입 공급자 선택. 현재 관찰값: 직접 입력 필드는 없다.. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#screens",
+        "status": "가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인."
+      }
     },
     {
       "id": "T-F62-01",
@@ -27966,7 +28286,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S007",
@@ -28067,7 +28392,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S014",
@@ -28177,7 +28507,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S025",
@@ -28283,7 +28618,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S035",
@@ -28291,7 +28631,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S036",
@@ -28367,7 +28712,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S042",
@@ -28386,7 +28736,12 @@
         18,
         21
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "18/21/14: S043 시작"
+      }
     },
     {
       "id": "U-S044",
@@ -28519,7 +28874,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S055",
@@ -28636,7 +28996,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S065",
@@ -28670,7 +29035,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S068",
@@ -29293,7 +29663,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S118",
@@ -29502,7 +29877,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S135",
@@ -29875,7 +30255,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S167",
@@ -29925,7 +30310,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S172",
@@ -30047,7 +30437,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S183",
@@ -30068,7 +30463,12 @@
       "batches": [
         14
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-S185",
@@ -31052,7 +31452,12 @@
         14,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-F53",
@@ -31064,7 +31469,12 @@
         19,
         21
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-F54",
@@ -31134,7 +31544,12 @@
         14,
         18
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#remaining",
+        "status": "원본 미확인 유지; mock 정책/자동 검사/실제 웹을 원본 실행 근거로 승격하지 않음",
+        "owner": "14/Q04/Q06/22 및 관련 native21"
+      }
     },
     {
       "id": "U-F62",
@@ -31223,6 +31638,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31281,6 +31700,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31339,6 +31762,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31452,6 +31879,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31860,6 +32291,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32003,7 +32438,11 @@
       ],
       "batches": [
         14
-      ]
+      ],
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C47",
@@ -32013,7 +32452,11 @@
       ],
       "batches": [
         14
-      ]
+      ],
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C48",
@@ -32023,7 +32466,11 @@
       ],
       "batches": [
         14
-      ]
+      ],
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C49",
@@ -32033,7 +32480,11 @@
       ],
       "batches": [
         14
-      ]
+      ],
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C50",
@@ -32047,7 +32498,11 @@
         14,
         16,
         19
-      ]
+      ],
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C51",
@@ -32124,6 +32579,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32225,6 +32684,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32283,6 +32746,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32340,6 +32807,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32400,6 +32871,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32512,6 +32987,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32572,6 +33051,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32631,6 +33114,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32732,6 +33219,10 @@
         "scope": "V23;4화면/5단계/32 R·6 U·18 C. 기존 원본/요구/currentEvidence/readiness 보존",
         "verification": "실제 clipboard·권한 거절/재시도·카드 PNG 생성/다운로드 요청·원본 메모리 대조. 현재 자동 검사/실패 이력은 결과 문서 참조",
         "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증"
+      },
+      "parity14Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
+        "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -34728,23 +35219,22 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "batch": 13,
-    "result": "TODO/FE_MEDIUM_PARITY_13_RESULT.md",
-    "status": "공유 보완·실제 웹 부분 검증; 원본/시각/native 잔여로 전체 종료 미충족",
-    "implementation": "웹 복사 성공 판정·공유 focus/source/auth/자격·최신 목록/발행 metadata·이미지 준비/정리·설정 늦은 오류·차단 연결",
-    "verification": "최종 typecheck/lint exit0;전체316 suites/1706 tests 통과(iOS222.225초·act1,Android223.633초·act0). web/iOS/Android 메모리JS 구문 및 iOS/Android Hermes 덤프 통과. 실제 web clipboard/PNG 요청·부분 시각 대조; 파일 완료/native 미검증.",
-    "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증",
-    "artifacts": "tools 생성기 미실행; 기존 추적 문서 수동 갱신. 새 evidence/비교 캡처/로그/manifest 없음. 과거 원본/evidence/readiness 보존",
-    "ownership": "9~12 잔여 기존 담당 유지.13 전체 종료 미충족.14/commit/push/배포 없음",
-    "manualScope": "기존 원본/R/T/U/C/readiness 보존;13 리뷰·실행 상태·존재하는 입력 해시 수동 갱신. 새 shareAdapterWeb.test.ts를 codeInputs에 추가해551→552. 자동 생성기/과거 누락 입력 복원 없음.",
+    "batch": 14,
+    "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md",
+    "status": "mock 기능 보완·자동 검사 통과; 원본/시각/native 잔여",
+    "implementation": "이메일 약관·입력/수명,온보딩 추천 카탈로그/ID·moderation 조회·뒤로/source 경계·관찰된 추천 fixture·현재 카탈로그 밖 관심사 보존·BookmarkNavigation 예약 타이머 제어",
+    "verification": "Node24.18.0 타입/lint 종료0. 최종 전체 iOS158 suites/861 tests(237.878초), Android158 suites/861 tests(237.762초) 통과; 실패/skip/act 경고0. 실제8081 부분 비교·JS 구문/Hermes 컴파일 통과. native 미실행. 실패/중단/재실행 이력은 결과 문서 validation 참조.",
+    "remaining": "S043은18/21, 19 U·원본 폰트/아바타/정확 배치·실제 native/OS/IME 대기",
+    "ownership": "9~13 잔여는 기존 담당.14 전체 동일성 완료 아님.15/commit/push/deploy 없음",
+    "artifacts": "tools 생성기/스크립트/evidence/비교 캡처/검증 로그/manifest 생성 없음",
+    "manualScope": "기존16 S·19 T·19 U·19 C에14 review 추가, batch14와문서 상태·존재하는입력/codeInputs 해시 수동 갱신. 원본 관찰/ID/PNG/과거증거/readiness 유지. 삭제된4개 자동입력 복원 없음. 기존552 codeInputs 경로 유지.",
     "preCommitReview": {
       "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_13_RESULT.md#pre-commit-review",
-      "finding": "프로필 목록 재조회 실패 중 이전 공유 취소 누락·복사 미지원의 순환 안내 수정; 실제 navigation 회귀 추가",
-      "checks": "typecheck/lint exit0;전체316 suites/1708 tests 통과(iOS232.351초·Android225.906초),실패/미실행/act 경고0.3플랫폼 메모리JS 구문 통과.실제 web clipboard/복귀/320·393 Light·Dark 확인,console 오류0",
-      "history": "소문자 프로젝트 선택 실패·수정 전 RED2·관련58통과/문자열 assertion2실패·명령 중단과 최종 재실행을 결과 문서에 구분.이전 act1 원인 해결 확정 아님",
-      "scope": "사용자 승인37파일 로컬 커밋;push/배포/14 구현 없음",
-      "boundary": "원본·시각·파일 완료/native 잔여와 기존9~12 소유 유지.이 추가 검토에서 Hermes/native 미재실행;새 tools/evidence/캡처/검증 로그/manifest 없음"
+      "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review",
+      "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서의 커밋 요청/과거 미커밋 이력 구분",
+      "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/82 tests(36.694초) 통과·실패/skip/act 경고0; 552 codeInputs 해시 불일치0. 앞선 전체316 suites/1722 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
+      "git": "사용자 요청의 묶음14 36파일 로컬 커밋 범위. 실제 성공/해시는 Git 결과 참조. push/deploy/15 시작 없음",
+      "remaining": "원본/시각·S043/native 잔여 및9~13 소유 유지; 선행 전체 완료 승인 아님"
     }
   },
   "manualUpdateHistory": [
@@ -34859,6 +35349,27 @@
         "checks": "새14 suites/98 tests 109.716초·typecheck/lint 통과; 전체/JS 번들은 미재실행",
         "scope": "사용자 명시적 요청의35파일 커밋·origin main push; 원격 대비 기존 로컬 선행6개 포함",
         "boundary": "기존 원본/시각/실제 웹/기기 잔여 유지;9~12 전체 완료 아님;13/배포 없음"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 13,
+      "result": "TODO/FE_MEDIUM_PARITY_13_RESULT.md",
+      "status": "공유 보완·실제 웹 부분 검증; 원본/시각/native 잔여로 전체 종료 미충족",
+      "implementation": "웹 복사 성공 판정·공유 focus/source/auth/자격·최신 목록/발행 metadata·이미지 준비/정리·설정 늦은 오류·차단 연결",
+      "verification": "최종 typecheck/lint exit0;전체316 suites/1706 tests 통과(iOS222.225초·act1,Android223.633초·act0). web/iOS/Android 메모리JS 구문 및 iOS/Android Hermes 덤프 통과. 실제 web clipboard/PNG 요청·부분 시각 대조; 파일 완료/native 미검증.",
+      "remaining": "원본 자산/서체/정확 배치·6 U·실제 OS 공유/앨범 및 디스크 저장 완료 미검증",
+      "artifacts": "tools 생성기 미실행; 기존 추적 문서 수동 갱신. 새 evidence/비교 캡처/로그/manifest 없음. 과거 원본/evidence/readiness 보존",
+      "ownership": "9~12 잔여 기존 담당 유지.13 전체 종료 미충족.14/commit/push/배포 없음",
+      "manualScope": "기존 원본/R/T/U/C/readiness 보존;13 리뷰·실행 상태·존재하는 입력 해시 수동 갱신. 새 shareAdapterWeb.test.ts를 codeInputs에 추가해551→552. 자동 생성기/과거 누락 입력 복원 없음.",
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_13_RESULT.md#pre-commit-review",
+        "finding": "프로필 목록 재조회 실패 중 이전 공유 취소 누락·복사 미지원의 순환 안내 수정; 실제 navigation 회귀 추가",
+        "checks": "typecheck/lint exit0;전체316 suites/1708 tests 통과(iOS232.351초·Android225.906초),실패/미실행/act 경고0.3플랫폼 메모리JS 구문 통과.실제 web clipboard/복귀/320·393 Light·Dark 확인,console 오류0",
+        "history": "소문자 프로젝트 선택 실패·수정 전 RED2·관련58통과/문자열 assertion2실패·명령 중단과 최종 재실행을 결과 문서에 구분.이전 act1 원인 해결 확정 아님",
+        "scope": "사용자 승인37파일 로컬 커밋;push/배포/14 구현 없음",
+        "boundary": "원본·시각·파일 완료/native 잔여와 기존9~12 소유 유지.이 추가 검토에서 Hermes/native 미재실행;새 tools/evidence/캡처/검증 로그/manifest 없음"
       }
     }
   ]

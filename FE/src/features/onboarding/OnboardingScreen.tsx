@@ -1,5 +1,5 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type RefObject } from 'react';
 import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -9,7 +9,7 @@ import { ContentStatus } from '../../shared/ui/ContentStatus';
 import { IconButton } from '../../shared/ui/IconButton';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { MembershipPanel } from '../membership/MembershipSheet';
-import { useDirectory } from '../community/DirectoryProvider';
+import { useIdentityCatalog } from '../community/useIdentityCatalog';
 import { FollowControl } from '../community/FollowControl';
 import { useRelationships } from '../community/RelationshipProvider';
 import { followKey } from '../community/types';
@@ -27,15 +27,15 @@ function previousStep(record: OnboardingRecord): OnboardingStep | undefined {
 type OnboardingScreenProps = { session: OnboardingSession; permission: NotificationPermissionSource };
 export function OnboardingScreen(props: OnboardingScreenProps) {
   const [membership, setMembership] = useState(false);
+  const backAction = useRef<(() => void) | null>(null);
   const styles = useThemeStyles(createStyles);
   const state = useSyncExternalStore(props.session.subscribe, props.session.getSnapshot, props.session.getSnapshot);
   useEffect(() => () => { requestAnimationFrame(restoreModalFocus); }, []);
   return (
     <Modal animationType="fade" accessibilityLabel="관심사 온보딩" onRequestClose={() => {
       if (membership) { setMembership(false); return; }
-      const back = state.record && previousStep(state.record);
-      if (back && !state.busy && state.error !== 'response-lost') void props.session.save(back);
-      else if (!state.busy) props.session.close();
+      if (backAction.current) backAction.current();
+      else props.session.close();
     }}>
       <SafeAreaView style={styles.screen}>
         {state.status !== 'ready' || !state.record ? (
@@ -47,17 +47,17 @@ export function OnboardingScreen(props: OnboardingScreenProps) {
           </View>
         ) : membership && state.record.step === 'membership'
           ? <MembershipPanel embedded onClose={() => setMembership(false)} onComplete={() => { setMembership(false); void props.session.save('complete'); }} />
-          : <OnboardingFlow key={state.record.step} {...props} onOpenMembership={() => setMembership(true)} />}
+          : <OnboardingFlow key={state.record.step} {...props} backActionRef={backAction} onOpenMembership={() => setMembership(true)} />}
       </SafeAreaView>
     </Modal>
   );
 }
-function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScreenProps & { onOpenMembership: () => void }) {
+function OnboardingFlow({ session, permission, onOpenMembership, backActionRef }: OnboardingScreenProps & { onOpenMembership: () => void; backActionRef: RefObject<(() => void) | null> }) {
   const styles = useThemeStyles(createStyles);
   const state = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
   const record = state.record;
   const topics = useTopics();
-  const directory = useDirectory();
+  const directory = useIdentityCatalog();
   const relationships = useRelationships();
   const moderation = useModeration();
   const [selected, setSelected] = useState(() => relationships.state?.relationships
@@ -82,6 +82,16 @@ function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScr
     return () => lifetime.current.abort();
   }, []);
   const current = () => session.isCurrent() && !lifetime.current.signal.aborted;
+  useEffect(() => {
+    // OS 뒤로 가기도 버튼과 동일하게 로컬 관계 저장·권한 요청 중에는 단계를 바꾸지 않는다.
+    backActionRef.current = () => {
+      const snapshot = session.getSnapshot();
+      if (!session.isCurrent() || operationPending.current || snapshot.busy || snapshot.error === 'response-lost') return;
+      const back = snapshot.record && previousStep(snapshot.record);
+      if (back) void session.save(back); else session.close();
+    };
+    return () => { backActionRef.current = null; };
+  }, [backActionRef, session]);
   useEffect(() => {
     if (state.record?.step !== 'notifications' || !permission.refresh) return;
     let active = true;
@@ -114,7 +124,9 @@ function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScr
     operationPending.current = true;
     setWorking(true); setError(null);
     const before = relationships.store.getSnapshot().relationships;
-    const ids = [...new Set([...before.filter(item => item.target.kind === 'topic').map(item => item.target.id), ...selectedIds])];
+    // 현재 화면에서 선택할 수 없는 토픽의 확정 관계는 암묵적으로 해제하지 않는다.
+    const ids = [...new Set([...before.filter(item => item.target.kind === 'topic'
+      && catalog.some(topic => topic.id === item.target.id)).map(item => item.target.id), ...selectedIds])];
     for (const id of ids) {
       if (!current()) return;
       const target = { kind: 'topic' as const, id };
@@ -153,7 +165,11 @@ function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScr
     }
   }
   const locked = busy || uncertain;
-  const entries = (directory.state.data?.identities ?? []).filter(item => item.id !== record.userId
+  const recommendationsLoading = directory.state.status === 'loading' || moderation.state?.status === 'loading';
+  const recommendationsError = directory.state.status === 'error' || moderation.state?.readError;
+  const recommendationsReady = !recommendationsLoading && !recommendationsError;
+  const retryRecommendations = () => { directory.retry(); void moderation.store?.reload(); };
+  const entries = (directory.state.data?.identities ?? []).filter(item => !(item.kind === 'writer' && item.id === record.userId)
     && !(item.kind === 'writer' && moderation.state?.value?.blocked.includes(item.id))
     && !moderation.state?.value?.muted.some(target => followKey(target) === followKey(item)));
   const preferred = ['iris', 'write-catalyst', 'geeksociety', 'level-up-coding'];
@@ -171,32 +187,32 @@ function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScr
   return <>
     <View style={styles.header}>
       <IconButton icon="back" label="온보딩 이전 단계" disabled={busy || uncertain}
-        onPress={() => { const back = previousStep(record); if (back) void session.save(back); else session.close(); }} />
+        onPress={() => backActionRef.current?.()} />
       <Text style={styles.headerTitle}>Welcome to Medium</Text>
       <IconButton icon="close" label="온보딩 닫기" onPress={session.close} />
     </View>
-    {step === 'following' ? <FlatList data={directory.state.status === 'ready' ? recommendations : []}
+    {step === 'following' ? <FlatList data={recommendationsReady ? recommendations : []}
       keyExtractor={followKey} contentContainerStyle={styles.followList}
       ListHeaderComponent={<><Text role="heading" style={styles.title}>Recommended for you.</Text>
         <Text style={styles.description}>Here are some top writers and publications based on your interests.</Text>{feedback}</>}
       renderItem={({ item }) => <View style={styles.followRow}>
-        {item.avatar ? <Image source={item.avatar} style={styles.avatar} accessible={false} />
-          : <View style={styles.avatar}><Text style={styles.name}>{item.name.slice(0, 1)}</Text></View>}
+        {item.avatar ? <Image source={item.avatar} style={[styles.avatar, item.kind === 'publication' && styles.publicationAvatar]} accessible={false} />
+          : <View style={[styles.avatar, item.kind === 'publication' && styles.publicationAvatar]}><Text style={styles.name}>{item.name.slice(0, 1)}</Text></View>}
         <View style={styles.identity}><Text style={styles.name}>{item.name}</Text>
           {item.kind === 'publication' && <Text style={styles.detail}>Publication</Text>}
           <Text style={styles.detail} numberOfLines={3}>{item.bio}</Text></View>
         <FollowControl target={{ kind: item.kind, id: item.id }} name={item.name} />
       </View>}
-      ListEmptyComponent={<ContentStatus loading={directory.state.status === 'loading'}
-        error={directory.state.status === 'error'} message={directory.state.status === 'loading'
-          ? '추천을 불러오고 있어요.' : directory.state.status === 'error' ? '추천을 불러오지 못했어요.' : '추천할 항목이 없어요. 팔로우 없이 계속할 수 있어요.'}
-        actionLabel="추천 다시 불러오기" onAction={directory.retry} />} /> :
+      ListEmptyComponent={<ContentStatus loading={Boolean(recommendationsLoading)}
+        error={Boolean(recommendationsError)} message={recommendationsLoading
+          ? '추천을 불러오고 있어요.' : recommendationsError ? '추천을 불러오지 못했어요.' : '추천할 항목이 없어요. 팔로우 없이 계속할 수 있어요.'}
+        actionLabel="추천 다시 불러오기" onAction={retryRecommendations} />} /> :
       <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={[styles.content,
         (step === 'welcome' || step === 'notifications') && styles.center]}>
         {step === 'welcome' && <>
           <Text role="heading" style={styles.welcome}>Welcome to{ '\n' }your new{ '\n' }experience.</Text>
           <Text style={styles.description}>We’ve updated our app. Let’s review who you’re following to improve your home screen and recommendations.</Text>
-          <View style={styles.avatars}>{recommendations.slice(0, 7).map(item => item.avatar
+          <View style={styles.avatars}>{(recommendationsReady ? recommendations : []).filter(item => item.avatar).slice(0, 7).map(item => item.avatar
             ? <Image key={followKey(item)} source={item.avatar} style={styles.welcomeAvatar} accessible={false} /> : null)}</View>
         </>}
         {step === 'interests' && <>
@@ -227,7 +243,7 @@ function OnboardingFlow({ session, permission, onOpenMembership }: OnboardingScr
         </>}
         {feedback}
       </ScrollView>}
-    <View style={styles.footer}>
+    <View style={[styles.footer, step === 'following' && styles.followFooter]}>
       {step === 'welcome' && <OnboardingAction label="온보딩 계속" caption="Continue" disabled={locked} onPress={() => { void session.save('interests'); }} />}
       {step === 'interests' && <OnboardingAction label="관심사 다음" caption="Next" onPress={() => { void saveInterests(); }}
         disabled={locked || selectedIds.length < 3 || topicsLoading || Boolean(topicsError)} />}
@@ -271,6 +287,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   chipText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   selected: { backgroundColor: colors.green, borderColor: colors.green },
   footer: { paddingHorizontal: 24, paddingTop: 12, paddingBottom: 24, backgroundColor: colors.background },
+  followFooter: { borderTopWidth: 1, borderTopColor: colors.border },
   action: { minHeight: 48, borderRadius: 24, backgroundColor: colors.green, alignItems: 'center', justifyContent: 'center', padding: 12 },
   actionText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.onInverse },
   secondaryAction: { minHeight: 48, justifyContent: 'center', alignItems: 'center', padding: 12, backgroundColor: 'transparent' },
@@ -282,9 +299,10 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   followList: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 16 },
   followRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, paddingVertical: 20 },
   avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.surface, alignItems: 'center', justifyContent: 'center' },
+  publicationAvatar: { borderRadius: 4 },
   identity: { flex: 1 },
   name: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.text, fontWeight: '600' },
-  detail: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText, marginTop: 4 },
+  detail: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, color: colors.secondaryText, marginTop: 4 },
   membership: { fontFamily: fonts.serif, fontSize: 32, lineHeight: 36, color: colors.text, marginVertical: 24 },
   membershipNotice: { marginTop: 24, padding: 16, backgroundColor: colors.surface },
 });

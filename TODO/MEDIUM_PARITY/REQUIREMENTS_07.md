@@ -1,5 +1,9 @@
 # 화면별 원본 요구사항
 
+**Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
+
+**Parity14 최초 구현·검증(2026-11-24):** [구현·이번 검사·원본 차이·담당](../FE_MEDIUM_PARITY_14_RESULT.md). V29/V30의16화면·99 R·19 T/U/C를 대조하고 이메일 약관/수명·추천 카탈로그/조회·온보딩 뒤로/source 경계를 보완했다. 타입/lint·최종 전체316 suites/1722 tests 통과, 이번 act 경고0. 실제8081 부분 대조와 자동 검증을 구분하며 S043은18/21, 원본 자산/시각/OS 대기는14 및 관련 담당에 유지한다.9~13의 잔여 이전·전체 종료 승인은 아니다. 커밋·push·배포·15 진행 없음.
+
 [검토 요약](../FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](../FE_MEDIUM_PARITY_BACKLOG.md) · [계약 원문](CONTRACTS.md) · [흐름 맥락](FLOWS.md) · [미확인 항목](UNKNOWN.md)
 
 이번 목록은 원본에서 추출한 **관찰 요구사항**이다. L=배치, D=표시값/입력, S=상태, C=컨트롤, V=PNG 추가 세부 관찰이다. L/D/S는 원문 한 문장의 모든 요소를 포함하는 묶음이며 단일 버튼 수가 아니다. C는 명시적으로 나눈 조작점이다. 이 숫자를 기능 완성률의 분모로 사용하지 않는다.
@@ -538,6 +542,8 @@ FE 조사 경로: [DownloadControl.tsx](<../../FE/src/features/downloads/Downloa
 
 ## S166 — 가입 공급자 선택
 
+**Parity14 개별 판정:** [S166 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인. 원본 요구·readiness는 유지한다.
+
 안정 원본 ID: `sc_d55739aa2ac1495da026006235e7c0a7` · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>):58 · [원본 PNG](<../../medium/flows/Logging in/screens/01_sc_d55739aa2ac1495da026006235e7c0a7.png>)
 
 흐름 맥락: [F52/01](FLOWS.md#f52), [F53/02](FLOWS.md#f53), [F61/03](FLOWS.md#f61)
@@ -718,6 +724,8 @@ FE 조사 경로: [ModerationDialogs.tsx](<../../FE/src/features/moderation/Mode
 <a id="s171"></a>
 
 ## S171 — 이메일 로그인 빈 폼
+
+**Parity14 개별 판정:** [S171 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 빈 로그인 이메일·녹색 Continue·실제 제출 비활성·뒤로 확인. 원본 요구·readiness는 유지한다.
 
 안정 원본 ID: `sc_da2ab413cfe5481d9abe4f23eeaeb426` · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>):119 · [원본 PNG](<../../medium/flows/Logging in/screens/03_sc_da2ab413cfe5481d9abe4f23eeaeb426.png>)
 

@@ -1,5 +1,9 @@
 # Q12 — 자체 UI의 노출과 원본 비교 처리
 
+**Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
+
+**Parity14 최초 구현·검증(2026-11-24):** [구현·이번 검사·원본 차이·담당](../FE_MEDIUM_PARITY_14_RESULT.md). V29/V30의16화면·99 R·19 T/U/C를 대조하고 이메일 약관/수명·추천 카탈로그/조회·온보딩 뒤로/source 경계를 보완했다. 타입/lint·최종 전체316 suites/1722 tests 통과, 이번 act 경고0. 실제8081 부분 대조와 자동 검증을 구분하며 S043은18/21, 원본 자산/시각/OS 대기는14 및 관련 담당에 유지한다.9~13의 잔여 이전·전체 종료 승인은 아니다. 커밋·push·배포·15 진행 없음.
+
 **Parity13 현재 판정(2026-11-24):** [근거·검증·담당](../FE_MEDIUM_PARITY_13_RESULT.md#implementation). kostolany.invalid·외부 미연결 안내,10개 자체 팔레트/이동 버튼,Friend 모의 자격과 web Image download started를 유지한다. 실패/미지원·권한 안내와 긴 카드 스크롤도 자체 정책이다. 원본의 성공 토스트만으로 실제 발급/저장/전송을 확정하지 않는다.
 
 **Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#comparison). 미니 · Mock, 확장 Mock preview · no audio, 취소X·오류/retry·AirPlay 불가 안내를 자체 UI로 유지했다. 비교를 위해 숨기지 않는다.48dp 터치와 glyph·시트 inset 보완은 새 렌더 미확인, Q12 전체 완료 아님.

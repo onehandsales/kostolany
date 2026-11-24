@@ -1,5 +1,9 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
+
+**Parity14 최초 구현·검증(2026-11-24):** [구현·이번 검사·원본 차이·담당](../FE_MEDIUM_PARITY_14_RESULT.md). V29/V30의16화면·99 R·19 T/U/C를 대조하고 이메일 약관/수명·추천 카탈로그/조회·온보딩 뒤로/source 경계를 보완했다. 타입/lint·최종 전체316 suites/1722 tests 통과, 이번 act 경고0. 실제8081 부분 대조와 자동 검증을 구분하며 S043은18/21, 원본 자산/시각/OS 대기는14 및 관련 담당에 유지한다.9~13의 잔여 이전·전체 종료 승인은 아니다. 커밋·push·배포·15 진행 없음.
+
 **Parity13 커밋 전 추가 검토(2026-11-24):** [추가2건 수정·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_13_RESULT.md#pre-commit-review). 프로필 목록 재조회 실패 중 공유와 복사 미지원 안내를 보완했다. 타입/lint·전체316 suites/1708 tests 통과, 이번 act 경고0. 앞선1706건/경고1건 이력과 구분하며 과거 경고의 원인 해결을 확정하지 않는다. 사용자 요청에 따른37파일 로컬 커밋 범위이며 push·배포·14 구현은 제외한다.9~13의 원본/시각/native 잔여는 기존 담당에 유지한다. 아래 미커밋 문장은 당시 이력이다.
 
 **Parity13 최초 구현·검증(2026-11-24):** [공유 보완·현재 검사·잔여](../FE_MEDIUM_PARITY_13_RESULT.md). V23의4화면/5단계/32 R·6 U·18 C를 대조하고 공유 수명·권한·최신 데이터·web 복사 판정을 수정했다. 타입/lint·전체316 suites/1706 tests 통과(iOS act 경고1건)와 실제8081 clipboard/카드 PNG 생성·다운로드 요청을 확인했다. native/시각은 별도 잔여다. 원본 자산/미확인·실제 OS/파일 저장 잔여로13 전체 동일성 완료가 아니다.9~12 잔여는 기존 소유로 유지한다. 이번 시작 HEAD는1ac2baf이고 이전 미착수/미커밋/push 기록은 각 당시 이력이다. 이번 커밋/push/배포·14 시작 없음.
@@ -138,6 +142,8 @@
 <a id="s006"></a>
 
 ## S006 — 관심 주제 다중 선택
+
+**Parity14 개별 판정:** [S006 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 관찰된 5개 선택과 0/1/2/3개 경계, 해제·재선택·진행을 확인. 추가 토픽은 기존 mock. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Onboarding/screens/09_sc_05f2a886f5464a728dd61a6291707a3d.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s006>) · `sc_05f2a886f5464a728dd61a6291707a3d`
 
@@ -295,6 +301,8 @@
 <a id="s013"></a>
 
 ## S013 — 이메일 인증 코드 입력 대기
+
+**Parity14 개별 판정:** [S013 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 빈 6칸·Validate 비활성·Resend·뒤로/X 확인. 원본 sign up 공용 캡처와 런타임 모드 문구 구분. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Logging in/screens/05_sc_10e0a1c6f1154b3b85f8d5ed18b692d7.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s013>) · `sc_10e0a1c6f1154b3b85f8d5ed18b692d7`
 
@@ -536,6 +544,8 @@
 
 ## S024 — 이메일 로그인 입력 완료
 
+**Parity14 개별 판정:** [S024 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). mock A/B 이메일 입력·검증·실패 입력 보존·계속·뒤로 확인. 실제 메일/소유권 검증 없음. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Logging in/screens/04_sc_1d3dc01005c343c18427fe2c199e4075.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s024>) · `sc_1d3dc01005c343c18427fe2c199e4075`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -751,6 +761,8 @@
 
 ## S034 — 로그아웃 확인
 
+**Parity14 개별 판정:** [S034 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). Settings→Sign out→Cancel/Confirm·실패·재시도→가입 화면 확인. 메모리 계정 경계 유지. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png>) · [원본 분석](<../../medium/flows/Profile/Settings/Logging out/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s034>) · `sc_2d1afd7a02a347868564f9757753d077`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -771,6 +783,8 @@
 <a id="s035"></a>
 
 ## S035 — 관심사 기반 작가·발행물 추천
+
+**Parity14 개별 판정:** [S035 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 추천 4항목 순서/소개 보완, 동적 B/Publication ID 분리·Follow/Unfollow·실패 재시도·관리 목록 연결. 아바타 2개 미확보. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Onboarding/screens/10_sc_301ef788e5514bb5b8e9c1fc9afcfa61.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s035>) · `sc_301ef788e5514bb5b8e9c1fc9afcfa61`
 
@@ -905,6 +919,8 @@
 
 ## S041 — 새 읽기 경험 소개
 
+**Parity14 개별 판정:** [S041 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 새 경험 안내·Continue·기존 자산 7개 묶음 확인. 원본 7인 이미지/정확 배치와 다름; 모든 계정 공통 단계로 확정하지 않음. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Onboarding/screens/07_sc_3795c955a89d404c85112e637857e74a.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s041>) · `sc_3795c955a89d404c85112e637857e74a`
 
 - 담당: V30 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -946,6 +962,8 @@
 <a id="s043"></a>
 
 ## S043 — 브랜드 시작 화면
+
+**Parity14 개별 판정:** [S043 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 원본 PNG 직접 확인. JS 홈 진입은 native splash와 다름. splash 미구현·18 자산/구현 및21 실제 cold start 검증 대기. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Onboarding/screens/01_sc_39bd15e8585d404daa48b34a448b0e32.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s043>) · `sc_39bd15e8585d404daa48b34a448b0e32`
 
@@ -1185,6 +1203,8 @@
 
 ## S054 — 이름과 이메일 입력 완료
 
+**Parity14 개별 판정:** [S054 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 이름/이메일 입력과 약관 왕복, 오류 시 보존·수정·재시도 확인. 예시 이름 제한은 기존 mock. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Onboarding/screens/04_sc_4510def6bbb1459ab0b5f18d07b8427e.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s054>) · `sc_4510def6bbb1459ab0b5f18d07b8427e`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1403,6 +1423,8 @@
 
 ## S064 — 가입 인증 코드 입력 완료
 
+**Parity14 개별 판정:** [S064 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 가입 코드 입력·오입력·재전송·Validate·신규 A 온보딩 연결 확인. 메일 발송/실제 인증 없음. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Onboarding/screens/06_sc_55d8ee5f826740d69ebd2e163aaa6486.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s064>) · `sc_55d8ee5f826740d69ebd2e163aaa6486`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1467,6 +1489,8 @@
 <a id="s067"></a>
 
 ## S067 — 관심 주제 미선택
+
+**Parity14 개별 판정:** [S067 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 최소3개 안내·0/1/2 비활성/3 활성·선택 초안·뒤로·확정 재개 확인. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Onboarding/screens/08_sc_5843ae43bf154aadb5507c6fa51d150d.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s067>) · `sc_5843ae43bf154aadb5507c6fa51d150d`
 
@@ -2573,6 +2597,8 @@
 
 ## S117 — 이메일 가입 기본 폼
 
+**Parity14 개별 판정:** [S117 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 빈 가입 폼의 녹색 버튼 유지, 유효 제출은 별도 검증. 누락 Terms/Privacy를 기존 안내 화면에 연결. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Onboarding/screens/03_sc_a4438be77c814444b7f0c005ee44e8b6.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s117>) · `sc_a4438be77c814444b7f0c005ee44e8b6`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2943,6 +2969,8 @@
 <a id="s134"></a>
 
 ## S134 — 로그인 인증 코드 입력
+
+**Parity14 개별 판정:** [S134 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 로그인 코드 sign in·입력/삭제/붙여넣기·Validate·원래 개인 진입 복귀 확인. 자동 개인 행동 재실행 없음. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Logging in/screens/06_sc_bc8c0aff71644874a42b97e6c7fd4ce2.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s134>) · `sc_bc8c0aff71644874a42b97e6c7fd4ce2`
 
@@ -3645,6 +3673,8 @@
 
 ## S166 — 가입 공급자 선택
 
+**Parity14 개별 판정:** [S166 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 가입 Google/Facebook/Apple/Email 4개·Sign in 전환·닫기·mock 실패/취소/재시도 확인. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Logging in/screens/01_sc_d55739aa2ac1495da026006235e7c0a7.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s166>) · `sc_d55739aa2ac1495da026006235e7c0a7`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3751,6 +3781,8 @@
 <a id="s171"></a>
 
 ## S171 — 이메일 로그인 빈 폼
+
+**Parity14 개별 판정:** [S171 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 빈 로그인 이메일·녹색 Continue·실제 제출 비활성·뒤로 확인. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Logging in/screens/03_sc_da2ab413cfe5481d9abe4f23eeaeb426.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s171>) · `sc_da2ab413cfe5481d9abe4f23eeaeb426`
 
@@ -3993,6 +4025,8 @@
 
 ## S182 — 로그인 수단 선택
 
+**Parity14 개별 판정:** [S182 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 로그인 Google/Facebook/Apple/X/Email 5개 확인. 외부 제공자 화면/실제 OAuth 제외. 원본 요구·readiness는 유지한다.
+
 [원본 PNG](<../../medium/flows/Logging in/screens/02_sc_e4d414380a1047a2b7970cf7869a0866.png>) · [원본 분석](<../../medium/flows/Logging in/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s182>) · `sc_e4d414380a1047a2b7970cf7869a0866`
 
 - 담당: V29 / 묶음 14. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4036,6 +4070,8 @@
 <a id="s184"></a>
 
 ## S184 — 알림 활성화 안내
+
+**Parity14 개별 판정:** [S184 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). Enable/Skip·미지원 오류·다음 멤버십/홈 연결 확인. mock 거절·실패·늦은 응답/A→B→A는 자동 navigation 검사; 실제 OS 권한 대기. 원본 요구·readiness는 유지한다.
 
 [원본 PNG](<../../medium/flows/Onboarding/screens/11_sc_e9f4c426cfb3426d9ca05121dea00ce3.png>) · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s184>) · `sc_e9f4c426cfb3426d9ca05121dea00ce3`
 

@@ -1,5 +1,9 @@
 # 화면별 원본 요구사항
 
+**Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
+
+**Parity14 최초 구현·검증(2026-11-24):** [구현·이번 검사·원본 차이·담당](../FE_MEDIUM_PARITY_14_RESULT.md). V29/V30의16화면·99 R·19 T/U/C를 대조하고 이메일 약관/수명·추천 카탈로그/조회·온보딩 뒤로/source 경계를 보완했다. 타입/lint·최종 전체316 suites/1722 tests 통과, 이번 act 경고0. 실제8081 부분 대조와 자동 검증을 구분하며 S043은18/21, 원본 자산/시각/OS 대기는14 및 관련 담당에 유지한다.9~13의 잔여 이전·전체 종료 승인은 아니다. 커밋·push·배포·15 진행 없음.
+
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). S122의 선택 입력 강조·웹/기존 메뉴 실측을 보완했다. native 대체 메뉴는 문단 내부 흐름 배치이고 다중 문단은 별도 picker다. R-S122-L/D/S/V 전체 시각 일치 완료가 아니다.
 
 [검토 요약](../FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](../FE_MEDIUM_PARITY_BACKLOG.md) · [계약 원문](CONTRACTS.md) · [흐름 맥락](FLOWS.md) · [미확인 항목](UNKNOWN.md)
@@ -602,6 +606,8 @@ FE 조사 경로: [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.ts
 <a id="s117"></a>
 
 ## S117 — 이메일 가입 기본 폼
+
+**Parity14 개별 판정:** [S117 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 빈 가입 폼의 녹색 버튼 유지, 유효 제출은 별도 검증. 누락 Terms/Privacy를 기존 안내 화면에 연결. 원본 요구·readiness는 유지한다.
 
 안정 원본 ID: `sc_a4438be77c814444b7f0c005ee44e8b6` · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>):124 · [원본 PNG](<../../medium/flows/Onboarding/screens/03_sc_a4438be77c814444b7f0c005ee44e8b6.png>)
 

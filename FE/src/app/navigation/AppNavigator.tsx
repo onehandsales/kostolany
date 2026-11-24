@@ -345,7 +345,8 @@ function SessionNavigationContent({
                             sessionRevision={state.revision}
                           >
                             <DownloadProvider source={downloadSource} lists={currentBookmarks.lists}>
-                            <OnboardingProvider source={onboardingSource} permissionSource={notificationPermissionSource}>
+                            <OnboardingProvider source={onboardingSource} permissionSource={notificationPermissionSource}
+                              topicSource={topicSource} directorySource={directorySource}>
                             <CommunityNavigationProvider
                               value={{
                                 openExplore: () => {

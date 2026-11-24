@@ -1,5 +1,9 @@
 # 화면별 원본 요구사항
 
+**Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
+
+**Parity14 최초 구현·검증(2026-11-24):** [구현·이번 검사·원본 차이·담당](../FE_MEDIUM_PARITY_14_RESULT.md). V29/V30의16화면·99 R·19 T/U/C를 대조하고 이메일 약관/수명·추천 카탈로그/조회·온보딩 뒤로/source 경계를 보완했다. 타입/lint·최종 전체316 suites/1722 tests 통과, 이번 act 경고0. 실제8081 부분 대조와 자동 검증을 구분하며 S043은18/21, 원본 자산/시각/OS 대기는14 및 관련 담당에 유지한다.9~13의 잔여 이전·전체 종료 승인은 아니다. 커밋·push·배포·15 진행 없음.
+
 [검토 요약](../FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](../FE_MEDIUM_PARITY_BACKLOG.md) · [계약 원문](CONTRACTS.md) · [흐름 맥락](FLOWS.md) · [미확인 항목](UNKNOWN.md)
 
 이번 목록은 원본에서 추출한 **관찰 요구사항**이다. L=배치, D=표시값/입력, S=상태, C=컨트롤, V=PNG 추가 세부 관찰이다. L/D/S는 원문 한 문장의 모든 요소를 포함하는 묶음이며 단일 버튼 수가 아니다. C는 명시적으로 나눈 조작점이다. 이 숫자를 기능 완성률의 분모로 사용하지 않는다.
@@ -299,6 +303,8 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 
 ## S034 — 로그아웃 확인
 
+**Parity14 개별 판정:** [S034 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). Settings→Sign out→Cancel/Confirm·실패·재시도→가입 화면 확인. 메모리 계정 경계 유지. 원본 요구·readiness는 유지한다.
+
 안정 원본 ID: `sc_2d1afd7a02a347868564f9757753d077` · [원본 분석](<../../medium/flows/Profile/Settings/Logging out/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Profile/Settings/Logging out/screens/02_sc_2d1afd7a02a347868564f9757753d077.png>)
 
 흐름 맥락: [F61/02](FLOWS.md#f61)
@@ -331,6 +337,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s035"></a>
 
 ## S035 — 관심사 기반 작가·발행물 추천
+
+**Parity14 개별 판정:** [S035 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 추천 4항목 순서/소개 보완, 동적 B/Publication ID 분리·Follow/Unfollow·실패 재시도·관리 목록 연결. 아바타 2개 미확보. 원본 요구·readiness는 유지한다.
 
 안정 원본 ID: `sc_301ef788e5514bb5b8e9c1fc9afcfa61` · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>):336 · [원본 PNG](<../../medium/flows/Onboarding/screens/10_sc_301ef788e5514bb5b8e9c1fc9afcfa61.png>)
 
@@ -562,6 +570,8 @@ FE 조사 경로: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifi
 
 ## S041 — 새 읽기 경험 소개
 
+**Parity14 개별 판정:** [S041 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 새 경험 안내·Continue·기존 자산 7개 묶음 확인. 원본 7인 이미지/정확 배치와 다름; 모든 계정 공통 단계로 확정하지 않음. 원본 요구·readiness는 유지한다.
+
 안정 원본 ID: `sc_3795c955a89d404c85112e637857e74a` · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>):246 · [원본 PNG](<../../medium/flows/Onboarding/screens/07_sc_3795c955a89d404c85112e637857e74a.png>)
 
 흐름 맥락: [F53/07](FLOWS.md#f53)
@@ -637,6 +647,8 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 <a id="s043"></a>
 
 ## S043 — 브랜드 시작 화면
+
+**Parity14 개별 판정:** [S043 실행·R/T/U/C](../FE_MEDIUM_PARITY_14_RESULT.md#screens). 원본 PNG 직접 확인. JS 홈 진입은 native splash와 다름. splash 미구현·18 자산/구현 및21 실제 cold start 검증 대기. 원본 요구·readiness는 유지한다.
 
 안정 원본 ID: `sc_39bd15e8585d404daa48b34a448b0e32` · [원본 분석](<../../medium/flows/Onboarding/ANALYSIS.md>):64 · [원본 PNG](<../../medium/flows/Onboarding/screens/01_sc_39bd15e8585d404daa48b34a448b0e32.png>)
 

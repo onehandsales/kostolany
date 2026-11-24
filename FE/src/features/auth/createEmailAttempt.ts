@@ -38,7 +38,12 @@ export function createEmailAttempt(source: EmailAuthSource, auth: AuthStore, joi
     getSnapshot: () => state, source,
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     activate() {
-      active = true; if (lease.signal.aborted) resetRequest();
+      active = true;
+      if (lease.signal.aborted) {
+        // Effect 재연결에서는 취소한 challenge를 재사용하지 않고 입력 폼부터 이어 간다.
+        resetRequest();
+        publish({ ...state, stage: 'email', busy: false, challenge: null, code: '', error: null });
+      }
       const unsubscribe = auth.subscribe(() => { if (!valid()) { active = false; lease.abort(); source.cancel(attemptId); sequence++; } });
       return () => { active = false; lease.abort(); source.cancel(attemptId); sequence++; unsubscribe(); };
     },

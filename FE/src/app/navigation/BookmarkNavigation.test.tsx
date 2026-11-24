@@ -11,6 +11,10 @@ import { createMockSearchSource } from '../../features/search/data/mockSearchSou
 import { mockUserA } from '../../features/auth/data/mockUsers';
 import { AppNavigator } from './AppNavigator';
 
+// VirtualizedList의 50ms 예약 갱신도 사용자 이벤트·waitFor의 act 안에서 진행한다.
+beforeEach(() => jest.useFakeTimers());
+afterEach(() => jest.useRealTimers());
+
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
 const articleId = 'example-latest-rates';
 const getBookmark = () => screen.getByRole('togglebutton', { name: new RegExp(`^북마크, ${title}`) });
@@ -27,7 +31,7 @@ async function renderApp(bookmarkSource = createMockBookmarkSource({ delayMs: 0 
 }
 
 it('홈에서 저장한 기사를 목록·상세·검색에서 다시 찾고 해제하면 모든 화면에 반영한다', async () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await renderApp();
   await user.press(getBookmark());
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
@@ -57,7 +61,7 @@ it('홈에서 저장한 기사를 목록·상세·검색에서 다시 찾고 해
 });
 
 it('빈 목록의 둘러보기로 홈에 복귀하고 목록에 다시 진입해도 올바른 경로를 유지한다', async () => {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await renderApp();
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' }));
@@ -74,7 +78,7 @@ it('목록의 마지막 기사를 해제하다 실패하면 카드와 재시도�
   await source.setArticleSaved({ userId: 'example-reader', articleId, saved: true, commandId: 0 });
   const pending = deferred<ArticleBookmark>();
   const injected = { ...source, setArticleSaved: jest.fn(source.setArticleSaved).mockReturnValueOnce(pending.promise) };
-  const user = userEvent.setup();
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await renderApp(injected);
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(screen.getByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' }));
@@ -96,7 +100,7 @@ it.each([true, false])('화면을 떠난 뒤 목표 %s가 실패해도 목록에
   const source = createMockBookmarkSource({ delayMs: 0 });
   if (!target) await source.setArticleSaved({ userId: 'example-reader', articleId, saved: true, commandId: 0 });
   const injected: BookmarkSource = { ...source, setArticleSaved: jest.fn(source.setArticleSaved).mockReturnValueOnce(pending.promise) };
-  const user = userEvent.setup();
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await renderApp(injected);
   await user.press(getArticle());
   await screen.findByRole('heading', { name: title });

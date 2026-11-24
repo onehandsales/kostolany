@@ -7,6 +7,19 @@ import { createMockNotificationPermission } from './notificationPermission';
 import { createMockOnboardingSource, type OnboardingRecord, type OnboardingSource } from './onboardingSource';
 
 const signal = () => new AbortController().signal;
+it('저장 중 화면 수명이 재연결되면 확정 단계를 재조회하고 이전 성공이 busy나 새 단계를 덮지 않는다', async () => {
+  const base = createMockOnboardingSource({ delayMs: 0 });
+  const late = deferred<OnboardingRecord>();
+  const source = { ...base, save: jest.fn(base.save).mockReturnValueOnce(late.promise) };
+  const { session, dispose } = await loaded(source);
+  const saving = session.save('interests'); dispose(); const resume = session.activate();
+  await session.reload();
+  expect(session.getSnapshot()).toMatchObject({ status: 'ready', busy: false, record: { step: 'welcome' } });
+  await session.save('interests');
+  late.resolve({ ...await base.read(mockUserA.id, signal()), step: 'welcome', version: 0 }); await saving;
+  expect(session.getSnapshot()).toMatchObject({ busy: false, error: null, record: { step: 'interests', version: 1 } });
+  resume();
+});
 async function signed(joining = true) {
   const auth = createAuthStore(createMockAuthSource({ delayMs: 0 }));
   auth.openLogin({ kind: 'write' });
