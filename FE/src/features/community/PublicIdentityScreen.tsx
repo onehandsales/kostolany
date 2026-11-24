@@ -44,7 +44,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   const navigation = useCommunityNavigation();
   const moderation = useModeration();
   const publicLists = usePublicLists();
-  const sharing = useShareDialog(publicLists.store ?? undefined);
+  const sharing = useShareDialog(publicLists.store ?? undefined, active);
   const auth = useAuth();
   const knownProfile = useKnownProfile(target.kind === 'writer' ? target.id : '');
   const { scope } = moderation;
@@ -65,6 +65,7 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
   }, [message]);
   const identity = directory.state.data?.identities.find((item) => followKey(item) === followKey(target));
   const lists = publicLists.state?.value?.lists.filter(list => !list.isPrivate && followKey(list.owner) === followKey(target)) ?? [];
+  const sharedList = lists.find(list => list.id === sharing.target?.id);
   useEffect(() => {
     if (active && section === 'Lists') void publicLists.store?.reload();
   }, [active, section, publicLists.store]);
@@ -293,8 +294,12 @@ function IdentityContent({ target, onBack, onSelectArticle, footer, active = tru
         />
       )}
       {footer}
-      {sharing.target && <ShareSheet target={sharing.target}
-        available={lists.some(list => list.id === sharing.target?.id)} onClose={sharing.close} />}
+      {sharing.target && <ShareSheet target={{ ...sharing.target,
+        title: sharedList?.title ?? sharing.target.title,
+        subtitle: sharedList?.description ?? sharing.target.subtitle }}
+        available={!blocked && Boolean(sharedList) && !publicLists.state?.readError &&
+          directory.state.status === 'ready' && Boolean(identity) && !moderation.state?.readError &&
+          (!moderation.store || Boolean(moderation.state?.value))} onClose={sharing.close} />}
       {message && (
         <View style={styles.toast} pointerEvents="none">
           <Text aria-live="polite" style={styles.toastText}>

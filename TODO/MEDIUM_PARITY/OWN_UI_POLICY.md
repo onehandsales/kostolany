@@ -1,5 +1,7 @@
 # Q12 — 자체 UI의 노출과 원본 비교 처리
 
+**Parity13 현재 판정(2026-11-24):** [근거·검증·담당](../FE_MEDIUM_PARITY_13_RESULT.md#implementation). kostolany.invalid·외부 미연결 안내,10개 자체 팔레트/이동 버튼,Friend 모의 자격과 web Image download started를 유지한다. 실패/미지원·권한 안내와 긴 카드 스크롤도 자체 정책이다. 원본의 성공 토스트만으로 실제 발급/저장/전송을 확정하지 않는다.
+
 **Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#comparison). 미니 · Mock, 확장 Mock preview · no audio, 취소X·오류/retry·AirPlay 불가 안내를 자체 UI로 유지했다. 비교를 위해 숨기지 않는다.48dp 터치와 glyph·시트 inset 보완은 새 렌더 미확인, Q12 전체 완료 아님.
 
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). native 메뉴를 문단 흐름 안에 두는 대체 배치와 그 높이에 따른 문단 이동, 변조 입력 시 선택 종료는 자체 정책이다. 원본 플로팅과 동일하다고 기록하지 않는다. 최초 전체 문단 선택·Cancel·다중 문단 picker·미확인 더보기 경계는 유지.

@@ -85,6 +85,7 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s028"></a>
 
 ## S028 — 이미지 저장 행동 노출
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 안정 원본 ID: `sc_221a38b7f8ac42959ddd75840253b5c8` · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/screens/04_sc_221a38b7f8ac42959ddd75840253b5c8.png>)
 

@@ -421,7 +421,10 @@ export function ModerationDialogs({
           <SharePanel target={{ kind: entry.target.kind, id: entry.target.id, title: entry.name,
             subtitle: directory.state.data?.identities.find((identity) => followKey(identity) === followKey(entry.target))?.bio ?? '', authorName: entry.name,
             authorId: entry.target.kind === 'writer' ? entry.target.id : undefined,
-            avatar: directory.state.data?.identities.find((identity) => followKey(identity) === followKey(entry.target))?.avatar, visibility: 'public' }} onClose={close} />
+            avatar: directory.state.data?.identities.find((identity) => followKey(identity) === followKey(entry.target))?.avatar, visibility: 'public' }}
+            available={!state?.readError && (!store || Boolean(state?.value)) &&
+              !(entry.target.kind === 'writer' && state?.value?.blocked.includes(entry.target.id))}
+            onClose={close} />
         )}
       </SafeAreaView>
     </Modal>

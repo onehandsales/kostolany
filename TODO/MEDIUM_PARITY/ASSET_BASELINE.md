@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**Parity13 현재 판정(2026-11-24):** [근거·검증·담당](../FE_MEDIUM_PARITY_13_RESULT.md#comparison). 기존 Jordan 사진·SVG gradient/아이콘·시스템 서체를 소비한다. 원본 blur/폰트/vector/회전 주소/워드마크·정확 간격 차이는13/Q02 소유다. 새 자산 파일을 추가하지 않았고 PNG 생성 성공을 원본 자산 동일성으로 바꾸지 않는다.
+
 **Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#comparison). 기존 brain 이미지 확보/적용과 원본 커버 crop 동일성을 구분했다. 원본 font/vector 파일 확보 근거 없음. 합성 gradient/아이콘·국기·Speechify/간격 차이는12/Q02 잔여이며 자산 파일 추가 없음.
 
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). 추가 자산 확보 없이 기존 개인/타인 강조색을 선택 입력에도 전달했다. 실제 OS 표시·글꼴·핸들·메뉴 동일성은 미검증이며 전체 Q02 완료가 아니다.

@@ -61,7 +61,6 @@ export function ArticleDetailScreen({
   const moderation = useArticleModeration();
   const entryPreference = useEntryExplanationPreference(articleId, preference);
   const { state, retry } = useArticle(articleId, source);
-  const sharing = useShareDialog(source);
   const access = moderation.state?.readError
     ? 'error'
     : moderation.store && moderation.state?.status === 'loading'
@@ -69,6 +68,7 @@ export function ArticleDetailScreen({
       : moderation.blocked(articleId)
         ? 'blocked'
         : undefined;
+  const sharing = useShareDialog(source, isFocused && !access);
   if (state.status === 'ready' && state.article.reference)
     return (
       <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.screen}>

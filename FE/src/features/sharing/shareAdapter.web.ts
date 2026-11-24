@@ -1,11 +1,16 @@
-import * as Clipboard from 'expo-clipboard';
 import { captureRef, releaseCapture } from 'react-native-view-shot';
 import { assertShareActive, ShareError, type ShareAdapter } from './types';
 
 export const shareAdapter: ShareAdapter = {
   async copy(text, signal) {
     assertShareActive(signal);
-    if (!(await Clipboard.setStringAsync(text))) throw new ShareError('copy');
+    if (!navigator.clipboard?.writeText) throw new ShareError('unsupported');
+    // 웹의 legacy 복사 대체 경로는 실패해도 true를 반환할 수 있어 확정 가능한 API만 사용한다.
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      throw new ShareError('copy');
+    }
     assertShareActive(signal);
   },
   async share(message, signal) {
@@ -23,8 +28,11 @@ export const shareAdapter: ShareAdapter = {
   async capture(view, signal) {
     assertShareActive(signal);
     const uri = await captureRef(view, { format: 'png', result: 'data-uri', quality: 1 });
-    assertShareActive(signal);
-    if (!uri.startsWith('data:image/png;base64,')) throw new ShareError('capture');
+    if (signal.aborted || !uri.startsWith('data:image/png;base64,')) {
+      releaseCapture(uri);
+      if (signal.aborted) throw new ShareError('cancelled');
+      throw new ShareError('capture');
+    }
     return { uri, release: () => releaseCapture(uri) };
   },
   async saveImage(image, signal) {

@@ -35,7 +35,7 @@ export function ShareSheet(props: SharePanelProps) {
 }
 
 export function SharePanel(props: SharePanelProps) {
-  const { scope, adapter } = useSharing();
+  const { scope, adapter, userId } = useSharing();
   const membership = useMembership();
   const [origin] = useState({ scope, adapter, membership: membership?.source });
   const profile = useKnownProfile(props.target.authorId ?? '');
@@ -43,21 +43,32 @@ export function SharePanel(props: SharePanelProps) {
     ...props.target,
     title: props.target.kind === 'writer' ? (profile?.name ?? props.target.title) : props.target.title,
     authorName: profile?.name ?? props.target.authorName,
-    avatar: profile?.photo ? { uri: profile.photo.uri } : props.target.avatar,
+    avatar: profile ? (profile.photo ? { uri: profile.photo.uri } : undefined) : props.target.avatar,
   };
   const { onClose } = props;
+  const friendAllowed = Boolean(target.memberOnly && userId &&
+    (target.authorId === userId || membership?.allows('friend-link')));
   useEffect(() => {
     if (origin.scope !== scope || origin.adapter !== adapter || origin.membership !== membership?.source) onClose();
   }, [origin, scope, adapter, onClose, membership?.source]);
   if (origin.scope !== scope || origin.adapter !== adapter || origin.membership !== membership?.source) return null;
-  return <SharePanelContent key={JSON.stringify([target, props.available])} {...props} target={target} />;
+  return <SharePanelContent key={JSON.stringify([target, props.available])}
+    {...props} target={target} friendAllowed={friendAllowed} />;
 }
 
 type ShareAction = 'copy' | 'friend' | 'via' | 'image';
-function SharePanelContent({ target, onClose, available = true }: SharePanelProps) {
-  const { adapter, userId } = useSharing();
-  const membership = useMembership();
+type ShareContentProps = SharePanelProps & { friendAllowed: boolean };
+function SharePanelContent(props: ShareContentProps) {
   const [showMembership, setShowMembership] = useState(false);
+  if (showMembership) return <MembershipPanel embedded onClose={() => setShowMembership(false)} />;
+  // 자격 변경은 공유 요청만 새로 시작하며 진행 중 구독의 성공 화면은 유지한다.
+  return <ShareActions key={String(props.friendAllowed)} {...props}
+    onMembership={() => setShowMembership(true)} />;
+}
+
+function ShareActions({ target, onClose, available = true, friendAllowed, onMembership }:
+  ShareContentProps & { onMembership: () => void }) {
+  const { adapter } = useSharing();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const { width } = useWindowDimensions();
@@ -65,6 +76,7 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
   const card = useRef<View | null>(null);
   const closeButton = useRef<View | null>(null);
   const request = useRef<AbortController | null>(null);
+  const settingsAttempt = useRef(0);
   const busy = useRef(false);
   const mounted = useRef(true);
   const [page, setPage] = useState(0);
@@ -94,11 +106,12 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
 
   async function perform(action: ShareAction) {
     if (!shareable || busy.current || !mounted.current) return;
-    if (action === 'friend' && (!target.memberOnly || !userId || (target.authorId !== userId && !membership?.allows('friend-link')))) {
+    if (action === 'friend' && !friendAllowed) {
       setError({ kind: 'friend', action });
       return;
     }
     busy.current = true;
+    settingsAttempt.current += 1;
     setPending(action);
     setError(null);
     setToast('');
@@ -165,7 +178,6 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
     { kind: 'via', label: 'Share via...' },
     { kind: 'image', label: 'Save image' },
   ];
-  if (showMembership) return <MembershipPanel embedded onClose={() => setShowMembership(false)} />;
   return (
     <View accessibilityViewIsModal style={styles.sheet}>
       <View style={styles.header}>
@@ -261,10 +273,12 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
                   : error.kind === 'permission'
                     ? '사진 저장 권한이 필요해요. 설정에서 허용한 뒤 다시 시도하세요.'
                     : error.kind === 'unsupported'
-                      ? '이 환경에서는 이 공유 동작을 지원하지 않아요. Copy link를 사용하세요.'
+                      ? error.action === 'copy' || error.action === 'friend'
+                        ? '이 환경에서는 링크 복사를 지원하지 않아요.'
+                        : '이 환경에서는 이 공유 동작을 지원하지 않아요. Copy link를 사용하세요.'
                       : '공유 작업을 완료하지 못했어요. 선택한 카드로 다시 시도하세요.'}
               </Text>
-              {error.kind === 'friend' && target.memberOnly && <Pressable role="button" accessibilityLabel="Friend 멤버십 보기" style={styles.retry} onPress={() => setShowMembership(true)}><Text style={styles.retryText}>Become a Friend of Medium</Text></Pressable>}
+              {error.kind === 'friend' && target.memberOnly && <Pressable role="button" accessibilityLabel="Friend 멤버십 보기" style={styles.retry} onPress={onMembership}><Text style={styles.retryText}>Become a Friend of Medium</Text></Pressable>}
               {!['friend', 'unsupported'].includes(error.kind) && (
                 <Pressable
                   role="button"
@@ -283,8 +297,10 @@ function SharePanelContent({ target, onClose, available = true }: SharePanelProp
                   accessibilityLabel="사진 권한 설정 열기"
                   style={styles.retry}
                   onPress={() => {
+                    const attempt = ++settingsAttempt.current;
                     void adapter.openSettings().catch(() => {
-                      if (mounted.current) setError({ kind: 'unsupported', action: 'image' });
+                      if (mounted.current && settingsAttempt.current === attempt)
+                        setError({ kind: 'unsupported', action: 'image' });
                     });
                   }}
                 >

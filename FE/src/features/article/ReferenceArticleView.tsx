@@ -63,7 +63,7 @@ export function ReferenceArticleView({
   onSelectArticle,
 }: ReferenceArticleViewProps) {
   const reader = useReaderTypography(18);
-  const share = useShareDialog();
+  const share = useShareDialog(article, active && !access);
   const moderation = useModeration();
   const muted = moderation.state?.value?.muted.some(
     (item) => item.kind === 'writer' && item.id === articleWriter(article.id)?.id,

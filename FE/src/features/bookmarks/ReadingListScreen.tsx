@@ -250,7 +250,10 @@ function ReadingListContent({
           authorName: 'My list', visibility: isDefault || selected?.content?.isPrivate ? 'private' : 'public',
         })} />
       </View>}
-      {sharing.target && <ShareSheet target={sharing.target} available={!isDefault && !selected?.content?.isPrivate && Boolean(selected?.content)} onClose={sharing.close} />}
+      {sharing.target && <ShareSheet target={{ ...sharing.target, title: name,
+        subtitle: selected?.content?.description ?? '',
+        visibility: isDefault || selected?.content?.isPrivate ? 'private' : 'public' }}
+        available={!isDefault && !selected?.content?.isPrivate && Boolean(selected?.content)} onClose={sharing.close} />}
       <ReferenceNotice title={notice} onClose={() => setNotice(null)} />
       {editingNote && selected?.content && <ListNoteSheet listId={listId} article={editingNote} onClose={() => setEditingNote(null)} />}
     </SafeAreaView>

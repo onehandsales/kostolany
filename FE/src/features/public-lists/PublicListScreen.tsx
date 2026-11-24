@@ -57,7 +57,7 @@ export function PublicListScreen(props: PublicListScreenProps) {
   return <PublicListContent key={`${scope}:${list.id}`} {...props} list={list}
     saved={state.savedIds.includes(list.id)} />;
 }
-function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: PublicListScreenProps & {
+function PublicListContent({ list, saved, onBack, onSelectArticle, footer, active = true }: PublicListScreenProps & {
   list: PublicList; saved: boolean;
 }) {
   const styles = useThemeStyles(createStyles);
@@ -70,7 +70,8 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
   const clapStore = useClapStore();
   const own = auth.state.user?.id === list.owner.id;
   const [collapsed, setCollapsed] = useState(false);
-  const sharing = useShareDialog();
+  const { store } = usePublicLists();
+  const sharing = useShareDialog(store ?? undefined, active);
   const target = { kind: 'list' as const, id: list.id };
   const catalogArticles = useCatalogArticles(bookmarkArticles);
   const articles = list.articleIds.flatMap(id => {
@@ -134,7 +135,8 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer }: Pub
       </View>
     </View>
     {footer}
-    {sharing.target && <ShareSheet target={sharing.target} available={!list.isPrivate} onClose={sharing.close} />}
+    {sharing.target && <ShareSheet target={{ ...sharing.target, title: list.title, subtitle: list.description,
+      visibility: list.isPrivate ? 'private' : 'public' }} available={!list.isPrivate} onClose={sharing.close} />}
   </SafeAreaView>;
 }
 const createStyles = (colors: ThemeColors) => StyleSheet.create({

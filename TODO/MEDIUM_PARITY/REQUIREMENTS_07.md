@@ -432,6 +432,7 @@ FE 조사 경로: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifi
 <a id="s163"></a>
 
 ## S163 — 공유 카드 시트
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 안정 원본 ID: `sc_d1c962cd0a8240ee94769a612a81d64f` · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/screens/02_sc_d1c962cd0a8240ee94769a612a81d64f.png>)
 

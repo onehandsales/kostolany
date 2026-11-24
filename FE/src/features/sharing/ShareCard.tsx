@@ -1,4 +1,4 @@
-import { useId, useState, type RefObject } from 'react';
+import { useId, useLayoutEffect, useState, type RefObject } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Svg, { Defs, Ellipse, RadialGradient, Rect, Stop } from 'react-native-svg';
 import { fonts } from '../../shared/theme/tokens';
@@ -33,6 +33,12 @@ export function ShareCard({
   const gradient = useId();
   const palette = sharePalettes[styleIndex] ?? sharePalettes[0];
   const [imageFailed, setImageFailed] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [layoutReady, setLayoutReady] = useState(false);
+  useLayoutEffect(() => {
+    // 이미지가 먼저 도착해도 카드의 유효한 배치가 확정되기 전에는 내보내지 않는다.
+    onReady(layoutReady && (!target.avatar || imageLoaded || imageFailed));
+  }, [layoutReady, target.avatar, imageLoaded, imageFailed, onReady]);
   const scale = width / 339;
   const authorLabel = target.authorName || target.title;
   return (
@@ -41,7 +47,8 @@ export function ShareCard({
       accessibilityLabel="공유 이미지 카드"
       collapsable={false}
       onLayout={(event) => {
-        if (!target.avatar || imageFailed) onReady(event.nativeEvent.layout.height > 0);
+        const { width, height } = event.nativeEvent.layout;
+        setLayoutReady(width > 0 && height > 0);
       }}
       style={[styles.card, { minHeight: 529 * scale, paddingTop: 104 * scale, paddingBottom: 104 * scale }]}
     >
@@ -72,7 +79,7 @@ export function ShareCard({
         <Text style={styles.reading}>
           {target.kind === 'quote'
             ? 'A passage worth sharing'
-            : target.readingMinutes
+            : Number.isFinite(target.readingMinutes) && (target.readingMinutes ?? 0) > 0
               ? `${target.readingMinutes} min read`
               : target.kind === 'article' || target.kind === 'written'
                 ? 'Story'
@@ -100,10 +107,9 @@ export function ShareCard({
               accessibilityLabel="공유 카드 작성자 사진"
               style={styles.avatar}
               accessibilityIgnoresInvertColors
-              onLoad={() => onReady(true)}
+              onLoad={() => setImageLoaded(true)}
               onError={() => {
                 setImageFailed(true);
-                onReady(true);
               }}
             />
           ) : (

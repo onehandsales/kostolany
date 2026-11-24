@@ -9,6 +9,10 @@ import { useModeration } from './ModerationContext';
 import type { ModerationSource, ModerationValue } from './types';
 import { DirectoryProvider, createMockDirectorySource } from '../community/DirectoryProvider';
 import { createMockModerationSource } from './data/createMockModerationSource';
+import { useEffect } from 'react';
+import type { ModerationStore } from './createModerationStore';
+import { SharingProvider } from '../sharing/SharingProvider';
+import type { ShareAdapter } from '../sharing/types';
 
 beforeEach(() => jest.useFakeTimers());
 afterEach(async () => {
@@ -23,6 +27,37 @@ function ReportTrigger() {
     <Text>Open report</Text>
   </Pressable>;
 }
+
+it('작가 공유 중 차단이 확정되면 카드를 숨기고 늦은 복사 성공을 버린다', async () => {
+  let store: ModerationStore | null = null;
+  function ShareTrigger() {
+    const moderation = useModeration();
+    useEffect(() => { store = moderation.store; }, [moderation.store]);
+    return <Pressable role="button" accessibilityLabel="Open share"
+      onPress={() => moderation.open({ kind: 'share', name: 'Jordan Gibbs', target: { kind: 'writer', id: 'jordan' } })}><Text>Share</Text></Pressable>;
+  }
+  const pending = deferred<void>();
+  const adapter: ShareAdapter = { copy: jest.fn(() => pending.promise), share: async () => 'cancelled',
+    capture: jest.fn(), saveImage: jest.fn(), openSettings: jest.fn() };
+  await render(<SafeAreaProvider><AuthProvider initialUser={mockUserA}>
+    <SharingProvider adapter={adapter}><ModerationProvider userId={mockUserA.id} revision={1}
+      source={createMockModerationSource({ delay: 0 })}><ShareTrigger /></ModerationProvider></SharingProvider>
+  </AuthProvider></SafeAreaProvider>);
+  await act(async () => jest.runOnlyPendingTimersAsync());
+  await fireEvent.press(screen.getByRole('button', { name: 'Open share' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Copy link' }));
+  const signal = jest.mocked(adapter.copy).mock.calls[0]?.[1];
+  const current = store as ModerationStore | null;
+  if (!current) throw new Error('missing moderation store');
+  await act(async () => {
+    const operation = current.execute({ operationId: 'block-during-share', action: { kind: 'block', writerId: 'jordan', active: true } });
+    await jest.runOnlyPendingTimersAsync(); await operation;
+  });
+  expect(signal?.aborted).toBe(true);
+  expect(screen.queryByLabelText('공유 이미지 카드')).toBeNull();
+  await act(async () => pending.resolve());
+  expect(screen.queryByText('Link copied')).toBeNull();
+});
 
 it('차단 목록의 사용자 카탈로그 조회 실패를 숨기지 않고 같은 목록에서 재시도한다', async () => {
   const source = createMockModerationSource({ delay: 0 });

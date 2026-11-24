@@ -1,5 +1,9 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity13 커밋 전 추가 검토(2026-11-24):** [추가2건 수정·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_13_RESULT.md#pre-commit-review). 프로필 목록 재조회 실패 중 공유와 복사 미지원 안내를 보완했다. 타입/lint·전체316 suites/1708 tests 통과, 이번 act 경고0. 앞선1706건/경고1건 이력과 구분하며 과거 경고의 원인 해결을 확정하지 않는다. 사용자 요청에 따른37파일 로컬 커밋 범위이며 push·배포·14 구현은 제외한다.9~13의 원본/시각/native 잔여는 기존 담당에 유지한다. 아래 미커밋 문장은 당시 이력이다.
+
+**Parity13 최초 구현·검증(2026-11-24):** [공유 보완·현재 검사·잔여](../FE_MEDIUM_PARITY_13_RESULT.md). V23의4화면/5단계/32 R·6 U·18 C를 대조하고 공유 수명·권한·최신 데이터·web 복사 판정을 수정했다. 타입/lint·전체316 suites/1706 tests 통과(iOS act 경고1건)와 실제8081 clipboard/카드 PNG 생성·다운로드 요청을 확인했다. native/시각은 별도 잔여다. 원본 자산/미확인·실제 OS/파일 저장 잔여로13 전체 동일성 완료가 아니다.9~12 잔여는 기존 소유로 유지한다. 이번 시작 HEAD는1ac2baf이고 이전 미착수/미커밋/push 기록은 각 당시 이력이다. 이번 커밋/push/배포·14 시작 없음.
+
 **Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 12화면·14단계·97 R/15 U를 대조했다. 원본14장 열람과 자동 검사만 수행했으며 recipe-only/readiness/currentEvidence를 승격하지 않는다. 합성 시간 조건의 실제 화면 재현·자산/배치 잔여 유지.
 
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). S012/S122의 선택 중 강조 전달과 자체 대체 메뉴를 반영한다. 기존 원본 관찰·readiness·currentEvidence는 보존하고 추가 판정/현재 코드 해시만 갱신한다.
@@ -616,6 +620,7 @@
 <a id="s028"></a>
 
 ## S028 — 이미지 저장 행동 노출
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/screens/04_sc_221a38b7f8ac42959ddd75840253b5c8.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s028>) · `sc_221a38b7f8ac42959ddd75840253b5c8`
 
@@ -1115,6 +1120,7 @@
 <a id="s051"></a>
 
 ## S051 — 링크 복사 피드백
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/screens/03_sc_4225892a7f304ec9b0442fad0aae38bb.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s051>) · `sc_4225892a7f304ec9b0442fad0aae38bb`
 
@@ -1591,6 +1597,7 @@
 <a id="s073"></a>
 
 ## S073 — 공유 이미지 저장 안내
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/Downloading an image/screens/02_sc_62256b592ebc4b028f1097aa21f9e400.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/Downloading an image/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s073>) · `sc_62256b592ebc4b028f1097aa21f9e400`
 
@@ -3569,6 +3576,7 @@
 <a id="s163"></a>
 
 ## S163 — 공유 카드 시트
+- **Parity13 최신:** [R/T·현재 검사·원본 차이](../FE_MEDIUM_PARITY_13_RESULT.md#screen-status). 이번 실제 웹 부분 확인과 원본/시각/native 잔여를 구분한다. 기존 원본 요구·증거/readiness는 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Sharing a story/screens/02_sc_d1c962cd0a8240ee94769a612a81d64f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s163>) · `sc_d1c962cd0a8240ee94769a612a81d64f`
 

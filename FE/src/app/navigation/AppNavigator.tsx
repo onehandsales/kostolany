@@ -568,7 +568,7 @@ function SessionNavigationContent({
                                   </Stack.Screen>
                                   <Stack.Screen name="Topic">
                                     {({ route, navigation }) => (
-                                      <TopicScreen
+                                      <FocusedTopic
                                         topicId={route.params.topicId}
                                         onBack={() => navigation.goBack()}
                                         onSelectArticle={(articleId) =>
@@ -685,6 +685,11 @@ function DraftsRouteScreen({ route, navigation, source }: NativeStackScreenProps
   useEffect(() => { if (!permitted && navigation.isFocused()) navigation.goBack(); }, [permitted, navigation]);
   return permitted ? <DraftsScreen key={state.revision} source={source} userId={route.params.ownerId} onClose={() => navigation.goBack()}
     onOpen={draftId => navigation.replace('Editor', { ...route.params, draftId, isNew: false })} /> : null;
+}
+
+function FocusedTopic(props: React.ComponentProps<typeof TopicScreen>) {
+  const focused = useIsFocused();
+  return <TopicScreen {...props} active={focused} />;
 }
 
 function FocusedPublicList(props: React.ComponentProps<typeof PublicListScreen>) {

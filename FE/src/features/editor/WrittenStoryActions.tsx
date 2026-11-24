@@ -34,9 +34,9 @@ export function WrittenStoryMenu(props: WrittenStoryMenuProps) {
   return <ScopedWrittenStoryMenu key={`${scope}:${auth.state.revision}:${props.story.id}:${props.active ?? true}`} {...props} />;
 }
 
-function ScopedWrittenStoryMenu({ story, showShareButton = false, onDisplay, buttonRef }: WrittenStoryMenuProps) {
+function ScopedWrittenStoryMenu({ story, active = true, showShareButton = false, onDisplay, buttonRef }: WrittenStoryMenuProps) {
   const context = useWrittenStories();
-  const sharing = useShareDialog(context?.source);
+  const sharing = useShareDialog(context?.source, active);
   const claps = useClapStore();
   const auth = useAuth();
   const [saving, setSaving] = useState(false);
@@ -53,6 +53,7 @@ function ScopedWrittenStoryMenu({ story, showShareButton = false, onDisplay, but
       ...(claps ? [{ label: 'Undo claps', onPress: () => claps.undo({ kind: 'article', id: articleId }) }] : []),
     ]} />
     {saving && <SaveToListSheet articleId={articleId} articleTitle={story.document.title} onClose={() => setSaving(false)} />}
-    {sharing.target && <ShareSheet target={sharing.target} onClose={sharing.close} />}
+    {sharing.target && <ShareSheet target={{ ...sharing.target, title: story.document.title,
+      authorName: story.authorName, visibility: story.publishing.unlisted ? 'unlisted' : 'public' }} onClose={sharing.close} />}
   </>;
 }

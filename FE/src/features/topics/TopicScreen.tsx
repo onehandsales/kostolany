@@ -27,11 +27,13 @@ export function TopicScreen({
   onBack,
   onSelectArticle,
   footer,
+  active = true,
 }: {
   topicId: string;
   onBack: () => void;
   onSelectArticle: (id: string) => void;
   footer?: ReactNode;
+  active?: boolean;
 }) {
   return (
     <TopicContent
@@ -40,6 +42,7 @@ export function TopicScreen({
       onBack={onBack}
       onSelectArticle={onSelectArticle}
       footer={footer}
+      active={active}
     />
   );
 }
@@ -48,18 +51,20 @@ function TopicContent({
   onBack,
   onSelectArticle,
   footer,
+  active,
 }: {
   topicId: string;
   onBack: () => void;
   onSelectArticle: (id: string) => void;
   footer?: ReactNode;
+  active: boolean;
 }) {
   const { state, retry } = useTopics();
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
   const moderation = useRecommendedArticles();
   const [collapsed, setCollapsed] = useState(false);
-  const share = useShareDialog(state.data ?? undefined);
+  const share = useShareDialog(state.data ?? undefined, active);
   const topic = state.data?.topics.find((item) => item.id === topicId);
   const articles =
     topic?.stories.flatMap((id) => {
