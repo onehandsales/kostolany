@@ -23,15 +23,15 @@ export function WrittenStoryViewed({ story }: { story: PublishedStory }) {
   return viewed ? <Text accessibilityLabel={`읽음, ${story.document.title}`} style={{ color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 12, lineHeight: 18 }}>Viewed</Text> : null;
 }
 
-export function WrittenStoryBookmark({ story }: { story: PublishedStory }) {
-  return <ArticleBookmarkControl articleId={publishedArticleId(story.id)} articleTitle={story.document.title} compact />;
+export function WrittenStoryBookmark({ story, active = true }: { story: PublishedStory; active?: boolean }) {
+  return <ArticleBookmarkControl active={active} articleId={publishedArticleId(story.id)} articleTitle={story.document.title} compact />;
 }
 
-type WrittenStoryMenuProps = { story: PublishedStory; showShareButton?: boolean; onDisplay?: () => void; buttonRef?: RefObject<View | null> };
+type WrittenStoryMenuProps = { story: PublishedStory; active?: boolean; showShareButton?: boolean; onDisplay?: () => void; buttonRef?: RefObject<View | null> };
 export function WrittenStoryMenu(props: WrittenStoryMenuProps) {
   const scope = useBookmarkScopeKey();
   const auth = useAuth();
-  return <ScopedWrittenStoryMenu key={`${scope}:${auth.state.revision}:${props.story.id}`} {...props} />;
+  return <ScopedWrittenStoryMenu key={`${scope}:${auth.state.revision}:${props.story.id}:${props.active ?? true}`} {...props} />;
 }
 
 function ScopedWrittenStoryMenu({ story, showShareButton = false, onDisplay, buttonRef }: WrittenStoryMenuProps) {

@@ -1508,6 +1508,8 @@ Daily·On 표시는 확인했으나 값 변경 과정은 없다. 이메일 설�
 
 ## F48 — Library/List detail/Downloading a list
 
+**Parity 8 검토:** T-F48-02(S165)·T-F48-03(S089)의 진행/완료와 일반·발행 혼합 사본, 취소/실패/재시도·복귀를 [이번 결과](../FE_MEDIUM_PARITY_08_RESULT.md)에 구분한다. T-F48-01은 묶음7 이력. 원본 미기록 분기는 자체 mock 계약이며 현재 전체302 suites/1578 tests·타입/lint·export를 통과했다.
+
 [원본 분석](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>)
 
 **원본 흐름 목적:** 리스트 다운로드 요청의 정지 아이콘과 항목별 완료 표시를 비교한다.

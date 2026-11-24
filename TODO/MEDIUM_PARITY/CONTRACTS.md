@@ -1,5 +1,7 @@
 # 기존 Goal 1~53의 작업 계약
 
+**묶음7·8 추가 검토:** [결과](../FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 계정이 비활성인 동안 확정된 목록 소속/원문 철회도 사본에 반영하고 복원 시 자동 재다운로드하지 않는다. Library/Profile/발행 reader의 Save to·편집·응답 초안은 화면 이탈 때 폐기하며 확정 상태는 유지한다. 기존 mock 계약의 연결 보완이며 Medium 미확인 동작을 새로 확정하지 않는다.
+
 각 화면 요구가 참조하는 실제 작업 문장이다. 제목이나 결과 파일 존재만으로 포함 판정하지 않는다. Goal1~21은 선행 기반/1차 클론 이력이며 최신 세부 기능 담당은22~53이다. 원본 관찰과 기존 요구가 충돌하는 곳은 보완 작업으로 남긴다.
 
 <a id="g01"></a>
@@ -487,6 +489,8 @@
 <a id="g35"></a>
 
 ## G35 — 목록 다운로드·오프라인 화면 상태
+
+**Parity 8 현재 mock 계약:** [사본/version/접근권·검증 결과](../FE_MEDIUM_PARITY_08_RESULT.md). 일반 fixture의 오래된 사본 유지와 발행 문서/이미지 version 변경 시 무효화를 구분한다. Public/Unlisted 링크 정책 유지, 삭제/철회·계정/source/작업 수명 검증. 영속 저장·실제 offline 제외. 아래 Goal35 계약/실행은 과거 이력이다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):361 · [당시 결과](<../FE_GOAL_35_RESULT.md>)
 

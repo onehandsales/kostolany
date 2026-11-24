@@ -1,5 +1,9 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**최신 — Parity 7·8 추가 검토:** [결함·회귀·실행 결과](FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 비활성 계정의 제거된 사본 복원과 목록/프로필/발행 글의 이탈 시트·초안 누락을 수정하고 Save to 검사를 보강했다. 현재 타입/lint·전체302 suites/1590 tests 통과. 원본 차이·native 대기 유지, 묶음7 기존 커밋41aebaa 보존, 추가 수정과 묶음8은 미커밋이다. 아래 수치는 각 최초 실행의 이력이다.
+
+**현재 — Parity 8:** [목록 다운로드 결과](FE_MEDIUM_PARITY_08_RESULT.md). 묶음7은 `41aebaa`로 로컬 커밋했다. 묶음8의 일반/발행 혼합 사본·버전/권한·reader 연결과 두 검토/브라우저·타입/lint·전체302 suites/1578 tests·web/iOS/Android export를 통과했다. 묶음8은 미커밋, 묶음9/push/배포는 진행하지 않는다. 원본 차이·미확인·native 대기와 메모리 사본의 한계를 구분한다. 아래 기록은 당시 이력이다.
+
 **현재 — Parity 7:** [저장·목록·메모·순서 결과](FE_MEDIUM_PARITY_07_RESULT.md). 구현·두 차례 검토·브라우저·타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export를 통과했다. 사용자 사전 승인으로 이 묶음만 로컬 커밋하고 묶음8을 시작한다. 아래 현재/다음 문구는 과거 이력이다.
 
 **Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.
@@ -151,6 +155,8 @@
 <a id="d07"></a>
 
 ## D07 — 발행 글이 들어간 목록의 mock 다운로드
+
+- 최신 Parity 8: [일반/발행 혼합 사본·version/권한·진행/완료 표시 및 실제 검사](FE_MEDIUM_PARITY_08_RESULT.md). 기능/mock 구현·두 검토/웹·타입/lint·전체302 suites/1578 tests·export 통과. 메모리 사본만 지원하며 원본 시각/U·native 대기는 유지한다. 아래는 기존 감사 이력이다.
 
 - 판정: **기록된 구현 잔여 / 후속 결과에 명시**. 기존 담당 Goal 35·39·51.
 
@@ -815,6 +821,8 @@
 <a id="v26"></a>
 
 ## V26 — 다운로드
+
+- 최신 Parity 8: [일반/발행 혼합 사본·version/권한·진행/완료 표시 및 실제 검사](FE_MEDIUM_PARITY_08_RESULT.md). 기능/mock 구현·두 검토/웹·타입/lint·전체302 suites/1578 tests·export 통과. 메모리 사본만 지원하며 원본 시각/U·native 대기는 유지한다. 아래는 기존 감사 이력이다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 35, 공통 Goal23/50/51/53.
 

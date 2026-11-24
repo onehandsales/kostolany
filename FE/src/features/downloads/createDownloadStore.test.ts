@@ -97,7 +97,7 @@ it('오프라인은 메모리 사본만 이용하며 원문 버전 변경·삭�
   expect(store.getSnapshot().online).toBe(false); expect(store.article(first)).not.toBeNull();
   const article = articleFixtures.find(item => item.id === first)!;
   source.replaceArticle({ ...article, title: '새 원문' }, first);
-  expect(store.getSnapshot().entries[0]?.outdated).toBe(true); expect(store.article(first)?.article.title).toBe(article.title);
+  expect(store.getSnapshot().entries[0]?.outdated).toBe(true); expect(store.article(first)?.article?.title).toBe(article.title);
   source.replaceArticle(null, first); expect(store.article(first)).toBeNull();
   source.replaceArticle(article, first); expect(source.getVersion(first)).toBe('fixture-4'); expect(store.article(first)).toBeNull(); close();
   const restarted = createDownloadStore(source, 'A'); const stop = restarted.connect('A:1', () => true);

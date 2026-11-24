@@ -471,6 +471,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 ## S089 — 다운로드 표시 변경
 
+**Parity 8 최신 검토:** [다운로드 사본·표시/복귀·부분 시각 비교 결과](../FE_MEDIUM_PARITY_08_RESULT.md). 원본 PNG·R/T/U/C 대조 및 mock 구현/두 검토·브라우저 확인, 현재 타입/lint·전체302 suites/1578 tests·export 통과. 원본 자산/서체·U/native 잔여 유지. 아래 현재 판정/행별 코멘트는 초기 문서 감사 이력이며 최신 실행을 대신하지 않는다.
+
 안정 원본 ID: `sc_7b31963fc5c64fc8b9268beab4009201` · [원본 분석](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Library/List detail/Downloading a list/screens/03_sc_7b31963fc5c64fc8b9268beab4009201.png>)
 
 흐름 맥락: [F48/03](FLOWS.md#f48)

@@ -1,6 +1,9 @@
 import { copyListContent, sameListContent } from '../bookmarks/listContent';
 import type { UserList } from '../bookmarks/listTypes';
 import type { DownloadEntry, DownloadSnapshot, DownloadSource } from './types';
+import { publishedArticleId } from '../editor/publishedArticle';
+import { validPublishedStory } from '../editor/publishing';
+import { matchesPublishedDownloadVersion } from './publishedDownload';
 
 export type DownloadStore = ReturnType<typeof createDownloadStore>;
 export function createDownloadStore(source: DownloadSource, userId: string) {
@@ -30,10 +33,11 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
       const current = listFor(entry.listId);
       if (!current) { abort(entry.listId); return []; }
       const changed = !sameListContent(current, entry.snapshot);
-      const changedVersion = Object.values(entry.items).some(item => source.getVersion(item.articleId) !== item.contentVersion);
+      const changedVersion = Object.entries(entry.versions).some(([id, version]) => source.getVersion(id) !== version);
       if ((changed || changedVersion) && jobs.has(entry.listId)) abort(entry.listId);
       // 철회된 소속과 사라진 원문은 사본의 가용성에서도 즉시 제외한다.
-      const items = Object.fromEntries(Object.entries(entry.items).filter(([id]) => current.articleIds.includes(id) && source.getVersion(id)));
+      const items = Object.fromEntries(Object.entries(entry.items).filter(([id, item]) => current.articleIds.includes(id) &&
+        source.getVersion(id) && (!item.published || source.getVersion(id) === item.contentVersion)));
       const missingCopy = entry.phase === 'complete' && current.articleIds.some(id => !items[id]);
       return [{ ...entry, items, outdated: changed || changedVersion || missingCopy,
         phase: (changed || changedVersion) && entry.phase === 'downloading' ? 'cancelled' as const : entry.phase }];
@@ -47,6 +51,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     const previous = entryFor(listId);
     if (previous?.phase === 'complete' && !previous.outdated) return Promise.resolve();
     const snapshot: UserList = { ...copyListContent(current), userId, listId };
+    const versions = Object.fromEntries(snapshot.articleIds.map(id => [id, source.getVersion(id)]));
     const jobScope = scope;
     const id = JSON.stringify([userId, scope, ++sequence]);
     const controller = new AbortController();
@@ -54,7 +59,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
       ? Object.fromEntries(Object.entries(previous.items).filter(([articleId, item]) => source.getVersion(articleId) === item.contentVersion)) : {};
     const job = { id, controller, promise: Promise.resolve() };
     jobs.set(listId, job);
-    put({ listId, jobId: id, snapshot, items, phase: 'downloading', outdated: false });
+    put({ listId, jobId: id, snapshot, versions, items, phase: 'downloading', outdated: false });
     const valid = () => scope === jobScope && canUse() && canDownload() && jobs.get(listId) === job && !controller.signal.aborted;
     job.promise = (async () => {
       try {
@@ -66,8 +71,13 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
           const latest = listFor(listId);
           if (!latest || !sameListContent(latest, snapshot)) { reconcile(); return; }
           if (result.userId !== userId || result.listId !== listId || result.articleId !== articleId ||
-            result.jobId !== id || result.article.id !== articleId || !result.contentVersion || source.getVersion(articleId) !== result.contentVersion)
+            result.jobId !== id || (result.published ? publishedArticleId(result.published.story.id) : result.article?.id) !== articleId ||
+            !result.contentVersion || versions[articleId] !== result.contentVersion || source.getVersion(articleId) !== result.contentVersion)
             throw new Error('DOWNLOAD_RESPONSE_MISMATCH');
+          if (result.published && (!validPublishedStory(result.published.story) ||
+            !matchesPublishedDownloadVersion(result.contentVersion, result.published.story) ||
+            result.published.story.document.images.some(image => !result.published!.images[image.assetId])))
+            throw new Error('DOWNLOAD_PUBLISHED_RESPONSE_MISMATCH');
           const entry = entryFor(listId)!;
           put({ ...entry, items: { ...entry.items, [articleId]: { ...result, received: ++sequence } } });
         }
@@ -81,6 +91,7 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
   return {
     userId,
     getScope: () => scope,
+    reconcile,
     getSnapshot: () => state,
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     connect(nextScope: string, authorized: () => boolean, permitted = () => true) {
@@ -97,7 +108,10 @@ export function createDownloadStore(source: DownloadSource, userId: string) {
     remove: (id: string) => { if (scope && canUse()) remove(id); },
     article(id: string) {
       if (!scope || !canUse() || !canDownload() || !source.getVersion(id)) return null;
-      const candidates = state.entries.flatMap(entry => listFor(entry.listId)?.articleIds.includes(id) && entry.items[id] ? [entry.items[id]!] : []);
+      const candidates = state.entries.flatMap(entry => {
+        const item = entry.items[id];
+        return listFor(entry.listId)?.articleIds.includes(id) && item && (!item.published || source.getVersion(id) === item.contentVersion) ? [item] : [];
+      });
       return candidates.sort((a, b) => b.received - a.received)[0] ?? null;
     },
   };

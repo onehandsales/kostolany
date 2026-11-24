@@ -120,7 +120,7 @@ function ReadingListContent({
                 <Text style={styles.description}>{selected?.content?.description}</Text>
               )}
             </View>
-            <DownloadFeedback listId={listId} />
+            <DownloadFeedback active={active} listId={listId} />
             {isDefault ? (
               <ReadingListFeedback
                 state={state}
@@ -148,7 +148,7 @@ function ReadingListContent({
           </Svg>
         </Pressable>
         <Text style={styles.headerTitle}>{collapsed ? (isDefault ? 'Reading list' : name) : ''}</Text>
-        <DownloadControl listId={listId} />
+        <DownloadControl active={active} listId={listId} />
         {isDefault && !selected && (
           <IconButton
             icon="more"
@@ -243,7 +243,7 @@ function ReadingListContent({
       />}
       {!reordering && <View style={styles.listBar}>
         <ClapControl target={reactionTarget} title={name} size={20} />
-        <ResponseButton target={reactionTarget} title={name} label="List responses" size={20} />
+        <ResponseButton active={active} target={reactionTarget} title={name} label="List responses" size={20} />
         <IconButton icon="share" label="Share list" onPress={() => sharing.open({
           kind: 'list', id: ownedPublicListId(store.userLists.userId, listId), title: name,
           subtitle: selected?.content?.description ?? '', authorId: store.userLists.userId,

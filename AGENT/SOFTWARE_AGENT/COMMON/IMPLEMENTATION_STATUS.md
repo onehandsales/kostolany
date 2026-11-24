@@ -1,5 +1,9 @@
 # 현재 상태와 다음 작업
 
+**최신 — Parity 7·8 추가 검토:** [결함·회귀·실행 결과](../../../TODO/FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 비활성 계정의 제거된 사본 복원과 목록/프로필/발행 글의 이탈 시트·초안 누락을 수정하고 Save to 검사를 보강했다. 현재 타입/lint·전체302 suites/1590 tests 통과. 원본 차이·native 대기 유지, 묶음7 기존 커밋41aebaa 보존, 추가 수정과 묶음8은 미커밋이다. 아래 수치는 각 최초 실행의 이력이다.
+
+**현재 — Parity 8:** [목록 다운로드 결과](../../../TODO/FE_MEDIUM_PARITY_08_RESULT.md). 묶음7은 `41aebaa`로 로컬 커밋했다. 묶음8의 일반/발행 혼합 사본·버전/권한·reader 연결과 두 검토/브라우저·타입/lint·전체302 suites/1578 tests·web/iOS/Android export를 통과했다. 묶음8은 미커밋, 묶음9/push/배포는 진행하지 않는다. 원본 차이·미확인·native 대기와 메모리 사본의 한계를 구분한다. 아래 기록은 당시 이력이다.
+
 **현재 — Parity 7:** [저장·목록·메모·순서 결과](../../../TODO/FE_MEDIUM_PARITY_07_RESULT.md). 기능·두 차례 검토/웹 점검·타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 사용자 사전 승인으로 묶음7만 로컬 커밋 후 묶음8 진행. 시각 차이·원본 미확인·native 대기는 유지한다. tools·evidence·캡처/검증 로그/manifest 생성 없음. 아래 문구는 과거 실행 이력이다.
 
 **현재 — Parity 6:** [Digest 결과·검사·8081 확인 순서](../../../TODO/FE_MEDIUM_PARITY_06_RESULT.md). 기존/새 호의 현재 관계 필터, June 8 기사 구성, 미확인 읽기 시간·회원용 별표, 화면 이탈·조회 수명과 포커스를 보완했다. 구현·mock 검증과 시각 잔여·U 미확인·native 대기를 구분한다. D04/D11의 다른 소비자는 묶음7에 남는다. tools·evidence·캡처/로그/manifest 파일은 생성·수정하지 않는다. 커밋·push·배포·묶음7은 수행하지 않았다. 아래 기록은 각 실행 당시 이력이다.

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider, useAuth } from '../../features/auth/AuthProvider';
 import type { AuthStore } from '../../features/auth/createAuthStore';
@@ -95,6 +95,13 @@ it('A·B·A와 같은 A 재로그인은 사본 소유권을 유지하고 공급�
   await user.press(button('Download list')); await screen.findByRole('button', { name: '다운로드 제거' });
   await switchTo(mockUserB.id); await open('B 목록', 1);
   expect(button('Download list')).toBeVisible(); expect(screen.queryByLabelText(`다운로드됨, ${article.title}`)).toBeNull();
+  await user.press(button('Download list'));
+  await screen.findByRole('button', { name: 'Member 모의 선택' });
+  // 모달을 통한 정상 탭 조작이 아니라 외부 navigation으로 route가 blur되는 수명을 재현한다.
+  await fireEvent.press(screen.getByRole('tab', { name: '홈', includeHiddenElements: true }));
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  await screen.findByRole('heading', { name: 'B 목록' });
+  expect(screen.queryByRole('button', { name: 'Member 모의 선택' })).toBeNull();
   await user.press(button('Download list'));
   await user.press(button('Member 모의 선택'));
   await screen.findByRole('button', { name: '멤버십 성공 확인' });

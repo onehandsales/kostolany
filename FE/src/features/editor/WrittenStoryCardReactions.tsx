@@ -8,12 +8,12 @@ import { useResponseCount } from '../responses/ResponseProvider';
 import { publishedArticleId } from './publishedArticle';
 import type { PublishedStory } from './publishing';
 
-export function WrittenStoryCardReactions({ story }: { story: PublishedStory }) {
+export function WrittenStoryCardReactions({ story, active = true }: { story: PublishedStory; active?: boolean }) {
   const store = useClapStore();
-  return store ? <CardReactions story={story} store={store} /> : null;
+  return store ? <CardReactions active={active} story={story} store={store} /> : null;
 }
 
-function CardReactions({ story, store }: { story: PublishedStory; store: ClapStore }) {
+function CardReactions({ story, store, active }: { story: PublishedStory; store: ClapStore; active: boolean }) {
   const target = { kind: 'article' as const, id: publishedArticleId(story.id) };
   const state = useClaps(store, target);
   const responses = useResponseCount(target);
@@ -21,6 +21,6 @@ function CardReactions({ story, store }: { story: PublishedStory; store: ClapSto
   if (!(state.total && state.total > 0) && !(responses && responses > 0) && !state.error) return null;
   return <View style={{ flexDirection: 'row', alignItems: 'center' }}>
     <ClapControl target={target} title={story.document.title} />
-    <ResponseButton target={target} title={story.document.title} />
+    <ResponseButton active={active} target={target} title={story.document.title} />
   </View>;
 }

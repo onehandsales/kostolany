@@ -58,10 +58,10 @@ export function LibraryListCard({
           <AppIcon name="lock" size={12} color={colors.secondaryText} />
         )}
         <View style={styles.flex} />
-        <DownloadControl listId={listId} label={`Download ${name}`} />
+        <DownloadControl active={active} listId={listId} label={`Download ${name}`} />
         <ListActions active={active} listId={listId} name={name} onReorder={() => onOpen(listId, true)} />
       </View>
-      <DownloadFeedback listId={listId} />
+      <DownloadFeedback active={active} listId={listId} />
       <View aria-hidden style={styles.thumbnails}>
         {[0, 1, 2].map((index) => {
           const article = thumbnails[index];

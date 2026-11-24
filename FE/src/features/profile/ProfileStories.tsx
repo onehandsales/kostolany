@@ -27,7 +27,7 @@ export function ProfileStories({ userId, visibility, active, header, footer, con
         {item.document.images[0] && list.context && <Image source={list.context.images.resolve(item.document.images[0].assetId)} accessibilityLabel={item.document.images[0].description} style={{ width: 80, height: 56, resizeMode: 'cover' }} />}
       </View>
     </Pressable><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 12 }}><Text style={{ marginRight: 12, color: colors.secondaryText, fontSize: 12 }}>{now >= Date.parse(item.publishedAt) && now - Date.parse(item.publishedAt) < 60000 ? 'Just now' : new Date(item.publishedAt).toLocaleDateString()}{item.publishing.unlisted ? ' · Unlisted' : ''}</Text>
-      <WrittenStoryCardReactions story={item} /><View style={{ flex: 1 }} />
-      <WrittenStoryBookmark story={item} /><WrittenStoryMenu story={item} /><WrittenStoryViewed story={item} />
+      <WrittenStoryCardReactions active={active} story={item} /><View style={{ flex: 1 }} />
+      <WrittenStoryBookmark active={active} story={item} /><WrittenStoryMenu active={active} story={item} /><WrittenStoryViewed story={item} />
     </View></View>} />;
 }

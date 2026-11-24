@@ -13,8 +13,36 @@ import { createPublishedArticleCatalog, publishedArticleId } from './publishedAr
 import { emptyPublishOptions, type PublishedStory } from './publishing';
 import { WrittenStoriesProvider } from './WrittenStoriesProvider';
 import { WrittenStoryScreen } from './WrittenStoryScreen';
+import { BookmarkProvider } from '../bookmarks/BookmarkProvider';
+import { createMockBookmarkSource } from '../bookmarks/data/createMockBookmarkSource';
+import { ProfileStories } from '../profile/ProfileStories';
 
 const images = createMockEditorImageSource();
+
+it.each(['reader', 'profile-bookmark', 'profile-menu'])('%s의 발행 글 저장 선택 중 이탈하면 미확정 선택을 폐기하고 복귀 때 시트를 닫는다', async entry => {
+  const story = record();
+  const source = { ...createMockDraftSource({ delayMs: 0 }), story: jest.fn(async () => story),
+    stories: jest.fn(async () => [story]), getPublishedSnapshot: () => [story] };
+  const catalog = createPublishedArticleCatalog(source, images, []);
+  const bookmarks = createMockBookmarkSource({ delayMs: 0, managesReadingList: true, articleExists: () => true });
+  const tree = (active = true) => <AuthProvider initialUser={mockUserA}><ArticleCatalogProvider catalog={catalog}>
+    <BookmarkProvider source={bookmarks} userId={mockUserA.id}><WrittenStoriesProvider value={{ source, images, sessionRevision: 0 }}>
+      {entry === 'reader' ? <WrittenStoryScreen storyId={story.id} active={active} onBack={() => {}} />
+        : <ProfileStories userId={mockUserA.id} visibility="public" active={active} header={<></>} footer={<></>} contentContainerStyle={{}} />}
+    </WrittenStoriesProvider></BookmarkProvider></ArticleCatalogProvider></AuthProvider>;
+  const view = await render(tree());
+  if (entry === 'profile-menu') {
+    await fireEvent.press(await screen.findByRole('button', { name: 'Story options, 읽기 허용된 제목' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Save to list' }));
+  } else await fireEvent.press(await screen.findByLabelText('북마크, 읽기 허용된 제목, 저장 안 됨'));
+  await fireEvent.press(await screen.findByRole('checkbox', { name: '읽기 목록' }));
+  expect(screen.getByRole('heading', { name: 'Save to' })).toBeVisible();
+  await view.rerender(tree(false));
+  expect(screen.queryByRole('heading', { name: 'Save to' })).toBeNull();
+  await view.rerender(tree());
+  expect(screen.queryByRole('heading', { name: 'Save to' })).toBeNull();
+  expect(screen.getByLabelText('북마크, 읽기 허용된 제목, 저장 안 됨')).toBeVisible();
+});
 function record(owner = mockUserA.id, unlisted = false): PublishedStory {
   return { id: 'story', draftId: 'draft', userId: owner, authorName: 'Writer',
     document: { ...changeBody(emptyEditor(), '읽기 허용된 본문').document, title: '읽기 허용된 제목' },

@@ -725,6 +725,8 @@
 <a id="u-s089"></a>
 
 ### U-S089
+
+**Parity 8 판정:** [질문별 범위/검사](../FE_MEDIUM_PARITY_08_RESULT.md). 중단·부분 실패·재다운로드/사본 제거는 자체 mock 검증, 원본 동작 미확인 유지. 캐시 만료·저장 공간·비행기 모드·재시작 offline 보장은 미구현/미확인이다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>):139
 - 미확인 내용: 비행기 모드 재현·캐시 만료 미확인
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1344,6 +1346,8 @@
 <a id="u-s165"></a>
 
 ### U-S165
+
+**Parity 8 판정:** [질문별 범위/검사](../FE_MEDIUM_PARITY_08_RESULT.md). 중단·부분 실패·재다운로드/사본 제거는 자체 mock 검증, 원본 동작 미확인 유지. 캐시 만료·저장 공간·비행기 모드·재시작 offline 보장은 미구현/미확인이다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>):108
 - 미확인 내용: 네트워크 실패·중단·부분 다운로드
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -2020,6 +2024,8 @@
 <a id="u-f48"></a>
 
 ### U-F48
+
+**Parity 8 판정:** [질문별 범위/검사](../FE_MEDIUM_PARITY_08_RESULT.md). 중단·부분 실패·재다운로드/사본 제거는 자체 mock 검증, 원본 동작 미확인 유지. 캐시 만료·저장 공간·비행기 모드·재시작 offline 보장은 미구현/미확인이다.
 - Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>):179
 - 미확인 내용: 중단·부분 실패·재다운로드·캐시 삭제·저장 공간 부족·비행기 모드.

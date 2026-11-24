@@ -237,6 +237,7 @@ export function ProfileScreen({
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
       {section === 'Lists' && profile ? (
         <ProfileLists
+          active={isFocused}
           onOpenList={onOpenList ?? (() => setNotice('Lists'))}
           header={header}
           footer={footer}

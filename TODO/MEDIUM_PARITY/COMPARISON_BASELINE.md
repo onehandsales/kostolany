@@ -1,5 +1,7 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**묶음7·8 추가 검토:** [결과](../FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 전체302 suites/1590 tests 통과, 목록/프로필/발행 저장·응답 이탈과 비활성 사본 철회 보완. 새 캡처 파일 없이 일부 화면을 메모리에서 대조했다. 기존 원본 R/T/U/C·evidence 이력과 recipe-only 판정은 유지하며 동일 fixture 전수 비교로 승격하지 않는다. 코드 해시는 수동 갱신했다.
+
 [Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)
 
 최초 자동 생성: `python tools/medium-parity/buildBaseline.py --write`. 요구사항 원문과 수동 작성한 비교 profile을 결합한다. 경로는 현재 코드의 조사·재현 절차이며 200개 실제 실행 통과 기록이 아니다. `recipe-only`는 비교 준비 완료가 아니다. 계정·시간·권한은 비교용 기본안이며 원본 실제 계정/촬영시각을 추정하지 않는다. 아래 currentEvidence 필드는 호환을 위해 유지한 Parity 1 당시 증거다. 현재 코드 해시와 과거 촬영 코드가 같다는 뜻이 아니다. Parity 2의 당시 전후·회귀 기록은 해당 결과 문서를 따른다. 사용자 커밋 6853256에서 기존 EVIDENCE 파일이 삭제됐으며 복원하지 않는다. Parity 5는 사용자 지시로 캡처·manifest를 저장하지 않고 결과 문서만 갱신한다. 입력의 null SHA는 삭제된 과거 capture log이며 현재 무결성 통과가 아니다.
@@ -1889,6 +1891,8 @@
 
 ## S089 — 다운로드 표시 변경
 
+**Parity 8 최신 비교:** [이번 결과](../FE_MEDIUM_PARITY_08_RESULT.md). 원본 PNG와 393×852/DPR1 진행/완료, 320/393 Light/Dark의 별표/metadata를 메모리 화면으로 대조했다. S16530초/S08951초는 독립 display clock; 실제 원본 촬영시각/경과 추정 아님. mock 계정·서체/일부 간격·OS 차이와 U/native 잔여, 캡처 파일 없음. 아래 초기 준비 상태는 과거 이력이며 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Downloading a list/screens/03_sc_7b31963fc5c64fc8b9268beab4009201.png>) · [원본 분석](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s089>) · `sc_7b31963fc5c64fc8b9268beab4009201`
 
 - 담당: V26 / 묶음 8. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3523,6 +3527,8 @@
 <a id="s165"></a>
 
 ## S165 — 리스트 다운로드 진행
+
+**Parity 8 최신 비교:** [이번 결과](../FE_MEDIUM_PARITY_08_RESULT.md). 원본 PNG와 393×852/DPR1 진행/완료, 320/393 Light/Dark의 별표/metadata를 메모리 화면으로 대조했다. S16530초/S08951초는 독립 display clock; 실제 원본 촬영시각/경과 추정 아님. mock 계정·서체/일부 간격·OS 차이와 U/native 잔여, 캡처 파일 없음. 아래 초기 준비 상태는 과거 이력이며 recipe-only 유지.
 
 [원본 PNG](<../../medium/flows/Library/List detail/Downloading a list/screens/02_sc_d23a5b4ea6ff462f8a05ce2371e90734.png>) · [원본 분석](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s165>) · `sc_d23a5b4ea6ff462f8a05ce2371e90734`
 

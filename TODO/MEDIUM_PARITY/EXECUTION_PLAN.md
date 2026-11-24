@@ -1,8 +1,8 @@
 # Medium Parity 실행 계획
 
-[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [Parity 6 결과](../FE_MEDIUM_PARITY_06_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
+[Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [Parity 6 결과](../FE_MEDIUM_PARITY_06_RESULT.md) · [Parity 7 결과](../FE_MEDIUM_PARITY_07_RESULT.md) · [Parity 8 결과](../FE_MEDIUM_PARITY_08_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
 
-이 번호는 새 실행 묶음이며 기존 Goal1~53 이력을 변경하지 않는다. 현재 묶음7의 저장·목록·메모·순서 구현·두 차례 검토/웹 확인·타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export를 통과했다. D04/D11은 묶음6 Digest와 묶음7 소비자로 나누어 검증한다. 사용자 사전 승인으로 묶음7만 로컬 커밋하고 묶음8을 바로 시작한다. 묶음8은 별도 요청 전 커밋하지 않고 묶음9는 시작하지 않는다. 원본 차이·U 미확인·native 대기는 별도 유지한다.
+이 번호는 새 실행 묶음이며 기존 Goal1~53 이력을 변경하지 않는다. **최신 추가 검토:** [묶음7](../FE_MEDIUM_PARITY_07_RESULT.md#additional-review)·[묶음8](../FE_MEDIUM_PARITY_08_RESULT.md#additional-review)의 호출부·초안 수명·비활성 사본 철회를 보완했다. 현재 타입/lint·전체302 suites/1590 tests 통과. 추가 수정은 미커밋이며 아래 수치는 최초 실행 이력이다. 묶음7은 구현·두 검토·브라우저·타입/lint·전체298 suites/1560 tests·Hermes export를 통과해 `41aebaa`로 로컬 커밋했다. 묶음8의 D07/V26 구현·두 검토·웹 점검·타입/lint·전체302 suites/1578 tests·web/iOS/Android export를 통과했다. 묶음8은 별도 요청 전 미커밋으로 보고·종료하고 묶음9/push/배포는 진행하지 않는다. 원본 차이·U 미확인·native 대기는 별도 유지한다.
 
 공통: 각 묶음의 V에 연결된 모든 R·T와 U-S/U-F를 확인한다. Q02/Q03/Q08/Q12는 공통 소비자로 이어지고 Q09는 과거 문구 판정만 완료다. 단순히 작업을 배정한 것은 정책 확정이나 구현 승인이 아니다. 기능 검증과 화면 비교, OS/실서비스 효력을 별도 판정한다.
 
@@ -98,7 +98,7 @@
 - 선행: 2, 4.
 - 구현/판정 범위: D04 중 note, D11 중 ListStoryCard; 목록 시간 계약·저장/공개범위/메모/순서.
 - 검증·종료 조건: 생성→저장→메모→reorder취소/확정→private/delete/removeUndo; 다중소속·늦은응답·A/B.
-- 결과 문서: [FE_MEDIUM_PARITY_07_RESULT.md](../FE_MEDIUM_PARITY_07_RESULT.md).
+- 결과 문서: [FE_MEDIUM_PARITY_07_RESULT.md](../FE_MEDIUM_PARITY_07_RESULT.md). 로컬 커밋 `41aebaa` (39파일). 이후 추가 검토의 목록 응답/Profile Lists 보완은 미커밋.
 - 화면: S002, S011, S036, S039, S056, S058, S066, S076, S077, S078, S081, S085, S095, S101, S105, S106, S108, S109, S114, S121, S145, S155, S157, S172, S177, S191, S195, S200.
 - 흐름/단계: T-F37-02, T-F37-03, T-F41-02, T-F41-03, T-F41-05, T-F42-01, T-F42-02, T-F42-03, T-F42-04, T-F45-01, T-F45-02, T-F45-03, T-F45-04, T-F45-05, T-F46-01, T-F46-02, T-F46-03, T-F46-04, T-F47-01, T-F47-02, T-F47-03, T-F47-04, T-F48-01, T-F49-01, T-F49-02, T-F49-03, T-F49-04, T-F49-05, T-F50-01, T-F50-02, T-F51-01, T-F51-02, T-F51-03, T-F51-04, T-F51-05, T-F62-05, T-F62-06, T-F62-07.
 - 미확인 담당: U-S002, U-S011, U-S036, U-S039, U-S056, U-S058, U-S066, U-S076, U-S077, U-S078, U-S081, U-S085, U-S095, U-S101, U-S105, U-S106, U-S108, U-S109, U-S114, U-S121, U-S145, U-S155, U-S157, U-S172, U-S177, U-S191, U-S195, U-S200, U-F37, U-F41, U-F42, U-F45, U-F46, U-F47, U-F48, U-F49, U-F50, U-F51, U-F62.
@@ -108,11 +108,11 @@
 
 ## 묶음 8 — 목록 다운로드
 
-- 직접 대상: D07, V26. 상태: 미착수.
+- 직접 대상: D07, V26. 상태: 기능/mock 구현·두 차례 검토/검증 완료; 시각 차이·원본 미확인·native 대기.
 - 선행: 4, 7.
 - 구현/판정 범위: 일반/발행 혼합 목록의 본문·이미지·version/접근권을 mock 사본에 공급.
 - 검증·종료 조건: 진행/완료/취소/실패/재시도·수정/삭제/권한철회; 영속 offline 제외.
-- 결과 문서: `TODO/FE_MEDIUM_PARITY_08_RESULT.md` (예정 경로).
+- 결과 문서: [FE_MEDIUM_PARITY_08_RESULT.md](../FE_MEDIUM_PARITY_08_RESULT.md). [추가 검토](../FE_MEDIUM_PARITY_08_RESULT.md#additional-review)의 비활성 사본 철회·발행 UI 수명 보완 포함, 미커밋.
 - 화면: S089, S165.
 - 흐름/단계: T-F48-02, T-F48-03.
 - 미확인 담당: U-S089, U-S165, U-F48.

@@ -1,5 +1,7 @@
 # Medium Parity 7 — 저장·목록·메모·순서
 
+최신 추가 검토는 [묶음7·8 전수 재검토](#additional-review)에 기록한다. 아래 최초 검사·커밋 이력과 구분하며 추가 수정은 기존 `41aebaa`를 amend하지 않은 미커밋 변경이다.
+
 2026-11-24 · 시작 HEAD `21c8bc06d9d382f06a34d8012903e1b79f2eee10`. 시작 working tree/staged는 깨끗했다. 현재 실행 계획의 묶음7만 구현했으며 묶음8은 이 결과의 검증·로컬 커밋 이후 시작한다. 현재 코드의 타입/lint·iOS/Android 전체 검사·가능한 브라우저 검증을 통과하여 로컬 커밋 조건을 충족했다. 기능/mock 구현은 완료, 시각 비교는 부분 보정·차이 잔여, native 검증은 환경 대기다.
 
 ## 판정과 범위
@@ -150,3 +152,23 @@ tools/evidence/비교 캡처/검증 로그/검증용 manifest/별도 검증 도�
 7. 미저장 메모/이름/정렬/Save to 상태에서 화면 이탈 후 재진입. 로그아웃→B→A에서 개인 데이터·초안 격리. 전체 새로고침은 기존 메모리 정책에 따라 초기화.
 
 필수 자동 검사와 가능한 브라우저 점검을 완료했다. 해결 가능한 검토 지적을 수정했고 장애 주입을 복원했으며 파일 제한을 확인했다. 원본 자산/미확인·native 대기는 묶음8을 막지 않는 명시적 잔여다. 이 묶음만 로컬 커밋한다. 사용자 사전 승인에 따라 성공 해시를 확인한 뒤 묶음8로 진행한다. push·배포·amend 없음.
+
+<a id="additional-review"></a>
+
+## 묶음7·8 전수 재검토 — 2026-11-24
+
+사용자의 “검토해줘 전부” 요청에 따라 `41aebaa`의 FE 변경 전체와 묶음8 미커밋 변경, 공유 컴포넌트의 Library/Profile/발행 reader 호출부를 다시 자체 검토했다. D04/D11/D13, V22/V24/V25의 28화면·38단계 배정과 기존 판정표를 실제 코드에 대조했고, 아래 누락을 수정했다. 새로운 Goal 구현이나 원본 미확인 정책 확정은 하지 않았다.
+
+| 발견 사항 | 재현·영향 | 원인·수정 |
+| --- | --- | --- |
+| P2 내 목록 응답 초안 잔류 | List responses 입력→다른 탭으로 이동→복귀·다시 열기에서 이전 초안 표시 | ReadingListScreen의 ResponseButton에 active 전달 누락. 실제 navigation 회귀에서 빈 초안을 확인 |
+| P2 프로필 목록 편집 창 잔류 | Profile→Lists→목록 이름 편집→탭 이탈/복귀에서 미제출 이름과 시트 복원 | ProfileScreen→ProfileLists→기본/사용자 LibraryListCard에 focus 전달. 같은 카드의 다운로드 멤버십 시트도 이 수명 적용 |
+| 검증 누락 | 기존 Save to 부재 검사가 native 대역에 없는 dialog 역할을 조회해 열린 창을 놓침 | 실제 존재하는 Save to heading을 열기 전에 확인하고 이탈 후 부재를 검사. 저장 소속 불변도 함께 확인 |
+
+발행 글의 북마크·더보기 Save to 및 프로필 응답에서 같은 focus 누락도 발견해 공통 호출 계약을 연결했다. 발행 본문/프로필 카드의 세 진입점은 컴포넌트 회귀, 프로필의 응답·메뉴 저장은 실제 SessionNavigation 회귀로 검증했다. 상세 결과와 묶음8 사본 결함은 [추가 검토 결과](FE_MEDIUM_PARITY_08_RESULT.md#additional-review)에 함께 기록한다.
+
+1차 재검토에서 실제 실패를 재현한 뒤 수정했고, 2차에서는 Profile을 포함한 모든 LibraryListCard/WrittenStoryBookmark/WrittenStoryMenu 호출부, source 교체/인증 수명, 확정 저장과 초안 폐기 경계를 다시 확인했다. 메모·재정렬·상대 시간·별표·권한/Undo의 기존 계약을 변경하지 않았다. 독립 리뷰어를 사용한 검토가 아니다.
+
+8081에서는 내 목록 응답 입력→실제 navigation으로 탭 변경→복귀/새로 열기의 빈 입력, Profile Lists의 미제출 이름 폐기를 확인했다. 모달 뒤의 경로 이탈은 런타임에서 navigation을 유발한 제어 사례이며 native 제스처 검증이 아니다. 320/393 Light/Dark의 카드 메타데이터·48px 영역을 다시 확인했다. 이번에는 새 동일 fixture 28장 전수 비교를 수행했다고 하지 않는다. 기존 원본 차이·미확인·native 대기를 유지한다.
+
+추가 변경 파일: `ReadingListScreen.tsx`, `ProfileScreen.tsx`, `ProfileLists.tsx`, `ListEditingNavigation.test.tsx` 및 해당 결과/추적 문서. 발행 소비자·다운로드와 전체 검사 결과는 묶음8 추가 검토 절에 모았다. 기존 묶음7 커밋은 보존하며 이 추가 수정의 커밋은 수행하지 않는다.

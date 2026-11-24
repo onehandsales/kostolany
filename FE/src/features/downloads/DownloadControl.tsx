@@ -8,18 +8,19 @@ import { fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { useUserLists } from '../bookmarks/useBookmarks';
 import { useDownloads } from './DownloadProvider';
 
-function DownloadIcon({ complete = false, pending = false, size = 20 }: { complete?: boolean; pending?: boolean; size?: number }) {
+function DownloadIcon({ complete = false, pending = false, size = 24 }: { complete?: boolean; pending?: boolean; size?: number }) {
   const { colors } = useTheme();
   return <Svg width={size} height={size} viewBox="0 0 24 24" aria-hidden accessible={Platform.OS === 'web' ? undefined : false}>
-    <Circle cx={12} cy={12} r={10.5} stroke={colors.secondaryText} strokeWidth={0.8} fill={complete ? colors.secondaryText : 'none'} />
+    <Circle cx={12} cy={12} r={pending || size === 16 ? 11.5 : 10} stroke={colors.secondaryText} strokeWidth={1} fill={complete ? colors.secondaryText : 'none'} />
     {pending ? <Rect x={8} y={8} width={8} height={8} fill={colors.text} /> :
       <Path d="M12 5v13m-4-4 4 4 4-4" fill="none" stroke={complete ? colors.background : colors.secondaryText} strokeWidth={1} />}
   </Svg>;
 }
-export function DownloadControl({ listId, label = 'Download list' }: { listId: string; label?: string }) {
-  const { store, state, ready } = useDownloads();
+export function DownloadControl({ listId, label = 'Download list', active = true }: { listId: string; label?: string; active?: boolean }) {
+  const { store, state, ready, scope } = useDownloads();
   const membership = useMembership();
-  const [showMembership, setShowMembership] = useState(false);
+  const [membershipScope, setMembershipScope] = useState<string | null>(null);
+  if (!active && membershipScope) setMembershipScope(null);
   const lists = useUserLists();
   const current = lists.entries.find(entry => entry.listId === listId);
   const entry = state.entries.find(item => item.listId === listId);
@@ -29,21 +30,22 @@ export function DownloadControl({ listId, label = 'Download list' }: { listId: s
   const action = pending ? '다운로드 취소' : complete ? '다운로드 제거' : entry ? '다운로드 다시 시도' : label;
   const progress = pending ? `, ${Object.keys(entry.items).length}/${entry.snapshot.articleIds.length}` : '';
   return <>
-    {showMembership && <MembershipSheet onClose={() => setShowMembership(false)} />}
+    {active && membershipScope === scope && <MembershipSheet onClose={() => setMembershipScope(null)} />}
     <Pressable role="button" accessibilityLabel={`${action}${progress}`} disabled={disabled}
     accessibilityState={{ disabled, selected: complete && !entry.outdated }}
     onPress={() => {
-      if (!pending && !complete && membership && !membership.allows('offline')) { setShowMembership(true); return; }
+      if (!pending && !complete && membership && !membership.allows('offline')) { setMembershipScope(scope); return; }
       if (pending) store?.cancel(listId); else if (complete) store?.remove(listId); else void store?.start(listId);
     }}
     style={styles.target}>
     <DownloadIcon pending={pending} complete={complete && !entry.outdated} />
   </Pressable></>;
 }
-export function DownloadFeedback({ listId }: { listId: string }) {
+export function DownloadFeedback({ listId, active = true }: { listId: string; active?: boolean }) {
   const membership = useMembership();
-  const [showMembership, setShowMembership] = useState(false);
-  const { store, state } = useDownloads();
+  const [membershipScope, setMembershipScope] = useState<string | null>(null);
+  const { store, state, scope } = useDownloads();
+  if (!active && membershipScope) setMembershipScope(null);
   const lists = useUserLists();
   const current = lists.entries.find(item => item.listId === listId);
   const disabled = !current?.confirmed?.articleIds.length || current.isPending;
@@ -51,7 +53,7 @@ export function DownloadFeedback({ listId }: { listId: string }) {
   const entry = state.entries.find(item => item.listId === listId);
   if (!entry || (entry.phase !== 'error' && entry.phase !== 'cancelled' && !entry.outdated)) return null;
   return <View style={themed.feedback}>
-    {showMembership && <MembershipSheet onClose={() => setShowMembership(false)} />}
+    {active && membershipScope === scope && <MembershipSheet onClose={() => setMembershipScope(null)} />}
     <Text role={entry.phase === 'error' ? 'alert' : undefined} style={themed.message}>
       {entry.outdated ? '목록이나 기사 내용이 변경되었어요. 사본을 다시 받을 수 있어요.' :
         entry.phase === 'error' ? '다운로드를 완료하지 못했어요.' : '다운로드를 중단했어요.'}
@@ -59,7 +61,7 @@ export function DownloadFeedback({ listId }: { listId: string }) {
     </Text>
     <View style={styles.actions}>
       <Pressable role="button" accessibilityLabel="다운로드 재시도" style={styles.target} disabled={disabled}
-        accessibilityState={{ disabled }} onPress={() => { if (membership && !membership.allows('offline')) setShowMembership(true); else void store?.start(listId); }}>
+        accessibilityState={{ disabled }} onPress={() => { if (membership && !membership.allows('offline')) setMembershipScope(scope); else void store?.start(listId); }}>
         <Text style={themed.link}>{entry.outdated ? 'Download again' : 'Retry'}</Text>
       </Pressable>
       <Pressable role="button" accessibilityLabel="다운로드 사본 제거" style={styles.target} onPress={() => store?.remove(listId)}>

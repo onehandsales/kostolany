@@ -44,6 +44,18 @@ async function setup(scenario: UserListScenario = 'normal', articleIds = ids) {
 }
 const button = (label: string) => screen.getByRole('button', { name: label });
 
+it('프로필의 목록 카드도 탭 이탈 후 이름 편집 초안을 다시 열지 않는다', async () => {
+  const { user, lists } = await setup();
+  await user.press(screen.getByRole('tab', { name: '프로필' }));
+  await user.press(await screen.findByRole('tab', { name: 'Lists' }));
+  await user.press(button(`목록 관리, ${name}`)); await user.press(button('이름 수정'));
+  await fireEvent.changeText(screen.getByLabelText('목록 이름 · 필수'), '프로필에서 폐기할 초안');
+  await fireEvent.press(screen.getByRole('tab', { name: '홈', includeHiddenElements: true }));
+  await user.press(screen.getByRole('tab', { name: '프로필' }));
+  expect(screen.queryByLabelText('목록 이름 · 필수')).toBeNull();
+  expect((await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own')?.name).toBe(name);
+}, 30000);
+
 it('기본 읽기 목록의 반응은 실제 공급부에서 조회하며 공개 공유와 계정 간 노출을 막는다', async () => {
   const { user, switchTo } = await setup();
   await user.press(button('라이브러리로 돌아가기'));
@@ -102,9 +114,10 @@ it('일반 예시 기사의 저장 시트도 목록 화면 이탈 때 초안을 
   const { user, lists } = await setup('normal', articleIds);
   await user.press(screen.getByLabelText(`북마크, ${local.title}, 저장됨`));
   await user.press(screen.getByRole('checkbox', { name }));
+  expect(screen.getByRole('heading', { name: 'Save to' })).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '홈' }));
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
-  expect(screen.queryByRole('dialog', { name: '저장할 목록' })).toBeNull();
+  expect(screen.queryByRole('heading', { name: 'Save to' })).toBeNull();
   expect((await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own')?.articleIds).toEqual(articleIds);
 }, 30000);
 
@@ -201,9 +214,17 @@ it('목록 편집과 저장 선택은 탭 이탈 때 폐기하고 복귀하면 �
   expect(screen.queryByLabelText('목록 순서 저장')).toBeNull();
   await user.press(screen.getByLabelText(`북마크, ${title}, 저장됨`));
   await user.press(screen.getByRole('checkbox', { name }));
+  expect(screen.getByRole('heading', { name: 'Save to' })).toBeVisible();
   await leave();
-  expect(screen.queryByRole('dialog', { name: '저장할 목록' })).toBeNull();
+  expect(screen.queryByRole('heading', { name: 'Save to' })).toBeNull();
   const saved = (await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own');
   expect(saved).toMatchObject({ name, articleIds: ids });
   expect(saved?.notes).toBeUndefined();
+  await user.press(button('List responses'));
+  await fireEvent.changeText(screen.getByLabelText('응답 내용'), '이탈하면 폐기할 응답');
+  await fireEvent.press(screen.getByRole('tab', { name: '홈', includeHiddenElements: true }));
+  expect(screen.queryByLabelText('응답 내용')).toBeNull();
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  await user.press(button('List responses'));
+  expect(screen.getByLabelText('응답 내용')).toHaveDisplayValue('');
 }, 30000);

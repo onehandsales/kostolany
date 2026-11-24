@@ -8,13 +8,14 @@ import { useBookmarkStore, useReadingList, useUserLists } from '../bookmarks/use
 import { UserListFeedback } from '../bookmarks/UserListFeedback';
 
 type ProfileListsProps = {
+  active: boolean;
   onOpenList: (listId: string, reorder?: boolean) => void;
   header: ReactNode;
   footer: ReactNode;
   contentContainerStyle: StyleProp<ViewStyle>;
 };
 
-export function ProfileLists({ onOpenList, header, footer, contentContainerStyle }: ProfileListsProps) {
+export function ProfileLists({ active, onOpenList, header, footer, contentContainerStyle }: ProfileListsProps) {
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const lists = useUserLists();
   const store = useBookmarkStore();
@@ -31,6 +32,7 @@ export function ProfileLists({ onOpenList, header, footer, contentContainerStyle
           <UserListFeedback />
           {state.status === 'ready' && (
             <LibraryListCard
+              active={active}
               listId={DEFAULT_LIST_ID}
               name="읽기 목록"
               articles={state.articles}
@@ -43,6 +45,7 @@ export function ProfileLists({ onOpenList, header, footer, contentContainerStyle
       renderItem={({ item: entry }) =>
         entry.content ? (
           <LibraryListCard
+            active={active}
             listId={entry.listId}
             name={entry.content.name}
             isPrivate={entry.content.isPrivate}

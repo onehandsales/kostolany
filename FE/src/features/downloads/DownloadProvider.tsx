@@ -7,6 +7,7 @@ import type { ArticleSource } from '../article/types';
 import { createDownloadStore, type DownloadStore } from './createDownloadStore';
 import { createMockDownloadSource } from './createMockDownloadSource';
 import type { DownloadSnapshot, DownloadSource } from './types';
+import { useWrittenStories } from '../editor/WrittenStoriesProvider';
 
 const empty: DownloadSnapshot = { entries: [], online: true };
 const noop = () => () => {};
@@ -15,11 +16,19 @@ const DownloadContext = createContext<{ store: DownloadStore | null; scope: stri
 export function DownloadProvider({ source, lists, children }: { source?: DownloadSource; lists?: UserListSource; children: ReactNode }) {
   const auth = useAuth();
   const membership = useMembership();
-  const [fallback, setFallback] = useState(() => ({ lists, source: createMockDownloadSource({ lists }) }));
+  const written = useWrittenStories();
+  const drafts = written?.source; const images = written?.images;
+  const makeFallback = () => ({ lists, drafts, images, source: createMockDownloadSource({ lists,
+    published: drafts && images ? { source: drafts, images } : undefined }) });
+  const [fallback, setFallback] = useState(makeFallback);
   const current = source ?? fallback.source;
   const [cache, setCache] = useState(() => ({ source: current, generation: 0, stores: new Map<string, DownloadStore>() }));
   const online = useSyncExternalStore(current.subscribe, current.isOnline, current.isOnline);
-  if (fallback.lists !== lists) { setFallback({ lists, source: createMockDownloadSource({ lists }) }); return null; }
+  // 인증 수명이 끝난 사본도 소속·원문 철회를 관찰해 제거→복구 사이의 삭제를 놓치지 않는다.
+  useEffect(() => cache.source.subscribe(() => {
+    for (const stored of cache.stores.values()) if (!stored.getScope()) stored.reconcile();
+  }), [cache]);
+  if (fallback.lists !== lists || fallback.drafts !== drafts || fallback.images !== images) { setFallback(makeFallback()); return null; }
   if (cache.source !== current) { setCache({ source: current, generation: cache.generation + 1, stores: new Map() }); return null; }
   const userId = auth.state.user?.id ?? null;
   let store = userId ? cache.stores.get(userId) ?? null : null;
@@ -51,7 +60,7 @@ export function useDownloadArticleSource(base: ArticleSource, articleId: string)
   const { store, scope, online, ready } = useDownloads();
   const cached = !online && ready ? store?.article(articleId) ?? null : null;
   const source = useMemo<ArticleSource>(() => online ? base : async id => {
-    if (!cached || !ready || store?.getScope() !== scope || cached.articleId !== id || store.article(id) !== cached)
+    if (!cached?.article || !ready || store?.getScope() !== scope || cached.articleId !== id || store.article(id) !== cached)
       throw new Error('OFFLINE_ARTICLE_UNAVAILABLE');
     return cached.article;
   }, [base, cached, online, ready, scope, store]);
