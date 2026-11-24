@@ -27,7 +27,10 @@ export function PublishTopics({ selected, onSave, onCancel }: { selected: string
   return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <IconButton icon="back" label="토픽 선택 취소" onPress={onCancel} />
-      <View style={{ padding: 24, gap: 12 }}>
+      <FlatList data={state.status === 'ready' && query === settled ? items : []}
+        keyExtractor={topic => topic.id} keyboardShouldPersistTaps="handled"
+        style={{ flex: 1, minHeight: 0 }} contentContainerStyle={{ paddingBottom: 24 }}
+        ListHeaderComponent={<View style={{ padding: 24, gap: 12 }}>
         <Text role="heading" style={{ fontSize: 30, fontWeight: '700', color: colors.text }}>Add topics</Text>
         <Text style={{ fontSize: 14, lineHeight: 21, color: colors.text }}>Add or change topics (up to 5) so readers know what your story is about</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: colors.border, borderRadius: 28, marginTop: 10 }}>
@@ -40,15 +43,15 @@ export function PublishTopics({ selected, onSave, onCancel }: { selected: string
           </Pressable>)}
         </View>}
         {error && <Text role="alert" style={{ color: colors.destructive }}>{error}</Text>}
-      </View>
-      {state.status === 'error' ? <View style={{ padding: 24 }}><Text role="alert" style={{ color: colors.text }}>토픽을 불러오지 못했어요.</Text><Pressable role="button" accessibilityLabel="발행 토픽 다시 불러오기" onPress={retry} style={{ minHeight: 48, justifyContent: 'center' }}><Text style={{ color: colors.green }}>Try again</Text></Pressable></View> :
-        state.status === 'loading' || query !== settled ? <ActivityIndicator accessibilityLabel="발행 토픽 검색 중" /> : <FlatList data={items} keyExtractor={topic => topic.id} keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 24 }}
-          ListHeaderComponent={!query ? <Text role="heading" style={{ fontSize: 20, fontWeight: '600', color: colors.text, marginBottom: 16 }}>Your topics</Text> : null}
-          ListEmptyComponent={<Text style={{ color: colors.secondaryText }}>No topics found</Text>}
-          renderItem={({ item }) => <Pressable role="checkbox" accessibilityLabel={`${item.name}${item.followers ? ` ${item.followers} followers` : ''} 토픽`} accessibilityState={{ checked: ids.includes(item.id) }} aria-checked={ids.includes(item.id)} onPress={() => toggle(item.id)} style={{ minHeight: 60, flexDirection: 'row', alignItems: 'center', gap: 8, borderBottomWidth: 0.5, borderColor: colors.border }}>
+        {!query && <Text role="heading" style={{ fontSize: 20, fontWeight: '600', color: colors.text, marginTop: 16 }}>Your topics</Text>}
+      </View>}
+        ListEmptyComponent={state.status === 'error' ? <View style={{ padding: 24 }}><Text role="alert" style={{ color: colors.text }}>토픽을 불러오지 못했어요.</Text><Pressable role="button" accessibilityLabel="발행 토픽 다시 불러오기" onPress={retry} style={{ minHeight: 48, justifyContent: 'center' }}><Text style={{ color: colors.green }}>Try again</Text></Pressable></View> :
+          state.status === 'loading' || query !== settled ? <ActivityIndicator accessibilityLabel="발행 토픽 검색 중" /> :
+            <Text style={{ color: colors.secondaryText, marginHorizontal: 24 }}>No topics found</Text>}
+          renderItem={({ item }) => <Pressable role="checkbox" accessibilityLabel={`${item.name}${item.followers ? ` ${item.followers} followers` : ''} 토픽`} accessibilityState={{ checked: ids.includes(item.id) }} aria-checked={ids.includes(item.id)} onPress={() => toggle(item.id)} style={{ minHeight: 60, marginHorizontal: 24, flexDirection: 'row', alignItems: 'center', gap: 8, borderBottomWidth: 0.5, borderColor: colors.border }}>
             <Text style={{ color: colors.text, flexShrink: 1 }}>{item.name}</Text>{item.followers && <Text style={{ color: colors.secondaryText, flexShrink: 1 }}>{item.followers} followers</Text>}
             {ids.includes(item.id) && <Text style={{ color: colors.text, marginLeft: 'auto' }}>✓</Text>}
-          </Pressable>} />}
+          </Pressable>} />
       <Pressable role="button" accessibilityLabel="발행 토픽 저장" disabled={!validSelection} accessibilityState={{ disabled: !validSelection }} onPress={() => onSave(ids)} style={{ minHeight: 48, margin: 24, marginTop: 8, borderRadius: 24, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.text }}><Text style={{ color: colors.background }}>Save</Text></Pressable>
     </KeyboardAvoidingView>
   </SafeAreaView>;

@@ -506,6 +506,8 @@ FE 조사 경로: [PublicListScreen.tsx](<../../FE/src/features/public-lists/Pub
 
 ## S015 — 멘션 대상 삽입
 
+- Parity9: 멘션 선택 후 커서/서식 툴바 복원을 navigation으로 확인; 실제 키보드/렌더 대기. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_15dd105a441c426ca638b4db6cb30997` · [원본 분석](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):146 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Mentioning a user/screens/04_sc_15dd105a441c426ca638b4db6cb30997.png>)
 
 흐름 맥락: [F11/04](FLOWS.md#f11)
@@ -582,6 +584,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 ## S017 — 구분선 삽입과 이미지 선택
 
+- Parity9: 기존 점3개 구분선·사진 선택/삭제 연결 확인; native 가운데 배치/자산 차이 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_19b2bef0854047f5b17cfeca07781ca5` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):176 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/05_sc_19b2bef0854047f5b17cfeca07781ca5.png>)
 
 흐름 맥락: [F09/05](FLOWS.md#f09)
@@ -615,6 +619,8 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 <a id="s018"></a>
 
 ## S018 — 글머리 목록 적용
+
+- Parity9: 기존 bullet와 선택 도구 확인; native 들여쓰기 렌더 차이를 기기 대기와 별도로 유지. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_1b0cd82ee04a4c8c9d52b9a2d088823b` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):146 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/04_sc_1b0cd82ee04a4c8c9d52b9a2d088823b.png>)
 
@@ -783,6 +789,8 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 <a id="s023"></a>
 
 ## S023 — 발행 전 Story preview
+
+- Parity9: 0토픽 발행 미리보기·Edit/Publication/닫기/발행 연결 확인; 원본 사진/서체·자체 UI·렌더 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_1ceed9061b86476ebc7eb5acb9dd89c7` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):57 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/01_sc_1ceed9061b86476ebc7eb5acb9dd89c7.png>)
 

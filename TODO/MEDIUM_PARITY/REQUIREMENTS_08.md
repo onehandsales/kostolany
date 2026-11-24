@@ -156,6 +156,8 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 
 ## S180 — 멘션 입력 시작
 
+- Parity9: 원본 @안내가 서식 툴바 자리를 차지하는 관찰을 적용; 후보 선택 전까지 도구를 숨김. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_e3c9949b35ca4bc7b3328ee4e887fc5a` · [원본 분석](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Mentioning a user/screens/02_sc_e3c9949b35ca4bc7b3328ee4e887fc5a.png>)
 
 흐름 맥락: [F11/02](FLOWS.md#f11)
@@ -259,6 +261,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s183"></a>
 
 ## S183 — 인용 서식 적용
+
+- Parity9: 웹 인용선과 native TextInput의 인용선 부재를 구분; 원본 반복 탭 정책 미확인. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_e5826f356093493a86c19716420e8fdf` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/03_sc_e5826f356093493a86c19716420e8fdf.png>)
 
@@ -731,6 +735,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s196"></a>
 
 ## S196 — 멘션 검색 후보
+
+- Parity9: 후보가 서식 도구 자리를 대체하고 제공된avatar를 표시하도록 보완; 사진2개 자산/실제 렌더 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_fbca217fbc1346d09deb4c0d09dac86e` · [원본 분석](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Mentioning a user/screens/03_sc_fbca217fbc1346d09deb4c0d09dac86e.png>)
 

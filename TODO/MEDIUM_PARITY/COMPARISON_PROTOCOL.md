@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity9 실행 방식(2026-11-24):** [이번 검사·한계](../FE_MEDIUM_PARITY_09_RESULT.md). 기존8081 보존, 테스트/타입/lint와 메모리 Metro JS 검사를 사용한다. 원본 프레임은390×844로 축소해 파일 없이 열람했으며 실제 렌더 비교는 Chrome 시작 자동 승인 차단으로 미실행이다. 이번에 웹 viewport/DPR/시계를 실행 확인했다고 기록하지 않는다. 캡처/로그/검증 manifest/tools 생성·복원 금지와 과거 증거 보존을 유지한다.
+
 **현재 실행 방식 — 2026-11-24:** [1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md)를 따른다. HEAD2fee9eb에서 기존 tools가 제거되어 아래 재사용 명령/생성기 경로는 당시 이력이며 현재 실행 명령이 아니다. 사용자 지시로 tools/evidence/캡처/로그/검증 manifest를 생성·복원하지 않는다. 기존 앱·Jest·타입/lint와 파일을 남기지 않는 inline 조회/CDP를 사용한다. 현재 실행은 Date 고정 없는390×844/320px·DSF1·UTC·Light/reader Dark이므로 아래 고정 시계 profile의 완전 재현으로 기록하지 않는다.
 
 **Parity 5 사용자 지시 예외:** 이번 작업은 “절대로 evidence는 만들지마”를 우선한다. [결과 문서](../FE_MEDIUM_PARITY_05_RESULT.md)에 실제 검사·메모리 캡처 대조·한계를 기록하고 새 이미지/로그/manifest를 저장하지 않는다. 사용자 커밋 `6853256`에서 삭제된 기존 EVIDENCE도 복원하지 않는다. 따라서 과거 파일 무결성 검사와 `ready` 승격은 수행 완료로 주장하지 않는다. 아래 저장/manifest 절차는 과거 실행 및 파일 보존을 요청하는 후속 작업의 기준이다.

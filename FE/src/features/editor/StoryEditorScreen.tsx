@@ -42,8 +42,10 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
   function setValue(update: SetStateAction<EditorValue>) { session.edit(typeof update === 'function' ? update(session.getSnapshot().value) : update); }
   const [defaultImages] = useState(createMockEditorImageSource);
   const images = imageSource ?? defaultImages;
-  const insertion = useImageInsertion(value, images, setValue);
+  const insertion = useImageInsertion(value, images, completeImageInsertion);
   const [imagePicker, setImagePicker] = useState(false);
+  const titleInput = useRef<TextInput>(null);
+  const imageFocusFrame = useRef<number | null>(null);
   const [titleHeight, setTitleHeight] = useState(48);
   const [bodyTarget, setBodyTarget] = useState(false); const [focused, setFocused] = useState(false);
   const [composing, setComposing] = useState(false); const [focusRequest, requestFocus] = useState(0);
@@ -52,6 +54,23 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
   const wasLinkOpen = useRef(false);
   const [error, setError] = useState<string | null>(null);
   const [more, setMore] = useState(false);
+  useEffect(() => cancelImageFocus, [images]);
+  function cancelImageFocus() {
+    if (imageFocusFrame.current !== null) cancelAnimationFrame(imageFocusFrame.current);
+    imageFocusFrame.current = null;
+  }
+  function restoreImageFocus(body: boolean) {
+    cancelImageFocus();
+    // 선택 시트가 닫히고 이미지 뒤 입력이 마운트된 다음 원래 입력 대상을 복원한다.
+    imageFocusFrame.current = requestAnimationFrame(() => {
+      imageFocusFrame.current = null;
+      if (body) requestFocus(current => current + 1);
+      else titleInput.current?.focus();
+    });
+  }
+  function completeImageInsertion(next: EditorValue) {
+    setValue(next); setBodyTarget(true); restoreImageFocus(true);
+  }
   useEffect(() => {
     if (link) { wasLinkOpen.current = true; return; }
     if (!wasLinkOpen.current) return;
@@ -100,7 +119,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
     </View>
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive" contentContainerStyle={styles.content}>
-        <TextInput multiline autoFocus accessibilityLabel="글 제목" placeholderTextColor={colors.secondaryText}
+        <TextInput ref={titleInput} multiline autoFocus accessibilityLabel="글 제목" placeholderTextColor={colors.secondaryText}
           value={value.document.title} onChangeText={title => setValue(current => ({ ...current, document: { ...current.document, title, version: current.document.version + 1 } }))}
           onContentSizeChange={event => setTitleHeight(Math.max(48, event.nativeEvent.contentSize.height))} scrollEnabled={false}
           onFocus={() => { setBodyTarget(false); setFocused(false); }} style={[styles.title, { height: titleHeight }]} />
@@ -112,7 +131,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
           {insertion.pending.status === 'loading' && <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: '#00000088', alignItems: 'center', justifyContent: 'center' }]}>
             <ActivityIndicator accessibilityLabel="이미지 삽입 중" color="#ffffff" size="large" />
           </View>}
-          <Pressable role="button" accessibilityLabel="이미지 삽입 취소" style={[styles.tool, { position: 'absolute', right: 0, top: 0 }]} onPress={insertion.cancel}><Text style={[styles.toolText, { color: '#ffffff' }]}>×</Text></Pressable>
+          <Pressable role="button" accessibilityLabel="이미지 삽입 취소" style={[styles.tool, { position: 'absolute', right: 0, top: 0 }]} onPress={() => { insertion.cancel(); restoreImageFocus(bodyTarget); }}><Text style={[styles.toolText, { color: '#ffffff' }]}>×</Text></Pressable>
           {insertion.pending.status !== 'loading' && <>
             <Text role="alert" style={styles.danger}>이미지를 삽입하지 못했어요.</Text>
             <Pressable role="button" accessibilityLabel="이미지 삽입 다시 시도" onPress={insertion.retry} style={styles.action}><Text style={styles.green}>Try again</Text></Pressable>
@@ -129,15 +148,16 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         {tool('링크', '↗', () => { setError(null); setLink({ url: value.typing.find(format => format.kind === 'link')?.url ?? '', value }); }, value.typing.some(format => format.kind === 'link'), !enabled || value.selection.start === value.selection.end)}
         {tool('키보드 닫기', '⌄', () => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); }, false, false)}
       </View>}
-      <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
+      {/* 멘션 입력 중에는 원본처럼 후보 영역이 서식 도구 자리를 사용한다. */}
+      {!(bodyTarget && !composing && mentionQuery(value)) && <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
         {tool('헤더 서식', 'Tᴛ', () => cycle(['paragraph', 'heading', 'subheading']), ['heading', 'subheading'].includes(block))}
         {tool('인용 서식', '❝', () => cycle(['paragraph', 'quote', 'pullquote']), ['quote', 'pullquote'].includes(block))}
         {tool('목록 서식', '☷', () => cycle(['paragraph', 'bullet', 'numbered']), ['bullet', 'numbered'].includes(block))}
         {tool('구분선 삽입', '⋯', () => apply(insertDivider(value)))}
         {tool('멘션 삽입', '@', () => { setBodyTarget(true); apply(replaceText(value, value.selection, `${value.selection.start && !/\s/u.test(value.document.body[value.selection.start - 1]!) ? ' ' : ''}@`)); }, false, composing)}
         {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), block === 'code')}
-        {tool('이미지 삽입', '▧', () => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }, false, composing)}
-      </ScrollView>
+        {tool('이미지 삽입', '▧', () => { cancelImageFocus(); Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }, false, composing)}
+      </ScrollView>}
     </KeyboardAvoidingView>
     {link && <EditorDialog title="링크" onClose={closeLink}>
       <FormTextInput autoFocus accessibilityLabel="링크 주소" value={link.url} onChangeText={url => setLink(current => current && { ...current, url })}
@@ -162,7 +182,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         </SafeAreaView>
       </View>
     </Modal>}
-    {imagePicker && <ImagePickerSheet source={images} onClose={() => setImagePicker(false)} onSelect={(asset, origin) => {
+    {imagePicker && <ImagePickerSheet source={images} onClose={() => { setImagePicker(false); restoreImageFocus(bodyTarget); }} onSelect={(asset, origin) => {
       setImagePicker(false); insertion.select(asset, origin);
     }} />}
   </SafeAreaView>;

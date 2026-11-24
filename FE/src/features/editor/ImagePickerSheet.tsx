@@ -1,6 +1,6 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -53,7 +53,8 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
           {action('Unsplash 사진 검색', 'Search photos on Unsplash', () => choose('unsplash'))}
         </View>
         <View style={styles.menuGroup}>{action('이미지 선택 취소', 'Cancel', onClose)}</View>
-      </View> : <View role="dialog" accessibilityLabel="사진 선택" style={styles.sheet}>
+      </View> : <KeyboardAvoidingView role="dialog" accessibilityLabel="사진 선택" style={styles.sheet}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View style={styles.header}>
           {action('이미지 선택 취소', 'Cancel', onClose)}
           <Text role="heading" style={styles.title}>{origin === 'unsplash' ? 'Unsplash' : origin === 'camera' ? 'Camera' : 'Library'}</Text>
@@ -72,15 +73,22 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
           {current.permission === 'limited' && <Text style={styles.note}>선택한 사진만 접근할 수 있어요.</Text>}
           {current.permission === 'denied' && <View style={styles.space}><Text role="alert" style={styles.text}>사진 접근이 허용되지 않았어요.</Text>{action('사진 권한 다시 확인', 'Try again', () => setAttempt(value => value + 1))}</View>}
           {current.permission === 'cancelled' && <Text style={styles.note}>사진 선택을 취소했어요.</Text>}
-          <FlatList data={current.assets} numColumns={2} keyExtractor={item => item.assetId} keyboardShouldPersistTaps="handled"
-            contentContainerStyle={styles.grid} columnWrapperStyle={styles.row}
-            ListEmptyComponent={current.permission === 'granted' || current.permission === 'limited' ? <Text style={styles.note}>일치하는 사진이 없어요.</Text> : null}
-            renderItem={({ item }) => <Pressable role="button" accessibilityLabel={`${item.description} 삽입`} style={styles.photo} onPress={() => onSelect(item, origin)}>
-              <Image source={source.resolve(item.assetId)} accessibilityLabel={item.description} style={[styles.image, { aspectRatio: item.width / item.height }]} />
-              <Text style={styles.credit}>{item.credit}</Text>
-            </Pressable>} />
+          <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.grid}>
+            {!current.assets.length && (current.permission === 'granted' || current.permission === 'limited') &&
+              <Text style={styles.note}>일치하는 사진이 없어요.</Text>}
+            {/* 유한한 로컬 사진 목록은 독립된 두 열에서 각 사진의 높이를 유지한다. */}
+            <View style={styles.row}>{[0, 1].map(column => <View key={column} style={styles.column}>
+              {current.assets.filter((_, index) => index % 2 === column).map(item =>
+                <Pressable key={item.assetId} role="button" accessibilityLabel={`${item.description} 삽입`}
+                  style={styles.photo} onPress={() => onSelect(item, origin)}>
+                  <Image source={source.resolve(item.assetId)} accessibilityLabel={item.description}
+                    style={[styles.image, { aspectRatio: item.width / item.height }]} />
+                  <Text style={styles.credit}>{item.credit}</Text>
+                </Pressable>)}
+            </View>)}</View>
+          </ScrollView>
         </>}
-      </View>}
+      </KeyboardAvoidingView>}
     </SafeAreaView>
   </Modal>;
 }
@@ -92,7 +100,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, title: { color: colors.text, fontFamily: fonts.sans, fontWeight: '700', fontSize: 18 },
   note: { color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 13, marginHorizontal: 16, marginVertical: 8 },
   search: { minHeight: 48, borderRadius: 12, backgroundColor: colors.surface, color: colors.text, padding: 12, margin: 16 },
-  grid: { padding: 16, paddingBottom: 32 }, row: { gap: 16, alignItems: 'flex-start' }, photo: { flex: 1, minHeight: 48, marginBottom: 16 },
+  grid: { padding: 16, paddingBottom: 32 }, row: { flexDirection: 'row', gap: 16, alignItems: 'flex-start' },
+  column: { flex: 1, minWidth: 0 }, photo: { minHeight: 48, marginBottom: 16 },
   image: { width: '100%', height: 'auto', resizeMode: 'cover' }, credit: { position: 'absolute', left: 0, right: 0, bottom: 0, color: '#fff', backgroundColor: '#00000088', padding: 8, fontFamily: fonts.sans, fontSize: 12 },
   space: { padding: 24 }, text: { color: colors.text, fontSize: 16 },
 });

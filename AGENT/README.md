@@ -1,5 +1,7 @@
 # Kostolany Project — AGENT
 
+**현재 FE 작업 — Parity9(2026-11-24):** [작성·초안·발행 결과](../TODO/FE_MEDIUM_PARITY_09_RESULT.md)와 [현재 상태](SOFTWARE_AGENT/COMMON/IMPLEMENTATION_STATUS.md)를 따른다. 구현/자동 검증, 브라우저 실행 차단, 원본 미확인·native 구현 잔여/기기 대기를 구분한다. 새 tools/evidence/캡처/로그/manifest는 만들지 않으며 묶음10·커밋·push·배포는 별도 요청 전 진행하지 않는다.
+
 작성일: 2026-11-17
 
 금융 뉴스를 이해하기 쉽게 전달하는 모바일 앱의 제품 범위, 개발 규칙, 검증 상태를 관리한다. Kotlin/Spring Boot와 React Native로 1차 MVP를 만들고, Supabase는 Auth·PostgreSQL·Storage에 사용한다.

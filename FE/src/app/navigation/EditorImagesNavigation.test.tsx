@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { TextInput } from 'react-native';
 import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider, useAuth } from '../../features/auth/AuthProvider';
@@ -41,6 +42,33 @@ it('실제 홈에서 이미지 삽입 실패·재시도와 앞뒤 본문 편집�
   expect(screen.getByText('이미지 앞')).toBeVisible(); expect(screen.getByText('이미지 뒤')).toBeVisible();
   await user.press(button('편집기 닫기')); await screen.findByRole('button', { name: 'Write a story' }); await open();
   expect(screen.getByLabelText('글 제목')).toHaveDisplayValue('');
+}, 30000);
+
+it('사진 선택 취소는 이전 제목·본문으로 복귀하고 삽입 성공은 이미지 뒤 본문에 입력 포커스를 요청한다', async () => {
+  const focus = jest.spyOn(TextInput.prototype, 'focus');
+  try {
+    const { user, open, pick } = await setup(createMockEditorImageSource({ delayMs: 0 }));
+    await open();
+    await fireEvent(screen.getByLabelText('글 제목'), 'focus');
+    await user.press(button('이미지 삽입')); focus.mockClear();
+    await user.press(button('이미지 선택 취소')); await flush();
+    expect(focus).toHaveBeenCalledTimes(1);
+    expect(focus.mock.contexts[0]).toMatchObject({ props: { accessibilityLabel: '글 제목' } });
+    await fireEvent(screen.getByLabelText('글 본문'), 'focus');
+    await fireEvent.changeText(screen.getByLabelText('글 본문'), '사진 앞 문단');
+    await fireEvent(screen.getByLabelText('글 본문'), 'selectionChange', { nativeEvent: { selection: { start: 7, end: 7 } } });
+    await user.press(button('이미지 삽입')); focus.mockClear();
+    await user.press(button('이미지 선택 취소')); await flush();
+    expect(focus).toHaveBeenCalledTimes(1);
+    expect(focus.mock.contexts[0]).toMatchObject({ props: { accessibilityLabel: '글 본문' } });
+    expect(screen.getByLabelText('글 본문')).toHaveProp('selection', { start: 7, end: 7 });
+    focus.mockClear(); await pick(); await flush();
+    expect(focus).toHaveBeenCalledTimes(1);
+    expect(focus.mock.contexts[0]).toMatchObject({ props: { accessibilityLabel: '이미지 뒤 본문 1' } });
+    expect(screen.getByLabelText('이미지 뒤 본문 1')).toHaveProp('selection', { start: 0, end: 0 });
+  } finally {
+    focus.mockRestore();
+  }
 }, 30000);
 
 it('삽입 취소·문서 변경·공급부 교체 뒤 늦은 자산은 해제하고 새 문서에 부활시키지 않는다', async () => {

@@ -517,6 +517,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S115 — 3개 토픽 선택
 
+- Parity9: 3/5·칩제거·최대5/6번째·저장/취소의 mock 확인; 실제 렌더 대기. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_a4216c4ff1f64bb59bc982a8d0067b6e` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):180 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/05_sc_a4216c4ff1f64bb59bc982a8d0067b6e.png>)
 
 흐름 맥락: [F07/05](FLOWS.md#f07)
@@ -629,6 +631,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s118"></a>
 
 ## S118 — 토픽 추가 초기 상태
+
+- Parity9: 0/5 Save 활성/빈 선택 저장 회귀 추가; 최소1개를 임의 필수로 두지 않음. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_a51d0e5d058b47809e1c299e1c28ff0e` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):88 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/02_sc_a51d0e5d058b47809e1c299e1c28ff0e.png>)
 

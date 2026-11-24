@@ -332,6 +332,8 @@ FE 조사 경로: [MembershipSheet.tsx](<../../FE/src/features/membership/Member
 
 ## S060 — 제목과 본문 입력
 
+- Parity9: 제목/본문·서식·선택의 저장/재개/발행 연결 확인; 원본 입력은 사용자가 재현하며 기본값 강제 없음. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_4db886af7d024100a72b9e02fa3c1ee8` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):124 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/03_sc_4db886af7d024100a72b9e02fa3c1ee8.png>)
 
 흐름 맥락: [F08/03](FLOWS.md#f08)
@@ -512,6 +514,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s065"></a>
 
 ## S065 — Music 선택
+
+- Parity9: 검색X와chipX/행체크/취소/저장 구분; 새 스크롤 렌더 대기. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_57162331e2334952b5da8676e4de3c22` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):149 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/04_sc_57162331e2334952b5da8676e4de3c22.png>)
 

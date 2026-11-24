@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**Parity9(2026-11-24):** [V06~V10 자산/배치 판정](../FE_MEDIUM_PARITY_09_RESULT.md). 사진은 독립2열과 실제 fixture 비율/credit, 멘션은 제공된 avatar와 미제공 중립 원을 표시한다. 새 이미지 파일은 생성하지 않았다. S087의 원본 Unsplash 사진/작가·S137 산/호수·S196 두 후보 사진은 기존 fixture에 없어 알려진 자산 차이다. 서체/glyph/간격과 새 렌더 비교도 잔여이며 자산 미확보를 원본 내용 미확인과 혼동하지 않는다.
+
 **최신 보완 — 2026-11-24:** [잔여 정리의 자산 좌표/한계](../FE_MEDIUM_PARITY_01_08_REVIEW.md). S116 Goodbye Notion/xeladu, S132 Digest 전용 사진, S008 브랜드/작성자 이미지5개를 기존 원본에서 추출해 FE 소비자에 연결했다. 아래 “미확보/M 대체”는 과거 판정이다. 현재 서체·벡터는 여전히 대체 자산이며 원본 서비스 사용권 확보와 구분한다.
 
 **Parity 6:** [Digest 비교 결과](../FE_MEDIUM_PARITY_06_RESULT.md). S116의 Goodbye Notion 커버·xeladu 아바타는 기존 FE 자산에 없어 시각 잔여로 남는다. 새 이미지 파일은 만들지 않았다. S132는 기존 love/kris 자산을 재사용하지만 원본 Digest와 crop 구도·해상도 차이가 있다. 회원용 별은 기존 gold SVG16이며 원본 독립 벡터의 동일성을 확정하지 않는다.

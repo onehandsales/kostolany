@@ -120,6 +120,8 @@ FE 조사 경로: [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx
 
 ## S029 — Music 토픽 검색
 
+- Parity9: 검색/검색X/유사ID/선택 보존 확인; 검색·설명을 함께 스크롤하도록 보완, 실제 렌더 대기. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_234fd58378fc447ba6bc2e6c0033f9c2` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):119 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/03_sc_234fd58378fc447ba6bc2e6c0033f9c2.png>)
 
 흐름 맥락: [F07/03](FLOWS.md#f07)
@@ -153,6 +155,8 @@ FE 조사 경로: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopic
 <a id="s030"></a>
 
 ## S030 — 작성기 더보기 메뉴
+
+- Parity9: 네 메뉴의 순서/목적지와 초안 보존 확인; 원본의 Publication 실제 제출 자격은 미확인. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_2436081faa2445cb86e17ea0b88b4fc9` · [원본 분석](<../../medium/flows/Home/Publishing a story/Drafts/ANALYSIS.md>):84 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Drafts/screens/02_sc_2436081faa2445cb86e17ea0b88b4fc9.png>)
 
@@ -188,6 +192,8 @@ FE 조사 경로: [DraftsScreen.tsx](<../../FE/src/features/editor/DraftsScreen.
 <a id="s031"></a>
 
 ## S031 — 본문 문자 스타일 변경
+
+- Parity9: 회색 subheading과 선택 도구의 기존 모델 확인; 원본 스타일 이름/내부 표현 미확인. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_24b381a199374acb8d2a6a516052c9a7` · [원본 분석](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Changing text format/screens/02_sc_24b381a199374acb8d2a6a516052c9a7.png>)
 
@@ -576,6 +582,8 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 
 ## S042 — 빈 기사 편집기
 
+- Parity9: 빈 문서의 녹색Next와 입력 확인; mock 미리보기/빈글 발행 차단을 원본 실제 결과로 단정하지 않음. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_397cb0f05ba54659adac7376f29512dd` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):93 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/02_sc_397cb0f05ba54659adac7376f29512dd.png>)
 
 흐름 맥락: [F08/02](FLOWS.md#f08)
@@ -650,6 +658,8 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 <a id="s044"></a>
 
 ## S044 — Unlisted 공개 범위 안내
+
+- Parity9: 기존 Unlisted 선택/취소·발행 실패/재시도 확인; 외부 URL·노출 효력은 제외. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_39fb71a1ee0d43f09bab33c7ef775259` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):335 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/10_sc_39fb71a1ee0d43f09bab33c7ef775259.png>)
 

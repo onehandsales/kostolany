@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity9 질문별 판정(2026-11-24):** [직접22화면+5흐름의27개 U](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 원본 미수록 질문을 삭제하지 않고 현재 mock 정책·제외·제품 결정·기기 대기를 구분했다. Q04 사용자 삭제는 근거 대기, Q06 경계 연속 선택은 알려진 미지원이다. mock 자동 검증을 원본 답변으로 처리하지 않는다.
+
 **2026-11-24 질문별 재분류:** [Parity1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md). 직접 화면·연결 흐름의91개 U 항목에 현재 mock 해결과 원본 근거 부족/다른 묶음/기기/제외를 별도로 기록했다. 원본 질문을 삭제하거나 mock 통과로 닫지 않는다. 다음 원본 확인의 종료 조건은 해당 질문에 답하는 버전·계정·행동 근거 확보이며, 범위 제외 기능은 이번 실행 대기가 아니다.
 
 [요약](../FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](../FE_MEDIUM_PARITY_BACKLOG.md#q03)
@@ -129,6 +131,7 @@
 <a id="u-s015"></a>
 
 ### U-S015
+- Parity9: 알림 시점/수신은Q08 제외, 대상 삭제 정책은 원본 근거 대기; mock ID/이름 보존. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):169
 - 미확인 내용: 알림 발송 시점·대상 삭제 시 처리
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -145,6 +148,7 @@
 <a id="u-s017"></a>
 
 ### U-S017
+- Parity9: 삭제 확인/Undo는 원본 미수록; mock 즉시 제거를 유지하고 Undo 추가 안 함. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):199
 - 미확인 내용: 삭제 확인·되돌리기 지원
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -153,6 +157,7 @@
 <a id="u-s018"></a>
 
 ### U-S018
+- Parity9: 중첩·번호·줄바꿈 원본 규칙 미확인; 단일 깊이 mock 목록/문단 전이, 중첩 미지원. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):169
 - 미확인 내용: 중첩·번호 목록·줄바꿈 규칙
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -194,6 +199,7 @@
 <a id="u-s023"></a>
 
 ### U-S023
+- Parity9: 실제 발행 자격/검증/공개 효력 미확인; mock owner·제목/내용 검사·public/unlisted 유지. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):81
 - 미확인 내용: 발행 권한·입력 검증·공개 범위 실제 정책
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -243,6 +249,7 @@
 <a id="u-s029"></a>
 
 ### U-S029
+- Parity9: 검색 일치/동명 규칙 미확인; mock 정규화 부분 일치와 고유topic ID. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):142
 - 미확인 내용: 검색 일치 규칙·동일 표시명 처리
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -251,6 +258,7 @@
 <a id="u-s030"></a>
 
 ### U-S030
+- Parity9: 실제 제출 자격/저장 보장 미확인; mock publication 선택/이동 전 flush, 심사·외부 제출 제외. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Drafts/ANALYSIS.md>):107
 - 미확인 내용: 발행물 제출 자격·현재 초안 저장 보장
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -259,6 +267,7 @@
 <a id="u-s031"></a>
 
 ### U-S031
+- Parity9: 원본 스타일 이름/내부 표현 미확인; 기존 블록 종류는 mock 모델. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):109
 - 미확인 내용: 스타일 이름·적용 범위 내부 표현
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -353,6 +362,7 @@
 <a id="u-s042"></a>
 
 ### U-S042
+- Parity9: 빈 Next 결과/저장 시점 미확인; mock 미리보기·빈글 발행 차단·내용600ms 저장. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):117
 - 미확인 내용: 빈 문서 Next 동작·자동 저장 시점
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -369,6 +379,7 @@
 <a id="u-s044"></a>
 
 ### U-S044
+- Parity9: 링크 인증/검색 노출 미확인; mock unlisted 정책만 있고 실제 URL/검색엔진 제외. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):359
 - 미확인 내용: 링크 접근의 인증·검색엔진 노출 조건
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -505,6 +516,7 @@
 <a id="u-s060"></a>
 
 ### U-S060
+- Parity9: 원본 저장 성공/글자 제한/필수 제목 미확인; mock 메모리 저장·발행 제목 검사. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):147
 - 미확인 내용: 저장 완료·글자 제한·제목 필수 검증
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -546,6 +558,7 @@
 <a id="u-s065"></a>
 
 ### U-S065
+- Parity9: 중복 처리 원본 미확인; mock ID toggle·발행 중복 검증. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):173
 - 미확인 내용: 중복 추가 처리
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -735,6 +748,7 @@
 <a id="u-s087"></a>
 
 ### U-S087
+- Parity9: 실제 검색 요청·사용권/출처 계약 미확인; local fixture/credit, 실제 API/Storage 제외. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):207
 - 미확인 내용: 검색 요청·사용권·출처 보존 계약
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -982,6 +996,7 @@
 <a id="u-s115"></a>
 
 ### U-S115
+- Parity9: 취소 복원 원본 미확인; mock 취소 시 임시 선택 폐기·저장값 유지. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):203
 - 미확인 내용: 저장 취소 시 유지 여부
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1008,6 +1023,7 @@
 <a id="u-s118"></a>
 
 ### U-S118
+- Parity9: 6번째/저장 실패 원본 미수록; mock 오류·선택 보존·재시도, 0개 Save 허용. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):112
 - 미확인 내용: 최대 초과 시 UI·저장 실패
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1076,6 +1092,7 @@
 <a id="u-s126"></a>
 
 ### U-S126
+- Parity9: 원본 업로드/다운로드 구분 미확인; 현재 local prepare는 외부 전송이 아님. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):237
 - 미확인 내용: 업로드인지 다운로드인지 미확인
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1167,6 +1184,7 @@
 <a id="u-s137"></a>
 
 ### U-S137
+- Parity9: 원본 자동 저장 성공 미확인; mock 이미지 문서 저장/재개/발행 연결 자동 검증. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):267
 - 미확인 내용: 자동 저장 성공 여부
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1183,6 +1201,7 @@
 <a id="u-s139"></a>
 
 ### U-S139
+- Parity9: 원본 trigger/충돌/offline 미확인; mock600ms/version/실패 보존·Edited 갱신, 영속 동기화 제외. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Drafts/ANALYSIS.md>):138
 - 미확인 내용: 자동 저장 트리거·충돌·오프라인 동기화
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1242,6 +1261,7 @@
 <a id="u-s146"></a>
 
 ### U-S146
+- Parity9: 최대5 안내 관찰; 6번째/제거/순서/서버 실제 결과 미확인, mock 상한/제거/선택순서 유지. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):233
 - 미확인 내용: 토픽 6번째 선택 시 UI·삭제·순서·서버 검증은 미확인. 최대 5개 안내는 토픽 선택 화면 및 공식 문서에서 확인했다.
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1258,6 +1278,7 @@
 <a id="u-s148"></a>
 
 ### U-S148
+- Parity9: 원본 권한 분기 미수록; adapter 대역과 actual OS 권한 Q07/21 대기 분리. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):177
 - 미확인 내용: 카메라·사진 권한 처리
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1530,6 +1551,7 @@
 <a id="u-s180"></a>
 
 ### U-S180
+- Parity9: 최소 길이/검색 범위 미확인; mock @안내·1글자부터 writer 이름/핸들 검색. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):108
 - 미확인 내용: 최소 검색 길이·검색 범위
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1554,6 +1576,7 @@
 <a id="u-s183"></a>
 
 ### U-S183
+- Parity9: 반복 탭/해제 원본 미확인; mock 순환 유지, native 인용선은 구현 잔여. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):139
 - 미확인 내용: 인용 반복 탭·해제 방식
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1665,6 +1688,7 @@
 <a id="u-s196"></a>
 
 ### U-S196
+- Parity9: 원본 정렬/페이지 미확인; mock 유한 directory 순서, 두 사진은 알려진 자산 잔여. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):139
 - 미확인 내용: 결과 정렬·페이지네이션
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1757,6 +1781,7 @@
 <a id="u-f07"></a>
 
 ### U-F07
+- Parity9: 상한/6번째·제거·중복·0건·실패·취소는 mock 검증이며 원본 실행 미확인. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):278
 - 미확인 내용: 5개 경계·6번째 선택, 칩 제거, 중복·검색 0건·Save 실패·취소 복원.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1765,6 +1790,7 @@
 <a id="u-f08"></a>
 
 ### U-F08
+- Parity9: Close/Publication/Unlisted/Edit/빈글/이미지·발행 실패는mock 검증; Home/Profile 전체 보정은17/15. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):445
 - 미확인 내용: Close 후 초안 처리, Publication 제출, Unlisted On, 미리보기 Edit, 빈 글·이미지 실패·발행 실패.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1773,6 +1799,7 @@
 <a id="u-f09"></a>
 
 ### U-F09
+- Parity9: 서식 해제/범위·코드는mock; 중첩/이미지 경계 선택 미지원, 저장 실패 검증, 원본 조합/코드 모습 미확인. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Changing text format/ANALYSIS.md>):242
 - 미확인 내용: 서식 해제·중첩·코드 블록, 선택 범위별 적용, 취소·자동 저장 실패.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1781,6 +1808,7 @@
 <a id="u-f10"></a>
 
 ### U-F10
+- Parity9: 재개/여러 초안/빈목록/실패는mock 검증; 삭제Q04 근거 대기, 발행 제거와 분리, offline/영속성 제외. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Drafts/ANALYSIS.md>):177
 - 미확인 내용: 초안 다시 열기·삭제·여러 초안·빈 목록, 오프라인 충돌과 자동 저장 실패.
 - 현재 판정: 초안 삭제는 원본 근거 확인 대기. 재개/빈 목록의 기존 mock 구현과 분리. 삭제 기능을 동일 재현 필수로 확정하지 않음
@@ -1789,6 +1817,7 @@
 <a id="u-f11"></a>
 
 ### U-F11
+- Parity9: 0건/동명ID/제거는mock, 발행 후 대상 이동은 자체 연결, 실제 알림 제외·원본 이동/삭제 정책 미확인. [질문별 근거·담당·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):211
 - 미확인 내용: 검색 0건·중복 이름 식별·멘션 제거, 발행 후 대상 이동·알림 수신.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료

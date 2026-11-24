@@ -1,5 +1,7 @@
 # Medium Parity 실행 계획
 
+**최신 상태 — Parity9(2026-11-24):** [작성·초안·발행 결과](../FE_MEDIUM_PARITY_09_RESULT.md). 구현 보완·자동 검증 수행, 실제 웹 검증 차단·시각/native 구현 잔여·Q04/Q06 근거 대기·Q07 기기 대기를 구분한다. 아래9 미착수 문장은 이전 이력이다. 묶음10은 시작하지 않았으며9 전체 완료로 승격하지 않는다.
+
 **최신 상태 — 2026-11-24:** [Parity1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md)가 아래 과거 상태보다 우선한다. 7·8 추가 수정은59602be에 이미 포함되었다. 이번 V21/V27 자산·명시적 정수 집계 보완과 문서 정리는 후속 요청에 따라 [커밋 전 추가 검토](../FE_MEDIUM_PARITY_01_08_REVIEW.md#pre-commit-review)를 거쳐 로컬 커밋에 포함한다. Q01 전수 재현·Q02/Q12 전 소비 화면·원본 근거 부족·Q07 기기는 계속 추적하며9는 미착수다.
 
 [Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [Parity 3 결과](../FE_MEDIUM_PARITY_03_RESULT.md) · [Parity 4 결과](../FE_MEDIUM_PARITY_04_RESULT.md) · [Parity 5 결과](../FE_MEDIUM_PARITY_05_RESULT.md) · [Parity 6 결과](../FE_MEDIUM_PARITY_06_RESULT.md) · [Parity 7 결과](../FE_MEDIUM_PARITY_07_RESULT.md) · [Parity 8 결과](../FE_MEDIUM_PARITY_08_RESULT.md) · [보완 목록](../FE_MEDIUM_PARITY_BACKLOG.md) · [200화면 조건](COMPARISON_BASELINE.md)
@@ -124,11 +126,11 @@
 
 ## 묶음 9 — 작성·초안·발행
 
-- 직접 대상: Q04, Q06, V06, V07, V08, V09, V10. 상태: 미착수.
+- 직접 대상: Q04, Q06, V06, V07, V08, V09, V10. 상태: 구현 보완·자동 검증 수행; 웹 실행 차단·시각/native 구현 잔여·Q04/Q06 근거/결정 대기·Q07 기기 대기, 전체 완료 아님.
 - 선행: 2.
 - 구현/판정 범위: 편집 서식·이미지·멘션·초안·발행 원본 상태; 삭제/연속선택의 근거 판정.
 - 검증·종료 조건: autosave/exit/retry·발행멱등·범위보존·키보드/web; native IME Q07.
-- 결과 문서: `TODO/FE_MEDIUM_PARITY_09_RESULT.md` (예정 경로).
+- 결과 문서: [FE_MEDIUM_PARITY_09_RESULT.md](../FE_MEDIUM_PARITY_09_RESULT.md). 원본29단계(직접27+진입/종료2)와 실제 navigation 자동 검증을 구분한다.
 - 화면: S015, S017, S018, S023, S029, S030, S031, S042, S044, S060, S065, S087, S115, S118, S126, S137, S139, S146, S148, S180, S183, S196.
 - 흐름/단계: T-F07-01, T-F07-02, T-F07-03, T-F07-04, T-F07-05, T-F07-06, T-F08-02, T-F08-03, T-F08-04, T-F08-05, T-F08-06, T-F08-07, T-F08-08, T-F08-09, T-F08-10, T-F09-01, T-F09-02, T-F09-03, T-F09-04, T-F09-05, T-F10-01, T-F10-02, T-F10-03, T-F11-01, T-F11-02, T-F11-03, T-F11-04.
 - 미확인 담당: U-S015, U-S017, U-S018, U-S023, U-S029, U-S030, U-S031, U-S042, U-S044, U-S060, U-S065, U-S087, U-S115, U-S118, U-S126, U-S137, U-S139, U-S146, U-S148, U-S180, U-S183, U-S196, U-F07, U-F08, U-F09, U-F10, U-F11.
@@ -194,6 +196,8 @@
 <a id="batch-14"></a>
 
 ## 묶음 14 — 인증·온보딩
+
+- Parity9 검증 인계: [AuthBoundaryNavigation의 간헐적인 VirtualizedList act 경고](../FE_MEDIUM_PARITY_09_RESULT.md#review). 전체 실행에서1건, 단독2 suites/10 tests 재실행에서는 재현 없음. 원인 확정 후 최종22에서도 확인하며 이번9의 인증 구현 확장으로 처리하지 않는다.
 
 - 직접 대상: V29, V30. 상태: 미착수.
 - 선행: 2.
@@ -306,6 +310,8 @@
 <a id="batch-22"></a>
 
 ## 묶음 22 — 전수 종료 판정
+
+- Parity9 인계의 브라우저 차단·native 편집 배치·자산/원본 미확인과 묶음14의 간헐적인 테스트 act 경고를 [결과와 종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md)에 따라 따로 확인한다.
 
 - 직접 대상: Q10. 상태: 미착수.
 - 선행: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21.

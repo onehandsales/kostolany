@@ -11,6 +11,8 @@
 
 ## S126 — 본문 이미지 로딩
 
+- Parity9: 준비/실패/재시도/취소·늦은 자산 해제와 입력 복귀 요청 확인; 원본 업로드/다운로드 여부는 미확인. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_ae30c2a2ca504522b03f98f11d59c429` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):214 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/06_sc_ae30c2a2ca504522b03f98f11d59c429.png>)
 
 흐름 맥락: [F08/06](FLOWS.md#f08)
@@ -387,6 +389,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 
 ## S137 — 이미지 삽입 후 편집기
 
+- Parity9: 이미지/서식/멘션의 초안 재개→발행 문서 보존과 삽입 성공 후 이미지 뒤 본문 focus 요청 확인; 산/호수 자산·실제 키보드/렌더 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_bed3857c8edc4a02b07af1e095ad7fba` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):244 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/07_sc_bed3857c8edc4a02b07af1e095ad7fba.png>)
 
 흐름 맥락: [F08/07](FLOWS.md#f08), [F09/01](FLOWS.md#f09), [F10/01](FLOWS.md#f10), [F11/01](FLOWS.md#f11)
@@ -460,6 +464,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s139"></a>
 
 ## S139 — 초안 목록
+
+- Parity9: 열린 목록의 Edited 경과 시간 갱신 누락 수정; 저장/조회 없이 분 경계 갱신/타이머 정리 검증. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_c020fbe7604a43569b5bf77da2725119` · [원본 분석](<../../medium/flows/Home/Publishing a story/Drafts/ANALYSIS.md>):114 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Drafts/screens/03_sc_c020fbe7604a43569b5bf77da2725119.png>)
 
@@ -706,6 +712,8 @@ FE 조사 경로: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibrarySc
 
 ## S146 — 토픽 지정된 발행 미리보기
 
+- Parity9: 토픽 반영·Edit·발행 연결 확인; 원본 사진/서체/간격과 실제 렌더 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_c3bdb30e524c4709ae45998ec529a6c0` · [원본 분석](<../../medium/flows/Home/Publishing a story/Adding topics/ANALYSIS.md>):210 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Adding topics/screens/06_sc_c3bdb30e524c4709ae45998ec529a6c0.png>)
 
 흐름 맥락: [F07/06](FLOWS.md#f07), [F08/09](FLOWS.md#f08)
@@ -775,6 +783,8 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 <a id="s148"></a>
 
 ## S148 — 이미지 추가 방식 선택
+
+- Parity9: 기존 소스/취소/권한 대역 확인; OS 실행은Q07/21, 실제 Unsplash/Storage 제외. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_c609f8fa87b84b76bea6f312df2e3e0f` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):154 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/04_sc_c609f8fa87b84b76bea6f312df2e3e0f.png>)
 

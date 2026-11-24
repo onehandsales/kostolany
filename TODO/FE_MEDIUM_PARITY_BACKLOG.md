@@ -1,5 +1,7 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**최신 실행 — Parity9(2026-11-24):** [결과·요구별 상태·잔여](FE_MEDIUM_PARITY_09_RESULT.md). Q04 원본 근거 대기, Q06 알려진 연속 선택 미지원 유지. V06~V10의 보정·자동 검증을 수행했으나 현재 브라우저는 자동 승인 차단으로 미실행이며 원본 자산·native 편집 배치 차이가 남는다. 전체 완료로 처리하지 않는다.
+
 **최신 판정 — 2026-11-24:** [Parity1~8 잔여별 분류와 검증](FE_MEDIUM_PARITY_01_08_REVIEW.md). D04/D11의 목록 소비는7, Q11의 발행 다운로드는8에서 이미 해결했다. V21 로고/아바타·비교272 및 V27 사진/아바타/crop·비교17을 이번 보완했다. 서체/반올림 집계/원본 미수록 정책·native는 별도 잔여다. 기존7·8 추가 변경은59602be에 포함되며 아래 미커밋 문구는 당시 이력이다.
 
 **최신 — Parity 7·8 추가 검토:** [결함·회귀·실행 결과](FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 비활성 계정의 제거된 사본 복원과 목록/프로필/발행 글의 이탈 시트·초안 누락을 수정하고 Save to 검사를 보강했다. 현재 타입/lint·전체302 suites/1590 tests 통과. 원본 차이·native 대기 유지, 묶음7 기존 커밋41aebaa 보존, 추가 수정과 묶음8은 미커밋이다. 아래 수치는 각 최초 실행의 이력이다.
@@ -314,6 +316,8 @@
 
 ## Q04 — 초안 사용자 삭제의 범위 판정
 
+- Parity9: [F10 재확인·판정](FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 삭제 실행 근거/명령이 없으며 발행 후 초안 제거와 구분했다. 임의 삭제 UI 추가 없음, 자료 또는 제품 결정 대기 유지.
+
 - 판정: **이번 판정: 원본 근거 확인 대기**. 기존 담당 Goal 38.
 
 - 작업: F10의 삭제 질문은 보관 PNG에 실행이 없다. DraftSource/초안 목록에 삭제 명령은 없으며 발행 때 초안 제거는 다르다. 정확 재현 우선 기준으로 삭제 UI를 임의 추가하지 않는다. 자료 확인 후 구현 대상 또는 명시적 제외로 갱신한다.
@@ -335,6 +339,8 @@
 <a id="q06"></a>
 
 ## Q06 — 이미지 경계를 넘는 편집 선택
+
+- Parity9: [현행 모델과 영향](FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 이미지 앞뒤 독립 입력의 연속 선택 미지원 확인. 원본 실행 미수록과 native IME 대기는 별개이며 모델 전체 확장 안 함.
 
 - 판정: **명시적 구현 잔여 / 원본 근거 대기**. 기존 담당 Goal 36·37·52.
 
@@ -496,6 +502,8 @@
 
 ## V06 — 발행·토픽
 
+- Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). 설명/검색/선택 칩 스크롤 보정, 0개 Save·선택/취소·발행/초안 제거의 navigation 검증. 웹 새 렌더·원본 이미지/서체/정확 간격은 잔여이며 전체 동일성 완료 아님.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 39, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S023](MEDIUM_PARITY/REQUIREMENTS_01.md#s023), [S029](MEDIUM_PARITY/REQUIREMENTS_02.md#s029), [S044](MEDIUM_PARITY/REQUIREMENTS_02.md#s044), [S065](MEDIUM_PARITY/REQUIREMENTS_03.md#s065), [S115](MEDIUM_PARITY/REQUIREMENTS_05.md#s115), [S118](MEDIUM_PARITY/REQUIREMENTS_05.md#s118), [S146](MEDIUM_PARITY/REQUIREMENTS_06.md#s146)
@@ -511,6 +519,8 @@
 <a id="v07"></a>
 
 ## V07 — 편집기 서식
+
+- Parity9: [결과·알려진 native 차이](FE_MEDIUM_PARITY_09_RESULT.md#review). 기존 서식/선택/링크/문서 보존 자동 검증, 코드 실행 원본 미확인 유지. native 인용선/목록 들여쓰기/구분선 배치는 구현 잔여, 실제 입력/IME는 별도 기기 대기.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 36, 공통 Goal23/50/51/53.
 
@@ -528,6 +538,8 @@
 
 ## V08 — 편집기 이미지
 
+- Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). 로컬 사진 독립2열/키보드 회피와 취소/성공 후 입력 복귀 보정, 검색/실패/재시도/삽입/삭제/늦은 응답과 계정 격리 검증. 원본 사진/credit·실제 렌더/키보드는 잔여; pending 중간 위치는 확인된 자체 정책이며 원본 미수록/제품 판정으로 분리한다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 37, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S087](MEDIUM_PARITY/REQUIREMENTS_04.md#s087), [S126](MEDIUM_PARITY/REQUIREMENTS_06.md#s126), [S148](MEDIUM_PARITY/REQUIREMENTS_06.md#s148)
@@ -544,6 +556,8 @@
 
 ## V09 — 초안·작성 메뉴
 
+- Parity9: [결과·추가 재검토](FE_MEDIUM_PARITY_09_RESULT.md#review). 실제 Drafts 재개→발행 연결, 네 메뉴/자동 저장/실패 보존 검증. 열린 목록의 Edited 시간 갱신 누락 수정, 재조회/재저장 없이 타이머 정리 회귀 통과. 서버 영속성 증거 아님, 실제 시트 렌더 대기.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 38, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S030](MEDIUM_PARITY/REQUIREMENTS_02.md#s030), [S139](MEDIUM_PARITY/REQUIREMENTS_06.md#s139)
@@ -559,6 +573,8 @@
 <a id="v10"></a>
 
 ## V10 — 멘션
+
+- Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). @ 안내/후보가 툴바 자리를 차지하고 선택 후 복원하도록 수정. 제공된 avatar 표시와 target 저장 분리, 동명이인/커서/초안·발행 보존 검증. 원본 후보2명 사진과 실제 렌더/키보드는 잔여, 알림 제외.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 38, 공통 Goal23/50/51/53.
 

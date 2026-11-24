@@ -26,7 +26,7 @@ async function setup(drafts = createMockDraftSource({ delayMs: 0 }), directory =
     switchTo: async (id: string) => { await act(async () => { auth.openLogout(); await auth.signOut(); auth.openLogin({ kind: 'write' }); await auth.signIn(id); }); } };
 }
 async function input(text: string) { await fireEvent(screen.getByLabelText('글 본문'), 'focus'); await fireEvent.changeText(screen.getByLabelText('글 본문'), text); }
-it('제목·본문·서식·이미지·멘션을 저장하고 실제 Drafts에서 재개한 뒤 다른 이미지 ID와 대상 연결을 보존한다', async () => {
+it('제목·본문·서식·이미지·멘션을 저장하고 실제 초안 재개·토픽 선택·발행까지 같은 문서를 보존한다', async () => {
   const source = createMockDraftSource({ delayMs: 0 }); const { user, open } = await setup(source); await open();
   await fireEvent.changeText(screen.getByLabelText('글 제목'), '이어 쓰는 글'); await input('문단 @samlee'); await flush();
   await user.press(button('Sam Lee @samlee 멘션'));
@@ -40,7 +40,21 @@ it('제목·본문·서식·이미지·멘션을 저장하고 실제 Drafts에�
   const saved = await source.list(mockUserA.id, new AbortController().signal);
   expect(saved).toHaveLength(1); expect(saved[0]?.document.images).toHaveLength(2); expect(saved[0]?.document.mentions[0]?.target.id).toBe('mention-samlee');
   expect(saved[0]?.document.marks).toContainEqual({ kind: 'bold', start: 0, end: 2 });
-}, 30000);
+  await user.press(screen.getByRole('tab', { name: '프로필' }));
+  await user.press(button('내 초안'));
+  await user.press(await screen.findByRole('button', { name: '이어 쓰는 글 초안 재개' })); await flush();
+  await user.press(button('Next')); await user.press(button('Topics')); await flush();
+  await fireEvent.changeText(screen.getByLabelText('발행 토픽 검색'), 'Music'); await flush();
+  await user.press(screen.getByRole('checkbox', { name: 'Music 3.1M followers 토픽' }));
+  await user.press(button('발행 토픽 저장')); await user.press(button('Publish now')); await flush();
+  await user.press(await screen.findByRole('button', { name: '이어 쓰는 글 발행한 글 열기' })); await flush();
+  expect(screen.getByRole('heading', { name: '이어 쓰는 글' })).toBeVisible();
+  const stories = await source.stories(mockUserA.id, new AbortController().signal);
+  expect(stories).toHaveLength(1);
+  expect(stories[0]?.document).toEqual({ ...saved[0]?.document, version: saved[0]!.document.version + 1 });
+  expect(stories[0]?.publishing.topicIds).toEqual(['music']);
+  expect(await source.list(mockUserA.id, new AbortController().signal)).toEqual([]);
+}, 45000);
 it('저장 실패 후 나가기 취소와 재시도는 입력을 유지하고 조회 실패·빈 상태·재개를 실제 화면에서 구분한다', async () => {
   const source = createMockDraftSource({ delayMs: 0, saveFailures: 2, readFailures: 1 }); const { user, open } = await setup(source); await open();
   await fireEvent.changeText(screen.getByLabelText('글 제목'), '실패 후 복구'); await input('실패한 본문'); await flush();
@@ -71,8 +85,12 @@ it('멘션 검색 실패·재시도·동명이인·빈 결과와 커서 이동 �
   const { user, open, replace } = await setup(createMockDraftSource({ delayMs: 0 }), createMockDirectorySource({ delay: 0, scenario: 'read-error' })); await open(); await input('@samlee'); await flush();
   await user.press(button('멘션 검색 다시 시도')); await flush(); expect(await screen.findByRole('button', { name: 'Sam Lee @samlee 멘션' })).toBeVisible(); expect(button('Sam Lee @sam.lee 멘션')).toBeVisible();
   expect(screen.queryByRole('button', { name: '굵게' })).toBeNull(); await fireEvent(screen.getByLabelText('글 본문'), 'blur');
+  expect(screen.queryByRole('button', { name: '이미지 삽입' })).toBeNull();
+  expect(screen.queryByRole('button', { name: '헤더 서식' })).toBeNull();
   expect(screen.queryByRole('button', { name: '굵게' })).toBeNull(); expect(button('Sam Lee @sam.lee 멘션')).toBeVisible();
   await user.press(button('Sam Lee @sam.lee 멘션')); expect(screen.getByText('Sam Lee')).toBeVisible();
+  expect(button('이미지 삽입')).toBeVisible(); expect(button('헤더 서식')).toBeVisible();
+  expect(screen.getByLabelText('글 본문')).toHaveProp('selection', { start: 8, end: 8 });
   await input('@없는사용자'); await flush(); expect(screen.getByText('No users found')).toBeVisible();
   let resolve!: (value: typeof publicDirectory) => void; const pending = () => new Promise<typeof publicDirectory>(done => { resolve = done; });
   const source = createMockDraftSource({ delayMs: 0 }); await replace(source, pending); await input('@sam');

@@ -404,6 +404,8 @@ FE 조사 경로: [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScree
 
 ## S087 — Unsplash 사진 선택
 
+- Parity9: 행 정렬 대신 독립2열과 키보드 회피 보완; 원본 사진/작가 자산은 미확보, 현재 local fixture 유지. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
+
 안정 원본 ID: `sc_785431954ec4405eb0a3b22debce165a` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):184 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png>)
 
 흐름 맥락: [F08/05](FLOWS.md#f08)

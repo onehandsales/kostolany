@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "e3b526e5289986574ccb932d8d883b413f8fe34895933e678010997426bd8d76"
+      "sha256": "56eb290e24f056ea957bbc7ef21b6559813606ad5e9a505921a84cdd37ba7bf0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "fa7c5010ef319e4b25540d51752377881378239b7f5c739e6e47cd1302523cf2"
+      "sha256": "eb37ef41a291fa19aa69943ef54cf7f5b36104ac9782d00e0a244f214c25f4cf"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,31 +285,31 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "ceabef1319ef966ed86174c76573552847ae484c28bc72edd1d22a904a0ad9a8"
+      "sha256": "c99c6b98ec03941cea040b49ddb6886be2a184abcd230af6e950ada1b6019b0b"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "0a0385034adad7853103eca777307fc55e637347bfd009b59a7762a17ac8f82e"
+      "sha256": "b795b8be0296e1c2fdfb8c771e7288c20d0e5220090e77318af2a7aa2373baea"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "ee7ccb8a615e19a0d8fb82eafb815b8404c79d9addb05262aba7dc90e4c273bb"
+      "sha256": "373a25c652e0218b4cc03e283fc4eb002f65e310918a7e2e8d3a787f63c0ad55"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "146c6e68b240af5c293a8677edcf8468e7b403e062bbbd0c5665faa5d45c2fc1"
+      "sha256": "4a73deaaba1fd1c9bf8b3a223099d2878d2e1d1a781736d707203c01232321be"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "b1c66de1ffdaf7e54103995570ce3f8544707f43a3c01b2ba8277eecc1dcfb66"
+      "sha256": "2902d4e3e3f16724908b48d2bcb92b75a81839dd341b945de2e6a62c10c5005e"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "e28ad9b10a7696b37714ada5dbc9664b08d3ea0291f11988c368f863ddf2df20"
+      "sha256": "13656b0dd6d6c5979e39c480b1232b0fcc5b44fd75b1bfd070c2e6eae5fab14a"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "24bfa25377a14b54ba58be4af210b2221a94223cd02131966259fa3c9a810f14"
+      "sha256": "4cdde37ff5fad6c414656f93077bb6c4b1ec1c33476970bbcac54da7a32eb22c"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
@@ -317,7 +317,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "bfcbab69a222b514e59d49fb07b5258b299c2dd5e097ef3a929a220148ff8358"
+      "sha256": "067b726684d1ed2a06a7ba4c94e5f137fd60eddef28c0fd3a831e736c0ea7768"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "60e4aa7b0a2853338012bc2def30fd755ebda7e5a336670c383e2fcc98592c6d"
+      "sha256": "83ce698dfc753a53cea8f2e677fcb838778a5a2de5050989fbb95b1249db42cb"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -423,11 +423,11 @@
     },
     {
       "path": "FE/src/app/navigation/DraftsNavigation.test.tsx",
-      "sha256": "b8c0190e8ce1bba738c318652cd2b61f87240b4b06263f8746842599085f7c5a"
+      "sha256": "536efcc72e47a7025635f14cc906b7c442c888f81396ed830d6afc1ad1ef0d42"
     },
     {
       "path": "FE/src/app/navigation/EditorImagesNavigation.test.tsx",
-      "sha256": "7d0ae8992af372b46c24c498940eb8903f29ad115304c3c7a4c4d9f3c1a33893"
+      "sha256": "342e378e52c357cac8e17e63d035ec31712c1a68310daead466042f005ab86e9"
     },
     {
       "path": "FE/src/app/navigation/EditorNavigation.test.tsx",
@@ -531,7 +531,7 @@
     },
     {
       "path": "FE/src/app/navigation/PublishingNavigation.test.tsx",
-      "sha256": "efc54a97bda7cf994c659b28a298aaacff433ec880bf6bfc0380473880d82e10"
+      "sha256": "75a72de7cd4d1a9c5bc7ba2791c37cf9e8d4bd572fde93627d1305d5c282d152"
     },
     {
       "path": "FE/src/app/navigation/ReadingParityNavigation.test.tsx",
@@ -1119,7 +1119,7 @@
     },
     {
       "path": "FE/src/features/editor/DraftsScreen.tsx",
-      "sha256": "39b82cb4725615a3590cb3e8569dbcb6bd90709e84e798abc61659dde347604f"
+      "sha256": "f580cf8e4eaecf620088a3faeb8069ef169bb3d7ba7e98987635b9d8f27e805e"
     },
     {
       "path": "FE/src/features/editor/editorImages.test.ts",
@@ -1143,7 +1143,7 @@
     },
     {
       "path": "FE/src/features/editor/ImagePickerSheet.tsx",
-      "sha256": "5cbd1ef3fdc770223844a38fff7905adcb9bc6da5d0c46aebae3bec2df8a7392"
+      "sha256": "9f72c87ea200844d465111278df3be498f644d554fcbe62166ca4d27311f581f"
     },
     {
       "path": "FE/src/features/editor/imageSource.ts",
@@ -1151,7 +1151,7 @@
     },
     {
       "path": "FE/src/features/editor/MentionSuggestions.tsx",
-      "sha256": "a14748d0a76a768af18d61b3705604890dc0cde2d5ec25c2ce9f06e96e9a84ec"
+      "sha256": "fd853ccfaaaf20d99c0994e1c2306e114b6ad0708605d36f6332061b99474ff6"
     },
     {
       "path": "FE/src/features/editor/publishedArticle.test.ts",
@@ -1179,7 +1179,7 @@
     },
     {
       "path": "FE/src/features/editor/PublishTopics.tsx",
-      "sha256": "d2e0ad7280ac84016762993f148bdc1b48a7a5c80de8c4e4545ee3d656207d82"
+      "sha256": "627ceebbd3ad712b3ca92c62eec52d7fa26d06f770fdfdfa50ca513df16eb0a9"
     },
     {
       "path": "FE/src/features/editor/RichBody.tsx",
@@ -1195,7 +1195,7 @@
     },
     {
       "path": "FE/src/features/editor/StoryEditorScreen.tsx",
-      "sha256": "56173529ef8267853a8e4c0f372f4a5cbb36895467d59f639a72714b4f7476aa"
+      "sha256": "83b642eb97905407deb72fd011f05d0d0072ca3f2d7f6b2cdc5f9a48c3d7e225"
     },
     {
       "path": "FE/src/features/editor/useDeviceImageSelection.ts",
@@ -2508,6 +2508,10 @@
     {
       "path": "FE/src/features/responses/responseComparison.test.ts",
       "sha256": "f6b83b97af8c72c7208298c2a06ff39565c15036df5732cd898c5c6fd906aaf0"
+    },
+    {
+      "path": "FE/src/features/editor/DraftsScreen.test.tsx",
+      "sha256": "db2bace41888945c0e43bc8ca62b5696376dddacaae5ff53e379ae05b069e857"
     }
   ],
   "evidenceContext": {
@@ -3329,7 +3333,8 @@
       ],
       "scope": "편집 서식·이미지·멘션·초안·발행 원본 상태; 삭제/연속선택의 근거 판정",
       "done": "autosave/exit/retry·발행멱등·범위보존·키보드/web; native IME Q07",
-      "status": "미착수"
+      "status": "구현 보완·자동 검증 수행; 웹 실행 차단·시각/native 구현 잔여·Q04/Q06 근거/결정 대기·Q07 기기 대기, 전체 완료 아님",
+      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md"
     },
     {
       "number": 10,
@@ -5501,14 +5506,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 결과 대신 녹색 Sam Lee 텍스트",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다."
+      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "멘션 선택 후 커서/서식 툴바 복원을 navigation으로 확인; 실제 키보드/렌더 대기.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S016",
@@ -5671,14 +5681,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 목록 아래 점 3개 구분선, 이미지 녹색 테두리",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "기존 점3개 구분선·사진 선택/삭제 연결 확인; native 가운데 배치/자산 차이 잔여.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S018",
@@ -5754,14 +5769,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 단락 앞 점과 들여쓰기, 목록 도구 녹색",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "기존 bullet와 선택 도구 확인; native 들여쓰기 렌더 차이를 기기 대기와 별도로 유지.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S019",
@@ -6255,14 +6275,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 예상 기사 카드와 Topics·Publication 행, 하단 Publish now",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "0토픽 발행 미리보기·Edit/Publication/닫기/발행 연결 확인; 원본 사진/서체·자체 UI·렌더 잔여.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S024",
@@ -6830,14 +6855,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색어 아래 유사 이름과 팔로워 수 목록",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "검색/검색X/유사ID/선택 보존 확인; 검색·설명을 함께 스크롤하도록 보완, 실제 렌더 대기.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S030",
@@ -6922,14 +6952,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 더보기 아래 4행 팝오버",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "더보기 네 메뉴의 순서·각 목적지, Drafts 제목/Edited 시각/Close/재개를 확인한다. 목록의 시각 표시는 서버 동기화 완료 표시가 아니다."
+      "acceptance": "더보기 네 메뉴의 순서·각 목적지, Drafts 제목/Edited 시각/Close/재개를 확인한다. 목록의 시각 표시는 서버 동기화 완료 표시가 아니다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "네 메뉴의 순서/목적지와 초안 보존 확인; 원본의 Publication 실제 제출 자격은 미확인.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S031",
@@ -7015,14 +7050,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 회색 산세리프 단락과 녹색 문자 도구",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "회색 subheading과 선택 도구의 기존 모델 확인; 원본 스타일 이름/내부 표현 미확인.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S032",
@@ -8159,14 +8199,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 상단 Close·더보기·Next, 본문 커서, 키보드 위 서식 도구",
-        "keyboard": "보임 관찰; web은 OS 키보드 비동등",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "빈 문서의 녹색Next와 입력 확인; mock 미리보기/빈글 발행 차단을 원본 실제 결과로 단정하지 않음.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S043",
@@ -8328,14 +8373,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 미리보기 하단 스크롤, Publication과 Unlisted 설명",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "기존 Unlisted 선택/취소·발행 실패/재시도 확인; 외부 URL·노출 효력은 제외.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S045",
@@ -9928,14 +9978,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 굵은 제목과 세리프 본문, 키보드 위 편집 도구",
-        "keyboard": "보임 관찰; web은 OS 키보드 비동등",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "제목/본문·서식·선택의 저장/재개/발행 연결 확인; 원본 입력은 사용자가 재현하며 기본값 강제 없음.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S061",
@@ -10450,14 +10505,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 아래 삭제 가능한 칩과 결과 체크",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "검색X와chipX/행체크/취소/저장 구분; 새 스크롤 렌더 대기.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S066",
@@ -12724,14 +12784,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색 필드 아래 2열 가변 높이 사진과 작가 이름",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다."
+      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "행 정렬 대신 독립2열과 키보드 회피 보완; 원본 사진/작가 자산은 미확보, 현재 local fixture 유지.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S088",
@@ -15584,14 +15649,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 검색창 3/5와 Music·Culture·Art 칩",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "3/5·칩제거·최대5/6번째·저장/취소의 mock 확인; 실제 렌더 대기.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S116",
@@ -15918,14 +15988,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 설명·검색·Your topics 목록·하단 Save",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "0/5 Save 활성/빈 선택 저장 회귀 추가; 최소1개를 임의 필수로 두지 않음.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S119",
@@ -16797,14 +16872,20 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 본문 아래 사진 위 어두운 덮개·스피너·녹색 선택 테두리",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다."
+      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "준비/실패/재시도/취소·늦은 자산 해제 확인; 원본 업로드/다운로드 여부는 미확인.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증",
+        "focusReview": "취소 시 이전 제목/본문, 삽입 성공 시 이미지 뒤 본문에 focus 요청; 실제 navigation+native ref spy로 검증, OS 키보드/웹 실측 대기"
+      }
     },
     {
       "id": "S127",
@@ -17854,14 +17935,20 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 제목·본문 아래 산과 호수 사진, 키보드 숨김",
-        "keyboard": "숨김 관찰",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "이미지/서식/멘션의 초안 재개→발행 문서 보존 확인; 산/호수 자산·키보드/렌더 잔여.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증",
+        "focusReview": "취소 시 이전 제목/본문, 삽입 성공 시 이미지 뒤 본문에 focus 요청; 실제 navigation+native ref spy로 검증, OS 키보드/웹 실측 대기"
+      }
     },
     {
       "id": "S138",
@@ -18027,14 +18114,19 @@
         "clock": "editedAt=고정 now-60초; 초안1개",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: Drafts 시트와 단일 제목 행",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "더보기 네 메뉴의 순서·각 목적지, Drafts 제목/Edited 시각/Close/재개를 확인한다. 목록의 시각 표시는 서버 동기화 완료 표시가 아니다."
+      "acceptance": "더보기 네 메뉴의 순서·각 목적지, Drafts 제목/Edited 시각/Close/재개를 확인한다. 목록의 시각 표시는 서버 동기화 완료 표시가 아니다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "열린 목록의 Edited 경과 시간 갱신 누락 수정; 저장/조회 없이 분 경계 갱신/타이머 정리 검증.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S140",
@@ -18728,14 +18820,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 카드 아래 토픽 칩",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다."
+      "acceptance": "검색 X와 chip X, 0/5·3/5·최대5, 빈값 Save의 모양, 미리보기 Edit/Publication/Unlisted/Publish now와 스크롤 헤더를 각각 확인한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "토픽 반영·Edit·발행 연결 확인; 원본 사진/서체/간격과 실제 렌더 잔여.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S147",
@@ -18924,14 +19021,20 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 편집기 위 하단 액션 시트",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 숨김; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다."
+      "acceptance": "사진 소스 시트, Unsplash 2열 가변 높이와 작가 표시, 준비 중 덮개·스피너·녹색 테두리·X, 삽입 후 키보드 상태를 각각 비교한다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "기존 소스/취소/권한 대역 확인; OS 실행은Q07/21, 실제 Unsplash/Storage 제외.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증",
+        "focusReview": "취소 시 이전 제목/본문, 삽입 성공 시 이미지 뒤 본문에 focus 요청; 실제 navigation+native ref spy로 검증, OS 키보드/웹 실측 대기"
+      }
     },
     {
       "id": "S149",
@@ -22184,14 +22287,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 본문 새 줄에 @, 키보드 위 사용자 이름 입력 안내",
-        "keyboard": "보임 관찰; web은 OS 키보드 비동등",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다."
+      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "원본 @안내가 서식 툴바 자리를 차지하는 관찰을 적용; 후보 선택 전까지 도구를 숨김.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S181",
@@ -22463,14 +22571,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 단락 왼쪽 세로선과 이탤릭, 인용 도구 녹색",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다."
+      "acceptance": "제목과 본문, 회색 문자 스타일, 이탤릭 인용선, bullet, 점3개 구분선, 선택 중 도구 색과 키보드 위 툴바를 비교한다. 코드 도구의 실행 후 모습은 원본 미확인이다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "웹 인용선과 native TextInput의 인용선 부재를 구분; 원본 반복 탭 정책 미확인.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S184",
@@ -23832,14 +23945,19 @@
         "clock": "CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: @samlee 입력 아래 아바타·이름·핸들 3행",
-        "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
+        "keyboard": "원본 PNG 키보드 보임; 현재 web/native 실제 focus·키보드 검증 대기",
         "platform": "web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도",
         "crop": null
       },
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다."
+      "acceptance": "@만 있는 안내, samlee 검색의 이름·아바타·핸들 세 행, 녹색 이름 삽입과 커서·툴바·키보드 위치를 비교한다. 실제 알림 발송은 별도다.",
+      "parity09Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+        "status": "후보가 서식 도구 자리를 대체하고 제공된avatar를 표시하도록 보완; 사진2개 자산/실제 렌더 잔여.",
+        "verification": "원본 PNG 열람·코드/자동 테스트; 새 실제 렌더/console 미검증"
+      }
     },
     {
       "id": "S197",
@@ -27213,7 +27331,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "알림 시점/수신은Q08 제외, 대상 삭제 정책은 원본 근거 대기; mock ID/이름 보존.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S016",
@@ -27229,7 +27348,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "삭제 확인/Undo는 원본 미수록; mock 즉시 제거를 유지하고 Undo 추가 안 함.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S018",
@@ -27237,7 +27357,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "중첩·번호·줄바꿈 원본 규칙 미확인; 단일 깊이 mock 목록/문단 전이, 중첩 미지원.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S019",
@@ -27282,7 +27403,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "실제 발행 자격/검증/공개 효력 미확인; mock owner·제목/내용 검사·public/unlisted 유지.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S024",
@@ -27335,7 +27457,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "검색 일치/동명 규칙 미확인; mock 정규화 부분 일치와 고유topic ID.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S030",
@@ -27343,7 +27466,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "실제 제출 자격/저장 보장 미확인; mock publication 선택/이동 전 flush, 심사·외부 제출 제외.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S031",
@@ -27351,7 +27475,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 스타일 이름/내부 표현 미확인; 기존 블록 종류는 mock 모델.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S032",
@@ -27467,7 +27592,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "빈 Next 결과/저장 시점 미확인; mock 미리보기·빈글 발행 차단·내용600ms 저장.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S043",
@@ -27485,7 +27611,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "링크 인증/검색 노출 미확인; mock unlisted 정책만 있고 실제 URL/검색엔진 제외.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S045",
@@ -27651,7 +27778,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 저장 성공/글자 제한/필수 제목 미확인; mock 메모리 저장·발행 제목 검사.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S061",
@@ -27696,7 +27824,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "중복 처리 원본 미확인; mock ID toggle·발행 중복 검증.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S066",
@@ -27931,7 +28060,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "실제 검색 요청·사용권/출처 계약 미확인; local fixture/credit, 실제 API/Storage 제외.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S088",
@@ -28258,7 +28388,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "취소 복원 원본 미확인; mock 취소 시 임시 선택 폐기·저장값 유지.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S116",
@@ -28287,7 +28418,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "6번째/저장 실패 원본 미수록; mock 오류·선택 보존·재시도, 0개 Save 허용.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S119",
@@ -28370,7 +28502,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 업로드/다운로드 구분 미확인; 현재 local prepare는 외부 전송이 아님.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S127",
@@ -28473,7 +28606,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 자동 저장 성공 미확인; mock 이미지 문서 저장/재개/발행 연결 자동 검증.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S138",
@@ -28489,7 +28623,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 trigger/충돌/offline 미확인; mock600ms/version/실패 보존·Edited 갱신, 영속 동기화 제외.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S140",
@@ -28559,7 +28694,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "최대5 안내 관찰; 6번째/제거/순서/서버 실제 결과 미확인, mock 상한/제거/선택순서 유지.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S147",
@@ -28575,7 +28711,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 권한 분기 미수록; adapter 대역과 actual OS 권한 Q07/21 대기 분리.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S149",
@@ -28901,7 +29038,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "최소 길이/검색 범위 미확인; mock @안내·1글자부터 writer 이름/핸들 검색.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S181",
@@ -28925,7 +29063,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "반복 탭/해제 원본 미확인; mock 순환 유지, native 인용선은 구현 잔여.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S184",
@@ -29062,7 +29201,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 정렬/페이지 미확인; mock 유한 directory 순서, 두 사진은 알려진 자산 잔여.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-S197",
@@ -29170,7 +29310,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "상한/6번째·제거·중복·0건·실패·취소는 mock 검증이며 원본 실행 미확인.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-F08",
@@ -29180,7 +29321,8 @@
         15,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "Close/Publication/Unlisted/Edit/빈글/이미지·발행 실패는mock 검증; Home/Profile 전체 보정은17/15.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-F09",
@@ -29188,7 +29330,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "서식 해제/범위·코드는mock; 중첩/이미지 경계 선택 미지원, 저장 실패 검증, 원본 조합/코드 모습 미확인.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-F10",
@@ -29196,7 +29339,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "재개/여러 초안/빈목록/실패는mock 검증; 삭제Q04 근거 대기, 발행 제거와 분리, offline/영속성 제외.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-F11",
@@ -29204,7 +29348,8 @@
       "batches": [
         9
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "0건/동명ID/제거는mock, 발행 후 대상 이동은 자체 연결, 실제 알림 제외·원본 이동/삭제 정책 미확인.",
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
     },
     {
       "id": "U-F12",
@@ -32940,16 +33085,11 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "batch": 8,
-    "scope": "Parity1~8 잔여 정리",
-    "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
-    "reason": "현재 코드/배정과 원본 미수록/기기/제외 분리; 삭제된 tools/evidence는 복원하지 않음",
-    "artifacts": "새 검증 manifest/캡처/로그 없음; FE 소비 이미지5개와 기존 출처 목록만 추가; 과거 readiness/evidenceContext 보존",
-    "preCommitReview": {
-      "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md#pre-commit-review",
-      "scope": "응답 집계/상태/원본 crop/추적 문서 재검토 및 미제출 초안 A-B-A 회귀 보강",
-      "boundary": "후속 사용자 승인에 따른 로컬 커밋만; 브라우저 재실행 자동 승인 차단, native 미실행; 과거 evidence/readiness 불변"
-    }
+    "batch": 9,
+    "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md",
+    "reason": "22화면·27개U 현재 판정/원본 키보드 관찰, Edited와 이미지 입력 복귀 추가 검토·수정, 현재 코드·문서 해시 갱신",
+    "artifacts": "새 캡처/로그/manifest/tools 없음; 기존 evidenceContext/currentEvidence/readiness와 원본 관찰 보존",
+    "verificationBoundary": "테스트/코드 조사와 시각/기기 검증 구분; 브라우저 시작 자동 승인 차단"
   },
   "manualUpdateHistory": [
     {
@@ -32972,6 +33112,19 @@
         "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md#additional-review",
         "scope": "묶음7·8 전체 코드/배정/호출부 재검토; 비활성 사본 철회와 화면 이탈 초안 보완; 타입/lint 및 302 suites/1590 tests 통과; web/iOS/Android JS·Hermes export 통과, native 환경 대기",
         "artifacts": "캡처 파일/로그/manifest 없음; tools 입력 불변, TODO 수동 갱신; 원본/evidence 이력 보존"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 8,
+      "scope": "Parity1~8 잔여 정리",
+      "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+      "reason": "현재 코드/배정과 원본 미수록/기기/제외 분리; 삭제된 tools/evidence는 복원하지 않음",
+      "artifacts": "새 검증 manifest/캡처/로그 없음; FE 소비 이미지5개와 기존 출처 목록만 추가; 과거 readiness/evidenceContext 보존",
+      "preCommitReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md#pre-commit-review",
+        "scope": "응답 집계/상태/원본 crop/추적 문서 재검토 및 미제출 초안 A-B-A 회귀 보강",
+        "boundary": "후속 사용자 승인에 따른 로컬 커밋만; 브라우저 재실행 자동 승인 차단, native 미실행; 과거 evidence/readiness 불변"
       }
     }
   ]

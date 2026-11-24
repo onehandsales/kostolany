@@ -19,6 +19,10 @@ async function setup(source = createMockDraftSource({ delayMs: 0 })) {
 }
 it('설정을 열어 둔 뒤 실제 편집기·발행·내 Stories·작성 상세를 이동하며 내용과 취소 초안을 보존한다', async () => {
   const { user, source } = await setup(); await user.press(button('Next')); await user.press(button('Topics')); await flush();
+  expect(screen.getByLabelText('선택 토픽 0/5')).toBeVisible();
+  expect(button('발행 토픽 저장')).toBeEnabled();
+  await user.press(button('발행 토픽 저장')); expect(screen.getByText('No topics added')).toBeVisible();
+  await user.press(button('Topics')); await flush();
   await fireEvent.changeText(screen.getByLabelText('발행 토픽 검색'), 'Music'); await flush(); await user.press(screen.getByRole('checkbox', { name: 'Music 3.1M followers 토픽' }));
   await user.press(button('토픽 검색어 지우기')); await flush(); expect(button('Music 선택 토픽 제거')).toBeVisible(); await user.press(button('토픽 선택 취소'));
   expect(screen.getByText('No topics added')).toBeVisible(); await user.press(button('Topics')); await flush();
