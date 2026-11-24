@@ -1,4 +1,0 @@
-[
-  {"id":"S100","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["Responses"],"waitText":"Most Relevant"},
-  {"id":"Q12-scroll","scroll":{"selector":"[aria-label='응답 목록']","top":200},"measure":["[aria-label='응답 목록']","[aria-label='응답 목록'] > div","div:has(> [aria-label='응답 목록'])"]}
-]

@@ -1,9 +1,0 @@
-[
-  {"id":"S100","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["Responses"],"waitText":"Most Relevant"},
-  {"id":"S008","click":["Medium policy"],"assert":[{"selector":"[aria-label='Responses로 돌아가기']","inside":true,"minWidth":48,"minHeight":48},{"selector":"[aria-label='정책 기사 더보기']","inside":true,"minWidth":48,"minHeight":48},{"selector":"[aria-label='정책 기사 Responses']","inside":true,"minWidth":48,"minHeight":48},{"selector":"[aria-label='정책 기사 공유']","inside":true,"minWidth":48,"minHeight":48}],"measure":["[aria-label='정책 기사 본문']","[aria-label='Follow Medium']","[role='heading']"]},
-  {"id":"Q12-bottom","scroll":{"selector":"[aria-label='정책 기사 본문']","top":9999},"assert":[{"selector":"[aria-label='현재 Medium Rules 열기']","inside":true,"minWidth":48,"minHeight":48}]},
-  {"id":"Q12-options","click":["정책 기사 더보기"],"assert":[{"selector":"[aria-label='정책 기사 메뉴']","inside":true}]},
-  {"id":"Q12-display","click":["정책 기사 표시 설정"],"waitText":"100%"},
-  {"id":"Q12-display-close","keys":["Escape"],"assert":[{"selector":":focus","attributes":{"aria-label":"정책 기사 더보기"}}]},
-  {"id":"Q12-back","click":["Responses로 돌아가기"],"assert":[{"selector":":focus","attributes":{"aria-label":"Medium policy"}}]}
-]

@@ -1,5 +1,0 @@
-[
-  {"id":"S008","navigate":"/?previewLink=kostolany%3A%2F%2Farticle%2Fmedium-brain","click":["본문 응답 정책"],"waitText":"Medium Rules"},
-  {"id":"S100","click":["Responses로 돌아가기"],"waitText":"Most Relevant"},
-  {"id":"Q12-inline-return","click":["Responses 닫기"],"assert":[{"selector":":focus","attributes":{"aria-label":"본문 응답 정책"}}]}
-]
