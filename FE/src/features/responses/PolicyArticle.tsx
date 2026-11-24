@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -78,7 +78,7 @@ function PolicyArticleContent({ onBack, onResponses, onLeave, active = true, bac
       <View style={styles.header}>
         <IconButton icon="back" label={backLabel} onPress={onBack} />
         <View style={styles.brand}>
-          <Text aria-hidden style={styles.brandMark}>M</Text>
+          <Image source={require('../../../assets/medium/policy-brand.png')} accessible={false} style={styles.brandMark} />
           <Text style={styles.brandTitle}>Medium Policy</Text>
         </View>
         <ListenControl article={policyArticleDetail} disabled={!active} />
@@ -90,7 +90,7 @@ function PolicyArticleContent({ onBack, onResponses, onLeave, active = true, bac
         <View style={styles.author}>
           <Pressable role="button" accessibilityLabel="Open Medium profile" style={styles.authorLink}
             onPress={() => { onLeave?.(); community.openIdentity(policyAuthor); }}>
-            <Text aria-hidden style={styles.avatar}>M</Text>
+            <Image source={mediumPolicyArticle.reference?.avatar} accessible={false} style={styles.avatar} />
             <Text style={styles.authorName}>Medium</Text>
           </Pressable>
           <FollowControl target={policyAuthor} name="Medium" />
@@ -103,7 +103,7 @@ function PolicyArticleContent({ onBack, onResponses, onLeave, active = true, bac
           {policyParagraphs[2].split('newsworthiness')[0]}<Text style={styles.underlined}>newsworthiness</Text>,
         </Text>
         <Text style={styles.notice}>This is an excerpt. The current rules may have changed.</Text>
-        <Text style={styles.notice}>Local preview · interactions are mock. The captured 272 responses are not included.</Text>
+        <Text style={styles.notice}>Local preview · interactions are mock. Captured response bodies are unavailable.</Text>
         <ResponsePolicyLink />
       </ScrollView>
       <View style={styles.actions}>
@@ -131,14 +131,14 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: { flexDirection: 'row', alignItems: 'center', minHeight: 56, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border },
   brand: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, minWidth: 0 },
-  brandMark: { color: colors.onAccent, backgroundColor: colors.green, fontFamily: fonts.serif, fontSize: 18, paddingHorizontal: 3 },
+  brandMark: { width: 20, height: 20, borderRadius: 2 },
   brandTitle: { color: colors.text, fontFamily: fonts.sans, fontWeight: '600', fontSize: 16, flexShrink: 1 },
   body: { paddingHorizontal: 24, paddingTop: 32, paddingBottom: 24 },
   title: { color: colors.text, fontFamily: fonts.sans, fontWeight: '700', marginBottom: 26 },
   metadata: { color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 14, lineHeight: 20 },
   author: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginTop: 14, marginBottom: 30 },
   authorLink: { flexDirection: 'row', alignItems: 'center', gap: 10, minHeight: 48, minWidth: 48 },
-  avatar: { color: colors.text, backgroundColor: colors.input, borderRadius: 40, minWidth: 32, minHeight: 32, paddingHorizontal: 5, textAlign: 'center', lineHeight: 32, fontFamily: fonts.serif, fontSize: 20 },
+  avatar: { width: 32, height: 32, borderRadius: 16 },
   authorName: { color: colors.text, fontFamily: fonts.sans, fontSize: 16 },
   paragraph: { color: colors.text, marginBottom: 26 },
   underlined: { textDecorationLine: 'underline' },

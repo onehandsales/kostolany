@@ -5,7 +5,10 @@ import type { FeedArticle } from '../types';
 export const mediumPolicyArticle: FeedArticle = {
   id: 'medium-rules', title: 'Medium Rules', summary: '', sourceName: 'Medium',
   publishedLabel: 'May 26, 2021', readingMinutes: 11, thumbnail: null,
-  reference: { applause: 54000, responses: '272', memberOnly: false },
+  reference: {
+    avatar: require('../../../../assets/medium/policy-author.png'),
+    applause: 54000, responses: '272', memberOnly: false,
+  },
 };
 
 export const policyParagraphs = [

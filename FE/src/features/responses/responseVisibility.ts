@@ -1,5 +1,12 @@
 import type { ReaderResponse, ResponseValue } from './types';
 
+// 비교 자료의 미수록 집계는 가짜 응답 행으로 만들지 않고 현재 보이는 루트 응답과 합산한다.
+export function getResponseCount(value: ResponseValue | null | undefined, blocked: readonly string[] = []): number {
+  if (!value || value.discussion === 'hidden') return 0;
+  return (value.uncapturedCount ?? 0) + visibleResponses(value, blocked)
+    .filter(response => !response.deleted && response.parentId === null).length;
+}
+
 export function visibleResponses(
   value: ResponseValue | null | undefined,
   blocked: readonly string[] = [],

@@ -809,5 +809,55 @@
       132,
       1551
     ]
+  },
+  {
+    "asset": "FE/assets/medium/goodbye-notion.png",
+    "source": "medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png",
+    "cropPhysicalPixels": [
+      72,
+      993,
+      1107,
+      1482
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/xeladu.png",
+    "source": "medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png",
+    "cropPhysicalPixels": [
+      72,
+      1535,
+      132,
+      1595
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/digest-love.png",
+    "source": "medium/flows/Library/Filtering digest/screens/01_sc_bafbf7b80b154e25aec15e120a13f72a.png",
+    "cropPhysicalPixels": [
+      72,
+      993,
+      1107,
+      1482
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/policy-brand.png",
+    "source": "medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png",
+    "cropPhysicalPixels": [
+      389,
+      212,
+      449,
+      272
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/policy-author.png",
+    "source": "medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png",
+    "cropPhysicalPixels": [
+      72,
+      711,
+      168,
+      807
+    ]
   }
 ]

@@ -14,10 +14,10 @@ import { usePublicListAccess } from '../public-lists/PublicListProvider';
 import { articleWriter } from '../community/data/publicDirectory';
 import { useArticleCatalog } from '../feed/ArticleCatalog';
 import { writtenStoryId } from '../editor/publishedArticle';
-import { visibleResponses } from './responseVisibility';
+import { getResponseCount } from './responseVisibility';
 import { createResponseStore, type ResponseStore } from './createResponseStore';
 import { createMockResponseSource } from './data/createMockResponseSource';
-import { responsePreviewScenario } from './data/responsePreview';
+import { responsePreviewScenario, responsePreviewUncapturedCount } from './data/responsePreview';
 import type { ResponseSource, ResponseTarget } from './types';
 import { ReadScopeBoundary } from '../../shared/state/ReadScopeBoundary';
 
@@ -40,6 +40,7 @@ export function ResponseProvider({
     () =>
       createMockResponseSource({
         scenario: responsePreviewScenario,
+        uncapturedCountFor: responsePreviewUncapturedCount,
         ownerFor: (target, reader) => target.kind === 'list'
           ? getList?.(reader, target.id)?.owner.id ?? null
           : catalog?.getSnapshot().find(article => article.id === target.id)?.publishedStory?.ownerId
@@ -125,8 +126,6 @@ export function useResponseCount(target: ResponseTarget): number | null {
   const { state } = useResponses(target);
   const moderation = useModeration();
   return state?.value
-    ? visibleResponses(state.value, moderation.state?.value?.blocked).filter(
-        (response) => !response.deleted && response.parentId === null,
-      ).length
+    ? getResponseCount(state.value, moderation.state?.value?.blocked)
     : null;
 }

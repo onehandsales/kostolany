@@ -1,5 +1,7 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**2026-11-24 갱신:** [1~8 잔여 정리](../FE_MEDIUM_PARITY_01_08_REVIEW.md). 현재 수동 비교/검증은 메모리 화면과 터미널 출력만 사용하며 과거 ready/capture/hash를 새 실행 증거로 갱신하지 않는다. `parityResponses=reference-v1`의 개발 웹 비교 집계와 FE 이미지5개를 연결했다. 역사적 입력 중 삭제된 tools/evidence4경로는 현재 실행 불가이며 복원하지 않았다.
+
 **묶음7·8 추가 검토:** [결과](../FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 전체302 suites/1590 tests 통과, 목록/프로필/발행 저장·응답 이탈과 비활성 사본 철회 보완. 새 캡처 파일 없이 일부 화면을 메모리에서 대조했다. 기존 원본 R/T/U/C·evidence 이력과 recipe-only 판정은 유지하며 동일 fixture 전수 비교로 승격하지 않는다. 코드 해시는 수동 갱신했다.
 
 [Parity 1 결과](../FE_MEDIUM_PARITY_01_RESULT.md) · [Parity 2 결과](../FE_MEDIUM_PARITY_02_RESULT.md) · [실행 계획](EXECUTION_PLAN.md) · [기계 판독 원본](comparisonBaseline.json) · [공통 기준](COMPARISON_PROTOCOL.md)

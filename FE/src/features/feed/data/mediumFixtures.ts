@@ -122,6 +122,7 @@ export const mediumArticles: FeedArticle[] = [
     thumbnail: null,
     reference: {
       image: require('../../../../assets/medium/love.png'),
+      digestImage: require('../../../../assets/medium/digest-love.png'),
       avatar: require('../../../../assets/medium/kris.png'),
       applause: 157000,
       responses: '1.3K',

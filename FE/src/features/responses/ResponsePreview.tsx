@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
-import { visibleResponses } from './responseVisibility';
+import { getResponseCount, visibleResponses } from './responseVisibility';
 import { useArticleModeration } from '../moderation/articleModeration';
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
@@ -52,7 +52,7 @@ function ScopedResponsePreview({ target, active }: { target: ResponseTarget; act
       <Text role="heading" style={{ ...text, fontSize: 20, lineHeight: 26, fontWeight: '700', flexShrink: 1 }}>
         Responses (
         {state?.value
-          ? responses.filter((response) => !response.deleted && response.parentId === null).length
+          ? getResponseCount(state.value, moderation.state?.value?.blocked)
           : '—'}
         )
       </Text>

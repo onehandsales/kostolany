@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "20db47429f3df67d85a95b7d372dc81801365a3a385948a5baed7c92ac61fa3a"
+      "sha256": "e3b526e5289986574ccb932d8d883b413f8fe34895933e678010997426bd8d76"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "e57a16c7be9819a2fe3cf5e0c1900d19f60460e8358bfa23a91c1411d0bc4862"
+      "sha256": "fa7c5010ef319e4b25540d51752377881378239b7f5c739e6e47cd1302523cf2"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,39 +285,39 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "79cd40200ab19a7615c3f48367ff314c2feca3da9bd615e85e70bb71146db7f0"
+      "sha256": "ceabef1319ef966ed86174c76573552847ae484c28bc72edd1d22a904a0ad9a8"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "94f658ad6bf5ce7a3785152f2e2f469a61386c7fb2e42c90a85d0756cf946ff2"
+      "sha256": "0a0385034adad7853103eca777307fc55e637347bfd009b59a7762a17ac8f82e"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "42a3d5e67259aca9f2a13508f0ef0bad6d7e1db91769e743ec7a859d39d30d03"
+      "sha256": "ee7ccb8a615e19a0d8fb82eafb815b8404c79d9addb05262aba7dc90e4c273bb"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "f76e7573224856734061513efe5c3a64daf6f4b6ba32755d3695401fc74194aa"
+      "sha256": "146c6e68b240af5c293a8677edcf8468e7b403e062bbbd0c5665faa5d45c2fc1"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "d20f265d5c3d20548a2de119b223f6227007d007fbfa694078f5f185a4c0eb51"
+      "sha256": "b1c66de1ffdaf7e54103995570ce3f8544707f43a3c01b2ba8277eecc1dcfb66"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "d8af8a9fe1402cf6e14961cf30f0182238ab49a4e14d0ed556f1e82dc149393c"
+      "sha256": "e28ad9b10a7696b37714ada5dbc9664b08d3ea0291f11988c368f863ddf2df20"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "5ea1e1acc26fa5938c2a2fed8fd52baec2c4fc9113242f9ca6f23089c59d7753"
+      "sha256": "24bfa25377a14b54ba58be4af210b2221a94223cd02131966259fa3c9a810f14"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "0b8fe1f7911dc34f106a04b37f4b3b3ca8c4cc98f8c15ef6865b056bec217036"
+      "sha256": "6e3b537043838fe91d6842a50110a037909c434e3f98b097999a4e24bac86003"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "72fd4bc7866df3e7b0fa36c8382dc2a4279fb69d9150e155fbee1dde5be93c6d"
+      "sha256": "bfcbab69a222b514e59d49fb07b5258b299c2dd5e097ef3a929a220148ff8358"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "e03b641e0f3d56fee54d8e70189bf46f140ee2d2f6d2fa63924743e910b8eaf2"
+      "sha256": "60e4aa7b0a2853338012bc2def30fd755ebda7e5a336670c383e2fcc98592c6d"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -351,7 +351,7 @@
     },
     {
       "path": "FE/assets/medium/SOURCES.json",
-      "sha256": "c07038e83e708cd01149a68b2fb91da7315637d69f54ad38e70f7efea4073f03"
+      "sha256": "896c0f7bc19e9e2f1b604b7e46507d4dfc7262a64e5c5d0828a232caf90b2dff"
     },
     {
       "path": "FE/package-lock.json",
@@ -535,7 +535,7 @@
     },
     {
       "path": "FE/src/app/navigation/ReadingParityNavigation.test.tsx",
-      "sha256": "8de17d7b8bff2248b52380ea777ed2e0e4e47fabc3f4a0945cc1011b8fe25ede"
+      "sha256": "efb39673c30f936ed70ad8885423fd86f9993d31db7c434c03065ddb61fc867d"
     },
     {
       "path": "FE/src/app/navigation/RecommendationsNavigation.test.tsx",
@@ -567,7 +567,7 @@
     },
     {
       "path": "FE/src/app/navigation/SettingsNavigation.test.tsx",
-      "sha256": "60dbab77212dc95555b8abbc8ed3f8aad3f43b0e92f92fc4c60c67a6bac3a3ac"
+      "sha256": "a37ab23e5b1bada6ff1278bf191c51187bba4f98ae3ef403c081bf6aadd4a24d"
     },
     {
       "path": "FE/src/app/navigation/SharingNavigation.test.tsx",
@@ -695,7 +695,7 @@
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.test.tsx",
-      "sha256": "a179eac816031a7f6e6c2879f74c2503dd35cac63b03eed5ff63bc5e4edcf097"
+      "sha256": "cd39d4b28b9be89d756e8d1ece67d4cbd42080b384299a3003b73c856e25656a"
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.tsx",
@@ -1055,7 +1055,7 @@
     },
     {
       "path": "FE/src/features/digest/DigestPanel.tsx",
-      "sha256": "1d231968598447e208845a3bf351f863e4117963cfeb526d616d47a058827ecd"
+      "sha256": "bb16251b4483d2fb38fe923118aa311709af62fd743c6455003d87ce92019cd8"
     },
     {
       "path": "FE/src/features/digest/types.ts",
@@ -1283,7 +1283,7 @@
     },
     {
       "path": "FE/src/features/feed/data/mediumDigestStories.ts",
-      "sha256": "86152d3c7f913d50ebd73cbba8976f9a43b7cebdd495826574e9c492bd386b76"
+      "sha256": "0bc2b69d4d4936ab090d4ecb43209e9102d945ed2a0b3ff04fd647113bed0080"
     },
     {
       "path": "FE/src/features/feed/data/mediumExploreExtras.ts",
@@ -1291,7 +1291,7 @@
     },
     {
       "path": "FE/src/features/feed/data/mediumFixtures.ts",
-      "sha256": "7e0848718f67cdd202466d19ef70dc0824712c16022d5149aac55874398a56e6"
+      "sha256": "5e618d96b88acc130c95afb2392b5c8bfdbb4fc553b8fe203a0177a3e01b4f1b"
     },
     {
       "path": "FE/src/features/feed/data/mediumHistoryStories.ts",
@@ -1303,7 +1303,7 @@
     },
     {
       "path": "FE/src/features/feed/data/mediumPolicyArticle.ts",
-      "sha256": "c19bfdc77b4199b6017206d203aab758aa8f7ef9d1ac9b42b8e81873fa05cf6c"
+      "sha256": "e49d028aaba0ee7bdb2a6e697d4497c4f0f0395e3682442dfa5aa50b7615f55c"
     },
     {
       "path": "FE/src/features/feed/data/mediumPublicListStories.ts",
@@ -1339,7 +1339,7 @@
     },
     {
       "path": "FE/src/features/feed/types.ts",
-      "sha256": "264ea83f6638f7d822831d89b5f2396f43e1b5cb31990e794b922713444e4e1f"
+      "sha256": "ce8d06b55b0cefbf69f132ea5920e319a93fa40a9b4e89e0126cc6944136fdd9"
     },
     {
       "path": "FE/src/features/feed/useFeed.test.ts",
@@ -1955,7 +1955,7 @@
     },
     {
       "path": "FE/src/features/responses/data/createMockResponseSource.ts",
-      "sha256": "7ccb605c5d789e9629255cdaf8896df58b38184aa05c5032ab99a305e1982917"
+      "sha256": "b6c346ba1c0004bffd269e9c1bd6b7fbb8af150a3c0b05cc2e2365b10bed972e"
     },
     {
       "path": "FE/src/features/responses/data/responseFixtures.ts",
@@ -1963,11 +1963,11 @@
     },
     {
       "path": "FE/src/features/responses/data/responsePreview.ts",
-      "sha256": "e3f061cef6d3f8f2579b534a0c8a138f39852d7bb65e23133a8b85d035bba5d4"
+      "sha256": "751c3941948c107e3ca78606c8ceb72968dd6931b04315e3b03d4a3889791b7b"
     },
     {
       "path": "FE/src/features/responses/PolicyArticle.tsx",
-      "sha256": "57eb21707a07e07c15d28305d3064bf28db2a8617799881f34cb8bb7b306d515"
+      "sha256": "d637aa1d1dbdce0f8d4726364ede537e2d78ed855583885d54679d4b7593371d"
     },
     {
       "path": "FE/src/features/responses/PolicyArticleScreen.tsx",
@@ -1995,11 +1995,11 @@
     },
     {
       "path": "FE/src/features/responses/ResponsePreview.tsx",
-      "sha256": "28666fac148b21cef493a2ac9fdcaf58eeffd312022580f45cdc352c2aac5898"
+      "sha256": "8e4bb122c37d99dbc037e07b33e32109fe4c77c44963c7b334e54c7bcce9630f"
     },
     {
       "path": "FE/src/features/responses/ResponseProvider.tsx",
-      "sha256": "1f6d6f2effcdaff9aba88780e0a805b01a9fd7354f2449a2cc6372ac6abcc377"
+      "sha256": "e08e70eaa3283620dd1f6184a27d7557a6bd8dd59ccc832aeb53839b05563021"
     },
     {
       "path": "FE/src/features/responses/ResponseQuoteBlock.tsx",
@@ -2011,23 +2011,23 @@
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.test.tsx",
-      "sha256": "7c7a67bb5deb5c7838eedd531a89d41244d29658006d39b66e9319ba075f6f15"
+      "sha256": "487ad9da23e106cc2dbc74540cd417b4929fa9782ac0eb64498a6edae4465b73"
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.tsx",
-      "sha256": "7ef4a96236cf3a6c1a3bb1ac486d59df953dae91bb0975e0d803a8dd8b2c8421"
+      "sha256": "8279fe5fceb29b4518d0c65166de407b10f3cf07c1179192960f284da92c1a3f"
     },
     {
       "path": "FE/src/features/responses/responseVisibility.ts",
-      "sha256": "b61ecea7d04dceb376159e7f2ab5fa25952aff87ee8f4c274d40d2b7cf5a7fe7"
+      "sha256": "0a73228ddbfd6c9f658c670d064a9be9227cbef85128e7867da23743840cff66"
     },
     {
       "path": "FE/src/features/responses/types.ts",
-      "sha256": "7792c206d9ce4b9022ee20be3610710da15f38cf91424e2d9bf74e8536571885"
+      "sha256": "ea367a7932994111d33a1885e38fcee97622f03ae6de3784bb72f90631913024"
     },
     {
       "path": "FE/src/features/responses/validateResponseValue.ts",
-      "sha256": "6243c27ff0bc78852f3634cf42e8585cc0c0a29041e24876da5365d57ee0d754"
+      "sha256": "b02912f5e532a5f6e5e91623651d4d9385527a9b560346296c81baf713375dbf"
     },
     {
       "path": "FE/src/features/search/catalogSearch.test.ts",
@@ -2504,6 +2504,10 @@
     {
       "path": "FE/src/features/downloads/publishedDownload.ts",
       "sha256": "c44aa47fe9577e800fa390fb371c14b33479cf5d9b0a4a3c2ec9cca28248cc56"
+    },
+    {
+      "path": "FE/src/features/responses/responseComparison.test.ts",
+      "sha256": "f6b83b97af8c72c7208298c2a06ff39565c15036df5732cd898c5c6fd906aaf0"
     }
   ],
   "evidenceContext": {
@@ -4751,6 +4755,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
         "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/policy/captures.json",
         "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      },
+      "residualReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 전문·현재 버전 차이. 보이는 로고/아바타와 비교272는 이번 수정, 도구/복귀 mock은3/4.",
+        "evidence": "현재 웹은 메모리에서만 비교; 과거 readiness/capture를 현재 실행으로 승격하지 않음"
       }
     },
     {
@@ -9094,6 +9103,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
         "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/reference-history/captures.json",
         "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      },
+      "residualReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 개별 삭제 확인·Undo. mock 확인/취소/삭제는4, 비교 응답11/471은 이번 보완.",
+        "evidence": "현재 웹은 메모리에서만 비교; 과거 readiness/capture를 현재 실행으로 승격하지 않음"
       }
     },
     {
@@ -15707,6 +15721,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
         "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
         "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      },
+      "residualReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 날짜/관계 필터6, 커버/아바타/비교17은 이번 수정. 원본 과거 호 불변성·캐시 계약은 근거 부족. 연결된 기사 상세의 빈 발행일 뒤 구분자는 알려진 UI 잔여로 V13/묶음10에 배정.",
+        "evidence": "현재 웹은 메모리에서만 비교; 과거 readiness/capture를 현재 실행으로 승격하지 않음"
       }
     },
     {
@@ -17344,6 +17363,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
         "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
         "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      },
+      "residualReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 생성 기준·캡처 시각·반올림 정확값. Digest 전용사진 crop은 이번 해결,157K/158K와1.3K 차이는 알려진 fixture 차이.",
+        "evidence": "현재 웹은 메모리에서만 비교; 과거 readiness/capture를 현재 실행으로 승격하지 않음"
       }
     },
     {
@@ -23198,6 +23222,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_04_RESULT.md",
         "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_04/reference-history/captures.json",
         "scope": "읽기 이력/설정/발행 링크 연결과 웹 비교; Q05 미확인·Q11 후속·V12/V16 시각 잔여·native 대기"
+      },
+      "residualReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 읽음 임계·보존기간. 방문 이력4와 비교7/11/471은 해결; 실제 분석 집계로 확대하지 않음.",
+        "evidence": "현재 웹은 메모리에서만 비교; 과거 readiness/capture를 현재 실행으로 승격하지 않음"
       }
     },
     {
@@ -27044,7 +27073,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 본인 강조 영향·영속성은 미수록. 표시 설정 연결은 묶음4, 개인 강조 보완은11, 실제 동기화는Q08 제외."
+      }
     },
     {
       "id": "U-S002",
@@ -27056,6 +27090,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: owner/list/article별 메모와 공개범위 보호는7. 원본에서 타인에게 메모가 보이는지와 다른 목록 영향은 근거 부족."
       }
     },
     {
@@ -27104,7 +27143,12 @@
       "batches": [
         3
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 전문·현재 버전 차이. 보이는 로고/아바타와 비교272는 이번 수정, 도구/복귀 mock은3/4."
+      }
     },
     {
       "id": "U-S009",
@@ -27132,6 +27176,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: Save to 추가 연결7·목록/기사 다운로드 표시8. 원본 추가 중간 과정과 실제 파일 저장 효과는 근거 부족."
       }
     },
     {
@@ -27220,7 +27269,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 두 캡처의 계정/변경 시점. 현재 사용자 관계의 동적 목록·집계는5에서 해결."
+      }
     },
     {
       "id": "U-S023",
@@ -27244,7 +27298,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "범위 제외: 실제 서버 저장·재시작 영속성(Q08). mock 메모리의 A/B 관계 분리는5."
+      }
     },
     {
       "id": "U-S026",
@@ -27308,7 +27367,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 추천 전체 정렬. 현재 All/type 필터·관계 반영은5의 mock 계약."
+      }
     },
     {
       "id": "U-S034",
@@ -27336,6 +27400,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 체크 시점과 Done 확정 시점. 기존 mock Done 확정·취소·다중 소속은7에서 해결."
       }
     },
     {
@@ -27352,7 +27421,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "다른 묶음 담당: AAA AI 미수록2개 기사 소비는17. 타인 private 접근 보호는5/7, 원본 누락 범위는 근거 부족."
+      }
     },
     {
       "id": "U-S039",
@@ -27364,6 +27438,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 공개/비공개 mock 조회7. 실제 서버 영속성은Q08 제외, 원본 재실행 결과는 근거 부족."
       }
     },
     {
@@ -27414,7 +27493,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 이력 복구/Undo(Q05). mock 삭제·빈 상태·재진입은4, 서버 영속성은Q08 제외."
+      }
     },
     {
       "id": "U-S046",
@@ -27438,7 +27522,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 고정 글 정렬·배지의 모든 조건. 관찰된 Stories/About/관계 연결은5, 프로필 소비 전체는15/17."
+      }
     },
     {
       "id": "U-S049",
@@ -27446,7 +27535,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: On의 제품 초기 기본값. 현재 mock 신규 follow는Off, 실제 발송은Q08 제외."
+      }
     },
     {
       "id": "U-S050",
@@ -27470,7 +27564,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 개별 삭제 확인·Undo. mock 확인/취소/삭제는4, 비교 응답11/471은 이번 보완."
+      }
     },
     {
       "id": "U-S053",
@@ -27506,6 +27605,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: Viewed는4의 방문 기록, 다운로드는8의 별도 상태. 원본 읽음 임계시간은 근거 부족."
       }
     },
     {
@@ -27526,6 +27630,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 전체 이미지 밝기 정책. 현재 이미지 원색 유지와 테마 토큰 사용; 실제 기기 대비는21 대기."
       }
     },
     {
@@ -27566,7 +27675,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "범위 제외: 기기 간 실제 동기화(Q08). 현재 메모리 reader 설정 연결은4, 원본 동기화 계약은 근거 부족."
+      }
     },
     {
       "id": "U-S064",
@@ -27594,6 +27708,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 저장 진입과 목록 소속/순서7. 원본3개 기사의 추가 중간 과정은 근거 부족."
       }
     },
     {
@@ -27678,6 +27797,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 이름 공백·길이·중복 처리의 기존 mock 검증7. 원본 서버 검증 규칙은 근거 부족."
       }
     },
     {
@@ -27690,6 +27814,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 확정 순서 재진입7. 원본 타기기 순서·영속성은 근거 부족/Q08 제외."
       }
     },
     {
@@ -27702,6 +27831,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 순서 초안/취소/충돌 보호7. 실제 터치·스크린리더 이동은21 대기, 원본 동시 편집 결과는 근거 부족."
       }
     },
     {
@@ -27730,6 +27864,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: owner만 목록 편집7. 공동 편집자 역할은 원본 근거 부족이며 이번 범위 제외."
       }
     },
     {
@@ -27746,7 +27885,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: About 편집 형식·멤버 이력 공개 조건. 공개 About 표시5, 본인 편집 소비15."
+      }
     },
     {
       "id": "U-S084",
@@ -27766,6 +27910,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 목록 삭제 시 원문/다른 소속 유지7·사본 철회8. 원본 타인 계정/캐시 결과는 근거 부족."
       }
     },
     {
@@ -27802,6 +27951,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md",
         "scope": "진행/완료 및 취소·부분 실패·사본 제거의 자체 mock 검증; 원본 미확인/실제 offline·native 대기는 유지"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "범위 제외: 디스크 사본·비행기 모드·콜드 시작 offline(Q08)은 미구현. 메모리 사본8은 해결, 원본 캐시 만료는 근거 부족."
       }
     },
     {
@@ -27810,7 +27964,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 목록 제목·선택 집계·전체25건. 직전 프로필 맥락은 관찰되지만 하단 탭 차이가 있어 연속 세션으로 확정하지 않음; mock 연결5."
+      }
     },
     {
       "id": "U-S091",
@@ -27834,7 +27993,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 차단/시점/버전 중 원인. 팔로워10.8K·탭 차이를 강제 차단 효과로 구현하지 않음; 담당5/22."
+      }
     },
     {
       "id": "U-S094",
@@ -27854,6 +28018,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 기본 목록/빈 상태/삭제 제한7. 원본 자동 생성 시점·빈 다운로드 결과는 근거 부족."
       }
     },
     {
@@ -27862,7 +28031,12 @@
       "batches": [
         6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 임시 선택 즉시 조회 여부. mock Done 확정·닫기 취소는6, 이번 브라우저 재확인."
+      }
     },
     {
       "id": "U-S097",
@@ -27886,7 +28060,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 추천 산출. mock 관계/필터의 즉시 반영5; 실제 추천 서비스는Q08 제외."
+      }
     },
     {
       "id": "U-S100",
@@ -27906,6 +28085,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: private 접근 보호7. 원본 공유 URL 실행 결과는 근거 부족, 공유 소비13 담당."
       }
     },
     {
@@ -27922,7 +28106,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 원본 해제 확인/이메일 보존. mock 명시 Unfollow는follow/email만 해제5."
+      }
     },
     {
       "id": "U-S104",
@@ -27930,7 +28119,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 빈/채워진 캡처의 계정 연속성. 현재 A/B 분리·동적 관계는5."
+      }
     },
     {
       "id": "U-S105",
@@ -27942,6 +28136,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock private 전환의 접근 철회7/8. 원본 재공개 시 타인 저장 자동 복원은 근거 부족."
       }
     },
     {
@@ -27954,6 +28153,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 빈 목록/Start browsing7, 빈 다운로드 처리8. 원본 실제 공개/다운로드 실행은 근거 부족."
       }
     },
     {
@@ -27974,6 +28178,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "실제 기기 검증 대기: 색약·OS 고대비는21. Highlighted 내용/원문 연결은11; 원본 대비 수치 근거 부족."
       }
     },
     {
@@ -27986,6 +28195,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 타인 접근 철회7. 원본 상대 계정에서의 실행 결과는 근거 부족."
       }
     },
     {
@@ -28031,6 +28245,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 메모 정리7·사본 철회8. 원본 캐시/복구 정책은 근거 부족, 영속 캐시는Q08 제외."
       }
     },
     {
@@ -28047,7 +28266,12 @@
       "batches": [
         6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 날짜/관계 필터6, 커버/아바타/비교17은 이번 수정. 원본 과거 호 불변성·캐시 계약은 근거 부족. 연결된 기사 상세의 빈 발행일 뒤 구분자는 알려진 UI 잔여로 V13/묶음10에 배정."
+      }
     },
     {
       "id": "U-S117",
@@ -28071,7 +28295,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 현재 메모리 System/Light/Dark 소비4. 실제 OS 즉시 전환은21 대기, 원본 동기화 범위는 근거 부족."
+      }
     },
     {
       "id": "U-S120",
@@ -28091,6 +28320,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Undo의 순서/메모 복구7·사본 자동 부활 방지8. 원본 Undo 시간·실제 복구 내용은 근거 부족."
       }
     },
     {
@@ -28123,7 +28357,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "실제 기기 검증 대기: OS 글자 크기와 조합은21. 원본 최소/최대는 근거 부족, mock100/120 설정4."
+      }
     },
     {
       "id": "U-S126",
@@ -28139,7 +28378,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 필수 사유·중복/실패 보호5. 실제 서버 검증/신고는Q08 제외."
+      }
     },
     {
       "id": "U-S128",
@@ -28163,7 +28407,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 실제 이메일 종료/재팔로우 보존. mock follow/email 해제5, 실제 발송Q08 제외."
+      }
     },
     {
       "id": "U-S131",
@@ -28179,7 +28428,12 @@
       "batches": [
         6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 생성 기준·캡처 시각·반올림 정확값. Digest 전용사진 crop은 이번 해결,157K/158K와1.3K 차이는 알려진 fixture 차이."
+      }
     },
     {
       "id": "U-S133",
@@ -28267,7 +28521,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Mute/Block/Report 분리5/6. 실제 원본의 상호 접근·운영 효력은 근거 부족/Q08 제외."
+      }
     },
     {
       "id": "U-S144",
@@ -28287,6 +28546,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "다른 묶음 담당: Highlighted 정렬·원문 삭제 계약과 시각 보완11. 목록 화면 테마7의 완료와 혼동하지 않음."
       }
     },
     {
@@ -28335,7 +28599,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 클릭 실패·재시도·관계 동기화5. 원본 실행 결과는 근거 부족."
+      }
     },
     {
       "id": "U-S152",
@@ -28343,7 +28612,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 피드/Digest 제외와 해제5/6. 원본 재조회/검색 효과는 근거 부족, 실제 알림Q08 제외."
+      }
     },
     {
       "id": "U-S153",
@@ -28371,6 +28645,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock60/280 경계·필수값7. 실제 서버 초과 검증Q08 제외, 원본은 미수록."
       }
     },
     {
@@ -28391,6 +28670,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 취소·원자적 순서 확정7. 원본 취소/부분 저장 방식은 근거 부족."
       }
     },
     {
@@ -28423,7 +28707,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 나머지 사유의 입력/판정 기준. mock 선택적 설명·동시 차단5, 실제 제재Q08 제외."
+      }
     },
     {
       "id": "U-S162",
@@ -28459,6 +28748,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md",
         "scope": "진행/완료 및 취소·부분 실패·사본 제거의 자체 mock 검증; 원본 미확인/실제 offline·native 대기는 유지"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 취소·부분 실패·재시도8. 원본 네트워크/중단 효과는 근거 부족."
       }
     },
     {
@@ -28483,7 +28777,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 기존 메뉴의 mock 연결4/5. 원본 행동별 실제 결과는 근거 부족, 기사/응답 전체 보완10."
+      }
     },
     {
       "id": "U-S169",
@@ -28499,7 +28798,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "범위 제외: 실제 신고 운영 검토·제재(Q08). 접수 토스트만으로 제재 완료 판정 금지."
+      }
     },
     {
       "id": "U-S171",
@@ -28519,6 +28823,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 다중 소속·북마크 파생7. 원본 다중 해제 실행은 근거 부족."
       }
     },
     {
@@ -28563,6 +28872,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 항목 ID별 순서·중복 소속 방지7. 원본 정렬/중복 기사 정책은 근거 부족."
       }
     },
     {
@@ -28667,7 +28981,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 읽음 임계·보존기간. 방문 이력4와 비교7/11/471은 해결; 실제 분석 집계로 확대하지 않음."
+      }
     },
     {
       "id": "U-S191",
@@ -28679,6 +28998,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 메모 수정/삭제/유효성7. 원본 서버 검증은 근거 부족/Q08 제외."
       }
     },
     {
@@ -28695,7 +29019,12 @@
       "batches": [
         6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 발행 주기·누락일·시간대·보관기한. 최근10개 관찰만 유지,6의 날짜 fixture는 자체 정책."
+      }
     },
     {
       "id": "U-S194",
@@ -28703,7 +29032,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: 현재 화면 수명의 mock 필터5. 원본 계정/재시작 선택 유지 범위는 근거 부족."
+      }
     },
     {
       "id": "U-S195",
@@ -28715,6 +29049,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 현재 소속 제거·타 소속/원문 유지7·해당 사본 철회8. 원본 메모/사본 후속 결과는 근거 부족."
       }
     },
     {
@@ -28739,7 +29078,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 앱/기사 설정의 원본 저장 관계. 현재 reader 설정4·앱 설정18은 구분, OS21 대기."
+      }
     },
     {
       "id": "U-S199",
@@ -28747,7 +29091,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 차단 접근/반응 보호5. 원본 상대 계정에서의 실제 제한은 근거 부족."
+      }
     },
     {
       "id": "U-S200",
@@ -28759,6 +29108,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 빈 메모/최대 길이/저장·취소7. 원본 공개범위·빈값 효과는 근거 부족."
       }
     },
     {
@@ -28860,7 +29214,12 @@
         5,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Muted 관리·동적 관계·A/B5, 이력4. 원본 중간 팔로우/계정 연속성은 근거 부족."
+      }
     },
     {
       "id": "U-F13",
@@ -28868,7 +29227,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 유형 필터·빈/오류·재시도5. 원본 Writers/Publications 단독 결과·전체 정렬은 근거 부족."
+      }
     },
     {
       "id": "U-F14",
@@ -28876,7 +29240,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 방문·Library 이력 공용 데이터·삭제4, 정수 집계는 이번 보완. 원본 Undo·두 이력 화면의 동일성은 근거 부족(Q05)."
+      }
     },
     {
       "id": "U-F15",
@@ -28884,7 +29253,12 @@
       "batches": [
         4
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 확인/취소/실패/재진입4. 원본 Undo/추천 모델 삭제 범위는 근거 부족."
+      }
     },
     {
       "id": "U-F16",
@@ -28902,7 +29276,12 @@
         5,
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 프로필/관계/접근권5/7. 원본 비공개·고정 전체 정렬·외부 실행은 근거 부족; 미수록 공개 목록 콘텐츠17."
+      }
     },
     {
       "id": "U-F18",
@@ -28910,7 +29289,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 차단/해제·접근 보호5 및 사본 철회8. 원본과 공식 기록의 불일치 원인은 근거 부족."
+      }
     },
     {
       "id": "U-F19",
@@ -28918,7 +29302,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock follow/email 분리·실패/수명5. 원본 기본값·실제 수신은 근거 부족/발송Q08 제외."
+      }
     },
     {
       "id": "U-F20",
@@ -28926,7 +29315,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Unfollow/재시도·email 해제5. 원본 확인/재팔로우 알림 보존은 근거 부족."
+      }
     },
     {
       "id": "U-F21",
@@ -28934,7 +29328,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "원본 근거 부족: 누구의 목록인지 확정·전체25개·페이지 결과. 현재 mock 관계 목록5, 가짜 전체25행 추가 안 함."
+      }
     },
     {
       "id": "U-F22",
@@ -28948,6 +29347,11 @@
         "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
         "scope": "Digest 구현·mock 검증 및 웹 부분 비교; 시각 차이·원본 미확인·native 대기",
         "artifacts": "사용자 지시로 tools 수정 및 evidence/캡처/로그/manifest 생성 없이 결과 문서에 기록"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Muted 관리/해제/피드/Digest5/6. 원본 과거 호 갱신은 근거 부족, 실제 알림Q08 제외."
       }
     },
     {
@@ -28956,7 +29360,12 @@
       "batches": [
         5
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 닫기·사유·선택 차단·접수 실패/중복5. 원본 다른 사유/권리침해 결과는 근거 부족, 실제 제재Q08 제외."
+      }
     },
     {
       "id": "U-F24",
@@ -28965,7 +29374,12 @@
         4,
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 표시 설정/재진입4. 원본 폰트 목록·크기 경계·동기화는 근거 부족, OS 글자/테마21 대기."
+      }
     },
     {
       "id": "U-F25",
@@ -29049,7 +29463,12 @@
         3,
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 부모 초안/복귀3/4 및 이번 재확인. 전문·현재 버전·원본 도구 실행은 근거 부족."
+      }
     },
     {
       "id": "U-F35",
@@ -29078,6 +29497,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 다중 저장/생성/실패/취소7. 원본 체크 확정 시점은 근거 부족, 실제 타기기 동기화Q08 제외."
       }
     },
     {
@@ -29117,6 +29541,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 배너/빈 목록7·Digest6·이력4. Highlighted11, 공개 Saved lists 소비17; 원본 미수록 탭 전체 내용은 근거 부족."
       }
     },
     {
@@ -29129,6 +29558,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock60/280·공백/중복·Private/Cancel/실패7. 원본 서버 검증은 근거 부족/Q08 제외."
       }
     },
     {
@@ -29137,7 +29571,12 @@
       "batches": [
         6
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 닫기/선택/빈 호/실패6와 이번 날짜 재검증. 원본 시간대·10개 이후 보관은 근거 부족."
+      }
     },
     {
       "id": "U-F44",
@@ -29146,7 +29585,12 @@
         6,
         16
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "다른 묶음 담당: Digest 설정 S162/V28은16. 원본 다른 빈도 옵션·발송시각·외부 결과는 근거 부족, 실제 발송Q08 제외."
+      }
     },
     {
       "id": "U-F45",
@@ -29158,6 +29602,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 빈값/최대/Cancel/수정·삭제/owner-list-article 격리7. 원본 공개 메모 효과는 근거 부족."
       }
     },
     {
@@ -29170,6 +29619,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Start browsing/추가/편집7·원문 변경 사본8. 공유13·응답10의 전체 시각 보완과 구분, 원본 편집 폼 미수록."
       }
     },
     {
@@ -29182,6 +29636,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 삭제 취소/실패·기본 목록 보호·메모 정리7/사본8. 원본 상대 라이브러리/캐시 결과는 근거 부족."
       }
     },
     {
@@ -29201,7 +29660,12 @@
           "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
           "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
         }
-      ]
+      ],
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 중단/부분 실패/재시도/사본 제거8. 저장 공간/디스크 캐시/실제 비행기 모드·콜드 시작은Q08 제외; 원본 효과 근거 부족."
+      }
     },
     {
       "id": "U-F49",
@@ -29213,6 +29677,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Cancel/실패/접근 철회7/8. 원본 재공개 복원·공유 실행은 근거 부족, 공유13 담당."
       }
     },
     {
@@ -29225,6 +29694,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Undo·순서/메모·다른 소속 보존7/사본 부활 방지8. 원본 시간제한/복구 결과는 근거 부족."
       }
     },
     {
@@ -29237,6 +29711,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock Cancel/전체순서/충돌/실패/메모7. 실제 드래그/스크린리더21 대기, 원본 미수록 결과 근거 부족."
       }
     },
     {
@@ -29343,6 +29822,11 @@
       "latestReview": {
         "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
         "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      },
+      "residualReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+        "decision": "이미 해결됨: mock 전역/reader 테마 소비4/7. OS 접근성/시스템 전환21 대기, 원본 재시작·동기화 근거 부족/실제 영속성Q08 제외."
       }
     },
     {
@@ -32337,18 +32821,134 @@
         "colorChunks": []
       },
       "status": "로컬 비교용 crop 확보; 원본 독립 자산/배포 권리/렌더 동일성 확인 아님"
+    },
+    {
+      "asset": "FE/assets/medium/goodbye-notion.png",
+      "source": "medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png",
+      "cropPhysicalPixels": [
+        72,
+        993,
+        1107,
+        1482
+      ],
+      "image": {
+        "widthPx": 1035,
+        "heightPx": 489,
+        "sha256": "07dc9f7a1c10dd0bae2eb7f389d192ffa2e6b6d8055a3644cf418799b04710ed",
+        "colorChunks": []
+      },
+      "sourceImage": {
+        "widthPx": 1179,
+        "heightPx": 2556,
+        "sha256": "253a11a720f41c37ebc7572c85874668ad555722c06db02361a24c287b53d9a3",
+        "colorChunks": []
+      },
+      "status": "2026-11-24 원본 영역 무리샘플 crop·현재 웹 부분 비교; 독립 원본 자산/서비스 권리/전수 시각 일치 아님"
+    },
+    {
+      "asset": "FE/assets/medium/xeladu.png",
+      "source": "medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png",
+      "cropPhysicalPixels": [
+        72,
+        1535,
+        132,
+        1595
+      ],
+      "image": {
+        "widthPx": 60,
+        "heightPx": 60,
+        "sha256": "f1cb4f79a247b766eb1f266af5478822459821cbbdc1345258207e25c3db4f25",
+        "colorChunks": []
+      },
+      "sourceImage": {
+        "widthPx": 1179,
+        "heightPx": 2556,
+        "sha256": "253a11a720f41c37ebc7572c85874668ad555722c06db02361a24c287b53d9a3",
+        "colorChunks": []
+      },
+      "status": "2026-11-24 원본 영역 무리샘플 crop·현재 웹 부분 비교; 독립 원본 자산/서비스 권리/전수 시각 일치 아님"
+    },
+    {
+      "asset": "FE/assets/medium/digest-love.png",
+      "source": "medium/flows/Library/Filtering digest/screens/01_sc_bafbf7b80b154e25aec15e120a13f72a.png",
+      "cropPhysicalPixels": [
+        72,
+        993,
+        1107,
+        1482
+      ],
+      "image": {
+        "widthPx": 1035,
+        "heightPx": 489,
+        "sha256": "6d5679e757e6cb6cb8b1d6c9cd1fec9f82a8d8b99f8308caf37dc19145474399",
+        "colorChunks": []
+      },
+      "sourceImage": {
+        "widthPx": 1179,
+        "heightPx": 2556,
+        "sha256": "d40185638bf7c82b1385c742a1a5ec730e42b37021e8b11e1cd1dc6fefb8dd6b",
+        "colorChunks": []
+      },
+      "status": "2026-11-24 원본 영역 무리샘플 crop·현재 웹 부분 비교; 독립 원본 자산/서비스 권리/전수 시각 일치 아님"
+    },
+    {
+      "asset": "FE/assets/medium/policy-brand.png",
+      "source": "medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png",
+      "cropPhysicalPixels": [
+        389,
+        212,
+        449,
+        272
+      ],
+      "image": {
+        "widthPx": 60,
+        "heightPx": 60,
+        "sha256": "1ba387d8a0da1f90c3612fcc5f541158789d0cf92685488d976b509d2af6d4c7",
+        "colorChunks": []
+      },
+      "sourceImage": {
+        "widthPx": 1179,
+        "heightPx": 2556,
+        "sha256": "a14af430eabae143f56b7018798aca32b12c0a408e14eec178bb0d31bbebff39",
+        "colorChunks": []
+      },
+      "status": "2026-11-24 원본 영역 무리샘플 crop·현재 웹 부분 비교; 독립 원본 자산/서비스 권리/전수 시각 일치 아님"
+    },
+    {
+      "asset": "FE/assets/medium/policy-author.png",
+      "source": "medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png",
+      "cropPhysicalPixels": [
+        72,
+        711,
+        168,
+        807
+      ],
+      "image": {
+        "widthPx": 96,
+        "heightPx": 96,
+        "sha256": "313893a959829d1676b3a62eeb8c3b70998867a29cf0afd5123a957b5fda94f6",
+        "colorChunks": []
+      },
+      "sourceImage": {
+        "widthPx": 1179,
+        "heightPx": 2556,
+        "sha256": "a14af430eabae143f56b7018798aca32b12c0a408e14eec178bb0d31bbebff39",
+        "colorChunks": []
+      },
+      "status": "2026-11-24 원본 영역 무리샘플 crop·현재 웹 부분 비교; 독립 원본 자산/서비스 권리/전수 시각 일치 아님"
     }
   ],
   "manualUpdate": {
+    "date": "2026-11-24",
     "batch": 8,
-    "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md",
-    "batch7Commit": "41aebaa2e1236667f7eb833fa21c5f56ede0a60f",
-    "reason": "tools 생성/수정 금지로 TODO 수동 갱신; 자동 입력/과거 evidenceContext 보존",
-    "additionalReview": {
-      "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md#additional-review",
-      "scope": "묶음7·8 전체 코드/배정/호출부 재검토; 비활성 사본 철회와 화면 이탈 초안 보완; 타입/lint 및 302 suites/1590 tests 통과; web/iOS/Android JS·Hermes export 통과, native 환경 대기",
-      "artifacts": "캡처 파일/로그/manifest 없음; tools 입력 불변, TODO 수동 갱신; 원본/evidence 이력 보존"
+    "scope": "Parity1~8 잔여 정리",
+    "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
+    "reason": "현재 코드/배정과 원본 미수록/기기/제외 분리; 삭제된 tools/evidence는 복원하지 않음",
+    "artifacts": "새 검증 manifest/캡처/로그 없음; FE 소비 이미지5개와 기존 출처 목록만 추가; 과거 readiness/evidenceContext 보존",
+    "preCommitReview": {
+      "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md#pre-commit-review",
+      "scope": "응답 집계/상태/원본 crop/추적 문서 재검토 및 미제출 초안 A-B-A 회귀 보강",
+      "boundary": "후속 사용자 승인에 따른 로컬 커밋만; 브라우저 재실행 자동 승인 차단, native 미실행; 과거 evidence/readiness 불변"
     }
   },
   "manualUpdateHistory": [
@@ -32361,6 +32961,18 @@
       "batch": 7,
       "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
       "reason": "tools 생성/수정 금지로 TODO 수동 갱신; 기존 자동 생성 입력과 과거 evidenceContext 보존"
+    },
+    {
+      "batch": 8,
+      "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md",
+      "batch7Commit": "41aebaa2e1236667f7eb833fa21c5f56ede0a60f",
+      "reason": "tools 생성/수정 금지로 TODO 수동 갱신; 자동 입력/과거 evidenceContext 보존",
+      "additionalReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_08_RESULT.md#additional-review",
+        "scope": "묶음7·8 전체 코드/배정/호출부 재검토; 비활성 사본 철회와 화면 이탈 초안 보완; 타입/lint 및 302 suites/1590 tests 통과; web/iOS/Android JS·Hermes export 통과, native 환경 대기",
+        "artifacts": "캡처 파일/로그/manifest 없음; tools 입력 불변, TODO 수동 갱신; 원본/evidence 이력 보존"
+      }
     }
   ]
 }

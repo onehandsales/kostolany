@@ -20,6 +20,10 @@ import { createMockReadingSettingsSource } from '../../features/settings/data/cr
 import type { ReadingSettings, ReadingSettingsSource } from '../../features/settings/types';
 import { SessionNavigation } from './AppNavigator';
 
+// 목록의 지연 렌더와 사용자 이벤트가 같은 테스트 시계에서 완료되도록 시간을 제어한다.
+beforeEach(() => jest.useFakeTimers());
+afterEach(() => jest.useRealTimers());
+
 const title = '금리가 오르면 예금과 대출에는 어떤 일이 생길까';
 const initial: ReadingSettings = { userId: mockUserA.id, defaultLevel: 'adult' };
 const button = (name: string) => screen.getByRole('button', { name });
@@ -40,7 +44,7 @@ async function setup(source = createMockReadingSettingsSource({ delayMs: 0 }), i
   </AuthProvider></SafeAreaProvider>);
   await screen.findByRole('button', { name: new RegExp(`^${title}`) });
   if (!auth) throw new Error('Missing auth');
-  return { auth, user: userEvent.setup() };
+  return { auth, user: userEvent.setup({ advanceTimers: jest.advanceTimersByTime }) };
 }
 async function settings(user: ReturnType<typeof userEvent.setup>) {
   await user.press(tab('프로필')); await user.press(button('설정 열기'));

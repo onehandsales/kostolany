@@ -515,6 +515,8 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 
 ## S190 — 읽기 기록 목록
 
+- **1~8 잔여 정리:** 기존 이력/설정/재열기 연결 유지, 개발 비교 모드 정수7/11/471 추가. Q05 원본 Undo 근거는 여전히 없음. [현재 결과](../FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 안정 원본 ID: `sc_f4bb3fa34f32466b9bd12eea57ea518f` · [원본 분석](<../../medium/flows/Home/Refine recommendations/ANALYSIS.md>):118 · [원본 PNG](<../../medium/flows/Home/Refine recommendations/screens/03_sc_f4bb3fa34f32466b9bd12eea57ea518f.png>)
 
 흐름 맥락: [F12/03](FLOWS.md#f12), [F14/01](FLOWS.md#f14), [F15/01](FLOWS.md#f15)

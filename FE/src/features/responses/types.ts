@@ -27,6 +27,8 @@ export type ResponseValue = Readonly<{
   target: ResponseTarget;
   version: number;
   responses: readonly ReaderResponse[];
+  // 원본 비교에서 본문이 제공되지 않은 집계만 보관하며 응답 행이나 실서비스 총수로 해석하지 않는다.
+  uncapturedCount?: number;
   ownerId?: string | null;
   discussion?: 'open' | 'closed' | 'hidden';
 }>;

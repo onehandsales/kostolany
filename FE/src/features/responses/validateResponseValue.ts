@@ -13,6 +13,9 @@ export function validateResponseValue(
     !Number.isSafeInteger(value.version) ||
     value.version < 0 ||
     !Array.isArray(value.responses) ||
+    (value.uncapturedCount !== undefined &&
+      (!Number.isSafeInteger(value.uncapturedCount) || value.uncapturedCount < 0 ||
+        !Number.isSafeInteger(value.uncapturedCount + value.responses.length))) ||
     (value.ownerId !== undefined &&
       value.ownerId !== null &&
       (typeof value.ownerId !== 'string' || !value.ownerId.trim())) ||

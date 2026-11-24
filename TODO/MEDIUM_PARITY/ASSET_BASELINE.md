@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**최신 보완 — 2026-11-24:** [잔여 정리의 자산 좌표/한계](../FE_MEDIUM_PARITY_01_08_REVIEW.md). S116 Goodbye Notion/xeladu, S132 Digest 전용 사진, S008 브랜드/작성자 이미지5개를 기존 원본에서 추출해 FE 소비자에 연결했다. 아래 “미확보/M 대체”는 과거 판정이다. 현재 서체·벡터는 여전히 대체 자산이며 원본 서비스 사용권 확보와 구분한다.
+
 **Parity 6:** [Digest 비교 결과](../FE_MEDIUM_PARITY_06_RESULT.md). S116의 Goodbye Notion 커버·xeladu 아바타는 기존 FE 자산에 없어 시각 잔여로 남는다. 새 이미지 파일은 만들지 않았다. S132는 기존 love/kris 자산을 재사용하지만 원본 Digest와 crop 구도·해상도 차이가 있다. 회원용 별은 기존 gold SVG16이며 원본 독립 벡터의 동일성을 확정하지 않는다.
 
 [비교 프로토콜](COMPARISON_PROTOCOL.md) · [실행 계획](EXECUTION_PLAN.md#batch-02)
@@ -10,8 +12,8 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | --- | --- | --- |
 | 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체. Parity 2 CDP에서 영어 제목 Arial Bold, 설정 Arial, 한국어 프로필 Malgun Gothic Bold 확인 | 원본 font 파일·weight mapping 미확보; 각 V의 서체/줄바꿈 잔여 |
 | 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |
-| 작성 글 | DocumentReader 기본 serif18/30, 제목28/36 | 일반 reader 설정과 분리된 D03 잔여; 묶음4/9/10 |
-| 정책 기사 | [Parity 3](../FE_MEDIUM_PARITY_03_RESULT.md): reader 본문18/30, Medium Policy/Medium 아바타는 M 대체, 기존 SVG 도구·48px 조작 영역 | S008/V21 원본 로고/아바타·서체·정확 간격·숫자 크기 잔여; 독립 원본 자산을 새로 확보한 것은 아님 |
+| 작성 글 | DocumentReader의 기본 본문18/30과 공통 reader 설정 소비는 [Parity4](../FE_MEDIUM_PARITY_04_RESULT.md)에서 연결 | D03 연결은 해결; 작성/발행 원본 전체 대조는9/10, 원본 글꼴은 미확보 |
+| 정책 기사 | reader 본문18/30, Medium Policy/Medium 원본 crop2개와 기존 SVG 도구·48px 조작 영역 | S008/V21 서체·정확 간격 잔여;272는 명시적 비교 모드만. crop은 독립 원본 자산/사용권 확보가 아님 |
 | 읽기 설정·이력 | [Parity 4](../FE_MEDIUM_PARITY_04_RESULT.md): 발행 본문18/30에 공통 크기/글꼴/테마 적용, 큰 글자의 하위 메뉴 실제 행 기준 배치, 이력 빈 카드 모서리 보정 | 원본 글꼴 미확보·이력 중간 기사/응답 집계·OS 영역과 정확 간격은 잔여; 새 자산 확보 없음 |
 | 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |
 | 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
@@ -107,6 +109,16 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | [history-personality.png](<../../FE/assets/medium/history-personality.png>) | 240×162 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [867, 1602, 1107, 1764] | 확보/렌더 비교 대기 |
 | [stem-parenting.png](<../../FE/assets/medium/stem-parenting.png>) | 60×60 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [72, 828, 132, 888] | 확보/렌더 비교 대기 |
 | [think-draft.png](<../../FE/assets/medium/think-draft.png>) | 60×60 | [원본](<../../medium/flows/Home/Refine recommendations/Reading history/screens/02_sc_4239d69cbdce4194a5a34c7472131dfd.png>) / [72, 1491, 132, 1551] | 확보/렌더 비교 대기 |
+
+### 이번 잔여 정리에서 연결한 이미지
+
+| 파일 | 실제 크기(px) | 원본·crop(물리px) | 상태 |
+| --- | --- | --- | --- |
+| [goodbye-notion.png](<../../FE/assets/medium/goodbye-notion.png>) | 1035×489 | [원본](<../../medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>) / [72, 993, 1107, 1482] | 1~8 재검토에서 소비 화면 연결·웹 부분 비교; native 대기 |
+| [xeladu.png](<../../FE/assets/medium/xeladu.png>) | 60×60 | [원본](<../../medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>) / [72, 1535, 132, 1595] | 1~8 재검토에서 소비 화면 연결·웹 부분 비교; native 대기 |
+| [digest-love.png](<../../FE/assets/medium/digest-love.png>) | 1035×489 | [원본](<../../medium/flows/Library/Filtering digest/screens/01_sc_bafbf7b80b154e25aec15e120a13f72a.png>) / [72, 993, 1107, 1482] | 1~8 재검토에서 소비 화면 연결·웹 부분 비교; native 대기 |
+| [policy-brand.png](<../../FE/assets/medium/policy-brand.png>) | 60×60 | [원본](<../../medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png>) / [389, 212, 449, 272] | 1~8 재검토에서 소비 화면 연결·웹 부분 비교; native 대기 |
+| [policy-author.png](<../../FE/assets/medium/policy-author.png>) | 96×96 | [원본](<../../medium/flows/Home/Story detail/Responses/Medium policy/screens/02_sc_063290fab51b4acd913212f85acde70d.png>) / [72, 711, 168, 807] | 1~8 재검토에서 소비 화면 연결·웹 부분 비교; native 대기 |
 
 ## 별도 앱/기본 자산
 

@@ -209,6 +209,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 ## S132 — Digest 일자별 추천
 
+- **1~8 잔여 정리:** 홈용 작은 이미지 대신 Digest 원본의1035×489 crop 소비.157K/158K·1.3K는 알려진 fixture 차이이며 정확값을 추정하지 않음. [현재 결과](../FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 안정 원본 ID: `sc_bafbf7b80b154e25aec15e120a13f72a` · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Library/screens/04_sc_bafbf7b80b154e25aec15e120a13f72a.png>)
 
 흐름 맥락: [F41/04](FLOWS.md#f41), [F43/01](FLOWS.md#f43), [F44/01](FLOWS.md#f44)

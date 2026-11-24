@@ -1,5 +1,7 @@
 # Medium Parity 8 — 목록 다운로드
 
+**최신 잔여 판정 — 2026-11-24:** [Parity1~8 잔여 정리·보완·재검토](FE_MEDIUM_PARITY_01_08_REVIEW.md). 아래 수치·미커밋·미착수·시각 차이는 해당 실행 당시 기록이다. 후속 해결과 이번 보완, 원본 근거 부족/기기/제외를 최신 표에서 구분하며 과거 증거를 현재 통과로 사용하지 않는다.
+
 최신 추가 검토는 [묶음7·8 전수 재검토](#additional-review)에 기록한다. 아래 1578건 등은 최초 묶음8 실행 이력이며 추가 수정 이후의 검사와 구분한다. 묶음7 커밋은 그대로 보존하고 양쪽의 추가 수정은 미커밋으로 둔다.
 
 2026-11-24 · 시작 HEAD `41aebaa2e1236667f7eb833fa21c5f56ede0a60f`. 묶음7의 조건 충족 후 39개 파일을 `fix(fe): complete Medium parity batch 7 list workflows`로 로컬 커밋하고 깨끗한 트리에서 시작했다. 묶음7은 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 및 가능한 웹 검증 통과, 시각 차이/U/native 대기다. 자세한 이전 결과는 [묶음7](FE_MEDIUM_PARITY_07_RESULT.md)에 보존한다.

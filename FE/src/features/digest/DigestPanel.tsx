@@ -106,8 +106,9 @@ function DigestStory({ article, hero, onOpen }: { article: FeedArticle; hero: bo
   const viewed = useHasViewed(article.id);
   const moderation = useArticleModeration();
   const { width } = useWindowDimensions();
+  const image = article.reference?.digestImage ?? article.reference?.image;
   return <View style={styles.story}>
-    {hero && article.reference?.image && <Image source={article.reference.image} style={[styles.hero, { height: (Math.min(728, width) - 48) / 2.1 }]} accessible={false} resizeMode="cover" />}
+    {hero && image && <Image source={image} style={[styles.hero, { height: (Math.min(728, width) - 48) / 2.1 }]} accessible={false} resizeMode="cover" />}
     <ArticleByline articleId={article.id} fallback={article.sourceName} />
     <Pressable role="button" accessibilityLabel={`Digest 기사 ${article.title}`} onPress={() => onOpen(article.id)} style={styles.storyLink}>
       <Text style={[styles.storyTitle, viewed && styles.viewed]}>{article.title}</Text><Text style={styles.summary}>{article.summary}</Text>

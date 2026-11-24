@@ -15,6 +15,7 @@ export function createMockResponseSource({
   scenario = 'normal',
   delayMs = scenario === 'slow' ? 3000 : 150,
   initial = responseFixtures,
+  uncapturedCountFor = () => 0,
   now = () => new Date().toISOString(),
   ownerFor = (target: ResponseTarget) =>
     target.kind === 'article' && target.id === 'example-latest-rates' ? 'example-reader' : null,
@@ -24,6 +25,7 @@ export function createMockResponseSource({
   scenario?: ResponseScenario;
   delayMs?: number;
   initial?: (target: ResponseTarget) => readonly ReaderResponse[];
+  uncapturedCountFor?: (target: ResponseTarget) => number;
   now?: () => string;
   ownerFor?: (target: ResponseTarget, userId: string | null) => string | null;
   canInteract?: (userId: string, target: ResponseTarget, responseAuthorId?: string) => boolean;
@@ -70,7 +72,9 @@ export function createMockResponseSource({
         responses,
         ownerId: ownerFor(target, userId),
         discussion: 'open',
+        uncapturedCount: uncapturedCountFor(target),
       };
+      validateResponseValue(value, userId, target);
       values.set(key, value);
     }
     return value;

@@ -1,5 +1,7 @@
 # Parity 4 — 읽기 설정·이력·발행 링크
 
+**최신 잔여 판정 — 2026-11-24:** [Parity1~8 잔여 정리·보완·재검토](FE_MEDIUM_PARITY_01_08_REVIEW.md). 아래 수치·미커밋·미착수·시각 차이는 해당 실행 당시 기록이다. 후속 해결과 이번 보완, 원본 근거 부족/기기/제외를 최신 표에서 구분하며 과거 증거를 현재 통과로 사용하지 않는다.
+
 기준: 2026-11-23, Windows, 시작 `47c18dbde2c926edd72cb78d8adc39b419eb57b3`의 깨끗한 `main`.
 [실행 계획](MEDIUM_PARITY/EXECUTION_PLAN.md#batch-04) · [보완 목록](FE_MEDIUM_PARITY_BACKLOG.md) · [증거 폴더](MEDIUM_PARITY/EVIDENCE/PARITY_04/).
 

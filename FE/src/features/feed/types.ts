@@ -4,6 +4,7 @@ export type FeedSort = 'latest' | 'popular' | 'recommended';
 
 export type ReferenceStory = {
   image?: ImageSourcePropType;
+  digestImage?: ImageSourcePropType;
   avatar?: ImageSourcePropType;
   applause: number;
   responses: string;

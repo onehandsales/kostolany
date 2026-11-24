@@ -17,7 +17,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ResponseManagement } from './ResponseManagement';
 import { PolicyArticle, policyResponseTarget } from './PolicyArticle';
 import { useReturnFocus } from '../../shared/ui/useReturnFocus';
-import { visibleResponses } from './responseVisibility';
+import { getResponseCount, visibleResponses } from './responseVisibility';
 import { useModeration } from '../moderation/ModerationContext';
 import { useArticleModeration } from '../moderation/articleModeration';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
@@ -135,7 +135,8 @@ function ScopedResponsesPanel({
   const moderation = useModeration();
   const responses = visibleResponses(state?.value, moderation.state?.value?.blocked);
   const closed = Boolean(state?.value?.discussion && state.value.discussion !== 'open');
-  const count = responses.filter((response) => !response.deleted && response.parentId === null).length;
+  const count = getResponseCount(state?.value, moderation.state?.value?.blocked);
+  const uncapturedCount = state?.value?.discussion === 'hidden' ? 0 : state?.value?.uncapturedCount ?? 0;
   const selectedId = composer.mode === 'edit' ? composer.id : composer.parentId;
   const selected = selectedId ? responses.find((response) => response.id === selectedId) : null;
   const invalidTarget = Boolean(selectedId && (!selected || selected.deleted));
@@ -349,6 +350,9 @@ function ScopedResponsesPanel({
                         {responses.some(item => item.id === initialFocusId && !item.deleted) ? '알림의 응답을 표시하고 있어요.' : '알림의 응답이 삭제되었거나 더 이상 표시되지 않아요.'}
                       </Text>}
                       <ResponseManagement target={target} />
+                      {uncapturedCount > 0 && <Text style={styles.status}>
+                        {`비교용 원본 집계 ${uncapturedCount}개의 응답 본문은 자료에 포함되지 않았어요.`}
+                      </Text>}
                       <View ref={sortAnchor} collapsable={false}>
                         <Pressable
                           role="button"
@@ -406,7 +410,7 @@ function ScopedResponsesPanel({
                       )}
                     </View>
                   }
-                  ListEmptyComponent={<Text style={styles.status}>Be the first to respond.</Text>}
+                  ListEmptyComponent={uncapturedCount ? null : <Text style={styles.status}>Be the first to respond.</Text>}
                   renderItem={({ item }) =>
                     item.kind === 'more' ? (
                       <Pressable

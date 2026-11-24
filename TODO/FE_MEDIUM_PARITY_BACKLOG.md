@@ -1,5 +1,7 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**최신 판정 — 2026-11-24:** [Parity1~8 잔여별 분류와 검증](FE_MEDIUM_PARITY_01_08_REVIEW.md). D04/D11의 목록 소비는7, Q11의 발행 다운로드는8에서 이미 해결했다. V21 로고/아바타·비교272 및 V27 사진/아바타/crop·비교17을 이번 보완했다. 서체/반올림 집계/원본 미수록 정책·native는 별도 잔여다. 기존7·8 추가 변경은59602be에 포함되며 아래 미커밋 문구는 당시 이력이다.
+
 **최신 — Parity 7·8 추가 검토:** [결함·회귀·실행 결과](FE_MEDIUM_PARITY_08_RESULT.md#additional-review). 비활성 계정의 제거된 사본 복원과 목록/프로필/발행 글의 이탈 시트·초안 누락을 수정하고 Save to 검사를 보강했다. 현재 타입/lint·전체302 suites/1590 tests 통과. 원본 차이·native 대기 유지, 묶음7 기존 커밋41aebaa 보존, 추가 수정과 묶음8은 미커밋이다. 아래 수치는 각 최초 실행의 이력이다.
 
 **현재 — Parity 8:** [목록 다운로드 결과](FE_MEDIUM_PARITY_08_RESULT.md). 묶음7은 `41aebaa`로 로컬 커밋했다. 묶음8의 일반/발행 혼합 사본·버전/권한·reader 연결과 두 검토/브라우저·타입/lint·전체302 suites/1578 tests·web/iOS/Android export를 통과했다. 묶음8은 미커밋, 묶음9/push/배포는 진행하지 않는다. 원본 차이·미확인·native 대기와 메모리 사본의 한계를 구분한다. 아래 기록은 당시 이력이다.
@@ -94,6 +96,8 @@
 
 ## D04 — 미확인 읽기 시간 0의 표시 통일
 
+- **2026-11-24 잔여 판정:** Digest의 양수 시간만 표시하는 소비는6, 목록 카드/메모는7에서 해결. 이전 소비 누락을 새로 구현하지 않는다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). Digest의 0·누락 읽기 시간을 숨기고 확인된 양수만 표시했다. 날짜 재조회·기사 복귀 후 동일하다. 메모 소비자는 묶음7 잔여이며 항목 전체 완료가 아니다. 아래 근거·판정은 수정 전 이력이다.
@@ -155,6 +159,8 @@
 <a id="d07"></a>
 
 ## D07 — 발행 글이 들어간 목록의 mock 다운로드
+
+- **2026-11-24 잔여 판정:** 발행 문서/이미지 참조·버전·접근 철회는8 및 추가 검토에서 해결. 디스크/영속 offline은Q08 제외. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
 - 최신 Parity 8: [일반/발행 혼합 사본·version/권한·진행/완료 표시 및 실제 검사](FE_MEDIUM_PARITY_08_RESULT.md). 기능/mock 구현·두 검토/웹·타입/lint·전체302 suites/1578 tests·export 통과. 메모리 사본만 지원하며 원본 시각/U·native 대기는 유지한다. 아래는 기존 감사 이력이다.
 
@@ -231,6 +237,8 @@
 <a id="d11"></a>
 
 ## D11 — Digest·내 목록 카드의 회원용 글 표시
+
+- **2026-11-24 잔여 판정:** Digest 및 내 목록의 memberOnly 별표 소비는6/7에서 해결. 회원 등급/다운로드/Viewed와 독립이다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
@@ -358,6 +366,8 @@
 
 ## Q09 — Goal53 세 중간 증거 문구의 최종 판정
 
+- **2026-11-24 잔여 판정:** 과거 완료 문구 판정과 실제 시각 보정은 별도다.7/8 추가 수정은59602be에 포함되었고 tools/evidence 경로는 현재 실행 입력이 아니다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 - 판정: **이번 최신 문서 판정 완료 / 시각 차이는 잔여**. 기존 담당 Goal 53.
 
 - 작업: S015/S068/S125의 기존 PNG와 당시 해시를 대조한 기록을 요약 문서에 보존한다. 세 항목은 차이 잔여이며 S068의 정확 참조 fixture는 미검증이다. 촬영 예정 등의 과거 문장을 새 실행 기록으로 바꾸지 않는다.
@@ -377,6 +387,8 @@
 <a id="q11"></a>
 
 ## Q11 — 발행 글과 일반 기사의 읽기 기능 적용 범위
+
+- **2026-11-24 잔여 판정:** 발행 글 다운로드는8에서 해결. Highlight/인용은11, Listen은12에서 기능별 판정한다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
 - 최신 부분 판정: [Parity 4 도구별 지원표](FE_MEDIUM_PARITY_04_RESULT.md)에서 이력/표시 설정과 미지원 Highlight·인용·Listen을 구분했다. 묶음 4의 판정만 반영하며 묶음 11/12의 채택·구현·검증은 미완료다.
 
@@ -600,6 +612,8 @@
 
 ## V13 — 기사 읽기·반응
 
+- 1~8 잔여 검토 인계: Goodbye Notion을 열면 빈 발행일 뒤 구분자가 남는다. 원본 미확인이 아닌 `ReferenceArticleView`의 알려진 UI 잔여이며 묶음10에서 존재하는 메타데이터만 연결해 수정·검증한다. [현재 판정](FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 25, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S007](MEDIUM_PARITY/REQUIREMENTS_01.md#s007), [S037](MEDIUM_PARITY/REQUIREMENTS_02.md#s037), [S102](MEDIUM_PARITY/REQUIREMENTS_05.md#s102), [S140](MEDIUM_PARITY/REQUIREMENTS_06.md#s140), [S147](MEDIUM_PARITY/REQUIREMENTS_06.md#s147), [S164](MEDIUM_PARITY/REQUIREMENTS_07.md#s164), [S175](MEDIUM_PARITY/REQUIREMENTS_07.md#s175), [S179](MEDIUM_PARITY/REQUIREMENTS_08.md#s179), [S187](MEDIUM_PARITY/REQUIREMENTS_08.md#s187), [S189](MEDIUM_PARITY/REQUIREMENTS_08.md#s189)
@@ -734,6 +748,8 @@
 
 ## V21 — 정책 기사
 
+- **2026-11-24 잔여 판정:** 원본 로고/아바타 crop과 개발 비교272를 보완. 일반 모드0/작성 후1과 비교 모드272/273은 별도 계약이다. 서체·정확 간격·전문/U/native는 남는다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 - **Parity 3 현재 판정:** [S008 구조·도구·F34 연결과 전후 캡처](FE_MEDIUM_PARITY_03_RESULT.md)를 확보했다. 로고/아바타 M 대체, 원본 서체/정확 간격/아이콘·수치 크기, 272→실제 mock 0/1 차이가 남아 전체 완료가 아니다. 잔여는 묶음3 소유로 유지하고 최종22에서 재대조한다. 아래 원본 수용 조건은 유지한다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 26, 공통 Goal23/50/51/53.
@@ -839,6 +855,8 @@
 <a id="v27"></a>
 
 ## V27 — Digest
+
+- **2026-11-24 잔여 판정:** S116 커버/아바타와 S132 전용 crop, 개발 비교17을 보완. 반올림 집계·원본 과거 호/주기 정책·서체/native는 남는다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). June12/June8 기사 구성·최근10발행분·임시 선택/Done·취소·이탈/계정 수명·관련 행동을 보완했다. S116 사진/아바타, 반응 수·서체·OS 영역 차이는 남아 전체 시각 동일성은 미완료다. 아래 근거·판정은 수정 전 이력이다.
 

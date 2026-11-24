@@ -550,6 +550,8 @@ FE 조사 경로: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopic
 
 ## S116 — 선택 날짜 다이제스트
 
+- **1~8 잔여 정리:** Goodbye Notion 커버·xeladu 원본 crop 및 명시적 비교17 보완. 날짜/계정/응답 공유 상태 검증과 원본 과거 호 정책은 구분. [현재 결과](../FE_MEDIUM_PARITY_01_08_REVIEW.md).
+
 안정 원본 ID: `sc_a42fffc3afb34954bc5e4afcc2e08e04` · [원본 분석](<../../medium/flows/Library/Filtering digest/ANALYSIS.md>):146 · [원본 PNG](<../../medium/flows/Library/Filtering digest/screens/04_sc_a42fffc3afb34954bc5e4afcc2e08e04.png>)
 
 흐름 맥락: [F43/04](FLOWS.md#f43)

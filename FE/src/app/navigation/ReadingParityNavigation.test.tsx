@@ -11,6 +11,8 @@ import { AppNavigator } from './AppNavigator';
 import { darkColors, fonts } from '../../shared/theme/tokens';
 import { createMockFeedSource } from '../../features/feed/data/mockFeedSource';
 import { mediumArticles } from '../../features/feed/data/mediumFixtures';
+import { createMockResponseSource } from '../../features/responses/data/createMockResponseSource';
+import { createResponseComparisonCounts } from '../../features/responses/data/responsePreview';
 
 beforeEach(() => jest.useFakeTimers());
 afterEach(() => jest.useRealTimers());
@@ -81,14 +83,19 @@ it.each([false, true])('발행 글 unlisted=%s의 설정·Viewed·이력 재열�
   expect((await drafts.story(story.id, new AbortController().signal))?.document).toEqual(command.document);
 }, 30000);
 
-it('Responses의 정책 기사를 이력에서 전용 화면으로 다시 열고 읽기 설정을 유지한다', async () => {
+it.each([false, true])('정책 기사 비교 모드 %s의 이력 재진입과 부모 초안 및 읽기 설정을 유지한다', async comparison => {
   const history = createMockReadingHistorySource({ delayMs: 0 });
+  const responses = createMockResponseSource({ delayMs: 0,
+    uncapturedCountFor: createResponseComparisonCounts('?parityResponses=reference-v1', comparison) });
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} historySource={history}
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} historySource={history} responseSource={responses}
     feedSource={createMockFeedSource({ delayMs: 0, catalog: { latest: mediumArticles.filter(item => item.id === 'medium-brain'), popular: [], recommended: [] } })} /></SafeAreaProvider>);
   await flush(); await user.press(button(/^ChatGPT Is Poisoning/)); await flush();
   await user.press(button('Responses')); await fireEvent.changeText(screen.getByLabelText('응답 내용'), '정책 확인 후 이어 쓸 초안');
   await user.press(button('Medium policy')); await flush();
+  await user.press(button('정책 기사 Responses')); await flush();
+  expect(screen.getByRole('heading', { name: `Responses (${comparison ? 272 : 0})` })).toBeVisible();
+  await user.press(button('Responses 닫기'));
   await user.press(button('정책 기사 더보기')); await user.press(button('정책 기사 표시 설정'));
   await user.press(button('글자 크기 키우기')); await user.press(button('기사 표시 설정 닫기'));
   await user.press(button('Responses로 돌아가기')); expect(screen.getByLabelText('응답 내용')).toHaveDisplayValue('정책 확인 후 이어 쓸 초안');
