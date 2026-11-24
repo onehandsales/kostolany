@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useContext, useLayoutEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useAuth } from '../auth/AuthProvider';
 import { createMockMembershipSource } from './createMockMembershipSource';
 import {
@@ -18,10 +18,20 @@ type MembershipContextValue = {
   isCurrent: () => boolean;
 };
 const Context = createContext<MembershipContextValue | null>(null);
+function createSourceLifetime(source: MembershipSource) {
+  let active = true;
+  return { source, isActive: () => active, activate() {
+    active = true;
+    return () => { active = false; };
+  } };
+}
 export function MembershipProvider({ source, children }: { source?: MembershipSource; children: ReactNode }) {
   const auth = useAuth();
   const [fallback] = useState(createMockMembershipSource);
   const current = source ?? fallback;
+  // 같은 source로 돌아와도 이전 소비자가 보관한 자격 함수는 다시 유효해지지 않는다.
+  const lifetime = useMemo(() => createSourceLifetime(current), [current]);
+  useLayoutEffect(() => lifetime.activate(), [lifetime]);
   const [boundary, setBoundary] = useState({ source: current, generation: 0 });
   const userId = auth.state.user?.id ?? null;
   const revision = auth.state.revision;
@@ -30,8 +40,9 @@ export function MembershipProvider({ source, children }: { source?: MembershipSo
   const tier = record?.tier ?? 'free';
   const isCurrent = useMemo(
     () => () =>
+      lifetime.isActive() &&
       auth.store.getSnapshot().user?.id === userId && auth.store.getSnapshot().revision === revision,
-    [auth.store, userId, revision],
+    [auth.store, userId, revision, lifetime],
   );
   if (boundary.source !== current) {
     setBoundary({ source: current, generation: boundary.generation + 1 });

@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "483502ba5a6477eae084e6a91cd91f6c9dc52128159669e5f6e3edc0dba1df63"
+      "sha256": "8e68713158b1cde816e27a16808a4c95124c945732212a4e052619aaaa819f70"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "84ebbf724a42e8fd1d8875e4b46fde7ec7d76d80eb11b77ab196757a63738d29"
+      "sha256": "c7e217390b24ac5eb03134b141899a98700bc4e4e5af3b1764604c337abba3b3"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,7 +285,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "3cab5903b11d3ed66dd181397b6edad0443c58c34c65bb4abfdf707ce5303af6"
+      "sha256": "0cbf2fc2bbc81e2f7d0aac4841b50e092faaf9118d7978ddfd61097be45ba65c"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
@@ -297,11 +297,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "92119e25fb77e4aac743ec3408187d9d6e8ea84f244912b3cd9a87c60bf67709"
+      "sha256": "9814bc253480ce46a5bf25ac30a4c0cc154efb83067a2a11f764a2186caf0320"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "8571146990b4fb9d96f3d5f3d3c3d40709df954cc593d342b6d3971f39304f4e"
+      "sha256": "905c55dd85829031c0bf270026f248350f772f347777c3b94cfcb8b080abe911"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
@@ -309,11 +309,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "c803e128c53bc8fb8a4ab6d3338476ee8577a025f90fff85f2743435341c9975"
+      "sha256": "85551a7b1555b32063c120a071a1e7610fbdad04633402ad990d7d81b65416f9"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "d6674b3fcdbff5107251d27775545d907884ce760e6217ff712c54cfe72c9dd9"
+      "sha256": "15b547356a82683d6b383c4eb6af3cf745007e767855b700f563c2eb7a19f8d0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
@@ -321,11 +321,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "01ecf0623ef5fedb4b769df6756c9d9577b093cb01c079e508bf245b25919dd3"
+      "sha256": "a57c4cfd48f8051998b195c35f7555e4a67f8f84370b051f52b1ee6fd21bf243"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "897f63761cc58c5c606289e9b1455478b38e80e3e5d9d453372365c8fe89f51a"
+      "sha256": "42f3f0c5f83822667bd207208deb084f388155224fcfdfefa9e26a124a5f9cd3"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -471,7 +471,7 @@
     },
     {
       "path": "FE/src/app/navigation/MembershipNavigation.test.tsx",
-      "sha256": "6fc50ec73c45e78e9f0be1439e915a8e0c60bef0b0c6936a7a6ad878a8b5ec69"
+      "sha256": "3ce73f844dafb3195104fe796be83b96681f72bbc2e83add7e3dc1c0e86cc7d3"
     },
     {
       "path": "FE/src/app/navigation/ModerationNavigation.test.tsx",
@@ -1539,11 +1539,11 @@
     },
     {
       "path": "FE/src/features/membership/createMembershipSession.test.ts",
-      "sha256": "0ae3947dd76af12ba3c8a16658c0a7d25f75a049eb9529168374701cbecc23bf"
+      "sha256": "645bfce250adc45a1ff2063905b784b71b25fff2e1ce49a098dd2ec42a88fa45"
     },
     {
       "path": "FE/src/features/membership/createMembershipSession.ts",
-      "sha256": "f4bd5ef2310ef2372bf3f8ad4c7f85f3c66cdcbb1d6c84a2c9a3660e800b3014"
+      "sha256": "661a255c2be22ed40a439b777343d09d05dce6d6704738a5a85bc7c0776fc80d"
     },
     {
       "path": "FE/src/features/membership/createMockMembershipSource.ts",
@@ -1551,11 +1551,11 @@
     },
     {
       "path": "FE/src/features/membership/MembershipProvider.tsx",
-      "sha256": "cc8f6bc4dd8d71f59c04c2ea4d6a22b9ac5ae9b39d3e9e8eb73477c583a2a8be"
+      "sha256": "1f89517e694290981957d8c56062b33b2b1db4d49c1c97049d0ef05c3e874a13"
     },
     {
       "path": "FE/src/features/membership/MembershipSheet.tsx",
-      "sha256": "c662aec4980bf03c8ebe93c3072025fa822c18254a89c2da932ed1664662a8bc"
+      "sha256": "3478878e26eb57bd459f036ba030003c4c69ada1bd3096e29c83f3d2f99430d7"
     },
     {
       "path": "FE/src/features/membership/types.ts",
@@ -3584,7 +3584,8 @@
       ],
       "scope": "보관가격·혜택·monthly/yearly·loading/success/welcome·자체모의안내",
       "done": "원본상태별비교·선택/취소/실패·자격소비자; 실제결제 제외",
-      "status": "미착수"
+      "status": "mock 보완·두 자기 검토/웹 부분 비교·타입/lint/전체1778통과;원본/native 잔여",
+      "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md"
     },
     {
       "number": 20,
@@ -10297,7 +10298,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다."
+      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "S060",
@@ -13043,7 +13050,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다."
+      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "S085",
@@ -17895,7 +17908,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다."
+      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "S130",
@@ -18285,7 +18304,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다."
+      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "S134",
@@ -20936,7 +20961,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다."
+      "acceptance": "월/년 선택, SGD 가격·Save up to $39·혜택·Friend 카드, loading 덮개, 성공 팝업 OK와Start reading을 비교한다. 실제 구매 완료로 표시하지 않는다. Q12에서 모의 결제 안내의 노출·배치 차이를 함께 판정한다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "S160",
@@ -26247,6 +26278,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -26266,6 +26303,12 @@
         "status": "mock 결함 보완·자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조; 원본/시각/native 잔여",
         "scope": "18 S/139 R/31 T/33 U/21 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~16 잔여 기존 담당 유지; 승인 조건 충족 후17 로컬 커밋→18 진행; push/deploy 없음"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -28570,7 +28613,13 @@
       "flowId": "F53",
       "screenId": "S129",
       "png": "medium/flows/Onboarding/screens/12_sc_b4e85416681544c9b996826eefa22432.png",
-      "acceptance": "알림 활성화 안내 → 월간 멤버십 선택. 현재 관찰값: Pay monthly 선택. 캡처 금액 $6.98 SGD/month. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다."
+      "acceptance": "알림 활성화 안내 → 월간 멤버십 선택. 현재 관찰값: Pay monthly 선택. 캡처 금액 $6.98 SGD/month. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 새 경험 소개가 신규 사용자 전용이라는 증거는 없다. 멤버십 화면 뒤 Home은 실제 결제 영수증이 아니다.",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F53-13",
@@ -28590,35 +28639,65 @@
       "flowId": "F54",
       "screenId": "S129",
       "png": "medium/flows/Onboarding/Subscribing to Medium/screens/01_sc_b4e85416681544c9b996826eefa22432.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: Member 혜택과 Friend 플랜 노출 — 오프라인·오디오 등 혜택 설명<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: Member 혜택과 Friend 플랜 노출 — 오프라인·오디오 등 혜택 설명<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F54-02",
       "flowId": "F54",
       "screenId": "S059",
       "png": "medium/flows/Onboarding/Subscribing to Medium/screens/02_sc_4beaf37694cb429baac5c27b93a71ccf.png",
-      "acceptance": "월간 멤버십 선택 → Member 혜택과 Friend 플랜 노출. 현재 관찰값: Member $6.98 SGD/month, Friend $19.98 SGD/month. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 멤버십 선택 처리 중 — 요청 처리 중으로 보이는 로딩 상태<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "월간 멤버십 선택 → Member 혜택과 Friend 플랜 노출. 현재 관찰값: Member $6.98 SGD/month, Friend $19.98 SGD/month. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 멤버십 선택 처리 중 — 요청 처리 중으로 보이는 로딩 상태<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F54-03",
       "flowId": "F54",
       "screenId": "S084",
       "png": "medium/flows/Onboarding/Subscribing to Medium/screens/03_sc_754aff4161c64e0685e7331a359eae32.png",
-      "acceptance": "Member 혜택과 Friend 플랜 노출 → 멤버십 선택 처리 중. 현재 관찰값: 선택 버튼 흐리게 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 구매 성공 안내 팝업 — 캡처에 구매 성공 메시지 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "Member 혜택과 Friend 플랜 노출 → 멤버십 선택 처리 중. 현재 관찰값: 선택 버튼 흐리게 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 구매 성공 안내 팝업 — 캡처에 구매 성공 메시지 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F54-04",
       "flowId": "F54",
       "screenId": "S133",
       "png": "medium/flows/Onboarding/Subscribing to Medium/screens/04_sc_bb00623f121d405abc840e589837c3fd.png",
-      "acceptance": "멤버십 선택 처리 중 → 구매 성공 안내 팝업. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 멤버 가입 완료 화면 — 멤버십 완료 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "멤버십 선택 처리 중 → 구매 성공 안내 팝업. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 멤버 가입 완료 화면 — 멤버십 완료 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F54-05",
       "flowId": "F54",
       "screenId": "S159",
       "png": "medium/flows/Onboarding/Subscribing to Medium/screens/05_sc_cf306e89e43144029ce108cb5338132a.png",
-      "acceptance": "구매 성공 안내 팝업 → 멤버 가입 완료 화면. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "구매 성공 안내 팝업 → 멤버 가입 완료 화면. 현재 관찰값: 입력 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: For you 홈 피드 — 추천 기사 목록<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "T-F54-06",
@@ -29913,7 +29992,13 @@
       "batches": [
         19
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "U-S060",
@@ -30258,7 +30343,13 @@
       "batches": [
         19
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "U-S085",
@@ -30881,7 +30972,13 @@
       "batches": [
         19
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "U-S130",
@@ -30931,7 +31028,13 @@
       "batches": [
         19
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "U-S134",
@@ -31254,7 +31357,13 @@
       "batches": [
         19
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      }
     },
     {
       "id": "U-S160",
@@ -32706,6 +32815,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -32721,6 +32836,12 @@
         "status": "mock 결함 보완·자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조; 원본/시각/native 잔여",
         "scope": "18 S/139 R/31 T/33 U/21 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~16 잔여 기존 담당 유지; 승인 조건 충족 후17 로컬 커밋→18 진행; push/deploy 없음"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -32974,6 +33095,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -33058,6 +33185,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -33142,6 +33275,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -33311,6 +33450,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -33757,6 +33902,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -33980,6 +34131,12 @@
         "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
         "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34091,6 +34248,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34236,6 +34399,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34320,6 +34489,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34403,6 +34578,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34489,6 +34670,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34627,6 +34814,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34713,6 +34906,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34798,6 +34997,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -34937,6 +35142,12 @@
         "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
         "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
         "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지"
+      },
+      "parity19Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+        "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
       }
     },
     {
@@ -36932,14 +37143,14 @@
     }
   ],
   "manualUpdate": {
-    "result": "TODO/FE_MEDIUM_PARITY_18_RESULT.md",
-    "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
-    "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
-    "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지",
-    "batch": 18,
-    "manualScope": "5 S/9 T/11 U/16 C/6 flow와18 묶음 상태·현재문서/존재입력해시,StartupBoundary runtime codeInput1개 수동 추가.17 manualUpdate 원문 history 보존.삭제4입력 미복원.생성기 미실행",
-    "artifacts": "제품 SVG/PNG·출처·app설정/package 변경 허용 범위. tools/evidence/비교캡처/검증로그/검증manifest/별도 검증폴더 없음",
-    "verification": "타입/lint exit0; iOS159/886223.957초,Android159/886227.430초 모두 통과/act0;3플랫폼 메모리JS·양native Hermes exit0/각35경고;브라우저 부분 비교,실제native 대기"
+    "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+    "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+    "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+    "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지",
+    "batch": 19,
+    "manualScope": "5 S/6 T/7 U/15 C/2 flow·19 상태/현재문서/존재입력해시 수동 갱신;18 manualUpdate 원문 history 보존;runtime555 목록·삭제4입력 유지;생성기 미실행",
+    "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
+    "verification": "타입/lint exit0;iOS160/889226.561초,Android160/889228.405초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
   },
   "manualUpdateHistory": [
     {
@@ -37135,6 +37346,16 @@
       "manualScope": "18 S/31 T/33 U/21 C/15 flow review·묶음 상태·현재 문서·존재 입력 해시 수동 갱신.16 manualUpdate 원문 history 보존.삭제4입력 미복원.554 codeInputs 유지.생성기 미실행",
       "artifacts": "tools/evidence/캡처/manifest/별도스크립트 폴더 생성·수정 없음.저장소 검증로그 없음; 작업외부 npm 자동 진단2개 생성 후 제거 이력은 결과문서 참조",
       "verification": "typecheck/lint 통과; iOS159/883 222.014초·Android159/883 232.731초 모두 통과,act0/실패0/skip0; 3플랫폼 메모리JS·iOS/AndroidHermes 통과; 실제 웹 부분 비교, native 대기"
+    },
+    {
+      "result": "TODO/FE_MEDIUM_PARITY_18_RESULT.md",
+      "status": "시작 구성/대체 자산·아이콘 수명/큰 글자 보완, 두 차례 자기 검토·실제 웹 부분 비교; 최종 검사 결과는 결과 문서 참조",
+      "scope": "5 S/60 R/9 T/11 U/16 C; S043 C49/50 공유 경계 확인; 원본·ID·과거 evidence/readiness 보존",
+      "remaining": "원본 독립 wordmark/폰트·기존 K≠M 아이콘·native21/Q07,9~17 기존 담당 유지",
+      "batch": 18,
+      "manualScope": "5 S/9 T/11 U/16 C/6 flow와18 묶음 상태·현재문서/존재입력해시,StartupBoundary runtime codeInput1개 수동 추가.17 manualUpdate 원문 history 보존.삭제4입력 미복원.생성기 미실행",
+      "artifacts": "제품 SVG/PNG·출처·app설정/package 변경 허용 범위. tools/evidence/비교캡처/검증로그/검증manifest/별도 검증폴더 없음",
+      "verification": "타입/lint exit0; iOS159/886223.957초,Android159/886227.430초 모두 통과/act0;3플랫폼 메모리JS·양native Hermes exit0/각35경고;브라우저 부분 비교,실제native 대기"
     }
   ]
 }

@@ -65,11 +65,15 @@ export function createMembershipSession(source: MembershipSource, userId: string
           record.userId !== userId ||
           record.tier !== tier ||
           record.period !== period ||
+          typeof record.requestId !== 'string' || !record.requestId.trim() ||
           !Number.isFinite(Date.parse(record.confirmedAt))
         )
           throw new Error('MEMBERSHIP_RESPONSE_MISMATCH');
         const confirmed = source.getSnapshot().find((item) => item.userId === userId);
-        if (confirmed?.requestId !== record.requestId) throw new Error('MEMBERSHIP_NOT_CONFIRMED');
+        // 응답의 성공 문구가 아니라 같은 계정·플랜의 확정 기록을 확인한다.
+        if (!confirmed || confirmed.requestId !== record.requestId || confirmed.tier !== tier ||
+          confirmed.period !== period || confirmed.confirmedAt !== record.confirmedAt)
+          throw new Error('MEMBERSHIP_NOT_CONFIRMED');
         publish({ period, selected: tier, phase: 'success' });
       } catch {
         if (valid()) publish({ period, selected: tier, phase: 'error' });

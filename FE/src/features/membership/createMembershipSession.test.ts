@@ -1,6 +1,6 @@
 import { createMembershipSession } from './createMembershipSession';
 import { createMockMembershipSource, existingMember } from './createMockMembershipSource';
-import { hasMembershipBenefit, type MembershipSource } from './types';
+import { hasMembershipBenefit, type MembershipRecord, type MembershipSource } from './types';
 import { deferred } from '../feed/tests/helpers';
 
 beforeEach(() => jest.useFakeTimers());
@@ -106,6 +106,17 @@ it('Free·Member·Friend의 오디오·오프라인·Friend 링크·아이콘 �
     expect(hasMembershipBenefit(tier, 'friend-link')).toBe(tier === 'friend');
     expect(hasMembershipBenefit(tier, 'custom-icon')).toBe(tier === 'friend');
   }
+});
+
+it.each(['missing-id', 'different-plan'] as const)('확정되지 않은 %s 응답은 성공 안내를 열지 않고 재시도 선택을 보존한다', async kind => {
+  const record: MembershipRecord = { ...existingMember, userId: 'A', tier: 'friend', period: 'annually',
+    requestId: kind === 'missing-id' ? undefined as unknown as string : 'same-id' };
+  const source = createMockMembershipSource({ records: kind === 'missing-id' ? [] : [{ ...record, tier: 'member' }] });
+  source.purchase = async () => record;
+  const session = createMembershipSession(source, 'A', () => true);
+  session.activate(); session.setPeriod('annually');
+  await session.select('friend');
+  expect(session.getSnapshot()).toEqual({ period: 'annually', selected: 'friend', phase: 'error' });
 });
 
 it('이미 완료한 명령의 재요청은 더 새로운 변경 요청을 무효화하지 않는다', async () => {

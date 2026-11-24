@@ -1,6 +1,6 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -96,7 +96,7 @@ function MembershipContent({
   if (state.phase === 'welcome')
     return (
       <SafeAreaView edges={embedded ? [] : undefined} style={styles.screen}>
-        <View style={styles.center}>
+        <ScrollView contentContainerStyle={styles.center} accessibilityLabel="멤버십 완료 안내">
           <Text role="heading" style={styles.welcome}>
             Thanks for becoming a Medium {state.selected === 'friend' ? 'Friend' : 'member'}
           </Text>
@@ -114,11 +114,14 @@ function MembershipContent({
             <Text style={[styles.actionText, styles.startText]}>Start reading</Text>
           </Pressable>
           <Text style={styles.note}>모의 멤버십이 적용됐어요. 실제 결제는 없어요.</Text>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     );
   return (
     <SafeAreaView edges={embedded ? [] : undefined} style={styles.screen}>
+      <View style={styles.screen} aria-hidden={state.phase === 'success'}
+        pointerEvents={state.phase === 'success' ? 'none' : 'auto'}
+        {...(Platform.OS === 'web' ? { inert: state.phase === 'success' } : {})}>
       <View style={styles.header}>
         <IconButton icon="close" label="멤버십 닫기" onPress={close} size={28} />
         <Text style={styles.headerNote}>모의 선택 · 보관본 가격 · 결제 없음</Text>
@@ -126,8 +129,6 @@ function MembershipContent({
       <ScrollView
         accessibilityLabel="멤버십 플랜"
         contentContainerStyle={styles.content}
-        accessibilityElementsHidden={state.phase === 'success'}
-        importantForAccessibility={state.phase === 'success' ? 'no-hide-descendants' : 'auto'}
       >
         <Text role="heading" style={styles.title}>
           Support independent writing and get{'\n'}the best of Medium.
@@ -211,6 +212,7 @@ function MembershipContent({
           원본의 가격·혜택 안내를 재현한 화면이에요. 실제 결제·갱신·해지·수익화는 연결하지 않았어요.
         </Text>
       </ScrollView>
+      </View>
       {pending && (
         <View
           pointerEvents="none"
@@ -396,7 +398,7 @@ const createStyles = (colors: ThemeColors) =>
       borderColor: colors.border,
     },
     okText: { color: '#007aff', fontSize: 17, fontWeight: '600' },
-    center: { flex: 1, padding: 24, justifyContent: 'center', alignItems: 'center', gap: 24 },
+    center: { flexGrow: 1, padding: 24, justifyContent: 'center', alignItems: 'center', gap: 24 },
     welcome: {
       fontFamily: fonts.serif,
       fontWeight: '400',

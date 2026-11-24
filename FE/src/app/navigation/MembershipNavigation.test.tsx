@@ -86,6 +86,8 @@ async function settings(user: ReturnType<typeof userEvent.setup>) {
 }
 async function finish(user: ReturnType<typeof userEvent.setup>) {
   await flush();
+  expect(screen.queryByRole('radio', { name: 'Pay monthly' })).toBeNull();
+  expect(screen.queryByRole('button', { name: '멤버십 닫기' })).toBeNull();
   await user.press(button('멤버십 성공 확인'));
   await user.press(button('멤버십 완료 후 돌아가기'));
 }
