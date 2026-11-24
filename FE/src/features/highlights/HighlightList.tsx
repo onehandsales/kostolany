@@ -33,7 +33,7 @@ export function HighlightList({ header, onOpen }: { header: ReactNode; onOpen: (
     renderItem={({ item }) => <View style={styles.card}>
       <Pressable role="button" accessibilityLabel={`하이라이트 원문: ${item.title}`} onPress={() => onOpen(item.articleId, item.id)} style={{ minHeight: 48 }}>
         <Text style={styles.owner}>{profile.state.profile?.name ?? 'You'} highlighted</Text>
-        <Text style={styles.quote}><Text style={{ backgroundColor: colors.highlight }}>{item.text}</Text></Text>
+        <Text style={styles.quote}><Text style={{ backgroundColor: colors.ownHighlight }}>{item.text}</Text></Text>
         <Text style={styles.byline}>{item.title} by {item.author}</Text>
       </Pressable>
       <Pressable role="button" accessibilityLabel={`하이라이트 제거: ${item.text}`} disabled={Boolean(state?.pending)} accessibilityState={{ disabled: Boolean(state?.pending) }}

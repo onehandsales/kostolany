@@ -1,5 +1,9 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). 추가 자산 확보 없이 기존 개인/타인 강조색을 선택 입력에도 전달했다. 실제 OS 표시·글꼴·핸들·메뉴 동일성은 미검증이며 전체 Q02 완료가 아니다.
+
+**Parity11(2026-11-24):** [S012 원본 색 관찰](../FE_MEDIUM_PARITY_11_RESULT.md#source-review). 개인 강조 #d1e7d1/기존 강조 #e8f3e8을 구분해 본문·Library에 적용했다. PNG 평면 관찰값이지 원본 디자인 토큰 확정이 아니다. 다크 ownHighlight는 자체 기본안, 시스템 폰트/점3개 glyph/메뉴·핸들·실제 렌더 비교는11 잔여다. 새 폰트/아이콘/이미지 확보·추가 없음.
+
 **Parity10 자산 판정(2026-11-24):** [확보·적용·미검증](../FE_MEDIUM_PARITY_10_RESULT.md#residuals). 기존 brain 커버/본문 삽입/작가·추천 이미지 및 응답8 avatar를 소비한다. Sunil/Navj 사진과 원본 font/vector는 미적용/대체 차이로10에 남긴다. YOU는 별도 배지·스레드는 View 스타일로 보완했으나 정확 간격/줄바꿈 일치는 미검증이다. 새 이미지/캡처는 생성하지 않았고 crop 확보를 독립 원본 자산/권리 확보로 해석하지 않는다.
 
 **Parity9 추가 대조(2026-11-24):** [확보/적용/실제 비교 구분](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 사진4개는 Local fixture, Sam3후보는 avatar 미제공이며 원본 사진/작가·산/호수·두 후보 사진은 미확보/미적용이다. 시스템 폰트와 문자 도구 glyph는 대체 자산이다. native 인용선/구분선의 속성 보완은 자산 확보나 시각 동일성 완료가 아니며 관련 V/Q02·묶음9가 소유한다.

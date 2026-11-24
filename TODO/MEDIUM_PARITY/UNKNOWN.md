@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). U-S012/S122/F25/F29의 원본 미수록은 유지한다. 선택 중 강조 전달 누락은 수정했지만 native 연속 선택/정확 플로팅은 알려진 구현 잔여이며 미확인이나 기기 대기로 바꾸지 않는다.
+
 **Parity10 질문별 판정(2026-11-24):** [43 U의 자체 정책/근거 대기/담당](../FE_MEDIUM_PARITY_10_RESULT.md#unknowns). 원본 질문을 보존하고 mock 검증으로 닫지 않았다. 알려진 자산/fixture 차이·브라우저 차단·기기 대기는 별도 분류한다.9의 Q04/Q06 등 잔여는9 소유이며10으로 이전하지 않는다.
 
 **Parity9 추가 판정(2026-11-24):** [원본 질문·구현 잔여·환경의 분리](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). Q04 삭제 근거 대기, Q06 연속 선택 미지원/원본 미수록/제품 결정 필요를 유지한다. S183 인용 전용 구간은 부분 보완했으나 혼합 인용선·내어쓰기·Android 혼합 정렬은 알려진 구현 잔여다. 이를 원본 미확인이나 기기 대기로 대체하지 않는다.
@@ -114,6 +116,7 @@
 <a id="u-s012"></a>
 
 ### U-S012
+- **Parity11:** 개인 강조 제거/user별 메모리는 자체 mock 검증. 타 기기 동기화·공개 범위·원본 제거 결과는 미확인 유지.11(Q03), 외부 동기화Q08 제외. [근거·종료 조건](../FE_MEDIUM_PARITY_11_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>):138
 - 미확인 내용: 타 기기 동기화·삭제·공개 범위
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1079,6 +1082,7 @@
 <a id="u-s122"></a>
 
 ### U-S122
+- **Parity11:** 원문 version 불일치는 복원을 거부하는 자체 계약. 원본의 앵커/수정 후 복구는 미확인, native 다중 문단/위치 차이는 알려진 구현 잔여. 담당11. [근거·종료 조건](../FE_MEDIUM_PARITY_11_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>):108
 - 미확인 내용: 선택 앵커·문서 수정 후 범위 복원
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1979,6 +1983,7 @@
 <a id="u-f25"></a>
 
 ### U-F25
+- **Parity11:** 저장/제거·겹침 범위/계정은 기존 mock 계약. 원본 제거·겹침·수정/삭제·타인 노출·더보기 결과 미확인 유지.11, Share13, 동기화Q08. [근거·종료 조건](../FE_MEDIUM_PARITY_11_RESULT.md#unknowns).
 - **Parity10:** 이번10은 기사 본문/인용 소비만. 강조 겹침·제거·선택 모델11, Share13, 동기화Q08. 원본 질문 유지. [근거·종료 조건](../FE_MEDIUM_PARITY_10_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>):177
 - 미확인 내용: 강조 제거·겹침·원문 수정/삭제·동기화·타인 노출, Share/더보기 실행.
@@ -2013,6 +2018,7 @@
 <a id="u-f29"></a>
 
 ### U-F29
+- **Parity11:** 선택→인용 응답→기사 복귀 자동 검증. 원본 인용 제거/길이/Cancel/중복/실패/총수·원문 이동 미확인 유지. 선택11·응답10 소유. [근거·종료 조건](../FE_MEDIUM_PARITY_11_RESULT.md#unknowns).
 - **Parity10:** 작성/취소/실패/인용 제거 자체 계약10, 원문 선택11. 원본 길이/총수/원문 이동 미확인. [근거·종료 조건](../FE_MEDIUM_PARITY_10_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>):213
 - 미확인 내용: 인용 제거·길이 제한·원문 연결·Cancel·중복·실패, 총수 갱신.

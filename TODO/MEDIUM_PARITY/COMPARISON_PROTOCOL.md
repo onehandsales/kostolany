@@ -1,5 +1,9 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). F25/29 고유6 PNG를 다시 직접 열람했으나 앱 실제 렌더와의 쌍 비교는 없음. Document Control 세션0, Android SDK/JDK·iOS 실행 환경 부재. 기존 차단 우회/파일 생성 없이 TODO에 기록.
+
+**Parity11 실행 한계(2026-11-24):** [현재 검사·조건](../FE_MEDIUM_PARITY_11_RESULT.md#validation). 원본 PNG 직접 열람/등록 검사/자동 navigation과 실제 렌더 비교를 구분한다. 브라우저 연결 없음·native 도구/기기 없음, 기존 실행 차단 우회 없음. 캡처·로그·manifest는 생성/복원하지 않고 TODO에만 결과를 기록한다.
+
 **Parity10 실행(2026-11-24):** [원본·실제 환경·비교 한계](../FE_MEDIUM_PARITY_10_RESULT.md#verification). 원본50장을 메모리에서 열람했으나 허용된 브라우저 제어/연결 세션이 없어 실제 앱 렌더/console은 미실행이다. 기존8081 HTTP/3플랫폼 JS 구문 검사와 actual native를 구분한다. 개발 웹의 reference-v1(834)/story-832 비교 조건은 앱 일반값이나 원본 촬영 시각이 아니다. 새 캡처/로그/manifest/tools 없음. 실제 viewport/DPR/고정 시계 재현 완료로 승격하지 않는다.
 
 **Parity9 추가 확인(2026-11-24):** [현재 환경·비교 한계](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 허용된 브라우저 도구/연결 세션이 없어 과거 차단된 Chrome 시작을 반복하지 않았다. 원본29단계는 메모리로 열람했고 현재 앱 렌더/console은 미실행이다. HTTP/JS 구문 통과나 native 스타일 연결을 시각 비교/기기 실행으로 대체하지 않는다. 새 캡처·로그·manifest 없음.

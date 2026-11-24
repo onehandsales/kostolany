@@ -1,5 +1,9 @@
 # Q12 — 자체 UI의 노출과 원본 비교 처리
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). native 메뉴를 문단 흐름 안에 두는 대체 배치와 그 높이에 따른 문단 이동, 변조 입력 시 선택 종료는 자체 정책이다. 원본 플로팅과 동일하다고 기록하지 않는다. 최초 전체 문단 선택·Cancel·다중 문단 picker·미확인 더보기 경계는 유지.
+
+**Parity11 추가 판정(2026-11-24):** [본문 선택 기본안](../FE_MEDIUM_PARITY_11_RESULT.md#implementation). native 긴 누름의 최초 문단 전체 선택·Cancel 행·다중 문단용 Select across paragraphs/picker·미확인 더보기 안내는 자체 UI다. 저장/실패/retry는 mock 상태이며 원본 실행 관찰이 아니다. 화면 비교에서 임의로 숨겨 동일성을 주장하지 않는다. 로그인 시트/계정 전환/이탈의 선택 폐기와 작성 quote 수명도 구분한다.
+
 **Parity10 상태별 판정(2026-11-24):** [자체 정책과 시각 잔여](../FE_MEDIUM_PARITY_10_RESULT.md#changes). 삭제 확인/취소·로그인·실패 안내·미수록 전문/미수록 집계 안내·Reading tools는 유지한다. 신규 응답은 실제 경과 시간, 보관 fixture는 dateLabel이며 원본의 전체 시간 규칙으로 확정하지 않는다. 비교용832/834는 개발 웹의 명시적 query에서만 적용한다. 인용 편집은 body만 지원하므로 제거 버튼을 노출하지 않고 신규 작성의 제거는 유지한다. 자체 UI 높이와 원본 영역은 실제 비교 시 분리하며 현재 새 렌더가 없어 Q12 전체 완료가 아니다.
 
 **Parity9(2026-11-24):** [작성 흐름의 상태별 판정](../FE_MEDIUM_PARITY_09_RESULT.md). Saved/Retry는 로컬 저장 상태, Edited는 로컬 수정 시각, 사진 선택기의 Local fixture와 발행의 모의 안내·본문 전체 미리보기·Publication mock 안내는 자체 UI로 유지한다. Unlisted는 선택할 때만 해당 상태를 표시한다. 원본 화면의 안내를 지워 일치시키지 않았으며 이번 브라우저 노출/배치 실측은 차단으로 미실행이다.

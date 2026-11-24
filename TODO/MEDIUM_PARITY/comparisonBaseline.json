@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "37fab23584edd9bbf679c61f1d374a9cdf5a343b438a410c5b7237c1f4331dac"
+      "sha256": "11cec1d7d9b1be00eed6f8bdeaa415602ebf5e7f2e147b76ab86e29740aae5a6"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "2fc2b53e16d6abc39d63a7cda2ab0e4d6943c334def58d99ca52fd36cbd2fdc8"
+      "sha256": "b84def0713d183359cd88bbe8ba049ac0cb43dcbe196505d7f402ac6e6845516"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,11 +285,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "85b5603457c5b089602c3b7af7c0207b0015247cf227b0db6eb3a44075a11f27"
+      "sha256": "00481fbaf15770a788edd33a90d614546327df91f77d403daca6c039df2d73e9"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "7ee50c670e8991ee13a8d5c2cfa1c1408ba19214e3aff2567e790f442c0c1156"
+      "sha256": "3990660890b694cad39cca93f198b7a135146003fc4f4ba5de26df44ee9a2955"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
@@ -305,7 +305,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "6b943457eeb8881385149bba87525047d6e58bdf42aabac901b0c64a3112aeaf"
+      "sha256": "a34a134b83726358c72aee50938bc884e19212dff95d5f9d7076a63ac864a04f"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "c745b5acbdc4740bd071ce4dc97e8b590b0fac7879d535bdbd4b4c233ad9853f"
+      "sha256": "d395d3109c07f0b45d69d9ed0395e3dd6a4427035ea4abea34b4eb647b4f5362"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -443,7 +443,7 @@
     },
     {
       "path": "FE/src/app/navigation/HighlightsNavigation.test.tsx",
-      "sha256": "d63debc0df6549d4b9b286d0b20dd3700281529540ab237dafd2273360900b27"
+      "sha256": "dfc2a24adac09ab0e735670eb48c2f2a44bda5bd15ff263b4e340022800d1564"
     },
     {
       "path": "FE/src/app/navigation/LibraryNavigator.tsx",
@@ -1351,7 +1351,7 @@
     },
     {
       "path": "FE/src/features/highlights/createHighlightStore.test.ts",
-      "sha256": "7ca4778ea55bbee4b64a1f19407fb8176e7b85de5094e72d112ac2355d555e08"
+      "sha256": "2ed5547ff292627bb5bae454f44dbd899fa4085ebdf2ddfd81784eb00ec78775"
     },
     {
       "path": "FE/src/features/highlights/createHighlightStore.ts",
@@ -1359,7 +1359,7 @@
     },
     {
       "path": "FE/src/features/highlights/data/createMockHighlightSource.ts",
-      "sha256": "4d65ab0e6ebced1bae865c2546db88d2b040e5873e3827df74c00dcca51a6efd"
+      "sha256": "1fc90b090ccd7350b25a771e48ffab26945971dae2e2f75689c3fa4919b94e54"
     },
     {
       "path": "FE/src/features/highlights/data/highlightPreview.ts",
@@ -1367,15 +1367,15 @@
     },
     {
       "path": "FE/src/features/highlights/HighlightedText.tsx",
-      "sha256": "fb7caaa8900eac8ddbf466b6b0ff3ca723dc9a0d9f321aa4f5c827e66800105a"
+      "sha256": "9247314fee46ab0c8b0a1a5917fc9f2cdef8532d624ab9050f34cdc26c11114b"
     },
     {
       "path": "FE/src/features/highlights/HighlightList.tsx",
-      "sha256": "c5afd08586f4f8e1f1b954da05c5bbad50b00597f63b96cc60222332eff25558"
+      "sha256": "6c17b7cf65dfb3e69128d2e6db7ade031301ad1dd891f58571bb88ddd58296e1"
     },
     {
       "path": "FE/src/features/highlights/HighlightProvider.tsx",
-      "sha256": "e3a83cf7b841c4a3c3913e0394f719b2f860ebe377fc3bcf976559a71117e730"
+      "sha256": "13dd720b078c0637ea90588d3eba3371638bffe5a4697740c7e7c2c275239301"
     },
     {
       "path": "FE/src/features/highlights/NativePassagePicker.tsx",
@@ -1383,11 +1383,11 @@
     },
     {
       "path": "FE/src/features/highlights/PassageReader.test.tsx",
-      "sha256": "b0d829071dda02df8698da13549c4b29476fd9f944da760c920268b57e8b867f"
+      "sha256": "6a8bb6e3896d1d2bec544f779f6c5c3785063e16b850d690d24ea789fba2182d"
     },
     {
       "path": "FE/src/features/highlights/PassageReader.tsx",
-      "sha256": "35668e59644bacf22ed7e00620a0eb253ae564913b0718893476cb969af729f4"
+      "sha256": "e6b9132e670da91982cab1a83a4d1a6dd6a02607bcfa13a45122a2c02a4a7049"
     },
     {
       "path": "FE/src/features/highlights/reactDomPortal.d.ts",
@@ -1399,7 +1399,7 @@
     },
     {
       "path": "FE/src/features/highlights/selectionDocument.ts",
-      "sha256": "5cfa5a212e778fe49780ffb4a2c248ec332bbd9df9fcdc6d8eecf6121767b58f"
+      "sha256": "9ecfb7a4c6a318efac5ad19ce68d4b71993a2ee55f0ac75b8bda7baa87d6bc38"
     },
     {
       "path": "FE/src/features/highlights/SelectionOverlay.tsx",
@@ -2355,7 +2355,7 @@
     },
     {
       "path": "FE/src/shared/theme/tokens.ts",
-      "sha256": "784e73a13f29b340d355791eeda2fdfccd2443d04ceb0b6d93999edd1b041592"
+      "sha256": "dbeaf4ed06c91e434359d4bd85f4d6088fc6b3135e9850e3fd278db659fd6487"
     },
     {
       "path": "FE/src/shared/ui/AccessibleModal.tsx",
@@ -2524,6 +2524,26 @@
     {
       "path": "FE/src/features/responses/ResponseDate.tsx",
       "sha256": "4a297b4fe814b2c8fcfb6a8acb9f25650e56793239bce32991203f9ee95bac76"
+    },
+    {
+      "path": "FE/src/features/highlights/NativePassageText.tsx",
+      "sha256": "8c9fc20508a937e7843971db0a27dc05ab19c3e76dee362ea49ec3d3fc55d8f5"
+    },
+    {
+      "path": "FE/src/features/highlights/PassageMenu.tsx",
+      "sha256": "a4ed4e7c06c38736b4ff2a7462f9174aa9c9fca4b5e7fd9b281bb714a9a06847"
+    },
+    {
+      "path": "FE/src/features/highlights/HighlightProvider.test.tsx",
+      "sha256": "f39099dc0165f1269c108783c73471a9e226fb24a7f96f6594313b18a1efca7b"
+    },
+    {
+      "path": "FE/src/features/highlights/passageMenuPosition.ts",
+      "sha256": "2e236c1a75d38b675c7ea4d7c2ed1aa60effd0f5b3bbd6a6d01052b61db39479"
+    },
+    {
+      "path": "FE/src/features/highlights/passageMenuPosition.test.ts",
+      "sha256": "136ec914a76f74d47e1fdb56ca539f6aaedf6bc0e159fbc53be0ac12b3e477f3"
     }
   ],
   "evidenceContext": {
@@ -3397,7 +3417,22 @@
       ],
       "scope": "native 본문 선택 UX 구현과 발행 글 Highlight 적용 판정",
       "done": "version/UTF16·다중문단/한글·스크롤·취소·인용; 실제기기 별도 Q07",
-      "status": "미착수"
+      "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족; 본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "number": 12,
@@ -5132,7 +5167,11 @@
       ],
       "code": [
         "FE/src/features/highlights/NativePassagePicker.tsx",
-        "FE/src/features/highlights/PassageReader.tsx"
+        "FE/src/features/highlights/PassageReader.tsx",
+        "FE/src/features/highlights/NativePassageText.tsx",
+        "FE/src/features/highlights/PassageMenu.tsx",
+        "FE/src/features/highlights/HighlightedText.tsx",
+        "FE/src/features/highlights/passageMenuPosition.ts"
       ],
       "sourceCandidates": [
         "FE/src/features/article/data/articlePreview.ts",
@@ -5156,7 +5195,8 @@
         "C03": "컨트롤: 박수",
         "C04": "컨트롤: 응답",
         "C05": "컨트롤: 저장",
-        "C06": "컨트롤: 공유"
+        "C06": "컨트롤: 공유",
+        "V": "PNG 추가 세부 관찰: 새로 저장한 구절의 녹색 배경은 주변의 기존 강조보다 진하며 선택 핸들·메뉴 없이 유지된다."
       },
       "requirements": [
         {
@@ -5194,6 +5234,10 @@
         {
           "id": "R-S012-C06",
           "observation": "컨트롤: 공유"
+        },
+        {
+          "id": "R-S012-V",
+          "observation": "PNG 추가 세부 관찰: 새로 저장한 구절의 녹색 배경은 주변의 기존 강조보다 진하며 선택 핸들·메뉴 없이 유지된다."
         }
       ],
       "steps": [
@@ -5217,9 +5261,26 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
       "currentEvidence": [],
-      "acceptance": "원본 본문 위 시작/끝 핸들과 선택 영역·플로팅 Highlight/Respond/Share/더보기, 메뉴 종료 후 강조 잔존을 확인한다. 별도 선택 화면은 동일 조작 완료가 아니다."
+      "acceptance": "원본 본문 위 시작/끝 핸들과 선택 영역·플로팅 Highlight/Respond/Share/더보기, 메뉴 종료 후 강조 잔존을 확인한다. 별도 선택 화면은 동일 조작 완료가 아니다.",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "route": "web DOM 선택 또는 native 본문 문단 longPress→범위→Highlight/Respond; 다중 문단 Select across paragraphs/picker→Done",
+        "verification": "최종 관련12 suites/52 tests 및 typecheck/lint;3플랫폼 메모리JS 구문. 실제 화면 비교 없음",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "S013",
@@ -16507,7 +16568,11 @@
       ],
       "code": [
         "FE/src/features/highlights/NativePassagePicker.tsx",
-        "FE/src/features/highlights/PassageReader.tsx"
+        "FE/src/features/highlights/PassageReader.tsx",
+        "FE/src/features/highlights/NativePassageText.tsx",
+        "FE/src/features/highlights/PassageMenu.tsx",
+        "FE/src/features/highlights/HighlightedText.tsx",
+        "FE/src/features/highlights/passageMenuPosition.ts"
       ],
       "sourceCandidates": [
         "FE/src/features/article/data/articlePreview.ts",
@@ -16589,9 +16654,26 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "native 별도 Select a passage 화면과 원본 본문 선택이 다름(D09).",
+      "blocker": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
       "currentEvidence": [],
-      "acceptance": "원본 본문 위 시작/끝 핸들과 선택 영역·플로팅 Highlight/Respond/Share/더보기, 메뉴 종료 후 강조 잔존을 확인한다. 별도 선택 화면은 동일 조작 완료가 아니다."
+      "acceptance": "원본 본문 위 시작/끝 핸들과 선택 영역·플로팅 Highlight/Respond/Share/더보기, 메뉴 종료 후 강조 잔존을 확인한다. 별도 선택 화면은 동일 조작 완료가 아니다.",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "route": "web DOM 선택 또는 native 본문 문단 longPress→범위→Highlight/Respond; 다중 문단 Select across paragraphs/picker→Done",
+        "verification": "최종 관련12 suites/52 tests 및 typecheck/lint;3플랫폼 메모리JS 구문. 실제 화면 비교 없음",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "S123",
@@ -24913,7 +24995,22 @@
         "T-F25-01",
         "T-F25-02",
         "T-F25-03"
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "F26",
@@ -24960,7 +25057,22 @@
         "T-F29-02",
         "T-F29-03",
         "T-F29-04"
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "F30",
@@ -26089,14 +26201,44 @@
       "flowId": "F25",
       "screenId": "S122",
       "png": "medium/flows/Home/Story detail/Highlighting a phrase/screens/02_sc_a8112b7354bb44908f9359e95ba3c288.png",
-      "acceptance": "기사 본문 스크롤 → 본문 구절 선택. 현재 관찰값: 여러 줄 텍스트 선택. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 구절 하이라이트 반영 — 하이라이트 적용 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "기사 본문 스크롤 → 본문 구절 선택. 현재 관찰값: 여러 줄 텍스트 선택. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 구절 하이라이트 반영 — 하이라이트 적용 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "T-F25-03",
       "flowId": "F25",
       "screenId": "S012",
       "png": "medium/flows/Home/Story detail/Highlighting a phrase/screens/03_sc_0da01c48dbc9483798e4c2286a11237f.png",
-      "acceptance": "본문 구절 선택 → 구절 하이라이트 반영. 현재 관찰값: 선택했던 구절 강조. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "본문 구절 선택 → 구절 하이라이트 반영. 현재 관찰값: 선택했던 구절 강조. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "T-F26-01",
@@ -26208,7 +26350,22 @@
       "flowId": "F29",
       "screenId": "S122",
       "png": "medium/flows/Home/Story detail/Responding to a phrase/screens/01_sc_a8112b7354bb44908f9359e95ba3c288.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 구절 인용 응답 작성 시작 — 인용 포함 응답 초안<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 인용 응답 후834 유지와 등록 UI를 구분한다. 테스트를 맞추기 위해 운영 집계를 고정하지 않는다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 구절 인용 응답 작성 시작 — 인용 포함 응답 초안<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 인용 응답 후834 유지와 등록 UI를 구분한다. 테스트를 맞추기 위해 운영 집계를 고정하지 않는다.",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "T-F29-02",
@@ -27559,7 +27716,23 @@
       "batches": [
         11
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "decision": "원본 질문 유지. 저장·제거·version/UTF16·인용 복귀는 자체 mock 검증. 원본 미수록 분기를 완료로 바꾸지 않음.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "U-S013",
@@ -28784,7 +28957,23 @@
       "batches": [
         11
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "decision": "원본 질문 유지. 저장·제거·version/UTF16·인용 복귀는 자체 mock 검증. 원본 미수록 분기를 완료로 바꾸지 않음.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "U-S123",
@@ -29940,6 +30129,22 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
         "decision": "이번10은 기사 본문/인용 소비만. 강조 겹침·제거·선택 모델11, Share13, 동기화Q08. 원본 질문 유지."
+      },
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "decision": "원본 질문 유지. 저장·제거·version/UTF16·인용 복귀는 자체 mock 검증. 원본 미수록 분기를 완료로 바꾸지 않음.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
       }
     },
     {
@@ -29984,6 +30189,22 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
         "decision": "작성/취소/실패/인용 제거 자체 계약10, 원문 선택11. 원본 길이/총수/원문 이동 미확인."
+      },
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+        "status": "부분 보완; 전체 종료 미충족",
+        "implementation": "native 한 문단 inline 선택·UTF16 경계·저장 직전 접근 검사·개인 강조색 분리",
+        "remaining": "다중 문단 native 연속 선택/rich 표현/메뉴 좌표 구현 잔여; 실제 웹·OS 선택/IME 미검증; 원본 미수록 유지",
+        "decision": "원본 질문 유지. 저장·제거·version/UTF16·인용 복귀는 자체 mock 검증. 원본 미수록 분기를 완료로 바꾸지 않음.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
       }
     },
     {
@@ -30488,7 +30709,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C02",
@@ -30519,7 +30753,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C03",
@@ -30550,7 +30797,20 @@
         19,
         20,
         21
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C04",
@@ -30636,7 +30896,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C10",
@@ -30752,7 +31025,20 @@
       ],
       "batches": [
         11
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C20",
@@ -30770,7 +31056,20 @@
         10,
         11,
         12
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C21",
@@ -30977,7 +31276,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C37",
@@ -31091,7 +31403,20 @@
         11,
         12,
         15
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C46",
@@ -31195,7 +31520,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C54",
@@ -31269,7 +31607,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C59",
@@ -31300,7 +31651,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C60",
@@ -31330,7 +31694,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C61",
@@ -31363,7 +31740,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C62",
@@ -31424,7 +31814,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C66",
@@ -31457,7 +31860,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C67",
@@ -31489,7 +31905,20 @@
         18,
         19,
         20
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C68",
@@ -31563,7 +31992,20 @@
         19,
         20,
         21
-      ]
+      ],
+      "parity11Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#contracts",
+        "boundary": "C19/20 직접 부분 보완; 나머지는 소비/다른 묶음 경계 확인. 모든 C의 새 구현·전체 완료 아님.",
+        "additionalReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+          "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+          "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+          "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+          "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
+        }
+      }
     },
     {
       "id": "C72",
@@ -33559,19 +34001,14 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "batch": 10,
-    "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
-    "reason": "기사·응답 보완과 재검토, R-S037-V/R-S142-V 원본 누락 보강, 코드/문서 현재 해시 갱신",
-    "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
-    "verificationBoundary": "자동 검사 결과/실패·재검증은 결과7절; 실제 웹/console 연결 차단, native/IME 미실행; 전체 시각 완료 아님",
-    "ownership": "9 잔여는9 유지,10 비교 잔여는10 유지,11 자동 시작 없음",
-    "preCommitReview": {
-      "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
-      "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
-      "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
-      "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
-    }
+    "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+    "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+    "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+    "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+    "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행",
+    "batch": 11,
+    "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 원본/evidenceContext/currentEvidence/readiness 보존",
+    "ownership": "9/10 기존 소유 및11 잔여 유지;12/commit/push/배포 없음"
   },
   "manualUpdateHistory": [
     {
@@ -33631,6 +34068,31 @@
         "checks": "새 관련22 suites/90 tests 101.962초 및 타입/lint 통과; 실제 렌더/native 미검증",
         "boundary": "묶음9 전체 종료 미충족 유지; 10/push/배포 미실행; additionalReview의 미커밋 표시는 당시 상태"
       }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 10,
+      "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+      "reason": "기사·응답 보완과 재검토, R-S037-V/R-S142-V 원본 누락 보강, 코드/문서 현재 해시 갱신",
+      "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
+      "verificationBoundary": "자동 검사 결과/실패·재검증은 결과7절; 실제 웹/console 연결 차단, native/IME 미실행; 전체 시각 완료 아님",
+      "ownership": "9 잔여는9 유지,10 비교 잔여는10 유지,11 자동 시작 없음",
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+        "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+        "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+        "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 11,
+      "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md",
+      "reason": "본문 한 문단 native 선택·UTF16/권한·개인 강조 톤 보완과 자기 재검토; R-S012-V 추가; 현재 코드/문서 해시",
+      "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
+      "verificationBoundary": "최종12 suites/52 tests·typecheck/lint 및3플랫폼 메모리JS 구문; 브라우저/OS 실제 실행 없음; 과거/중간 검사와 구분",
+      "ownership": "9/10 잔여 기존 소유.11 구현 잔여와U/환경/기기 대기 유지.12/commit/push/배포 없음"
     }
   ]
 }

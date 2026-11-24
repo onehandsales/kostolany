@@ -1,5 +1,9 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). S012/S122의 선택 중 강조 전달과 자체 대체 메뉴를 반영한다. 기존 원본 관찰·readiness·currentEvidence는 보존하고 추가 판정/현재 코드 해시만 갱신한다.
+
+**Parity11 현재 판정(2026-11-24):** [S012/S122 조건·원본·실행 한계](../FE_MEDIUM_PARITY_11_RESULT.md). 기존 증거/관찰/readiness는 보존하며 recipe-only를 비교 완료로 승격하지 않는다. 새 코드/문서 해시와 부분 보완 상태만 기존 JSON에 반영한다.
+
 **Parity10 현재 판정(2026-11-24):** [화면별 준비/잔여](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 관련16흐름65단계 고유49 PNG와 보조S116을 직접 열람했다.27대상 코드를 보완했으나 새 앱 렌더와 동일 조건의 쌍은 미검증이다. 아래 readiness/currentEvidence는 과거 이력 그대로이며 실행 준비/시각 일치로 승격하지 않았다.
 
 **Parity9 추가 갱신(2026-11-24):** [S017/S018/S183 현재 부분 판정](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 인용 전용 구간/구분선은 부분 구현했으며 혼합 문단·native 내어쓰기와 실제 렌더는 잔여다. 현재 코드/문서 해시와 추가 판정을 갱신하되 기존 원본 관찰·readiness/currentEvidence/evidenceContext를 변경하지 않는다. 등록63/273/200과 원본29단계 열람은 실제 FE 쌍 비교와 별도다.
@@ -260,6 +264,8 @@
 <a id="s012"></a>
 
 ## S012 — 구절 하이라이트 반영
+
+- 최신11: native 본문 한 문단 긴 누름→범위→메뉴, 다중 문단은 별도 picker. 내 강조색/저장 직전 접근 검사 보완. 실제 웹/기기 미검증·메뉴/서식 구현 차이로 recipe-only 유지. [재현·잔여](../FE_MEDIUM_PARITY_11_RESULT.md#reproduce). 아래 native 전부 별도 선택 설명은 최초 기준이다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Highlighting a phrase/screens/03_sc_0da01c48dbc9483798e4c2286a11237f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s012>) · `sc_0da01c48dbc9483798e4c2286a11237f`
 
@@ -2652,6 +2658,8 @@
 <a id="s122"></a>
 
 ## S122 — 본문 구절 선택
+
+- 최신11: native 본문 한 문단 긴 누름→범위→메뉴, 다중 문단은 별도 picker. 내 강조색/저장 직전 접근 검사 보완. 실제 웹/기기 미검증·메뉴/서식 구현 차이로 recipe-only 유지. [재현·잔여](../FE_MEDIUM_PARITY_11_RESULT.md#reproduce). 아래 native 전부 별도 선택 설명은 최초 기준이다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Highlighting a phrase/screens/02_sc_a8112b7354bb44908f9359e95ba3c288.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s122>) · `sc_a8112b7354bb44908f9359e95ba3c288`
 

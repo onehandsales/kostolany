@@ -18,6 +18,8 @@ export const colors = {
   segment: '#eeeef0',
   selectedSurface: '#ffffff',
   highlight: '#e8f3e8',
+  // S012의 본인 강조와 타인 강조를 구분하는 근사색이며 원본 디자인 토큰은 확인되지 않았다.
+  ownHighlight: '#d1e7d1',
   onAccent: '#ffffff',
   onInverse: '#ffffff',
   inverse: '#242424',
@@ -33,6 +35,7 @@ export const darkColors: ThemeColors = {
   surface: '#191919', input: '#29292c', green: '#1a8917', saveGreen: '#41872c',
   gold: '#ffc017', destructive: '#f08080', section: '#191919',
   segment: '#29292c', selectedSurface: '#66666a', highlight: '#28472a',
+  ownHighlight: '#38633b',
   onAccent: '#ffffff', onInverse: '#121212', inverse: '#d2d2d2', popup: '#1c1c1d',
 };
 

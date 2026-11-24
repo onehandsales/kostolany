@@ -15,11 +15,17 @@ export function createSelectionDocument(articleId: string, title: string, author
 }
 export function passageAt(document: SelectionDocument, start: number, end: number): Passage | null {
   const passage = { articleId: document.articleId, version: document.version, start, end, text: document.text.slice(start, end) };
-  if (!validPassage(passage) || end > document.text.length) return null;
+  if (!validPassage(passage) || end > document.text.length || splitsSurrogate(document.text, start) || splitsSurrogate(document.text, end)) return null;
   const first = document.blocks.find(block => block.selectable && start >= block.start && start < block.end);
   const last = document.blocks.find(block => block.selectable && end > block.start && end <= block.end);
   if (!first || !last || document.blocks.some(block => !block.selectable && start < block.end && end > block.start)) return null;
   return passage;
+}
+// UTF-16 좌표는 유지하되 이모지의 서로게이트 쌍 중간을 잘라 잘못된 원문을 저장하지 않는다.
+function splitsSurrogate(text: string, offset: number): boolean {
+  const before = text.charCodeAt(offset - 1);
+  const after = text.charCodeAt(offset);
+  return before >= 0xd800 && before <= 0xdbff && after >= 0xdc00 && after <= 0xdfff;
 }
 export function resolvePassage(document: SelectionDocument, passage: Passage): boolean {
   const current = passageAt(document, passage.start, passage.end);

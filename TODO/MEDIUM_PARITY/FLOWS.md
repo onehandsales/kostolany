@@ -1,5 +1,7 @@
 # 63개 흐름과 273단계의 연결 요구
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). T-F25-02/03·T-F29-01의 선택/저장/인용 소비를 다시 자동 검증했다. 원본6장 열람과 실제 웹/native 미실행을 구분하며 native 본문 다중 문단/정확 플로팅은 잔여.
+
 **Parity10 흐름 대조(2026-11-24):** [42배정 T·65단계 원본·현재 연결](../FE_MEDIUM_PARITY_10_RESULT.md#source-review).63/273/200은 목록 검사이며 전체 기능 전수 실행이 아니다.16관련 ANALYSIS/단계 PNG를 보고 기사→응답→정책/수정/삭제→복귀의 실제 navigation 자동 검증을 실행했다. 실제 브라우저 조작/스크롤/키보드·console은 차단 상태다.
 
 **Parity9 추가 확인(2026-11-24):** [F07~F11 원본29단계·현재 검증](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 전체63/273/200 등록·연결/배정 검사는 통과했다. T-F09-03~05의 native 부분 보완과 잔여를 분리하며 실제 브라우저 흐름 검증은 환경 차단이다. 과거 T 요구/관찰과 완료 기록을 삭제하지 않는다.
@@ -802,6 +804,8 @@ Font family 컨트롤은 보이나 선택 목록은 수록되지 않았다. 본�
 
 ## F25 — Home/Story detail/Highlighting a phrase
 
+- **Parity11 최신:** [직접 T와 연결 검증](../FE_MEDIUM_PARITY_11_RESULT.md#requirements). F25-02/03·F29-01과 모든 원본 단계를 대조했다. native 한 문단 선택→저장/Library·인용의 자동 navigation 검증, 다중 문단/메뉴/서식 잔여·실제 웹/기기 대기를 구분한다. 아래 FE 검토는 과거 상태다.
+
 - **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>)
@@ -931,6 +935,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f29"></a>
 
 ## F29 — Home/Story detail/Responding to a phrase
+
+- **Parity11 최신:** [직접 T와 연결 검증](../FE_MEDIUM_PARITY_11_RESULT.md#requirements). F25-02/03·F29-01과 모든 원본 단계를 대조했다. native 한 문단 선택→저장/Library·인용의 자동 navigation 검증, 다중 문단/메뉴/서식 잔여·실제 웹/기기 대기를 구분한다. 아래 FE 검토는 과거 상태다.
 
 - **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 

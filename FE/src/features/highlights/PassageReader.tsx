@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
-import { Platform, Pressable, StyleSheet, Text, useWindowDimensions, View, type StyleProp, type TextStyle } from 'react-native';
+import { Platform, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View, type StyleProp, type TextStyle } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTheme } from '../../shared/theme/ThemeProvider';
-import { fonts } from '../../shared/theme/tokens';
 import { useAuth } from '../auth/AuthProvider';
 import { ResponsesPanel } from '../responses/ResponsesPanel';
 import { ShareSheet } from '../sharing/ShareSheet';
@@ -11,7 +11,10 @@ import { useHighlights } from './HighlightProvider';
 import { HighlightedText } from './HighlightedText';
 import { SelectionOverlay } from './SelectionOverlay';
 import { NativePassagePicker } from './NativePassagePicker';
-import { resolvePassage, type SelectionDocument } from './selectionDocument';
+import { NativePassageText } from './NativePassageText';
+import { PassageMenu } from './PassageMenu';
+import { passageMenuPosition } from './passageMenuPosition';
+import { passageAt, resolvePassage, type SelectionDocument } from './selectionDocument';
 import type { PassageSelection } from './selectionBridge.types';
 import { clearTextSelection, revealPassage, useSelectionBridge } from './useSelectionBridge';
 import { highlightId, highlightOperation, type Highlight, type Passage } from './types';
@@ -28,9 +31,12 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const { colors } = useTheme();
   const auth = useAuth();
   const { width, height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const [menuHeightDp, setMenuHeightDp] = useState(48);
   const id = `passages-${useId().replace(/[^a-zA-Z0-9-]/g, '')}`;
   const [selection, setSelection] = useState<PassageSelection | null>(null);
   const [nativePicker, setNativePicker] = useState(false);
+  const [nativeBlock, setNativeBlock] = useState<{ index: number; initialHeightDp?: number } | null>(null);
   const [quote, setQuote] = useState<Passage | null>(null);
   const [more, setMore] = useState(false);
   const [sharing, setSharing] = useState(false);
@@ -42,6 +48,7 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const currentPassage = useRef<Passage | null>(null);
   const attempted = useRef<{ id: string; selected: boolean; highlight: Highlight } | null>(null);
   const initialAnchor = useRef<string | null>(null);
+  const blockHeightsDp = useRef(new Map<number, number>());
   const highlights = state?.value?.highlights.filter(value => value.articleId === document.articleId && resolvePassage(document, value)) ?? [];
   const selectedHighlight = selection ? highlights.find(value => value.id === highlightId(selection.passage)) : undefined;
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; clearTextSelection(); }; }, []);
@@ -68,7 +75,16 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     updateSelection(value);
   }
   useSelectionBridge({ id, document, active, selectionColor: colors.highlight, onSelect: choose });
-  function close() { currentPassage.current = null; selectionIntent.current += 1; clearTextSelection(); setSelection(null); setMore(false); setSharing(false); setError(false); }
+  function close() { currentPassage.current = null; selectionIntent.current += 1; clearTextSelection(); setSelection(null); setNativeBlock(null); setMore(false); setSharing(false); setError(false); }
+  function selectNativeBlock(index: number) {
+    if (quote || sharing || nativePicker || auth.state.dialog) return;
+    const block = document.blocks[index];
+    if (!block) return;
+    const passage = passageAt(document, block.start, block.end);
+    if (!passage) return;
+    setNativeBlock({ index, initialHeightDp: blockHeightsDp.current.get(index) });
+    updateSelection({ passage, position: { x: 0, y: 0, width: 0, height: 0 } });
+  }
   function requireLogin(forResponse = false): boolean {
     if (store) return false;
     auth.store.openLogin(forResponse ? { kind: 'response', targetKind: 'article', targetId: document.articleId } : { kind: 'highlight', articleId: document.articleId }); return true;
@@ -92,20 +108,34 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   }
   const selectedAnchor = anchorId ? state?.value?.highlights.find(value => value.id === anchorId) : undefined;
   const anchorUnavailable = anchorId && state?.value && (!selectedAnchor || !resolvePassage(document, selectedAnchor));
+  const menu = <PassageMenu selected={Boolean(selectedHighlight)} pending={pending} error={error} more={more}
+    onSave={retry => { void save(retry); }} onMore={() => setMore(value => !value)}
+    onRespond={() => { if (selection && !requireLogin(true)) { clearTextSelection(); setNativeBlock(null); setQuote(selection.passage); } }}
+    onShare={() => { setNativeBlock(null); setSharing(true); }} />;
   const renderText: TextRenderer = (index, style, otherHighlight) => {
     const block = document.blocks[index];
     if (!block?.selectable) return null;
+    if (active && nativeBlock?.index === index && !quote && !sharing && !auth.state.dialog) {
+      return <NativePassageText key={index} document={document} index={index} style={style} menu={selection ? menu : null} onClose={close}
+        highlights={highlights} otherHighlight={otherHighlight} initialHeightDp={nativeBlock.initialHeightDp}
+        initialSelection={{ start: selection ? selection.passage.start - block.start : 0, end: selection ? selection.passage.end - block.start : 0 }}
+        onSelect={passage => updateSelection(passage ? { passage, position: { x: 0, y: 0, width: 0, height: 0 } } : null)}>
+        <Pressable role="button" accessibilityLabel="문구 선택 취소" style={styles.action} onPress={close}><Text style={{ color: colors.green }}>Cancel</Text></Pressable>
+      </NativePassageText>;
+    }
     return <HighlightedText key={index} block={block} nativeID={`${id}-block-${index}`} highlights={highlights} otherHighlight={otherHighlight} style={style}
+      onLayout={event => { blockHeightsDp.current.set(index, event.nativeEvent.layout.height); }}
+      onSelect={Platform.OS !== 'web' && active ? () => selectNativeBlock(index) : undefined}
       onHighlight={(value, y) => { updateSelection({ passage: value, position: { x: 24, y: Number.isFinite(y) ? y : Math.min(240, height / 2), width: width - 48, height: 30 } }); setError(false); }} />;
   };
   const menuWidth = Math.min(width - 16, selectedHighlight ? 340 : 280);
-  const menuTop = selection ? Math.max(8, Math.min(height - 180, selection.position.y - 58)) : 80;
-  const menuLeft = selection ? Math.max(8, Math.min(width - menuWidth - 8, selection.position.x + selection.position.width / 2 - menuWidth / 2)) : 8;
+  const menuPosition = selection ? passageMenuPosition(selection.position,
+    { width: menuWidth, height: menuHeightDp }, { width, height, ...insets }) : null;
   return <View nativeID={id}>
     {anchorUnavailable && <Text role="alert" style={{ color: colors.secondaryText, paddingVertical: 12 }}>이 하이라이트가 삭제되었거나 원문이 변경되어 위치를 복원할 수 없어요.</Text>}
     {state?.readError && <Pressable role="button" accessibilityLabel="하이라이트 불러오기 다시 시도" style={styles.action} onPress={() => store?.retry()}><Text style={{ color: colors.destructive }}>하이라이트를 불러오지 못했어요. 다시 시도</Text></Pressable>}
     {children(renderText)}
-    {Platform.OS !== 'web' && <Pressable role="button" accessibilityLabel="기사 문구 선택" style={styles.action} onPress={() => setNativePicker(true)}><Text style={{ color: colors.green }}>Select a passage</Text></Pressable>}
+    {Platform.OS !== 'web' && active && <Pressable role="button" accessibilityLabel="기사 문구 선택" style={styles.action} onPress={() => { close(); setNativePicker(true); }}><Text style={{ color: colors.green }}>Select across paragraphs</Text></Pressable>}
     {active && nativePicker && <NativePassagePicker document={document} onClose={() => setNativePicker(false)} onSelect={passage => { setNativePicker(false); updateSelection({ passage, position: { x: 24, y: 240, width: width - 48, height: 30 } }); }} />}
     {active && selection && !quote && (sharing ? <ShareSheet target={{
           kind: 'quote', id: document.articleId, title: document.title, subtitle: '', authorName: document.author,
@@ -113,23 +143,12 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
           avatar: publicIdentity(articleWriter(document.articleId) ?? { kind: 'writer', id: '' })?.avatar,
           quote: selection.passage.text, start: selection.passage.start, end: selection.passage.end,
           visibility: 'public', memberOnly,
-        }} available={resolvePassage(document, selection.passage)} onClose={() => setSharing(false)} /> : <SelectionOverlay onClose={close}>
-        <View accessibilityLabel="문구 선택 메뉴" style={[styles.menu, { backgroundColor: colors.popup, top: menuTop, left: menuLeft, width: menuWidth }]}>
-          <View style={styles.row}>
-            <Pressable role="button" accessibilityLabel={selectedHighlight ? 'Remove highlight' : 'Highlight'} disabled={pending} accessibilityState={{ disabled: pending, busy: pending }} style={styles.action} onPress={() => { void save(); }}><Text style={[styles.label, { color: colors.text }]}>{selectedHighlight ? 'Remove highlight' : 'Highlight'}</Text></Pressable>
-            <Pressable role="button" accessibilityLabel="Respond to passage" disabled={pending} style={styles.action} onPress={() => { if (!requireLogin(true)) { clearTextSelection(); setQuote(selection.passage); } }}><Text style={[styles.label, { color: colors.text }]}>Respond</Text></Pressable>
-            <Pressable role="button" accessibilityLabel="Share passage" disabled={pending} style={styles.action} onPress={() => setSharing(true)}><Text style={[styles.label, { color: colors.text }]}>Share</Text></Pressable>
-            <Pressable role="button" accessibilityLabel="문구 선택 더보기" style={styles.action} onPress={() => setMore(value => !value)}><Text style={[styles.label, { color: colors.text }]}>•••</Text></Pressable>
-          </View>
-          {pending && <Text style={[styles.message, { color: colors.secondaryText }]}>Saving…</Text>}
-          {error && <Pressable role="button" accessibilityLabel="하이라이트 저장 다시 시도" style={styles.action} onPress={() => { void save(true); }}><Text role="alert" style={{ color: colors.destructive }}>저장하지 못했어요. 다시 시도</Text></Pressable>}
-          {more && <Text style={[styles.message, { color: colors.secondaryText }]}>선택 메뉴의 추가 항목은 보관된 화면에서 확인되지 않았어요.</Text>}
-        </View>
+        }} available={resolvePassage(document, selection.passage)} onClose={() => setSharing(false)} /> : nativeBlock === null && <SelectionOverlay onClose={close}>
+        <ScrollView keyboardShouldPersistTaps="always" style={[{ position: 'absolute' }, menuPosition]}>
+          <View onLayout={event => setMenuHeightDp(event.nativeEvent.layout.height)}>{menu}</View>
+        </ScrollView>
     </SelectionOverlay>)}
     {active && quote && <ResponsesPanel target={{ kind: 'article', id: document.articleId }} initialQuote={quote} onClose={() => { setQuote(null); close(); }} />}
   </View>;
 }
-const styles = StyleSheet.create({ menu: { position: 'absolute', borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.18)', paddingHorizontal: 4 },
-  row: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' },
-  action: { minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6 },
-  label: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18 }, message: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, padding: 12 } });
+const styles = StyleSheet.create({ action: { minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6 } });

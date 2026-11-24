@@ -23,9 +23,10 @@ it('실제 navigation과 선택 이벤트로 저장 실패/재시도·Library �
     feedSource={createMockFeedSource({ delayMs: 0, catalog: { latest: mediumArticles.filter(item => item.id === article.id), popular: [], recommended: [] } })}
     articleSource={createMockArticleSource({ delayMs: 0 })} /></SafeAreaProvider>);
   await user.press(await screen.findByRole('button', { name: /^ChatGPT Is Poisoning/ }));
-  await user.press(screen.getByRole('button', { name: '기사 문구 선택' }));
-  await fireEvent(screen.getByLabelText('선택할 원문'), 'selectionChange', { nativeEvent: { selection: { start, end } } });
-  await user.press(screen.getByRole('button', { name: '문구 선택 Done' }));
+  const block = document.blocks.find(value => value.start <= start && value.end >= end)!;
+  await fireEvent(screen.getByText(block.text), 'longPress');
+  await fireEvent(screen.getByLabelText('본문 안 문구 선택'), 'selectionChange', { nativeEvent: { selection: { start: start - block.start, end: end - block.start } } });
+  expect(screen.queryByRole('button', { name: '문구 선택 Done' })).toBeNull();
   await user.press(screen.getByRole('button', { name: 'Highlight' }));
   await user.press(await screen.findByRole('button', { name: '하이라이트 저장 다시 시도' }));
   await waitFor(() => expect(screen.queryByRole('button', { name: 'Highlight' })).toBeNull());

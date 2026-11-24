@@ -1,7 +1,9 @@
-import { validHighlight, type HighlightSource, type HighlightValue } from '../types';
+import { validHighlight, type HighlightSource, type HighlightValue, type Passage } from '../types';
 
 export type HighlightScenario = 'normal' | 'read-error' | 'write-error' | 'remove-error' | 'slow';
-export function createMockHighlightSource({ delayMs = 150, scenario = 'normal' }: { delayMs?: number; scenario?: HighlightScenario } = {}): HighlightSource {
+export function createMockHighlightSource({ delayMs = 150, scenario = 'normal', canHighlight = () => true }: {
+  delayMs?: number; scenario?: HighlightScenario; canHighlight?: (userId: string, passage: Passage) => boolean;
+} = {}): HighlightSource {
   const values = new Map<string, HighlightValue>();
   const operations = new Map<string, string>();
   let failedRead = false; let failedWrite = false;
@@ -22,6 +24,8 @@ export function createMockHighlightSource({ delayMs = 150, scenario = 'normal' }
       const previous = operations.get(operationKey);
       if (previous && previous !== fingerprint) throw new Error('Conflicting highlight operation');
       if (previous) return get(userId);
+      // 원문 접근이 철회된 뒤 새 강조를 확정하지 않되 기존 개인 강조의 제거는 허용한다.
+      if (command.selected && !canHighlight(userId, command.highlight)) throw new Error('Highlight permission denied');
       const value = get(userId);
       const remaining = value.highlights.filter(item => item.id !== command.highlight.id);
       const next: HighlightValue = { userId, version: value.version + 1,

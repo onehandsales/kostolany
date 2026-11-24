@@ -1,5 +1,7 @@
 # 화면별 원본 요구사항
 
+**Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). S122의 선택 입력 강조·웹/기존 메뉴 실측을 보완했다. native 대체 메뉴는 문단 내부 흐름 배치이고 다중 문단은 별도 picker다. R-S122-L/D/S/V 전체 시각 일치 완료가 아니다.
+
 [검토 요약](../FE_MEDIUM_PARITY_AUDIT.md) · [보완 작업](../FE_MEDIUM_PARITY_BACKLOG.md) · [계약 원문](CONTRACTS.md) · [흐름 맥락](FLOWS.md) · [미확인 항목](UNKNOWN.md)
 
 이번 목록은 원본에서 추출한 **관찰 요구사항**이다. L=배치, D=표시값/입력, S=상태, C=컨트롤, V=PNG 추가 세부 관찰이다. L/D/S는 원문 한 문장의 모든 요소를 포함하는 묶음이며 단일 버튼 수가 아니다. C는 명시적으로 나눈 조작점이다. 이 숫자를 기능 완성률의 분모로 사용하지 않는다.
@@ -775,6 +777,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s122"></a>
 
 ## S122 — 본문 구절 선택
+
+**Parity11 최신:** [요구별 구현·검증·잔여](../FE_MEDIUM_PARITY_11_RESULT.md#requirements). 본문 한 문단 native 선택과 강조 톤·접근 철회를 보완했다. 아래 원본 요구/초기 조사 판정은 보존한다. 다중 문단·서식·메뉴 좌표와 실제 렌더/기기 검증은 남아 전체 동일성 미완료다.
 
 안정 원본 ID: `sc_a8112b7354bb44908f9359e95ba3c288` · [원본 분석](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>):84 · [원본 PNG](<../../medium/flows/Home/Story detail/Highlighting a phrase/screens/02_sc_a8112b7354bb44908f9359e95ba3c288.png>)
 
