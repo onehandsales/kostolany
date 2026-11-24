@@ -185,6 +185,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S156 — 프로필 사진 소스 선택
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_cba29e82e4364a239d3e5423213fa670` · [원본 분석](<../../medium/flows/Profile/Editing profile information/ANALYSIS.md>):121 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/screens/03_sc_cba29e82e4364a239d3e5423213fa670.png>)
 
 흐름 맥락: [F57/03](FLOWS.md#f57)
@@ -580,6 +582,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 
 ## S167 — 내 소개 빈 상태
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_d55f02281f894078a734269d60de79c4` · [원본 분석](<../../medium/flows/Profile/ANALYSIS.md>):179 · [원본 PNG](<../../medium/flows/Profile/screens/05_sc_d55f02281f894078a734269d60de79c4.png>)
 
 흐름 맥락: [F55/05](FLOWS.md#f55)
@@ -647,6 +651,8 @@ FE 조사 경로: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/Ar
 <a id="s169"></a>
 
 ## S169 — 발행 글과 반응 있는 프로필
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_d76d3680605f4b62ab31e3039d6c4fe6` · [원본 분석](<../../medium/flows/Profile/ANALYSIS.md>):119 · [원본 PNG](<../../medium/flows/Profile/screens/03_sc_d76d3680605f4b62ab31e3039d6c4fe6.png>)
 

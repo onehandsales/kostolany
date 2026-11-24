@@ -84,6 +84,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S178 — 프로필에 발행 글 표시
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_e3b2276c9abd4bc7b08e6e4c322dee9e` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):366 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/11_sc_e3b2276c9abd4bc7b08e6e4c322dee9e.png>)
 
 흐름 맥락: [F08/11](FLOWS.md#f08)

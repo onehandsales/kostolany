@@ -66,6 +66,11 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
     setNotice('');
   };
   const photoSelection = useProfilePhotoSelection(initialPhoto, photo => change('photo', photo));
+  const openChild = (next: 'photo' | 'pronouns') => {
+    // 자식 편집에 진입한 뒤 이전 저장 응답이 새 선택 화면을 닫지 않게 한다.
+    draftVersion.current += 1;
+    setChild(next);
+  };
   const closeChild = () => {
     if (child === 'photo') photoSelection.cancel();
     const target = child === 'photo' ? photoButton : pronounsButton;
@@ -147,7 +152,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                   ref={photoButton}
                   role="button"
                   accessibilityLabel="프로필 사진 변경"
-                  onPress={() => { Keyboard.dismiss(); setChild('photo'); }}
+                  onPress={() => { Keyboard.dismiss(); openChild('photo'); }}
                   style={visual.updatePhoto}
                 >
                   <Text style={visual.photoLink}>Update photo</Text>
@@ -180,7 +185,7 @@ export function ProfileEditorSheet({ initialProfile, store, onClose }: ProfileEd
                   ref={pronounsButton}
                   role="button"
                   accessibilityLabel="Add pronouns"
-                  onPress={() => setChild('pronouns')}
+                  onPress={() => openChild('pronouns')}
                   style={visual.inputTarget}
                 >
                   <View style={[visual.inputSurface, visual.pronouns]}>

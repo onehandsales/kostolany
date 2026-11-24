@@ -5,19 +5,21 @@ import { useStoryList, useWrittenStories } from '../editor/WrittenStoriesProvide
 import { WrittenStoryBookmark, WrittenStoryMenu, WrittenStoryViewed } from '../editor/WrittenStoryActions';
 import { WrittenStoryCardReactions } from '../editor/WrittenStoryCardReactions';
 import { useTheme } from '../../shared/theme/ThemeProvider';
+import { formatProfilePublishedTime } from './profilePublishedTime';
 
 export function ProfileStories({ userId, visibility, active, header, footer, contentContainerStyle }: {
   userId: string; visibility: 'public' | 'unlisted'; active: boolean; header: ReactElement; footer: ReactElement; contentContainerStyle: StyleProp<ViewStyle>;
 }) {
   const context = useWrittenStories(); const { colors } = useTheme(); const navigation = useCommunityNavigation();
   const [now, setNow] = useState(Date.now);
+  const list = useStoryList(userId, context?.sessionRevision ?? 0, visibility, active);
   useEffect(() => {
     if (!active) return;
+    // 새 발행 조회가 끝난 시각을 반영해 이전 타이머 값으로 미래 글처럼 표시하지 않는다.
     const frame = requestAnimationFrame(() => setNow(Date.now()));
     const timer = setInterval(() => setNow(Date.now()), 60000);
     return () => { cancelAnimationFrame(frame); clearInterval(timer); };
-  }, [active]);
-  const list = useStoryList(userId, context?.sessionRevision ?? 0, visibility, active);
+  }, [active, userId, context?.sessionRevision, context?.source, list.status]);
   return <FlatList data={list.status === 'ready' ? list.items : []} keyExtractor={item => item.id} contentContainerStyle={contentContainerStyle}
     ListHeaderComponent={header} ListFooterComponent={footer}
     ListEmptyComponent={list.status === 'loading' ? <ActivityIndicator accessibilityLabel="발행한 글 불러오는 중" /> : list.status === 'error' ? <View style={{ padding: 24 }}><Text role="alert" style={{ color: colors.text }}>발행한 글을 불러오지 못했어요.</Text><Pressable role="button" accessibilityLabel="발행한 글 다시 불러오기" onPress={list.retry} style={{ minHeight: 48, justifyContent: 'center' }}><Text style={{ color: colors.green }}>Try again</Text></Pressable></View> :
@@ -26,7 +28,7 @@ export function ProfileStories({ userId, visibility, active, header, footer, con
       <View style={{ flexDirection: 'row', gap: 20 }}><View style={{ flex: 1 }}><Text style={{ color: colors.text, fontSize: 20, lineHeight: 26, fontWeight: '700' }}>{item.document.title}</Text><Text numberOfLines={2} style={{ color: colors.secondaryText, fontSize: 16, lineHeight: 20, marginTop: 8 }}>{item.document.body.replaceAll('\uFFFC', '').trim()}</Text></View>
         {item.document.images[0] && list.context && <Image source={list.context.images.resolve(item.document.images[0].assetId)} accessibilityLabel={item.document.images[0].description} style={{ width: 80, height: 56, resizeMode: 'cover' }} />}
       </View>
-    </Pressable><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 12 }}><Text style={{ marginRight: 12, color: colors.secondaryText, fontSize: 12 }}>{now >= Date.parse(item.publishedAt) && now - Date.parse(item.publishedAt) < 60000 ? 'Just now' : new Date(item.publishedAt).toLocaleDateString()}{item.publishing.unlisted ? ' · Unlisted' : ''}</Text>
+    </Pressable><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 12 }}><Text style={{ marginRight: 12, color: colors.secondaryText, fontSize: 12 }}>{formatProfilePublishedTime(item.publishedAt, now)}{item.publishing.unlisted ? ' · Unlisted' : ''}</Text>
       <WrittenStoryCardReactions active={active} story={item} /><View style={{ flex: 1 }} />
       <WrittenStoryBookmark active={active} story={item} /><WrittenStoryMenu active={active} story={item} /><WrittenStoryViewed story={item} />
     </View></View>} />;

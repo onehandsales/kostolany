@@ -366,6 +366,8 @@ FE 조사 경로: [PublicListScreen.tsx](<../../FE/src/features/public-lists/Pub
 
 ## S136 — 프로필 편집 결과
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_be99c4fdcf634190a324ec9820a84f43` · [원본 분석](<../../medium/flows/Profile/Editing profile information/ANALYSIS.md>):241 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/screens/07_sc_be99c4fdcf634190a324ec9820a84f43.png>)
 
 흐름 맥락: [F57/07](FLOWS.md#f57)
@@ -441,6 +443,8 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 <a id="s138"></a>
 
 ## S138 — 대명사·소개 입력된 프로필
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_befb6fde38cc48f3827ea389caed11de` · [원본 분석](<../../medium/flows/Profile/Editing profile information/ANALYSIS.md>):211 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/screens/06_sc_befb6fde38cc48f3827ea389caed11de.png>)
 
@@ -666,6 +670,8 @@ FE 조사 경로: [ModerationDialogs.tsx](<../../FE/src/features/moderation/Mode
 <a id="s144"></a>
 
 ## S144 — 다크 내 프로필
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_c31a2100ddcd41cba45b5081c69b78b5` · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):271 · [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/08_sc_c31a2100ddcd41cba45b5081c69b78b5.png>)
 

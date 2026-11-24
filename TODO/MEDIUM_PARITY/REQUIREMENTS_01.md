@@ -156,6 +156,8 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 
 ## S005 — 프로필 사진 선택 반영
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_05df03a16c6b466b8ba91d9d6244c2f5` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):57 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/01_sc_05df03a16c6b466b8ba91d9d6244c2f5.png>)
 
 흐름 맥락: [F56/01](FLOWS.md#f56), [F57/05](FLOWS.md#f57)
@@ -715,6 +717,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 <a id="s020"></a>
 
 ## S020 — 내 프로필 빈 Stories
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_1bd141b757934a88b4a003855e1794cc` · [원본 분석](<../../medium/flows/Profile/ANALYSIS.md>):88 · [원본 PNG](<../../medium/flows/Profile/screens/02_sc_1bd141b757934a88b4a003855e1794cc.png>)
 

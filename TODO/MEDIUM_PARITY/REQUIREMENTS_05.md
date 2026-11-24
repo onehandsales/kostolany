@@ -459,6 +459,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 ## S113 — 기기 사진 선택기
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_9fd133df622e4ddd859bbbeb845ba4da` · [원본 분석](<../../medium/flows/Profile/Editing profile information/ANALYSIS.md>):151 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/screens/04_sc_9fd133df622e4ddd859bbbeb845ba4da.png>)
 
 흐름 맥락: [F57/04](FLOWS.md#f57)
@@ -716,6 +718,8 @@ FE 조사 경로: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/Ar
 
 ## S120 — 대명사 1개 선택
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_a6051a9dd4514d3694dde85cd95c6b6d` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):148 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/04_sc_a6051a9dd4514d3694dde85cd95c6b6d.png>)
 
 흐름 맥락: [F56/04](FLOWS.md#f56)
@@ -821,6 +825,8 @@ FE 조사 경로: [PassageReader.tsx](<../../FE/src/features/highlights/PassageR
 <a id="s123"></a>
 
 ## S123 — 프로필 편집 폼
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_a829121c47a444cd8a8fd0d9889edaed` · [원본 분석](<../../medium/flows/Profile/Editing profile information/ANALYSIS.md>):90 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/screens/02_sc_a829121c47a444cd8a8fd0d9889edaed.png>)
 

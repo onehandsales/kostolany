@@ -858,6 +858,8 @@ FE 조사 경로: [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx
 
 ## S074 — 내 프로필 Lists
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_64afef71457f48808c33def66fd6d90e` · [원본 분석](<../../medium/flows/Profile/ANALYSIS.md>):149 · [원본 PNG](<../../medium/flows/Profile/screens/04_sc_64afef71457f48808c33def66fd6d90e.png>)
 
 흐름 맥락: [F55/04](FLOWS.md#f55)

@@ -157,6 +157,8 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 
 ## S080 — 대명사 검색
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_6c7a00132f3c47e6b2e803743cc10d21` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):118 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/03_sc_6c7a00132f3c47e6b2e803743cc10d21.png>)
 
 흐름 맥락: [F56/03](FLOWS.md#f56)
@@ -226,6 +228,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s082"></a>
 
 ## S082 — 대명사 선택 빈 폼
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_743e421bb2b14205b19b76062fdf27cd` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):87 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/02_sc_743e421bb2b14205b19b76062fdf27cd.png>)
 
@@ -648,6 +652,8 @@ FE 조사 경로: [ModerationDialogs.tsx](<../../FE/src/features/moderation/Mode
 <a id="s094"></a>
 
 ## S094 — 대명사 2개 선택
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_82178c6b5a56471cb64fecb5a4e4bc4e` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):178 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/05_sc_82178c6b5a56471cb64fecb5a4e4bc4e.png>)
 

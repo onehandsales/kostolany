@@ -43,6 +43,71 @@ async function switchUser(auth: AuthStore, id: string) {
   await flush();
 }
 
+it.each(['pronouns', 'photo'] as const)('이전 프로필 저장 성공은 새로 연 %s 자식 편집을 닫거나 초안을 버리지 않는다', async child => {
+  const base = createMockProfileSource({ delayMs: 0 }); const gate = deferred<void>();
+  const source: ProfileSource = { ...base, saveProfile: async input => { await gate.promise; return base.saveProfile(input); } };
+  const { user } = await setup(source);
+  await user.press(button('프로필 편집'));
+  await fireEvent.changeText(screen.getByLabelText('이름 · 필수'), '먼저 저장한 이름');
+  await user.press(button('프로필 저장'));
+  if (child === 'pronouns') {
+    await user.press(button('Add pronouns'));
+    await fireEvent.changeText(screen.getByLabelText('대명사 검색'), 'he');
+    await user.press(screen.getByRole('checkbox', { name: 'he 대명사 선택' }));
+  } else await user.press(button('프로필 사진 변경'));
+  await act(async () => gate.resolve()); await flush();
+  if (child === 'pronouns') {
+    expect(button('he 대명사 삭제')).toBeVisible();
+    await user.press(button('대명사 선택 완료'));
+    expect(screen.getByText('1 / 4')).toBeVisible();
+  } else {
+    expect(button('프로필 사진 라이브러리')).toBeVisible();
+    await user.press(button('프로필 사진 선택 취소'));
+  }
+  await user.press(button('프로필 편집 취소'));
+  expect(await base.readProfile(mockUserA.id)).toMatchObject({ name: '먼저 저장한 이름' });
+  expect((await base.readProfile(mockUserA.id)).pronouns ?? []).toEqual([]);
+});
+
+it('게시 경과 시간은 Just now와 23h ago를 구분하고 시간 경과·이탈·복귀에서 갱신한다', async () => {
+  const now = Date.parse('2026-11-24T12:00:00Z'); jest.setSystemTime(now);
+  const drafts = createMockDraftSource({ delayMs: 0 });
+  for (const [title, elapsed] of [['직후 글', 0], ['23시간 글', 23 * 3600000]] as const) {
+    jest.setSystemTime(now - elapsed);
+    const draftId = drafts.newId(mockUserA.id);
+    const document = { ...emptyEditor().document, title, body: '게시 시각 확인 본문' };
+    await drafts.save({ draftId, userId: mockUserA.id, document, publishing: emptyPublishOptions(), operationId: `save-${title}` }, new AbortController().signal);
+    await drafts.publish({ draftId, userId: mockUserA.id, document, publishing: emptyPublishOptions(), authorName: mockUserA.name, operationId: `publish-${title}` }, new AbortController().signal);
+  }
+  jest.setSystemTime(now);
+  const { user } = await setup(undefined, undefined, drafts);
+  expect(screen.getByText('Just now')).toBeVisible();
+  expect(screen.getByText('23h ago')).toBeVisible();
+  await act(async () => { await jest.advanceTimersByTimeAsync(60000); });
+  expect(screen.getByText('1m ago')).toBeVisible();
+  await user.press(button('직후 글 발행한 글 열기')); await flush();
+  jest.setSystemTime(now + 2 * 3600000);
+  await user.press(button('작성 글 뒤로')); await flush();
+  expect(screen.getByText('2h ago')).toBeVisible();
+  expect(screen.queryByText('23h ago')).not.toBeOnTheScreen();
+});
+
+it('활성 프로필의 새 발행 목록은 이전 타이머 시각 때문에 미래 시각으로 표시되지 않는다', async () => {
+  const drafts = createMockDraftSource({ delayMs: 0 });
+  await setup(undefined, undefined, drafts);
+  await act(async () => { await jest.advanceTimersByTimeAsync(30000); });
+  await act(async () => {
+    const draftId = drafts.newId(mockUserA.id);
+    const document = { ...emptyEditor().document, title: '화면 체류 중 발행', body: '새 발행 목록' };
+    const publishing = emptyPublishOptions();
+    await drafts.save({ draftId, userId: mockUserA.id, document, publishing, operationId: 'active-save' }, new AbortController().signal);
+    await drafts.publish({ draftId, userId: mockUserA.id, document, publishing, authorName: mockUserA.name, operationId: 'active-publish' }, new AbortController().signal);
+  });
+  await flush();
+  expect(button('화면 체류 중 발행 발행한 글 열기')).toBeVisible();
+  expect(screen.getByText('Just now')).toBeVisible();
+});
+
 it.each(['success', 'failure'] as const)('사진 선택 중 A→B와 같은 A 재로그인 뒤 늦은 %s는 새 프로필·초안을 오염시키지 않는다', async outcome => {
   const pending = deferred<ProfilePhotoLease | null>(); const release = jest.fn();
   const { user, auth } = await setup(undefined, () => pending.promise);

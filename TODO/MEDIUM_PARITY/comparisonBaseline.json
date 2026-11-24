@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "f21b76cae8cae4d44093136b3222c3cbe6b0435696c0d2421b06150233167de4"
+      "sha256": "12ffed60f938aa6bdecc25a3f918b2eb00888fd3d1bcdb2180554be7a9cf599e"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "460aa9dd0c05b334a8eae824a1b239a63d96bb980367b70081833f5ec132835b"
+      "sha256": "73ab639a6442b98970414128315814f3675dc3360ad91f06272860d40d6803e8"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,47 +285,47 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "dbc3b341087aed42297c83f9b49e5c96a87e4bb2c625730fbf66e7419ae6d786"
+      "sha256": "fdbdbd281a9ec90e03f4ca19a1916261d04ba2acddb86acc3b9cdc6f427ac799"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "aa8c5f30e8e32fb60bfdd1859e90570459d5f9f20844daaab615f55f228b0129"
+      "sha256": "66e4f3e5b67bfc34b944474f1587c13d71bd7e898f7c524583b8b79c262419f9"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "14fcd403d878f4f199b5384b1ba9ab0d1b22ab3fec793d3417f95ef1c0f24fd7"
+      "sha256": "86c07aa971cc5136d29e001296550c2bed90f13ece38259e0a2d5fac161680a2"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "a53951f8998943ac1e5cfb1aeba4a8c8be7bbe045ccf49ca0b067cc59129c9c1"
+      "sha256": "5805e6920d8d685abedaaf80585fc9a6d54df7b7a1ecfc307c83ddc4b822a28b"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "04743496645a04db316ac658db718d44a39d71742aeee25c58e53cecea15b2e4"
+      "sha256": "f16ce3e23dee98a0d7ca14fef6f558a3d3c79bcbcd509a1dbd1f8f2f222ed4da"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "7ec47293f614e650172543bb126497c6befba35c560135a7213da66f07c123a6"
+      "sha256": "de1dea99e6ff8b995c08b283668bfc84a7a722902a475a32408617e926d36f74"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "45c0b4c32a27a15f1e35eeef6a01aab17d0b46c3d93c726424f3036253887ad3"
+      "sha256": "828cd61925e0cb63299dfacb2a764473a0eaabae95c64963741acf1ff4a807ad"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "59fd6d5c3de9c9be976e9e4568183c3ff88a1d4311924a09f771a0a0296b16df"
+      "sha256": "8d83fd65380fcecaf8e530dfa8f4d08f4a88a7a44034795a260d59dc32e4a189"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "c65505c7c0a0e7bc45b5616b7db761b8ada6fe66d67519a29f91338f53510b1f"
+      "sha256": "1ef672ace0bac5e0b2d1be18bb7e5bc172002b620f5a43a9c9ae25d954b9e11f"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "cf4b9b822ee912d4970c5a66d39e062e9bbc954dfdafacd16bc977122cdf8096"
+      "sha256": "f0613ae2e84c3ef325eb5a40dfbaf527d880e419826a420eeeb4238bd1af2b92"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "becf62472f1f0d79bca225972a9cc8520ea9b17580036fdb39fdf5ac43b1f1c3"
+      "sha256": "1657c61d7f4e5065edce937e5a66e44f5bbcd885340fe9c9e9dc84c8e3111ba4"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -503,7 +503,7 @@
     },
     {
       "path": "FE/src/app/navigation/ProfileDetailsNavigation.test.tsx",
-      "sha256": "b37e5e753fc1bdf9dc08311db42e2d3158381d38fadd23551a2bab579395791e"
+      "sha256": "2db7f7203ea226d29b02aefbd8bcca671194fa8bfe6986b1783b02114ee7e68f"
     },
     {
       "path": "FE/src/app/navigation/ProfileNavigation.test.tsx",
@@ -1703,7 +1703,7 @@
     },
     {
       "path": "FE/src/features/profile/ProfileEditorSheet.tsx",
-      "sha256": "5b05b134480f06c727f74368b65f008a74548adfedcd5cb3597d50879cc07f91"
+      "sha256": "f3d3bc1fa9801417e351f063e7d13cd982759ce2cc0296865e28c7f15df846c8"
     },
     {
       "path": "FE/src/features/profile/ProfileLists.tsx",
@@ -1751,7 +1751,7 @@
     },
     {
       "path": "FE/src/features/profile/ProfileStories.tsx",
-      "sha256": "32be0acad0c37882ef30722ba6e24cf44c092561cf296ce51a91d187ef88f7ed"
+      "sha256": "a339b4daab954afa42061f2c641fcde15df569b3d0fb014ab0a89b55e3b2df4a"
     },
     {
       "path": "FE/src/features/profile/profileStyles.ts",
@@ -2548,6 +2548,14 @@
     {
       "path": "FE/src/features/highlights/passageMenuPosition.test.ts",
       "sha256": "136ec914a76f74d47e1fdb56ca539f6aaedf6bc0e159fbc53be0ac12b3e477f3"
+    },
+    {
+      "path": "FE/src/features/profile/profilePublishedTime.test.ts",
+      "sha256": "4cc1d4a92e58567f71b34a9caf523544710c4d3319130702aeb17830d4d5b927"
+    },
+    {
+      "path": "FE/src/features/profile/profilePublishedTime.ts",
+      "sha256": "8c1a8ece460f8e62995b1decf1bf33891e79a69c54a42dfe81264419920aabbc"
     }
   ],
   "evidenceContext": {
@@ -3501,7 +3509,8 @@
       ],
       "scope": "photo/pronouns/소개·Stories/Lists/About·Just now/23h ago",
       "done": "자식Done/부모Cancel·Save재진입·시각경계·권한·A/B; OS사진Q07",
-      "status": "미착수"
+      "status": "mock 기능 보완·타입/lint/전체318 suites·1746 tests 통과; 시각/원본/native 잔여",
+      "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md"
     },
     {
       "number": 16,
@@ -4510,7 +4519,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S006",
@@ -6149,7 +6169,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S021",
@@ -6879,7 +6910,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S028",
@@ -8941,7 +8983,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S048",
@@ -11831,7 +11884,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S075",
@@ -12491,7 +12555,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S081",
@@ -12700,7 +12775,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S083",
@@ -13865,7 +13951,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S095",
@@ -15916,7 +16013,18 @@
       "readiness": "native-required",
       "blocker": "OS Photos/앨범4장/권한 환경 필요; 웹 파일 선택기로 동일 재현 불가(Q07).",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S114",
@@ -16699,7 +16807,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S121",
@@ -17020,7 +17139,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S124",
@@ -18336,7 +18466,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S137",
@@ -18562,7 +18703,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S139",
@@ -19198,7 +19350,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S145",
@@ -20359,7 +20522,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S157",
@@ -21490,7 +21664,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S168",
@@ -21780,7 +21965,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S170",
@@ -22737,7 +22933,18 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다."
+      "acceptance": "Stories/Lists/About·Public·빈 CTA·편집/통계, 사진 미리보기·부모Save/Cancel, name50/bio160·pronouns0/4→2/4·Done, desktop About 안내를 각각 비교한다. OS picker는 실제 어댑터 검증으로 분리한다.",
+      "parity15Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "mock 기능/자동 검사·실제8081 부분 대조; 원본/시각/native 잔여",
+        "remaining": "원본 사진/서체/집계 fixture·정확 배치·U 미수록/OS 대기. readiness/currentEvidence 승격 없음",
+        "implementationFiles": [
+          "FE/src/features/profile/ProfileStories.tsx",
+          "FE/src/features/profile/profilePublishedTime.ts",
+          "FE/src/features/profile/ProfileEditorSheet.tsx"
+        ]
+      }
     },
     {
       "id": "S179",
@@ -25213,7 +25420,11 @@
         "T-F08-09",
         "T-F08-10",
         "T-F08-11"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F09",
@@ -25803,7 +26014,11 @@
         "T-F55-04",
         "T-F55-05",
         "T-F55-06"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F56",
@@ -25816,7 +26031,11 @@
         "T-F56-04",
         "T-F56-05",
         "T-F56-06"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F57",
@@ -25831,7 +26050,11 @@
         "T-F57-06",
         "T-F57-07",
         "T-F57-08"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F58",
@@ -25841,7 +26064,11 @@
         "T-F58-01",
         "T-F58-02",
         "T-F58-03"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F59",
@@ -25885,7 +26112,11 @@
         "T-F62-06",
         "T-F62-07",
         "T-F62-08"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "F63",
@@ -25896,7 +26127,11 @@
         "T-F63-02",
         "T-F63-03",
         "T-F63-04"
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     }
   ],
   "transitions": [
@@ -26171,7 +26406,11 @@
       "flowId": "F08",
       "screenId": "S178",
       "png": "medium/flows/Home/Publishing a story/screens/11_sc_e3b2276c9abd4bc7b08e6e4c322dee9e.png",
-      "acceptance": "Unlisted 공개 범위 안내 → 프로필에 발행 글 표시. 현재 관찰값: Alex Smith, 0 followers·1 following, Just now. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "Unlisted 공개 범위 안내 → 프로필에 발행 글 표시. 현재 관찰값: Alex Smith, 0 followers·1 following, Just now. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F09-01",
@@ -27907,140 +28146,220 @@
       "flowId": "F55",
       "screenId": "S020",
       "png": "medium/flows/Profile/screens/02_sc_1bd141b757934a88b4a003855e1794cc.png",
-      "acceptance": "For you 홈 피드 → 내 프로필 빈 Stories. 현재 관찰값: Alex Smith, 0 followers·1 following. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 발행 글과 반응 있는 프로필 — 발행 후 반응 집계<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "For you 홈 피드 → 내 프로필 빈 Stories. 현재 관찰값: Alex Smith, 0 followers·1 following. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 발행 글과 반응 있는 프로필 — 발행 후 반응 집계<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F55-03",
       "flowId": "F55",
       "screenId": "S169",
       "png": "medium/flows/Profile/screens/03_sc_d76d3680605f4b62ab31e3039d6c4fe6.png",
-      "acceptance": "내 프로필 빈 Stories → 발행 글과 반응 있는 프로필. 현재 관찰값: 23h ago, 박수29·응답1. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 프로필 Lists — 소유자가 비공개 목록을 봄<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 프로필 빈 Stories → 발행 글과 반응 있는 프로필. 현재 관찰값: 23h ago, 박수29·응답1. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 프로필 Lists — 소유자가 비공개 목록을 봄<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F55-04",
       "flowId": "F55",
       "screenId": "S074",
       "png": "medium/flows/Profile/screens/04_sc_64afef71457f48808c33def66fd6d90e.png",
-      "acceptance": "발행 글과 반응 있는 프로필 → 내 프로필 Lists. 현재 관찰값: 4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 소개 빈 상태 — 소개 미작성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "발행 글과 반응 있는 프로필 → 내 프로필 Lists. 현재 관찰값: 4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 소개 빈 상태 — 소개 미작성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F55-05",
       "flowId": "F55",
       "screenId": "S167",
       "png": "medium/flows/Profile/screens/05_sc_d55f02281f894078a734269d60de79c4.png",
-      "acceptance": "내 프로필 Lists → 내 소개 빈 상태. 현재 관찰값: Medium member since June 2025. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 소개·사진·대명사 표시 — 프로필 정보 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 프로필 Lists → 내 소개 빈 상태. 현재 관찰값: Medium member since June 2025. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 소개·사진·대명사 표시 — 프로필 정보 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F55-06",
       "flowId": "F55",
       "screenId": "S047",
       "png": "medium/flows/Profile/screens/06_sc_3cd0855e78a84d4ea413f0e5b3dffb73.png",
-      "acceptance": "내 소개 빈 상태 → 프로필 소개·사진·대명사 표시. 현재 관찰값: Curious mind sharing thoughts one story at a time. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 소개 빈 상태 → 프로필 소개·사진·대명사 표시. 현재 관찰값: Curious mind sharing thoughts one story at a time. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-01",
       "flowId": "F56",
       "screenId": "S005",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/01_sc_05df03a16c6b466b8ba91d9d6244c2f5.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 대명사 선택 빈 폼 — 대명사 미선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 대명사 선택 빈 폼 — 대명사 미선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-02",
       "flowId": "F56",
       "screenId": "S082",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/02_sc_743e421bb2b14205b19b76062fdf27cd.png",
-      "acceptance": "프로필 사진 선택 반영 → 대명사 선택 빈 폼. 현재 관찰값: 0/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 검색 — 검색어에 맞춘 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "프로필 사진 선택 반영 → 대명사 선택 빈 폼. 현재 관찰값: 0/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 검색 — 검색어에 맞춘 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-03",
       "flowId": "F56",
       "screenId": "S080",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/03_sc_6c7a00132f3c47e6b2e803743cc10d21.png",
-      "acceptance": "대명사 선택 빈 폼 → 대명사 검색. 현재 관찰값: he, her 후보. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 1개 선택 — 첫 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "대명사 선택 빈 폼 → 대명사 검색. 현재 관찰값: he, her 후보. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 1개 선택 — 첫 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-04",
       "flowId": "F56",
       "screenId": "S120",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/04_sc_a6051a9dd4514d3694dde85cd95c6b6d.png",
-      "acceptance": "대명사 검색 → 대명사 1개 선택. 현재 관찰값: 1/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 2개 선택 — 두 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "대명사 검색 → 대명사 1개 선택. 현재 관찰값: 1/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사 2개 선택 — 두 대명사 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-05",
       "flowId": "F56",
       "screenId": "S094",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/05_sc_82178c6b5a56471cb64fecb5a4e4bc4e.png",
-      "acceptance": "대명사 1개 선택 → 대명사 2개 선택. 현재 관찰값: 2/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 폼으로 대명사 반환 — 선택값 폼에 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "대명사 1개 선택 → 대명사 2개 선택. 현재 관찰값: 2/4. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 폼으로 대명사 반환 — 선택값 폼에 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F56-06",
       "flowId": "F56",
       "screenId": "S027",
       "png": "medium/flows/Profile/Editing profile information/Adding pronouns/screens/06_sc_20bfc41de9f845119aea54bb5971a01e.png",
-      "acceptance": "대명사 2개 선택 → 프로필 폼으로 대명사 반환. 현재 관찰값: 2/4, 소개 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "대명사 2개 선택 → 프로필 폼으로 대명사 반환. 현재 관찰값: 2/4, 소개 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-01",
       "flowId": "F57",
       "screenId": "S020",
       "png": "medium/flows/Profile/Editing profile information/screens/01_sc_1bd141b757934a88b4a003855e1794cc.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 프로필 편집 폼 — 이름 필수 표시·소개 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 프로필 편집 폼 — 이름 필수 표시·소개 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-02",
       "flowId": "F57",
       "screenId": "S123",
       "png": "medium/flows/Profile/Editing profile information/screens/02_sc_a829121c47a444cd8a8fd0d9889edaed.png",
-      "acceptance": "내 프로필 빈 Stories → 프로필 편집 폼. 현재 관찰값: Alex Smith10/50, Pronouns0/4, Short bio0/160. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 사진 소스 선택 — 사진 추가 방식 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 프로필 빈 Stories → 프로필 편집 폼. 현재 관찰값: Alex Smith10/50, Pronouns0/4, Short bio0/160. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 사진 소스 선택 — 사진 추가 방식 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-03",
       "flowId": "F57",
       "screenId": "S156",
       "png": "medium/flows/Profile/Editing profile information/screens/03_sc_cba29e82e4364a239d3e5423213fa670.png",
-      "acceptance": "프로필 편집 폼 → 프로필 사진 소스 선택. 현재 관찰값: 기존 폼 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 기기 사진 선택기 — OS 사진 선택 UI<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "프로필 편집 폼 → 프로필 사진 소스 선택. 현재 관찰값: 기존 폼 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 기기 사진 선택기 — OS 사진 선택 UI<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-04",
       "flowId": "F57",
       "screenId": "S113",
       "png": "medium/flows/Profile/Editing profile information/screens/04_sc_9fd133df622e4ddd859bbbeb845ba4da.png",
-      "acceptance": "프로필 사진 소스 선택 → 기기 사진 선택기. 현재 관찰값: 사진 4개, Location Is Included. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 사진 선택 반영 — 선택 사진 미리보기<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "프로필 사진 소스 선택 → 기기 사진 선택기. 현재 관찰값: 사진 4개, Location Is Included. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 사진 선택 반영 — 선택 사진 미리보기<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-05",
       "flowId": "F57",
       "screenId": "S005",
       "png": "medium/flows/Profile/Editing profile information/screens/05_sc_05df03a16c6b466b8ba91d9d6244c2f5.png",
-      "acceptance": "기기 사진 선택기 → 프로필 사진 선택 반영. 현재 관찰값: 이름 유지·대명사와 소개 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사·소개 입력된 프로필 — 저장 전 정보 완성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "기기 사진 선택기 → 프로필 사진 선택 반영. 현재 관찰값: 이름 유지·대명사와 소개 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 대명사·소개 입력된 프로필 — 저장 전 정보 완성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-06",
       "flowId": "F57",
       "screenId": "S138",
       "png": "medium/flows/Profile/Editing profile information/screens/06_sc_befb6fde38cc48f3827ea389caed11de.png",
-      "acceptance": "프로필 사진 선택 반영 → 대명사·소개 입력된 프로필. 현재 관찰값: Pronouns2/4, Short bio49/160. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 편집 결과 — 사진·대명사 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "프로필 사진 선택 반영 → 대명사·소개 입력된 프로필. 현재 관찰값: Pronouns2/4, Short bio49/160. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 편집 결과 — 사진·대명사 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-07",
       "flowId": "F57",
       "screenId": "S136",
       "png": "medium/flows/Profile/Editing profile information/screens/07_sc_be99c4fdcf634190a324ec9820a84f43.png",
-      "acceptance": "대명사·소개 입력된 프로필 → 프로필 편집 결과. 현재 관찰값: 이름·기사 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 소개·사진·대명사 표시 — 프로필 정보 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "대명사·소개 입력된 프로필 → 프로필 편집 결과. 현재 관찰값: 이름·기사 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 프로필 소개·사진·대명사 표시 — 프로필 정보 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F57-08",
       "flowId": "F57",
       "screenId": "S047",
       "png": "medium/flows/Profile/Editing profile information/screens/08_sc_3cd0855e78a84d4ea413f0e5b3dffb73.png",
-      "acceptance": "프로필 편집 결과 → 프로필 소개·사진·대명사 표시. 현재 관찰값: Curious mind sharing thoughts one story at a time. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "프로필 편집 결과 → 프로필 소개·사진·대명사 표시. 현재 관찰값: Curious mind sharing thoughts one story at a time. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F58-01",
       "flowId": "F58",
       "screenId": "S169",
       "png": "medium/flows/Profile/Settings/screens/01_sc_d76d3680605f4b62ab31e3039d6c4fe6.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 설정 상단 — 주요 설정 진입점<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 설정 상단 — 주요 설정 진입점<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F58-02",
@@ -28186,14 +28505,22 @@
       "flowId": "F62",
       "screenId": "S144",
       "png": "medium/flows/Profile/Settings/Switching to dark mode/screens/08_sc_c31a2100ddcd41cba45b5081c69b78b5.png",
-      "acceptance": "다크 읽기 목록 상세 → 다크 내 프로필. 현재 관찰값: he/him·Public·기존 글. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "다크 읽기 목록 상세 → 다크 내 프로필. 현재 관찰값: he/him·Public·기존 글. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F63-01",
       "flowId": "F63",
       "screenId": "S020",
       "png": "medium/flows/Profile/Story stats/screens/01_sc_1bd141b757934a88b4a003855e1794cc.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 월간 글 통계 — 일별 통계 시각화<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 월간 글 통계 — 일별 통계 시각화<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다.",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "T-F63-02",
@@ -28278,7 +28605,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S006",
@@ -28469,7 +28800,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S021",
@@ -28541,7 +28876,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S028",
@@ -28787,7 +29126,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S048",
@@ -29121,7 +29464,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S075",
@@ -29196,7 +29543,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S081",
@@ -29221,7 +29572,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S083",
@@ -29364,7 +29719,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S095",
@@ -29616,7 +29975,11 @@
         15,
         21
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S114",
@@ -29698,7 +30061,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S121",
@@ -29747,7 +30114,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S124",
@@ -29898,7 +30269,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S137",
@@ -29915,7 +30290,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S139",
@@ -29987,7 +30366,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S145",
@@ -30126,7 +30509,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S157",
@@ -30268,7 +30655,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S168",
@@ -30289,7 +30680,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S170",
@@ -30394,7 +30789,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-S179",
@@ -30741,7 +31140,11 @@
         17
       ],
       "status": "Close/Publication/Unlisted/Edit/빈글/이미지·발행 실패는mock 검증; Home/Profile 전체 보정은17/15.",
-      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns"
+      "parity09Result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#unknowns",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-F09",
@@ -31492,7 +31895,11 @@
         15,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-F56",
@@ -31500,7 +31907,11 @@
       "batches": [
         15
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-F57",
@@ -31509,7 +31920,11 @@
         15,
         21
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-F58",
@@ -31518,7 +31933,11 @@
         15,
         18
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "U-F59",
@@ -31569,6 +31988,10 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "이미 해결됨: mock 전역/reader 테마 소비4/7. OS 접근성/시스템 전환21 대기, 원본 재시작·동기화 근거 부족/실제 영속성Q08 제외."
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31578,7 +32001,11 @@
         15,
         20
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     }
   ],
   "controls": [
@@ -31642,6 +32069,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31704,6 +32135,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31766,6 +32201,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -31883,6 +32322,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32295,6 +32738,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32428,6 +32875,10 @@
         "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
         "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
         "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32512,7 +32963,11 @@
       ],
       "batches": [
         15
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C52",
@@ -32522,7 +32977,11 @@
       ],
       "batches": [
         15
-      ]
+      ],
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      }
     },
     {
       "id": "C53",
@@ -32583,6 +33042,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32688,6 +33151,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32750,6 +33217,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32811,6 +33282,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32875,6 +33350,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -32991,6 +33470,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -33055,6 +33538,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -33118,6 +33605,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -33223,6 +33714,10 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity15Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
+        "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
       }
     },
     {
@@ -35219,22 +35714,22 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "batch": 14,
-    "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md",
-    "status": "mock 기능 보완·자동 검사 통과; 원본/시각/native 잔여",
-    "implementation": "이메일 약관·입력/수명,온보딩 추천 카탈로그/ID·moderation 조회·뒤로/source 경계·관찰된 추천 fixture·현재 카탈로그 밖 관심사 보존·BookmarkNavigation 예약 타이머 제어",
-    "verification": "Node24.18.0 타입/lint 종료0. 최종 전체 iOS158 suites/861 tests(237.878초), Android158 suites/861 tests(237.762초) 통과; 실패/skip/act 경고0. 실제8081 부분 비교·JS 구문/Hermes 컴파일 통과. native 미실행. 실패/중단/재실행 이력은 결과 문서 validation 참조.",
-    "remaining": "S043은18/21, 19 U·원본 폰트/아바타/정확 배치·실제 native/OS/IME 대기",
-    "ownership": "9~13 잔여는 기존 담당.14 전체 동일성 완료 아님.15/commit/push/deploy 없음",
-    "artifacts": "tools 생성기/스크립트/evidence/비교 캡처/검증 로그/manifest 생성 없음",
-    "manualScope": "기존16 S·19 T·19 U·19 C에14 review 추가, batch14와문서 상태·존재하는입력/codeInputs 해시 수동 갱신. 원본 관찰/ID/PNG/과거증거/readiness 유지. 삭제된4개 자동입력 복원 없음. 기존552 codeInputs 경로 유지.",
+    "batch": 15,
+    "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md",
+    "status": "mock 구현 보완·자동 검사 통과; 원본/시각/native 잔여",
+    "implementation": "프로필 게시 경과 시간·목록 조회 시계 갱신과 저장 중 새 사진/Pronouns 편집 세대",
+    "verification": "Node24.18.0 typecheck/lint exit0; 최종 iOS159 suites/873 tests(251.646초), Android159 suites/873 tests(227.807초), 실패/skip/act 경고0. 실제8081 부분 대조·메모리 JS/Hermes 컴파일 통과; native 미실행",
+    "remaining": "18 S의 동일 fixture/원본 사진·서체·배치,25 U 미수록,실제 OS 사진/키보드/접근성/native 대기",
+    "ownership": "9~14 잔여는 기존 담당.15 전체 시각 동일성 완료 아님.16/commit/push/deploy 없음",
+    "artifacts": "tools 생성기/별도 스크립트 폴더/evidence/비교 캡처/검증 로그/manifest 생성·수정 없음",
+    "manualScope": "18 S/23 T/25 U/17 C/7 flow의 배정 범위에15 review 추가;batch15·상태 문서·존재 입력 해시 수동 갱신. 원본 요구/ID/PNG/currentEvidence/readiness/assets 보존.14 manualUpdate를 history에 보존.삭제된4개 자동입력 미복원.새 formatter/회귀2경로를 codeInputs에 추가해554개.",
     "preCommitReview": {
       "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review",
-      "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서의 커밋 요청/과거 미커밋 이력 구분",
-      "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/82 tests(36.694초) 통과·실패/skip/act 경고0; 552 codeInputs 해시 불일치0. 앞선 전체316 suites/1722 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
-      "git": "사용자 요청의 묶음14 36파일 로컬 커밋 범위. 실제 성공/해시는 Git 결과 참조. push/deploy/15 시작 없음",
-      "remaining": "원본/시각·S043/native 잔여 및9~13 소유 유지; 선행 전체 완료 승인 아님"
+      "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#pre-commit-review",
+      "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서에서 로컬 커밋 요청/최초 미커밋 이력 구분",
+      "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/76 tests(40.771초) 통과·실패/skip/act 경고0;554 codeInputs 해시 불일치0. 앞선 전체318 suites/1746 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
+      "git": "사용자 요청의 묶음15 30파일 로컬 커밋 범위. 실제 성공/해시는 Git 기록 참조. push/deploy/16 시작 없음",
+      "remaining": "원본 동일 fixture/자산/시각·OS/native 및9~14 잔여의 기존 소유 유지"
     }
   },
   "manualUpdateHistory": [
@@ -35370,6 +35865,26 @@
         "history": "소문자 프로젝트 선택 실패·수정 전 RED2·관련58통과/문자열 assertion2실패·명령 중단과 최종 재실행을 결과 문서에 구분.이전 act1 원인 해결 확정 아님",
         "scope": "사용자 승인37파일 로컬 커밋;push/배포/14 구현 없음",
         "boundary": "원본·시각·파일 완료/native 잔여와 기존9~12 소유 유지.이 추가 검토에서 Hermes/native 미재실행;새 tools/evidence/캡처/검증 로그/manifest 없음"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 14,
+      "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md",
+      "status": "mock 기능 보완·자동 검사 통과; 원본/시각/native 잔여",
+      "implementation": "이메일 약관·입력/수명,온보딩 추천 카탈로그/ID·moderation 조회·뒤로/source 경계·관찰된 추천 fixture·현재 카탈로그 밖 관심사 보존·BookmarkNavigation 예약 타이머 제어",
+      "verification": "Node24.18.0 타입/lint 종료0. 최종 전체 iOS158 suites/861 tests(237.878초), Android158 suites/861 tests(237.762초) 통과; 실패/skip/act 경고0. 실제8081 부분 비교·JS 구문/Hermes 컴파일 통과. native 미실행. 실패/중단/재실행 이력은 결과 문서 validation 참조.",
+      "remaining": "S043은18/21, 19 U·원본 폰트/아바타/정확 배치·실제 native/OS/IME 대기",
+      "ownership": "9~13 잔여는 기존 담당.14 전체 동일성 완료 아님.15/commit/push/deploy 없음",
+      "artifacts": "tools 생성기/스크립트/evidence/비교 캡처/검증 로그/manifest 생성 없음",
+      "manualScope": "기존16 S·19 T·19 U·19 C에14 review 추가, batch14와문서 상태·존재하는입력/codeInputs 해시 수동 갱신. 원본 관찰/ID/PNG/과거증거/readiness 유지. 삭제된4개 자동입력 복원 없음. 기존552 codeInputs 경로 유지.",
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review",
+        "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서의 커밋 요청/과거 미커밋 이력 구분",
+        "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/82 tests(36.694초) 통과·실패/skip/act 경고0; 552 codeInputs 해시 불일치0. 앞선 전체316 suites/1722 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
+        "git": "사용자 요청의 묶음14 36파일 로컬 커밋 범위. 실제 성공/해시는 Git 결과 참조. push/deploy/15 시작 없음",
+        "remaining": "원본/시각·S043/native 잔여 및9~13 소유 유지; 선행 전체 완료 승인 아님"
       }
     }
   ]

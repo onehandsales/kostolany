@@ -57,6 +57,8 @@ FE 조사 경로: [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScree
 
 ## S027 — 프로필 폼으로 대명사 반환
 
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
+
 안정 원본 ID: `sc_20bfc41de9f845119aea54bb5971a01e` · [원본 분석](<../../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>):208 · [원본 PNG](<../../medium/flows/Profile/Editing profile information/Adding pronouns/screens/06_sc_20bfc41de9f845119aea54bb5971a01e.png>)
 
 흐름 맥락: [F56/06](FLOWS.md#f56)
@@ -785,6 +787,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 <a id="s047"></a>
 
 ## S047 — 프로필 소개·사진·대명사 표시
+
+- Parity15 현재 검토: [화면별 결과·R/T/U/C](../FE_MEDIUM_PARITY_15_RESULT.md#scope). 기능/실제8081 부분 대조와 원본 시각·동일 fixture·native 대기를 구분한다. 아래 원본 관찰과 최초 감사 이력은 유지한다.
 
 안정 원본 ID: `sc_3cd0855e78a84d4ea413f0e5b3dffb73` · [원본 분석](<../../medium/flows/Profile/ANALYSIS.md>):209 · [원본 PNG](<../../medium/flows/Profile/screens/06_sc_3cd0855e78a84d4ea413f0e5b3dffb73.png>)
 
