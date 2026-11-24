@@ -1,18 +1,20 @@
-import { useState } from 'react';
+import { useState, type Ref } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Line, Path, Rect, Text as SvgText } from 'react-native-svg';
 import { useTheme } from '../../shared/theme/ThemeProvider';
+import { getStatsPressLocation } from './statsPressLocation';
 import { formatStatsDate } from './statsDates';
 import type { StatsDay } from './types';
 
 type StatsChartProps = {
+  buttonRef: Ref<View>;
   days: readonly StatsDay[];
   selectedDate: string | null;
   onSelectDate: (date: string) => void;
   onOpenDates: () => void;
 };
 
-export function StatsChart({ days, selectedDate, onSelectDate, onOpenDates }: StatsChartProps) {
+export function StatsChart({ buttonRef, days, selectedDate, onSelectDate, onOpenDates }: StatsChartProps) {
   const { colors, scheme } = useTheme();
   const [width, setWidth] = useState(345);
   const top = 8; const height = 280;
@@ -42,12 +44,12 @@ export function StatsChart({ days, selectedDate, onSelectDate, onOpenDates }: St
   const area = (metric: 'views' | 'reads') => segments.map(indices =>
     `${line(metric, indices)} L${x(indices[indices.length - 1] ?? 0)},${y(0)} L${x(indices[0] ?? 0)},${y(0)} Z`).join(' ');
   return <View onLayout={event => setWidth(event.nativeEvent.layout.width)}>
-    <Pressable role="button" accessibilityLabel="통계 그래프 날짜 선택"
+    <Pressable ref={buttonRef} role="button" accessibilityLabel="통계 그래프 날짜 선택"
       accessibilityHint="날짜별 수치 메뉴에서도 날짜와 조회·읽음 수를 확인할 수 있어요."
       accessibilityValue={{ text: selected ? `${formatStatsDate(selected.date)}, Views ${selected.views ?? '미집계'}, Reads ${selected.reads ?? '미집계'}` : '월 전체' }}
       onAccessibilityTap={onOpenDates}
       onPress={event => {
-        const location = event.nativeEvent.locationX;
+        const location = getStatsPressLocation(event);
         if (!Number.isFinite(location)) { onOpenDates(); return; }
         const index = Math.max(0, Math.min(days.length - 1, Math.round((location - left) / graphWidth * (days.length - 1))));
         const day = days[index]; if (day) onSelectDate(day.date);
@@ -71,8 +73,8 @@ export function StatsChart({ days, selectedDate, onSelectDate, onOpenDates }: St
       </Svg>
     </Pressable>
     <View style={styles.legend}>
-      <Text style={[styles.label, { color: colors.text }]}><Text style={{ color: readsColor }}>● </Text>Reads</Text>
-      <Text style={[styles.label, { color: colors.text }]}><Text style={{ color: viewsColor }}>● </Text>Views</Text>
+      <View style={styles.legendItem}><View accessible={false} aria-hidden style={[styles.legendDot, { borderColor: readsColor, backgroundColor: scheme === 'dark' ? '#294f28' : '#92bf88' }]} /><Text style={[styles.label, { color: colors.text }]}>Reads</Text></View>
+      <View style={styles.legendItem}><View accessible={false} aria-hidden style={[styles.legendDot, { borderColor: viewsColor, backgroundColor: scheme === 'dark' ? '#294f28' : '#e5f0e4' }]} /><Text style={[styles.label, { color: colors.text }]}>Views</Text></View>
     </View>
   </View>;
 }
@@ -89,5 +91,7 @@ function StatsChartPoints({ x, viewsY, readsY, selected, viewsColor, readsColor,
 
 const styles = StyleSheet.create({
   legend: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8, marginTop: 23, flexWrap: 'wrap' },
+  legendItem: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  legendDot: { width: 9, height: 9, borderWidth: 2, borderRadius: 5 },
   label: { fontSize: 11, lineHeight: 18 },
 });

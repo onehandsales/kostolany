@@ -32,6 +32,7 @@ export function StoryStatsScreen({ source, userId, sessionRevision, active, onBa
   const monthButton = useRef<View>(null);
   const sortButton = useRef<View>(null);
   const moreButton = useRef<View>(null);
+  const graphButton = useRef<View>(null);
   const returnFocus = useRef<StatsMenu>('month');
   const wasOpen = useRef(false);
   const { monthly, lifetime } = useStoryStats(source, userId, sessionRevision, month, sort, active);
@@ -41,7 +42,7 @@ export function StoryStatsScreen({ source, userId, sessionRevision, active, onBa
     if (!wasOpen.current || !active) return;
     wasOpen.current = false;
     const frame = requestAnimationFrame(() => {
-      const target = returnFocus.current === 'month' ? monthButton : returnFocus.current === 'sort' ? sortButton : moreButton;
+      const target = returnFocus.current === 'month' ? monthButton : returnFocus.current === 'sort' ? sortButton : returnFocus.current === 'dates' ? graphButton : moreButton;
       target.current?.focus(); restoreModalFocus();
     });
     return () => cancelAnimationFrame(frame);
@@ -61,9 +62,11 @@ export function StoryStatsScreen({ source, userId, sessionRevision, active, onBa
         ? <StatsError label="월간 통계" onRetry={monthly.retry} /> : monthly.data && <>
           <StatsNumbers counts={selectedDay ?? (monthly.data.days.every(day => day.views === null)
             ? { views: null, reads: null } : monthly.data)} total />
+          {!selectedDay && monthly.data.days.some(day => day.views === null) &&
+            <Text style={styles.caption}>일부 날짜는 아직 집계되지 않았어요. 합계는 집계된 날짜 기준이에요.</Text>}
           {selectedDay?.views === null && <Text style={styles.caption}>이 날짜는 아직 집계되지 않았어요.</Text>}
           <View style={styles.chart}>
-            <StatsChart days={monthly.data.days} selectedDate={selectedDay?.date ?? null} onSelectDate={setSelectedDate} onOpenDates={() => openMenu('dates')} />
+            <StatsChart buttonRef={graphButton} days={monthly.data.days} selectedDate={selectedDay?.date ?? null} onSelectDate={setSelectedDate} onOpenDates={() => openMenu('dates')} />
           </View>
         </>}
     </View>

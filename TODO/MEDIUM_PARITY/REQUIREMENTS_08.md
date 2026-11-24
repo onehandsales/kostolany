@@ -1,5 +1,7 @@
 # 화면별 원본 요구사항
 
+**Parity20 현재 결과:** [글 통계·날짜 선택·미집계와 현재 검사](../FE_MEDIUM_PARITY_20_RESULT.md). V34의3화면·15 R/3 T/4 U/15 C를 대조하고 웹 그래프/포커스·부분집계 안내·원형 범례를 보완했다. 실제8081 고정 UTC snapshot 부분 비교·자동 검사·원본/시각/native 잔여를 구분한다.9~19 잔여는 기존 담당에 유지한다. 승인 조건 충족 후20 로컬 커밋으로16~20 연속 작업 종료;21·22/push/배포 제외. 아래는 각 당시 이력이다.
+
 **Parity17 검토(2026-11-24):** [18 S/139 R/31 T/33 U/21 C의 실제 결과·자체 정책·잔여](../FE_MEDIUM_PARITY_17_RESULT.md). 알림 점/빈 Featured·개인 정책 실패·공개 목록 접근/이탈을 대조했다. 원본18 PNG 직접 열람, 실제8081 메모리 비교이며 캡처 파일/도구 생성 없음.33 U·원본/자산/시각/native 및9~16 잔여 유지. 원본 요구·ID·과거 evidence/readiness를 승격하지 않는다.
 
 **Parity16 수동 검토:** [4 S/43 R·4 T·7 U·19 C의 처리·현재 검사·잔여](../FE_MEDIUM_PARITY_16_RESULT.md#scope). 기존 원본 관찰·ID·과거 증거·readiness는 보존한다. 실제8081 부분 비교와 원본 자산/시각·OS/native 대기를 구분하며 tools 생성기를 실행하지 않았다.
@@ -470,6 +472,8 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 
 ## S188 — 월간 글 통계
 
+**Parity20 실제 검토:** [전체 배정 R/T/U/C·고정 snapshot 비교·차이와 검증](../FE_MEDIUM_PARITY_20_RESULT.md#scope). 원본 관찰과 자체 mock/미집계 정책을 분리하며 readiness는 유지한다.
+
 안정 원본 ID: `sc_eece99396c944a4fac5e50820715f00a` · [원본 분석](<../../medium/flows/Profile/Story stats/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Profile/Story stats/screens/02_sc_eece99396c944a4fac5e50820715f00a.png>)
 
 흐름 맥락: [F63/02](FLOWS.md#f63)
@@ -482,7 +486,7 @@ FE 조사 경로: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/Stor
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 원본 조건용 June2025 월간11/2를 명시 주입해 제목·기간·축/그래프·범례 배치 대조. 원본 선/범례 원형과 현재 채움·서체/아이콘 미세 차이. 정상 현재월0/0은 F63 별도 보존. 별도June2025 비교 fixture11/2·Lifetime0/0; 정상F63와 구분. ([과거 기록](<../FE_GOAL_53_RESULT.md>):382)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**이전 기준 작성 당시 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
 
 **원본 컨트롤 관찰 문장:** 월 선택, 더보기
 

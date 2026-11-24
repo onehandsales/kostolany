@@ -121,3 +121,43 @@ it('통계에서 복귀한 뒤 실제 작성·발행한 글은 다시 진입한 
   expect(button('통계에 연결할 새 글 통계에서 글 열기')).toBeOnTheScreen();
   expect(screen.getByLabelText('선택 기간 Views 0')).toBeVisible();
 });
+
+// 원본의 Monthly와 Lifetime은 서로 다른 관찰 상태이며 운영 집계에 맞추지 않는다.
+it('UTC 고정 원본 snapshot·미집계 날짜·실제 0과 부분 실패를 구분하며 날짜와 글 복귀를 유지한다', async () => {
+  const drafts = createMockDraftSource({ delayMs: 0 });
+  const story = await seed(drafts, mockUserA.id, 'The Silence between Notes');
+  const base = createMockStoryStatsSource(drafts, { now: () => new Date('2025-06-13T12:00:00Z') });
+  let fail = false;
+  const source: StoryStatsSource = { ...base,
+    readMonthly: async (userId, month, signal) => {
+      if (fail) { fail = false; throw new Error('monthly failed'); }
+      const value = await base.readMonthly(userId, month, signal);
+      return { ...value, views: 11, reads: 2, days: value.days.map(day => day.date === '2025-06-12'
+        ? { ...day, views: 11, reads: 2 } : day.date === '2025-06-13' ? { ...day, views: null, reads: null } : day) };
+    },
+    readLifetime: async (userId, sort) => ({ userId, sort, asOf: '2025-06-13T12:00:00Z', firstPublishedAt: '2025-06-12T13:00:00Z',
+      stories: [{ storyId: story.id, title: story.document.title, publishedAt: '2025-06-12T13:00:00Z', unlisted: false, views: 0, reads: 0 }] }),
+  };
+  const { user } = await setup(source, drafts);
+  expect(screen.getByText('Jun 1, 2025 – Jun 13, 2025 (UTC) · Updated daily')).toBeVisible();
+  expect(screen.getByLabelText('선택 기간 Views 11')).toBeVisible();
+  expect(screen.getByText('Jun 12, 2025 – Today · Updated daily')).toBeOnTheScreen();
+  expect(screen.getByText('23 hours ago')).toBeOnTheScreen();
+  expect(screen.getByLabelText('Views 0')).toBeOnTheScreen();
+  expect(screen.getByText('일부 날짜는 아직 집계되지 않았어요. 합계는 집계된 날짜 기준이에요.')).toBeVisible();
+  await user.press(button('통계 더보기')); await user.press(button('날짜별 수치 보기'));
+  await user.press(screen.getByRole('radio', { name: 'Jun 13, 2025 · Views — · Reads —' }));
+  expect(screen.getByLabelText('선택 기간 Views 미집계')).toBeVisible();
+  await fireEvent.press(button('통계 그래프 날짜 선택'), { nativeEvent: { locationX: 318 } });
+  expect(screen.getByRole('heading', { name: 'Jun 12, 2025' })).toBeVisible();
+  fail = true; await user.press(button('통계 더보기')); await user.press(button('통계 새로고침')); await flush();
+  expect(button('월간 통계 다시 시도')).toBeVisible();
+  expect(screen.queryByLabelText('선택 기간 Views 0')).not.toBeOnTheScreen();
+  expect(button('The Silence between Notes 통계에서 글 열기')).toBeOnTheScreen();
+  await user.press(button('월간 통계 다시 시도')); await flush();
+  expect(screen.getByRole('heading', { name: 'Jun 12, 2025' })).toBeVisible();
+  await user.press(button('The Silence between Notes 통계에서 글 열기')); await flush();
+  expect(screen.getByText('실제 작성 문서 본문')).toBeVisible();
+  await user.press(button('작성 글 뒤로')); await flush();
+  expect(screen.getByLabelText('선택 기간 Views 11')).toBeVisible();
+});

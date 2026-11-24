@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "8e68713158b1cde816e27a16808a4c95124c945732212a4e052619aaaa819f70"
+      "sha256": "2f8ce325efbb06187543da2deb58bdf6dcaa7f4e0fe7248ec5bd0f5395ce5e69"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "c7e217390b24ac5eb03134b141899a98700bc4e4e5af3b1764604c337abba3b3"
+      "sha256": "cf6c9f3d554dda1f9dc4a2644529146a28d7150f278c71c77f572ce48ccc8861"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,7 +285,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "0cbf2fc2bbc81e2f7d0aac4841b50e092faaf9118d7978ddfd61097be45ba65c"
+      "sha256": "4ce28c91315be298619642ccbd7480a5644ae5260d41095405ac4500e58b0476"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
@@ -309,23 +309,23 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "85551a7b1555b32063c120a071a1e7610fbdad04633402ad990d7d81b65416f9"
+      "sha256": "101f868716192f1ca329bb4f53d7534aa6966dcf2d8d43f384b5b4df3500c5eb"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "15b547356a82683d6b383c4eb6af3cf745007e767855b700f563c2eb7a19f8d0"
+      "sha256": "b267be1ab53747a649b6a949f0d3965046bf3deb6c71bd587d366edd5a57924c"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "7a3ae8060ca6ec396a024be5a66da199a2c3091387d8140124ecdd3912b111c3"
+      "sha256": "84656c402584ef2021770bb59b56c3461a2d8e0594183b144f3e24e974262f73"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "a57c4cfd48f8051998b195c35f7555e4a67f8f84370b051f52b1ee6fd21bf243"
+      "sha256": "c629b60d764f4bfad74d381888f5b263cba8f2978112a77f8bce53208c5aa9d7"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "42f3f0c5f83822667bd207208deb084f388155224fcfdfefa9e26a124a5f9cd3"
+      "sha256": "b6f361f9ae59f30176ce59b7f635287b20ce458a8dfbff29fb21c13bc1a7547e"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -575,7 +575,7 @@
     },
     {
       "path": "FE/src/app/navigation/StoryStatsNavigation.test.tsx",
-      "sha256": "d8582822728a51c072e5ad73560d4b6cacabd51413c112320902a872f86d8f54"
+      "sha256": "7a016105c643eb840b1d1c540120c66837a7489b278114af972a19aaa55a704c"
     },
     {
       "path": "FE/src/app/navigation/tabs.ts",
@@ -2259,7 +2259,7 @@
     },
     {
       "path": "FE/src/features/story-stats/StatsChart.tsx",
-      "sha256": "2491475fa2241dbacec51dc7202713d754d3ad9f0448cce680ea37562c142a14"
+      "sha256": "02f5bb1273d6020dceacca46cdc580c044b78bf5b0c38a2b98959e29d63f3c04"
     },
     {
       "path": "FE/src/features/story-stats/StatsChoiceModal.tsx",
@@ -2279,7 +2279,7 @@
     },
     {
       "path": "FE/src/features/story-stats/StoryStatsScreen.tsx",
-      "sha256": "11b159972822805111de81d8c589b15d965309c93cd4fdc7131f949daf072969"
+      "sha256": "7e61ad2e5f037972920597248f285dad3d4b8a62317c56bdf11d4bfacb0d3081"
     },
     {
       "path": "FE/src/features/story-stats/types.ts",
@@ -2560,6 +2560,14 @@
     {
       "path": "FE/src/shared/ui/StartupBoundary.tsx",
       "sha256": "29ef73b375ebddf247d566810c02b832dea660d563e409d98d31d18c333714de"
+    },
+    {
+      "path": "FE/src/features/story-stats/statsPressLocation.ts",
+      "sha256": "dff18dea62fd71f816f707f891ca688a82c57c80514e4fdcf3889cae9657ed2e"
+    },
+    {
+      "path": "FE/src/features/story-stats/statsPressLocation.web.ts",
+      "sha256": "576b6374a6ceadf569d532fde4250b89fb5a996c1f427888ceabc2a40daa6f9c"
     }
   ],
   "evidenceContext": {
@@ -3600,7 +3608,8 @@
       ],
       "scope": "UTC/asOf 고정 Monthly/Lifetime·그래프·글 행",
       "done": "독립11/2와0/0·날짜선택/정렬/복귀·null≠0; 실제analytics 제외",
-      "status": "미착수"
+      "status": "통계 mock 보완·두 자기 검토/웹 부분 비교·타입/lint/전체1782통과;원본/native 잔여",
+      "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md"
     },
     {
       "number": 21,
@@ -20119,7 +20128,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다."
+      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "S151",
@@ -20390,7 +20405,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다."
+      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "S154",
@@ -24216,7 +24237,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다."
+      "acceptance": "Monthly 기간UTC/Updated daily, 11/2·그래프 축/범례/색/면·날짜선·점, Lifetime Latest/글0/0을 독립 비교 fixture로 확인한다. 원본 집계 모순을 운영 계산식으로 만들지 않는다. Lifetime 자체의 시작일–Today·Updated daily와 글의23 hours ago도 별도로 비교한다. 현재 코드에 이 분기가 있다는 사실을 새 실행 통과로 표시하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "S189",
@@ -26487,6 +26514,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#scope",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     }
   ],
@@ -29183,21 +29216,39 @@
       "flowId": "F63",
       "screenId": "S188",
       "png": "medium/flows/Profile/Story stats/screens/02_sc_eece99396c944a4fac5e50820715f00a.png",
-      "acceptance": "내 프로필 빈 Stories → 월간 글 통계. 현재 관찰값: Jun 1–13 2025 UTC, Updated daily, Views11·Reads2. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 통계 그래프 날짜 선택 — 특정 날짜 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다."
+      "acceptance": "내 프로필 빈 Stories → 월간 글 통계. 현재 관찰값: Jun 1–13 2025 UTC, Updated daily, Views11·Reads2. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 통계 그래프 날짜 선택 — 특정 날짜 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "T-F63-03",
       "flowId": "F63",
       "screenId": "S153",
       "png": "medium/flows/Profile/Story stats/screens/03_sc_c8fa56a2dd5b4e959c333ea3e6d334e2.png",
-      "acceptance": "월간 글 통계 → 통계 그래프 날짜 선택. 현재 관찰값: Jun 12 2025, Views11·Reads2. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 글별 Lifetime 통계 — 글별 누적 통계 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다."
+      "acceptance": "월간 글 통계 → 통계 그래프 날짜 선택. 현재 관찰값: Jun 12 2025, Views11·Reads2. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 글별 Lifetime 통계 — 글별 누적 통계 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "T-F63-04",
       "flowId": "F63",
       "screenId": "S150",
       "png": "medium/flows/Profile/Story stats/screens/04_sc_c6580d2d071a4f079981013ccc658af4.png",
-      "acceptance": "통계 그래프 날짜 선택 → 글별 Lifetime 통계. 현재 관찰값: Latest, The Silence between Notes, Views0·Reads0. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다."
+      "acceptance": "통계 그래프 날짜 선택 → 글별 Lifetime 통계. 현재 관찰값: Latest, The Silence between Notes, Views0·Reads0. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 월간11/2와 글별0/0은 서로 다른 관찰값이다. 현재 정책으로 과거 집계 모순을 설명하지 않는다.",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     }
   ],
   "unknowns": [
@@ -31240,7 +31291,13 @@
       "batches": [
         20
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "U-S151",
@@ -31274,7 +31331,13 @@
       "batches": [
         20
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "U-S154",
@@ -31752,7 +31815,13 @@
       "batches": [
         20
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "U-S189",
@@ -33009,6 +33078,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#remaining",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     }
   ],
@@ -33101,6 +33176,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -33191,6 +33272,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -33281,6 +33368,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -33456,6 +33549,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -33908,6 +34007,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34254,6 +34359,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34264,7 +34375,13 @@
       ],
       "batches": [
         20
-      ]
+      ],
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
+      }
     },
     {
       "id": "C55",
@@ -34405,6 +34522,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34495,6 +34618,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34584,6 +34713,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34676,6 +34811,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34820,6 +34961,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -34912,6 +35059,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -35003,6 +35156,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -35148,6 +35307,12 @@
         "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
         "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
         "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지"
+      },
+      "parity20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+        "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+        "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+        "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지"
       }
     },
     {
@@ -37143,14 +37308,14 @@
     }
   ],
   "manualUpdate": {
-    "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
-    "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
-    "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
-    "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지",
-    "batch": 19,
-    "manualScope": "5 S/6 T/7 U/15 C/2 flow·19 상태/현재문서/존재입력해시 수동 갱신;18 manualUpdate 원문 history 보존;runtime555 목록·삭제4입력 유지;생성기 미실행",
+    "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+    "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+    "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+    "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지",
+    "batch": 20,
+    "manualScope": "3 S/3 T/4 U/15 C/F63·20 상태/현재문서/존재입력해시 수동 갱신;19 manualUpdate 원문 history 보존;좌표 adapter runtime2개 추가555→557;삭제4입력 유지;생성기 미실행",
     "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
-    "verification": "타입/lint exit0;iOS160/889226.561초,Android160/889228.405초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
+    "verification": "최종 타입/lint exit0;iOS161/891226.332초,Android161/891230.057초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
   },
   "manualUpdateHistory": [
     {
@@ -37356,6 +37521,16 @@
       "manualScope": "5 S/9 T/11 U/16 C/6 flow와18 묶음 상태·현재문서/존재입력해시,StartupBoundary runtime codeInput1개 수동 추가.17 manualUpdate 원문 history 보존.삭제4입력 미복원.생성기 미실행",
       "artifacts": "제품 SVG/PNG·출처·app설정/package 변경 허용 범위. tools/evidence/비교캡처/검증로그/검증manifest/별도 검증폴더 없음",
       "verification": "타입/lint exit0; iOS159/886223.957초,Android159/886227.430초 모두 통과/act0;3플랫폼 메모리JS·양native Hermes exit0/각35경고;브라우저 부분 비교,실제native 대기"
+    },
+    {
+      "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+      "status": "mock 확정/수명/포커스 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+      "scope": "5 S/24 R/6 T/7 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+      "remaining": "7 U/원본 서체·OS 시트·mock 안내 차이/native21/Q07;9~18 기존 담당 유지",
+      "batch": 19,
+      "manualScope": "5 S/6 T/7 U/15 C/2 flow·19 상태/현재문서/존재입력해시 수동 갱신;18 manualUpdate 원문 history 보존;runtime555 목록·삭제4입력 유지;생성기 미실행",
+      "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
+      "verification": "타입/lint exit0;iOS160/889226.561초,Android160/889228.405초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
     }
   ]
 }
