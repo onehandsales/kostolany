@@ -53,6 +53,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S102 — 같은 작가의 추가 기사
 
+- **Parity10 판정:** 추천 첫 글 제외 시 다른 글로 May24/반응 도구가 이동하던 index 결합 수정. 추천 순서/미수록 글 데이터는 추정하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_92624aea551d44a7bbcf71d7d78aff4c` · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>):241 · [원본 PNG](<../../medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png>)
 
 흐름 맥락: [F16/07](FLOWS.md#f16)
@@ -379,6 +381,8 @@ FE 조사 경로: [SettingsScreen.tsx](<../../FE/src/features/settings/SettingsS
 
 ## S111 — 응답 정렬 선택
 
+- **Parity10 판정:** Most Relevant/Most Recent 선택·체크·닫기 유지. 관련도는 fixture 정책이며 Medium 계산식 아님. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_9b94403d105c4eda8933ae7bbe2d6a00` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Sorting responses/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Sorting responses/screens/02_sc_9b94403d105c4eda8933ae7bbe2d6a00.png>)
 
 흐름 맥락: [F36/02](FLOWS.md#f36)
@@ -411,6 +415,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 <a id="s112"></a>
 
 ## S112 — 응답 스크롤과 추가 답글
+
+- **Parity10 판정:** edited 경과 시각/Read more 확장 접근성/Hide replies 유지. 원본 See more replies (4)의 추가4개 본문 부재로 동일 fixture 재현 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_9c9af2f5f8ad43c193c0c30ef0974156` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png>)
 
@@ -839,6 +845,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s124"></a>
 
 ## S124 — 응답 삭제 성공 표시
+
+- **Parity10 판정:** 소유권·삭제 확인/취소·성공 토스트·삭제된 부모의 자식 보존 유지. 삭제 화면으로 전환 뒤 이전 편집 성공/실패를 폐기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_aa1b32e30ce5436b8ca8fcc4c7d74d1b` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/screens/03_sc_aa1b32e30ce5436b8ca8fcc4c7d74d1b.png>)
 

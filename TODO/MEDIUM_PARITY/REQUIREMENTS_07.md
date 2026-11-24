@@ -248,6 +248,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S158 — 기사 응답 입력
 
+- **Parity10 판정:** 빈값/문자5000 제한·전송·중복 보호 유지. 명시적 작성 진입만 포커스 요청. 832 초기 비교 조건 분리. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_cebfd0ad696f4e20a1c7d99da1dc1cef` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/screens/02_sc_cebfd0ad696f4e20a1c7d99da1dc1cef.png>)
 
 흐름 맥락: [F31/02](FLOWS.md#f31)
@@ -462,6 +464,8 @@ FE 조사 경로: [ShareSheet.tsx](<../../FE/src/features/sharing/ShareSheet.tsx
 <a id="s164"></a>
 
 ## S164 — 다크 기사 본문
+
+- **Parity10 판정:** Dark 본문/링크/밝은 삽입 이미지 유지. 코드와 원본을 대조했으나 실제 앱 스크롤·포커스·색상 렌더 미검증. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_d1d05d6500f349d89c5a3e5646ff238b` · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>):303 · [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/09_sc_d1d05d6500f349d89c5a3e5646ff238b.png>)
 
@@ -852,6 +856,8 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 <a id="s175"></a>
 
 ## S175 — 본문 아래 응답 미리보기
+
+- **Parity10 판정:** 본문/버튼/시트의 공통 집계 유지. Write a response와 목록 열람의 포커스 구분. 미리보기 원본 수/아바타 차이 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_e1a92b59829c4678b3362d2dc6abae59` · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>):181 · [원본 PNG](<../../medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png>)
 

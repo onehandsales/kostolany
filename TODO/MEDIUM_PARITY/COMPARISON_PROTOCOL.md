@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity10 실행(2026-11-24):** [원본·실제 환경·비교 한계](../FE_MEDIUM_PARITY_10_RESULT.md#verification). 원본50장을 메모리에서 열람했으나 허용된 브라우저 제어/연결 세션이 없어 실제 앱 렌더/console은 미실행이다. 기존8081 HTTP/3플랫폼 JS 구문 검사와 actual native를 구분한다. 개발 웹의 reference-v1(834)/story-832 비교 조건은 앱 일반값이나 원본 촬영 시각이 아니다. 새 캡처/로그/manifest/tools 없음. 실제 viewport/DPR/고정 시계 재현 완료로 승격하지 않는다.
+
 **Parity9 추가 확인(2026-11-24):** [현재 환경·비교 한계](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 허용된 브라우저 도구/연결 세션이 없어 과거 차단된 Chrome 시작을 반복하지 않았다. 원본29단계는 메모리로 열람했고 현재 앱 렌더/console은 미실행이다. HTTP/JS 구문 통과나 native 스타일 연결을 시각 비교/기기 실행으로 대체하지 않는다. 새 캡처·로그·manifest 없음.
 
 **Parity9 실행 방식(2026-11-24):** [이번 검사·한계](../FE_MEDIUM_PARITY_09_RESULT.md). 기존8081 보존, 테스트/타입/lint와 메모리 Metro JS 검사를 사용한다. 원본 프레임은390×844로 축소해 파일 없이 열람했으며 실제 렌더 비교는 Chrome 시작 자동 승인 차단으로 미실행이다. 이번에 웹 viewport/DPR/시계를 실행 확인했다고 기록하지 않는다. 캡처/로그/검증 manifest/tools 생성·복원 금지와 과거 증거 보존을 유지한다.

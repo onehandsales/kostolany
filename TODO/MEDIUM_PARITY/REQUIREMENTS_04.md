@@ -575,6 +575,8 @@ FE 조사 경로: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.ts
 
 ## S092 — 답글 내용 입력
 
+- **Parity10 판정:** 답글 입력/빈값/전송/실패 재시도 유지. 늦은 결과·중복 제출 자동 검증. 실제 키보드 배치 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_8202187474f444de8773b38fe92c4d82` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/03_sc_8202187474f444de8773b38fe92c4d82.png>)
 
 흐름 맥락: [F35/03](FLOWS.md#f35)
@@ -755,6 +757,8 @@ FE 조사 경로: [DigestPanel.tsx](<../../FE/src/features/digest/DigestPanel.ts
 
 ## S097 — 구절 인용 응답 작성 시작
 
+- **Parity10 판정:** 초기 인용을 보존하고 작성 진입에서 입력 포커스 요청. 선택 구간의 실제 native UX는11, 키보드 검증은10의 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_8accfd977771416a89329576c7ba48d8` · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/02_sc_8accfd977771416a89329576c7ba48d8.png>)
 
 흐름 맥락: [F29/02](FLOWS.md#f29)
@@ -857,6 +861,8 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 <a id="s100"></a>
 
 ## S100 — 응답 시트와 중첩 답글
+
+- **Parity10 판정:** 중첩 선/들여쓰기·정렬·정책/닫기·기본 루트수 연결 유지. 정책 전환 중 카드 메뉴/늦은 오류 정리. 최대 깊이/집계 원본 정책 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_915888473ac24e8987c996b8954f54c6` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>)
 

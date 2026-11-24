@@ -411,6 +411,8 @@ FE 조사 경로: [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScree
 
 ## S062 — 새 응답 표시
 
+- **Parity10 판정:** YOU를 별도 배지로 분리. 작성 후 실제 경과 초 표시. 비교 모드832→833, 일반 모드7→8. 실제 원본 계정 이름/사진은 동일하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_500793b8306c411585ba54ddaf6a8f25` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/screens/03_sc_500793b8306c411585ba54ddaf6a8f25.png>)
 
 흐름 맥락: [F31/03](FLOWS.md#f31), [F32/01](FLOWS.md#f32), [F33/01](FLOWS.md#f33)
@@ -734,6 +736,8 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 
 ## S071 — 답글 생성 표시
 
+- **Parity10 판정:** 답글 후 펼침/들여쓰기와 루트 집계 유지. 1초 표시 지원. 원본 미수록 답글 수/본문의 완전 재현은 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_60bd813234264b59b304bd3ac3df0af4` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>):146 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/04_sc_60bd813234264b59b304bd3ac3df0af4.png>)
 
 흐름 맥락: [F35/04](FLOWS.md#f35)
@@ -767,6 +771,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 <a id="s072"></a>
 
 ## S072 — 답글 대상 선택
+
+- **Parity10 판정:** 부모 한 행만 강조하던 차이를 자손 스레드까지 보완. Cancel은 지역 초안 폐기, 원문 보존. 부모 차단 중 전송 권한 재검사. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_6101af9ca21443afbe2c2146c8ac2e3d` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/02_sc_6101af9ca21443afbe2c2146c8ac2e3d.png>)
 

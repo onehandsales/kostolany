@@ -15,7 +15,7 @@ import { useResponses, useResponseScope } from './ResponseProvider';
 import { responseRows } from './responseRows';
 import { responseTargetKey, type ResponseTarget } from './types';
 
-type Entry = { kind: 'all' | 'policy' } | { kind: 'reply' | 'edit' | 'delete'; id: string };
+type Entry = { kind: 'all' | 'write' | 'policy' } | { kind: 'reply' | 'edit' | 'delete'; id: string };
 export function ResponsePreview({ target, active = true }: { target: ResponseTarget; active?: boolean }) {
   const context = useResponseScope();
   return <ScopedResponsePreview key={`${context?.scope}:${responseTargetKey(target)}`} target={target} active={active} />;
@@ -70,7 +70,7 @@ function ScopedResponsePreview({ target, active }: { target: ResponseTarget; act
           backgroundColor: colors.input,
           padding: 12,
         }}
-        onPress={() => (store?.userId ? setEntry({ kind: 'all' }) : requireLogin())}
+        onPress={() => (store?.userId ? setEntry({ kind: 'write' }) : requireLogin())}
       >
         <Text style={text}>What are your thoughts?</Text>
       </Pressable>
@@ -102,6 +102,7 @@ function ScopedResponsePreview({ target, active }: { target: ResponseTarget; act
                 childCount={row.childCount}
                 repliesVisible={false}
                 displayName={profile.state.profile?.name}
+                active={active}
                 onRequireLogin={requireLogin}
                 onReply={() => setEntry({ kind: 'reply', id: row.id })}
                 onEdit={() => setEntry({ kind: 'edit', id: row.id })}
@@ -131,6 +132,7 @@ function ScopedResponsePreview({ target, active }: { target: ResponseTarget; act
           target={target}
           active={active}
           initialPolicy={entry.kind === 'policy'}
+          focusComposer={entry.kind === 'write'}
           onClose={() => setEntry(null)}
           initialReplyId={entry.kind === 'reply' ? entry.id : undefined}
           initialEditId={entry.kind === 'edit' ? entry.id : undefined}

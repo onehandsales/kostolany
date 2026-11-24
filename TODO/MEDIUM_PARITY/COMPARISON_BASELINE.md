@@ -1,5 +1,7 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity10 현재 판정(2026-11-24):** [화면별 준비/잔여](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 관련16흐름65단계 고유49 PNG와 보조S116을 직접 열람했다.27대상 코드를 보완했으나 새 앱 렌더와 동일 조건의 쌍은 미검증이다. 아래 readiness/currentEvidence는 과거 이력 그대로이며 실행 준비/시각 일치로 승격하지 않았다.
+
 **Parity9 추가 갱신(2026-11-24):** [S017/S018/S183 현재 부분 판정](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 인용 전용 구간/구분선은 부분 구현했으며 혼합 문단·native 내어쓰기와 실제 렌더는 잔여다. 현재 코드/문서 해시와 추가 판정을 갱신하되 기존 원본 관찰·readiness/currentEvidence/evidenceContext를 변경하지 않는다. 등록63/273/200과 원본29단계 열람은 실제 FE 쌍 비교와 별도다.
 
 **Parity9 갱신(2026-11-24):** [22화면별 조건·현재 상태](../FE_MEDIUM_PARITY_09_RESULT.md). F07~F11의29단계 원본(고유24, 직접22)을 메모리에서 열람했다. Chrome 시작 자동 승인 차단으로 실제 FE 렌더/동일 fixture 쌍은 미검증이다. 기존 readiness/currentEvidence/evidenceContext를 승격하거나 새 코드의 증거로 재작성하지 않았다.
@@ -146,6 +148,8 @@
 
 ## S007 — 박수 전송 피드백
 
+- **Parity10 판정:** 누적 박수 피드백/선택/만료는 기존 구현을 검토했다. 832 비교 옵션 추가. +16은 원본 피드백이며 터치16회 증거가 아니다. 정확 수·애니메이션 비교 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Sending claps/screens/02_sc_0629a27b99a645cabe6e110b5d3d3d57.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sending claps/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s007>) · `sc_0629a27b99a645cabe6e110b5d3d3d57`
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -188,6 +192,8 @@
 
 ## S009 — 기존 응답 편집 입력
 
+- **Parity10 판정:** 편집 값 채움/Cancel 유지. 보이는 안내를 Replying to로 맞추고 접근성 이름은 편집으로 구분. 늦은 편집 결과의 삭제 화면 오염 수정. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/03_sc_0817971af7f14028a36fd2a233dd5ee7.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s009>) · `sc_0817971af7f14028a36fd2a233dd5ee7`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -208,6 +214,8 @@
 <a id="s010"></a>
 
 ## S010 — 응답 수정 내용 입력
+
+- **Parity10 판정:** 본문 변경/취소/중복 제출 보호 유지. 편집은 본문만 저장하므로 동작하지 않던 인용 제거 UI를 숨겼다. 실제 키보드/IME 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/04_sc_0950e3a03f7e4b02b9db0d98f818bdea.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s010>) · `sc_0950e3a03f7e4b02b9db0d98f818bdea`
 
@@ -403,6 +411,8 @@
 <a id="s019"></a>
 
 ## S019 — 구절 응답 입력
+
+- **Parity10 판정:** 인용 아래 입력/빈값 전송 방지/작성 시 인용 제거 유지. 실패 후 초안 보존은 자동 검증. 선택 모델 확장은11. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/03_sc_1b7c2e5f28d5419d889919fc0c9e3980.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s019>) · `sc_1b7c2e5f28d5419d889919fc0c9e3980`
 
@@ -679,6 +689,8 @@
 
 ## S032 — 최신순 응답 목록
 
+- **Parity10 판정:** Most Recent의 생성 시각 정렬과 보관된 상대 날짜 유지. 날짜를 현재 시각으로 재해석하지 않는다. 정렬 팝오버 실제 렌더 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Sorting responses/screens/03_sc_280ed6ce41b24f6f876aac698f4a8119.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Sorting responses/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s032>) · `sc_280ed6ce41b24f6f876aac698f4a8119`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -786,6 +798,8 @@
 <a id="s037"></a>
 
 ## S037 — 기사 상세 상단
+
+- **Parity10 판정:** 메타데이터 사이만 구분자 표시. 표지 출처·본문·작가·도구 연결 확인. 834 비교 옵션 추가. 표지 출처의 R 누락 보강. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/02_sc_332d5b0923e546fcbf6a8fc613cda6a4.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s037>) · `sc_332d5b0923e546fcbf6a8fc613cda6a4`
 
@@ -1321,6 +1335,8 @@
 
 ## S062 — 새 응답 표시
 
+- **Parity10 판정:** YOU를 별도 배지로 분리. 작성 후 실제 경과 초 표시. 비교 모드832→833, 일반 모드7→8. 실제 원본 계정 이름/사진은 동일하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/screens/03_sc_500793b8306c411585ba54ddaf6a8f25.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s062>) · `sc_500793b8306c411585ba54ddaf6a8f25`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1512,6 +1528,8 @@
 
 ## S071 — 답글 생성 표시
 
+- **Parity10 판정:** 답글 후 펼침/들여쓰기와 루트 집계 유지. 1초 표시 지원. 원본 미수록 답글 수/본문의 완전 재현은 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/04_sc_60bd813234264b59b304bd3ac3df0af4.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s071>) · `sc_60bd813234264b59b304bd3ac3df0af4`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1532,6 +1550,8 @@
 <a id="s072"></a>
 
 ## S072 — 답글 대상 선택
+
+- **Parity10 판정:** 부모 한 행만 강조하던 차이를 자손 스레드까지 보완. Cancel은 지역 초안 폐기, 원문 보존. 부모 차단 중 전송 권한 재검사. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/02_sc_6101af9ca21443afbe2c2146c8ac2e3d.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s072>) · `sc_6101af9ca21443afbe2c2146c8ac2e3d`
 
@@ -1967,6 +1987,8 @@
 
 ## S092 — 답글 내용 입력
 
+- **Parity10 판정:** 답글 입력/빈값/전송/실패 재시도 유지. 늦은 결과·중복 제출 자동 검증. 실제 키보드 배치 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Replying a response/screens/03_sc_8202187474f444de8773b38fe92c4d82.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s092>) · `sc_8202187474f444de8773b38fe92c4d82`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2077,6 +2099,8 @@
 
 ## S097 — 구절 인용 응답 작성 시작
 
+- **Parity10 판정:** 초기 인용을 보존하고 작성 진입에서 입력 포커스 요청. 선택 구간의 실제 native UX는11, 키보드 검증은10의 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/02_sc_8accfd977771416a89329576c7ba48d8.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s097>) · `sc_8accfd977771416a89329576c7ba48d8`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2141,6 +2165,8 @@
 
 ## S100 — 응답 시트와 중첩 답글
 
+- **Parity10 판정:** 중첩 선/들여쓰기·정렬·정책/닫기·기본 루트수 연결 유지. 정책 전환 중 카드 메뉴/늦은 오류 정리. 최대 깊이/집계 원본 정책 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/screens/02_sc_915888473ac24e8987c996b8954f54c6.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s100>) · `sc_915888473ac24e8987c996b8954f54c6`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.; 후속 Parity 3의 연결 검증/새 캡처는 FE_MEDIUM_PARITY_03_RESULT.md 참조. 과거 캡처와 별도이며 원본 동일성 통과 아님
@@ -2184,6 +2210,8 @@
 <a id="s102"></a>
 
 ## S102 — 같은 작가의 추가 기사
+
+- **Parity10 판정:** 추천 첫 글 제외 시 다른 글로 May24/반응 도구가 이동하던 index 결합 수정. 추천 순서/미수록 글 데이터는 추정하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/07_sc_92624aea551d44a7bbcf71d7d78aff4c.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s102>) · `sc_92624aea551d44a7bbcf71d7d78aff4c`
 
@@ -2384,6 +2412,8 @@
 
 ## S111 — 응답 정렬 선택
 
+- **Parity10 판정:** Most Relevant/Most Recent 선택·체크·닫기 유지. 관련도는 fixture 정책이며 Medium 계산식 아님. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Sorting responses/screens/02_sc_9b94403d105c4eda8933ae7bbe2d6a00.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Sorting responses/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s111>) · `sc_9b94403d105c4eda8933ae7bbe2d6a00`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2404,6 +2434,8 @@
 <a id="s112"></a>
 
 ## S112 — 응답 스크롤과 추가 답글
+
+- **Parity10 판정:** edited 경과 시각/Read more 확장 접근성/Hide replies 유지. 원본 See more replies (4)의 추가4개 본문 부재로 동일 fixture 재현 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/screens/03_sc_9c9af2f5f8ad43c193c0c30ef0974156.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s112>) · `sc_9c9af2f5f8ad43c193c0c30ef0974156`
 
@@ -2662,6 +2694,8 @@
 <a id="s124"></a>
 
 ## S124 — 응답 삭제 성공 표시
+
+- **Parity10 판정:** 소유권·삭제 확인/취소·성공 토스트·삭제된 부모의 자식 보존 유지. 삭제 화면으로 전환 뒤 이전 편집 성공/실패를 폐기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/screens/03_sc_aa1b32e30ce5436b8ca8fcc4c7d74d1b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s124>) · `sc_aa1b32e30ce5436b8ca8fcc4c7d74d1b`
 
@@ -3003,6 +3037,8 @@
 
 ## S140 — 응답 미리보기 끝
 
+- **Parity10 판정:** 미리보기3개/Read more/See all responses 유지. 미수록 전문은 안내하고 생성하지 않음. 원본 답글 수 차이 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/06_sc_c068a6d42c5c48fb9d60c8af4adb446f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s140>) · `sc_c068a6d42c5c48fb9d60c8af4adb446f`
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3044,6 +3080,8 @@
 <a id="s142"></a>
 
 ## S142 — 응답 수정 반영
+
+- **Parity10 판정:** 본문 수정 뒤 (edited) 및 실제 수정 경과 초 표시. 수정은 총수 유지. 원본1 second ago (edited)를 R에 보강. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/05_sc_c1a6af7cef31436a9cdd090eae87479f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s142>) · `sc_c1a6af7cef31436a9cdd090eae87479f`
 
@@ -3152,6 +3190,8 @@
 <a id="s147"></a>
 
 ## S147 — 기사 말미와 작성자 카드
+
+- **Parity10 판정:** 토픽5개·작성자·Follow·공유 연결 유지. footer24 following과 profile25는 서로 다른 관찰값. 외부 실행/정확 배치 미검증. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/04_sc_c3fcf42b84be4b7298dfc138c224e241.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s147>) · `sc_c3fcf42b84be4b7298dfc138c224e241`
 
@@ -3390,6 +3430,8 @@
 
 ## S158 — 기사 응답 입력
 
+- **Parity10 판정:** 빈값/문자5000 제한·전송·중복 보호 유지. 명시적 작성 진입만 포커스 요청. 832 초기 비교 조건 분리. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/screens/02_sc_cebfd0ad696f4e20a1c7d99da1dc1cef.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s158>) · `sc_cebfd0ad696f4e20a1c7d99da1dc1cef`
 
 - 담당: V20 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3516,6 +3558,8 @@
 <a id="s164"></a>
 
 ## S164 — 다크 기사 본문
+
+- **Parity10 판정:** Dark 본문/링크/밝은 삽입 이미지 유지. 코드와 원본을 대조했으나 실제 앱 스크롤·포커스·색상 렌더 미검증. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/09_sc_d1d05d6500f349d89c5a3e5646ff238b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s164>) · `sc_d1d05d6500f349d89c5a3e5646ff238b`
 
@@ -3754,6 +3798,8 @@
 
 ## S175 — 본문 아래 응답 미리보기
 
+- **Parity10 판정:** 본문/버튼/시트의 공통 집계 유지. Write a response와 목록 열람의 포커스 구분. 미리보기 원본 수/아바타 차이 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/05_sc_e1a92b59829c4678b3362d2dc6abae59.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s175>) · `sc_e1a92b59829c4678b3362d2dc6abae59`
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3840,6 +3886,8 @@
 
 ## S179 — 박수 피드백 종료
 
+- **Parity10 판정:** 피드백 만료 뒤 선택 상태 유지하는 기존 박수 수명 검토. 832 비교 조건 연결. 원본 정확 count/재진입 정책 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Sending claps/screens/03_sc_e3b85b46c655483eb954e6f953d0b7f6.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Sending claps/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s179>) · `sc_e3b85b46c655483eb954e6f953d0b7f6`
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3881,6 +3929,8 @@
 <a id="s181"></a>
 
 ## S181 — 본인 응답 관리 메뉴
+
+- **Parity10 판정:** 본인만 Edit/Delete·삭제 빨강 유지. 카드 연속 박수 중복과 배경 전환 메뉴/오류 정리. 실제 팝오버 배치 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/screens/02_sc_e4b254a2635b47069e314a1462c985d6.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s181>) · `sc_e4b254a2635b47069e314a1462c985d6`
 
@@ -4010,6 +4060,8 @@
 
 ## S187 — 설정 닫힌 다크 기사
 
+- **Parity10 판정:** Dark/120% 설정 소비 유지. 실제 제목3줄 일치/서체/OS큰글자 미검증. System/폰트 원본 옵션 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/08_sc_ee957cf03e9848948f9ec8189264d8d8.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s187>) · `sc_ee957cf03e9848948f9ec8189264d8d8`
 
 - 담당: V13 / 묶음 10. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4051,6 +4103,8 @@
 <a id="s189"></a>
 
 ## S189 — 기사 본문 스크롤
+
+- **Parity10 판정:** 세리프·굵은 단락·점 구분선·강조/본문 링크 연결 유지. 개인/인기 강조의 원본 의미는 미확인, 선택 모델11 미착수. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/screens/03_sc_f4b06612bdbf48ecbd8a7b6e2607d117.png>) · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s189>) · `sc_f4b06612bdbf48ecbd8a7b6e2607d117`
 
@@ -4226,6 +4280,8 @@
 <a id="s197"></a>
 
 ## S197 — 구절 인용 응답 등록
+
+- **Parity10 판정:** 인용 상자/본문/YOU/Now 등록 유지. 자체 mock은 새 루트+1이며 원본834 유지의 이유는 미확인. 이를 맞추려고 집계를 고정하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/04_sc_fcdcd471caeb41b8bfa89273d8e29a8d.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s197>) · `sc_fcdcd471caeb41b8bfa89273d8e29a8d`
 

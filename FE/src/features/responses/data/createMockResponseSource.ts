@@ -139,6 +139,15 @@ export function createMockResponseSource({
         if (action.kind === 'create') {
           validateBody(action.body);
           if (!action.id || existing || !action.authorName.trim()) throw new Error('invalid');
+          // 소유자에게 숨겨지는 상위 스레드까지 답글 확정 직전에 바뀐 차단 권한을 검사한다.
+          if (action.parentId) {
+            const byId = new Map(value.responses.map(response => [response.id, response]));
+            let parent = byId.get(action.parentId);
+            while (parent) {
+              if (!canInteract(command.userId, command.target, parent.authorId)) throw new Error('permission');
+              parent = value.ownerId === command.userId && parent.parentId ? byId.get(parent.parentId) : undefined;
+            }
+          }
           if (
             action.parentId &&
             !visibleResponses(value).some(

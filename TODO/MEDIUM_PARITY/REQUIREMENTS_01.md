@@ -213,6 +213,8 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 
 ## S007 — 박수 전송 피드백
 
+- **Parity10 판정:** 누적 박수 피드백/선택/만료는 기존 구현을 검토했다. 832 비교 옵션 추가. +16은 원본 피드백이며 터치16회 증거가 아니다. 정확 수·애니메이션 비교 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_0629a27b99a645cabe6e110b5d3d3d57` · [원본 분석](<../../medium/flows/Home/Story detail/Sending claps/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Sending claps/screens/02_sc_0629a27b99a645cabe6e110b5d3d3d57.png>)
 
 흐름 맥락: [F38/02](FLOWS.md#f38)
@@ -292,6 +294,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 ## S009 — 기존 응답 편집 입력
 
+- **Parity10 판정:** 편집 값 채움/Cancel 유지. 보이는 안내를 Replying to로 맞추고 접근성 이름은 편집으로 구분. 늦은 편집 결과의 삭제 화면 오염 수정. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_0817971af7f14028a36fd2a233dd5ee7` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/03_sc_0817971af7f14028a36fd2a233dd5ee7.png>)
 
 흐름 맥락: [F33/03](FLOWS.md#f33)
@@ -324,6 +328,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 <a id="s010"></a>
 
 ## S010 — 응답 수정 내용 입력
+
+- **Parity10 판정:** 본문 변경/취소/중복 제출 보호 유지. 편집은 본문만 저장하므로 동작하지 않던 인용 제거 UI를 숨겼다. 실제 키보드/IME 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_0950e3a03f7e4b02b9db0d98f818bdea` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/04_sc_0950e3a03f7e4b02b9db0d98f818bdea.png>)
 
@@ -658,6 +664,8 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 <a id="s019"></a>
 
 ## S019 — 구절 응답 입력
+
+- **Parity10 판정:** 인용 아래 입력/빈값 전송 방지/작성 시 인용 제거 유지. 실패 후 초안 보존은 자동 검증. 선택 모델 확장은11. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_1b7c2e5f28d5419d889919fc0c9e3980` · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/03_sc_1b7c2e5f28d5419d889919fc0c9e3980.png>)
 

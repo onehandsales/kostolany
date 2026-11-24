@@ -1,5 +1,6 @@
 import { act, render, screen, userEvent, waitFor, within } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { TextInput } from 'react-native';
 
 import { AuthProvider } from '../auth/AuthProvider';
 import { mockUserA, mockUserB } from '../auth/data/mockUsers';
@@ -37,6 +38,80 @@ function tree(source: ResponseSource, userId = mockUserA.id, revision = 0, direc
   );
 }
 const panel = () => within(screen.getByLabelText('Responses 패널'));
+
+beforeEach(() => jest.useFakeTimers());
+afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); });
+
+it.each(['success', 'failure'] as const)('응답 수정 중 다른 응답 삭제를 선택하면 늦은 %s가 삭제 화면을 덮지 않는다', async outcome => {
+  const base = createMockResponseSource({ delayMs: 0, initial: () => [] });
+  for (const id of ['first', 'second']) await base.execute({ userId: mockUserA.id, target, operationId: `seed-${id}`,
+    action: { kind: 'create', id, parentId: null, body: id, authorName: mockUserA.name } });
+  const late = deferred<ResponseValue>();
+  let command: ResponseCommand | undefined;
+  const execute = jest.fn<ReturnType<ResponseSource['execute']>, Parameters<ResponseSource['execute']>>((input, signal) => {
+    if (!command) { command = input; return late.promise; }
+    return base.execute(input, signal);
+  });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(tree({ ...base, execute }));
+  await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+  await panel().findByRole('heading', { name: 'Responses (2)' });
+  await user.press(panel().getAllByRole('button', { name: /response options$/ })[0]!);
+  await user.press(screen.getByRole('button', { name: 'Edit response, first' }));
+  await user.type(panel().getByLabelText('응답 내용'), ' edited');
+  await user.press(panel().getByRole('button', { name: '응답 수정 저장' }));
+  await user.press(panel().getByRole('button', { name: '응답 수정 저장' }));
+  expect(execute).toHaveBeenCalledTimes(1);
+  await user.press(panel().getAllByRole('button', { name: /response options$/ })[1]!);
+  await user.press(screen.getByRole('button', { name: 'Delete response, second' }));
+  await act(async () => { if (outcome === 'success') late.resolve(await base.execute(command!)); else late.reject(new Error('old edit')); });
+  expect(panel().getByRole('heading', { name: 'Delete response?' })).toBeVisible();
+  expect(panel().queryByRole('alert')).toBeNull();
+  expect(panel().queryByText('Response updated')).toBeNull();
+  await user.press(panel().getByRole('button', { name: '응답 삭제 확인' }));
+  await panel().findByRole('heading', { name: 'Responses (1)' });
+  expect((await base.read({ userId: mockUserA.id, target })).responses.find(item => item.id === 'second')?.deleted).toBe(true);
+});
+
+it('인용 응답 편집은 본문만 바꾸며 지원하지 않는 인용 제거를 노출하지 않는다', async () => {
+  const source = createMockResponseSource({ delayMs: 0, initial: () => [] });
+  const quote = { articleId: target.id, version: 'fixture-v1', start: 0, end: 3, text: '원문구' };
+  await source.execute({ userId: mockUserA.id, target, operationId: 'seed-quote', action: {
+    kind: 'create', id: 'quoted-response', parentId: null, body: '인용에 대한 생각', authorName: mockUserA.name, quote,
+  } });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(tree(source));
+  await user.press(screen.getByRole('button', { name: 'Responses, 기사' }));
+  await user.press(await panel().findByRole('button', { name: `${mockUserA.name} response options` }));
+  await user.press(screen.getByRole('button', { name: 'Edit response, quoted-response' }));
+  expect(panel().getByLabelText('내 응답 편집 중')).toHaveTextContent(`Replying to ${mockUserA.name}`);
+  expect(panel().queryByRole('button', { name: '인용 제거' })).toBeNull();
+  await user.clear(panel().getByLabelText('응답 내용'));
+  await user.type(panel().getByLabelText('응답 내용'), '수정한 생각');
+  await user.press(panel().getByRole('button', { name: '응답 수정 저장' }));
+  expect((await source.read({ userId: mockUserA.id, target })).responses[0]).toMatchObject({ body: '수정한 생각', quote });
+  expect(panel().getByLabelText('내 응답')).toHaveTextContent('YOU');
+});
+
+it('본문의 작성 진입은 입력 포커스를 요청하고 목록 둘러보기는 요청하지 않는다', async () => {
+  const source = createMockResponseSource({ delayMs: 0, initial: () => [] });
+  const focus = jest.spyOn(TextInput.prototype, 'focus');
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(<SafeAreaProvider><AuthProvider initialUser={mockUserA}>
+    <ResponseProvider source={source} userId={mockUserA.id} revision={0}><ResponsePreview target={target} /></ResponseProvider>
+  </AuthProvider></SafeAreaProvider>);
+  await screen.findByRole('heading', { name: 'Responses (0)' });
+  focus.mockClear();
+  await user.press(screen.getByRole('button', { name: 'See all responses' }));
+  await act(async () => { jest.advanceTimersByTime(32); });
+  expect(focus).not.toHaveBeenCalled();
+  await user.press(panel().getByRole('button', { name: 'Responses 닫기' }));
+  focus.mockClear();
+  await user.press(screen.getByRole('button', { name: 'Write a response' }));
+  await act(async () => { jest.advanceTimersByTime(32); });
+  expect(focus).toHaveBeenCalledTimes(1);
+  expect(focus.mock.contexts[0]).toMatchObject({ props: { accessibilityLabel: '응답 내용' } });
+});
 
 it('본문 미리보기와 응답 버튼 및 시트가 비교 집계와 새 작성 결과를 함께 갱신한다', async () => {
   const source = createMockResponseSource({ delayMs: 0, initial: () => [], uncapturedCountFor: () => 17 });

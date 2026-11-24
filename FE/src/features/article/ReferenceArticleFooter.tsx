@@ -51,7 +51,7 @@ export function ReferenceArticleFooter({
           },
         ]
           .filter((story) => !moderation.excluded(story.id))
-          .map((story, index) => (
+          .map((story) => (
             <View key={story.title} style={styles.story}>
               <Pressable
                 role="button"
@@ -74,7 +74,7 @@ export function ReferenceArticleFooter({
                 <Text style={styles.heading}>{story.title}</Text>
                 {Boolean(story.subtitle) && <Text style={styles.subtitle}>{story.subtitle}</Text>}
               </Pressable>
-              {index === 0 && (
+              {story.id === 'medium-prompt-bible' && (
                 <View style={styles.actions}>
                   <AppIcon name="star" color={colors.gold} size={20} />
                   <Text style={styles.muted}>May 24</Text>

@@ -1,8 +1,16 @@
 import { deferred } from '../feed/tests/helpers';
 import { createResponseStore } from './createResponseStore';
 import { createMockResponseSource } from './data/createMockResponseSource';
-import { responseRows } from './responseRows';
+import { responseRows, getResponseThreadIds } from './responseRows';
 import type { ResponseAction, ResponseSource, ResponseTarget, ResponseValue } from './types';
+import { responseFixtures } from './data/responseFixtures';
+
+it('답글 대상의 자손만 강조하고 다른 스레드와 편집 선택은 확장하지 않는다', () => {
+  const responses = responseFixtures({ kind: 'article', id: 'medium-brain' });
+  expect([...getResponseThreadIds(responses, 'brain-bernie')].sort()).toEqual(['brain-bernie', 'brain-frbarrosl', 'brain-radu']);
+  expect([...getResponseThreadIds(responses, 'brain-radu')].sort()).toEqual(['brain-frbarrosl', 'brain-radu']);
+  expect([...getResponseThreadIds(responses, null)]).toEqual([]);
+});
 
 const target: ResponseTarget = { kind: 'article', id: 'medium-brain' };
 const creation: ResponseAction = {

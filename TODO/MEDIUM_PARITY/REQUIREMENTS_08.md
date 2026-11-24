@@ -121,6 +121,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 
 ## S179 — 박수 피드백 종료
 
+- **Parity10 판정:** 피드백 만료 뒤 선택 상태 유지하는 기존 박수 수명 검토. 832 비교 조건 연결. 원본 정확 count/재진입 정책 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_e3b85b46c655483eb954e6f953d0b7f6` · [원본 분석](<../../medium/flows/Home/Story detail/Sending claps/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Story detail/Sending claps/screens/03_sc_e3b85b46c655483eb954e6f953d0b7f6.png>)
 
 흐름 맥락: [F38/03](FLOWS.md#f38)
@@ -192,6 +194,8 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 <a id="s181"></a>
 
 ## S181 — 본인 응답 관리 메뉴
+
+- **Parity10 판정:** 본인만 Edit/Delete·삭제 빨강 유지. 카드 연속 박수 중복과 배경 전환 메뉴/오류 정리. 실제 팝오버 배치 대기. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_e4b254a2635b47069e314a1462c985d6` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/screens/02_sc_e4b254a2635b47069e314a1462c985d6.png>)
 
@@ -410,6 +414,8 @@ FE 조사 경로: [NotificationSettingsScreen.tsx](<../../FE/src/features/notifi
 
 ## S187 — 설정 닫힌 다크 기사
 
+- **Parity10 판정:** Dark/120% 설정 소비 유지. 실제 제목3줄 일치/서체/OS큰글자 미검증. System/폰트 원본 옵션 미확인. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_ee957cf03e9848948f9ec8189264d8d8` · [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>):273 · [원본 PNG](<../../medium/flows/Home/Story detail/Changing display/screens/08_sc_ee957cf03e9848948f9ec8189264d8d8.png>)
 
 흐름 맥락: [F24/08](FLOWS.md#f24)
@@ -482,6 +488,8 @@ FE 조사 경로: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/Stor
 <a id="s189"></a>
 
 ## S189 — 기사 본문 스크롤
+
+- **Parity10 판정:** 세리프·굵은 단락·점 구분선·강조/본문 링크 연결 유지. 개인/인기 강조의 원본 의미는 미확인, 선택 모델11 미착수. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_f4b06612bdbf48ecbd8a7b6e2607d117` · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>):120 · [원본 PNG](<../../medium/flows/Home/Story detail/screens/03_sc_f4b06612bdbf48ecbd8a7b6e2607d117.png>)
 
@@ -771,6 +779,8 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 <a id="s197"></a>
 
 ## S197 — 구절 인용 응답 등록
+
+- **Parity10 판정:** 인용 상자/본문/YOU/Now 등록 유지. 자체 mock은 새 루트+1이며 원본834 유지의 이유는 미확인. 이를 맞추려고 집계를 고정하지 않음. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_fcdcd471caeb41b8bfa89273d8e29a8d` · [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Home/Story detail/Responding to a phrase/screens/04_sc_fcdcd471caeb41b8bfa89273d8e29a8d.png>)
 

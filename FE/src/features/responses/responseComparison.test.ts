@@ -10,6 +10,26 @@ const creation: ResponseAction = {
   kind: 'create', id: 'new', parentId: null, body: '직접 작성한 응답', authorName: 'A',
 };
 
+it('기사의 서로 다른 832와834 비교 시점을 분리하고 작성·답글·편집·삭제와 기본 집계를 보존한다', async () => {
+  const article: ResponseTarget = { kind: 'article', id: 'medium-brain' };
+  const source = createMockResponseSource({ delayMs: 0,
+    uncapturedCountFor: createResponseComparisonCounts('?parityResponses=story-832', true) });
+  const store = createResponseStore(source, 'A');
+  await store.refresh(article);
+  expect(store.getSnapshot(article).value?.responses).toHaveLength(10);
+  expect(getResponseCount(store.getSnapshot(article).value)).toBe(832);
+  await store.execute(article, 'create', creation);
+  expect(getResponseCount(store.getSnapshot(article).value)).toBe(833);
+  await store.execute(article, 'reply', { ...creation, id: 'reply', parentId: 'new' });
+  await store.execute(article, 'edit', { kind: 'edit', id: 'new', body: '수정' });
+  expect(getResponseCount(store.getSnapshot(article).value)).toBe(833);
+  await store.execute(article, 'delete', { kind: 'delete', id: 'new' });
+  expect(getResponseCount(store.getSnapshot(article).value)).toBe(832);
+  expect(getResponseCount(await createMockResponseSource({ delayMs: 0, uncapturedCountFor: counts }).read({ userId: 'A', target: article }))).toBe(834);
+  expect(getResponseCount(await createMockResponseSource({ delayMs: 0 }).read({ userId: 'A', target: article }))).toBe(7);
+  expect(createResponseComparisonCounts('?parityResponses=story-832', false)(article)).toBe(0);
+});
+
 it('명시적인 개발 비교 요청만 정확한 집계를 공급하고 반올림 수치와 다른 대상은 추정하지 않는다', () => {
   expect(counts(target)).toBe(272);
   expect(counts({ kind: 'article', id: 'medium-goodbye-notion' })).toBe(17);

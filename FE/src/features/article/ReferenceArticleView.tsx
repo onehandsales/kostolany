@@ -181,8 +181,8 @@ export function ReferenceArticleView({
             <Text style={[styles.subtitle, reader.subtitle]}>{article.subtitle}</Text>
           )}
           <Text style={styles.metadata}>
-            {article.readingMinutes > 0 ? `${article.readingMinutes} min read · ` : ''}
-            {content?.publishedLabel ?? article.publishedLabel}
+            {[article.readingMinutes > 0 ? `${article.readingMinutes} min read` : '',
+              content?.publishedLabel ?? article.publishedLabel].filter(Boolean).join(' · ')}
           </Text>
           <View style={styles.author}>
             {reference?.avatar && (

@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "a527063c2dffbc0bcc1b615273d8963cb22668f0ba59dc48d28b09a02f784eb0"
+      "sha256": "37fab23584edd9bbf679c61f1d374a9cdf5a343b438a410c5b7237c1f4331dac"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "29ac23012d59c814451985ac6c14e112d8005766e9f8c122358874776a2c5ed8"
+      "sha256": "2fc2b53e16d6abc39d63a7cda2ab0e4d6943c334def58d99ca52fd36cbd2fdc8"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,39 +285,39 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "61645c6fc17fffabd34ba49ab76257dd5133c7c6461d7015915ad301bccebd1a"
+      "sha256": "85b5603457c5b089602c3b7af7c0207b0015247cf227b0db6eb3a44075a11f27"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "0e293ee6949e2090f053e568484b75dc7376c9b99eca045dee120cd253e34676"
+      "sha256": "7ee50c670e8991ee13a8d5c2cfa1c1408ba19214e3aff2567e790f442c0c1156"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "373a25c652e0218b4cc03e283fc4eb002f65e310918a7e2e8d3a787f63c0ad55"
+      "sha256": "ccdc74e719ed221448677219493bba23d8557b73a7e7e078d0f4ef3a73e73e97"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "4a73deaaba1fd1c9bf8b3a223099d2878d2e1d1a781736d707203c01232321be"
+      "sha256": "bccd56befada1f4254cb0ea7945bad1725f693a3032770099a356029771dfa7c"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "2902d4e3e3f16724908b48d2bcb92b75a81839dd341b945de2e6a62c10c5005e"
+      "sha256": "51cd6ebc48432d550f9ec3322906178400c22b3de648392688a708540c3f8c6f"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
-      "sha256": "13656b0dd6d6c5979e39c480b1232b0fcc5b44fd75b1bfd070c2e6eae5fab14a"
+      "sha256": "6b943457eeb8881385149bba87525047d6e58bdf42aabac901b0c64a3112aeaf"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "4cdde37ff5fad6c414656f93077bb6c4b1ec1c33476970bbcac54da7a32eb22c"
+      "sha256": "21dd46b2c130bf2a9a36640e368cb4977a8056e235906aa28e7e4850c9a1d333"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "6e3b537043838fe91d6842a50110a037909c434e3f98b097999a4e24bac86003"
+      "sha256": "6bee0e0f5a47527f7cab75fade8525b7235dd8fa07ec25d1f87f2158cbdc5987"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "b2fbb6ab7f52ce634620c73135def91bab4b3841885f3d7b66c6d3b063e7b7e7"
+      "sha256": "3f89609a7ccb98b038ee60855b2b960b982f5bfaba4d383d6bb4e2dfd5124460"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "5037a597d54396c1a7350937b3357272b7e3ccd6f5feb69d144389cce43da3df"
+      "sha256": "c745b5acbdc4740bd071ce4dc97e8b590b0fac7879d535bdbd4b4c233ad9853f"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -691,15 +691,15 @@
     },
     {
       "path": "FE/src/features/article/ReferenceArticleFooter.tsx",
-      "sha256": "434395d5b1305856c290f2f5f68548720b4d500dfd6a03d7f45a6a7d757e3716"
+      "sha256": "78044b291560a6b24f1fd6754560d17dc8c187231d210184de365117c844d426"
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.test.tsx",
-      "sha256": "cd39d4b28b9be89d756e8d1ece67d4cbd42080b384299a3003b73c856e25656a"
+      "sha256": "211b6d5de363b568a34d68d547999228c4f47406f82e7b02aa65382cf2fac80f"
     },
     {
       "path": "FE/src/features/article/ReferenceArticleView.tsx",
-      "sha256": "4fdaf2934acca744ef094f4ef7926c5e4b98b34e77d51debe6f36978b20c0d68"
+      "sha256": "883550366128aaf28f4ae28530fc48d2eb320d16c0c4321de16c85f23674f7a7"
     },
     {
       "path": "FE/src/features/article/types.ts",
@@ -1947,7 +1947,7 @@
     },
     {
       "path": "FE/src/features/responses/createResponseStore.test.ts",
-      "sha256": "41d27244d00202d058c5785bfa8c20ca5b30dbec129338e276f16693d4d902cb"
+      "sha256": "56a707ad4b2de78a863030dbe8d28140d3a7ea014443801c6684e307a3a4e286"
     },
     {
       "path": "FE/src/features/responses/createResponseStore.ts",
@@ -1955,7 +1955,7 @@
     },
     {
       "path": "FE/src/features/responses/data/createMockResponseSource.ts",
-      "sha256": "b6c346ba1c0004bffd269e9c1bd6b7fbb8af150a3c0b05cc2e2365b10bed972e"
+      "sha256": "489f1edb3f007239a286d40ae72205de4936c80ab5f6c0148ab6fd7363c485da"
     },
     {
       "path": "FE/src/features/responses/data/responseFixtures.ts",
@@ -1963,7 +1963,7 @@
     },
     {
       "path": "FE/src/features/responses/data/responsePreview.ts",
-      "sha256": "751c3941948c107e3ca78606c8ceb72968dd6931b04315e3b03d4a3889791b7b"
+      "sha256": "96e77e7425c697e6fd3a3283b08c48766c79bb7b0154fbce9c23aeb8fb100c9c"
     },
     {
       "path": "FE/src/features/responses/PolicyArticle.tsx",
@@ -1979,7 +1979,7 @@
     },
     {
       "path": "FE/src/features/responses/ResponseCard.tsx",
-      "sha256": "07344e4a8e9e459d338611f170f975439546318a4f70ef9dbc5f27b6bb3fae0f"
+      "sha256": "08d50317e6b39c6eb1bb95a3f7bbed999a6b088697bc3f65789ffe89184710f2"
     },
     {
       "path": "FE/src/features/responses/ResponseManagement.tsx",
@@ -1987,7 +1987,7 @@
     },
     {
       "path": "FE/src/features/responses/ResponseModeration.test.ts",
-      "sha256": "f1f8f3513906451631663213f7f8e2ca4494c9c5edd4c9a4b791f7ff2a094f3c"
+      "sha256": "89cc8543b49ca466c371a27cd8f26b88113e6fe2f474ef9d59ac21a56a76de56"
     },
     {
       "path": "FE/src/features/responses/ResponsePolicyLink.tsx",
@@ -1995,7 +1995,7 @@
     },
     {
       "path": "FE/src/features/responses/ResponsePreview.tsx",
-      "sha256": "8e4bb122c37d99dbc037e07b33e32109fe4c77c44963c7b334e54c7bcce9630f"
+      "sha256": "77b3307c01518cfc294a29bb4bde4a65d92c7420827bd04d64cebcef1e121488"
     },
     {
       "path": "FE/src/features/responses/ResponseProvider.tsx",
@@ -2007,15 +2007,15 @@
     },
     {
       "path": "FE/src/features/responses/responseRows.ts",
-      "sha256": "e4fee3532518c48a096d40519fc8ca0580a08744006fdcc2c1442ebbd4a2dbbc"
+      "sha256": "23480c616ac6028fe181fab62135a7616251846a762a07215e35c2c6daf7bc9d"
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.test.tsx",
-      "sha256": "487ad9da23e106cc2dbc74540cd417b4929fa9782ac0eb64498a6edae4465b73"
+      "sha256": "f2c924ab88d2d4ffa7a1e186bcad61ef430b86d27e0a911e2483f19da0f1d181"
     },
     {
       "path": "FE/src/features/responses/ResponsesPanel.tsx",
-      "sha256": "8279fe5fceb29b4518d0c65166de407b10f3cf07c1179192960f284da92c1a3f"
+      "sha256": "8965470d7000c2f6e7dc1ad964814269d579607a9a171b2c3026ce5da670c132"
     },
     {
       "path": "FE/src/features/responses/responseVisibility.ts",
@@ -2507,11 +2507,23 @@
     },
     {
       "path": "FE/src/features/responses/responseComparison.test.ts",
-      "sha256": "f6b83b97af8c72c7208298c2a06ff39565c15036df5732cd898c5c6fd906aaf0"
+      "sha256": "974795585ad5195078bce3c72e4451bb30f7c8ea43372d6edb53da7a36596df5"
     },
     {
       "path": "FE/src/features/editor/DraftsScreen.test.tsx",
       "sha256": "db2bace41888945c0e43bc8ca62b5696376dddacaae5ff53e379ae05b069e857"
+    },
+    {
+      "path": "FE/src/features/responses/ResponseCard.test.tsx",
+      "sha256": "03ff3e345d206bc1f5b5bd2ed899e8d7ab7f59513dbdf2940c3955b2c0222b77"
+    },
+    {
+      "path": "FE/src/features/responses/ResponseDate.test.tsx",
+      "sha256": "54a6ea18a0c55162bb1a673e2981711a6669b593edd58eb42284c73b56164cfc"
+    },
+    {
+      "path": "FE/src/features/responses/ResponseDate.tsx",
+      "sha256": "4a297b4fe814b2c8fcfb6a8acb9f25650e56793239bce32991203f9ee95bac76"
     }
   ],
   "evidenceContext": {
@@ -3365,7 +3377,11 @@
       ],
       "scope": "본문 상단/말미·반응832/833/834·reply/edit/delete/quote 원본 상태",
       "done": "기사→응답→정렬/답글/편집/삭제→복귀; 본인소유권·수/시간·늦은응답",
-      "status": "미착수"
+      "status": "구현 보완·자동 검증 수행 / 자산·fixture·원본 미확인·실제 화면/기기 대기",
+      "parity10Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "handoff": "사용자의 명시적9→10 순서 인계;9 잔여9 소유 유지;9 전체 완료 아님;11 미착수"
+      }
     },
     {
       "number": 11,
@@ -4613,7 +4629,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "누적 박수 피드백/선택/만료는 기존 구현을 검토했다. 832 비교 옵션 추가. +16은 원본 피드백이며 터치16회 증거가 아니다. 정확 수·애니메이션 비교 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S008",
@@ -4867,7 +4889,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "편집 값 채움/Cancel 유지. 보이는 안내를 Replying to로 맞추고 접근성 이름은 편집으로 구분. 늦은 편집 결과의 삭제 화면 오염 수정.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S010",
@@ -4955,7 +4983,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "본문 변경/취소/중복 제출 보호 유지. 편집은 본문만 저장하므로 동작하지 않던 인용 제거 UI를 숨겼다. 실제 키보드/IME 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S011",
@@ -5892,7 +5926,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "인용 아래 입력/빈값 전송 방지/작성 시 인용 제거 유지. 실패 후 초안 보존은 자동 검증. 선택 모델 확장은11.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S020",
@@ -7183,7 +7223,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "Most Recent의 생성 시각 정렬과 보관된 상대 날짜 유지. 날짜를 현재 시각으로 재해석하지 않는다. 정렬 팝오버 실제 렌더 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S033",
@@ -7593,7 +7639,8 @@
         "C04": "컨트롤: 박수",
         "C05": "컨트롤: 응답",
         "C06": "컨트롤: 저장",
-        "C07": "컨트롤: 공유"
+        "C07": "컨트롤: 공유",
+        "V": "표지 아래 Generated by the author with AI. 출처성 설명이 보인다."
       },
       "requirements": [
         {
@@ -7635,6 +7682,10 @@
         {
           "id": "R-S037-C07",
           "observation": "컨트롤: 공유"
+        },
+        {
+          "id": "R-S037-V",
+          "observation": "표지 아래 Generated by the author with AI. 출처성 설명이 보인다."
         }
       ],
       "steps": [
@@ -7696,7 +7747,13 @@
           "capturedAt": "2026-11-23T04:28:12.953Z"
         }
       ],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "메타데이터 사이만 구분자 표시. 표지 출처·본문·작가·도구 연결 확인. 834 비교 옵션 추가. 표지 출처의 R 누락 보강.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S038",
@@ -10205,7 +10262,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "YOU를 별도 배지로 분리. 작성 후 실제 경과 초 표시. 비교 모드832→833, 일반 모드7→8. 실제 원본 계정 이름/사진은 동일하지 않음.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S063",
@@ -11182,7 +11245,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "답글 후 펼침/들여쓰기와 루트 집계 유지. 1초 표시 지원. 원본 미수록 답글 수/본문의 완전 재현은 잔여.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S072",
@@ -11270,7 +11339,20 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "부모 한 행만 강조하던 차이를 자손 스레드까지 보완. Cancel은 지역 초안 폐기, 원문 보존. 부모 차단 중 전송 권한 재검사.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존",
+        "preCommitReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+          "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+          "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+          "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
+        }
+      }
     },
     {
       "id": "S073",
@@ -13267,7 +13349,20 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "답글 입력/빈값/전송/실패 재시도 유지. 늦은 결과·중복 제출 자동 검증. 실제 키보드 배치 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존",
+        "preCommitReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+          "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+          "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+          "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
+        }
+      }
     },
     {
       "id": "S093",
@@ -13783,7 +13878,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "초기 인용을 보존하고 작성 진입에서 입력 포커스 요청. 선택 구간의 실제 native UX는11, 키보드 검증은10의 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S098",
@@ -14112,6 +14213,12 @@
         "result": "TODO/FE_MEDIUM_PARITY_03_RESULT.md#additional-review",
         "evidence": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_03_RECHECK/flow/captures.json",
         "scope": "추가 검토: route 이탈/접근권 상실 수정과 원래 응답 복귀; 원본 동일성 미완료"
+      },
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "중첩 선/들여쓰기·정렬·정책/닫기·기본 루트수 연결 유지. 정책 전환 중 카드 메뉴/늦은 오류 정리. 최대 깊이/집계 원본 정책 미확인.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
       }
     },
     {
@@ -14350,7 +14457,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "추천 첫 글 제외 시 다른 글로 May24/반응 도구가 이동하던 index 결합 수정. 추천 순서/미수록 글 데이터는 추정하지 않음.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S103",
@@ -15297,7 +15410,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "Most Relevant/Most Recent 선택·체크·닫기 유지. 관련도는 fixture 정책이며 Medium 계산식 아님.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S112",
@@ -15395,7 +15514,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "edited 경과 시각/Read more 확장 접근성/Hide replies 유지. 원본 See more replies (4)의 추가4개 본문 부재로 동일 fixture 재현 잔여.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S113",
@@ -16680,7 +16805,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "소유권·삭제 확인/취소·성공 토스트·삭제된 부모의 자식 보존 유지. 삭제 화면으로 전환 뒤 이전 편집 성공/실패를 폐기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S125",
@@ -18253,7 +18384,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "미리보기3개/Read more/See all responses 유지. 미수록 전문은 안내하고 생성하지 않음. 원본 답글 수 차이 잔여.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S141",
@@ -18412,7 +18549,8 @@
         "D": "표시값·입력: Responses 833 유지",
         "S": "상태: 내용 변경과 edited 확인",
         "C01": "컨트롤: 더보기",
-        "C02": "컨트롤: Reply"
+        "C02": "컨트롤: Reply",
+        "V": "수정된 본인 응답에 1 second ago (edited)가 보인다."
       },
       "requirements": [
         {
@@ -18434,6 +18572,10 @@
         {
           "id": "R-S142-C02",
           "observation": "컨트롤: Reply"
+        },
+        {
+          "id": "R-S142-V",
+          "observation": "수정된 본인 응답에 1 second ago (edited)가 보인다."
         }
       ],
       "steps": [
@@ -18463,7 +18605,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "본문 수정 뒤 (edited) 및 실제 수정 경과 초 표시. 수정은 총수 유지. 원본1 second ago (edited)를 R에 보강.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S143",
@@ -18964,7 +19112,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "토픽5개·작성자·Follow·공유 연결 유지. footer24 following과 profile25는 서로 다른 관찰값. 외부 실행/정확 배치 미검증.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S148",
@@ -20005,7 +20159,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "빈값/문자5000 제한·전송·중복 보호 유지. 명시적 작성 진입만 포커스 요청. 832 초기 비교 조건 분리.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S159",
@@ -20609,7 +20769,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "Dark 본문/링크/밝은 삽입 이미지 유지. 코드와 원본을 대조했으나 실제 앱 스크롤·포커스·색상 렌더 미검증.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S165",
@@ -21797,7 +21963,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "본문/버튼/시트의 공통 집계 유지. Write a response와 목록 열람의 포커스 구분. 미리보기 원본 수/아바타 차이 잔여.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S176",
@@ -22228,7 +22400,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "피드백 만료 뒤 선택 상태 유지하는 기존 박수 수명 검토. 832 비교 조건 연결. 원본 정확 count/재진입 정책 미확인.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S180",
@@ -22417,7 +22595,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "본인만 Edit/Delete·삭제 빨강 유지. 카드 연속 박수 중복과 배경 전환 메뉴/오류 정리. 실제 팝오버 배치 대기.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S182",
@@ -23065,7 +23249,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "Dark/120% 설정 소비 유지. 실제 제목3줄 일치/서체/OS큰글자 미검증. System/폰트 원본 옵션 미확인.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S188",
@@ -23268,7 +23458,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다."
+      "acceptance": "제목/부제/작가/읽기시간/표지 출처, 본문 강조·링크·삽입 이미지·토픽·작성자·응답 미리보기·관련 글·고정 반응 바를 각각 비교한다. +16은 입력 피드백이며 터치 횟수 증거가 아니다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "세리프·굵은 단락·점 구분선·강조/본문 링크 연결 유지. 개인/인기 강조의 원본 의미는 미확인, 선택 모델11 미착수.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S190",
@@ -24080,7 +24276,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다."
+      "acceptance": "들여쓰기·세로선·부모 강조, Hide replies/Read more/See more replies, 빈/채운 전송, YOU·edited·Cancel, 정렬·수정·삭제 토스트·인용을 각각 비교한다.",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+        "status": "인용 상자/본문/YOU/Now 등록 유지. 자체 mock은 새 루트+1이며 원본834 유지의 이유는 미확인. 이를 맞추려고 집계를 고정하지 않음.",
+        "verification": "원본 PNG·코드/자동 검사; 실제 앱 렌더/console 차단, native 미실행; 기존 readiness/evidence 보존"
+      }
     },
     {
       "id": "S198",
@@ -27288,7 +27490,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "mock 박수 누적/한도와 피드백은 기존 계약. +16의 실제 요청 수·저장은 원본 미확인, 실제 서버 Q08 제외."
+      }
     },
     {
       "id": "U-S008",
@@ -27309,7 +27516,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "보이는 Replying 문구만 반영. 실제 동작은 기존 본인 응답 편집; 원본 문구 재사용 이유는 미확인."
+      }
     },
     {
       "id": "U-S010",
@@ -27317,7 +27529,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 Cancel은 편집 초안을 버리고 저장된 원문을 유지. 원본 취소 결과는 미수록."
+      }
     },
     {
       "id": "U-S011",
@@ -27401,7 +27618,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 최대5000자, 작성 중 인용 제거 허용/편집 중 제거 미지원. 원본 한도/제거 결과는 미확인."
+      }
     },
     {
       "id": "U-S020",
@@ -27519,7 +27741,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 createdAt 내림차순/동률 ID순, 로컬 전체 배열. 서버 커서와 동률 원본 정책은 미확인."
+      }
     },
     {
       "id": "U-S033",
@@ -27573,7 +27800,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "공개/멤버 게이트는 기존 mock 계약. 834는 정수 관찰,18K 정확값/원본 계정 권한은 미확인. 게이트 기능17, 외부 Q08."
+      }
     },
     {
       "id": "U-S038",
@@ -27830,7 +28062,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "로컬 사용자별 저장만 검증. 서버 생성/타 계정 공개는 원본 미확인·외부 Q08 제외."
+      }
     },
     {
       "id": "U-S063",
@@ -27917,7 +28154,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 총수는 루트만 합산. 원본832 유지가 규칙인지 지연인지 미확인."
+      }
     },
     {
       "id": "U-S072",
@@ -27925,7 +28167,19 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 부모 삭제/숨김/차단/토론 상태를 확정 직전 확인. 원본 실패 처리 미수록.",
+        "preCommitReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+          "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+          "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+          "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
+        }
+      }
     },
     {
       "id": "U-S073",
@@ -28150,7 +28404,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 operation ID·동시 제출 차단·실패 입력 보존/동일 의도 재시도. 원본 네트워크 정책 미확인."
+      }
     },
     {
       "id": "U-S093",
@@ -28209,7 +28468,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "기존 articleId/version/UTF16 인용 스냅샷 유지. 편집은 본문만. 원본 인용 길이/원문 이동 미확인, 선택 모델11."
+      }
     },
     {
       "id": "U-S098",
@@ -28238,7 +28502,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 반복 순회/시각 들여쓰기 제한과 루트 집계. 원본 최대 깊이/총수 규칙 미확인."
+      }
     },
     {
       "id": "U-S101",
@@ -28263,7 +28532,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 고정 추천 fixture/제외 필터만 검증. 원본 추천/무한스크롤 미확인, 신규 데이터 수집 필요."
+      }
     },
     {
       "id": "U-S103",
@@ -28381,7 +28655,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 관련도 fixture·본인 우선 정렬. 실제 Medium 점수식 미확인·Q08 범위 밖."
+      }
     },
     {
       "id": "U-S112",
@@ -28389,7 +28668,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 답글1개 뒤5개씩 펼침. 신규/수정 시각은 실제 경과시간, 보관 dateLabel은 유지. 원본 페이지/edited 정책 및 추가4본문 미확인."
+      }
     },
     {
       "id": "U-S113",
@@ -28516,7 +28800,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 삭제 전 확인·취소, 부모 tombstone/자식 보존, Undo 없음. 원본 확인/복구/연쇄 결과 미수록."
+      }
     },
     {
       "id": "U-S125",
@@ -28667,7 +28956,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 루트3개 미리보기. 원본 모든 경우의 개수 정책은 미확인."
+      }
     },
     {
       "id": "U-S141",
@@ -28683,7 +28977,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 본인 수정·updatedAt 표기, 별도 이력 저장 없음. 원본 수정 한도/이력 미확인."
+      }
     },
     {
       "id": "U-S143",
@@ -28738,7 +29037,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "기존 내부 토픽/작가 진입과 링크 실패 보호 유지. 원본 외부 결과는 미확인; 작가5/추천17과 경계 유지."
+      }
     },
     {
       "id": "U-S148",
@@ -28855,7 +29159,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체5000자·trim 빈값 거부·동일 요청 멱등. 원본 문자/중복 정책 미확인."
+      }
     },
     {
       "id": "U-S159",
@@ -28908,7 +29217,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 이미지 반전 없음/같은 화면 스크롤 유지. 원본 복귀 좌표 미확인·실제 렌더 대기."
+      }
     },
     {
       "id": "U-S165",
@@ -29024,7 +29338,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 관련도/3개와 루트 집계. 원본 답글 포함 총수/기준 미확인."
+      }
     },
     {
       "id": "U-S176",
@@ -29065,7 +29384,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "기존 mock 박수 재진입/취소 계약 유지. 원본 이 흐름의 취소 결과는 미수록."
+      }
     },
     {
       "id": "U-S180",
@@ -29082,7 +29406,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "본인/타인 메뉴와 source 소유권 자동 검증. 실서버 소유권 Q08 제외, 원본 타인 전체 메뉴 미확인."
+      }
     },
     {
       "id": "U-S182",
@@ -29135,7 +29464,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "Default 외 실제 font 선택 목록 미수록. 기존 서체 대체·크기/테마 소비는4, 정확 시각10/Q02, OS21."
+      }
     },
     {
       "id": "U-S188",
@@ -29151,7 +29485,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "원본 강조의 소유/인기 의미 미확인. 기존 mock 표시 유지, 선택/개인 강조11."
+      }
     },
     {
       "id": "U-S190",
@@ -29249,7 +29588,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 인용도 새 루트+1. 원본834 유지·원문 이동 미확인. 수 고정/새 원문 이동 기능 추가 안 함."
+      }
     },
     {
       "id": "U-S198",
@@ -29455,7 +29799,12 @@
         10,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "본문/미리보기 진입과 실패·재시도 mock 검증. 원본 비회원·삭제·네트워크 결과 미수록; 게이트17/외부Q08."
+      }
     },
     {
       "id": "U-F17",
@@ -29469,6 +29818,11 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "이미 해결됨: mock 프로필/관계/접근권5/7. 원본 비공개·고정 전체 정렬·외부 실행은 근거 부족; 미수록 공개 목록 콘텐츠17."
+      },
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "기사→작가 연결 소비만10, 공개 프로필/관계5·목록7·미수록 공개 목록17. 원본 비공개/외부 결과 미확인 유지."
       }
     },
     {
@@ -29567,6 +29921,11 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "이미 해결됨: mock 표시 설정/재진입4. 원본 폰트 목록·크기 경계·동기화는 근거 부족, OS 글자/테마21 대기."
+      },
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "4의 표시 설정/재진입 계약 소비 검증. 원본 폰트 옵션/동기화 미확인, OS큰글자/테마21·외부Q08."
       }
     },
     {
@@ -29576,7 +29935,12 @@
         10,
         11
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "이번10은 기사 본문/인용 소비만. 강조 겹침·제거·선택 모델11, Share13, 동기화Q08. 원본 질문 유지."
+      }
     },
     {
       "id": "U-F26",
@@ -29585,7 +29949,12 @@
         10,
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "Listen 진입의 기존 연결만10. 플레이어/속도/보이스·큐12, 플랫폼21, 외부 오디오Q08. 이번 완료 아님."
+      }
     },
     {
       "id": "U-F27",
@@ -29610,7 +29979,12 @@
         10,
         11
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "작성/취소/실패/인용 제거 자체 계약10, 원문 선택11. 원본 길이/총수/원문 이동 미확인."
+      }
     },
     {
       "id": "U-F30",
@@ -29618,7 +29992,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "빈/닫힘/숨김/로그인/본인관리 mock 검증. 더보기는 로컬 페이지이므로 서버 페이지 오류 별도 미지원/Q08; 원본 깊이/실패 미확인."
+      }
     },
     {
       "id": "U-F31",
@@ -29626,7 +30005,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "빈값/한도/중복/실패·닫기 폐기와 Rules 왕복 보존 mock 검증. 원본 닫기 보존/토론 상태 결과 미수록."
+      }
     },
     {
       "id": "U-F32",
@@ -29634,7 +30018,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "삭제/확인/취소/실패/소유권·재진입 mock 검증. 복구 UI 없음, 부모 tombstone/자식 보존 자체 정책. 서버Q08."
+      }
     },
     {
       "id": "U-F33",
@@ -29642,7 +30031,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "편집/Cancel·원문 보존·빈값/소유권·늦은 결과 분리 검증. 원본 수정 이력/동시 충돌 정책 미확인."
+      }
     },
     {
       "id": "U-F34",
@@ -29656,6 +30050,11 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "이미 해결됨: mock 부모 초안/복귀3/4 및 이번 재확인. 전문·현재 버전·원본 도구 실행은 근거 부족."
+      },
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "3의 Rules 기사와 부모 응답 복귀 회귀만10. 전문/버전/원본 외부 결과는3의 미확인 유지."
       }
     },
     {
@@ -29664,7 +30063,19 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "부모 차단/삭제/토론 닫힘/실패 재시도 자체 계약 검증. 최대 깊이/Cancel의 원본 결과 미확인.",
+        "preCommitReview": {
+          "date": "2026-11-24",
+          "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+          "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+          "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+          "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
+        }
+      }
     },
     {
       "id": "U-F36",
@@ -29672,7 +30083,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "자체 관련도 fixture/createdAt 정렬, 수정시각으로 재정렬하지 않음. 시트 내 선택 유지/닫기 초기화. 원본 동률/페이지/알고리즘 미확인."
+      }
     },
     {
       "id": "U-F37",
@@ -29690,6 +30106,11 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "이미 해결됨: mock 다중 저장/생성/실패/취소7. 원본 체크 확정 시점은 근거 부족, 실제 타기기 동기화Q08 제외."
+      },
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "7의 다중 목록/취소/실패 계약을 기사에서 소비. 미수록 원본 확정 시점 유지, 실제 기기 동기화Q08 제외."
       }
     },
     {
@@ -29698,7 +30119,12 @@
       "batches": [
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "기존 mock 박수 한도/실패/재시도/중복을 재검증. 원본 본인 글 제한·취소 분기는 미확인으로10에 유지하며 실제 서버 저장은 Q08 제외."
+      }
     },
     {
       "id": "U-F39",
@@ -29707,7 +30133,12 @@
         10,
         13
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity10Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
+        "decision": "10은 기사 공유 진입 소비만. Friend link/스타일13, OS공유·취소21, 원본 미수록/외부Q08 유지."
+      }
     },
     {
       "id": "U-F40",
@@ -33128,17 +33559,18 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "batch": 9,
-    "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
-    "reason": "선행 커밋 후 native 표시 부분 보완·재검토; 기존 단일 입력 계약 유지; 코드/문서 현재 해시 갱신",
+    "batch": 10,
+    "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md",
+    "reason": "기사·응답 보완과 재검토, R-S037-V/R-S142-V 원본 누락 보강, 코드/문서 현재 해시 갱신",
     "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
-    "verificationBoundary": "최종 관련22 suites/90 tests와 타입/lint/메모리 JS; 브라우저 연결 없음, native 실행 도구/기기 없음; 혼합 문단/목록 구현 잔여 별도",
+    "verificationBoundary": "자동 검사 결과/실패·재검증은 결과7절; 실제 웹/console 연결 차단, native/IME 미실행; 전체 시각 완료 아님",
+    "ownership": "9 잔여는9 유지,10 비교 잔여는10 유지,11 자동 시작 없음",
     "preCommitReview": {
       "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#pre-commit-review",
-      "scope": "19파일 추가 보완분 재검토; 새 코드 결함 발견 없음; 후속 사용자 요청에 따른 로컬 커밋 범위",
-      "checks": "새 관련22 suites/90 tests 101.962초 및 타입/lint 통과; 실제 렌더/native 미검증",
-      "boundary": "묶음9 전체 종료 미충족 유지; 10/push/배포 미실행; additionalReview의 미커밋 표시는 당시 상태"
+      "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#pre-commit-review",
+      "finding": "소유자에게 숨겨진 상위 스레드 차단을 답글 확정 직전에 검사; 비소유자 기존 범위 보존",
+      "checks": "새20 suites/118 tests·typecheck/lint 통과; 전체/JS 번들 미재실행; 실제 브라우저/native 미검증",
+      "commitScope": "사용자의 명시적 요청에 따른42파일 로컬 커밋;9/10 잔여 보존;11/push/배포 미실행"
     }
   },
   "manualUpdateHistory": [
@@ -33184,6 +33616,21 @@
       "reason": "22화면·27개U 현재 판정/원본 키보드 관찰, Edited와 이미지 입력 복귀 추가 검토·수정, 현재 코드·문서 해시 갱신",
       "artifacts": "새 캡처/로그/manifest/tools 없음; 기존 evidenceContext/currentEvidence/readiness와 원본 관찰 보존",
       "verificationBoundary": "테스트/코드 조사와 시각/기기 검증 구분; 브라우저 시작 자동 승인 차단"
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 9,
+      "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#additional-review",
+      "reason": "선행 커밋 후 native 표시 부분 보완·재검토; 기존 단일 입력 계약 유지; 코드/문서 현재 해시 갱신",
+      "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
+      "verificationBoundary": "최종 관련22 suites/90 tests와 타입/lint/메모리 JS; 브라우저 연결 없음, native 실행 도구/기기 없음; 혼합 문단/목록 구현 잔여 별도",
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_09_RESULT.md#pre-commit-review",
+        "scope": "19파일 추가 보완분 재검토; 새 코드 결함 발견 없음; 후속 사용자 요청에 따른 로컬 커밋 범위",
+        "checks": "새 관련22 suites/90 tests 101.962초 및 타입/lint 통과; 실제 렌더/native 미검증",
+        "boundary": "묶음9 전체 종료 미충족 유지; 10/push/배포 미실행; additionalReview의 미커밋 표시는 당시 상태"
+      }
     }
   ]
 }

@@ -500,6 +500,8 @@ FE 조사 경로: [DraftsScreen.tsx](<../../FE/src/features/editor/DraftsScreen.
 
 ## S140 — 응답 미리보기 끝
 
+- **Parity10 판정:** 미리보기3개/Read more/See all responses 유지. 미수록 전문은 안내하고 생성하지 않음. 원본 답글 수 차이 잔여. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_c068a6d42c5c48fb9d60c8af4adb446f` · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>):211 · [원본 PNG](<../../medium/flows/Home/Story detail/screens/06_sc_c068a6d42c5c48fb9d60c8af4adb446f.png>)
 
 흐름 맥락: [F16/06](FLOWS.md#f16)
@@ -575,6 +577,8 @@ FE 조사 경로: [ListeningPlayer.tsx](<../../FE/src/features/listening/Listeni
 
 ## S142 — 응답 수정 반영
 
+- **Parity10 판정:** 본문 수정 뒤 (edited) 및 실제 수정 경과 초 표시. 수정은 총수 유지. 원본1 second ago (edited)를 R에 보강. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
+
 안정 원본 ID: `sc_c1a6af7cef31436a9cdd090eae87479f` · [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>):177 · [원본 PNG](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/screens/05_sc_c1a6af7cef31436a9cdd090eae87479f.png>)
 
 흐름 맥락: [F33/05](FLOWS.md#f33)
@@ -603,6 +607,13 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 원본 해석 경계: 수정 뒤 표시 시각은 1 second ago (edited)로 바뀐다. 작성 시각과 수정 시각 중 무엇을 정렬에 사용하는지는 이 표시만으로 확정할 수 없다.
 
 미확인 사항: [U-S142](UNKNOWN.md#u-s142)
+
+**Parity10 원본 누락 보강:** 기존 R을 보존하고 이번 직접 PNG 관찰을 추가한다.
+
+| 추가 요구 | 원본 관찰 | 현재 코드/검증 |
+| --- | --- | --- |
+| <a id="r-s142-v"></a>`R-S142-V` | 수정된 본인 응답에 1 second ago (edited)가 보인다. | ResponseDate 연결·자동 검증 / 실제 앱 렌더 쌍 비교 대기. [이번 결과](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status) |
+
 
 <a id="s143"></a>
 
@@ -748,6 +759,8 @@ FE 조사 경로: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopic
 <a id="s147"></a>
 
 ## S147 — 기사 말미와 작성자 카드
+
+- **Parity10 판정:** 토픽5개·작성자·Follow·공유 연결 유지. footer24 following과 profile25는 서로 다른 관찰값. 외부 실행/정확 배치 미검증. [이번 코드/검사·한계](../FE_MEDIUM_PARITY_10_RESULT.md#screen-status). 원본·과거 판정은 아래에 보존한다.
 
 안정 원본 ID: `sc_c3fcf42b84be4b7298dfc138c224e241` · [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>):150 · [원본 PNG](<../../medium/flows/Home/Story detail/screens/04_sc_c3fcf42b84be4b7298dfc138c224e241.png>)
 

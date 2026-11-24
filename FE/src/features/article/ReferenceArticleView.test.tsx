@@ -1,13 +1,39 @@
-import { fireEvent, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { renderWithLikes as render } from '../../../test/renderWithLikes';
 import { ReferenceArticleView } from './ReferenceArticleView';
 import { articleFixtures } from './data/fixtures';
+import { AuthProvider } from '../auth/AuthProvider';
+import { mockUserA } from '../auth/data/mockUsers';
+import { RecommendationProvider } from '../recommendations/RecommendationProvider';
+import type { RecommendationSource } from '../recommendations/types';
 
 // 설명 조회와 읽기 도구 이벤트의 타이머를 제어해 테스트 밖에서 응답이 완료되지 않게 한다.
 beforeEach(() => jest.useFakeTimers());
 afterEach(() => jest.useRealTimers());
 
 const article = articleFixtures.find((item) => item.id === 'medium-brain')!;
+it('첫 추천이 제외되어도 다음 기사에 이전 기사의 발행일과 반응 영역을 옮기지 않는다', async () => {
+  const source: RecommendationSource = {
+    read: async userId => ({ userId, version: 1, hiddenArticleIds: ['medium-prompt-bible'] }),
+    execute: async () => { throw new Error('unused'); },
+  };
+  await render(<AuthProvider initialUser={mockUserA}><RecommendationProvider source={source}>
+    <ReferenceArticleView article={article} onBack={() => {}} backLabel="Back" />
+  </RecommendationProvider></AuthProvider>);
+  await waitFor(() => expect(screen.queryByRole('button', { name: 'Behold...The Prompt Bible is Here' })).toBeNull());
+  expect(screen.getByRole('button', { name: 'ChatGPT Users...Should You Make the Switch to Gemini?' })).toBeVisible();
+  expect(screen.queryByText('May 24', { exact: true })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Responses, ChatGPT Users...Should You Make the Switch to Gemini?' })).toBeNull();
+});
+it('발행일이 없는 Goodbye Notion에는 구분자를 남기지 않고 날짜를 추정하지 않는다', async () => {
+  const goodbye = articleFixtures.find((item) => item.id === 'medium-goodbye-notion')!;
+  const view = await render(<ReferenceArticleView article={goodbye} onBack={() => {}} backLabel="Back" />);
+  expect(screen.getByText('2 min read', { exact: true })).toBeVisible();
+  expect(screen.queryByText(/2 min read ·/)).toBeNull();
+  await view.rerender(<ReferenceArticleView article={article} onBack={() => {}} backLabel="Back" />);
+  expect(screen.getByText('5 min read · Apr 30, 2025', { exact: true })).toBeVisible();
+});
+
 it('접은 읽기 도구의 임시 선택은 유지하고 새 인증 범위에서는 개인 UI를 닫는다', async () => {
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   const view = await render(

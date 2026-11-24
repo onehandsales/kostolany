@@ -1,5 +1,7 @@
 # 63개 흐름과 273단계의 연결 요구
 
+**Parity10 흐름 대조(2026-11-24):** [42배정 T·65단계 원본·현재 연결](../FE_MEDIUM_PARITY_10_RESULT.md#source-review).63/273/200은 목록 검사이며 전체 기능 전수 실행이 아니다.16관련 ANALYSIS/단계 PNG를 보고 기사→응답→정책/수정/삭제→복귀의 실제 navigation 자동 검증을 실행했다. 실제 브라우저 조작/스크롤/키보드·console은 차단 상태다.
+
 **Parity9 추가 확인(2026-11-24):** [F07~F11 원본29단계·현재 검증](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 전체63/273/200 등록·연결/배정 검사는 통과했다. T-F09-03~05의 native 부분 보완과 잔여를 분리하며 실제 브라우저 흐름 검증은 환경 차단이다. 과거 T 요구/관찰과 완료 기록을 삭제하지 않는다.
 
 **Parity9(2026-11-24):** [F07~F11 전체 분석/29단계 원본과 현재 연결](../FE_MEDIUM_PARITY_09_RESULT.md). 직접 배정은27단계, F08-01 Home과 F08-11 Profile은 연결 맥락으로 확인했다. 원본 T273행과 담당을 보존하며 실제 navigation 자동 검증과 브라우저 차단을 구분한다.
@@ -499,6 +501,8 @@ All·Writers·Publications·Topics가 선택지다. 이 캡처는 모든 유형�
 
 ## F16 — Home/Story detail
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/ANALYSIS.md>)
 
 **원본 흐름 목적:** 기사 상단·본문·말미 토픽·작가 소개·응답 미리보기·후속 추천을 읽기 순서로 분석한다.
@@ -534,6 +538,8 @@ All·Writers·Publications·Topics가 선택지다. 이 캡처는 모든 유형�
 <a id="f17"></a>
 
 ## F17 — Home/Story detail/Author detail
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Author detail/ANALYSIS.md>)
 
@@ -756,6 +762,8 @@ Spam 선택 후 제출하며 추가 차단은 체크하지 않았다. 신고 접
 
 ## F24 — Home/Story detail/Changing display
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Changing display/ANALYSIS.md>)
 
 **원본 흐름 목적:** 글자 크기 100→120%, 시스템 테마→Dark, 타인 하이라이트 끄기와 본문 결과를 확인한다.
@@ -794,6 +802,8 @@ Font family 컨트롤은 보이나 선택 목록은 수록되지 않았다. 본�
 
 ## F25 — Home/Story detail/Highlighting a phrase
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Highlighting a phrase/ANALYSIS.md>)
 
 **원본 흐름 목적:** 본문 구절 선택과 Highlight 이후 강조 유지 상태를 확인한다.
@@ -823,6 +833,8 @@ Font family 컨트롤은 보이나 선택 목록은 수록되지 않았다. 본�
 <a id="f26"></a>
 
 ## F26 — Home/Story detail/Listening to a story
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>)
 
@@ -920,6 +932,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F29 — Home/Story detail/Responding to a phrase
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Responding to a phrase/ANALYSIS.md>)
 
 **원본 흐름 목적:** 선택 구절을 인용 카드로 붙여 응답을 작성·등록하는 흐름을 분석한다.
@@ -951,6 +965,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F30 — Home/Story detail/Responses
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/ANALYSIS.md>)
 
 **원본 흐름 목적:** 기사 응답 시트와 정렬 컨트롤, 중첩 답글·긴 응답·추가 답글 표시를 살핀다.
@@ -980,6 +996,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f31"></a>
 
 ## F31 — Home/Story detail/Responses/Commenting a story
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/ANALYSIS.md>)
 
@@ -1011,6 +1029,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F32 — Home/Story detail/Responses/Commenting a story/Deleting a response
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Deleting a response/ANALYSIS.md>)
 
 **원본 흐름 목적:** 본인 응답 메뉴의 Delete response와 삭제 성공 토스트·목록 제거를 확인한다.
@@ -1040,6 +1060,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f33"></a>
 
 ## F33 — Home/Story detail/Responses/Commenting a story/Editing a response
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Commenting a story/Editing a response/ANALYSIS.md>)
 
@@ -1073,6 +1095,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F34 — Home/Story detail/Responses/Medium policy
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 **Parity 3 추가 실행:** [S100→S008→원래 응답/기사 복귀·도구 연결·재검토](../FE_MEDIUM_PARITY_03_RESULT.md)를 새로 수행했다. 초안/선택/정렬/스크롤/포커스 보존은 검증한 mock 정책이며 원본의 미수록 복귀 결과를 확정하지 않는다. 아래 FE 검토는 감사 당시 이력이다. T-F34-01의 S100 전체 보정은 묶음10, T-F34-02의 V21 자산/서체/272 잔여는 묶음3에 유지한다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Medium policy/ANALYSIS.md>)
@@ -1103,6 +1127,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f35"></a>
 
 ## F35 — Home/Story detail/Responses/Replying a response
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Replying a response/ANALYSIS.md>)
 
@@ -1135,6 +1161,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F36 — Home/Story detail/Responses/Sorting responses
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Responses/Sorting responses/ANALYSIS.md>)
 
 **원본 흐름 목적:** Most Relevant와 Most Recent 선택 및 목록 순서 변화를 확인한다.
@@ -1164,6 +1192,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f37"></a>
 
 ## F37 — Home/Story detail/Saving a story
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>)
 
@@ -1195,6 +1225,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 
 ## F38 — Home/Story detail/Sending claps
 
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
+
 [원본 분석](<../../medium/flows/Home/Story detail/Sending claps/ANALYSIS.md>)
 
 **원본 흐름 목적:** 기사에서 박수를 보내고 +16 피드백과 채워진 아이콘을 확인한다.
@@ -1224,6 +1256,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f39"></a>
 
 ## F39 — Home/Story detail/Sharing a story
+
+- **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
 [원본 분석](<../../medium/flows/Home/Story detail/Sharing a story/ANALYSIS.md>)
 

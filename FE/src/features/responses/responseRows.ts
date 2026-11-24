@@ -1,5 +1,26 @@
 import type { ReaderResponse } from './types';
 
+// 선택한 부모 아래의 답글을 함께 강조하되 다른 스레드와 순환 참조로 확장하지 않는다.
+export function getResponseThreadIds(responses: readonly ReaderResponse[], parentId: string | null): ReadonlySet<string> {
+  const selected = new Set<string>();
+  if (!parentId) return selected;
+  const children = new Map<string, string[]>();
+  for (const response of responses) {
+    if (!response.parentId) continue;
+    const group = children.get(response.parentId) ?? [];
+    group.push(response.id);
+    children.set(response.parentId, group);
+  }
+  const pending = [parentId];
+  while (pending.length) {
+    const id = pending.pop();
+    if (!id || selected.has(id)) continue;
+    selected.add(id);
+    pending.push(...children.get(id) ?? []);
+  }
+  return selected;
+}
+
 export type ResponseSort = 'relevant' | 'recent';
 export type ResponseRow =
   | {

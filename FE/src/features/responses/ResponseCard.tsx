@@ -5,6 +5,7 @@ import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ResponseManagement } from './ResponseManagement';
+import { ResponseDate } from './ResponseDate';
 import { useModeration } from '../moderation/ModerationContext';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
@@ -31,6 +32,7 @@ export function ResponseCard({
   onToggleReplies,
   onRequireLogin,
   displayName,
+  active = true,
 }: {
   response: ReaderResponse;
   target: ResponseTarget;
@@ -40,6 +42,7 @@ export function ResponseCard({
   selected?: boolean;
   store: ResponseStore;
   displayName?: string;
+  active?: boolean;
   onReply: () => void;
   onEdit: () => void;
   onDelete: () => void;
@@ -59,12 +62,22 @@ export function ResponseCard({
   const request = useRef(0);
   const mounted = useRef(true);
   const attempt = useRef<{ id: string; active: boolean } | null>(null);
+  const isReacting = useRef(false);
   useEffect(() => {
     mounted.current = true;
     return () => {
       mounted.current = false;
     };
   }, []);
+  // 배경으로 이동한 본문 미리보기의 메뉴와 오류는 다음 진입에 남기지 않는다.
+  useEffect(() => {
+    if (active) return;
+    request.current += 1;
+  }, [active]);
+  if (!active && (menu || reactionError)) {
+    setMenu(false);
+    setReactionError(null);
+  }
   const own = response.authorId === store.userId;
   const profile = useKnownProfile(response.authorId);
   const avatar = responseAvatar(response.authorId);
@@ -75,7 +88,8 @@ export function ResponseCard({
       onRequireLogin();
       return;
     }
-    if (pending) return;
+    if (!active || isReacting.current) return;
+    isReacting.current = true;
     const current =
       retry && attempt.current
         ? attempt.current
@@ -89,8 +103,10 @@ export function ResponseCard({
       id: response.id,
       active: current.active,
     });
-    if (!mounted.current || version !== request.current) return;
+    isReacting.current = false;
+    if (!mounted.current) return;
     setPending(false);
+    if (version !== request.current) return;
     setReactionError(result.ok ? null : result);
   }
   return (
@@ -108,16 +124,14 @@ export function ResponseCard({
       <View style={styles.byline}>
         <ProfileAvatar userId={response.authorId} fallback={avatar} size={32} />
         <View style={styles.flex}>
-          <Text style={styles.name}>
-            {name}
-            {profile?.pronouns.length ? ` ${profile.pronouns.join('/')}` : ''}
-            {own ? '  YOU' : ''}
-          </Text>
-          <Text style={styles.date}>
-            {response.updatedAt
-              ? `${response.dateLabel ?? 'Just now'} (edited)`
-              : (response.dateLabel ?? 'Just now')}
-          </Text>
+          <View style={styles.authorNameRow}>
+            <Text style={styles.name}>
+              {name}
+              {profile?.pronouns.length ? ` ${profile.pronouns.join('/')}` : ''}
+            </Text>
+            {own && <Text accessibilityLabel="내 응답" style={styles.youBadge}>YOU</Text>}
+          </View>
+          <ResponseDate response={response} active={active} style={styles.date} />
         </View>
         {!response.deleted && (
           <View ref={menuAnchor} collapsable={false}>
@@ -132,7 +146,7 @@ export function ResponseCard({
           </View>
         )}
       </View>
-      {menu && (
+      {active && menu && (
         <TopPopover
           title="응답 메뉴"
           onClose={() => setMenu(false)}
@@ -217,6 +231,7 @@ export function ResponseCard({
         <Pressable
           role="button"
           accessibilityLabel={`${expanded ? 'Collapse' : 'Read more'}, ${response.id}`}
+          accessibilityState={{ expanded }}
           style={styles.target}
           onPress={() => setExpanded((value) => !value)}
         >
@@ -252,6 +267,7 @@ export function ResponseCard({
           <Pressable
             role="button"
             accessibilityLabel={`${repliesVisible ? 'Hide' : 'Show'} replies, ${response.id}`}
+            accessibilityState={{ expanded: repliesVisible }}
             style={styles.target}
             onPress={onToggleReplies}
           >
@@ -270,7 +286,7 @@ export function ResponseCard({
           </Pressable>
         )}
       </View>
-      {reactionError && !reactionError.ok && (
+      {active && reactionError && !reactionError.ok && (
         <View>
           <Text role="alert" style={styles.error}>
             댓글 박수를 저장하지 못했어요.
@@ -306,6 +322,16 @@ const createStyles = (colors: ThemeColors) =>
     selected: { backgroundColor: colors.input },
     byline: { flexDirection: 'row', alignItems: 'center', gap: 12 },
     flex: { flex: 1 },
+    authorNameRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
+    youBadge: {
+      fontFamily: fonts.sans,
+      fontSize: 10,
+      lineHeight: 14,
+      color: colors.secondaryText,
+      backgroundColor: colors.input,
+      paddingHorizontal: 4,
+      borderRadius: 3,
+    },
     avatar: {
       width: 32,
       height: 32,

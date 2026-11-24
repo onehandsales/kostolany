@@ -4,6 +4,54 @@ import { visibleResponses } from './responseVisibility';
 import type { ResponseTarget } from './types';
 
 const target: ResponseTarget = { kind: 'article', id: 'example-latest-rates' };
+
+it.each(['parent', 'ancestor'] as const)('답글 전송 중 %s 작성자를 차단하면 소유자에게 숨겨진 스레드의 확정을 거부하고 재시도한다', async blockedLevel => {
+  jest.useFakeTimers();
+  try {
+    let blocked = false;
+    const source = createMockResponseSource({ delayMs: 100, canInteract: (_user, _target, authorId) => !blocked || authorId !== 'example-reader-b' });
+    if (blockedLevel === 'ancestor') {
+      const seeding = source.execute({ userId: 'example-reader', target, operationId: 'seed-child', action: {
+        kind: 'create', id: 'child', parentId: 'mock-owner-response', body: '기존 하위 답글', authorName: 'A',
+      } });
+      await jest.advanceTimersByTimeAsync(100); await seeding;
+    }
+    const reading = source.read({ userId: 'example-reader', target });
+    await jest.advanceTimersByTimeAsync(100);
+    const before = await reading;
+    const command = { userId: 'example-reader', target, operationId: 'reply-after-block', action: {
+      kind: 'create' as const, id: 'new-reply', parentId: blockedLevel === 'parent' ? 'mock-owner-response' : 'child', body: '전송 중 답글', authorName: 'A',
+    } };
+    const result = source.execute(command).then(
+      () => ({ status: 'saved' as const }),
+      (error: unknown) => ({ status: 'failed' as const, error }),
+    );
+    blocked = true;
+    await jest.advanceTimersByTimeAsync(100);
+    expect(await result).toEqual({ status: 'failed', error: new Error('permission') });
+    const checking = source.read({ userId: 'example-reader', target });
+    await jest.advanceTimersByTimeAsync(100);
+    expect(await checking).toEqual(before);
+    blocked = false;
+    const retry = source.execute(command);
+    await jest.advanceTimersByTimeAsync(100);
+    expect((await retry).responses.find(item => item.id === 'new-reply')?.body).toBe('전송 중 답글');
+  } finally { jest.useRealTimers(); }
+});
+it('소유자가 아닌 독자에게 보이는 하위 답글은 상위 작성자 차단만으로 제한하지 않는다', async () => {
+  let blocked = false;
+  const source = createMockResponseSource({ delayMs: 0, canInteract: (_user, _target, authorId) => !blocked || authorId !== 'example-reader-b' });
+  const userId = 'reader-c';
+  await source.execute({ userId, target, operationId: 'seed-child', action: {
+    kind: 'create', id: 'child', parentId: 'mock-owner-response', body: '보이는 하위 답글', authorName: 'C',
+  } });
+  blocked = true;
+  expect(visibleResponses(await source.read({ userId, target }), ['example-reader-b']).some(item => item.id === 'child')).toBe(true);
+  const result = await source.execute({ userId, target, operationId: 'reply-child', action: {
+    kind: 'create', id: 'reply', parentId: 'child', body: '허용된 하위 답글', authorName: 'C',
+  } });
+  expect(result.responses.find(item => item.id === 'reply')?.body).toBe('허용된 하위 답글');
+});
 it('명시한 mock 소유자만 응답 숨김·복구와 토론 종료를 바꾸고 원문·박수를 보존한다', async () => {
   const source = createMockResponseSource({ delayMs: 0 });
   const owner = createResponseStore(source, 'example-reader');

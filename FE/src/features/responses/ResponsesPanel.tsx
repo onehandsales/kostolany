@@ -32,7 +32,7 @@ import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { ResponseQuoteBlock } from './ResponseQuoteBlock';
 import { ResponseCard } from './ResponseCard';
 import { useResponses, useResponseScope } from './ResponseProvider';
-import { responseRows, type ResponseSort } from './responseRows';
+import { responseRows, getResponseThreadIds, type ResponseSort } from './responseRows';
 import {
   RESPONSE_MAX_LENGTH,
   newResponseOperation,
@@ -53,6 +53,7 @@ type ResponsesPanelProps = {
   initialQuote?: ResponseQuote;
   initialFocusId?: string;
   initialPolicy?: boolean;
+  focusComposer?: boolean;
   onClose: () => void;
 };
 
@@ -79,6 +80,7 @@ function ScopedResponsesPanel({
   initialQuote,
   initialFocusId,
   initialPolicy = false,
+  focusComposer = false,
   onClose,
 }: ResponsesPanelProps) {
   const styles = useThemeStyles(createStyles);
@@ -114,6 +116,12 @@ function ScopedResponsesPanel({
   const openPolicyResponses = useReturnFocus(!policyResponses);
   const [announcement, setAnnouncement] = useState('');
   const input = useRef<TextInput>(null);
+  // 단순 목록 열람과 구분하여 명시적인 작성 진입에서만 키보드 포커스를 요청한다.
+  useEffect(() => {
+    if (initialPolicy || !(focusComposer || initialReplyId || initialEditId || initialQuote)) return;
+    const frame = requestAnimationFrame(() => input.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [focusComposer, initialReplyId, initialEditId, initialQuote, initialPolicy]);
   const mounted = useRef(true);
   const generation = useRef(0);
   const repliesIntent = useRef(0);
@@ -139,6 +147,7 @@ function ScopedResponsesPanel({
   const uncapturedCount = state?.value?.discussion === 'hidden' ? 0 : state?.value?.uncapturedCount ?? 0;
   const selectedId = composer.mode === 'edit' ? composer.id : composer.parentId;
   const selected = selectedId ? responses.find((response) => response.id === selectedId) : null;
+  const selectedThread = getResponseThreadIds(responses, composer.mode === 'create' ? composer.parentId : null);
   const invalidTarget = Boolean(selectedId && (!selected || selected.deleted));
   // 알림 대상의 조상 답글만 처음 펼치며 사용자의 후속 펼침 선택을 우선한다.
   const notificationReplies: Record<string, number> = {};
@@ -434,13 +443,16 @@ function ScopedResponsesPanel({
                         depth={item.depth}
                         childCount={item.childCount}
                         repliesVisible={(visibleReplies[item.id] ?? 1) > 0}
-                        selected={selectedId === item.id || initialFocusId === item.id}
+                        selected={selectedId === item.id || selectedThread.has(item.id) || initialFocusId === item.id}
+                        active={!policy}
                         store={store}
                         displayName={profile.state.profile?.name}
                         onRequireLogin={requireLogin}
                         onReply={() => reply(item.response)}
                         onEdit={() => edit(item.response)}
                         onDelete={() => {
+                          // 이전 편집 요청의 결과가 새 삭제 화면의 오류와 안내를 덮지 못하게 한다.
+                          generation.current += 1;
                           setDeleteTarget(item.response);
                           setError(null);
                           attempt.current = null;
@@ -461,8 +473,8 @@ function ScopedResponsesPanel({
                 <View style={styles.composer}>
                   {selectedId && (
                     <View style={styles.composerHeader}>
-                      <Text style={styles.secondary}>
-                        {composer.mode === 'edit' ? 'Editing' : 'Replying to'}{' '}
+                      <Text accessibilityLabel={composer.mode === 'edit' ? '내 응답 편집 중' : undefined} style={styles.secondary}>
+                        Replying to{' '}
                         {selected?.authorName ?? 'response'}
                       </Text>
                       <Pressable
@@ -478,14 +490,14 @@ function ScopedResponsesPanel({
                   {quote && (
                     <View style={styles.composerHeader}>
                       <ResponseQuoteBlock text={quote.text} compact />
-                      <IconButton
+                      {composer.mode === 'create' && <IconButton
                         icon="close"
                         label="인용 제거"
                         onPress={() => {
                           generation.current += 1;
                           setQuote(undefined);
                         }}
-                      />
+                      />}
                     </View>
                   )}
                   {invalidTarget && (
@@ -591,6 +603,7 @@ function ScopedResponsesPanel({
                     accessibilityState={{ disabled: pending }}
                     style={styles.action}
                     onPress={() => {
+                      generation.current += 1;
                       setDeleteTarget(null);
                       setError(null);
                       attempt.current = null;
