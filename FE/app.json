@@ -32,7 +32,19 @@
         }
       ],
       "./plugins/withAppIcons",
-      "expo-system-ui"
+      "expo-system-ui",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000",
+          "image": "./assets/start-wordmark.png",
+          "imageWidth": 308,
+          "resizeMode": "contain",
+          "android": {
+            "imageWidth": 200
+          }
+        }
+      ]
     ],
     "android": {
       "blockedPermissions": [

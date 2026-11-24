@@ -21,17 +21,20 @@ export function AppIconScreen({ active, onBack }: { active: boolean; onBack: () 
   const [feedback, setFeedback] = useState<'idle' | 'success' | 'failed'>('idle');
   const [upgrade, setUpgrade] = useState(false);
   const live = useRef(false);
+  const generation = useRef(0);
   const styles = useThemeStyles(createStyles);
   const entitled = membership?.allows('custom-icon') ?? false;
   const selected = entitled
     ? (choice ?? state.device?.applied ?? 'wordmark-black')
     : (state.device?.applied ?? 'wordmark-black');
   useLayoutEffect(() => {
+    generation.current += 1;
     live.current = active;
     return () => {
+      generation.current += 1;
       live.current = false;
     };
-  }, [active, services.scope]);
+  }, [active, services.scope, entitled]);
   useEffect(() => {
     if (active) void services.icons.refresh();
   }, [active, services.icons]);
@@ -43,11 +46,14 @@ export function AppIconScreen({ active, onBack }: { active: boolean; onBack: () 
     if (!active) setUpgrade(false);
   }
   async function apply() {
+    const request = generation.current;
     const result = await services.icons.apply(
       selected,
       () => live.current && Boolean(membership?.allows('custom-icon')),
     );
-    if (live.current && membership?.isCurrent()) setFeedback(result === 'applied' ? 'success' : 'failed');
+    // 기기의 확정값은 store에 남기되 이전 화면·자격의 안내를 다시 열지 않는다.
+    if (request === generation.current && live.current && membership?.isCurrent())
+      setFeedback(result === 'applied' ? 'success' : 'failed');
   }
   return (
     <>
@@ -170,7 +176,8 @@ const createStyles = (colors: ThemeColors) =>
     cardContent: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 10 },
     locked: { opacity: 0.45 },
     image: { width: 48, height: 48, borderRadius: 9 },
-    label: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: colors.text, textAlign: 'center' },
+    label: { alignSelf: 'stretch', maxWidth: '100%', flexShrink: 1,
+      fontFamily: fonts.sans, fontSize: 14, lineHeight: 18, color: colors.text, textAlign: 'center' },
     note: { fontFamily: fonts.sans, color: colors.secondaryText, fontSize: 13, lineHeight: 19 },
     error: { color: colors.destructive, fontSize: 14, lineHeight: 20 },
     footer: { paddingHorizontal: 24, paddingVertical: 12, backgroundColor: colors.background },

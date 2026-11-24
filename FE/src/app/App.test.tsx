@@ -1,16 +1,28 @@
-import { act, render, screen, userEvent, within } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent, within } from '@testing-library/react-native';
 import { BackHandler } from 'react-native';
 
 import App from '../../App';
 
 async function renderApp() {
   await render(<App />);
+  await fireEvent(screen.getByTestId('startup-content', { includeHiddenElements: true }), 'layout');
+  await fireEvent(screen.getByLabelText('Medium'), 'loadEnd');
   await screen.findByRole('button', { name: /^How to \*really\*/ });
 }
 
 const mainMenu = () => within(screen.getByLabelText('주요 메뉴'));
 
 describe('App tab navigation', () => {
+  it('시작 자산과 첫 배치가 준비되기 전에는 홈을 조작할 수 없고 준비 뒤 원래 홈으로 전환한다', async () => {
+    await render(<App />);
+    expect(screen.getByLabelText('브랜드 시작 화면')).toBeVisible();
+    expect(screen.queryByRole('tab', { name: '홈' })).toBeNull();
+    await fireEvent(screen.getByTestId('startup-content', { includeHiddenElements: true }), 'layout');
+    expect(screen.getByLabelText('브랜드 시작 화면')).toBeVisible();
+    await fireEvent(screen.getByLabelText('Medium'), 'loadEnd');
+    expect(await screen.findByRole('tab', { name: '홈' })).toBeVisible();
+    expect(screen.queryByLabelText('브랜드 시작 화면')).toBeNull();
+  });
   it('opens Home with four named tabs and exactly one selected tab', async () => {
     await renderApp();
 

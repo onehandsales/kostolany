@@ -171,6 +171,26 @@ it('source 교체·화면 이탈 뒤 늦은 외부 실패와 미지원 아이콘
   expect(screen.getByText(/OS 앱 아이콘 변경을 지원하지/)).toBeVisible();
 });
 
+it.each(['success', 'failure'] as const)('아이콘 적용 중 탭 이탈·복귀 후 늦은 %s는 이전 결과 안내를 열지 않는다', async outcome => {
+  const { user, icons } = await setup();
+  await user.press(button('Custom app icon')); await flush();
+  await user.press(button('앱 아이콘 Friend 잠금 해제'));
+  await user.press(button('Friend 모의 선택')); await flush();
+  await user.press(button('멤버십 성공 확인')); await user.press(button('멤버십 완료 후 돌아가기'));
+  const pending = deferred<DeviceIcon>();
+  jest.spyOn(icons, 'apply').mockImplementation(() => pending.promise);
+  await user.press(screen.getByRole('radio', { name: '앱 아이콘 Friend Tier' }));
+  await user.press(button('선택한 앱 아이콘 적용'));
+  await user.press(screen.getByRole('tab', { name: '홈' }));
+  await user.press(screen.getByRole('tab', { name: '프로필' }));
+  expect(screen.getByRole('heading', { name: 'Custom app icon' })).toBeVisible();
+  await act(async () => { if (outcome === 'success') pending.resolve({ supported: true, applied: 'friend' });
+    else pending.reject(new Error('old-device-request')); });
+  expect(screen.queryByText(/기기가 아이콘 변경을 확인/)).toBeNull();
+  expect(screen.queryByText(/적용을 확인하지 못했어요/)).toBeNull();
+  expect(screen.getByText(`기기 적용: ${outcome === 'success' ? 'Friend Tier' : 'Wordmark Black'}`)).toBeVisible();
+});
+
 it('연결 저장 중 A→B→A와 같은 계정 재로그인은 이전 확인·오류·미확정 연결을 되살리지 않는다', async () => {
   const { user, auth, connections } = await setup();
   const delayed = deferred<void>();
