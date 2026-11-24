@@ -6,14 +6,16 @@ export type ListeningSeekProps = {
   positionSeconds: number;
   durationSeconds: number;
   onSeek: (seconds: number) => void;
+  onSkip: (seconds: number) => void;
   children: ReactNode;
 };
-export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, children }: ListeningSeekProps) {
+export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, onSkip, children }: ListeningSeekProps) {
   const width = useRef(1);
   return (
     <Pressable
       role="slider"
       accessibilityLabel="재생 위치"
+      accessibilityState={{ disabled: durationSeconds <= 0 }}
       accessibilityValue={{
         min: 0,
         max: durationSeconds,
@@ -25,8 +27,9 @@ export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, childr
         { name: 'decrement', label: '10초 뒤로' },
       ]}
       onAccessibilityAction={({ nativeEvent }) => {
-        if (nativeEvent.actionName === 'increment') onSeek(positionSeconds + 30);
-        if (nativeEvent.actionName === 'decrement') onSeek(positionSeconds - 10);
+        if (durationSeconds <= 0) return;
+        if (nativeEvent.actionName === 'increment') onSkip(30);
+        if (nativeEvent.actionName === 'decrement') onSkip(-10);
       }}
       disabled={durationSeconds <= 0}
       onLayout={(event) => {

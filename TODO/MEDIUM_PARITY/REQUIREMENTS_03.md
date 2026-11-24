@@ -151,6 +151,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s055"></a>
 
 ## S055 — 확장 오디오 플레이어
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 10/30 상대 이동·재생 누락 수정.280/5/1 독립 입력, 이전/다음 비활성은 자체 정책. 공통 플레이어 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_45ddcc1f43a54523a1314ce563abf5ee` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/04_sc_45ddcc1f43a54523a1314ce563abf5ee.png>)
 

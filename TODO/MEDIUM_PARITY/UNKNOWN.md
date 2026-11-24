@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns). 15개 U 원본 질문을 보존하고 자체 mock·외부 제외·원본 근거 대기를 분리했다. 발행 Listen 미지원과 시간/자산 차이는 알려진 구현/비교 잔여이며 원본 미확인이나 기기 대기로 대체하지 않는다.
+
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). U-S012/S122/F25/F29의 원본 미수록은 유지한다. 선택 중 강조 전달 누락은 수정했지만 native 연속 선택/정확 플로팅은 알려진 구현 잔여이며 미확인이나 기기 대기로 바꾸지 않는다.
 
 **Parity10 질문별 판정(2026-11-24):** [43 U의 자체 정책/근거 대기/담당](../FE_MEDIUM_PARITY_10_RESULT.md#unknowns). 원본 질문을 보존하고 mock 검증으로 닫지 않았다. 알려진 자산/fixture 차이·브라우저 차단·기기 대기는 별도 분류한다.9의 Q04/Q06 등 잔여는9 소유이며10으로 이전하지 않는다.
@@ -37,6 +39,8 @@
 <a id="u-s003"></a>
 
 ### U-S003
+- **Parity12 판정:** AirPlay 제외. metadata 적용 mock 검증, 실제 음성 전환 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):111
 - 미확인 내용: AirPlay 연결·음성 전환 결과
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -150,6 +154,8 @@
 <a id="u-s016"></a>
 
 ### U-S016
+- **Parity12 판정:** 0.5~4/0.5단계는 mock. 원본 범위/증분·WPM 공식 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):109
 - 미확인 내용: 최소·최대·증분·WPM 계산
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -410,6 +416,8 @@
 <a id="u-s046"></a>
 
 ### U-S046
+- **Parity12 판정:** 목록/선택 구현과 실제 발화·언어 미확인 분리. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):142
 - 미확인 내용: 실제 전환 후 음성·언어 지원 범위
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -444,6 +452,8 @@
 <a id="u-s050"></a>
 
 ### U-S050
+- **Parity12 판정:** mock background pause, 원본 출력/지속 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):140
 - 미확인 내용: 실제 음성 출력·백그라운드 지속
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -485,6 +495,8 @@
 <a id="u-s055"></a>
 
 ### U-S055
+- **Parity12 판정:** mock seek/큐 비활성과 원본 길이·탐색·다음 조건 미확인 분리. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):171
 - 미확인 내용: 음원 실제 길이·탐색·다음 기사 조건
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -774,6 +786,8 @@
 <a id="u-s088"></a>
 
 ### U-S088
+- **Parity12 판정:** 세션/close 옵션 수명은 mock, 원본 발화/영속성 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):202
 - 미확인 내용: 실제 오디오 발화·설정 영속성
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1135,6 +1149,8 @@
 <a id="u-s128"></a>
 
 ### U-S128
+- **Parity12 판정:** delay/retry/gate는 mock, 원본 생성/다운로드/권한 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):110
 - 미확인 내용: 음원 생성·다운로드·권한 단계
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1160,6 +1176,8 @@
 <a id="u-s131"></a>
 
 ### U-S131
+- **Parity12 판정:** 관찰490 WPM/145% 유지, 즉시 적용/계산 근거 미확인. mock은 Done 확정. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):140
 - 미확인 내용: 안내 수치 근거·즉시 적용 여부
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1244,6 +1262,8 @@
 <a id="u-s141"></a>
 
 ### U-S141
+- **Parity12 판정:** 270초 합성 입력, 기본280과 다름. 원본 잔여/위치 원인 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):170
 - 미확인 내용: 남은 시간 계산·위치 재설정 원인
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1357,6 +1377,8 @@
 <a id="u-s154"></a>
 
 ### U-S154
+- **Parity12 판정:** 번역 의미와 잘린 화면 밖 목록 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):172
 - 미확인 내용: 선택 음성이 기사 번역을 의미하는지는 미확인
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1410,6 +1432,8 @@
 <a id="u-s160"></a>
 
 ### U-S160
+- **Parity12 판정:** mock 경과/seek 지원, 원본40초 원인 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):201
 - 미확인 내용: 경과가 자연 재생인지 탐색 입력인지
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1688,6 +1712,8 @@
 <a id="u-s192"></a>
 
 ### U-S192
+- **Parity12 판정:** 원본 음성 이름 없음, 실제 적용 청취 근거 필요.287초 합성 입력은 실제 길이 아님. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):233
 - 미확인 내용: 선택 음성 이름이 안 보여 실제 적용은 청취 필요
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1993,6 +2019,8 @@
 <a id="u-f26"></a>
 
 ### U-F26
+- **Parity12 판정:** pause/close/seek/failure/gate는 자체 계약. 원본 background/offline/queue 미확인, 실음성/음원 다운로드 제외. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - **Parity10:** Listen 진입의 기존 연결만10. 플레이어/속도/보이스·큐12, 플랫폼21, 외부 오디오Q08. 이번 완료 아님. [근거·종료 조건](../FE_MEDIUM_PARITY_10_RESULT.md#unknowns).
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):244
 - 미확인 내용: 일시정지·닫기·스크럽·백그라운드·오프라인·재생 실패·권한 게이트·재생 큐.
@@ -2002,6 +2030,8 @@
 <a id="u-f27"></a>
 
 ### U-F27
+- **Parity12 판정:** 취소/재진입/기사 간 확정 유지·범위는 자체 계약. 원본 정책/실제 발화 속도 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):211
 - 미확인 내용: 최소·최대·증분·취소·다른 글/재진입 유지, 실제 발화 속도.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -2010,6 +2040,8 @@
 <a id="u-f28"></a>
 
 ### U-F28
+- **Parity12 판정:** 검색/빈/오류·Hans/Done·재진입은 mock. 원본 미리듣기/검색/실패/유지/언어·번역 미확인. [근거·담당12/Q03·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#unknowns).
+
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):278
 - 미확인 내용: 음성 검색·미리 듣기·실패·재진입 유지, 본문 언어와 번역 지원 구분.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료

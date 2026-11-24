@@ -78,6 +78,8 @@ FE 조사 경로: [ModerationDialogs.tsx](<../../FE/src/features/moderation/Mode
 <a id="s128"></a>
 
 ## S128 — 오디오 로딩
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 상단/미니 로딩·닫기와 늦은 준비/권한 철회 격리 검증. 실제 생성/다운로드/권한 순서 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_b43c7474098746baa684870217c28927` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):87 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/02_sc_b43c7474098746baa684870217c28927.png>)
 
@@ -177,6 +179,8 @@ FE 조사 경로: [PublicIdentityScreen.tsx](<../../FE/src/features/community/Pu
 <a id="s131"></a>
 
 ## S131 — 재생 속도 2.5배 선택
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 연속 증가3회의2.5배/490 WPM 누락 수정.145% 관찰 문구, Done 확정은 mock, 공식 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_b6f46f91fdc549b790b4e9c1a434afae` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/03_sc_b6f46f91fdc549b790b4e9c1a434afae.png>)
 
@@ -535,6 +539,8 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 <a id="s141"></a>
 
 ## S141 — 2.5배 재생 표시
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 270/10/2.5 독립 입력으로00:10/-01:44 검증. 실제 길이 확정 아님, 기본280/시계와 실제 렌더 차이 유지. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_c0fd5f5f29594fb997865177863b9482` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/04_sc_c0fd5f5f29594fb997865177863b9482.png>)
 

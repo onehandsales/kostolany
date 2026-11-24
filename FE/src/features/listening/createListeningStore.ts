@@ -124,6 +124,19 @@ export function createListeningStore(
     optionsRequest = null;
     if (snapshot.optionsStatus !== 'idle') publish({ ...snapshot, optionsStatus: 'idle' });
   }
+  function seek(positionSeconds: number) {
+    if (!active || !Number.isFinite(positionSeconds) || !snapshot.story || snapshot.durationSeconds <= 0)
+      return;
+    const nextPosition = Math.max(0, Math.min(snapshot.durationSeconds, positionSeconds));
+    const wasPlaying = snapshot.status === 'playing';
+    stopTimer();
+    publish({
+      ...snapshot,
+      positionSeconds: nextPosition,
+      status: nextPosition === snapshot.durationSeconds ? 'ended' : wasPlaying ? 'playing' : 'paused',
+    });
+    if (snapshot.status === 'playing') startTimer();
+  }
   async function setOptions(options: ListeningOptions): Promise<boolean> {
     if (!active || !snapshot.story || snapshot.durationSeconds <= 0) return false;
     cancelOptions();
@@ -194,18 +207,16 @@ export function createListeningStore(
       if (active && snapshot.status === 'error') void prepare(snapshot.story);
     },
     setPlaying,
-    seek(positionSeconds: number) {
-      if (!active || !Number.isFinite(positionSeconds) || !snapshot.story || snapshot.durationSeconds <= 0)
-        return;
-      const nextPosition = Math.max(0, Math.min(snapshot.durationSeconds, positionSeconds));
-      const wasPlaying = snapshot.status === 'playing';
-      stopTimer();
-      publish({
-        ...snapshot,
-        positionSeconds: nextPosition,
-        status: nextPosition === snapshot.durationSeconds ? 'ended' : wasPlaying ? 'playing' : 'paused',
-      });
-      if (snapshot.status === 'playing') startTimer();
+    // 연속 입력은 화면에 남은 이전 상태 대신 현재 저장소 상태에 적용한다.
+    togglePlaying() {
+      setPlaying(snapshot.status !== 'playing');
+    },
+    seek,
+    skip(offsetSeconds: number) {
+      if (!active || !Number.isFinite(offsetSeconds)) return;
+      // 마지막 화면 갱신 이후 흐른 시간도 반영한 뒤 상대 이동을 누적한다.
+      updatePosition();
+      seek(snapshot.positionSeconds + offsetSeconds);
     },
     setExpanded(expanded: boolean) {
       if (active && snapshot.story) publish({ ...snapshot, expanded });

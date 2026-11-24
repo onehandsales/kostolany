@@ -736,6 +736,8 @@ FE 조사 경로: [ReadingHistoryList.tsx](<../../FE/src/features/reading-histor
 <a id="s046"></a>
 
 ## S046 — 음성 선택 목록
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). Emma·검색·국기/이름/성별/국가와 선택/실패 확인. 실제 음성·언어와 원본 검색 결과 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_3b3db04094fe4a189b31e66c28971bcd` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):118 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/03_sc_3b3db04094fe4a189b31e66c28971bcd.png>)
 
@@ -875,6 +877,8 @@ FE 조사 경로: [PublicIdentityScreen.tsx](<../../FE/src/features/community/Pu
 <a id="s050"></a>
 
 ## S050 — 미니 플레이어 재생 상태
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 상단/미니 pause·close·확장과 최신 상태 toggle 검증. Mock 안내·높이/긴 제목 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_40448a752ea64391a724af01b1e050f1` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/03_sc_40448a752ea64391a724af01b1e050f1.png>)
 

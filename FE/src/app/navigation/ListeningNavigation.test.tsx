@@ -15,6 +15,8 @@ import {
 } from '../../features/listening/listeningOptions';
 import { createMockListeningSource } from '../../features/listening/createMockListeningSource';
 import { createMockModerationSource } from '../../features/moderation/data/createMockModerationSource';
+import { createMockMembershipSource } from '../../features/membership/createMockMembershipSource';
+import type { MembershipSource, MembershipRecord } from '../../features/membership/types';
 import type { ListeningSource, ListeningRecording } from '../../features/listening/types';
 import { deferred } from '../../features/feed/tests/helpers';
 import { SessionNavigation } from './AppNavigator';
@@ -41,6 +43,7 @@ function AuthProbe({ capture }: { capture: (store: AuthStore) => void }) {
 async function setup(
   source: ListeningSource = createMockListeningSource({ delayMs: 10 }),
   optionsSource?: ListeningOptionsSource,
+  membershipSource?: MembershipSource,
 ) {
   let auth: AuthStore | undefined;
   const authSource = createMockAuthSource({ delayMs: 0 });
@@ -62,6 +65,7 @@ async function setup(
           listeningSource={current}
           listeningOptionsSource={optionsSource}
           moderationSource={moderationSource}
+          membershipSource={membershipSource}
         />
         <AuthProbe
           capture={(value) => {
@@ -90,18 +94,32 @@ it('실제 Listen→미니→확장·시간 이동·접기·탭 복귀·View sto
   expect(button('Listen 일시정지')).toBeVisible();
   await user.press(button(/^플레이어 확장:/));
   await user.press(button('확장 플레이어 일시정지'));
+  await act(async () => {
+    await fireEvent.press(button('확장 플레이어 재생'));
+    await fireEvent.press(button('확장 플레이어 재생'));
+  });
+  expect(button('확장 플레이어 재생')).toBeVisible();
   const before = screen.getByRole('slider', { name: '재생 위치' }).props.accessibilityValue.now;
-  await user.press(button('30초 앞으로'));
-  expect(screen.getByRole('slider', { name: '재생 위치' }).props.accessibilityValue.now).toBe(before + 30);
+  // 같은 렌더에서 연속 전달된 조작도 마지막 저장소 위치에 누적해야 한다.
+  await act(async () => {
+    await fireEvent.press(button('30초 앞으로'));
+    await fireEvent.press(button('30초 앞으로'));
+  });
+  expect(screen.getByRole('slider', { name: '재생 위치' }).props.accessibilityValue.now).toBe(before + 60);
   await user.press(button('10초 뒤로'));
-  expect(screen.getByRole('slider', { name: '재생 위치' }).props.accessibilityValue.now).toBe(before + 20);
+  expect(screen.getByRole('slider', { name: '재생 위치' }).props.accessibilityValue.now).toBe(before + 50);
   await fireEvent(screen.getByRole('slider'), 'layout', { nativeEvent: { layout: { width: 300 } } });
   await fireEvent.press(screen.getByRole('slider'), { nativeEvent: { locationX: 150 } });
   expect(screen.getByRole('slider').props.accessibilityValue.now).toBe(140);
-  await fireEvent(screen.getByRole('slider'), 'accessibilityAction', {
-    nativeEvent: { actionName: 'increment' },
+  await act(async () => {
+    await fireEvent(screen.getByRole('slider'), 'accessibilityAction', {
+      nativeEvent: { actionName: 'increment' },
+    });
+    await fireEvent(screen.getByRole('slider'), 'accessibilityAction', {
+      nativeEvent: { actionName: 'increment' },
+    });
   });
-  expect(screen.getByRole('slider').props.accessibilityValue.now).toBe(170);
+  expect(screen.getByRole('slider').props.accessibilityValue.now).toBe(200);
   await user.press(button('플레이어 더보기'));
   await user.press(button('View story'));
   expect(button('미니 플레이어 재생')).toBeVisible();
@@ -218,10 +236,12 @@ it('속도 선택 취소·실패 재시도와 음성 검색·선택·Done은 같
   await user.press(button(/^플레이어 확장:/));
   await user.press(button('확장 플레이어 일시정지'));
   await user.press(button('재생 속도 1배'));
-  for (let i = 0; i < 3; i++)
-    await fireEvent(screen.getByRole('slider', { name: '재생 속도' }), 'accessibilityAction', {
-      nativeEvent: { actionName: 'increment' },
-    });
+  await act(async () => {
+    for (let i = 0; i < 3; i++)
+      await fireEvent(screen.getByRole('slider', { name: '재생 속도' }), 'accessibilityAction', {
+        nativeEvent: { actionName: 'increment' },
+      });
+  });
   expect(screen.getByText('490 WPM')).toBeVisible();
   await user.press(button('Select Speed 취소'));
   expect(button('재생 속도 1배')).toBeVisible();
@@ -292,7 +312,7 @@ it('속도 선택 취소·실패 재시도와 음성 검색·선택·Done은 같
 });
 
 it.each(['success', 'failure'] as const)(
-  '음성 적용 중 A→B 전환 뒤 늦은 %s가 설정·플레이어를 노출하지 않는다',
+  '음성 적용 중 A→B→A 전환 뒤 늦은 %s가 설정·플레이어를 노출하지 않는다',
   async (outcome) => {
     const pending = deferred<{ speed: number; voiceId: string }>();
     const optionsSource = createMockListeningOptionsSource({ delayMs: 0 });
@@ -317,14 +337,17 @@ it.each(['success', 'failure'] as const)(
       await auth.signIn(mockUserB.id);
     });
     await flush();
+    expect(screen.queryByLabelText('오디오 플레이어')).toBeNull();
+    await act(async () => {
+      auth.openLogout();
+      await auth.signOut();
+      auth.openLogin({ kind: 'profile' });
+      await auth.signIn(mockUserA.id);
+    });
+    await flush();
     if (outcome === 'success') await act(async () => pending.resolve({ speed: 1, voiceId: 'hans' }));
     else await act(async () => pending.reject(new Error('late A')));
     expect(screen.queryByLabelText('오디오 플레이어')).toBeNull();
-    await user.press(button('Listen'));
-    await user.press(button('Member 모의 선택'));
-    await flush();
-    await user.press(button('멤버십 성공 확인'));
-    await user.press(button('멤버십 완료 후 돌아가기'));
     await user.press(button('Listen'));
     await flush();
     await user.press(button(/^플레이어 확장:/));
@@ -334,3 +357,56 @@ it.each(['success', 'failure'] as const)(
     expect(screen.getByRole('radio', { name: 'Emma, Female, United States' })).toBeChecked();
   },
 );
+
+it.each(['success', 'failure'] as const)('옵션 확정 중 취소·재진입 뒤 늦은 %s는 새 시트를 닫거나 변경하지 않는다', async outcome => {
+  const pending = deferred<{ speed: number; voiceId: string }>();
+  const optionsSource = createMockListeningOptionsSource({ delayMs: 0 });
+  optionsSource.apply = jest.fn(() => pending.promise);
+  const { user } = await setup(undefined, optionsSource);
+  await user.press(button(/^ChatGPT Is Poisoning/));
+  await flush();
+  await user.press(button('Listen'));
+  await flush();
+  await user.press(button(/^플레이어 확장:/));
+  await user.press(button('재생 속도 1배'));
+  await fireEvent(screen.getByRole('slider', { name: '재생 속도' }), 'accessibilityAction', {
+    nativeEvent: { actionName: 'increment' },
+  });
+  await act(async () => {
+    await fireEvent.press(button('Select Speed Done'));
+    await fireEvent.press(button('Select Speed Done'));
+  });
+  expect(optionsSource.apply).toHaveBeenCalledTimes(1);
+  await user.press(button('Select Speed 취소'));
+  await user.press(button('재생 속도 1배'));
+  await act(async () => {
+    if (outcome === 'success') pending.resolve({ speed: 1.5, voiceId: 'emma' });
+    else pending.reject(new Error('late cancelled options'));
+  });
+  expect(screen.getByRole('heading', { name: 'Select Speed' })).toBeVisible();
+  expect(screen.getByText('200 WPM')).toBeVisible();
+  expect(screen.queryByRole('alert')).toBeNull();
+});
+
+it.each(['loading', 'playing'] as const)('%s 중 멤버십 철회는 플레이어를 닫고 늦은 준비 완료나 권한 복구로 부활하지 않는다', async state => {
+  const base = createMockMembershipSource({ delayMs: 0 });
+  const originalRecords = base.getSnapshot();
+  let records: readonly MembershipRecord[] = originalRecords;
+  const listeners = new Set<() => void>();
+  const membershipSource: MembershipSource = {
+    ...base, getSnapshot: () => records,
+    subscribe(listener) { listeners.add(listener); return () => { listeners.delete(listener); }; },
+  };
+  const pending = deferred<ListeningRecording>();
+  const { user } = await setup(() => pending.promise, undefined, membershipSource);
+  await user.press(button(/^ChatGPT Is Poisoning/));
+  await flush();
+  await user.press(button('Listen'));
+  if (state === 'playing') await act(async () => pending.resolve({ articleId: 'medium-brain', durationSeconds: 280, mode: 'silent-mock' }));
+  await act(async () => { records = []; listeners.forEach(listener => listener()); });
+  expect(screen.queryByRole('button', { name: /^플레이어 확장:/ })).toBeNull();
+  await act(async () => pending.resolve({ articleId: 'medium-brain', durationSeconds: 280, mode: 'silent-mock' }));
+  await flush();
+  await act(async () => { records = originalRecords; listeners.forEach(listener => listener()); });
+  expect(screen.queryByRole('button', { name: /^플레이어 확장:/ })).toBeNull();
+});

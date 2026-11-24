@@ -599,6 +599,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s192"></a>
 
 ## S192 — 음성 선택 후 플레이어
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 287/20/1/Hans 합성 입력 검증. 원본 음성 이름 미표시, 실제 적용·길이 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_f637c648d6ec470a81cf77e5594e02da` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):209 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/06_sc_f637c648d6ec470a81cf77e5594e02da.png>)
 

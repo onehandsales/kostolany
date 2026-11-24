@@ -110,6 +110,8 @@ FE 조사 경로: [StoryStatsScreen.tsx](<../../FE/src/features/story-stats/Stor
 <a id="s154"></a>
 
 ## S154 — 언어별 음성 목록 스크롤
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 기존6그룹15음성 대조. 화면 밖 목록·번역 미확인, 실제 스크롤/키보드 대기. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_ca2321d6dc9142e5a97e2734260c2b0f` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):149 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/04_sc_ca2321d6dc9142e5a97e2734260c2b0f.png>)
 
@@ -313,6 +315,8 @@ FE 조사 경로: [MembershipSheet.tsx](<../../FE/src/features/membership/Member
 <a id="s160"></a>
 
 ## S160 — 재생 진행 상태
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 280/40/1 독립 입력과 이동 경계 검증.40초 원본 자연 경과/seek 구분 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_d035c7d2bcfe4d0f99df80fddecebdcd` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>):178 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/05_sc_d035c7d2bcfe4d0f99df80fddecebdcd.png>)
 

@@ -78,6 +78,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s003"></a>
 
 ## S003 — 플레이어 더보기
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 6행 메뉴 목적지/복귀 자동 검증. AirPlay 실제 전송 제외. 팝오버/자산 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_0414c81870534989959d677ecede926c` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):88 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/02_sc_0414c81870534989959d677ecede926c.png>)
 
@@ -561,6 +563,8 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 <a id="s016"></a>
 
 ## S016 — 재생 속도 선택 초기
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 1x/200 WPM·Done/Cancel·초안 수명 확인. slider/큰 글자 실제 화면 대기, 범위/WPM 공식 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_1965b9529b534e1597968039af1415b1` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/02_sc_1965b9529b534e1597968039af1415b1.png>)
 

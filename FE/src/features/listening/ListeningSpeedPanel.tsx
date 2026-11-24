@@ -17,6 +17,14 @@ export function ListeningSpeedPanel({ onClose }: { onClose: () => void }) {
     },
     [store],
   );
+  const adjustSpeed = useCallback(
+    (offset: number) => {
+      if (store?.getSnapshot().optionsStatus === 'saving') return;
+      // 연속 접근성 입력도 같은 초안의 마지막 선택에 누적한다.
+      setSpeed((current) => Math.max(0.5, Math.min(4, current + offset)));
+    },
+    [store],
+  );
   const [trackHeight, setTrackHeight] = useState(600);
   const [bubbleHeight, setBubbleHeight] = useState(48);
   const { height } = useWindowDimensions();
@@ -38,7 +46,12 @@ export function ListeningSpeedPanel({ onClose }: { onClose: () => void }) {
           ))}
         </View>
         <View style={styles.sliderArea} onLayout={(event) => setTrackHeight(event.nativeEvent.layout.height)}>
-          <SpeedSlider value={speed} onChange={selectSpeed} disabled={snapshot.optionsStatus === 'saving'}>
+          <SpeedSlider
+            value={speed}
+            onChange={selectSpeed}
+            onAdjust={adjustSpeed}
+            disabled={snapshot.optionsStatus === 'saving'}
+          >
             <View style={styles.track} />
             <View style={[styles.filledTrack, { height: `${fraction * 100}%` }]} />
             <View style={[styles.knob, { top: `${(1 - fraction) * 100}%` }]} />

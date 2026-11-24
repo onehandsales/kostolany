@@ -439,6 +439,8 @@ FE 조사 경로: [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEdi
 <a id="s088"></a>
 
 ## S088 — Hans 음성 선택
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). Hans·Done/취소·재진입·늦은 응답 검증. 실제 발화·원본 영속성 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 안정 원본 ID: `sc_78bee192bd2041a98f6721240f2352d5` · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>):179 · [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/05_sc_78bee192bd2041a98f6721240f2352d5.png>)
 

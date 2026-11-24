@@ -5,10 +5,11 @@ import { speedAtFraction } from './listeningOptions';
 export type SpeedSliderProps = {
   value: number;
   onChange: (speed: number) => void;
+  onAdjust: (offset: number) => void;
   children: ReactNode;
   disabled?: boolean;
 };
-export function SpeedSlider({ value, onChange, children, disabled }: SpeedSliderProps) {
+export function SpeedSlider({ value, onChange, onAdjust, children, disabled }: SpeedSliderProps) {
   const [height, setHeight] = useState(1);
   const responder = useMemo(
     () =>
@@ -32,7 +33,7 @@ export function SpeedSlider({ value, onChange, children, disabled }: SpeedSlider
       onAccessibilityAction={({ nativeEvent }) => {
         if (disabled) return;
         if (nativeEvent.actionName === 'increment' || nativeEvent.actionName === 'decrement')
-          onChange(Math.max(0.5, Math.min(4, value + (nativeEvent.actionName === 'increment' ? 0.5 : -0.5))));
+          onAdjust(nativeEvent.actionName === 'increment' ? 0.5 : -0.5);
       }}
       onLayout={(event) => {
         setHeight(Math.max(1, event.nativeEvent.layout.height));

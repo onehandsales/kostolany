@@ -837,6 +837,8 @@ Font family 컨트롤은 보이나 선택 목록은 수록되지 않았다. 본�
 <a id="f26"></a>
 
 ## F26 — Home/Story detail/Listening to a story
+- **Parity12 최신:** [원본 전체 단계·navigation 자동 검사·한계](../FE_MEDIUM_PARITY_12_RESULT.md#source-review). 기사 진입/로딩/미니·확장/속도·음성/복귀를 대조했다. 원본 미수록은 mock 정책과 구분하며 실제 브라우저·기기/시각 종료는 미충족이다.
+
 
 - **Parity10:** 이 흐름의 배정 T와 연결 맥락을 [원본/코드/검사 표](../FE_MEDIUM_PARITY_10_RESULT.md#source-review)에 연결했다. 다른 묶음의 자식 기능과 원본 미수록 결과는 별도 담당이며 실제 웹 검증은 차단이다.
 
@@ -871,6 +873,8 @@ Font family 컨트롤은 보이나 선택 목록은 수록되지 않았다. 본�
 <a id="f27"></a>
 
 ## F27 — Home/Story detail/Listening to a story/Changing playback speed
+- **Parity12 최신:** [원본 전체 단계·navigation 자동 검사·한계](../FE_MEDIUM_PARITY_12_RESULT.md#source-review). 기사 진입/로딩/미니·확장/속도·음성/복귀를 대조했다. 원본 미수록은 mock 정책과 구분하며 실제 브라우저·기기/시각 종료는 미충족이다.
+
 
 [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>)
 
@@ -902,6 +906,8 @@ WPM과 생산성 안내는 화면 표시값이다. 재생 위치가 달라진 �
 <a id="f28"></a>
 
 ## F28 — Home/Story detail/Listening to a story/Changing voice
+- **Parity12 최신:** [원본 전체 단계·navigation 자동 검사·한계](../FE_MEDIUM_PARITY_12_RESULT.md#source-review). 기사 진입/로딩/미니·확장/속도·음성/복귀를 대조했다. 원본 미수록은 mock 정책과 구분하며 실제 브라우저·기기/시각 종료는 미충족이다.
+
 
 [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>)
 

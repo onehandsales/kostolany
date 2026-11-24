@@ -2,12 +2,68 @@ import { createMockListeningOptionsSource, type ListeningOptions } from './liste
 import { deferred } from '../feed/tests/helpers';
 import { createListeningStore } from './createListeningStore';
 import { createMockListeningSource } from './createMockListeningSource';
-import { formatListeningTime, type ListeningRecording, type ListeningSource } from './types';
+import { formatListeningTime, formatListeningRemaining, type ListeningRecording, type ListeningSource } from './types';
 
 const storyA = { articleId: 'a', title: '기사 A', authorName: '작가 A' };
 const storyB = { articleId: 'b', title: '기사 B', authorName: '작가 B' };
 beforeEach(() => jest.useFakeTimers());
 afterEach(() => jest.useRealTimers());
+
+it.each([
+  ['S055', 280, 5, 1, '00:05', '-04:35'],
+  ['S160', 280, 40, 1, '00:40', '-04:00'],
+  ['S141', 270, 10, 2.5, '00:10', '-01:44'],
+  ['S192', 287, 20, 1, '00:20', '-04:27'],
+] as const)('%s의 독립 비교 조건은 정상 source 기본값을 바꾸지 않고 재현한다', async (
+  screenId, durationSeconds, positionSeconds, speed, elapsed, remaining,
+) => {
+  // 270초와 287초는 해당 표시 쌍을 재현하는 독립 입력이며 실제 음원 길이가 아니다.
+  const store = createListeningStore(createMockListeningSource({ delayMs: 0, durationSeconds }),
+    Date.now, 'comparison', createMockListeningOptionsSource({ delayMs: 0 }));
+  const dispose = store.activate();
+  store.listen(storyA);
+  await jest.advanceTimersByTimeAsync(0);
+  store.setPlaying(false);
+  const saving = store.setOptions({ speed, voiceId: screenId === 'S192' ? 'hans' : 'emma' });
+  await jest.advanceTimersByTimeAsync(0);
+  expect(await saving).toBe(true);
+  store.seek(positionSeconds);
+  store.setPlaying(true);
+  const current = store.getSnapshot();
+  expect(formatListeningTime(current.positionSeconds)).toBe(elapsed);
+  expect(formatListeningRemaining(current.positionSeconds, current.durationSeconds, current.options.speed)).toBe(remaining);
+  expect(current.status).toBe('playing');
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(store.getSnapshot().positionSeconds).toBe(positionSeconds + speed);
+  dispose();
+});
+
+it('빠른 상대 이동은 마지막 틱 이후 경과와 연속 입력을 누적하고 타이머 하나만 유지한다', async () => {
+  const store = createListeningStore(createMockListeningSource({ delayMs: 0 }));
+  const dispose = store.activate();
+  const listener = jest.fn();
+  const unsubscribe = store.subscribe(listener);
+  store.listen(storyA);
+  await jest.advanceTimersByTimeAsync(1125);
+  store.skip(30);
+  store.skip(30);
+  expect(store.getSnapshot().positionSeconds).toBe(61.125);
+  expect(jest.getTimerCount()).toBe(1);
+  store.togglePlaying();
+  store.togglePlaying();
+  expect(store.getSnapshot().status).toBe('playing');
+  expect(jest.getTimerCount()).toBe(1);
+  store.skip(-1000);
+  expect(store.getSnapshot().positionSeconds).toBe(0);
+  store.skip(Number.NaN);
+  expect(store.getSnapshot().positionSeconds).toBe(0);
+  unsubscribe();
+  listener.mockClear();
+  dispose();
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(listener).not.toHaveBeenCalled();
+  expect(jest.getTimerCount()).toBe(0);
+});
 
 it('한 타이머의 경과·일시정지·이동 경계·끝 재개와 닫기 자원을 유지한다', async () => {
   const store = createListeningStore(createMockListeningSource({ delayMs: 10, durationSeconds: 60 }));

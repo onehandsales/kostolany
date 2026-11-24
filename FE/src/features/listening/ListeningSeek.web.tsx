@@ -1,7 +1,7 @@
 import type { ListeningSeekProps } from './ListeningSeek';
 import { formatListeningTime } from './types';
 
-export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, children }: ListeningSeekProps) {
+export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, onSkip, children }: ListeningSeekProps) {
   const disabled = durationSeconds <= 0;
   return (
     <div
@@ -21,19 +21,18 @@ export function ListeningSeek({ positionSeconds, durationSeconds, onSeek, childr
       }}
       onKeyDown={(event) => {
         if (disabled) return;
-        const next =
+        const offsetSeconds =
           event.key === 'ArrowRight' || event.key === 'ArrowUp'
-            ? positionSeconds + 30
+            ? 30
             : event.key === 'ArrowLeft' || event.key === 'ArrowDown'
-              ? positionSeconds - 10
-              : event.key === 'Home'
-                ? 0
-                : event.key === 'End'
-                  ? durationSeconds
-                  : null;
-        if (next !== null) {
+              ? -10
+              : null;
+        if (offsetSeconds !== null) {
           event.preventDefault();
-          onSeek(next);
+          onSkip(offsetSeconds);
+        } else if (event.key === 'Home' || event.key === 'End') {
+          event.preventDefault();
+          onSeek(event.key === 'Home' ? 0 : durationSeconds);
         }
       }}
       style={{

@@ -19,7 +19,7 @@ import { IconButton } from '../../shared/ui/IconButton';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { useListening } from './ListeningProvider';
-import { formatListeningTime } from './types';
+import { formatListeningTime, formatListeningRemaining } from './types';
 import { ListeningSeek } from './ListeningSeek';
 import { ListeningSpeedPanel } from './ListeningSpeedPanel';
 import { ListeningVoicePanel } from './ListeningVoicePanel';
@@ -75,7 +75,7 @@ export function ListeningMiniPlayer() {
             icon={snapshot.status === 'playing' ? 'pause' : 'play'}
             label={snapshot.status === 'playing' ? '미니 플레이어 일시정지' : '미니 플레이어 재생'}
             size={28}
-            onPress={() => store?.setPlaying(snapshot.status !== 'playing')}
+            onPress={() => store?.togglePlaying()}
           />
         )}
         <IconButton icon="close" label="플레이어 닫기" size={28} onPress={() => store?.close()} />
@@ -102,6 +102,8 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
   const [panel, setPanel] = useState<'menu' | 'share' | 'speed' | 'voice' | 'output' | null>(null);
   const { height, width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
+  // 중앙 60과 나머지 네 개의 48 터치 영역이 좁은 안전 영역에서도 겹치지 않게 한다.
+  const controlsMarginDp = Math.max(0, Math.min(32, (width - insets.left - insets.right - 252) / 2));
   const profile = useKnownProfile(snapshot.story?.authorId ?? '');
   const menuTrigger = useRef<View | null>(null);
   const shareTrigger = useRef<View | null>(null);
@@ -192,6 +194,7 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 positionSeconds={snapshot.positionSeconds}
                 durationSeconds={snapshot.durationSeconds}
                 onSeek={(seconds) => store?.seek(seconds)}
+                onSkip={(seconds) => store?.skip(seconds)}
               >
                 <View style={styles.track}>
                   <View
@@ -213,10 +216,10 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
               <View style={styles.times}>
                 <Text style={styles.time}>{formatListeningTime(snapshot.positionSeconds)}</Text>
                 <Text style={styles.remaining}>
-                  -
-                  {formatListeningTime(
-                    Math.max(0, snapshot.durationSeconds - Math.floor(snapshot.positionSeconds)) /
-                      snapshot.options.speed,
+                  {formatListeningRemaining(
+                    snapshot.positionSeconds,
+                    snapshot.durationSeconds,
+                    snapshot.options.speed,
                   )}
                 </Text>
               </View>
@@ -239,7 +242,7 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 </Pressable>
               </View>
             )}
-            <View style={styles.controls}>
+            <View style={[styles.controls, { marginHorizontal: controlsMarginDp }]}>
               <IconButton
                 icon="previous"
                 label="이전 기사 없음"
@@ -250,7 +253,7 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
               <SeekButton
                 seconds={-10}
                 disabled={!ready}
-                onPress={() => store?.seek(snapshot.positionSeconds - 10)}
+                onPress={() => store?.skip(-10)}
               />
               <IconButton
                 icon={snapshot.status === 'playing' ? 'pause' : 'play'}
@@ -258,12 +261,12 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
                 color="#fff"
                 size={60}
                 disabled={!ready}
-                onPress={() => store?.setPlaying(snapshot.status !== 'playing')}
+                onPress={() => store?.togglePlaying()}
               />
               <SeekButton
                 seconds={30}
                 disabled={!ready}
-                onPress={() => store?.seek(snapshot.positionSeconds + 30)}
+                onPress={() => store?.skip(30)}
               />
               <IconButton icon="next" label="다음 기사 없음" color="#ffffff40" disabled onPress={() => {}} />
             </View>
@@ -303,7 +306,7 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
             </View>
           </ScrollView>
           {panel && (
-            <View style={styles.panelLayer}>
+            <View style={[styles.panelLayer, { bottom: insets.bottom }]}>
               <Pressable
                 role="button"
                 accessibilityLabel="플레이어 메뉴 닫기"
@@ -447,6 +450,8 @@ const styles = StyleSheet.create({
   remaining: { color: '#b0b49d', fontSize: 14, fontFamily: fonts.sans },
   controls: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    rowGap: 8,
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'stretch',

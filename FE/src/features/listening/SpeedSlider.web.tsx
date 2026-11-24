@@ -1,7 +1,7 @@
 import type { SpeedSliderProps } from './SpeedSlider';
 import { speedAtFraction } from './listeningOptions';
 
-export function SpeedSlider({ value, onChange, children, disabled }: SpeedSliderProps) {
+export function SpeedSlider({ value, onChange, onAdjust, children, disabled }: SpeedSliderProps) {
   return (
     <div
       role="slider"
@@ -28,19 +28,18 @@ export function SpeedSlider({ value, onChange, children, disabled }: SpeedSlider
       onPointerUp={(event) => event.currentTarget.releasePointerCapture(event.pointerId)}
       onKeyDown={(event) => {
         if (disabled) return;
-        const next =
+        const offset =
           event.key === 'ArrowUp' || event.key === 'ArrowRight'
-            ? value + 0.5
+            ? 0.5
             : event.key === 'ArrowDown' || event.key === 'ArrowLeft'
-              ? value - 0.5
-              : event.key === 'Home'
-                ? 0.5
-                : event.key === 'End'
-                  ? 4
-                  : null;
-        if (next !== null) {
+              ? -0.5
+              : null;
+        if (offset !== null) {
           event.preventDefault();
-          onChange(Math.max(0.5, Math.min(4, next)));
+          onAdjust(offset);
+        } else if (event.key === 'Home' || event.key === 'End') {
+          event.preventDefault();
+          onChange(event.key === 'Home' ? 0.5 : 4);
         }
       }}
       style={{ flex: 1, width: 96, position: 'relative', touchAction: 'none', cursor: 'pointer' }}

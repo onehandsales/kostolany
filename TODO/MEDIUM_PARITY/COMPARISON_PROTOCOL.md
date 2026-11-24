@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#comparison). 원본1179×2556 물리 px·보관390×844 metadata·비교 CSS viewport/DSF를 분리한다. S055/S160=280, S141=270, S192=287은 표시 쌍 검증용 duration이며 원본 음원 길이 확정이 아니다. 제품 기본280/시계 진행 유지. 실제 앱 렌더 쌍 비교 미실행.
+
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). F25/29 고유6 PNG를 다시 직접 열람했으나 앱 실제 렌더와의 쌍 비교는 없음. Document Control 세션0, Android SDK/JDK·iOS 실행 환경 부재. 기존 차단 우회/파일 생성 없이 TODO에 기록.
 
 **Parity11 실행 한계(2026-11-24):** [현재 검사·조건](../FE_MEDIUM_PARITY_11_RESULT.md#validation). 원본 PNG 직접 열람/등록 검사/자동 navigation과 실제 렌더 비교를 구분한다. 브라우저 연결 없음·native 도구/기기 없음, 기존 실행 차단 우회 없음. 캡처·로그·manifest는 생성/복원하지 않고 TODO에만 결과를 기록한다.

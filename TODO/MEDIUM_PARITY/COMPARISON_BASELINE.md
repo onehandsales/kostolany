@@ -1,5 +1,7 @@
 # Medium Parity — 200개 화면 비교 조건
 
+**Parity12 현재 판정(2026-11-24):** [근거·담당·종료 조건](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 12화면·14단계·97 R/15 U를 대조했다. 원본14장 열람과 자동 검사만 수행했으며 recipe-only/readiness/currentEvidence를 승격하지 않는다. 합성 시간 조건의 실제 화면 재현·자산/배치 잔여 유지.
+
 **Parity11 추가 보완(2026-11-24):** [최신 판정·근거·담당](../FE_MEDIUM_PARITY_11_RESULT.md#additional-review). S012/S122의 선택 중 강조 전달과 자체 대체 메뉴를 반영한다. 기존 원본 관찰·readiness·currentEvidence는 보존하고 추가 판정/현재 코드 해시만 갱신한다.
 
 **Parity11 현재 판정(2026-11-24):** [S012/S122 조건·원본·실행 한계](../FE_MEDIUM_PARITY_11_RESULT.md). 기존 증거/관찰/readiness는 보존하며 recipe-only를 비교 완료로 승격하지 않는다. 새 코드/문서 해시와 부분 보완 상태만 기존 JSON에 반영한다.
@@ -67,6 +69,8 @@
 <a id="s003"></a>
 
 ## S003 — 플레이어 더보기
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 6행 메뉴 목적지/복귀 자동 검증. AirPlay 실제 전송 제외. 팝오버/자산 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/02_sc_0414c81870534989959d677ecede926c.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s003>) · `sc_0414c81870534989959d677ecede926c`
 
@@ -350,6 +354,8 @@
 <a id="s016"></a>
 
 ## S016 — 재생 속도 선택 초기
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 1x/200 WPM·Done/Cancel·초안 수명 확인. slider/큰 글자 실제 화면 대기, 범위/WPM 공식 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/02_sc_1965b9529b534e1597968039af1415b1.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s016>) · `sc_1965b9529b534e1597968039af1415b1`
 
@@ -998,6 +1004,8 @@
 <a id="s046"></a>
 
 ## S046 — 음성 선택 목록
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). Emma·검색·국기/이름/성별/국가와 선택/실패 확인. 실제 음성·언어와 원본 검색 결과 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/03_sc_3b3db04094fe4a189b31e66c28971bcd.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s046>) · `sc_3b3db04094fe4a189b31e66c28971bcd`
 
@@ -1084,6 +1092,8 @@
 <a id="s050"></a>
 
 ## S050 — 미니 플레이어 재생 상태
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 상단/미니 pause·close·확장과 최신 상태 toggle 검증. Mock 안내·높이/긴 제목 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/03_sc_40448a752ea64391a724af01b1e050f1.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s050>) · `sc_40448a752ea64391a724af01b1e050f1`
 
@@ -1189,6 +1199,8 @@
 <a id="s055"></a>
 
 ## S055 — 확장 오디오 플레이어
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 10/30 상대 이동·재생 누락 수정.280/5/1 독립 입력, 이전/다음 비활성은 자체 정책. 공통 플레이어 시각 잔여. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/04_sc_45ddcc1f43a54523a1314ce563abf5ee.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s055>) · `sc_45ddcc1f43a54523a1314ce563abf5ee`
 
@@ -1905,6 +1917,8 @@
 <a id="s088"></a>
 
 ## S088 — Hans 음성 선택
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). Hans·Done/취소·재진입·늦은 응답 검증. 실제 발화·원본 영속성 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/05_sc_78bee192bd2041a98f6721240f2352d5.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s088>) · `sc_78bee192bd2041a98f6721240f2352d5`
 
@@ -2789,6 +2803,8 @@
 <a id="s128"></a>
 
 ## S128 — 오디오 로딩
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 상단/미니 로딩·닫기와 늦은 준비/권한 철회 격리 검증. 실제 생성/다운로드/권한 순서 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/02_sc_b43c7474098746baa684870217c28927.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s128>) · `sc_b43c7474098746baa684870217c28927`
 
@@ -2853,6 +2869,8 @@
 <a id="s131"></a>
 
 ## S131 — 재생 속도 2.5배 선택
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 연속 증가3회의2.5배/490 WPM 누락 수정.145% 관찰 문구, Done 확정은 mock, 공식 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/03_sc_b6f46f91fdc549b790b4e9c1a434afae.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s131>) · `sc_b6f46f91fdc549b790b4e9c1a434afae`
 
@@ -3067,6 +3085,8 @@
 <a id="s141"></a>
 
 ## S141 — 2.5배 재생 표시
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 270/10/2.5 독립 입력으로00:10/-01:44 검증. 실제 길이 확정 아님, 기본280/시계와 실제 렌더 차이 유지. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/04_sc_c0fd5f5f29594fb997865177863b9482.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s141>) · `sc_c0fd5f5f29594fb997865177863b9482`
 
@@ -3349,6 +3369,8 @@
 <a id="s154"></a>
 
 ## S154 — 언어별 음성 목록 스크롤
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 기존6그룹15음성 대조. 화면 밖 목록·번역 미확인, 실제 스크롤/키보드 대기. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/04_sc_ca2321d6dc9142e5a97e2734260c2b0f.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s154>) · `sc_ca2321d6dc9142e5a97e2734260c2b0f`
 
@@ -3481,6 +3503,8 @@
 <a id="s160"></a>
 
 ## S160 — 재생 진행 상태
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 280/40/1 독립 입력과 이동 경계 검증.40초 원본 자연 경과/seek 구분 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/screens/05_sc_d035c7d2bcfe4d0f99df80fddecebdcd.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s160>) · `sc_d035c7d2bcfe4d0f99df80fddecebdcd`
 
@@ -4178,6 +4202,8 @@
 <a id="s192"></a>
 
 ## S192 — 음성 선택 후 플레이어
+- **Parity12 최신:** [요구별 상태·검사·잔여](../FE_MEDIUM_PARITY_12_RESULT.md#screen-status). 287/20/1/Hans 합성 입력 검증. 원본 음성 이름 미표시, 실제 적용·길이 미확인. 원본 관찰/기존 증거는 보존하며 새 실제 렌더 비교 완료가 아니다.
+
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/06_sc_f637c648d6ec470a81cf77e5594e02da.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s192>) · `sc_f637c648d6ec470a81cf77e5594e02da`
 

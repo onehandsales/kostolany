@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "11cec1d7d9b1be00eed6f8bdeaa415602ebf5e7f2e147b76ab86e29740aae5a6"
+      "sha256": "61a4dccae36c23e3c4539a41c2b4f79fb170721c8c67e594fe4463b5b6ca58c0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "b84def0713d183359cd88bbe8ba049ac0cb43dcbe196505d7f402ac6e6845516"
+      "sha256": "0f9ef5806369260ebfc4b2a404fac923c7dc673f25972c00584fb67aea3f3734"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,23 +285,23 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "00481fbaf15770a788edd33a90d614546327df91f77d403daca6c039df2d73e9"
+      "sha256": "3de47510ab339f9f22537439e73a3214e5e7a164d2a2a77b145c5354ddc33801"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
-      "sha256": "3990660890b694cad39cca93f198b7a135146003fc4f4ba5de26df44ee9a2955"
+      "sha256": "faffce831dfc972b9132bb2ca047bae3d550f5089d3eb27ee43336cd24906bd2"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "ccdc74e719ed221448677219493bba23d8557b73a7e7e078d0f4ef3a73e73e97"
+      "sha256": "de1f458c419b77fc7e286f52c0d77cd54cc9929824afb90a0b3358b9432ca59e"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "bccd56befada1f4254cb0ea7945bad1725f693a3032770099a356029771dfa7c"
+      "sha256": "aa425c6e8b10350bd10dda3607e0bc61db8679d021b9720ff583a6ffa37cc5ae"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
-      "sha256": "51cd6ebc48432d550f9ec3322906178400c22b3de648392688a708540c3f8c6f"
+      "sha256": "04743496645a04db316ac658db718d44a39d71742aeee25c58e53cecea15b2e4"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_05.md",
@@ -309,23 +309,23 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_06.md",
-      "sha256": "21dd46b2c130bf2a9a36640e368cb4977a8056e235906aa28e7e4850c9a1d333"
+      "sha256": "338d363a83eb5c7d4bf4f038fcb14293a6a1cee05b7e98a43a3dc6dc70c268fb"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "6bee0e0f5a47527f7cab75fade8525b7235dd8fa07ec25d1f87f2158cbdc5987"
+      "sha256": "0fef4a131ac085a520da81b1bf132fd8101bc0f3ba163fcf8f7155b97974ce42"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "3f89609a7ccb98b038ee60855b2b960b982f5bfaba4d383d6bb4e2dfd5124460"
+      "sha256": "8d577afffef58c1070508e25844f5dd8421efed77332ffe20931da536e74cdf5"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "5b42b58f7e521ade3726718f8928af5a0ee0637c3ad3a6793b68de9648d56d81"
+      "sha256": "4bce124a0dc818010ef374b1e100cdc84406e0d6ec27d9b97b852327b055ebcc"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "d395d3109c07f0b45d69d9ed0395e3dd6a4427035ea4abea34b4eb647b4f5362"
+      "sha256": "a61d1febae3644e527f7aac00547cc6c7423634fcbd723b76c2ff93bc7cc42b6"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -459,7 +459,7 @@
     },
     {
       "path": "FE/src/app/navigation/ListeningNavigation.test.tsx",
-      "sha256": "f9a26494b2b447dc1c9cffa770bf8d1633b3693004a6ec18aff271d1a30ae3a9"
+      "sha256": "b804eacd8c692c8a7f4c31d78d7fe63af5b1c790c521d4d4f8fe2242fc5bea25"
     },
     {
       "path": "FE/src/app/navigation/ListManagementNavigation.test.tsx",
@@ -1231,7 +1231,7 @@
     },
     {
       "path": "FE/src/features/editor/WrittenStoryLifecycle.test.tsx",
-      "sha256": "34c922928f02d6978f5cfa9231ac56902e4496a975a3054192a41a79ef1241fc"
+      "sha256": "38c49546ac2b5517418915987c16b0c5b4610aa01244b8a788eb8c8f1e6c68cb"
     },
     {
       "path": "FE/src/features/editor/WrittenStoryScreen.test.tsx",
@@ -1463,11 +1463,11 @@
     },
     {
       "path": "FE/src/features/listening/createListeningStore.test.ts",
-      "sha256": "e636b51f61289e22dba65a884f15aaa2f82289e8c603ebc204e74950a009c3ae"
+      "sha256": "2023ebb1cd170b2e6c3bc95a10b882c85108b24c4ecd01084958b68e26a9692f"
     },
     {
       "path": "FE/src/features/listening/createListeningStore.ts",
-      "sha256": "1e69d305f5b2ade83588433a4f0a5c6234ef31f29443666c3c39407f104c973c"
+      "sha256": "650a0f561d2b584856c1323be6e914479a1903d04816af41a6dd608bbe4a6920"
     },
     {
       "path": "FE/src/features/listening/createMockListeningSource.ts",
@@ -1491,7 +1491,7 @@
     },
     {
       "path": "FE/src/features/listening/ListeningPlayer.tsx",
-      "sha256": "44be8b9c99085af87a4d865eae3626299bdfc7be904758c91e3777a75faf038d"
+      "sha256": "b77d59413c968e92cb0e9f8aa9010240257378aa983b3161df6d96dbb2b5f2fe"
     },
     {
       "path": "FE/src/features/listening/ListeningProvider.tsx",
@@ -1499,15 +1499,15 @@
     },
     {
       "path": "FE/src/features/listening/ListeningSeek.tsx",
-      "sha256": "e2427809977bcd3c71b5f78540cc0a958d870001b2aceea9d21237e5694c6423"
+      "sha256": "daaa66a5fc268f2314270eca39201c5de6a3509914d0e0d923e703d9e815cb24"
     },
     {
       "path": "FE/src/features/listening/ListeningSeek.web.tsx",
-      "sha256": "b5732e449cca93b14b59d49ceb9835a85f3414c91cf6f5354376fc5b13e53b89"
+      "sha256": "7edc9e51badbd3411078e674579fd5b7782a3b2b9527f599a25974c93a5a9039"
     },
     {
       "path": "FE/src/features/listening/ListeningSpeedPanel.tsx",
-      "sha256": "e1a595a91dc2c8c4485236be01a9a63b9331be1b9f86be16b5c8cd93714f8e75"
+      "sha256": "044682a05636f5fbbe2c38805c4a5c34683e7dd90518deb600f1ed41680a56ee"
     },
     {
       "path": "FE/src/features/listening/ListeningVoicePanel.tsx",
@@ -1515,15 +1515,15 @@
     },
     {
       "path": "FE/src/features/listening/SpeedSlider.tsx",
-      "sha256": "9dff1f2b69f101f8f4bcc4a2dbdb83280b9199808bca227c72a9be65a2cd849c"
+      "sha256": "9b4c4b318508d997d1b5d28dc179514543cce6db17f35b314dfb192ffde0bd4e"
     },
     {
       "path": "FE/src/features/listening/SpeedSlider.web.tsx",
-      "sha256": "e539be45f84bb5c331c91259b3be9638b66d330881e8e635df679389d1f627a2"
+      "sha256": "09b54b448ec6173711b8f540e6b97af60886bd773da1aac3acd4cf092055474d"
     },
     {
       "path": "FE/src/features/listening/types.ts",
-      "sha256": "3db03a15d40c49f7a43c17da16b8e889e934f3b65a3dbfa94771e4f78a705339"
+      "sha256": "d79a5e5f8a55fe080584aadc2ad47888d64c3d1ed30c982910651003f7d75d4d"
     },
     {
       "path": "FE/src/features/listening/useListeningVoices.test.tsx",
@@ -3449,7 +3449,8 @@
       ],
       "scope": "모의 시계의 플레이어·속도·음성; 발행 Listen 범위 판정",
       "done": "각 duration/position fixture·Emma→Hans·Done/취소/복귀; TTS/AirPlay 제외",
-      "status": "미착수"
+      "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+      "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md"
     },
     {
       "number": 13,
@@ -4288,7 +4289,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S004",
@@ -5709,7 +5718,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S017",
@@ -8706,7 +8723,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S047",
@@ -9104,7 +9129,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S051",
@@ -9624,7 +9657,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분",
+        "independentComparisonInput": {
+          "durationSeconds": 280,
+          "positionSeconds": 5,
+          "speed": 1,
+          "voiceId": "emma",
+          "boundary": "표시 쌍 검증용 합성 입력, 원본 음원 길이/실제 음성 확정 아님; 기본 source280 불변; 실제 화면 재현 대기"
+        }
+      }
     },
     {
       "id": "S056",
@@ -13049,7 +13097,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S089",
@@ -17291,7 +17347,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S129",
@@ -17551,7 +17615,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S132",
@@ -18594,7 +18666,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분",
+        "independentComparisonInput": {
+          "durationSeconds": 270,
+          "positionSeconds": 10,
+          "speed": 2.5,
+          "voiceId": "emma",
+          "boundary": "표시 쌍 검증용 합성 입력, 원본 음원 길이/실제 음성 확정 아님; 기본 source280 불변; 실제 화면 재현 대기"
+        }
+      }
     },
     {
       "id": "S142",
@@ -19854,7 +19941,15 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다."
+      "acceptance": "세로 slider·1x/200 WPM·2.5x/490 WPM·145% 문구, voice 언어 section/국기/성별/나라/선택색, Emma→Hans와 Done, 더보기6행을 비교한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분"
+      }
     },
     {
       "id": "S155",
@@ -20446,7 +20541,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분",
+        "independentComparisonInput": {
+          "durationSeconds": 280,
+          "positionSeconds": 40,
+          "speed": 1,
+          "voiceId": "emma",
+          "boundary": "표시 쌍 검증용 합성 입력, 원본 음원 길이/실제 음성 확정 아님; 기본 source280 불변; 실제 화면 재현 대기"
+        }
+      }
     },
     {
       "id": "S161",
@@ -23879,7 +23989,22 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다."
+      "acceptance": "준비 중 두 spinner, mini/expanded 동일 기사, 커버·배경·시간·진행선·10초/30초·희미한 이전/다음·닫기·Speechify 표시를 비교한다. 무음 timer는 실제 재생과 구분한다. Q12에서 미니/확장 플레이어의 모의 안내가 원본 배치에 미치는 영향을 판정한다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#screen-status",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "R-L/D/S 및 해당 화면의 모든 C; 기존 원본/요구/currentEvidence/readiness 보존",
+        "verification": "원본 직접 열람·실제 navigation 자동 테스트; 새 실제 앱 렌더 쌍 비교 미실행",
+        "remaining": "자산/서체/배치·자체 UI·기본 시간 조건 차이; 환경 차단과 실제 기기 대기를 구분",
+        "independentComparisonInput": {
+          "durationSeconds": 287,
+          "positionSeconds": 20,
+          "speed": 1,
+          "voiceId": "hans",
+          "boundary": "표시 쌍 검증용 합성 입력, 원본 음원 길이/실제 음성 확정 아님; 기본 source280 불변; 실제 화면 재현 대기"
+        }
+      }
     },
     {
       "id": "S193",
@@ -25022,7 +25147,13 @@
         "T-F26-03",
         "T-F26-04",
         "T-F26-05"
-      ]
+      ],
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "ANALYSIS 전체와 모든 단계 PNG 열람, F26-01은 부모 진입. 전체200화면 실제 검증 아님"
+      }
     },
     {
       "id": "F27",
@@ -25033,7 +25164,13 @@
         "T-F27-02",
         "T-F27-03",
         "T-F27-04"
-      ]
+      ],
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "ANALYSIS 전체와 모든 단계 PNG 열람, F26-01은 부모 진입. 전체200화면 실제 검증 아님"
+      }
     },
     {
       "id": "F28",
@@ -25046,7 +25183,13 @@
         "T-F28-04",
         "T-F28-05",
         "T-F28-06"
-      ]
+      ],
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "scope": "ANALYSIS 전체와 모든 단계 PNG 열람, F26-01은 부모 진입. 전체200화면 실제 검증 아님"
+      }
     },
     {
       "id": "F29",
@@ -26252,98 +26395,182 @@
       "flowId": "F26",
       "screenId": "S128",
       "png": "medium/flows/Home/Story detail/Listening to a story/screens/02_sc_b43c7474098746baa684870217c28927.png",
-      "acceptance": "기사 상세 상단 → 오디오 로딩. 현재 관찰값: 작가·기사 제목·커버. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 미니 플레이어 재생 상태 — 재생 중을 나타내는 UI<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "기사 상세 상단 → 오디오 로딩. 현재 관찰값: 작가·기사 제목·커버. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 미니 플레이어 재생 상태 — 재생 중을 나타내는 UI<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F26-03",
       "flowId": "F26",
       "screenId": "S050",
       "png": "medium/flows/Home/Story detail/Listening to a story/screens/03_sc_40448a752ea64391a724af01b1e050f1.png",
-      "acceptance": "오디오 로딩 → 미니 플레이어 재생 상태. 현재 관찰값: 동일 기사. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 확장 오디오 플레이어 — 확장 재생 화면<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "오디오 로딩 → 미니 플레이어 재생 상태. 현재 관찰값: 동일 기사. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 확장 오디오 플레이어 — 확장 재생 화면<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F26-04",
       "flowId": "F26",
       "screenId": "S055",
       "png": "medium/flows/Home/Story detail/Listening to a story/screens/04_sc_45ddcc1f43a54523a1314ce563abf5ee.png",
-      "acceptance": "미니 플레이어 재생 상태 → 확장 오디오 플레이어. 현재 관찰값: 00:05, -04:35, 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 재생 진행 상태 — 재생 위치 증가<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "미니 플레이어 재생 상태 → 확장 오디오 플레이어. 현재 관찰값: 00:05, -04:35, 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 재생 진행 상태 — 재생 위치 증가<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F26-05",
       "flowId": "F26",
       "screenId": "S160",
       "png": "medium/flows/Home/Story detail/Listening to a story/screens/05_sc_d035c7d2bcfe4d0f99df80fddecebdcd.png",
-      "acceptance": "확장 오디오 플레이어 → 재생 진행 상태. 현재 관찰값: 00:40, -04:00, 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "확장 오디오 플레이어 → 재생 진행 상태. 현재 관찰값: 00:40, -04:00, 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F27-01",
       "flowId": "F27",
       "screenId": "S055",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/01_sc_45ddcc1f43a54523a1314ce563abf5ee.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 재생 속도 선택 초기 — 현재 속도 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 재생 속도 선택 초기 — 현재 속도 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F27-02",
       "flowId": "F27",
       "screenId": "S016",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/02_sc_1965b9529b534e1597968039af1415b1.png",
-      "acceptance": "확장 오디오 플레이어 → 재생 속도 선택 초기. 현재 관찰값: 1x, 200 WPM. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 재생 속도 2.5배 선택 — 변경값 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다."
+      "acceptance": "확장 오디오 플레이어 → 재생 속도 선택 초기. 현재 관찰값: 1x, 200 WPM. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 재생 속도 2.5배 선택 — 변경값 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F27-03",
       "flowId": "F27",
       "screenId": "S131",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/03_sc_b6f46f91fdc549b790b4e9c1a434afae.png",
-      "acceptance": "재생 속도 선택 초기 → 재생 속도 2.5배 선택. 현재 관찰값: 2.5x, 490 WPM, 145% productivity boost. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 2.5배 재생 표시 — 배속 변경 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다."
+      "acceptance": "재생 속도 선택 초기 → 재생 속도 2.5배 선택. 현재 관찰값: 2.5x, 490 WPM, 145% productivity boost. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 2.5배 재생 표시 — 배속 변경 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F27-04",
       "flowId": "F27",
       "screenId": "S141",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/04_sc_c0fd5f5f29594fb997865177863b9482.png",
-      "acceptance": "재생 속도 2.5배 선택 → 2.5배 재생 표시. 현재 관찰값: 2.5x, 00:10, -01:44. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다."
+      "acceptance": "재생 속도 2.5배 선택 → 2.5배 재생 표시. 현재 관찰값: 2.5x, 00:10, -01:44. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 1x/200와2.5x/490의 WPM,145% 문구를 관찰값으로 보존한다. 정확한 환산식을 추정하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-01",
       "flowId": "F28",
       "screenId": "S055",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/01_sc_45ddcc1f43a54523a1314ce563abf5ee.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 플레이어 더보기 — 음성·출력·콘텐츠 행동 메뉴<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 플레이어 더보기 — 음성·출력·콘텐츠 행동 메뉴<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-02",
       "flowId": "F28",
       "screenId": "S003",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/02_sc_0414c81870534989959d677ecede926c.png",
-      "acceptance": "확장 오디오 플레이어 → 플레이어 더보기. 현재 관찰값: 현재 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 음성 선택 목록 — Emma가 현재 선택된 음성 목록. 모든 계정의 기본 음성이라는 의미는 아니다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "확장 오디오 플레이어 → 플레이어 더보기. 현재 관찰값: 현재 1x. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 음성 선택 목록 — Emma가 현재 선택된 음성 목록. 모든 계정의 기본 음성이라는 의미는 아니다.<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-03",
       "flowId": "F28",
       "screenId": "S046",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/03_sc_3b3db04094fe4a189b31e66c28971bcd.png",
-      "acceptance": "플레이어 더보기 → 음성 선택 목록. 현재 관찰값: Emma 선택, Matthew·Salli 등. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 언어별 음성 목록 스크롤 — 다국어 음성 선택지 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "플레이어 더보기 → 음성 선택 목록. 현재 관찰값: Emma 선택, Matthew·Salli 등. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 언어별 음성 목록 스크롤 — 다국어 음성 선택지 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-04",
       "flowId": "F28",
       "screenId": "S154",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/04_sc_ca2321d6dc9142e5a97e2734260c2b0f.png",
-      "acceptance": "음성 선택 목록 → 언어별 음성 목록 스크롤. 현재 관찰값: 한국어 Seoyeon 등. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: Hans 음성 선택 — 음성 선택 변경<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "음성 선택 목록 → 언어별 음성 목록 스크롤. 현재 관찰값: 한국어 Seoyeon 등. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: Hans 음성 선택 — 음성 선택 변경<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-05",
       "flowId": "F28",
       "screenId": "S088",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/05_sc_78bee192bd2041a98f6721240f2352d5.png",
-      "acceptance": "언어별 음성 목록 스크롤 → Hans 음성 선택. 현재 관찰값: Hans 선택. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 음성 선택 후 플레이어 — 재생 UI 복귀<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "언어별 음성 목록 스크롤 → Hans 음성 선택. 현재 관찰값: Hans 선택. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 음성 선택 후 플레이어 — 재생 UI 복귀<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F28-06",
       "flowId": "F28",
       "screenId": "S192",
       "png": "medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/06_sc_f637c648d6ec470a81cf77e5594e02da.png",
-      "acceptance": "Hans 음성 선택 → 음성 선택 후 플레이어. 현재 관찰값: 1x, 00:20, -04:27. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다."
+      "acceptance": "Hans 음성 선택 → 음성 선택 후 플레이어. 현재 관찰값: 1x, 00:20, -04:27. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 별도 배속 흐름의2.5x와 음성 흐름의1x를 음성 변경에 의한 자동 초기화로 연결하지 않는다.",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#source-review",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "원본 단계/소비 코드를 대조; 미수록 결과는 mock 정책과 분리. 실제 웹/기기 실행 대기"
+      }
     },
     {
       "id": "T-F29-01",
@@ -27615,7 +27842,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S004",
@@ -27765,7 +28000,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S017",
@@ -28073,7 +28316,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S047",
@@ -28115,7 +28366,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S051",
@@ -28160,7 +28419,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S056",
@@ -28531,7 +28798,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S089",
@@ -29037,7 +29312,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S129",
@@ -29066,7 +29349,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S132",
@@ -29158,7 +29449,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S142",
@@ -29298,7 +29597,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S155",
@@ -29369,7 +29676,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S161",
@@ -29717,7 +30032,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-S193",
@@ -30159,6 +30482,14 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_10_RESULT.md#unknowns",
         "decision": "Listen 진입의 기존 연결만10. 플레이어/속도/보이스·큐12, 플랫폼21, 외부 오디오Q08. 이번 완료 아님."
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
       }
     },
     {
@@ -30167,7 +30498,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-F28",
@@ -30175,7 +30514,15 @@
       "batches": [
         12
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#unknowns",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "decision": "원본 질문 보존·근거 대기. 자체 mock 검증으로 닫지 않음. TTS/AirPlay는Q08 제외",
+        "owner": "12/Q03",
+        "closure": "원본/보관 설명의 직접 근거 또는 명시적 범위 판정; 원본 질문과 알려진 구현/환경 차이 분리"
+      }
     },
     {
       "id": "U-F29",
@@ -30722,6 +31069,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -30766,6 +31119,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -30810,6 +31169,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -30909,6 +31274,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31069,6 +31440,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31289,6 +31666,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31416,6 +31799,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31533,6 +31922,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31620,6 +32015,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31664,6 +32065,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31707,6 +32114,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31753,6 +32166,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31827,6 +32246,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31873,6 +32298,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -31918,6 +32349,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -32005,6 +32442,12 @@
           "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
           "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행"
         }
+      },
+      "parity12Review": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#contracts",
+        "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+        "boundary": "C58~61 직접 보완, 나머지 소비 계약/다른 묶음 경계 확인. 전체 C 신규 구현·전체 완료 아님"
       }
     },
     {
@@ -34001,14 +34444,22 @@
   ],
   "manualUpdate": {
     "date": "2026-11-24",
-    "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
-    "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
-    "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
-    "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
-    "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행",
-    "batch": 11,
-    "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 원본/evidenceContext/currentEvidence/readiness 보존",
-    "ownership": "9/10 기존 소유 및11 잔여 유지;12/commit/push/배포 없음"
+    "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md",
+    "status": "mock 보완·자동 검증/자기 재검토 수행; 실제 웹/시각·기기 잔여로12 전체 종료 미충족",
+    "batch": 12,
+    "implementation": "최신 store 상대 이동/play·함수형 배속 초안 누적·compact/Safe Area; 독립 시간 fixture·옵션/권한/계정 회귀",
+    "verification": "typecheck/lint exit0;14 suites/98 tests 136.911초;3플랫폼 메모리JS 구문 통과. 실제 웹/console/기기 미실행",
+    "remaining": "자산/배치/비교 조건·원본15 U·발행 Listen 미지원/결정·브라우저 환경/기기 대기",
+    "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 과거 evidence/원본/readiness 보존; 기존 추적 문서 수동 갱신",
+    "ownership": "9/10/11 잔여 기존 소유,12 전체 종료 미충족.13/commit/push/배포 없음",
+    "preCommitReview": {
+      "date": "2026-11-24",
+      "result": "TODO/FE_MEDIUM_PARITY_12_RESULT.md#pre-commit-review",
+      "finding": "새 제품 코드 결함 없음; AGENT README의12 상태 연결 누락 수정",
+      "checks": "새14 suites/98 tests 109.716초·typecheck/lint 통과; 전체/JS 번들은 미재실행",
+      "scope": "사용자 명시적 요청의35파일 커밋·origin main push; 원격 대비 기존 로컬 선행6개 포함",
+      "boundary": "기존 원본/시각/실제 웹/기기 잔여 유지;9~12 전체 완료 아님;13/배포 없음"
+    }
   },
   "manualUpdateHistory": [
     {
@@ -34093,6 +34544,17 @@
       "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 기존 원본/evidenceContext/currentEvidence/readiness 보존",
       "verificationBoundary": "최종12 suites/52 tests·typecheck/lint 및3플랫폼 메모리JS 구문; 브라우저/OS 실제 실행 없음; 과거/중간 검사와 구분",
       "ownership": "9/10 잔여 기존 소유.11 구현 잔여와U/환경/기기 대기 유지.12/commit/push/배포 없음"
+    },
+    {
+      "date": "2026-11-24",
+      "result": "TODO/FE_MEDIUM_PARITY_11_RESULT.md#additional-review",
+      "status": "국소 보완·재검토 완료; 묶음11 전체 종료 미충족",
+      "implementation": "선택 입력에 기존 강조 전달·변조 후 원문 복원·최초 높이 전달; 웹/기존 선택 메뉴 실측 경계; native 문단 흐름 안 대체 메뉴",
+      "remaining": "본문 위 다중 문단·native 구간 좌표/플로팅·스크롤/배치 이동은 구현 잔여; 원본 미수록·실제 웹/OS 미실행 유지",
+      "verification": "typecheck/lint exit0;18 suites/84 tests·3플랫폼 메모리JS 구문 통과; 실제 웹/OS 선택·IME·시각 비교 미실행",
+      "batch": 11,
+      "artifacts": "새 tools/evidence/캡처/로그/manifest 없음; 원본/evidenceContext/currentEvidence/readiness 보존",
+      "ownership": "9/10 기존 소유 및11 잔여 유지;12/commit/push/배포 없음"
     }
   ]
 }

@@ -43,3 +43,12 @@ export function formatListeningTime(seconds: number): string {
     .toString()
     .padStart(2, '0')}:${(whole % 60).toString().padStart(2, '0')}`;
 }
+
+// 남은 시간은 무음 mock의 환산값이며 원본 음원의 계산식을 확정하지 않는다.
+export function formatListeningRemaining(
+  positionSeconds: number,
+  durationSeconds: number,
+  speed: number,
+): string {
+  return `-${formatListeningTime(Math.max(0, durationSeconds - Math.floor(positionSeconds)) / speed)}`;
+}
