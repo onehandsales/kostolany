@@ -670,6 +670,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 
 ## S145 — 저장한 하이라이트 목록
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_c37aefd0916548dda3cb46d61cc25193` · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>):177 · [원본 PNG](<../../medium/flows/Library/screens/05_sc_c37aefd0916548dda3cb46d61cc25193.png>)
 
 흐름 맥락: [F41/05](FLOWS.md#f41)

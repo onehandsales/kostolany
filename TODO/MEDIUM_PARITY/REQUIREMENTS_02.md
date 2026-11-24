@@ -357,6 +357,8 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 
 ## S036 — 기사 저장 대상 선택
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_31edfd53d2874259a6ed5ecbc756d10b` · [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png>)
 
 흐름 맥락: [F37/02](FLOWS.md#f37)
@@ -462,6 +464,8 @@ FE 조사 경로: [PublicIdentityScreen.tsx](<../../FE/src/features/community/Pu
 <a id="s039"></a>
 
 ## S039 — 새 리스트 생성 표시
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_35dcbd9d4308404b9f11ecd03f893eb8` · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):146 · [원본 PNG](<../../medium/flows/Library/Creating a list/screens/04_sc_35dcbd9d4308404b9f11ecd03f893eb8.png>)
 

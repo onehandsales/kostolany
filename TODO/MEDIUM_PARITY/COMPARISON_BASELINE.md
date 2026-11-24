@@ -31,6 +31,8 @@
 
 ## S002 — 리스트 메모 반영
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/05_sc_02d96a649c7a461b9c07155d33c1dbfc.png>) · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s002>) · `sc_02d96a649c7a461b9c07155d33c1dbfc`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -38,7 +40,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 입력한 메모 표시
 - 원본 관찰 상태: 상태: 메모 저장 결과 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -220,6 +222,8 @@
 
 ## S011 — 내 리스트 상세 항목
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>) · [원본 분석](<../../medium/flows/Library/List detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_01.md#s011>) · `sc_0b1e7b64b9f14f2cb5358161e0f67a94`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -227,7 +231,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 4 stories, 저장 아이콘 채움
 - 원본 관찰 상태: 상태: 리스트에 글 4개
 - 시간: 목록 표시6초+4개; S106과 독립 snapshot/D13
@@ -748,6 +752,8 @@
 
 ## S036 — 기사 저장 대상 선택
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s036>) · `sc_31edfd53d2874259a6ed5ecbc756d10b`
 
 - 담당: V22 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -811,6 +817,8 @@
 <a id="s039"></a>
 
 ## S039 — 새 리스트 생성 표시
+
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
 
 [원본 PNG](<../../medium/flows/Library/Creating a list/screens/04_sc_35dcbd9d4308404b9f11ecd03f893eb8.png>) · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s039>) · `sc_35dcbd9d4308404b9f11ecd03f893eb8`
 
@@ -1171,6 +1179,8 @@
 
 ## S056 — 다크 읽기 목록 상세
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/07_sc_45fd4ac6da2148968fab1446df649f7f.png>) · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s056>) · `sc_45fd4ac6da2148968fab1446df649f7f`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1178,7 +1188,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 4 stories·자물쇠, 한 기사 Viewed 표시
 - 원본 관찰 상태: 상태: 읽은 기사 표시와 다크 테마
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1212,6 +1222,8 @@
 <a id="s058"></a>
 
 ## S058 — 다크 Library
+
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
 
 [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/05_sc_4a39ee1d768342a9823787c11c851479.png>) · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s058>) · `sc_4a39ee1d768342a9823787c11c851479`
 
@@ -1380,6 +1392,8 @@
 <a id="s066"></a>
 
 ## S066 — 저장 글 있는 읽기 목록
+
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
 
 [원본 PNG](<../../medium/flows/Library/screens/03_sc_57450c38bf994be18d95fcaf712c56ba.png>) · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_03.md#s066>) · `sc_57450c38bf994be18d95fcaf712c56ba`
 
@@ -1591,6 +1605,8 @@
 
 ## S076 — 리스트 생성 빈 폼
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/Creating a list/screens/02_sc_675e3eda08504708979533659dacdcf6.png>) · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s076>) · `sc_675e3eda08504708979533659dacdcf6`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1598,7 +1614,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 이름0/60, 설명0/280, Private 꺼짐
 - 원본 관찰 상태: 상태: 생성 전 입력
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1612,6 +1628,8 @@
 
 ## S077 — 변경 순서 반영
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/05_sc_6840597985cc46b6b12f6cd0204756f4.png>) · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s077>) · `sc_6840597985cc46b6b12f6cd0204756f4`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1619,7 +1637,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 첫 2개 항목이 변경 순서와 일치, 1 second ago
 - 원본 관찰 상태: 상태: 재정렬 결과 표시
 - 시간: 목록 표시1초+4개; 재정렬 확정 상태/D13
@@ -1633,6 +1651,8 @@
 
 ## S078 — 리스트 순서 편집
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/03_sc_6a1036b35729490195c460e5b934bd68.png>) · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s078>) · `sc_6a1036b35729490195c460e5b934bd68`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1640,7 +1660,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 기존 순서 유지
 - 원본 관찰 상태: 상태: 재정렬 모드
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1696,6 +1716,8 @@
 
 ## S081 — 내 리스트 관리 메뉴
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png>) · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s081>) · `sc_71f31ac7803a47f89b2e76b6a9355a7c`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -1703,7 +1725,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 공개 상태 메뉴
 - 원본 관찰 상태: 상태: 목록 관리 작업 선택
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -1780,6 +1802,8 @@
 <a id="s085"></a>
 
 ## S085 — 리스트 삭제 후 라이브러리
+
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
 
 [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/04_sc_7749ef5c35474c229a2515a9c2a53878.png>) · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s085>) · `sc_7749ef5c35474c229a2515a9c2a53878`
 
@@ -1993,6 +2017,8 @@
 
 ## S095 — Library 초기 목록
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/screens/02_sc_84e0421de98041bbb014822fc05dd3fb.png>) · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s095>) · `sc_84e0421de98041bbb014822fc05dd3fb`
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2122,6 +2148,8 @@
 
 ## S101 — 비공개 리스트 표시
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/05_sc_91b39d224f6b4c9ab7573c0c3df633eb.png>) · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s101>) · `sc_91b39d224f6b4c9ab7573c0c3df633eb`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2129,7 +2157,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 4 stories·자물쇠
 - 원본 관찰 상태: 상태: 비공개 상태 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2208,6 +2236,8 @@
 
 ## S105 — 리스트 비공개 확인
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/03_sc_95e504331794455fb4776bd322254c76.png>) · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s105>) · `sc_95e504331794455fb4776bd322254c76`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2215,7 +2245,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내
 - 원본 관찰 상태: 상태: 비공개 전 영향 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2229,6 +2259,8 @@
 
 ## S106 — 빈 리스트 상세
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/screens/02_sc_967232cfb5f845839053e0d371d78911.png>) · [원본 분석](<../../medium/flows/Library/List detail/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s106>) · `sc_967232cfb5f845839053e0d371d78911`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2236,10 +2268,10 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: About mindfulness, 14 seconds ago
 - 원본 관찰 상태: 상태: 콘텐츠 없는 리스트
-- 시간: 목록 표시14초; 기준 필드 의미는 원본 미확인/D13 미정
+- 시간: 목록 표시14초; 기준 필드 의미는 원본 미확인; mock은 마지막 내용 변경 성공 시각
 - 스크롤: 정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 소유자·제목·빈 상태·하단 리스트 반응
 - 테마: Light 비교 기본안; 원본 theme 설정 자체는 미확인; 키보드: 원본 명시 관찰 없음; PNG와 실제 focus 확인 필요
 - 크기/플랫폼: PNG 1179×2556 물리 px; 비교 CP-WEB-01=390×844 CSS px/DSF1; web 비교 준비; iOS 원본과 OS/font 렌더 차이는 별도; crop 미정(null), OS 영역 포함 원본 보존.
@@ -2271,6 +2303,8 @@
 
 ## S108 — 다크 하이라이트 목록
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/06_sc_97fb65c906bf4e309ec595d2067e4bce.png>) · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s108>) · `sc_97fb65c906bf4e309ec595d2067e4bce`
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2292,6 +2326,8 @@
 
 ## S109 — 비공개 변경 성공 안내
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/04_sc_996c48382ff0466099cf371adf783dae.png>) · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s109>) · `sc_996c48382ff0466099cf371adf783dae`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2299,7 +2335,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: About mindfulness is now private
 - 원본 관찰 상태: 상태: 비공개 전환 안내
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2397,6 +2433,8 @@
 
 ## S114 — 리스트 삭제 확인 시트
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/03_sc_a1562b1931fc4650a544861094934588.png>) · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s114>) · `sc_a1562b1931fc4650a544861094934588`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2404,7 +2442,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내
 - 원본 관찰 상태: 상태: 삭제 전 영향 확인
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -2546,6 +2584,8 @@
 
 ## S121 — 리스트에서 기사 제거
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Removing a story/screens/02_sc_a79a8c62cfd64776ae74f84e0d98b5c3.png>) · [원본 분석](<../../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_05.md#s121>) · `sc_a79a8c62cfd64776ae74f84e0d98b5c3`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -2553,7 +2593,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: This item has been removed from your list
 - 원본 관찰 상태: 상태: 항목 제거와 되돌리기 제공
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3055,6 +3095,8 @@
 
 ## S145 — 저장한 하이라이트 목록
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/screens/05_sc_c37aefd0916548dda3cb46d61cc25193.png>) · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_06.md#s145>) · `sc_c37aefd0916548dda3cb46d61cc25193`
 
 - 담당: V24 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3267,6 +3309,8 @@
 
 ## S155 — 리스트 이름 입력
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/Creating a list/screens/03_sc_ca3b32e4373a40fc84405838671eab27.png>) · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s155>) · `sc_ca3b32e4373a40fc84405838671eab27`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3274,7 +3318,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: About mindfulness 17/60, 설명 없음, Private 꺼짐
 - 원본 관찰 상태: 상태: 이름만 입력해 생성 가능 표시
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3309,6 +3353,8 @@
 
 ## S157 — 항목 순서 변경
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/04_sc_cdf564e8e6a144389299ff49a7d626ce.png>) · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s157>) · `sc_cdf564e8e6a144389299ff49a7d626ce`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3316,7 +3362,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…
 - 원본 관찰 상태: 상태: 저장 전 새 순서
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -3627,6 +3673,8 @@
 
 ## S172 — 저장 아이콘 활성
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Home/Story detail/Saving a story/screens/03_sc_dda8e78e9eb943629d3cf54eaed5fc22.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_07.md#s172>) · `sc_dda8e78e9eb943629d3cf54eaed5fc22`
 
 - 담당: V22 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3732,6 +3780,8 @@
 
 ## S177 — 리스트 상세 스크롤
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/01_sc_e20e59ee459b4a0d9a0a0302091962bd.png>) · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s177>) · `sc_e20e59ee459b4a0d9a0a0302091962bd`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -3739,7 +3789,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: 동일 리스트 후반 항목
 - 원본 관찰 상태: 상태: 목록 후반
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4026,6 +4076,8 @@
 
 ## S191 — 메모 내용 입력
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/04_sc_f4f970015d6743538664901310d2c17b.png>) · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s191>) · `sc_f4f970015d6743538664901310d2c17b`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4033,7 +4085,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: A very good explanation of mindfulness
 - 원본 관찰 상태: 상태: 메모 제출 준비
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4113,6 +4165,8 @@
 
 ## S195 — 리스트 항목 메뉴
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/02_sc_fa4e79f0bed747d698ae44e23f9223f9.png>) · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s195>) · `sc_fa4e79f0bed747d698ae44e23f9223f9`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4120,7 +4174,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: Mind Fullness or Emptiness? 대상
 - 원본 관찰 상태: 상태: 항목별 관리
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음
@@ -4219,6 +4273,8 @@
 
 ## S200 — 리스트 항목 메모 폼
 
+- 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+
 [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png>) · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s200>) · `sc_ffa4d0c8f01440e1a0842a4e1a59708a`
 
 - 담당: V25 / 묶음 7. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4226,7 +4282,7 @@
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ListActions.tsx](<../../FE/src/features/bookmarks/ListActions.tsx>), [ListEditorSheet.tsx](<../../FE/src/features/bookmarks/ListEditorSheet.tsx>), [ListNoteSheet.tsx](<../../FE/src/features/bookmarks/ListNoteSheet.tsx>), [ListStoryCard.tsx](<../../FE/src/features/bookmarks/ListStoryCard.tsx>), [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/ReadingListScreen.tsx>), [ReorderListEditor.tsx](<../../FE/src/features/bookmarks/ReorderListEditor.tsx>), [createUserListStore.ts](<../../FE/src/features/bookmarks/createUserListStore.ts>), [listTypes.ts](<../../FE/src/features/bookmarks/listTypes.ts>)
 - 계정·권한: A 소유; 기본 reading-list와 일반 About mindfulness 구분
-- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음
+- fixture 구성: UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 source 확정 updatedAt(Parity7 자체 계약)
 - 원본 관찰 표시값: 표시값·입력: Add a brief description 빈값
 - 원본 관찰 상태: 상태: 메모 입력 전
 - 시간: CP-WEB-01 고정 now; 원본 날짜·상대시간은 표시값 요구를 별도 seed하며 원본 촬영시각으로 추정하지 않음

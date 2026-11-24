@@ -3,7 +3,7 @@ import { useIsFocused } from '@react-navigation/native';
 import type { ComponentProps } from 'react';
 
 import { LibraryScreen } from '../../features/bookmarks/LibraryScreen';
-import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
+import { ReadingListRoute } from './ReadingListRoute';
 import type { DigestSource } from '../../features/digest/types';
 
 type LibraryStackParamList = { LibraryHome: undefined; ReadingList: { listId: string; reorder?: boolean } };
@@ -22,7 +22,7 @@ export function LibraryNavigator({ onSelectArticle, onBrowseArticles, onOpenHigh
       {({ navigation }) => <LibraryRouteScreen digestSource={digestSource} onOpenDigestArticle={onOpenDigestArticle} onOpenHighlight={onOpenHighlight} onOpenList={(listId, reorder) => navigation.navigate('ReadingList', { listId, reorder })} />}
     </Stack.Screen>
     <Stack.Screen name="ReadingList" getId={({ params }) => params.listId}>
-      {({ navigation, route }) => <ReadingListScreen initialReorder={route.params.reorder} listId={route.params.listId} onBack={() => navigation.popToTop()}
+      {({ navigation, route }) => <ReadingListRoute initialReorder={route.params.reorder} listId={route.params.listId} onBack={() => navigation.popToTop()}
         onSelectArticle={(articleId) => onSelectArticle(articleId, route.params.listId)} onBrowseArticles={onBrowseArticles} />}
     </Stack.Screen>
   </Stack.Navigator>;

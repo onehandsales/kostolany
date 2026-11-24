@@ -1,5 +1,7 @@
 # Kostolany Mobile
 
+**현재 — Parity 7:** [저장·목록·메모·순서 결과](../TODO/FE_MEDIUM_PARITY_07_RESULT.md). 기능·두 차례 검토/웹 점검·타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 사용자 사전 승인으로 묶음7만 로컬 커밋 후 묶음8 진행. 시각 차이·원본 미확인·native 대기는 유지한다. tools·evidence·캡처/검증 로그/manifest 생성 없음. 아래 문구는 과거 실행 이력이다.
+
 **현재 — Parity 6:** [Digest 결과·검사·8081 확인 순서](../TODO/FE_MEDIUM_PARITY_06_RESULT.md). 기존/새 호의 현재 관계 필터, June 8 기사 구성, 미확인 읽기 시간·회원용 별표, 화면 이탈·조회 수명과 포커스를 보완했다. 구현·mock 검증과 시각 잔여·U 미확인·native 대기를 구분한다. D04/D11의 다른 소비자는 묶음7에 남는다. tools·evidence·캡처/로그/manifest 파일은 생성·수정하지 않는다. 커밋·push·배포·묶음7은 수행하지 않았다. 아래 기록은 각 실행 당시 이력이다.
 
 **Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](../TODO/FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.

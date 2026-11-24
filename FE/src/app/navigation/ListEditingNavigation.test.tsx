@@ -22,10 +22,10 @@ afterEach(() => jest.useRealTimers());
 function Probe({ capture }: { capture: (store: AuthStore) => void }) {
   const { store } = useAuth(); useEffect(() => capture(store), [store, capture]); return null;
 }
-async function setup(scenario: UserListScenario = 'normal') {
+async function setup(scenario: UserListScenario = 'normal', articleIds = ids) {
   const lists = createMockUserListSource({ delayMs: 0, managesReadingList: true, scenario });
   await lists.setList({ userId: mockUserA.id, listId: 'own', commandId: 1,
-    content: { name, articleIds: ids, description: '목록 설명', isPrivate: false } });
+    content: { name, articleIds, description: '목록 설명', isPrivate: false } });
   let auth: AuthStore | undefined;
   await render(<SafeAreaProvider><AuthProvider initialUser={mockUserA} source={createMockAuthSource({ delayMs: 0 })}>
     <SessionNavigation bookmarkSource={{ ...createMockBookmarkSource({ delayMs: 0 }), lists }}
@@ -95,6 +95,19 @@ it('메모 실패 초안·재시도·취소·지우기와 기사 상세 복귀 �
   expect((await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own')?.notes).toEqual({});
 }, 30000);
 
+it('일반 예시 기사의 저장 시트도 목록 화면 이탈 때 초안을 폐기한다', async () => {
+  const local = bookmarkArticles.find(article => !article.reference);
+  if (!local) throw new Error('Missing local article');
+  const articleIds = [local.id, ids[1]!, ids[2]!];
+  const { user, lists } = await setup('normal', articleIds);
+  await user.press(screen.getByLabelText(`북마크, ${local.title}, 저장됨`));
+  await user.press(screen.getByRole('checkbox', { name }));
+  await user.press(screen.getByRole('tab', { name: '홈' }));
+  await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  expect(screen.queryByRole('dialog', { name: '저장할 목록' })).toBeNull();
+  expect((await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own')?.articleIds).toEqual(articleIds);
+}, 30000);
+
 it('정렬 취소는 원순서를 보존하고 실패 뒤 같은 초안 재시도는 상세와 공개 목록에 반영한다', async () => {
   const { user, lists } = await setup('reorder-error');
   async function openOrder() { await user.press(button(`목록 관리, ${name}`)); await user.press(button('Reorder items')); }
@@ -128,7 +141,7 @@ it('공개 범위 확인은 확정 목표를 유지하고 취소·실패·재시
   await screen.findByText('공개 범위를 변경하지 못했어요. 다시 시도해 주세요.');
   await user.press(button('목록 비공개 확인'));
   await waitFor(() => expect(screen.queryByRole('dialog', { name: '목록 공개 범위 확인' })).toBeNull());
-  expect(screen.getByText('Private')).toBeVisible(); expect(button('Share list')).toBeVisible();
+  expect(screen.getByLabelText('Private')).toBeVisible(); expect(button('Share list')).toBeVisible();
   expect(screen.getByText(`${name} is now private`)).toBeVisible();
   await user.press(button('List responses'));
   await fireEvent.changeText(screen.getByLabelText('응답 내용'), '소유 목록의 응답');
@@ -162,4 +175,35 @@ it('같은 A 재로그인과 B 전환은 미제출 메모·시트를 버리고 �
   expect(screen.queryByRole('button', { name: `${name} 열기, 저장한 기사 3개` })).toBeNull();
   await switchTo(mockUserA.id);
   expect(await screen.findByRole('button', { name: `${name} 열기, 저장한 기사 3개` })).toBeVisible();
+}, 30000);
+
+
+it('목록 편집과 저장 선택은 탭 이탈 때 폐기하고 복귀하면 확정 내용만 보인다', async () => {
+  const { user, lists } = await setup();
+  const leave = async () => {
+    await user.press(screen.getByRole('tab', { name: '홈' }));
+    await user.press(screen.getByRole('tab', { name: '라이브러리' }));
+  };
+  await user.press(button(`Add a note, ${title}`));
+  await fireEvent.changeText(screen.getByLabelText('목록 기사 메모'), '남기지 않을 초안');
+  await leave();
+  expect(screen.queryByLabelText('목록 기사 메모')).toBeNull();
+  await user.press(button(`목록 관리, ${name}`));
+  await user.press(button('이름 수정'));
+  await fireEvent.changeText(screen.getByLabelText('목록 이름 · 필수'), '폐기할 이름');
+  await leave();
+  expect(screen.queryByLabelText('목록 이름 · 필수')).toBeNull();
+  await user.press(button(`목록 관리, ${name}`));
+  await user.press(button('Reorder items'));
+  await user.press(button(`순서 이동, ${title}`));
+  await user.press(button(`아래로 이동, ${title}`));
+  await leave();
+  expect(screen.queryByLabelText('목록 순서 저장')).toBeNull();
+  await user.press(screen.getByLabelText(`북마크, ${title}, 저장됨`));
+  await user.press(screen.getByRole('checkbox', { name }));
+  await leave();
+  expect(screen.queryByRole('dialog', { name: '저장할 목록' })).toBeNull();
+  const saved = (await lists.fetchLists(mockUserA.id)).lists.find(list => list.listId === 'own');
+  expect(saved).toMatchObject({ name, articleIds: ids });
+  expect(saved?.notes).toBeUndefined();
 }, 30000);

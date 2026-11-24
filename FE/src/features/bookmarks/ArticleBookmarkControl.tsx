@@ -10,6 +10,7 @@ import { SaveToListSheet } from './SaveToListSheet';
 import { useArticleBookmark, useBookmarkScopeKey, useBookmarkStore } from './useBookmarks';
 
 type ArticleBookmarkControlProps = {
+  active?: boolean;
   articleId: string;
   articleTitle: string;
   compact?: boolean;
@@ -34,6 +35,7 @@ export function ArticleBookmarkControl(props: ArticleBookmarkControlProps) {
 }
 
 function SignedInBookmarkControl({
+  active = true,
   articleId,
   articleTitle,
   compact = false,
@@ -43,6 +45,7 @@ function SignedInBookmarkControl({
   const { state, toggleBookmark, retryBookmark } = useArticleBookmark(articleId);
   const store = useBookmarkStore();
   const [selecting, setSelecting] = useState(false);
+  if (!active && selecting) setSelecting(false);
   const disabled = state.status !== 'ready';
   const busy = state.isPending || state.status === 'loading';
   const label = `북마크, ${articleTitle}, ${

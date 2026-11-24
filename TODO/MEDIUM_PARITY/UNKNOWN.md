@@ -16,6 +16,7 @@
 <a id="u-s002"></a>
 
 ### U-S002
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):202
 - 미확인 내용: 타인 공개·다른 리스트의 동일 기사 영향
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -89,6 +90,7 @@
 <a id="u-s011"></a>
 
 ### U-S011
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/ANALYSIS.md>):139
 - 미확인 내용: 글 추가 과정 미수록·카드 다운로드 아이콘 의미
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -289,6 +291,7 @@
 <a id="u-s036"></a>
 
 ### U-S036
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>):109
 - 미확인 내용: 체크 즉시 저장인지 Done 확정인지
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -313,6 +316,7 @@
 <a id="u-s039"></a>
 
 ### U-S039
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):169
 - 미확인 내용: 공개 조회·영속성
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -449,6 +453,7 @@
 <a id="u-s056"></a>
 
 ### U-S056
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):264
 - 미확인 내용: Viewed 조건·다운로드 상태와 구분
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -465,6 +470,7 @@
 <a id="u-s058"></a>
 
 ### U-S058
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):203
 - 미확인 내용: 이미지 밝기 정책
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -529,6 +535,7 @@
 <a id="u-s066"></a>
 
 ### U-S066
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/ANALYSIS.md>):140
 - 미확인 내용: 글 추가 경로·정렬
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -609,6 +616,7 @@
 <a id="u-s076"></a>
 
 ### U-S076
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):109
 - 미확인 내용: 이름 공백·중복 검증
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -617,6 +625,7 @@
 <a id="u-s077"></a>
 
 ### U-S077
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):202
 - 미확인 내용: 재진입·타기기 순서 유지
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -625,6 +634,7 @@
 <a id="u-s078"></a>
 
 ### U-S078
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):141
 - 미확인 내용: 드래그 접근성·동시 편집 충돌
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -649,6 +659,7 @@
 <a id="u-s081"></a>
 
 ### U-S081
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):110
 - 미확인 내용: 소유권·공유 편집자 권한
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -681,6 +692,7 @@
 <a id="u-s085"></a>
 
 ### U-S085
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):171
 - 미확인 내용: 원문·타인 저장·캐시 정리 결과
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -761,6 +773,7 @@
 <a id="u-s095"></a>
 
 ### U-S095
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/ANALYSIS.md>):110
 - 미확인 내용: 기본 Reading list의 자동 생성 시점·빈 목록 다운로드 동작은 미확인. 기본 리스트 삭제 불가는 공식 도움말에서 확인했다.
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -809,6 +822,7 @@
 <a id="u-s101"></a>
 
 ### U-S101
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):202
 - 미확인 내용: 공유 버튼 잔존 시 접근 정책
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -841,6 +855,7 @@
 <a id="u-s105"></a>
 
 ### U-S105
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):141
 - 미확인 내용: 타인 저장 목록 실제 제거·재공개 복원
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -849,6 +864,7 @@
 <a id="u-s106"></a>
 
 ### U-S106
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/ANALYSIS.md>):108
 - 미확인 내용: 빈 리스트 공개·다운로드 동작
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -865,6 +881,7 @@
 <a id="u-s108"></a>
 
 ### U-S108
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):233
 - 미확인 내용: 색약·명암 대비 수치 미검증
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -873,6 +890,7 @@
 <a id="u-s109"></a>
 
 ### U-S109
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):171
 - 미확인 내용: 타인 접근 차단 실제 재현 없음
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -913,6 +931,7 @@
 <a id="u-s114"></a>
 
 ### U-S114
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):140
 - 미확인 내용: 메모·오프라인 캐시·복구 정책
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -969,6 +988,7 @@
 <a id="u-s121"></a>
 
 ### U-S121
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>):108
 - 미확인 내용: Undo 시간·메모와 순서 복구
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1161,6 +1181,7 @@
 <a id="u-s145"></a>
 
 ### U-S145
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/ANALYSIS.md>):201
 - 미확인 내용: 정렬·원문 삭제 시 처리
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1241,6 +1262,7 @@
 <a id="u-s155"></a>
 
 ### U-S155
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):139
 - 미확인 내용: 서버 필수값·초과 검증
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1257,6 +1279,7 @@
 <a id="u-s157"></a>
 
 ### U-S157
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):171
 - 미확인 내용: 취소 복원·부분 저장 여부
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1377,6 +1400,7 @@
 <a id="u-s172"></a>
 
 ### U-S172
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>):139
 - 미확인 내용: 다중 리스트 저장 해제 규칙
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1417,6 +1441,7 @@
 <a id="u-s177"></a>
 
 ### U-S177
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):79
 - 미확인 내용: 정렬 기준·중복 기사 허용
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1529,6 +1554,7 @@
 <a id="u-s191"></a>
 
 ### U-S191
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):171
 - 미확인 내용: 수정·삭제·서버 검증
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1561,6 +1587,7 @@
 <a id="u-s195"></a>
 
 ### U-S195
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):110
 - 미확인 내용: 리스트에서 제거한 뒤 다른 리스트·다운로드 사본·메모가 유지되는지는 미검증.
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1601,6 +1628,7 @@
 <a id="u-s200"></a>
 
 ### U-S200
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):141
 - 미확인 내용: 빈값 Done·최대 길이·메모 공개 범위
 - 현재 판정: 원본 미확인 유지; 구현의 mock 기본안/검증과 원본 동일성은 별도 판정
@@ -1898,6 +1926,7 @@
 <a id="u-f37"></a>
 
 ### U-F37
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>):178
 - 미확인 내용: 복수 리스트 선택·선택 해제·Create new list 실행·저장 실패, 타 기기 재조회.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1930,6 +1959,7 @@
 <a id="u-f41"></a>
 
 ### U-F41
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/ANALYSIS.md>):245
 - 미확인 내용: Saved lists·Library Reading history 본문, 배너 닫기 결과·빈 탭·실패·페이지네이션.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1938,6 +1968,7 @@
 <a id="u-f42"></a>
 
 ### U-F42
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):210
 - 미확인 내용: 60/280자 경계·공백·중복 이름·Private On·Cancel·생성 실패.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1962,6 +1993,7 @@
 <a id="u-f45"></a>
 
 ### U-F45
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):245
 - 미확인 내용: 빈값 Done·최대 길이·Cancel·수정/삭제·공개 접근·다른 리스트 동일 글.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1970,6 +2002,7 @@
 <a id="u-f46"></a>
 
 ### U-F46
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/ANALYSIS.md>):210
 - 미확인 내용: Start browsing 결과·글 추가·Edit list info·공유·응답·원문 삭제 영향.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1978,6 +2011,7 @@
 <a id="u-f47"></a>
 
 ### U-F47
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):212
 - 미확인 내용: 닫기·실패·복구·타인 라이브러리·캐시/메모 정리, 기본 리스트 삭제 제한.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1986,6 +2020,7 @@
 <a id="u-f48"></a>
 
 ### U-F48
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Downloading a list/ANALYSIS.md>):179
 - 미확인 내용: 중단·부분 실패·재다운로드·캐시 삭제·저장 공간 부족·비행기 모드.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -1994,6 +2029,7 @@
 <a id="u-f49"></a>
 
 ### U-F49
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):245
 - 미확인 내용: Cancel·실패·타인 접근·재공개·타인 저장 복원·공유 링크 처리.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -2002,6 +2038,7 @@
 <a id="u-f50"></a>
 
 ### U-F50
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>):145
 - 미확인 내용: Undo 실행·시간 제한·메모/순서 복구·실패, 다른 리스트와 원문 유지.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -2010,6 +2047,7 @@
 <a id="u-f51"></a>
 
 ### U-F51
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):245
 - 미확인 내용: Cancel·마지막 두 글 재조회·동시 편집·저장 실패·메모 유지·접근성 이동.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료
@@ -2098,6 +2136,7 @@
 <a id="u-f62"></a>
 
 ### U-F62
+- Parity 7: [질문별 자체 정책과 검증 경계](../FE_MEDIUM_PARITY_07_RESULT.md). 아래 원본 미확인 질문은 보존하며 mock 성공으로 닫지 않는다.
 - 원본: [ANALYSIS.md](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):343
 - 미확인 내용: Light 복귀·System 연동·재시작·다른 기기·OS 접근성·기사 설정과 동기화.
 - 현재 판정: 미수록 분기의 확인·판정 작업 포함; 원본과 동일하다는 결론은 미완료

@@ -216,3 +216,43 @@ it('저장 성공 응답을 기다리는 사이 삭제한 목록은 늦은 성�
   expect(store.getSnapshot().entries).toEqual([]);
   expect((await real.fetchLists('A')).lists).toEqual([]);
 });
+
+
+it('대기 중 연속 메모·순서 쓰기는 최신 의도와 각 확정 시각을 함께 유지한다', async () => {
+  let clock = 1000;
+  const real = createMockUserListSource({ delayMs: 0, now: () => clock });
+  const { store, source, listId, entry } = await setup(real);
+  expect(entry()?.confirmed?.updatedAt).toBe(1000);
+  clock = 6000;
+  store.setNote(listId, ids[0], '첫 메모');
+  store.reorderList(listId, [...ids].reverse());
+  store.setNote(listId, ids[0], '최종 메모');
+  await flush();
+  expect(entry()?.content).toMatchObject({ updatedAt: 6000, articleIds: [...ids].reverse(), notes: { [ids[0]]: '최종 메모' } });
+  expect(entry()?.content).toEqual(entry()?.confirmed);
+  clock = 9000;
+  store.reorderList(listId, [...ids].reverse()); await flush();
+  await store.refreshLists();
+  expect(entry()?.content?.updatedAt).toBe(6000);
+  expect((await source.fetchLists('A')).lists.find(list => list.listId === listId)?.updatedAt).toBe(6000);
+});
+
+it('내용이 다시 같아진 뒤 도착한 성공 응답은 현재 카탈로그 시각을 되돌리지 않는다', async () => {
+  let clock = 1000; let delay = false;
+  const real = createMockUserListSource({ delayMs: 0, now: () => clock });
+  const gate = deferred<void>();
+  const { store, listId, entry } = await setup({ ...real, setList: async input => {
+    const result = await real.setList(input); if (delay) await gate.promise; return result;
+  } });
+  clock = 2000; delay = true; store.setNote(listId, ids[0], 'A'); await flush();
+  const content = real.getCatalog?.().find(list => list.listId === listId);
+  if (!content) throw new Error('Missing list');
+  clock = 3000;
+  await real.setList({ userId: 'A', listId, commandId: 901, content: { ...content, notes: { [ids[0]]: 'B' } } });
+  clock = 4000;
+  await real.setList({ userId: 'A', listId, commandId: 902, content });
+  gate.resolve(); await flush();
+  expect(entry()?.confirmed?.updatedAt).toBe(4000);
+  expect(entry()?.content?.notes?.[ids[0]]).toBe('A');
+  expect(entry()?.failure).toBeNull();
+});

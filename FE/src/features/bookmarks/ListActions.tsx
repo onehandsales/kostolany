@@ -12,13 +12,13 @@ import { ListPrivacyDialog } from './ListPrivacyDialog';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { ownedPublicListId } from '../public-lists/ownedPublicList';
 
-type ListActionsProps = { listId: string; name: string; onReorder: () => void };
+type ListActionsProps = { active?: boolean; listId: string; name: string; onReorder: () => void };
 
-export function ListActions({ listId, name, onReorder }: ListActionsProps) {
+export function ListActions({ active = true, listId, name, onReorder }: ListActionsProps) {
   const state = useUserLists();
   const selected = state.entries.find((entry) => entry.listId === listId && entry.content);
   return selected?.content ? (
-    <ListActionControls onReorder={onReorder} listId={listId} name={name} isPrivate={selected.content.isPrivate ?? false} />
+    <ListActionControls key={String(active)} onReorder={onReorder} listId={listId} name={name} isPrivate={selected.content.isPrivate ?? false} />
   ) : null;
 }
 

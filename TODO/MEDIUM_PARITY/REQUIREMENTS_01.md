@@ -43,6 +43,8 @@ FE 조사 경로: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/Ar
 
 ## S002 — 리스트 메모 반영
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_02d96a649c7a461b9c07155d33c1dbfc` · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):178 · [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/05_sc_02d96a649c7a461b9c07155d33c1dbfc.png>)
 
 흐름 맥락: [F45/05](FLOWS.md#f45)
@@ -353,6 +355,8 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 <a id="s011"></a>
 
 ## S011 — 내 리스트 상세 항목
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_0b1e7b64b9f14f2cb5358161e0f67a94` · [원본 분석](<../../medium/flows/Library/List detail/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png>)
 

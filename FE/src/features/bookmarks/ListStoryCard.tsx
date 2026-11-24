@@ -13,6 +13,7 @@ import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
 import { DownloadArticleStatus } from '../downloads/DownloadControl';
 
 type ListStoryCardProps = {
+  active?: boolean;
   listId?: string;
   article: FeedArticle;
   onOpen: (id: string) => void;
@@ -22,7 +23,7 @@ type ListStoryCardProps = {
   onEditNote?: () => void;
 };
 
-export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEditNote, listId }: ListStoryCardProps) {
+export function ListStoryCard({ active = true, article, onOpen, onRemove, onNotice, note, onEditNote, listId }: ListStoryCardProps) {
   const moderation = useModeration();
   const articleModeration = useArticleModeration();
   const styles = useThemeStyles(createStyles);
@@ -51,7 +52,7 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEdi
         onPress={onEditNote ?? (() => onNotice('Add a note'))}
         style={styles.noteTarget}
       >
-        <Text style={styles.note}>{note || 'Add a note...'}</Text>
+        <Text style={[styles.note, Boolean(note) && { borderLeftColor: colors.text }]}>{note || 'Add a note...'}</Text>
       </Pressable>
       <Pressable
         role="button"
@@ -69,12 +70,15 @@ export function ListStoryCard({ article, onOpen, onRemove, onNotice, note, onEdi
       <View style={styles.actions}>
         {listId ? <DownloadArticleStatus listId={listId} articleId={article.id} title={article.title} /> : <AppIcon name="download" size={16} color={colors.secondaryText} />}
         <Text style={styles.metadata}>
-          {article.readingMinutes ? `${article.readingMinutes} min read  ·  ` : ''}
+          {article.reference?.memberOnly === true && <Text accessibilityLabel={`회원용 기사, ${article.title}`}>
+            <AppIcon name="star" color={colors.gold} size={16} />{' · '}
+          </Text>}
+          {article.readingMinutes > 0 ? `${article.readingMinutes} min read  ·  ` : ''}
           {article.publishedLabel}
           {viewed ? ' · Viewed' : ''}
         </Text>
-        <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} compact />
-        <ActionMenu
+        <ArticleBookmarkControl active={active} articleId={article.id} articleTitle={article.title} compact />
+        <ActionMenu key={String(active)}
           label={`기사 관리, ${article.title}`}
           items={[
             { label: note ? 'Edit note' : 'Add note', onPress: onEditNote ?? (() => onNotice('Add a note')) },

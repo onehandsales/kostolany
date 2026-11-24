@@ -11,6 +11,8 @@
 
 ## S076 — 리스트 생성 빈 폼
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_675e3eda08504708979533659dacdcf6` · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Library/Creating a list/screens/02_sc_675e3eda08504708979533659dacdcf6.png>)
 
 흐름 맥락: [F42/02](FLOWS.md#f42)
@@ -43,6 +45,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s077"></a>
 
 ## S077 — 변경 순서 반영
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_6840597985cc46b6b12f6cd0204756f4` · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):178 · [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/05_sc_6840597985cc46b6b12f6cd0204756f4.png>)
 
@@ -84,6 +88,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s078"></a>
 
 ## S078 — 리스트 순서 편집
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_6a1036b35729490195c460e5b934bd68` · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):118 · [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/03_sc_6a1036b35729490195c460e5b934bd68.png>)
 
@@ -183,6 +189,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s081"></a>
 
 ## S081 — 내 리스트 관리 메뉴
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_71f31ac7803a47f89b2e76b6a9355a7c` · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png>)
 
@@ -316,6 +324,8 @@ FE 조사 경로: [MembershipSheet.tsx](<../../FE/src/features/membership/Member
 <a id="s085"></a>
 
 ## S085 — 리스트 삭제 후 라이브러리
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_7749ef5c35474c229a2515a9c2a53878` · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):147 · [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/04_sc_7749ef5c35474c229a2515a9c2a53878.png>)
 
@@ -664,6 +674,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s095"></a>
 
 ## S095 — Library 초기 목록
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_84e0421de98041bbb014822fc05dd3fb` · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>):87 · [원본 PNG](<../../medium/flows/Library/screens/02_sc_84e0421de98041bbb014822fc05dd3fb.png>)
 

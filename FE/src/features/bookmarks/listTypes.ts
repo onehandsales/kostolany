@@ -10,6 +10,8 @@ export type UserListContent = Readonly<{
   name: string;
   articleIds: readonly string[];
   notes?: Readonly<Record<string, string>>;
+  // 저장소가 내용 변경을 확정한 시각이며 명령 ID나 화면 진입 시각과 무관하다.
+  updatedAt?: number;
 }> & ListMetadata;
 export type UserList = UserListContent & Readonly<{ userId: string; listId: string }>;
 export class ListConflictError extends Error {

@@ -45,6 +45,8 @@ FE 조사 경로: [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScree
 
 ## S177 — 리스트 상세 스크롤
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_e20e59ee459b4a0d9a0a0302091962bd` · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):56 · [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/01_sc_e20e59ee459b4a0d9a0a0302091962bd.png>)
 
 흐름 맥락: [F45/01](FLOWS.md#f45), [F46/04](FLOWS.md#f46)
@@ -547,6 +549,8 @@ FE 조사 경로: [ReadingHistoryList.tsx](<../../FE/src/features/reading-histor
 
 ## S191 — 메모 내용 입력
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_f4f970015d6743538664901310d2c17b` · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):148 · [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/04_sc_f4f970015d6743538664901310d2c17b.png>)
 
 흐름 맥락: [F45/04](FLOWS.md#f45)
@@ -689,6 +693,8 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 <a id="s195"></a>
 
 ## S195 — 리스트 항목 메뉴
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_fa4e79f0bed747d698ae44e23f9223f9` · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):86 · [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/02_sc_fa4e79f0bed747d698ae44e23f9223f9.png>)
 
@@ -857,6 +863,8 @@ FE 조사 경로: [ModerationDialogs.tsx](<../../FE/src/features/moderation/Mode
 <a id="s200"></a>
 
 ## S200 — 리스트 항목 메모 폼
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_ffa4d0c8f01440e1a0842a4e1a59708a` · [원본 분석](<../../medium/flows/Library/List detail/Adding a note/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Library/List detail/Adding a note/screens/03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png>)
 

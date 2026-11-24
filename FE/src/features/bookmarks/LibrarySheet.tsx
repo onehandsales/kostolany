@@ -1,5 +1,5 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
-import type { ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -16,6 +16,8 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
 import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
+import { captureReturnFocus } from '../../shared/ui/returnFocus';
+import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
 
 type LibrarySheetProps = {
   title: string;
@@ -54,6 +56,11 @@ export function LibrarySheet({
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
+  // 웹 포털 종료 뒤 남아 있는 진입 버튼, 없으면 현재 화면 제목으로 복귀한다.
+  const [restoreFocus] = useState(captureReturnFocus);
+  useEffect(() => () => {
+    if (Platform.OS === 'web') requestAnimationFrame(() => { restoreFocus(); restoreModalFocus(); });
+  }, [restoreFocus]);
   return (
     <Modal
       transparent

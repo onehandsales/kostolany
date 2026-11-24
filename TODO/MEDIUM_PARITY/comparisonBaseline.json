@@ -391,7 +391,7 @@
     },
     {
       "path": "FE/src/app/navigation/AuthNavigation.test.tsx",
-      "sha256": "4c5c5d9e3d3f06281874271b3f9bc31bd7125ae198711c814f7e97872e60197f"
+      "sha256": "9aa330084cccff621fe25769e554541bdb69d91eae1f25c22cee1f88ca962f35"
     },
     {
       "path": "FE/src/app/navigation/BookmarkNavigation.test.tsx",
@@ -447,7 +447,7 @@
     },
     {
       "path": "FE/src/app/navigation/LibraryNavigator.tsx",
-      "sha256": "3e6a812ca5f4ebdf11dc1ced9fee928e78f0e439fdc8108f28c0c60609a3121d"
+      "sha256": "2bd0b20ac58367edd3491a57e0f84ca12b08793b92ad399e8f2f87fce3ee25ca"
     },
     {
       "path": "FE/src/app/navigation/LikeNavigation.test.tsx",
@@ -455,7 +455,7 @@
     },
     {
       "path": "FE/src/app/navigation/ListEditingNavigation.test.tsx",
-      "sha256": "f4874fcb43ba97a2efdec0a7416de50a58331f14fa1a469d95e1f9ff3d40788e"
+      "sha256": "6bf4fec0c1ee99b781f7a5d655af58ff7530c405a1e5bc5973fec3630fb3ba09"
     },
     {
       "path": "FE/src/app/navigation/ListeningNavigation.test.tsx",
@@ -511,7 +511,7 @@
     },
     {
       "path": "FE/src/app/navigation/ProfileNavigator.tsx",
-      "sha256": "c5d8cd21c5738d4884b46b4a59ae05c26cd9fc80ea2a302d4517c22898b9f415"
+      "sha256": "a409f1a50134f2ee351aed5c489412f164a4850a2abe5e4e379e6e529c073947"
     },
     {
       "path": "FE/src/app/navigation/ProfileRouteScreen.tsx",
@@ -795,7 +795,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/ArticleBookmarkControl.tsx",
-      "sha256": "5d193410ca3c56fdb54bff874e46f6b84c757ebd0f2fe780d4328710e36fe0d8"
+      "sha256": "0b969f225eb75a3a8bc09d2f422060201e3feddb68c8770032d28a7087809825"
     },
     {
       "path": "FE/src/features/bookmarks/BookmarkIcon.tsx",
@@ -831,7 +831,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/createUserListStore.ts",
-      "sha256": "80cd450d3a4b21ccc3254c02cd85db9c4146a2fe492b2e8a61dde6e8fbdcb8af"
+      "sha256": "ff117ea5adc2532823027bf6c4cb19b2b7a7f8288902017bc4d72a0fed4600b8"
     },
     {
       "path": "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -851,11 +851,11 @@
     },
     {
       "path": "FE/src/features/bookmarks/data/createMockUserListSource.test.ts",
-      "sha256": "0985e6c2719063aa87369a985f9df8e8c874f78186b16c4cb966951f9c2798ad"
+      "sha256": "b732515f454bcd8eb80f9d940176b1bad6b197e1745b1fb521d7935ba95fecf7"
     },
     {
       "path": "FE/src/features/bookmarks/data/createMockUserListSource.ts",
-      "sha256": "73d03911f2dd48b6e7c24f3c8c091907104e85ee93c0156c8fa85a22872dd7f3"
+      "sha256": "1323aa9ff08561db86c52b29a65e7b9491a153b9d1929a1340dd0b47e2c7b33a"
     },
     {
       "path": "FE/src/features/bookmarks/data/userListPreview.ts",
@@ -871,19 +871,19 @@
     },
     {
       "path": "FE/src/features/bookmarks/LibraryListCard.tsx",
-      "sha256": "344199b8319f774bffdf44d07fbb667c5886d016ba7283cd2f17eccf20f55561"
+      "sha256": "b65bcb62bdca498a4570ff42fbd0f0d40eb1d60dac10a590e2afba21dab029de"
     },
     {
       "path": "FE/src/features/bookmarks/LibraryScreen.tsx",
-      "sha256": "275d75240393b753a1e0ba2ac779f4a1401c3690434117acd669c3e2ba74a206"
+      "sha256": "76f49d970c479e937ccc51db8024e5d13553ac08dadce1ea8c5a9817cc45038f"
     },
     {
       "path": "FE/src/features/bookmarks/LibrarySheet.tsx",
-      "sha256": "7286a28fa9d8f6d25047b005429a172c0cb850406b68a1862b8cac2b2899b176"
+      "sha256": "5908d6026dec1649a47db1aaa642d15f9a627fa81f8ea02db1341ddb4f534bc4"
     },
     {
       "path": "FE/src/features/bookmarks/ListActions.tsx",
-      "sha256": "bbe824f0db85211cc6cddd0d0638f3c6e908c89f1c00e46484447106525696a6"
+      "sha256": "3bf95c182c6b61fb2c7a8d9da42ac6c37bf847f0fdd9a4bdc8d5b63b43411c21"
     },
     {
       "path": "FE/src/features/bookmarks/listContent.ts",
@@ -891,7 +891,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/listEditing.test.ts",
-      "sha256": "8b3a93a0071327f219606889edbfee732fd41925cd62c6dc9593dfcf6fe07be0"
+      "sha256": "468e12eb1f12663f891db9cca5bae52dc1f247af037b7583bbdb0cc89e2d0cae"
     },
     {
       "path": "FE/src/features/bookmarks/ListEditorSheet.tsx",
@@ -899,7 +899,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/ListNoteSheet.tsx",
-      "sha256": "29f811b3922a408b395b093bebf6a600c1a32420af7c640bb7c64ef68e196d84"
+      "sha256": "f47e658af4b01dde7c0c81a3a08524d99bb059ad8a613af24a2a892f20af9c18"
     },
     {
       "path": "FE/src/features/bookmarks/ListPrivacyDialog.tsx",
@@ -907,11 +907,11 @@
     },
     {
       "path": "FE/src/features/bookmarks/ListStoryCard.tsx",
-      "sha256": "358188a2e4436fa42a6ce77b36a105b448ab8d6dd67000f19d5b995c0bb7b924"
+      "sha256": "a06c6e1347a9558cb929764574b53ded255f9adb9d3141bf625f378cd5c3c07d"
     },
     {
       "path": "FE/src/features/bookmarks/listTypes.ts",
-      "sha256": "c2650e2d4303bb2dac077376f0d8f527d9f7b3c51d127cefe4537c6aa1124e08"
+      "sha256": "7c100fde5b977e3967c889153e5d89c99c40b841d7f04330d38cff5fbdd4b9ac"
     },
     {
       "path": "FE/src/features/bookmarks/ReadingListFeedback.tsx",
@@ -919,7 +919,7 @@
     },
     {
       "path": "FE/src/features/bookmarks/ReadingListScreen.tsx",
-      "sha256": "fb3f722001c7f6dee13301ba95e26b37526a16d4e4f346434687c97c6b94fb25"
+      "sha256": "cdf9362053f2dae392ee8f6d0df9be31fe81182739fb7903d500eada098d7985"
     },
     {
       "path": "FE/src/features/bookmarks/reorderGeometry.test.ts",
@@ -2476,6 +2476,22 @@
     {
       "path": "FE/src/shared/ui/WriteButton.tsx",
       "sha256": "76a48bd10a9f1594b0c5e3b7fc91270c438ad793f152a4c39e1882bfc50bebae"
+    },
+    {
+      "path": "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+      "sha256": "06fbadb1f58c3a4fd892beb07f15d1bd9ac36cac7b71a8dccf8fd2d13667e84c"
+    },
+    {
+      "path": "FE/src/app/navigation/ReadingListRoute.tsx",
+      "sha256": "632901def42c75a29f3a1b453f8029b1d045079835d7db121fb51ed5c978ea98"
+    },
+    {
+      "path": "FE/src/features/bookmarks/ListDetailMetadata.test.tsx",
+      "sha256": "5b5e7ba017f97ed7196cb402c7d21cddeff9c5c816cd4e72ac5f47f9db6364c5"
+    },
+    {
+      "path": "FE/src/features/bookmarks/ListMetadataParity.test.tsx",
+      "sha256": "9b762949011b51305bd0f9d05e5972169f4a50a08fee58ed2b08405d8268b7fd"
     }
   ],
   "evidenceContext": {
@@ -3036,7 +3052,7 @@
         "bookmarks"
       ],
       "account": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixture": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixture": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "entry": "ReadingListScreen"
     },
     "V26": {
@@ -3250,7 +3266,7 @@
       ],
       "scope": "D04 중 note, D11 중 ListStoryCard; 목록 시간 계약·저장/공개범위/메모/순서",
       "done": "생성→저장→메모→reorder취소/확정→private/delete/removeUndo; 다중소속·늦은응답·A/B",
-      "status": "미착수"
+      "status": "구현·mock 검증·두 차례 검토 완료; 시각 차이·원본 미확인·native 대기"
     },
     {
       "number": 8,
@@ -3999,7 +4015,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -4010,7 +4029,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 대상 기사 위 세로선·이탤릭 메모",
         "D": "표시값·입력: 입력한 메모 표시",
@@ -4061,9 +4080,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S003",
@@ -4905,7 +4929,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -4916,7 +4943,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 4개 글 중 상위 2개·각 항목 Add a note",
         "D": "표시값·입력: 4 stories, 저장 아이콘 채움",
@@ -4982,7 +5009,7 @@
       ],
       "conditions": {
         "comparisonProfile": "CP-WEB-01",
-        "clock": "목록 표시6초+4개; S106과 독립 snapshot/D13",
+        "clock": "source updatedAt 기준14/6/1초 독립 fixture. 원본의 생성/수정 시각 의미는 미확인",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 4개 글 중 상위 2개·각 항목 Add a note",
         "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
@@ -4990,9 +5017,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S012",
@@ -7402,9 +7434,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Save to, Reading list 체크/잠금, Create new list, Done, 복귀한 채운 북마크를 비교한다. 체크와 확정 시점을 자체 계약으로 명시한다."
+      "acceptance": "Save to, Reading list 체크/잠금, Create new list, Done, 복귀한 채운 북마크를 비교한다. 체크와 확정 시점을 자체 계약으로 명시한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S037",
@@ -7745,9 +7782,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S040",
@@ -9374,7 +9416,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -9385,7 +9430,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 제목·메모·기사 카드 어두운 테마",
         "D": "표시값·입력: 4 stories·자물쇠, 한 기사 Viewed 표시",
@@ -9446,9 +9491,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S057",
@@ -9629,9 +9679,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S059",
@@ -10457,9 +10512,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S067",
@@ -11432,7 +11492,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -11443,7 +11506,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: Create new list 시트·이름·선택 설명·비공개 토글",
         "D": "표시값·입력: 이름0/60, 설명0/280, Private 꺼짐",
@@ -11499,9 +11562,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S077",
@@ -11528,7 +11596,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -11539,7 +11610,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 기사 카드 목록 복귀",
         "D": "표시값·입력: 첫 2개 항목이 변경 순서와 일치, 1 second ago",
@@ -11627,7 +11698,7 @@
       ],
       "conditions": {
         "comparisonProfile": "CP-WEB-01",
-        "clock": "목록 표시1초+4개; 재정렬 확정 상태/D13",
+        "clock": "source updatedAt 기준14/6/1초 독립 fixture. 원본의 생성/수정 시각 의미는 미확인",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 기사 카드 목록 복귀",
         "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
@@ -11635,9 +11706,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S078",
@@ -11664,7 +11740,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -11675,7 +11754,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 제목만 있는 4행과 드래그 핸들",
         "D": "표시값·입력: 기존 순서 유지",
@@ -11736,9 +11815,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S079",
@@ -11939,7 +12023,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -11950,7 +12037,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 제목 옆 더보기 팝오버",
         "D": "표시값·입력: 공개 상태 메뉴",
@@ -12020,9 +12107,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S082",
@@ -12366,9 +12458,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S086",
@@ -13367,9 +13464,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S096",
@@ -13893,7 +13995,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -13904,7 +14009,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 리스트 메타데이터에 자물쇠",
         "D": "표시값·입력: 4 stories·자물쇠",
@@ -13995,9 +14100,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S102",
@@ -14300,7 +14410,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -14311,7 +14424,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 중앙 확인 대화상자",
         "D": "표시값·입력: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내",
@@ -14367,9 +14480,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S106",
@@ -14396,7 +14514,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -14407,7 +14528,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 소유자·제목·빈 상태·하단 리스트 반응",
         "D": "표시값·입력: About mindfulness, 14 seconds ago",
@@ -14480,7 +14601,7 @@
       ],
       "conditions": {
         "comparisonProfile": "CP-WEB-01",
-        "clock": "목록 표시14초; 기준 필드 의미는 원본 미확인/D13 미정",
+        "clock": "source updatedAt 기준14/6/1초 독립 fixture. 원본의 생성/수정 시각 의미는 미확인",
         "theme": "Light 비교 기본안; 원본 theme 설정 자체는 미확인",
         "scroll": "정확 offset 미확인; 다음 보이는 요소와 스크롤 위치를 고정: 배치: 소유자·제목·빈 상태·하단 리스트 반응",
         "keyboard": "원본 명시 관찰 없음; PNG와 실제 focus 확인 필요",
@@ -14488,9 +14609,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S107",
@@ -14654,9 +14780,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S109",
@@ -14683,7 +14814,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -14694,7 +14828,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 리스트 상세 위 검정 토스트",
         "D": "표시값·입력: About mindfulness is now private",
@@ -14785,9 +14919,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S110",
@@ -15241,7 +15380,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -15252,7 +15394,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 하단 Delete list 설명·빨간 버튼",
         "D": "표시값·입력: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내",
@@ -15308,9 +15450,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S115",
@@ -15983,7 +16130,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -15994,7 +16144,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 상단 알림·대상 기사 사라짐",
         "D": "표시값·입력: This item has been removed from your list",
@@ -16045,9 +16195,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S122",
@@ -18417,9 +18572,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다."
+      "acceptance": "가로5탭, 초기 배너/닫기·Digest New, New list, 빈/3개/4개 카드 썸네일/잠금/다운로드/메뉴, Highlighted 구절·작성자·원문 링크를 비교한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S146",
@@ -19293,7 +19453,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -19304,7 +19467,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 동일 생성 폼",
         "D": "표시값·입력: About mindfulness 17/60, 설명 없음, Private 꺼짐",
@@ -19360,9 +19523,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S156",
@@ -19485,7 +19653,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -19496,7 +19667,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 4행의 위치 변경",
         "D": "표시값·입력: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…",
@@ -19552,9 +19723,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S158",
@@ -21068,9 +21244,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "Save to, Reading list 체크/잠금, Create new list, Done, 복귀한 채운 북마크를 비교한다. 체크와 확정 시점을 자체 계약으로 명시한다."
+      "acceptance": "Save to, Reading list 체크/잠금, Create new list, Done, 복귀한 채운 북마크를 비교한다. 체크와 확정 시점을 자체 계약으로 명시한다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S173",
@@ -21529,7 +21710,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -21540,7 +21724,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 나머지 기사·읽기시간·날짜·메모 영역",
         "D": "표시값·입력: 동일 리스트 후반 항목",
@@ -21598,9 +21782,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S178",
@@ -22987,7 +23176,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -22998,7 +23190,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 대상 기사 카드 위 입력란",
         "D": "표시값·입력: A very good explanation of mindfulness",
@@ -23054,9 +23246,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S192",
@@ -23401,7 +23598,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -23412,7 +23612,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: 특정 기사 더보기 3행 팝오버",
         "D": "표시값·입력: Mind Fullness or Emptiness? 대상",
@@ -23475,9 +23675,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     },
     {
       "id": "S196",
@@ -23914,7 +24119,10 @@
         "FE/src/features/bookmarks/ReadingListScreen.tsx",
         "FE/src/features/bookmarks/ReorderListEditor.tsx",
         "FE/src/features/bookmarks/createUserListStore.ts",
-        "FE/src/features/bookmarks/listTypes.ts"
+        "FE/src/features/bookmarks/listTypes.ts",
+        "FE/src/features/bookmarks/ListDetailMetadata.tsx",
+        "FE/src/features/bookmarks/LibrarySheet.tsx",
+        "FE/src/app/navigation/ReadingListRoute.tsx"
       ],
       "sourceCandidates": [
         "FE/src/features/bookmarks/data/bookmarkFixtures.ts",
@@ -23925,7 +24133,7 @@
       ],
       "routeRecipe": "Library → ReadingList(listId) → 더보기·Create/Edit/Add note/Reorder/Private/Delete/Remove·Undo",
       "accountAndPermission": "A 소유; 기본 reading-list와 일반 About mindfulness 구분",
-      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; D13 시간 필드 없음",
+      "fixtureRecipe": "UserListStore·mediumLibraryArticles; S157 지정순서·메모·private·확정전후 독립; source 확정 updatedAt;14/6/1초 독립 조건",
       "referenceObservations": {
         "L": "배치: Add note 시트·설명 입력·대상 기사 카드",
         "D": "표시값·입력: Add a brief description 빈값",
@@ -23981,9 +24189,14 @@
         "crop": null
       },
       "readiness": "recipe-only",
-      "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
+      "blocker": "기능 보완 및 웹 부분 비교. 원본 서체/vector/OS영역·mock 소유자/아바타 차이·U/native 잔여; 저장 캡처 없이 ready로 승격하지 않음",
       "currentEvidence": [],
-      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다."
+      "acceptance": "생성60/280·optional, 빈 목록 CTA, Add note/메뉴/메모, 제목만4행 inline reorder와 Cancel/Done, 비공개 경고/공유 잔존, 삭제 영향 문구, Remove와Undo를 개별 확인한다. S106의14 seconds ago와 S011/S077의 상대 시간·4 stories 조합을 D13으로, S077 기사 별표를 D11로 연결한다. 빈 상세의 시간 표시를 Library 카드의 No stories와 혼동하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지",
+        "artifacts": "사용자 지시: tools/evidence/캡처/로그/검증 manifest 생성 없이 결과 문서에 기록"
+      }
     }
   ],
   "flows": [
@@ -25758,14 +25971,22 @@
       "flowId": "F37",
       "screenId": "S036",
       "png": "medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png",
-      "acceptance": "기사 상세 상단 → 기사 저장 대상 선택. 현재 관찰값: Reading list 체크·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 저장 아이콘 활성 — 저장 선택 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "기사 상세 상단 → 기사 저장 대상 선택. 현재 관찰값: Reading list 체크·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 저장 아이콘 활성 — 저장 선택 반영<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F37-03",
       "flowId": "F37",
       "screenId": "S172",
       "png": "medium/flows/Home/Story detail/Saving a story/screens/03_sc_dda8e78e9eb943629d3cf54eaed5fc22.png",
-      "acceptance": "기사 저장 대상 선택 → 저장 아이콘 활성. 현재 관찰값: 기사 내용·집계 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "기사 저장 대상 선택 → 저장 아이콘 활성. 현재 관찰값: 기사 내용·집계 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F38-01",
@@ -25842,14 +26063,22 @@
       "flowId": "F41",
       "screenId": "S095",
       "png": "medium/flows/Library/screens/02_sc_84e0421de98041bbb014822fc05dd3fb.png",
-      "acceptance": "For you 홈 피드 → Library 초기 목록. 현재 관찰값: Your lists 활성, No stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 저장 글 있는 읽기 목록 — 기본 목록에 글 존재<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "For you 홈 피드 → Library 초기 목록. 현재 관찰값: Your lists 활성, No stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 저장 글 있는 읽기 목록 — 기본 목록에 글 존재<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F41-03",
       "flowId": "F41",
       "screenId": "S066",
       "png": "medium/flows/Library/screens/03_sc_57450c38bf994be18d95fcaf712c56ba.png",
-      "acceptance": "Library 초기 목록 → 저장 글 있는 읽기 목록. 현재 관찰값: 3 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: Digest 일자별 추천 — 특정 날짜 다이제스트<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "Library 초기 목록 → 저장 글 있는 읽기 목록. 현재 관찰값: 3 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: Digest 일자별 추천 — 특정 날짜 다이제스트<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F41-04",
@@ -25863,35 +26092,55 @@
       "flowId": "F41",
       "screenId": "S145",
       "png": "medium/flows/Library/screens/05_sc_c37aefd0916548dda3cb46d61cc25193.png",
-      "acceptance": "Digest 일자별 추천 → 저장한 하이라이트 목록. 현재 관찰값: Alex Smith highlighted. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "Digest 일자별 추천 → 저장한 하이라이트 목록. 현재 관찰값: Alex Smith highlighted. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F42-01",
       "flowId": "F42",
       "screenId": "S066",
       "png": "medium/flows/Library/Creating a list/screens/01_sc_57450c38bf994be18d95fcaf712c56ba.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 생성 빈 폼 — 생성 전 입력<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 생성 빈 폼 — 생성 전 입력<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F42-02",
       "flowId": "F42",
       "screenId": "S076",
       "png": "medium/flows/Library/Creating a list/screens/02_sc_675e3eda08504708979533659dacdcf6.png",
-      "acceptance": "저장 글 있는 읽기 목록 → 리스트 생성 빈 폼. 현재 관찰값: 이름0/60, 설명0/280, Private 꺼짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 이름 입력 — 이름만 입력해 생성 가능 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "저장 글 있는 읽기 목록 → 리스트 생성 빈 폼. 현재 관찰값: 이름0/60, 설명0/280, Private 꺼짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 이름 입력 — 이름만 입력해 생성 가능 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F42-03",
       "flowId": "F42",
       "screenId": "S155",
       "png": "medium/flows/Library/Creating a list/screens/03_sc_ca3b32e4373a40fc84405838671eab27.png",
-      "acceptance": "리스트 생성 빈 폼 → 리스트 이름 입력. 현재 관찰값: About mindfulness 17/60, 설명 없음, Private 꺼짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 새 리스트 생성 표시 — 새 목록 생성 결과<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 생성 빈 폼 → 리스트 이름 입력. 현재 관찰값: About mindfulness 17/60, 설명 없음, Private 꺼짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 새 리스트 생성 표시 — 새 목록 생성 결과<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F42-04",
       "flowId": "F42",
       "screenId": "S039",
       "png": "medium/flows/Library/Creating a list/screens/04_sc_35dcbd9d4308404b9f11ecd03f893eb8.png",
-      "acceptance": "리스트 이름 입력 → 새 리스트 생성 표시. 현재 관찰값: About mindfulness, No stories, 자물쇠 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 이름 입력 → 새 리스트 생성 표시. 현재 관찰값: About mindfulness, No stories, 자물쇠 없음. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F43-01",
@@ -25940,98 +26189,154 @@
       "flowId": "F45",
       "screenId": "S177",
       "png": "medium/flows/Library/List detail/Adding a note/screens/01_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 항목 메뉴 — 항목별 관리<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 항목 메뉴 — 항목별 관리<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F45-02",
       "flowId": "F45",
       "screenId": "S195",
       "png": "medium/flows/Library/List detail/Adding a note/screens/02_sc_fa4e79f0bed747d698ae44e23f9223f9.png",
-      "acceptance": "리스트 상세 스크롤 → 리스트 항목 메뉴. 현재 관찰값: Mind Fullness or Emptiness? 대상. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 항목 메모 폼 — 메모 입력 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 상세 스크롤 → 리스트 항목 메뉴. 현재 관찰값: Mind Fullness or Emptiness? 대상. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 항목 메모 폼 — 메모 입력 전<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F45-03",
       "flowId": "F45",
       "screenId": "S200",
       "png": "medium/flows/Library/List detail/Adding a note/screens/03_sc_ffa4d0c8f01440e1a0842a4e1a59708a.png",
-      "acceptance": "리스트 항목 메뉴 → 리스트 항목 메모 폼. 현재 관찰값: Add a brief description 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 메모 내용 입력 — 메모 제출 준비<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 항목 메뉴 → 리스트 항목 메모 폼. 현재 관찰값: Add a brief description 빈값. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 메모 내용 입력 — 메모 제출 준비<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F45-04",
       "flowId": "F45",
       "screenId": "S191",
       "png": "medium/flows/Library/List detail/Adding a note/screens/04_sc_f4f970015d6743538664901310d2c17b.png",
-      "acceptance": "리스트 항목 메모 폼 → 메모 내용 입력. 현재 관찰값: A very good explanation of mindfulness. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 메모 반영 — 메모 저장 결과 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 항목 메모 폼 → 메모 내용 입력. 현재 관찰값: A very good explanation of mindfulness. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 메모 반영 — 메모 저장 결과 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F45-05",
       "flowId": "F45",
       "screenId": "S002",
       "png": "medium/flows/Library/List detail/Adding a note/screens/05_sc_02d96a649c7a461b9c07155d33c1dbfc.png",
-      "acceptance": "메모 내용 입력 → 리스트 메모 반영. 현재 관찰값: 입력한 메모 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "메모 내용 입력 → 리스트 메모 반영. 현재 관찰값: 입력한 메모 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F46-01",
       "flowId": "F46",
       "screenId": "S039",
       "png": "medium/flows/Library/List detail/screens/01_sc_35dcbd9d4308404b9f11ecd03f893eb8.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 빈 리스트 상세 — 콘텐츠 없는 리스트<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 빈 리스트 상세 — 콘텐츠 없는 리스트<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F46-02",
       "flowId": "F46",
       "screenId": "S106",
       "png": "medium/flows/Library/List detail/screens/02_sc_967232cfb5f845839053e0d371d78911.png",
-      "acceptance": "새 리스트 생성 표시 → 빈 리스트 상세. 현재 관찰값: About mindfulness, 14 seconds ago. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 상세 항목 — 리스트에 글 4개<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다."
+      "acceptance": "새 리스트 생성 표시 → 빈 리스트 상세. 현재 관찰값: About mindfulness, 14 seconds ago. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 상세 항목 — 리스트에 글 4개<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F46-03",
       "flowId": "F46",
       "screenId": "S011",
       "png": "medium/flows/Library/List detail/screens/03_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
-      "acceptance": "빈 리스트 상세 → 내 리스트 상세 항목. 현재 관찰값: 4 stories, 저장 아이콘 채움. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 상세 스크롤 — 목록 후반<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다."
+      "acceptance": "빈 리스트 상세 → 내 리스트 상세 항목. 현재 관찰값: 4 stories, 저장 아이콘 채움. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 상세 스크롤 — 목록 후반<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F46-04",
       "flowId": "F46",
       "screenId": "S177",
       "png": "medium/flows/Library/List detail/screens/04_sc_e20e59ee459b4a0d9a0a0302091962bd.png",
-      "acceptance": "내 리스트 상세 항목 → 리스트 상세 스크롤. 현재 관찰값: 동일 리스트 후반 항목. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다."
+      "acceptance": "내 리스트 상세 항목 → 리스트 상세 스크롤. 현재 관찰값: 동일 리스트 후반 항목. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. 빈14seconds→채움6seconds는 시간 역행 및 글 추가 단계 미수록이다. 동일 연속 세션으로 강제하지 않는다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F47-01",
       "flowId": "F47",
       "screenId": "S011",
       "png": "medium/flows/Library/List detail/Deleting a list/screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다."
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F47-02",
       "flowId": "F47",
       "screenId": "S081",
       "png": "medium/flows/Library/List detail/Deleting a list/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png",
-      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 삭제 확인 시트 — 삭제 전 영향 확인<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다."
+      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 삭제 확인 시트 — 삭제 전 영향 확인<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F47-03",
       "flowId": "F47",
       "screenId": "S114",
       "png": "medium/flows/Library/List detail/Deleting a list/screens/03_sc_a1562b1931fc4650a544861094934588.png",
-      "acceptance": "내 리스트 관리 메뉴 → 리스트 삭제 확인 시트. 현재 관찰값: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 삭제 후 라이브러리 — 대상 리스트 제거 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다."
+      "acceptance": "내 리스트 관리 메뉴 → 리스트 삭제 확인 시트. 현재 관찰값: 내 라이브러리와 타인 저장에서 제거, 원문 기사는 삭제하지 않는다는 안내. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 삭제 후 라이브러리 — 대상 리스트 제거 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F47-04",
       "flowId": "F47",
       "screenId": "S085",
       "png": "medium/flows/Library/List detail/Deleting a list/screens/04_sc_7749ef5c35474c229a2515a9c2a53878.png",
-      "acceptance": "리스트 삭제 확인 시트 → 리스트 삭제 후 라이브러리. 현재 관찰값: List deleted and removed from Your library, Reading list 4 stories. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다."
+      "acceptance": "리스트 삭제 확인 시트 → 리스트 삭제 후 라이브러리. 현재 관찰값: List deleted and removed from Your library, Reading list 4 stories. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. Reading list3→4는 삭제된 목록의 자동 이전 증거가 아니다.",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F48-01",
       "flowId": "F48",
       "screenId": "S011",
       "png": "medium/flows/Library/List detail/Downloading a list/screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 다운로드 진행 — 다운로드 진행으로 보이는 상태<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트 다운로드 진행 — 다운로드 진행으로 보이는 상태<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F48-02",
@@ -26052,84 +26357,132 @@
       "flowId": "F49",
       "screenId": "S011",
       "png": "medium/flows/Library/List detail/Making a list private/screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F49-02",
       "flowId": "F49",
       "screenId": "S081",
       "png": "medium/flows/Library/List detail/Making a list private/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png",
-      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 비공개 확인 — 비공개 전 영향 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 비공개 확인 — 비공개 전 영향 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F49-03",
       "flowId": "F49",
       "screenId": "S105",
       "png": "medium/flows/Library/List detail/Making a list private/screens/03_sc_95e504331794455fb4776bd322254c76.png",
-      "acceptance": "내 리스트 관리 메뉴 → 리스트 비공개 확인. 현재 관찰값: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 비공개 변경 성공 안내 — 비공개 전환 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 리스트 관리 메뉴 → 리스트 비공개 확인. 현재 관찰값: 다른 사용자가 저장한 목록이 라이브러리에서 제거된다는 안내. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 비공개 변경 성공 안내 — 비공개 전환 안내<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F49-04",
       "flowId": "F49",
       "screenId": "S109",
       "png": "medium/flows/Library/List detail/Making a list private/screens/04_sc_996c48382ff0466099cf371adf783dae.png",
-      "acceptance": "리스트 비공개 확인 → 비공개 변경 성공 안내. 현재 관찰값: About mindfulness is now private. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 비공개 리스트 표시 — 비공개 상태 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 비공개 확인 → 비공개 변경 성공 안내. 현재 관찰값: About mindfulness is now private. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 비공개 리스트 표시 — 비공개 상태 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F49-05",
       "flowId": "F49",
       "screenId": "S101",
       "png": "medium/flows/Library/List detail/Making a list private/screens/05_sc_91b39d224f6b4c9ab7573c0c3df633eb.png",
-      "acceptance": "비공개 변경 성공 안내 → 비공개 리스트 표시. 현재 관찰값: 4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "비공개 변경 성공 안내 → 비공개 리스트 표시. 현재 관찰값: 4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F50-01",
       "flowId": "F50",
       "screenId": "S195",
       "png": "medium/flows/Library/List detail/Removing a story/screens/01_sc_fa4e79f0bed747d698ae44e23f9223f9.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트에서 기사 제거 — 항목 제거와 되돌리기 제공<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 리스트에서 기사 제거 — 항목 제거와 되돌리기 제공<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F50-02",
       "flowId": "F50",
       "screenId": "S121",
       "png": "medium/flows/Library/List detail/Removing a story/screens/02_sc_a79a8c62cfd64776ae74f84e0d98b5c3.png",
-      "acceptance": "리스트 항목 메뉴 → 리스트에서 기사 제거. 현재 관찰값: This item has been removed from your list. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 항목 메뉴 → 리스트에서 기사 제거. 현재 관찰값: This item has been removed from your list. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F51-01",
       "flowId": "F51",
       "screenId": "S011",
       "png": "medium/flows/Library/List detail/Reordering items/screens/01_sc_0b1e7b64b9f14f2cb5358161e0f67a94.png",
-      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "이 흐름의 첫 캡처다. 앞선 사용자 행동은 화면만으로 확정할 수 없다.<br>원본 단계표의 다음 캡처 관계: 내 리스트 관리 메뉴 — 목록 관리 작업 선택<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F51-02",
       "flowId": "F51",
       "screenId": "S081",
       "png": "medium/flows/Library/List detail/Reordering items/screens/02_sc_71f31ac7803a47f89b2e76b6a9355a7c.png",
-      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 순서 편집 — 재정렬 모드<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 리스트 상세 항목 → 내 리스트 관리 메뉴. 현재 관찰값: 공개 상태 메뉴. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 리스트 순서 편집 — 재정렬 모드<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F51-03",
       "flowId": "F51",
       "screenId": "S078",
       "png": "medium/flows/Library/List detail/Reordering items/screens/03_sc_6a1036b35729490195c460e5b934bd68.png",
-      "acceptance": "내 리스트 관리 메뉴 → 리스트 순서 편집. 현재 관찰값: 기존 순서 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 항목 순서 변경 — 저장 전 새 순서<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "내 리스트 관리 메뉴 → 리스트 순서 편집. 현재 관찰값: 기존 순서 유지. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 항목 순서 변경 — 저장 전 새 순서<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F51-04",
       "flowId": "F51",
       "screenId": "S157",
       "png": "medium/flows/Library/List detail/Reordering items/screens/04_sc_cdf564e8e6a144389299ff49a7d626ce.png",
-      "acceptance": "리스트 순서 편집 → 항목 순서 변경. 현재 관찰값: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 변경 순서 반영 — 재정렬 결과 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "리스트 순서 편집 → 항목 순서 변경. 현재 관찰값: How Useful… → Mind Fullness or Emptiness? → Mind-Fullness → The Chimichurri…. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 변경 순서 반영 — 재정렬 결과 표시<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F51-05",
       "flowId": "F51",
       "screenId": "S077",
       "png": "medium/flows/Library/List detail/Reordering items/screens/05_sc_6840597985cc46b6b12f6cd0204756f4.png",
-      "acceptance": "항목 순서 변경 → 변경 순서 반영. 현재 관찰값: 첫 2개 항목이 변경 순서와 일치, 1 second ago. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "항목 순서 변경 → 변경 순서 반영. 현재 관찰값: 첫 2개 항목이 변경 순서와 일치, 1 second ago. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F52-01",
@@ -26563,21 +26916,33 @@
       "flowId": "F62",
       "screenId": "S058",
       "png": "medium/flows/Profile/Settings/Switching to dark mode/screens/05_sc_4a39ee1d768342a9823787c11c851479.png",
-      "acceptance": "다크 Explore → 다크 Library. 현재 관찰값: Reading list4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 하이라이트 목록 — 하이라이트 대비 변경<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "다크 Explore → 다크 Library. 현재 관찰값: Reading list4 stories·자물쇠. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 하이라이트 목록 — 하이라이트 대비 변경<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F62-06",
       "flowId": "F62",
       "screenId": "S108",
       "png": "medium/flows/Profile/Settings/Switching to dark mode/screens/06_sc_97fb65c906bf4e309ec595d2067e4bce.png",
-      "acceptance": "다크 Library → 다크 하이라이트 목록. 현재 관찰값: Highlighted 활성. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 읽기 목록 상세 — 읽은 기사 표시와 다크 테마<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "다크 Library → 다크 하이라이트 목록. 현재 관찰값: Highlighted 활성. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 읽기 목록 상세 — 읽은 기사 표시와 다크 테마<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F62-07",
       "flowId": "F62",
       "screenId": "S056",
       "png": "medium/flows/Profile/Settings/Switching to dark mode/screens/07_sc_45fd4ac6da2148968fab1446df649f7f.png",
-      "acceptance": "다크 하이라이트 목록 → 다크 읽기 목록 상세. 현재 관찰값: 4 stories·자물쇠, 한 기사 Viewed 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 내 프로필 — 프로필 테마 적용<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "다크 하이라이트 목록 → 다크 읽기 목록 상세. 현재 관찰값: 4 stories·자물쇠, 한 기사 Viewed 표시. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 다크 내 프로필 — 프로필 테마 적용<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "묶음7 구현·회귀 및 웹 부분 비교 수행; 현재 타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export 통과. 원본/자산 차이·U 미확인·native 대기는 유지"
+      }
     },
     {
       "id": "T-F62-08",
@@ -26630,7 +26995,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S003",
@@ -26702,7 +27071,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S012",
@@ -26902,7 +27275,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S037",
@@ -26926,7 +27303,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S040",
@@ -27064,7 +27445,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S057",
@@ -27080,7 +27465,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S059",
@@ -27144,7 +27533,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S067",
@@ -27224,7 +27617,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S077",
@@ -27232,7 +27629,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S078",
@@ -27240,7 +27641,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S079",
@@ -27264,7 +27669,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S082",
@@ -27296,7 +27705,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S086",
@@ -27376,7 +27789,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S096",
@@ -27424,7 +27841,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S102",
@@ -27456,7 +27877,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S106",
@@ -27464,7 +27889,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S107",
@@ -27480,7 +27909,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S109",
@@ -27488,7 +27921,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S110",
@@ -27529,7 +27966,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S115",
@@ -27585,7 +28026,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S122",
@@ -27777,7 +28222,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S146",
@@ -27857,7 +28306,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S156",
@@ -27873,7 +28326,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S158",
@@ -27993,7 +28450,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S173",
@@ -28033,7 +28494,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S178",
@@ -28145,7 +28610,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S192",
@@ -28177,7 +28646,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-S196",
@@ -28217,7 +28690,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F01",
@@ -28532,7 +29009,11 @@
         7,
         10
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F38",
@@ -28567,7 +29048,11 @@
         7,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F42",
@@ -28575,7 +29060,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F43",
@@ -28600,7 +29089,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F46",
@@ -28608,7 +29101,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F47",
@@ -28616,7 +29113,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F48",
@@ -28625,7 +29126,11 @@
         7,
         8
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F49",
@@ -28633,7 +29138,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F50",
@@ -28641,7 +29150,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F51",
@@ -28649,7 +29162,11 @@
       "batches": [
         7
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F52",
@@ -28751,7 +29268,11 @@
         17,
         18
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "latestReview": {
+        "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+        "scope": "원본 미확인 유지; 저장/메모/순서/private/Undo 자체 mock 계약과 테스트는 결과 문서에서 별도 판정. 다운로드 효력은 묶음8/Q08"
+      }
     },
     {
       "id": "U-F63",
@@ -31748,8 +32269,15 @@
     }
   ],
   "manualUpdate": {
-    "batch": 6,
-    "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
-    "reason": "tools 생성/수정 금지로 현재 TODO만 수동 갱신; tools의 기존 profile/batch 원본과 차이 보존"
-  }
+    "batch": 7,
+    "result": "TODO/FE_MEDIUM_PARITY_07_RESULT.md",
+    "reason": "tools 생성/수정 금지로 TODO 수동 갱신; 기존 자동 생성 입력과 과거 evidenceContext 보존"
+  },
+  "manualUpdateHistory": [
+    {
+      "batch": 6,
+      "result": "TODO/FE_MEDIUM_PARITY_06_RESULT.md",
+      "reason": "tools 생성/수정 금지로 현재 TODO만 수동 갱신; tools의 기존 profile/batch 원본과 차이 보존"
+    }
+  ]
 }

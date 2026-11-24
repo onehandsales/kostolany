@@ -191,6 +191,8 @@ FE 조사 경로: [ListeningPlayer.tsx](<../../FE/src/features/listening/Listeni
 
 ## S056 — 다크 읽기 목록 상세
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_45fd4ac6da2148968fab1446df649f7f` · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):240 · [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/07_sc_45fd4ac6da2148968fab1446df649f7f.png>)
 
 흐름 맥락: [F62/07](FLOWS.md#f62)
@@ -258,6 +260,8 @@ FE 조사 경로: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.ts
 <a id="s058"></a>
 
 ## S058 — 다크 Library
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_4a39ee1d768342a9823787c11c851479` · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):180 · [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/05_sc_4a39ee1d768342a9823787c11c851479.png>)
 
@@ -540,6 +544,8 @@ FE 조사 경로: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopic
 <a id="s066"></a>
 
 ## S066 — 저장 글 있는 읽기 목록
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_57450c38bf994be18d95fcaf712c56ba` · [원본 분석](<../../medium/flows/Library/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Library/screens/03_sc_57450c38bf994be18d95fcaf712c56ba.png>)
 

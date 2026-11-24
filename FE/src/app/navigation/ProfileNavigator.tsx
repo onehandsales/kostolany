@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useMemo, useState } from 'react';
 
 import { useAuth } from '../../features/auth/AuthProvider';
-import { ReadingListScreen } from '../../features/bookmarks/ReadingListScreen';
+import { ReadingListRoute } from './ReadingListRoute';
 import { ProfileScreen } from '../../features/profile/ProfileScreen';
 import { SettingsScreen } from '../../features/settings/SettingsScreen';
 import { useWrittenStories } from '../../features/editor/WrittenStoriesProvider';
@@ -64,7 +64,7 @@ export function ProfileNavigator({ statsSource, onSelectArticle, onBrowseArticle
       </Stack.Screen>
       <Stack.Screen name="ProfileList" getId={({ params }) => params.listId}>
         {({ navigation, route }) => (
-          <ReadingListScreen initialReorder={route.params.reorder}
+          <ReadingListRoute initialReorder={route.params.reorder}
             listId={route.params.listId}
             backLabel="프로필로 돌아가기"
             onBack={() => navigation.popToTop()}

@@ -12,6 +12,7 @@ import { DEFAULT_LIST_ID } from './listTypes';
 import { DownloadControl, DownloadFeedback } from '../downloads/DownloadControl';
 
 type LibraryListCardProps = {
+  active?: boolean;
   listId: string;
   name: string;
   articles: readonly FeedArticle[];
@@ -21,6 +22,7 @@ type LibraryListCardProps = {
 };
 
 export function LibraryListCard({
+  active = true,
   listId,
   name,
   articles,
@@ -57,7 +59,7 @@ export function LibraryListCard({
         )}
         <View style={styles.flex} />
         <DownloadControl listId={listId} label={`Download ${name}`} />
-        <ListActions listId={listId} name={name} onReorder={() => onOpen(listId, true)} />
+        <ListActions active={active} listId={listId} name={name} onReorder={() => onOpen(listId, true)} />
       </View>
       <DownloadFeedback listId={listId} />
       <View aria-hidden style={styles.thumbnails}>

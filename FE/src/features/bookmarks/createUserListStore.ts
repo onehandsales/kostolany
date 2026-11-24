@@ -75,6 +75,7 @@ export function createUserListStore(source: UserListSource, userId: string, arti
     if (
       hasInvalidListMetadata(content) ||
       hasInvalidListNotes(content) ||
+      (content.updatedAt !== undefined && (!Number.isFinite(content.updatedAt) || content.updatedAt < 0)) ||
       typeof content.name !== 'string' ||
       validateListName(content.name, isDefault ? [] : ['읽기 목록', 'Reading list']) ||
       normalizeListName(content.name) !== content.name ||
@@ -129,6 +130,7 @@ export function createUserListStore(source: UserListSource, userId: string, arti
           ...(list.description !== undefined && { description: list.description }),
           ...(list.isPrivate !== undefined && { isPrivate: list.isPrivate }),
           ...(list.notes !== undefined && { notes: { ...list.notes } }),
+          ...(list.updatedAt !== undefined && { updatedAt: list.updatedAt }),
         };
         entries.set(list.listId, {
           listId: list.listId,
@@ -199,13 +201,20 @@ export function createUserListStore(source: UserListSource, userId: string, arti
         throw new Error('Invalid list write response');
       }
       if (response.content) validateContent(response.content, entry.listId === DEFAULT_LIST_ID);
+      let confirmed = response.content;
       const catalog = source.getCatalog?.();
       if (response.content && catalog) {
         const current = catalog.find(list => list.userId === userId && list.listId === entry.listId);
         if (!current) throw new UnavailableListError();
         if (!sameContent(current, response.content)) throw new ListConflictError(copyListContent(current));
+        // 내용이 A→B→A로 돌아왔어도 현재 카탈로그의 확정 시각을 과거 응답으로 되돌리지 않는다.
+        confirmed = { ...response.content, updatedAt: current.updatedAt };
       }
-      entry.confirmed = response.content;
+      entry.confirmed = confirmed;
+      // 저장소의 확정 시각만 수용하고 대기 중인 다음 편집 의도는 보존한다.
+      if (entry.desired && confirmed) entry.desired = {
+        ...entry.desired, updatedAt: confirmed.updatedAt,
+      };
       entry.uncertain = false;
       entry.revision += 1;
       entry.isPending = false;

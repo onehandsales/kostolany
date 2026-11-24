@@ -49,7 +49,10 @@ export function ListNoteSheet({ listId, article, onClose }: ListNoteSheetProps) 
         <Text style={styles.title}>{article.title}</Text>
         {article.reference?.image && <Image source={article.reference.image} style={styles.image} accessible={false} />}
       </View>
-      <Text style={styles.byline}>{article.readingMinutes} min read · {article.publishedLabel}</Text>
+      <Text style={styles.byline}>{[
+        article.readingMinutes > 0 ? `${article.readingMinutes} min read` : null,
+        article.publishedLabel,
+      ].filter(Boolean).join(' · ')}</Text>
     </View>
     {(error || entry?.failure) && <Text role="alert" style={styles.error}>
       {error ?? '메모를 저장하지 못했어요. 입력을 확인하고 다시 시도해 주세요.'}</Text>}

@@ -98,7 +98,7 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   await user.press(getArticle()); await screen.findByRole('heading', { name: title });
   await user.press(screen.getByRole('button', { name: '읽기 목록으로 돌아가기' }));
-  expect(screen.getByLabelText('1개의 기사')).toBeVisible();
+  expect(screen.getByLabelText(/^1개의 기사(?:,|$)/)).toBeVisible();
   await user.press(screen.getByRole('tab', { name: '프로필' }));
   await user.press(screen.getByRole('button', { name: '로그아웃' }));
   await user.press(screen.getByRole('button', { name: '로그아웃 취소' }));
@@ -115,7 +115,7 @@ it('라이브러리 로그인과 기사 복귀 뒤 로그아웃 취소·실패�
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(screen.getByRole('heading', { name: '라이브러리' })).toBeVisible();
   expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 0개' })).toBeVisible();
-  expect(screen.queryByLabelText('1개의 기사')).not.toBeOnTheScreen();
+  expect(screen.queryByLabelText(/^1개의 기사(?:,|$)/)).not.toBeOnTheScreen();
   await logOut(user); await logIn(user);
   await user.press(screen.getByRole('tab', { name: '라이브러리' }));
   expect(await screen.findByRole('button', { name: '읽기 목록 열기, 저장한 기사 1개' })).toBeVisible();

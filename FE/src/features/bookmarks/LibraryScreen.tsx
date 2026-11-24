@@ -189,7 +189,7 @@ function LibraryContent({ active = true, onOpenList, onOpenHighlight, onOpenDige
           contentContainerStyle={styles.content}
           ListHeaderComponent={header}
           renderItem={({ item, index }) => (
-            <LibraryListCard
+            <LibraryListCard active={active}
               {...item}
               afterIntroduction={index === 0 && showIntroduction}
               onOpen={onOpenList}

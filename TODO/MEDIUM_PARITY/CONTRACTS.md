@@ -448,6 +448,8 @@
 
 ## G33 — 내 목록 메모·정렬·공개 범위·편집·삭제
 
+- Parity 7 현재 mock 보완: [확정 updatedAt·메모/순서/Undo·공개 범위·초안/포커스 수명과 검증](../FE_MEDIUM_PARITY_07_RESULT.md). source의 마지막 의미 있는 내용 변경 성공 시각을 사용하며 원본의 상대 시간 의미/Undo 만료 시간은 미확인이다. 아래 문장은 기존 Goal 계약 이력이다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):333 · [당시 결과](<../FE_GOAL_33_RESULT.md>)
 
 - **구현 범위** (원문 337행): 목록 메모 추가/수정, 정렬 Cancel/Done, Make private 확인, 제목/설명 수정, 기사 제거/Undo, 목록 삭제를 완성한다. 기존 목록 생성/다중 저장/제거 기능도 원본에 맞춰 재검토한다.

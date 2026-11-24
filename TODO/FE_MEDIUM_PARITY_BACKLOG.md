@@ -1,5 +1,7 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**현재 — Parity 7:** [저장·목록·메모·순서 결과](FE_MEDIUM_PARITY_07_RESULT.md). 구현·두 차례 검토·브라우저·타입/lint·전체298 suites/1560 tests·양 플랫폼 Hermes export를 통과했다. 사용자 사전 승인으로 이 묶음만 로컬 커밋하고 묶음8을 시작한다. 아래 현재/다음 문구는 과거 이력이다.
+
 **Parity 5 추가 재검토:** [팔로우/신고 화면 이탈·차단 중 해제·사용자 이름 조회 실패의 누락 수정](FE_MEDIUM_PARITY_05_RESULT.md#additional-review). 최초 실행과 추가 검사를 구분하며 원본 시각 차이·U/native 대기는 유지한다.
 
 **현재 — Parity 5:** [D06 공통 카탈로그·이름·해제와 V11/V14/V15 검증 결과](FE_MEDIUM_PARITY_05_RESULT.md). 동적 B의 검색→Follow/Mute→Following/Muted/Blocked→해제와 이름 변경·A→B→A를 연결했다. 시각 동일성·U 미확인·native 대기는 남는다. 다음 순서는 묶음 6이며 자동 시작하지 않는다. 사용자 지시로 evidence를 생성/복원하지 않았다. 아래 과거 판정은 당시 이력이다.
@@ -87,6 +89,8 @@
 <a id="d04"></a>
 
 ## D04 — 미확인 읽기 시간 0의 표시 통일
+
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). Digest의 0·누락 읽기 시간을 숨기고 확인된 양수만 표시했다. 날짜 재조회·기사 복귀 후 동일하다. 메모 소비자는 묶음7 잔여이며 항목 전체 완료가 아니다. 아래 근거·판정은 수정 전 이력이다.
 
@@ -222,6 +226,8 @@
 
 ## D11 — Digest·내 목록 카드의 회원용 글 표시
 
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
+
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). Digest에서 memberOnly=true에만 금색 별표를 표시하고 false/미확인은 생략한다. 내 목록 카드 소비자는 묶음7 잔여이며 항목 전체 완료가 아니다. 아래 근거·판정은 수정 전 이력이다.
 
 - 판정: **기존 시각 잔여를 구체 작업으로 분리 / 현재 코드에 표시 분기 없음**. 기존 담당 Goal23·25·33·34·53. 새로운 전체 기능 누락으로 집계하지 않는다.
@@ -248,6 +254,8 @@
 <a id="d13"></a>
 
 ## D13 — 내 목록 상세의 상대 시간·글 개수 표시
+
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
 - 판정: **기존 차이 기록의 구체 작업화 부족 / 현재 표시·데이터 계약 미구현**. 기존 담당 Goal23·33·53. Goal53 S011의 “상대시각 미제공”, S106의 “원본 상대시각 대신 실제 개수 표시”가 이미 있었으므로 처음 발견한 전체 기능 누락으로 집계하지 않는다.
 - 원본: [S106](MEDIUM_PARITY/REQUIREMENTS_05.md#s106)은 소유자 아래 `14 seconds ago`이고 `No stories`는 없다. [S011](MEDIUM_PARITY/REQUIREMENTS_01.md#s011)은 `6 seconds ago · 4 stories`, [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077)은 `1 second ago · 4 stories`다. Library 카드의 `No stories`와 상세 화면의 빈 목록 메타데이터는 다른 상태다.
@@ -738,6 +746,8 @@
 
 ## V22 — 기사 저장
 
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 33, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S036](MEDIUM_PARITY/REQUIREMENTS_02.md#s036), [S172](MEDIUM_PARITY/REQUIREMENTS_07.md#s172)
@@ -770,6 +780,8 @@
 
 ## V24 — Library·목록 카드
 
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
+
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 34, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S039](MEDIUM_PARITY/REQUIREMENTS_02.md#s039), [S058](MEDIUM_PARITY/REQUIREMENTS_03.md#s058), [S066](MEDIUM_PARITY/REQUIREMENTS_03.md#s066), [S085](MEDIUM_PARITY/REQUIREMENTS_04.md#s085), [S095](MEDIUM_PARITY/REQUIREMENTS_04.md#s095), [S108](MEDIUM_PARITY/REQUIREMENTS_05.md#s108), [S145](MEDIUM_PARITY/REQUIREMENTS_06.md#s145)
@@ -785,6 +797,8 @@
 <a id="v25"></a>
 
 ## V25 — 내 목록·편집
+
+- 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
 - 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 33, 공통 Goal23/50/51/53.
 

@@ -22,14 +22,15 @@ import { ListActions } from './ListActions';
 import { DEFAULT_LIST_ID, type RemovedListStory } from './listTypes';
 import { ListNoteSheet } from './ListNoteSheet';
 import type { FeedArticle } from '../feed/types';
-import { AppIcon } from '../../shared/ui/AppIcon';
+import { ListDetailMetadata } from './ListDetailMetadata';
 import { ownedPublicListId } from '../public-lists/ownedPublicList';
 import { ReadingListFeedback } from './ReadingListFeedback';
-import { useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
+import { useBookmarkScopeKey, useBookmarkStore, useReadingList, useUserLists } from './useBookmarks';
 import { UserListFeedback } from './UserListFeedback';
 import { DownloadArticleStatus, DownloadControl, DownloadFeedback } from '../downloads/DownloadControl';
 
 type ReadingListScreenProps = {
+  active?: boolean;
   listId?: string;
   initialReorder?: boolean;
   backLabel?: string;
@@ -38,7 +39,13 @@ type ReadingListScreenProps = {
   onSelectArticle: (articleId: string) => void;
 };
 
-export function ReadingListScreen({
+export function ReadingListScreen(props: ReadingListScreenProps) {
+  const scope = useBookmarkScopeKey();
+  return <ReadingListContent key={JSON.stringify([scope, props.listId])} {...props} />;
+}
+
+function ReadingListContent({
+  active = true,
   listId = DEFAULT_LIST_ID,
   initialReorder = false,
   onBack,
@@ -62,12 +69,19 @@ export function ReadingListScreen({
     setReordering(false);
     requestAnimationFrame(() => backRef.current?.focus());
   }, []);
-  usePreventRemove(reordering, closeReorder);
+  if (!active) {
+    if (notice) setNotice(null);
+    if (removed) setRemoved(null);
+    if (editingNote) setEditingNote(null);
+    if (reordering) setReordering(false);
+    if (sharing.target) sharing.close();
+  }
+  usePreventRemove(active && reordering, closeReorder);
   useEffect(() => {
-    if (!reordering) return;
+    if (!active || !reordering) return;
     const listener = BackHandler.addEventListener('hardwareBackPress', () => { closeReorder(); return true; });
     return () => listener.remove();
-  }, [reordering, closeReorder]);
+  }, [active, reordering, closeReorder]);
   const { state, retryReadingList, retryBookmark } = useReadingList();
   const custom = useUserLists();
   const store = useBookmarkStore();
@@ -94,20 +108,14 @@ export function ReadingListScreen({
                 <View style={styles.ownerInfo}>
                   <Text style={styles.owner}>{profile.state.profile?.name ?? 'Reader'}</Text>
                   {status === 'ready' && (
-                    <Text accessibilityLabel={`${articles.length}개의 기사`} style={styles.count}>
-                      {articles.length
-                        ? `${articles.length} ${articles.length === 1 ? 'story' : 'stories'}`
-                        : 'No stories'}
-                    </Text>
+                    <ListDetailMetadata active={active} updatedAt={selected?.confirmed?.updatedAt}
+                      count={articles.length} isPrivate={isDefault || Boolean(selected?.content?.isPrivate)} />
                   )}
                 </View>
               </View>
               <Text role="heading" accessibilityLabel={name} style={styles.title}>
                 {isDefault ? 'Reading list' : name}
               </Text>
-              {(isDefault || selected?.content?.isPrivate) && <View style={{ flexDirection: 'row', gap: 6 }}>
-                <AppIcon name="lock" size={16} color={colors.secondaryText} />
-                <Text style={styles.count}>Private</Text></View>}
               {Boolean(selected?.content?.description) && (
                 <Text style={styles.description}>{selected?.content?.description}</Text>
               )}
@@ -148,7 +156,7 @@ export function ReadingListScreen({
             onPress={() => setNotice('Reading list options')}
           />
         )}
-        {selected && <ListActions listId={listId} name={name} onReorder={() => setReordering(true)} />}
+        {selected && <ListActions active={active} listId={listId} name={name} onReorder={() => setReordering(true)} />}
       </View>
       {removed && !articles.some((article) => article.id === removedId) && (
         <View style={styles.toast}>
@@ -157,7 +165,10 @@ export function ReadingListScreen({
             role="button"
             onPress={() => {
               if (typeof removed === 'string') store.setArticleInList(listId, removed, true);
-              else store.userLists.undoRemove(removed);
+              else {
+                const result = store.userLists.undoRemove(removed);
+                if (!result.ok) setNotice(result.message);
+              }
               setRemoved(null);
             }}
             style={styles.undo}
@@ -198,7 +209,7 @@ export function ReadingListScreen({
         }
         renderItem={({ item }) =>
           item.reference ? (
-            <ListStoryCard
+            <ListStoryCard active={active}
               listId={listId}
               article={item}
               onOpen={onSelectArticle}
@@ -209,6 +220,7 @@ export function ReadingListScreen({
             />
           ) : (
             <SearchCard
+              key={`${item.id}:${active}`}
               article={item}
               onSelect={onSelectArticle}
               footer={<View>

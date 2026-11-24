@@ -144,6 +144,8 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 ## S155 — 리스트 이름 입력
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_ca3b32e4373a40fc84405838671eab27` · [원본 분석](<../../medium/flows/Library/Creating a list/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Library/Creating a list/screens/03_sc_ca3b32e4373a40fc84405838671eab27.png>)
 
 흐름 맥락: [F42/03](FLOWS.md#f42)
@@ -210,6 +212,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s157"></a>
 
 ## S157 — 항목 순서 변경
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_cdf564e8e6a144389299ff49a7d626ce` · [원본 분석](<../../medium/flows/Library/List detail/Reordering items/ANALYSIS.md>):148 · [원본 PNG](<../../medium/flows/Library/List detail/Reordering items/screens/04_sc_cdf564e8e6a144389299ff49a7d626ce.png>)
 
@@ -736,6 +740,8 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 <a id="s172"></a>
 
 ## S172 — 저장 아이콘 활성
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_dda8e78e9eb943629d3cf54eaed5fc22` · [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>):116 · [원본 PNG](<../../medium/flows/Home/Story detail/Saving a story/screens/03_sc_dda8e78e9eb943629d3cf54eaed5fc22.png>)
 

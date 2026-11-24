@@ -20,11 +20,13 @@ export function createMockUserListSource({
   scenario = 'normal',
   delayMs = scenario === 'slow' ? 1800 : 350,
   managesReadingList = false,
+  now = Date.now,
   articleExists = (id: string) => bookmarkArticles.some(article => article.id === id),
 }: {
   scenario?: UserListScenario;
   delayMs?: number;
   managesReadingList?: boolean;
+  now?: () => number;
   articleExists?: (id: string) => boolean;
 } = {}): UserListSource {
   const listsByUser = new Map<string, Map<string, UserList>>();
@@ -38,7 +40,7 @@ export function createMockUserListSource({
     if (!lists) {
       lists = new Map();
       if (managesReadingList) lists.set(DEFAULT_LIST_ID,
-        { userId, listId: DEFAULT_LIST_ID, name: '읽기 목록', articleIds: [], isPrivate: true });
+        { userId, listId: DEFAULT_LIST_ID, name: '읽기 목록', articleIds: [], isPrivate: true, updatedAt: now() });
       listsByUser.set(userId, lists);
     }
     return lists;
@@ -78,7 +80,7 @@ export function createMockUserListSource({
         if (replay !== fingerprint) throw new Error('Conflicting list command');
         if (content && !previous) throw new UnavailableListError();
         if (content && previous && !sameListContent(content, previous)) throw new ListConflictError(copyListContent(previous));
-        return { userId, listId, content: content && copyListContent(content) };
+        return { userId, listId, content: content && previous ? { ...copyListContent(content), updatedAt: previous.updatedAt } : null };
       }
       if (operation === 'update' && !previous) throw new UnavailableListError();
       if (operation === 'create' && previous) throw new ListConflictError(copyListContent(previous));
@@ -124,11 +126,14 @@ export function createMockUserListSource({
           new Set(content.articleIds).size !== content.articleIds.length
         )
           throw new Error('Invalid list');
-        lists.set(listId, { ...copyListContent(content), userId, listId });
+        // 실패·재전송·같은 내용은 시각을 바꾸지 않고 성공한 내용 변경만 기록한다.
+        lists.set(listId, { ...copyListContent(content), userId, listId,
+          updatedAt: previous && sameListContent(previous, content) ? previous.updatedAt : now() });
       }
       if (commandScope) applied.set(key, fingerprint);
       listeners.forEach(listener => listener());
-      return { userId, listId, content: content && copyListContent(content) };
+      const saved = lists.get(listId);
+      return { userId, listId, content: content && saved ? { ...copyListContent(content), updatedAt: saved.updatedAt } : null };
     },
   };
 }

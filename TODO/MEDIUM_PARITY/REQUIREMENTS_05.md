@@ -11,6 +11,8 @@
 
 ## S101 — 비공개 리스트 표시
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_91b39d224f6b4c9ab7573c0c3df633eb` · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):178 · [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/05_sc_91b39d224f6b4c9ab7573c0c3df633eb.png>)
 
 흐름 맥락: [F49/05](FLOWS.md#f49)
@@ -150,6 +152,8 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 
 ## S105 — 리스트 비공개 확인
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_95e504331794455fb4776bd322254c76` · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):118 · [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/03_sc_95e504331794455fb4776bd322254c76.png>)
 
 흐름 맥락: [F49/03](FLOWS.md#f49)
@@ -182,6 +186,8 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 <a id="s106"></a>
 
 ## S106 — 빈 리스트 상세
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_967232cfb5f845839053e0d371d78911` · [원본 분석](<../../medium/flows/Library/List detail/ANALYSIS.md>):85 · [원본 PNG](<../../medium/flows/Library/List detail/screens/02_sc_967232cfb5f845839053e0d371d78911.png>)
 
@@ -254,6 +260,8 @@ FE 조사 경로: [TopicScreen.tsx](<../../FE/src/features/topics/TopicScreen.ts
 
 ## S108 — 다크 하이라이트 목록
 
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
+
 안정 원본 ID: `sc_97fb65c906bf4e309ec595d2067e4bce` · [원본 분석](<../../medium/flows/Profile/Settings/Switching to dark mode/ANALYSIS.md>):210 · [원본 PNG](<../../medium/flows/Profile/Settings/Switching to dark mode/screens/06_sc_97fb65c906bf4e309ec595d2067e4bce.png>)
 
 흐름 맥락: [F62/06](FLOWS.md#f62)
@@ -285,6 +293,8 @@ FE 조사 경로: [LibraryScreen.tsx](<../../FE/src/features/bookmarks/LibrarySc
 <a id="s109"></a>
 
 ## S109 — 비공개 변경 성공 안내
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_996c48382ff0466099cf371adf783dae` · [원본 분석](<../../medium/flows/Library/List detail/Making a list private/ANALYSIS.md>):148 · [원본 PNG](<../../medium/flows/Library/List detail/Making a list private/screens/04_sc_996c48382ff0466099cf371adf783dae.png>)
 
@@ -471,6 +481,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s114"></a>
 
 ## S114 — 리스트 삭제 확인 시트
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_a1562b1931fc4650a544861094934588` · [원본 분석](<../../medium/flows/Library/List detail/Deleting a list/ANALYSIS.md>):117 · [원본 PNG](<../../medium/flows/Library/List detail/Deleting a list/screens/03_sc_a1562b1931fc4650a544861094934588.png>)
 
@@ -717,6 +729,8 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 <a id="s121"></a>
 
 ## S121 — 리스트에서 기사 제거
+
+- Parity 7 최신 검토: [저장·목록·메모·순서 결과](../FE_MEDIUM_PARITY_07_RESULT.md). 기능/브라우저·원본 차이·미확인/native를 분리한다. 아래 초기 판정은 감사 당시 이력이다.
 
 안정 원본 ID: `sc_a79a8c62cfd64776ae74f84e0d98b5c3` · [원본 분석](<../../medium/flows/Library/List detail/Removing a story/ANALYSIS.md>):84 · [원본 PNG](<../../medium/flows/Library/List detail/Removing a story/screens/02_sc_a79a8c62cfd64776ae74f84e0d98b5c3.png>)
 
