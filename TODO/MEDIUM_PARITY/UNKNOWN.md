@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity16 수동 검토:** [4 S/43 R·4 T·7 U·19 C의 처리·현재 검사·잔여](../FE_MEDIUM_PARITY_16_RESULT.md#scope). 기존 원본 관찰·ID·과거 증거·readiness는 보존한다. 실제8081 부분 비교와 원본 자산/시각·OS/native 대기를 구분하며 tools 생성기를 실행하지 않았다.
+
 **Parity15 검토(2026-11-24):** [범위·현재 결과](../FE_MEDIUM_PARITY_15_RESULT.md#remaining). 18개 U-S와 U-F08/F55/F56/F57/F58/F62/F63을 유지한다. 사진/OS 권한·대명사 사전·공개 필터·시간 경계·원본 실패 정책의 미수록을 mock 통과로 해소하지 않는다.
 
 **Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.

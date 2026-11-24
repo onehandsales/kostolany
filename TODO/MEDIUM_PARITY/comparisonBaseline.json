@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "12ffed60f938aa6bdecc25a3f918b2eb00888fd3d1bcdb2180554be7a9cf599e"
+      "sha256": "6681793f2384870fed98e9ccc11a24306a5897933730525dba54630642ea24d1"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "73ab639a6442b98970414128315814f3675dc3360ad91f06272860d40d6803e8"
+      "sha256": "683de84a556d55738419d59cb6cc64503ebae3f3ccce91bffa432ca71cd7fc94"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,7 +285,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "fdbdbd281a9ec90e03f4ca19a1916261d04ba2acddb86acc3b9cdc6f427ac799"
+      "sha256": "46830281d5befa6e19f4fc5db538e0b571b49fa04a183dd0207ff8a80fdafe15"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
@@ -293,11 +293,11 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_02.md",
-      "sha256": "86c07aa971cc5136d29e001296550c2bed90f13ece38259e0a2d5fac161680a2"
+      "sha256": "c52171a23ee08ed04f9780305c3259b8347968a20d9eef2b1461e965bee20aa4"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "5805e6920d8d685abedaaf80585fc9a6d54df7b7a1ecfc307c83ddc4b822a28b"
+      "sha256": "9067e8414eda78dac7e9f22f1f946a4c6b897de8a1fc02381603d1c0994c3675"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
@@ -313,19 +313,19 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_07.md",
-      "sha256": "8d83fd65380fcecaf8e530dfa8f4d08f4a88a7a44034795a260d59dc32e4a189"
+      "sha256": "47abededf92711fde16149875b31c0ff3cec9f912f221f2ba9b25ecdd749e4f6"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_08.md",
-      "sha256": "1ef672ace0bac5e0b2d1be18bb7e5bc172002b620f5a43a9c9ae25d954b9e11f"
+      "sha256": "f45d497562f3a01cb3a6fce4786f0aaa042b02e4d203ecf3b93c557545a1f793"
     },
     {
       "path": "TODO/MEDIUM_PARITY/SCOPE.md",
-      "sha256": "f0613ae2e84c3ef325eb5a40dfbaf527d880e419826a420eeeb4238bd1af2b92"
+      "sha256": "e226bf16925c4344a488d96f627154ae0e4a8df7f11bb0d068d2121c8e85deb7"
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "1657c61d7f4e5065edce937e5a66e44f5bbcd885340fe9c9e9dc84c8e3111ba4"
+      "sha256": "979e4200926fe86327d2ac6370a2734da0c71321ce62287221a7aed79d5e11e3"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -483,7 +483,7 @@
     },
     {
       "path": "FE/src/app/navigation/NotificationNavigation.test.tsx",
-      "sha256": "61764bf60994b379dacfff3c8d9346cbe6e57cf6c3447c5258da8b9225977339"
+      "sha256": "839b23555704f7d282250f72af7134bdeda838b3e2304bc56282b26b0464ceeb"
     },
     {
       "path": "FE/src/app/navigation/OnboardingNavigation.test.tsx",
@@ -1643,11 +1643,11 @@
     },
     {
       "path": "FE/src/features/notifications/NotificationSettingsScreen.tsx",
-      "sha256": "bacec1fb81e225b789d21c381d8d6854722abdcab22e33604b704e0eab023e4f"
+      "sha256": "15080c1b83e52bd233a300b13cc9c6b7144a2af7439908888f5cfd4756bea9f9"
     },
     {
       "path": "FE/src/features/notifications/NotificationsScreen.tsx",
-      "sha256": "5e7ac1b22991ed2618105a7de3d318f92b51992cdad03f9abbe718f8b8ddd0b9"
+      "sha256": "7a604cd51be1a22d4645d06fcc172f8296c0d5ec34334f7e466dd368e603cf1c"
     },
     {
       "path": "FE/src/features/notifications/types.ts",
@@ -3527,7 +3527,8 @@
       ],
       "scope": "원본 알림 사건 fixture와 목적지; Digest/Push/Email 설정",
       "done": "각 알림→대상→복귀·삭제/불가목적지·설정롤백·A/B; 발송제외",
-      "status": "미착수"
+      "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+      "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md"
     },
     {
       "number": 17,
@@ -8289,7 +8290,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다."
+      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다.",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "S041",
@@ -11215,7 +11222,13 @@
       "readiness": "recipe-only",
       "blocker": "원본 알림 이벤트 배열·시간과 같은 fixture 미확정; 기존 Goal53 캡처는 새 증거 아님.",
       "currentEvidence": [],
-      "acceptance": "원본 네 행의 사용자·목록·글 이벤트, Follow가 있는 행, 녹색선, 날짜·아이콘을 고정 fixture에서 비교한다. 녹색선을 원본 읽음 정책으로 단정하지 않는다."
+      "acceptance": "원본 네 행의 사용자·목록·글 이벤트, Follow가 있는 행, 녹색선, 날짜·아이콘을 고정 fixture에서 비교한다. 녹색선을 원본 읽음 정책으로 단정하지 않는다.",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "S069",
@@ -21159,7 +21172,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다."
+      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다.",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "S163",
@@ -23799,7 +23818,13 @@
       "readiness": "recipe-only",
       "blocker": "동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.",
       "currentEvidence": [],
-      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다."
+      "acceptance": "Daily/Push On/Email On의 선택·chevron·외부 화살표를 구분한다. 여섯 토글과 다섯 Tailored 행, Top story/Editors만Off를 비교한다.",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "S187",
@@ -25389,7 +25414,13 @@
       "steps": [
         "T-F06-01",
         "T-F06-02"
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "F07",
@@ -25877,7 +25908,13 @@
       "steps": [
         "T-F44-01",
         "T-F44-02"
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "F45",
@@ -26078,7 +26115,13 @@
         "T-F59-01",
         "T-F59-02",
         "T-F59-03"
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "F60",
@@ -26287,7 +26330,13 @@
       "flowId": "F06",
       "screenId": "S068",
       "png": "medium/flows/Home/Notifications/screens/02_sc_5d1c7181dea04ba59b57242abbc19fee.png",
-      "acceptance": "For you 홈 피드 → 알림 목록. 현재 관찰값: 새 팔로워·저장 리스트 새 글·박수 이벤트. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "For you 홈 피드 → 알림 목록. 현재 관찰값: 새 팔로워·저장 리스트 새 글·박수 이벤트. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "T-F07-01",
@@ -27574,7 +27623,13 @@
       "flowId": "F44",
       "screenId": "S162",
       "png": "medium/flows/Library/Filtering digest/Digest settings/screens/02_sc_d17bad2e556e4b0abfdc9541f90c46f2.png",
-      "acceptance": "Digest 일자별 추천 → 다이제스트 설정. 현재 관찰값: Daily, Push On, Email On. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "Digest 일자별 추천 → 다이제스트 설정. 현재 관찰값: Daily, Push On, Email On. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "T-F45-01",
@@ -28387,14 +28442,26 @@
       "flowId": "F59",
       "screenId": "S186",
       "png": "medium/flows/Profile/Settings/Changing notification settings/screens/02_sc_ee2e76b092df4d309bfd0633f25273a6.png",
-      "acceptance": "설정 상단 → 푸시 알림 상세 설정. 현재 관찰값: Digest·Top story·Editors·Featured·Applause·Saves 켜짐, 여러 항목 Tailored for you. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 추천 알림 두 항목 끄기 — 선택 알림만 비활성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "설정 상단 → 푸시 알림 상세 설정. 현재 관찰값: Digest·Top story·Editors·Featured·Applause·Saves 켜짐, 여러 항목 Tailored for you. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 추천 알림 두 항목 끄기 — 선택 알림만 비활성<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "T-F59-03",
       "flowId": "F59",
       "screenId": "S040",
       "png": "medium/flows/Profile/Settings/Changing notification settings/screens/03_sc_368c53cd77e2421e8279124ce03301f4.png",
-      "acceptance": "푸시 알림 상세 설정 → 추천 알림 두 항목 끄기. 현재 관찰값: Your top story of the day·Editors 꺼짐, Digest 켜짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. "
+      "acceptance": "푸시 알림 상세 설정 → 추천 알림 두 항목 끄기. 현재 관찰값: Your top story of the day·Editors 꺼짐, Digest 켜짐. 캡처 사이의 정확한 조작·요청은 미기록이다.<br>원본 단계표의 다음 캡처 관계: 이 흐름의 기록 종료; 2절의 종료 범위 참조<br>해당 원본 단계의 진입·종료 화면과 선택/입력/스크롤 맥락을 재현한다. 별도 시점의 상태 모음은 한 번의 클릭 결과로 합치지 않는다. ",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "T-F60-01",
@@ -29043,7 +29110,13 @@
       "batches": [
         16
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-S041",
@@ -29391,7 +29464,13 @@
       "batches": [
         16
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-S069",
@@ -30588,7 +30667,13 @@
       "batches": [
         16
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-S163",
@@ -30883,7 +30968,13 @@
       "batches": [
         16
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-S187",
@@ -31120,7 +31211,13 @@
         16,
         17
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-F07",
@@ -31720,6 +31817,12 @@
         "date": "2026-11-24",
         "result": "TODO/FE_MEDIUM_PARITY_01_08_REVIEW.md",
         "decision": "다른 묶음 담당: Digest 설정 S162/V28은16. 원본 다른 빈도 옵션·발송시각·외부 결과는 근거 부족, 실제 발송Q08 제외."
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -31946,7 +32049,13 @@
         16,
         18
       ],
-      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정"
+      "status": "원본 미확인 유지; 질문 전체를 담당 묶음에서 개별 판정",
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "U-F60",
@@ -32073,6 +32182,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -32139,6 +32254,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -32205,6 +32326,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -32326,6 +32453,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -32742,6 +32875,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -32780,7 +32919,13 @@
       ],
       "batches": [
         16
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "C40",
@@ -32953,6 +33098,12 @@
       "parity14Review": {
         "result": "TODO/FE_MEDIUM_PARITY_14_RESULT.md#contracts",
         "status": "인증/온보딩 직접 계약·기존 기능 영향·원본/native 경계를 분리해 대조; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33046,6 +33197,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33068,7 +33225,13 @@
       "batches": [
         4,
         16
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "C56",
@@ -33078,7 +33241,13 @@
       ],
       "batches": [
         16
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "C57",
@@ -33088,7 +33257,13 @@
       ],
       "batches": [
         16
-      ]
+      ],
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      }
     },
     {
       "id": "C58",
@@ -33155,6 +33330,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33221,6 +33402,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33286,6 +33473,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33354,6 +33547,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33474,6 +33673,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33542,6 +33747,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33609,6 +33820,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -33718,6 +33935,12 @@
       "parity15Review": {
         "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#contracts",
         "status": "배정된 프로필 소비/검증과 원본/시각/native 잔여 분리; 다른 묶음 전체 완료 아님"
+      },
+      "parity16Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+        "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+        "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+        "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
       }
     },
     {
@@ -35713,24 +35936,14 @@
     }
   ],
   "manualUpdate": {
-    "date": "2026-11-24",
-    "batch": 15,
-    "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md",
-    "status": "mock 구현 보완·자동 검사 통과; 원본/시각/native 잔여",
-    "implementation": "프로필 게시 경과 시간·목록 조회 시계 갱신과 저장 중 새 사진/Pronouns 편집 세대",
-    "verification": "Node24.18.0 typecheck/lint exit0; 최종 iOS159 suites/873 tests(251.646초), Android159 suites/873 tests(227.807초), 실패/skip/act 경고0. 실제8081 부분 대조·메모리 JS/Hermes 컴파일 통과; native 미실행",
-    "remaining": "18 S의 동일 fixture/원본 사진·서체·배치,25 U 미수록,실제 OS 사진/키보드/접근성/native 대기",
-    "ownership": "9~14 잔여는 기존 담당.15 전체 시각 동일성 완료 아님.16/commit/push/deploy 없음",
-    "artifacts": "tools 생성기/별도 스크립트 폴더/evidence/비교 캡처/검증 로그/manifest 생성·수정 없음",
-    "manualScope": "18 S/23 T/25 U/17 C/7 flow의 배정 범위에15 review 추가;batch15·상태 문서·존재 입력 해시 수동 갱신. 원본 요구/ID/PNG/currentEvidence/readiness/assets 보존.14 manualUpdate를 history에 보존.삭제된4개 자동입력 미복원.새 formatter/회귀2경로를 codeInputs에 추가해554개.",
-    "preCommitReview": {
-      "date": "2026-11-24",
-      "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#pre-commit-review",
-      "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서에서 로컬 커밋 요청/최초 미커밋 이력 구분",
-      "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/76 tests(40.771초) 통과·실패/skip/act 경고0;554 codeInputs 해시 불일치0. 앞선 전체318 suites/1746 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
-      "git": "사용자 요청의 묶음15 30파일 로컬 커밋 범위. 실제 성공/해시는 Git 기록 참조. push/deploy/16 시작 없음",
-      "remaining": "원본 동일 fixture/자산/시각·OS/native 및9~14 잔여의 기존 소유 유지"
-    }
+    "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+    "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
+    "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
+    "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음",
+    "batch": 16,
+    "manualScope": "4 S/4 T/7 U/19 C/3 flow review·묶음 상태·현재 문서·존재 입력 해시 수동 갱신.15 manualUpdate 원문 history 보존.삭제된4입력 미복원.554 codeInputs 유지.생성기 미실행",
+    "artifacts": "tools/evidence/캡처/검증 로그/manifest/별도 스크립트 폴더 생성·수정 없음",
+    "verification": "Node24.18.0 type/lint 통과; iOS159/876(224.850초)·Android159/876(254.683초) 합계318 suites/1752 tests 통과·실패/skip0. Android LikeNavigation act1, 단독1/2 재실행5.067초 act0; 근본 해결 미확정. 실제8081 부분 비교·메모리JS/Hermes 통과;native 미실행."
   },
   "manualUpdateHistory": [
     {
@@ -35885,6 +36098,26 @@
         "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/82 tests(36.694초) 통과·실패/skip/act 경고0; 552 codeInputs 해시 불일치0. 앞선 전체316 suites/1722 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
         "git": "사용자 요청의 묶음14 36파일 로컬 커밋 범위. 실제 성공/해시는 Git 결과 참조. push/deploy/15 시작 없음",
         "remaining": "원본/시각·S043/native 잔여 및9~13 소유 유지; 선행 전체 완료 승인 아님"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "batch": 15,
+      "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md",
+      "status": "mock 구현 보완·자동 검사 통과; 원본/시각/native 잔여",
+      "implementation": "프로필 게시 경과 시간·목록 조회 시계 갱신과 저장 중 새 사진/Pronouns 편집 세대",
+      "verification": "Node24.18.0 typecheck/lint exit0; 최종 iOS159 suites/873 tests(251.646초), Android159 suites/873 tests(227.807초), 실패/skip/act 경고0. 실제8081 부분 대조·메모리 JS/Hermes 컴파일 통과; native 미실행",
+      "remaining": "18 S의 동일 fixture/원본 사진·서체·배치,25 U 미수록,실제 OS 사진/키보드/접근성/native 대기",
+      "ownership": "9~14 잔여는 기존 담당.15 전체 시각 동일성 완료 아님.16/commit/push/deploy 없음",
+      "artifacts": "tools 생성기/별도 스크립트 폴더/evidence/비교 캡처/검증 로그/manifest 생성·수정 없음",
+      "manualScope": "18 S/23 T/25 U/17 C/7 flow의 배정 범위에15 review 추가;batch15·상태 문서·존재 입력 해시 수동 갱신. 원본 요구/ID/PNG/currentEvidence/readiness/assets 보존.14 manualUpdate를 history에 보존.삭제된4개 자동입력 미복원.새 formatter/회귀2경로를 codeInputs에 추가해554개.",
+      "preCommitReview": {
+        "date": "2026-11-24",
+        "result": "TODO/FE_MEDIUM_PARITY_15_RESULT.md#pre-commit-review",
+        "implementation": "추가 코드 결함 발견 없음; 현재 상태 문서에서 로컬 커밋 요청/최초 미커밋 이력 구분",
+        "verification": "Node24.18.0 typecheck/lint exit0; 관련12 suites/76 tests(40.771초) 통과·실패/skip/act 경고0;554 codeInputs 해시 불일치0. 앞선 전체318 suites/1746 tests 이후 코드 변경 없음. 이번 전체/브라우저/Hermes 재실행 없음",
+        "git": "사용자 요청의 묶음15 30파일 로컬 커밋 범위. 실제 성공/해시는 Git 기록 참조. push/deploy/16 시작 없음",
+        "remaining": "원본 동일 fixture/자산/시각·OS/native 및9~14 잔여의 기존 소유 유지"
       }
     }
   ]

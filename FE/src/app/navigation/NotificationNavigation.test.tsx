@@ -13,6 +13,11 @@ import type { InboxResponse, NotificationSource, PreferenceResponse } from '../.
 import { createMockNotificationPermission } from '../../features/onboarding/notificationPermission';
 import type { NotificationPermission, NotificationPermissionSource } from '../../features/onboarding/notificationPermission';
 import { createMockRelationshipSource } from '../../features/community/data/createMockRelationshipSource';
+import { createMockModerationSource } from '../../features/moderation/data/createMockModerationSource';
+import type { ModerationSource } from '../../features/moderation/types';
+import * as moderationContext from '../../features/moderation/ModerationContext';
+import { createMockResponseSource } from '../../features/responses/data/createMockResponseSource';
+import type { ResponseSource, ResponseValue } from '../../features/responses/types';
 import { deferred } from '../../features/feed/tests/helpers';
 import { SessionNavigation } from './AppNavigator';
 
@@ -24,12 +29,12 @@ const toggle = (name: string) => screen.getByRole('switch', { name });
 function AuthProbe({ capture }: { capture: (store: AuthStore) => void }) {
   const { store } = useAuth(); useEffect(() => capture(store), [capture, store]); return null;
 }
-async function setup(source: NotificationSource = createMockNotificationSource({ delayMs: 0 }), guest = false, articleOverride?: ArticleSource) {
+async function setup(source: NotificationSource = createMockNotificationSource({ delayMs: 0 }), guest = false, articleOverride?: ArticleSource, moderationSource?: ModerationSource, responseSource?: ResponseSource) {
   let auth: AuthStore | undefined; const authSource = createMockAuthSource({ delayMs: 0 });
   const permission = createMockNotificationPermission({ delayMs: 0, outcome: 'denied', failures: 1 });
   const relationship = createMockRelationshipSource({ delay: 0 }); const article = articleOverride ?? createMockArticleSource({ delayMs: 0 });
   const tree = (current: NotificationSource, currentPermission: NotificationPermissionSource = permission, currentArticle = article) => <SafeAreaProvider><AuthProvider source={authSource} initialUser={guest ? null : mockUserA}>
-    <SessionNavigation notificationSource={current} notificationPermissionSource={currentPermission} relationshipSource={relationship} articleSource={currentArticle} />
+    <SessionNavigation notificationSource={current} notificationPermissionSource={currentPermission} relationshipSource={relationship} articleSource={currentArticle} moderationSource={moderationSource} responseSource={responseSource} />
     <AuthProbe capture={value => { auth = value; }} /></AuthProvider></SafeAreaProvider>;
   const view = await render(tree(source)); await flush();
   if (!auth) throw new Error('missing-auth');
@@ -138,6 +143,55 @@ it('삭제·잘못된 응답·비공개 목록 목적지는 노출하거나 읽�
   expect(button('알림 대상 재시도 notice-list')).toBeVisible(); await user.press(button(/Bérnie responded/)); await flush();
   expect(button('알림 대상 재시도 notice-response')).toBeVisible(); expect(mark).not.toHaveBeenCalled();
   expect(screen.queryByRole('button', { name: 'Back from public list' })).toBeNull();
+});
+
+it('차단 설정 조회 실패 중 목록 알림은 읽음 처리하지 않고 복구 후에만 목적지를 연다', async () => {
+  const privacy = createMockModerationSource({ delay: 0, scenario: 'read-error' });
+  const source = createMockNotificationSource({ delayMs: 0 }); const mark = jest.spyOn(source, 'markRead');
+  const { user } = await setup(source, false, undefined, privacy);
+  await user.press(button('Notifications')); await flush();
+  await user.press(button(/Medium Staff added/)); await flush();
+  expect(screen.getByRole('heading', { name: 'Notifications' })).toBeVisible();
+  expect(button('알림 대상 재시도 notice-list')).toBeVisible();
+  expect(mark).not.toHaveBeenCalled();
+  await user.press(button('알림 대상 재시도 notice-list')); await flush();
+  expect(button('Back from public list')).toBeVisible();
+  expect(mark).toHaveBeenCalledTimes(1);
+});
+
+it('동적 mock 사용자 알림은 검색과 같은 카탈로그로 프로필을 열고 원래 알림으로 복귀한다', async () => {
+  const item = notificationFixtures(mockUserA.id)[0]!;
+  const source = createMockNotificationSource({ delayMs: 0, seed: () => [{ ...item,
+    actorId: mockUserB.id, actorName: mockUserB.name, target: { kind: 'writer', id: mockUserB.id } }] });
+  const { user } = await setup(source);
+  await user.press(button('Notifications')); await flush();
+  await user.press(button(/예시 독자 B started following/)); await flush();
+  expect(button('Follow 예시 독자 B')).toBeVisible();
+  await user.press(button('Back from profile')); await flush();
+  expect(button(/예시 독자 B started following you, 읽음/)).toBeVisible();
+});
+
+it('응답 목적지 조회 중 기사 작성자를 차단하면 늦은 응답으로 이동하거나 읽음 처리하지 않는다', async () => {
+  const pending = deferred<ResponseValue>(); const responses = createMockResponseSource({ delayMs: 0 });
+  const source = createMockNotificationSource({ delayMs: 0 }); const mark = jest.spyOn(source, 'markRead');
+  const useOriginalModeration = moderationContext.useModeration;
+  let observed: ReturnType<typeof useOriginalModeration> | undefined;
+  const probe = jest.spyOn(moderationContext, 'useModeration').mockImplementation(function useObservedModeration() {
+    const value = useOriginalModeration(); observed = value; return value;
+  });
+  try {
+    const { user } = await setup(source, false, undefined, createMockModerationSource({ delay: 0 }),
+      { ...responses, read: () => pending.promise });
+    await user.press(button('Notifications')); await flush();
+    await user.press(button(/Bérnie responded/)); await flush();
+    await act(async () => { await observed?.store?.execute({ operationId: 'block-during-notification',
+      action: { kind: 'block', writerId: 'jordan', active: true } }); });
+    const value = responses.read({ userId: mockUserA.id, target: { kind: 'article', id: 'medium-brain' } });
+    await flush(); await act(async () => pending.resolve(await value)); await flush();
+    expect(screen.getByRole('heading', { name: 'Notifications' })).toBeVisible();
+    expect(button('알림 대상 재시도 notice-response')).toBeVisible();
+    expect(mark).not.toHaveBeenCalled();
+  } finally { probe.mockRestore(); }
 });
 
 it.each(['success', 'failure'] as const)('A 조회 중 계정 전환과 늦은 %s·같은 A 재로그인·source 교체는 개인 화면·선택을 격리한다', async outcome => {

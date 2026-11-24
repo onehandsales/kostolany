@@ -6,7 +6,7 @@ import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { IconButton } from '../../shared/ui/IconButton';
 import { ContentStatus } from '../../shared/ui/ContentStatus';
-import { useDirectory } from '../community/DirectoryProvider';
+import { useIdentityCatalog } from '../community/useIdentityCatalog';
 import { FollowControl } from '../community/FollowControl';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { useKnownProfile } from '../profile/ProfileProvider';
@@ -33,7 +33,7 @@ export function NotificationsScreen(props: NotificationsScreenProps) {
 }
 function ScopedNotifications({ onBack, onOpen, active, articleSource = previewArticleSource, footer }: NotificationsScreenProps) {
   const { state, store } = useNotifications(); const styles = useThemeStyles(createStyles);
-  const directory = useDirectory(); const lists = usePublicListAccess(); const responses = useResponseScope(); const moderation = useArticleModeration();
+  const directory = useIdentityCatalog(); const lists = usePublicListAccess(); const responses = useResponseScope(); const moderation = useArticleModeration();
   const [opening, setOpening] = useState<string | null>(null); const [errorId, setErrorId] = useState<string | null>(null);
   const request = useRef(0); const mounted = useRef(true); const pending = useRef(false);
   const latest = useRef({ active, directory, lists, responses, moderation });
@@ -54,6 +54,15 @@ function ScopedNotifications({ onBack, onOpen, active, articleSource = previewAr
   }, [active]);
   const [wasActive, setWasActive] = useState(active);
   if (wasActive !== active) { setWasActive(active); setOpening(null); setErrorId(null); }
+  function requirePrivacy() {
+    const privacy = latest.current.moderation;
+    if (privacy.store && (!privacy.state?.value || privacy.state.readError)) {
+      // 접근 정책을 읽지 못한 알림은 읽음으로 확정하지 않고 다음 재시도 전에 복구한다.
+      void privacy.store.reload();
+      throw new Error('Unavailable privacy preferences');
+    }
+    return privacy;
+  }
   async function open(item: ReaderNotification) {
     if (pending.current || !latest.current.active) return;
     const id = ++request.current; pending.current = true; setOpening(item.id); setErrorId(null);
@@ -61,6 +70,7 @@ function ScopedNotifications({ onBack, onOpen, active, articleSource = previewAr
     try {
       const target = item.target;
       if (!validNotificationTarget(target)) throw new Error('Invalid notification destination');
+      requirePrivacy();
       if (target.kind === 'writer') {
         const currentDirectory = latest.current.directory;
         if (currentDirectory.state.status === 'error') { currentDirectory.retry(); throw new Error('Unavailable directory'); }
@@ -69,20 +79,22 @@ function ScopedNotifications({ onBack, onOpen, active, articleSource = previewAr
         await latest.current.lists?.store.reload();
         if (!current()) return;
         const list = latest.current.lists?.getListForUser(item.recipientId, target.id);
+        const privacy = requirePrivacy();
         if (!list || list.owner.id !== target.ownerId || (list.isPrivate && list.owner.id !== item.recipientId)
-          || latest.current.moderation.state?.value?.blocked.includes(list.owner.id)) throw new Error('Unavailable list');
+          || privacy.state?.value?.blocked.includes(list.owner.id)) throw new Error('Unavailable list');
       } else {
         const articleId = target.kind === 'article' ? target.id : target.articleId;
         const article = await articleSource(articleId);
         if (!current()) return;
-        const privacy = latest.current.moderation;
+        const privacy = requirePrivacy();
         if (article.id !== articleId || privacy.state?.readError || (privacy.store && !privacy.state?.value) || privacy.blocked(articleId)) throw new Error('Unavailable article');
         if (target.kind === 'response') {
           const responseStore = latest.current.responses?.store; const parent = { kind: 'article' as const, id: articleId };
           await responseStore?.refresh(parent);
           if (!current()) return;
+          const currentPrivacy = requirePrivacy();
           const value = responseStore?.getSnapshot(parent);
-          if (!value || value.readError || !visibleResponses(value.value, latest.current.moderation.state?.value?.blocked)
+          if (currentPrivacy.blocked(articleId) || !value || value.readError || !visibleResponses(value.value, currentPrivacy.state?.value?.blocked)
             .some(response => response.id === target.responseId && !response.deleted)) throw new Error('Unavailable response');
         }
       }
@@ -112,7 +124,7 @@ const verbs = { follow: ' started following you', 'list-story': ' added 1 story 
 function NotificationRow({ item, now, opening, error, readError, onOpen, onRetryRead }: {
   item: ReaderNotification; now: number; opening: boolean; error: boolean; readError: boolean; onOpen: () => void; onRetryRead: () => void;
 }) {
-  const styles = useThemeStyles(createStyles); const known = useKnownProfile(item.actorId); const directory = useDirectory();
+  const styles = useThemeStyles(createStyles); const known = useKnownProfile(item.actorId); const directory = useIdentityCatalog();
   const actor = directory.state.data?.identities.find(identity => identity.kind === 'writer' && identity.id === item.actorId);
   const name = known?.name ?? actor?.name ?? item.actorName;
   return <View style={[styles.notification, !item.read && styles.unread]}>

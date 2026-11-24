@@ -234,7 +234,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   choice: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 20, color: colors.green, flexShrink: 1 },
   toggle: { width: 51, height: 30, borderRadius: 16, backgroundColor: colors.border, padding: 2, justifyContent: 'center', marginLeft: 'auto' },
   enabled: { backgroundColor: colors.green }, thumb: { width: 26, height: 26, borderRadius: 13, backgroundColor: '#fff' }, thumbOn: { alignSelf: 'flex-end' },
-  choiceValue: { flexDirection: 'row', alignItems: 'center', flexShrink: 1 }, choiceArrows: { width: 16, height: 20, justifyContent: 'center' },
+  choiceValue: { flexDirection: 'row', alignItems: 'center', flexShrink: 1, maxWidth: '50%' }, choiceArrows: { width: 16, height: 20, justifyContent: 'center' },
   feedback: { paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', gap: 8 }, error: { color: colors.destructive, fontFamily: fonts.sans, fontSize: 13, flexShrink: 1 },
   retry: { minHeight: 48, minWidth: 48, justifyContent: 'center' }, done: { minHeight: 48, alignItems: 'center', justifyContent: 'center' },
   note: { padding: 24, fontFamily: fonts.sans, fontSize: 13, lineHeight: 20, color: colors.secondaryText }, permission: { padding: 24, gap: 8 },
