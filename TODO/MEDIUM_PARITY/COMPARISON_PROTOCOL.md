@@ -1,5 +1,7 @@
 # Medium 원본 비교 프로토콜 — Parity 1
 
+**Parity17 검토(2026-11-24):** [18 S/139 R/31 T/33 U/21 C의 실제 결과·자체 정책·잔여](../FE_MEDIUM_PARITY_17_RESULT.md). 알림 점/빈 Featured·개인 정책 실패·공개 목록 접근/이탈을 대조했다. 원본18 PNG 직접 열람, 실제8081 메모리 비교이며 캡처 파일/도구 생성 없음.33 U·원본/자산/시각/native 및9~16 잔여 유지. 원본 요구·ID·과거 evidence/readiness를 승격하지 않는다.
+
 **Parity16 수동 검토:** [4 S/43 R·4 T·7 U·19 C의 처리·현재 검사·잔여](../FE_MEDIUM_PARITY_16_RESULT.md#scope). 기존 원본 관찰·ID·과거 증거·readiness는 보존한다. 실제8081 부분 비교와 원본 자산/시각·OS/native 대기를 구분하며 tools 생성기를 실행하지 않았다.
 
 **Parity15 검토(2026-11-24):** [범위·현재 결과](../FE_MEDIUM_PARITY_15_RESULT.md#browser). 390×844/DSF1/UTC/en-US 고정 시계 부분 대조와320/393 동작 검사를 분리했다. 메모리 화면만 사용했고 비교 캡처 파일은 생성하지 않았다. 전체 동일 fixture/원본 inset·OS 검증 완료가 아니다.

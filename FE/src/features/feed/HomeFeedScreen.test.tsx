@@ -3,6 +3,9 @@ import { StrictMode } from 'react';
 import { LikeTestProvider, renderWithLikes as render } from '../../../test/renderWithLikes';
 
 import { createMockFeedSource } from './data/mockFeedSource';
+import { ModerationContext } from '../moderation/ModerationContext';
+import { createModerationStore } from '../moderation/createModerationStore';
+import { createMockModerationSource } from '../moderation/data/createMockModerationSource';
 import { HomeFeedScreen } from './HomeFeedScreen';
 import { article, deferred } from './tests/helpers';
 import type { FeedPage, FeedRequest, FeedSource } from './types';
@@ -39,6 +42,7 @@ describe('Home feed', () => {
 
     await user.press(screen.getByRole('tab', { name: 'Featured' }));
     expect(await screen.findByRole('button', { name: /^시장의 숫자 뒤에/ })).toBeVisible();
+    expect(screen.queryByText('New')).toBeNull();
     expect(screen.queryByRole('button', { name: /^현금을 보유한다는 건/ })).not.toBeOnTheScreen();
     const sortTabs = within(screen.getByLabelText('피드 정렬'));
     expect(sortTabs.getAllByRole('tab', { selected: true })).toHaveLength(1);
@@ -70,6 +74,12 @@ describe('Home feed', () => {
     expect(await screen.findByText('아직 표시할 기사가 없어요')).toBeVisible();
     expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: '기사 더 보기' })).not.toBeOnTheScreen();
+    await userEvent.setup().press(screen.getByRole('tab', { name: 'Featured' }));
+    expect(await screen.findByText('No featured stories')).toBeVisible();
+    expect(screen.getByText('New')).toBeVisible();
+    await userEvent.setup().press(screen.getByRole('tab', { name: 'Featured' }));
+    expect(screen.getByText('New')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'View recommended publications' })).toBeVisible();
   });
 
   it('keeps existing cards during pagination, removes overlapping IDs and stops at the last page', async () => {
@@ -160,4 +170,30 @@ describe('Home feed', () => {
     expect(screen.getByRole('button', { name: /^예시 기사 current/ })).toBeVisible();
   });
 
+});
+
+// 개인 정책 재조회는 공개 페이지의 수명·커서를 버리지 않고 노출만 차단한다.
+it('개인 정책 실패와 복구 뒤 같은 공개 피드 조회 결과를 유지한다', async () => {
+  const privacy = createMockModerationSource({ delay: 0 });
+  const read = jest.fn(privacy.read);
+  const store = createModerationStore({ ...privacy, read }, 'example-reader');
+  store.setReadScope('feed-privacy');
+  const source = jest.fn<Promise<FeedPage>, [FeedRequest]>().mockResolvedValue({
+    items: [{ ...article('first'), reference: { applause: 0, responses: '—', memberOnly: false } }], nextCursor: 'next-page',
+  });
+  await render(<ModerationContext.Provider value={{ store, scope: 'feed-privacy', open: jest.fn(), isBlockedForUser: () => false }}>
+    <HomeFeedScreen source={source} onSelectArticle={jest.fn()} />
+  </ModerationContext.Provider>);
+  await screen.findByRole('button', { name: /^예시 기사 first/ });
+  await userEvent.setup().press(screen.getByRole('button', { name: 'More, 예시 기사 first' }));
+  expect(screen.getByRole('heading', { name: 'Story actions' })).toBeVisible();
+  read.mockRejectedValueOnce(new Error('privacy failed'));
+  await act(async () => { await store.reload(); });
+  expect(screen.getByRole('button', { name: '개인 표시 설정 다시 시도' })).toBeVisible();
+  expect(screen.queryByRole('button', { name: /^예시 기사 first/ })).toBeNull();
+  expect(screen.queryByRole('heading', { name: 'Story actions', includeHiddenElements: true })).toBeNull();
+  await userEvent.setup().press(screen.getByRole('button', { name: '개인 표시 설정 다시 시도' }));
+  expect(await screen.findByRole('button', { name: /^예시 기사 first/ })).toBeVisible();
+  expect(screen.getByRole('button', { name: '기사 더 보기' })).toBeVisible();
+  expect(source).toHaveBeenCalledTimes(1);
 });

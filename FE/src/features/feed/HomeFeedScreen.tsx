@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -9,6 +9,8 @@ import { WriteButton } from '../../shared/ui/WriteButton';
 
 import { useCommunityNavigation } from '../community/CommunityNavigation';
 import { useRecommendedArticles } from '../recommendations/useRecommendedArticles';
+import { useModeration } from '../moderation/ModerationContext';
+import { useNotifications } from '../notifications/NotificationProvider';
 import { FollowingFeed } from '../community/FollowingFeed';
 
 import { ArticleCard } from './components/ArticleCard';
@@ -27,8 +29,14 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
   const community = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
+  const notifications = useNotifications();
+  const privacy = useModeration();
+  const privacyPending = privacy.store && (!privacy.state?.value || privacy.state.readError);
+  useEffect(() => { notifications.store?.ensureInbox(); }, [notifications.store]);
+  const unread = Boolean(notifications.state?.inbox?.notifications.some(item => !item.read));
   const [sort, setSort] = useState<FeedSort>('latest');
   const [collapsed, setCollapsed] = useState(false);
+  const [featuredEmpty, setFeaturedEmpty] = useState(false);
 
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>
@@ -37,25 +45,36 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
           <Text role="heading" accessibilityLabel="홈" style={styles.title}>
             Home
           </Text>
-          <IconButton
-            icon="bell"
-            label="Notifications"
-            onPress={() => community.openNotifications?.()}
-            color={colors.secondaryText}
-            style={styles.notification}
-          />
+          <View style={styles.notification}>
+            <IconButton
+              icon="bell"
+              label="Notifications"
+              onPress={() => community.openNotifications?.()}
+              color={colors.secondaryText}
+              hint={unread ? 'Unread notifications' : undefined}
+            />
+            {unread && <View pointerEvents="none" aria-hidden style={styles.notificationDot} />}
+          </View>
         </View>
       )}
       <FeedSortTabs
         selected={sort}
+        featuredEmpty={featuredEmpty}
         onSelect={(next) => {
           setSort(next);
+          if (next !== sort) setFeaturedEmpty(false);
           setCollapsed(false);
         }}
       />
       {/* 정렬 변경은 목록과 스크롤 수명을 새로 시작하며 이전 응답을 적용하지 않는다. */}
+      {privacyPending && <FeedStatus loading={!privacy.state?.readError} error={privacy.state?.readError}
+        message={privacy.state?.readError ? '개인 표시 설정을 불러오지 못했어요' : '개인 표시 설정을 확인하고 있어요'}
+        actionLabel={privacy.state?.readError ? '개인 표시 설정 다시 시도' : undefined}
+        onAction={() => { void privacy.store?.reload(); }} />}
+      {/* 공개 조회 수명을 유지하면서 미확인 개인 정책 동안 카드 접근을 가린다. */}
+      <View aria-hidden={Boolean(privacyPending)} style={[styles.feed, privacyPending ? { display: 'none' } : undefined]}>
       {sort === 'popular' && source === previewFeedSource ? (
-        <FollowingFeed onSelectArticle={onSelectArticle} onScrollChange={setCollapsed} />
+        !privacyPending && <FollowingFeed onSelectArticle={onSelectArticle} onScrollChange={setCollapsed} />
       ) : (
         <FeedResults
           key={sort}
@@ -63,8 +82,11 @@ export function HomeFeedScreen({ source = previewFeedSource, onSelectArticle }: 
           source={source}
           onSelectArticle={onSelectArticle}
           onScrollChange={setCollapsed}
+          onFeaturedEmpty={setFeaturedEmpty}
+          privacyPending={Boolean(privacyPending)}
         />
       )}
+      </View>
       <WriteButton onPress={community.openWrite} />
     </SafeAreaView>
   );
@@ -75,16 +97,28 @@ function FeedResults({
   source,
   onSelectArticle,
   onScrollChange,
+  onFeaturedEmpty,
+  privacyPending,
 }: {
   sort: FeedSort;
   source: FeedSource;
   onSelectArticle: (articleId: string) => void;
   onScrollChange: (collapsed: boolean) => void;
+  onFeaturedEmpty: (empty: boolean) => void;
+  privacyPending: boolean;
 }) {
   const styles = useThemeStyles(createStyles);
   const navigation = useCommunityNavigation();
   const feed = useFeed(sort, source);
   const moderation = useRecommendedArticles();
+  const visibleArticles = feed.articles.filter(article => !moderation.excluded(article.id));
+  // 빈/채워진 원본 상태를 구분하는 mock 표시이며 Medium의 배지 소멸 시점을 추론하지 않는다.
+  useEffect(() => {
+    if (sort === 'recommended') onFeaturedEmpty(feed.status === 'ready' && visibleArticles.length === 0);
+  }, [sort, feed.status, visibleArticles.length, onFeaturedEmpty]);
+
+  // 조회 캐시는 유지하고 포털로 열린 카드 메뉴·시트까지 함께 폐기한다.
+  if (privacyPending) return null;
 
   const empty =
     feed.status === 'loading' ? (
@@ -111,7 +145,7 @@ function FeedResults({
     <>
       <FlatList
         accessibilityLabel={`${feedSortLabels[sort]} 기사 목록`}
-        data={feed.articles.filter((article) => !moderation.excluded(article.id))}
+        data={visibleArticles}
         onScroll={(event) => onScrollChange(event.nativeEvent.contentOffset.y > 80)}
         scrollEventThrottle={32}
         onEndReached={feed.loadMore}
@@ -164,7 +198,10 @@ const createStyles = (colors: ThemeColors) =>
       justifyContent: 'space-between',
     },
     title: { ...typography.pageTitle, color: colors.text },
+    feed: { flex: 1 },
     notification: { marginRight: -10 },
+    notificationDot: { position: 'absolute', width: 10, height: 10, borderRadius: 5, top: 9, right: 9,
+      backgroundColor: colors.green, borderWidth: 1, borderColor: colors.background },
     list: { flexGrow: 1, paddingBottom: spacing.small },
     separator: {
       height: StyleSheet.hairlineWidth,

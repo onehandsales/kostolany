@@ -1,5 +1,7 @@
 # 미확인 항목과 범위 판정
 
+**Parity17 검토(2026-11-24):** [18 S/139 R/31 T/33 U/21 C의 실제 결과·자체 정책·잔여](../FE_MEDIUM_PARITY_17_RESULT.md). 알림 점/빈 Featured·개인 정책 실패·공개 목록 접근/이탈을 대조했다. 원본18 PNG 직접 열람, 실제8081 메모리 비교이며 캡처 파일/도구 생성 없음.33 U·원본/자산/시각/native 및9~16 잔여 유지. 원본 요구·ID·과거 evidence/readiness를 승격하지 않는다.
+
 **Parity16 수동 검토:** [4 S/43 R·4 T·7 U·19 C의 처리·현재 검사·잔여](../FE_MEDIUM_PARITY_16_RESULT.md#scope). 기존 원본 관찰·ID·과거 증거·readiness는 보존한다. 실제8081 부분 비교와 원본 자산/시각·OS/native 대기를 구분하며 tools 생성기를 실행하지 않았다.
 
 **Parity15 검토(2026-11-24):** [범위·현재 결과](../FE_MEDIUM_PARITY_15_RESULT.md#remaining). 18개 U-S와 U-F08/F55/F56/F57/F58/F62/F63을 유지한다. 사진/OS 권한·대명사 사전·공개 필터·시간 경계·원본 실패 정책의 미수록을 mock 통과로 해소하지 않는다.

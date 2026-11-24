@@ -83,7 +83,11 @@ function TopicContent({
             subtitle: 'Explore stories about this topic', authorName: 'Medium', visibility: 'public' }); }}
         />
       </View>
-      {state.status === 'loading' ? (
+      {moderation.store && (!moderation.state?.value || moderation.state.readError) ?
+        <ContentStatus loading={!moderation.state?.readError} error={moderation.state?.readError}
+          message={moderation.state?.readError ? '개인 표시 설정을 불러오지 못했어요' : '개인 표시 설정을 확인하고 있어요'}
+          actionLabel={moderation.state?.readError ? '개인 표시 설정 다시 시도' : undefined}
+          onAction={() => { void moderation.store?.reload(); }} /> : state.status === 'loading' ? (
         <ContentStatus message="Loading topic…" loading />
       ) : state.status === 'error' ? (
         <ContentStatus message="Couldn’t load topics." error actionLabel="Retry topics" onAction={retry} />
@@ -206,7 +210,9 @@ function CurationPreview({
   if (publicLists.state?.readError) return <ContentStatus message="Couldn’t load the curated list." error
     actionLabel="Retry curated list" onAction={() => { void publicLists.store?.reload(); }} />;
   if (!publicLists.state?.value) return <ContentStatus message="Loading curated list…" loading />;
-  if (!list) return <ContentStatus message="This curated list is unavailable." />;
+  // 상세 화면과 같은 차단 경계를 미리보기에도 적용한다.
+  if (!list || (list.owner.kind === 'writer' && moderation.state?.value?.blocked.includes(list.owner.id)))
+    return <ContentStatus message="This curated list is unavailable." />;
   const articles = curation.previewStories.flatMap((id) => {
     const article = mediumArticles.find((item) => item.id === id);
     return article && !moderation.excluded(id) ? [article] : [];

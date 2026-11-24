@@ -11,8 +11,8 @@ import { useHasViewed } from '../reading-history/ReadingHistoryProvider';
 import { SearchByline } from '../search/SearchCard';
 import type { FeedArticle } from '../feed/types';
 
-type PublicListStoryCardProps = { article: FeedArticle; onOpen: (id: string) => void };
-export function PublicListStoryCard({ article, onOpen }: PublicListStoryCardProps) {
+type PublicListStoryCardProps = { active?: boolean; article: FeedArticle; onOpen: (id: string) => void };
+export function PublicListStoryCard({ article, onOpen, active = true }: PublicListStoryCardProps) {
   const styles = useThemeStyles(createStyles);
   const moderation = useModeration();
   const articleModeration = useArticleModeration();
@@ -30,11 +30,11 @@ export function PublicListStoryCard({ article, onOpen }: PublicListStoryCardProp
     <View style={styles.actions}>
       {article.reference?.memberOnly && <AppIcon name="star" size={16} color="#ffc017" />}
       <Text style={styles.metadata}>
-        {article.readingMinutes ? `${article.readingMinutes} min read` : ''}
-        {article.publishedLabel ? ` · ${article.publishedLabel}` : ''}{viewed ? ' · Viewed' : ''}
+        {[article.readingMinutes > 0 ? `${article.readingMinutes} min read` : '',
+          article.publishedLabel, viewed ? 'Viewed' : ''].filter(Boolean).join(' · ')}
       </Text>
-      <ArticleBookmarkControl articleId={article.id} articleTitle={article.title} compact />
-      <ActionMenu label={`Story options, ${article.title}`} items={[
+      <ArticleBookmarkControl active={active} articleId={article.id} articleTitle={article.title} compact />
+      <ActionMenu key={String(active)} label={`Story options, ${article.title}`} items={[
         { label: 'Report this item', onPress: () => moderation.open({ kind: 'report',
           target: article.publishedStory ? { kind: 'article', id: article.id, writerId: article.publishedStory.ownerId } : articleReportTarget(article.id), title: article.title }) },
       ]} />

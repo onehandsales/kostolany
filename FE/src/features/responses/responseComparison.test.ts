@@ -80,3 +80,14 @@ it('안전한 정수 범위를 넘는 작성은 거부하고 기존 집계를 �
   expect(value.responses).toEqual([]);
   expect(getResponseCount(value)).toBe(Number.MAX_SAFE_INTEGER);
 });
+
+it('공개 목록의 원본 응답 1은 명시적 비교에서만 공급하고 실제 작성과 기사 집계를 분리한다', async () => {
+  const list: ResponseTarget = { kind: 'list', id: 'public-morning-routine' };
+  const source = createMockResponseSource({ delayMs: 0, uncapturedCountFor: counts });
+  expect(getResponseCount(await source.read({ userId: 'A', target: list }))).toBe(1);
+  await source.execute({ userId: 'A', target: list, operationId: 'list-create', action: creation });
+  expect(getResponseCount(await source.read({ userId: 'A', target: list }))).toBe(2);
+  expect(counts({ kind: 'article', id: list.id })).toBe(0);
+  expect(getResponseCount(await createMockResponseSource({ delayMs: 0 }).read({ userId: 'A', target: list }))).toBe(0);
+  expect(createResponseComparisonCounts('?parityResponses=reference-v1', false)(list)).toBe(0);
+});

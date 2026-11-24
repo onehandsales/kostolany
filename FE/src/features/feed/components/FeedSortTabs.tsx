@@ -13,10 +13,11 @@ const sortOrder: FeedSort[] = ['latest', 'popular', 'recommended'];
 
 type FeedSortTabsProps = {
   selected: FeedSort;
+  featuredEmpty?: boolean;
   onSelect: (sort: FeedSort) => void;
 };
 
-export function FeedSortTabs({ selected, onSelect }: FeedSortTabsProps) {
+export function FeedSortTabs({ selected, onSelect, featuredEmpty = false }: FeedSortTabsProps) {
   const navigation = useCommunityNavigation();
   const styles = useThemeStyles(createStyles);
   const { colors } = useTheme();
@@ -56,7 +57,7 @@ export function FeedSortTabs({ selected, onSelect }: FeedSortTabsProps) {
               <Text style={[styles.label, selected === sort && styles.selectedLabel]}>
                 {feedSortLabels[sort]}
               </Text>
-              {sort === 'recommended' && selected !== sort && <Text style={styles.badge}>New</Text>}
+              {sort === 'recommended' && (selected !== sort || featuredEmpty) && <Text style={styles.badge}>New</Text>}
             </View>
           </Pressable>
         ))}

@@ -14,7 +14,8 @@ export function createResponseComparisonCounts(search: string, enabled: boolean)
     : mode === 'story-832' ? [['medium-brain', 832]] : []);
   // 이미 수록된 루트 응답은 제외하고 서로 다른 촬영 시점의 총수를 별도 비교 조건으로 둔다.
   return target => {
-    const total = target.kind === 'article' ? counts.get(target.id) : undefined;
+    const total = target.kind === 'article' ? counts.get(target.id)
+      : mode === 'reference-v1' && target.id === 'public-morning-routine' ? 1 : undefined;
     if (total === undefined) return 0;
     const captured = responseFixtures(target).filter(response => response.parentId === null && !response.deleted).length;
     return Math.max(0, total - captured);

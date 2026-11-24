@@ -211,3 +211,22 @@ it.each(['success', 'failure'] as const)('A 조회 중 계정 전환과 늦은 %
   await replace({ ...base, readPreferences: () => settings.promise }); await flush();
   expect(screen.queryByRole('heading', { name: 'Push notifications', includeHiddenElements: true })).toBeNull();
 });
+
+it('홈의 알림 점은 현재 계정의 미읽음 확정 상태를 사용하고 읽은 뒤 사라진다', async () => {
+  const source = createMockNotificationSource({ delayMs: 0, seed: userId => userId === mockUserA.id
+    ? [notificationFixtures(userId)[0]!] : [] });
+  const { user, auth } = await setup(source);
+  const switchTo = async (id: string) => {
+    await act(async () => { auth.openLogout(); await auth.signOut(); auth.openLogin({ kind: 'library' }); await auth.signIn(id); });
+    await flush();
+  };
+  expect(button('Notifications').props.accessibilityHint).toBe('Unread notifications');
+  await user.press(button('Notifications')); await flush();
+  await user.press(button(/Jordan Gibbs started/)); await flush();
+  await user.press(button('Back from profile')); await user.press(button('알림에서 홈으로 돌아가기'));
+  expect(button('Notifications').props.accessibilityHint).toBeUndefined();
+  await switchTo(mockUserB.id);
+  expect(button('Notifications').props.accessibilityHint).toBeUndefined();
+  await switchTo(mockUserA.id);
+  expect(button('Notifications').props.accessibilityHint).toBeUndefined();
+});

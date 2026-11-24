@@ -65,7 +65,8 @@ describe('저장 시트의 사용자 전환', () => {
     await changeUser(auth, mockUserB.id);
     expect(screen.queryByLabelText('목록 이름 · 필수', { includeHiddenElements: true })).not.toBeOnTheScreen();
     expect(screen.queryByText('이전 사용자의 비밀 초안', { includeHiddenElements: true })).not.toBeOnTheScreen();
-    await user.press(screen.getByRole('button', { name: `저장할 목록 선택, ${title}` }));
+    // 새 계정의 차단 정책을 확인하기 전에는 개인 행동을 다시 노출하지 않는다.
+    await user.press(await screen.findByRole('button', { name: `저장할 목록 선택, ${title}` }));
     expect(screen.getByRole('checkbox', { name: `${mockUserB.name}의 비공개 목록` })).toBeVisible();
     expect(screen.queryByRole('checkbox', { name: `${mockUserA.name}의 비공개 목록` })).not.toBeOnTheScreen();
     await changeUser(auth, mockUserA.id);

@@ -18,6 +18,7 @@ import { bookmarkArticles } from '../bookmarks/data/bookmarkFixtures';
 import { mockUsers } from '../auth/data/mockUsers';
 import { useKnownProfile } from '../profile/ProfileProvider';
 import { ProfileAvatar } from '../profile/ProfileAvatar';
+import { useArticleModeration } from '../moderation/articleModeration';
 import { useModeration } from '../moderation/ModerationContext';
 import { ClapControl } from '../reactions/ClapControl';
 import { useClapStore } from '../reactions/ClapProvider';
@@ -74,9 +75,10 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer, activ
   const sharing = useShareDialog(store ?? undefined, active);
   const target = { kind: 'list' as const, id: list.id };
   const catalogArticles = useCatalogArticles(bookmarkArticles);
+  const articleModeration = useArticleModeration();
   const articles = list.articleIds.flatMap(id => {
     const article = catalogArticles.find(item => item.id === id);
-    return article && (!article.publishedStory?.unlisted || article.publishedStory.ownerId === auth.state.user?.id) ? [article] : [];
+    return article && !articleModeration.blocked(id) && (!article.publishedStory?.unlisted || article.publishedStory.ownerId === auth.state.user?.id) ? [article] : [];
   });
   const share = () => sharing.open({ kind: 'list', id: list.id, title: list.title,
     subtitle: list.description, authorId: list.owner.kind === 'writer' ? list.owner.id : undefined,
@@ -86,7 +88,8 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer, activ
       <IconButton icon="back" label="Back from public list" onPress={onBack} />
       <Text numberOfLines={1} style={styles.headerTitle}>{collapsed ? list.title : ''}</Text>
       <SavePublicListControl list={list} compact />
-      <ActionMenu label={`List options, ${list.title}`} items={[
+      {/* 화면 이탈은 확정 반응을 보존하고 열린 메뉴/박수 시트만 폐기한다. */}
+      <ActionMenu key={String(active)} label={`List options, ${list.title}`} items={[
         { label: 'Share list', onPress: share },
         ...(clapStore ? [{ label: 'Undo claps', onPress: () => clapStore.undo(target) }] : []),
         ...(!own ? [{ label: 'Report list', onPress: () => moderation.open({ kind: 'report',
@@ -115,7 +118,7 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer, activ
         </View>}
         renderItem={({ item }) => <View>
           {!!list.notes?.[item.id] && <Text style={styles.note}>{list.notes[item.id]}</Text>}
-          <PublicListStoryCard article={item} onOpen={onSelectArticle} /></View>}
+          <PublicListStoryCard active={active} article={item} onOpen={onSelectArticle} /></View>}
         ListFooterComponent={<View>
           {articles.length < list.capturedStoryCount && <Text style={styles.missing}>
             {articles.length} of {list.capturedStoryCount} captured stories are available in this sample.
@@ -129,8 +132,8 @@ function PublicListContent({ list, saved, onBack, onSelectArticle, footer, activ
           </View>
         </View>} />
       <View style={styles.toolbar}>
-        <ClapControl target={target} title={list.title} baseline={list.baselineClaps} size={22} />
-        <ResponseButton target={target} title={list.title} size={20} />
+        <ClapControl key={String(active)} target={target} title={list.title} baseline={list.baselineClaps} size={22} />
+        <ResponseButton active={active} target={target} title={list.title} size={20} />
         <IconButton icon="share" label={`Share list ${list.title}`} onPress={share} />
       </View>
     </View>

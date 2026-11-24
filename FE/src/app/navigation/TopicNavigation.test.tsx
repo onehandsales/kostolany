@@ -5,6 +5,7 @@ import { mockUserA } from '../../features/auth/data/mockUsers';
 import { createMockArticleSource } from '../../features/article/data/mockArticleSource';
 import { createMockRelationshipSource } from '../../features/community/data/createMockRelationshipSource';
 import { createMockDirectorySource } from '../../features/community/DirectoryProvider';
+import { createMockModerationSource } from '../../features/moderation/data/createMockModerationSource';
 import { createMockTopicSource } from '../../features/topics/TopicProvider';
 
 beforeEach(() => jest.useFakeTimers());
@@ -64,7 +65,7 @@ it('토픽 조회 실패와 무관하게 publication 추천을 열고 같은 팔
     </SafeAreaProvider>,
   );
   await user.press(screen.getByRole('tab', { name: '탐색' }));
-  await user.press(screen.getByRole('button', { name: 'View recommended publications' }));
+  await user.press(await screen.findByRole('button', { name: 'View recommended publications' }));
   await user.press(await screen.findByRole('button', { name: 'Follow Coinmonks' }));
   await user.press(screen.getByRole('button', { name: 'Following Coinmonks options 닫기' }));
   await user.press(screen.getByRole('button', { name: 'Discover Coinmonks' }));
@@ -74,4 +75,39 @@ it('토픽 조회 실패와 무관하게 publication 추천을 열고 같은 팔
   await user.press(screen.getByRole('button', { name: 'See more suggestions' }));
   expect(await screen.findByRole('button', { name: 'Discover UX Collective' })).toBeVisible();
   expect(screen.queryByRole('button', { name: 'Retry recommendations' })).toBeNull();
+});
+
+// 전체 목록과 추천 미리보기는 같은 소유자 차단 계약을 소비한다.
+it('차단한 큐레이터의 목록은 토픽 미리보기에도 노출하지 않는다', async () => {
+  const privacy = createMockModerationSource({ delay: 0 });
+  await privacy.execute(mockUserA.id, { operationId: 'blocked-curator',
+    action: { kind: 'block', writerId: 'medium-staff', active: true } });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} moderationSource={privacy}
+    topicSource={createMockTopicSource({ delay: 0 })} /></SafeAreaProvider>);
+  await user.press(screen.getByRole('tab', { name: '탐색' }));
+  await user.press(screen.getByRole('button', { name: 'Open topic Life' }));
+  await user.press(await screen.findByRole('button', { name: 'Open topic Self Improvement' }));
+  expect(await screen.findByText('This curated list is unavailable.')).toBeVisible();
+  expect(screen.queryByRole('button', { name: 'See the full list The power of a morning routine' })).toBeNull();
+  expect(screen.queryByText('The power of a morning routine')).toBeNull();
+});
+
+// 차단 목록이 미확인인 동안 여러 진입점에서 본문을 노출하지 않는다.
+it('관계 조회 실패는 홈·탐색을 닫고 재시도 후 차단 정책을 적용한다', async () => {
+  const privacy = createMockModerationSource({ delay: 0, scenario: 'read-error' });
+  await privacy.execute(mockUserA.id, { operationId: 'block-home-writer',
+    action: { kind: 'block', writerId: 'jordan', active: true } });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} moderationSource={privacy} /></SafeAreaProvider>);
+  await screen.findByRole('button', { name: '개인 표시 설정 다시 시도' });
+  expect(screen.queryByText('ChatGPT Is Poisoning Your Brain...')).toBeNull();
+  await user.press(screen.getByRole('tab', { name: '탐색' }));
+  expect(screen.queryByText('Trending on Medium')).toBeNull();
+  await user.press(screen.getByRole('button', { name: '개인 표시 설정 다시 시도' }));
+  expect(await screen.findByText('Trending on Medium')).toBeVisible();
+  await user.press(screen.getByRole('tab', { name: '홈' }));
+  await user.press(await screen.findByRole('button', { name: '기사 더 보기' }));
+  await screen.findByRole('button', { name: /^This new IDE from Google is an absolute game changer\./ });
+  expect(screen.queryByText('ChatGPT Is Poisoning Your Brain...')).toBeNull();
 });

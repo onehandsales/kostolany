@@ -7,6 +7,8 @@ import type { AuthStore } from '../../features/auth/createAuthStore';
 import { createMockAuthSource } from '../../features/auth/data/createMockAuthSource';
 import { mockUserA, mockUserB } from '../../features/auth/data/mockUsers';
 import { createMockArticleSource } from '../../features/article/data/mockArticleSource';
+import { createMockModerationSource } from '../../features/moderation/data/createMockModerationSource';
+import { publicListFixtures } from '../../features/public-lists/data/publicListFixtures';
 import { createMockPublicListSource } from '../../features/public-lists/data/createMockPublicListSource';
 import { createMockResponseSource } from '../../features/responses/data/createMockResponseSource';
 import { createMockClapSource } from '../../features/reactions/data/createMockClapSource';
@@ -190,4 +192,49 @@ it('소유자 프로필에서 목록과 기사로 이동한 뒤 돌아오며 삭
   await user.press(await screen.findByRole('button', { name: 'Back from public list' }));
   await screen.findByText('No captured public lists');
   expect(screen.queryByRole('button', { name: `Open list ${title}` })).toBeNull();
+});
+
+// 모달 뒤의 기사 진입을 직접 발생시켜 실제 스택 이탈·뒤로 복귀 수명을 검증한다.
+it('공개 목록의 응답·저장·메뉴 초안은 기사 이동 후 복원하지 않는다', async () => {
+  const user = setupUser();
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA}
+    publicListSource={createMockPublicListSource({ delayMs: 0 })} /></SafeAreaProvider>);
+  await openList(user);
+  const leave = async () => {
+    await fireEvent.press(screen.getByRole('button', { name: `Read ${articleTitle}`, includeHiddenElements: true }));
+    await fireEvent.press(await screen.findByRole('button', { name: '공개 목록으로 돌아가기', includeHiddenElements: true }));
+  };
+  await user.press(screen.getByRole('button', { name: `Responses, ${title}` }));
+  await fireEvent.changeText(screen.getByLabelText('응답 내용'), '폐기할 공개 목록 응답');
+  await leave();
+  expect(screen.queryByLabelText('Responses 패널', { exact: true })).toBeNull();
+  await user.press(screen.getByRole('button', { name: `Responses, ${title}` }));
+  expect(screen.getByLabelText('응답 내용')).toHaveDisplayValue('');
+  await user.press(screen.getByRole('button', { name: 'Responses 닫기' }));
+  await user.press(await screen.findByLabelText(`북마크, ${articleTitle}, 저장 안 됨`));
+  await user.press(screen.getByRole('checkbox', { name: '읽기 목록' }));
+  await leave();
+  expect(screen.queryByRole('heading', { name: 'Save to' })).toBeNull();
+  expect(screen.getByLabelText(`북마크, ${articleTitle}, 저장 안 됨`)).toBeVisible();
+  await user.press(screen.getByRole('button', { name: `List options, ${title}` }));
+  await leave();
+  expect(screen.queryByRole('button', { name: 'Report list' })).toBeNull();
+  await user.press(screen.getByRole('button', { name: `박수 목록, ${title}, 98회` }));
+  await leave();
+  expect(screen.queryByRole('heading', { name: 'Claps' })).toBeNull();
+}, 20000);
+
+it('차단된 기사의 카드와 해당 메모를 함께 숨기고 다른 기사는 유지한다', async () => {
+  const privacy = createMockModerationSource({ delay: 0 });
+  await privacy.execute(mockUserA.id, { operationId: 'block-list-writer',
+    action: { kind: 'block', writerId: 'darius', active: true } });
+  const source = createMockPublicListSource({ delayMs: 0, lists: publicListFixtures.map(list => ({ ...list,
+    notes: { 'medium-morning-routine': '차단 기사에 연결된 메모' } })) });
+  const user = setupUser();
+  await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA} moderationSource={privacy}
+    publicListSource={source} /></SafeAreaProvider>);
+  await openList(user);
+  expect(screen.queryByText('차단 기사에 연결된 메모')).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Read A Morning Routine for People Who Don’t Want to Wake Up Early' })).toBeNull();
+  expect(screen.getByRole('button', { name: `Read ${articleTitle}` })).toBeVisible();
 });

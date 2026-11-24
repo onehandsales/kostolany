@@ -83,6 +83,7 @@ export function SearchScreen({
   const [inputFocused, setInputFocused] = useState(false);
   const input = useRef<TextInput>(null);
   const normalized = normalizeQuery(query);
+  const privacyPending = moderation.store && (!moderation.state?.value || moderation.state.readError);
   const handleCloseSearch = useCallback(() => {
     Keyboard.dismiss();
     setQuery('');
@@ -163,6 +164,10 @@ export function SearchScreen({
                   </Pressable>
                 ))}
               </ScrollView>
+              {privacyPending ? <ContentStatus loading={!moderation.state?.readError} error={moderation.state?.readError}
+            message={moderation.state?.readError ? '개인 표시 설정을 불러오지 못했어요' : '개인 표시 설정을 확인하고 있어요'}
+            actionLabel={moderation.state?.readError ? '개인 표시 설정 다시 시도' : undefined}
+            onAction={() => { void moderation.store?.reload(); }} /> : <>
               <View style={styles.reading}>
                 <Text role="heading" style={styles.sectionTitle}>
                   Trending on Medium
@@ -222,6 +227,7 @@ export function SearchScreen({
                     </Pressable>
                   ))}
               </View>
+              </>}
             </ScrollView>
           ) : (
             <>
@@ -331,6 +337,8 @@ function SearchResults({
 }) {
   const styles = useThemeStyles(createStyles);
   const scope = useProfileScopeKey();
+  const privacy = useModeration();
+  const privacyPending = privacy.store && (!privacy.state?.value || privacy.state.readError);
   return (
     <View style={styles.results} accessibilityLabel={`${query} 검색 결과`}>
       <ScrollView
@@ -360,6 +368,11 @@ function SearchResults({
       </ScrollView>
       {category === 'Stories' ? (
         <StorySearchResults query={query} source={source} onSelect={onSelect} active={active} />
+      ) : privacyPending ? (
+        <ContentStatus loading={!privacy.state?.readError} error={privacy.state?.readError}
+          message={privacy.state?.readError ? '개인 표시 설정을 불러오지 못했어요' : '개인 표시 설정을 확인하고 있어요'}
+          actionLabel={privacy.state?.readError ? '개인 표시 설정 다시 시도' : undefined}
+          onAction={() => { void privacy.store?.reload(); }} />
       ) : (
         <CatalogSearchResults
           key={`${scope}:${category}`}
@@ -396,6 +409,13 @@ function StorySearchResults({
     (story) => story.id,
     (story) =>
       `${story.document.title} ${story.document.body} ${profiles.find((profile) => profile.userId === story.userId)?.name ?? story.authorName}`,
+  );
+  // 공개 검색 hook은 유지하고, 포털을 포함한 결과 UI는 개인 정책을 확인한 뒤 다시 연다.
+  if (privacy.store && (!privacy.state?.value || privacy.state.readError)) return (
+    <ContentStatus loading={!privacy.state?.readError} error={privacy.state?.readError}
+      message={privacy.state?.readError ? '개인 표시 설정을 불러오지 못했어요' : '개인 표시 설정을 확인하고 있어요'}
+      actionLabel={privacy.state?.readError ? '개인 표시 설정 다시 시도' : undefined}
+      onAction={() => { void privacy.store?.reload(); }} />
   );
   const items = [
     ...written.map((story) => ({ kind: 'written' as const, id: story.id, story })),
