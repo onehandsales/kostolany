@@ -107,3 +107,7 @@ Node24.18.0, Jest iOS/Android 설정별 전체 실행. 결과는 메모리 집�
 FE 멤버십 session/provider/sheet와 회귀3파일, 결과·실행 계획/BACKLOG·관련 R/T/U/C/비교·현재 상태를 변경한다. comparisonBaseline의19 review/묶음 상태·존재 입력 해시를 수동 갱신하고18 manualUpdate 원문을 history에 보존한다. runtime555 codeInputs 목록은 변경하지 않는다. 원본 요구·ID·readiness·과거 evidence 및 삭제된4입력은 유지하며 tools 생성기를 실행하지 않는다.
 
 tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 생성·수정 없음. 새 제품 자산·의존성·실제 외부 서비스도 추가하지 않았다. 로컬 커밋 뒤20만 진행한다.
+
+## 2026-11-25 추가 재검토
+
+[Parity16~20 통합 재검토](FE_MEDIUM_PARITY_16_20_REVIEW.md)에서 현재 코드·검사·실행 환경을 다시 확인했다. 이번 검토에서 해당 묶음의 추가 코드 결함은 발견하지 않았다. 이 문서의 과거 브라우저·검사 기록은 보존하고 이번 결과로 재사용하지 않는다. 기존 구현 차이·원본 미확인·기기 잔여의 담당과 종료 조건은 유지한다. 로컬 커밋 이외의 push·배포·21/22는 이번 범위가 아니다.

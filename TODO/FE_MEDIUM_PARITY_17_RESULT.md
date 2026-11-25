@@ -129,3 +129,7 @@ Node24.18.0(`fnm exec --using=24.18.0`), 기존 `--expose-gc --runInBand --logHe
 HomeFeed/FeedSortTabs·SearchScreen·TopicScreen·PublicListScreen/StoryCard·IconButton·responsePreview와 해당 회귀/인증 경계 테스트만 제품 범위에서 변경한다. 결과·실행 계획·BACKLOG·요구/흐름/미확인/비교·현재 상태를 수동 갱신한다. comparisonBaseline의17 review/묶음 상태/존재하는 입력 해시만 갱신하고16 manualUpdate 원문을 history에 보존한다.554 codeInputs·삭제된4입력·원본/과거 evidence/readiness 유지. tools 생성기를 실행하지 않는다.
 
 tools·evidence·캡처·검증 manifest·별도 검증 폴더 생성/수정 없음. 저장소 검증 로그 없음(위 npm 자동 진단2개 생성/제거 이력 제외). 외부 서비스/새 의존성/push/배포 없음. 결과와 최종 diff를 다시 대조한 후 로컬 커밋한다.
+
+## 2026-11-25 추가 재검토
+
+[Parity16~20 통합 재검토](FE_MEDIUM_PARITY_16_20_REVIEW.md)에서 현재 코드·검사·실행 환경을 다시 확인했다. 공통 차단 판정의 최신 snapshot 소비와 관련 회귀를 확인한다. 이 문서의 과거 브라우저·검사 기록은 보존하고 이번 결과로 재사용하지 않는다. 기존 구현 차이·원본 미확인·기기 잔여의 담당과 종료 조건은 유지한다. 로컬 커밋 이외의 push·배포·21/22는 이번 범위가 아니다.

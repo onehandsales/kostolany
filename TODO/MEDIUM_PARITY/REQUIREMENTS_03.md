@@ -644,6 +644,8 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 
 ## S068 — 알림 목록
 
+**2026-11-25 재검토:** [알림 이동·읽음 직전의 확정 정책 검사](../FE_MEDIUM_PARITY_16_20_REVIEW.md). 같은 렌더 배치의 차단/조회 경합을 보완한다. mock 접근 계약 검증이며 원본 읽음·목적지·실패 정책의 미확인을 해소한 것은 아니다.
+
 안정 원본 ID: `sc_5d1c7181dea04ba59b57242abbc19fee` · [원본 분석](<../../medium/flows/Home/Notifications/ANALYSIS.md>):84 · [원본 PNG](<../../medium/flows/Home/Notifications/screens/02_sc_5d1c7181dea04ba59b57242abbc19fee.png>)
 
 흐름 맥락: [F06/02](FLOWS.md#f06)

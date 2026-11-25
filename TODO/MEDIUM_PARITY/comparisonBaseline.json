@@ -273,11 +273,11 @@
     },
     {
       "path": "TODO/FE_MEDIUM_PARITY_BACKLOG.md",
-      "sha256": "2f8ce325efbb06187543da2deb58bdf6dcaa7f4e0fe7248ec5bd0f5395ce5e69"
+      "sha256": "e629230851d212f85bf802fff24a9fcb9d914b31c04289549b2f2ddefcddf1d4"
     },
     {
       "path": "TODO/MEDIUM_PARITY/CONTRACTS.md",
-      "sha256": "cf6c9f3d554dda1f9dc4a2644529146a28d7150f278c71c77f572ce48ccc8861"
+      "sha256": "7649b03097d9cc50a84800145b7ec7babc1f1aff80f6535766b69441f58a7be0"
     },
     {
       "path": "TODO/MEDIUM_PARITY/EVIDENCE/PARITY_01/captures.json",
@@ -285,7 +285,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/FLOWS.md",
-      "sha256": "4ce28c91315be298619642ccbd7480a5644ae5260d41095405ac4500e58b0476"
+      "sha256": "28e5e5baf5f11c799b38f4617ba0177164b87814d7ac3eb988f09232a7c0a6dc"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_01.md",
@@ -297,7 +297,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_03.md",
-      "sha256": "9814bc253480ce46a5bf25ac30a4c0cc154efb83067a2a11f764a2186caf0320"
+      "sha256": "7b52278e5f79dc1f2c4c84208bf534f16256eb647736cfc7aef6d094040b1ab6"
     },
     {
       "path": "TODO/MEDIUM_PARITY/REQUIREMENTS_04.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "TODO/MEDIUM_PARITY/UNKNOWN.md",
-      "sha256": "b6f361f9ae59f30176ce59b7f635287b20ce458a8dfbff29fb21c13bc1a7547e"
+      "sha256": "dcc26cfe8d19598381d673f992552d98d11a1ade2a2de6853f4ffc83a89409e1"
     },
     {
       "path": "tools/medium-parity/comparisonProfiles.json",
@@ -363,7 +363,7 @@
     },
     {
       "path": "FE/src/app/App.test.tsx",
-      "sha256": "5e440e2a83b044a1c03d1621423582b68b835ffd47a75953acbf6d6f84de9e02"
+      "sha256": "1f34f9a38c1641829b5365680e0dac0d892b5a86493489a21f117535020aadb7"
     },
     {
       "path": "FE/src/app/navigation/AppNavigator.test.tsx",
@@ -483,7 +483,7 @@
     },
     {
       "path": "FE/src/app/navigation/NotificationNavigation.test.tsx",
-      "sha256": "4c9f2ec74e08e9c0bc50c20721912ebb1c6bee4e6cc7c5b839c65b1a7499d053"
+      "sha256": "db92ee9435cf1e47c6e745a9c970811b1253532abaf82adc1f3ab18ed9fbbf1f"
     },
     {
       "path": "FE/src/app/navigation/OnboardingNavigation.test.tsx",
@@ -1563,7 +1563,7 @@
     },
     {
       "path": "FE/src/features/moderation/articleModeration.ts",
-      "sha256": "578bb0153582a67f31c64cd78208295ebcb25c0e2884f206d49be73c06aa3cb6"
+      "sha256": "e795df540281ec504e3ae07fb28c3c01ed3043cb9445b73d7e30179c6939d6b2"
     },
     {
       "path": "FE/src/features/moderation/createModerationStore.test.ts",
@@ -1647,7 +1647,7 @@
     },
     {
       "path": "FE/src/features/notifications/NotificationsScreen.tsx",
-      "sha256": "7a604cd51be1a22d4645d06fcc172f8296c0d5ec34334f7e466dd368e603cf1c"
+      "sha256": "c522ffbb4559f5364dc39829dbd1f822eef7a5091b26f092ba65a27ed996e25b"
     },
     {
       "path": "FE/src/features/notifications/types.ts",
@@ -3540,7 +3540,13 @@
       "scope": "원본 알림 사건 fixture와 목적지; Digest/Push/Email 설정",
       "done": "각 알림→대상→복귀·삭제/불가목적지·설정롤백·A/B; 발송제외",
       "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
-      "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_16_RESULT.md",
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
+      }
     },
     {
       "number": 17,
@@ -3560,7 +3566,13 @@
       "scope": "원본 카드·탭·가로/세로위치·빈Featured·큐레이션/공개목록",
       "done": "같은fixture/개인관계·검색복귀·선택/저장/공유·헤더접힘·Light/Dark",
       "status": "mock 보완·두 차례 자기 검토·현재 타입/lint/전체1766건 통과·웹 부분 비교; 원본/시각/native 잔여",
-      "result": "TODO/FE_MEDIUM_PARITY_17_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_17_RESULT.md",
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
+      }
     },
     {
       "number": 18,
@@ -3576,7 +3588,13 @@
       "scope": "설정상세·appIcon·S043 splash 자산/설정 차이; 자체K≠원본",
       "done": "파일/설정/선택UI검사; cold start·launcher적용은21로 대기",
       "status": "mock 보완·두 차례 자기 검토/웹 부분 비교·타입/lint/전체1772통과; 원본자산/native 잔여",
-      "result": "TODO/FE_MEDIUM_PARITY_18_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_18_RESULT.md",
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "추가 제품 코드 결함 발견 없음; App 탭 테스트의 타이머 제어 보완·양 플랫폼12 tests 재검증; 환경 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
+      }
     },
     {
       "number": 19,
@@ -3593,7 +3611,13 @@
       "scope": "보관가격·혜택·monthly/yearly·loading/success/welcome·자체모의안내",
       "done": "원본상태별비교·선택/취소/실패·자격소비자; 실제결제 제외",
       "status": "mock 보완·두 자기 검토/웹 부분 비교·타입/lint/전체1778통과;원본/native 잔여",
-      "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_19_RESULT.md",
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "이번 검토에서 추가 코드 결함 발견 없음; 현재 전체 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
+      }
     },
     {
       "number": 20,
@@ -3609,7 +3633,13 @@
       "scope": "UTC/asOf 고정 Monthly/Lifetime·그래프·글 행",
       "done": "독립11/2와0/0·날짜선택/정렬/복귀·null≠0; 실제analytics 제외",
       "status": "통계 mock 보완·두 자기 검토/웹 부분 비교·타입/lint/전체1782통과;원본/native 잔여",
-      "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md"
+      "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "이번 검토에서 추가 코드 결함 발견 없음; 현재 전체 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
+      }
     },
     {
       "number": 21,
@@ -11298,6 +11328,12 @@
         "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
         "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -25658,6 +25694,12 @@
         "status": "mock 결함 보완·자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조; 원본/시각/native 잔여",
         "scope": "18 S/139 R/31 T/33 U/21 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~16 잔여 기존 담당 유지; 승인 조건 충족 후17 로컬 커밋→18 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -26808,6 +26850,12 @@
         "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
         "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -30164,6 +30212,12 @@
         "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
         "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -32079,6 +32133,12 @@
         "status": "mock 결함 보완·자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조; 원본/시각/native 잔여",
         "scope": "18 S/139 R/31 T/33 U/21 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~16 잔여 기존 담당 유지; 승인 조건 충족 후17 로컬 커밋→18 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -34399,6 +34459,12 @@
         "status": "mock 결함 수정·자동 검사/실제 웹 부분 비교; 원본/시각/native 잔여",
         "scope": "4 S/43 R/4 T/7 U/19 C; 원본 요구·ID·과거 증거/readiness 보존",
         "ownership": "9~15 잔여 기존 담당 유지; 사용자 승인한16 로컬 커밋 후17 진행; push/deploy 없음"
+      },
+      "parity16To20Review": {
+        "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+        "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+        "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+        "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수"
       }
     },
     {
@@ -37308,14 +37374,20 @@
     }
   ],
   "manualUpdate": {
-    "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
-    "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
-    "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
-    "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지",
-    "batch": 20,
-    "manualScope": "3 S/3 T/4 U/15 C/F63·20 상태/현재문서/존재입력해시 수동 갱신;19 manualUpdate 원문 history 보존;좌표 adapter runtime2개 추가555→557;삭제4입력 유지;생성기 미실행",
+    "result": "TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md",
+    "status": "차단 확정/알림 조회의 같은 렌더 배치 경합 수정; 현재 자동 검사·실행 한계는 결과 문서 참조",
+    "scope": "16~20 코드/결과 재검토·35 S/281 R 등록 대조; 직접 PNG 열람8장·현재 앱 렌더 미실행",
+    "remaining": "원본/시각/native 및 기존 담당 유지; 이번 브라우저 세션 부재;21/22 미착수",
+    "batches": [
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "manualScope": "16~20 추가 검토 링크와 S068/F06/T-F06-02/U-S068/U-F06/C55 연결; 원본·과거 evidence/readiness 보존",
     "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
-    "verification": "최종 타입/lint exit0;iOS161/891226.332초,Android161/891230.057초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
+    "verification": "최종 제품 코드 전체 iOS161/894 728.366초·Android161/894 731.159초 통과; iOS Provider act2/Android0; 이후 App 테스트 시간 제어 보완·양 플랫폼2 suites/12 tests 28.864초 통과/act0·타입/lint exit0; 원인 미확정 경고는 결과 문서 참조"
   },
   "manualUpdateHistory": [
     {
@@ -37531,6 +37603,16 @@
       "manualScope": "5 S/6 T/7 U/15 C/2 flow·19 상태/현재문서/존재입력해시 수동 갱신;18 manualUpdate 원문 history 보존;runtime555 목록·삭제4입력 유지;생성기 미실행",
       "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
       "verification": "타입/lint exit0;iOS160/889226.561초,Android160/889228.405초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
+    },
+    {
+      "result": "TODO/FE_MEDIUM_PARITY_20_RESULT.md",
+      "status": "웹 그래프/포커스·미집계/범례 보완·두 자기 검토/실제 웹 부분 비교; 최종 자동 검사 결과는 결과 문서 참조",
+      "scope": "3 S/15 R/3 T/4 U/15 C; 원본 요구·ID·과거 evidence/readiness 유지",
+      "remaining": "4 U/서체·정확 배치·자체 안내 차이/native21/Q07;9~19 기존 담당 유지",
+      "batch": 20,
+      "manualScope": "3 S/3 T/4 U/15 C/F63·20 상태/현재문서/존재입력해시 수동 갱신;19 manualUpdate 원문 history 보존;좌표 adapter runtime2개 추가555→557;삭제4입력 유지;생성기 미실행",
+      "artifacts": "tools/evidence/캡처/검증로그/검증manifest/별도 검증폴더 없음",
+      "verification": "최종 타입/lint exit0;iOS161/891226.332초,Android161/891230.057초 모두 통과/act0;3플랫폼 메모리JS·양Hermes exit0/각35경고;실제8081 부분 비교,실제native 대기"
     }
   ]
 }

@@ -194,6 +194,47 @@ it('응답 목적지 조회 중 기사 작성자를 차단하면 늦은 응답�
   } finally { probe.mockRestore(); }
 });
 
+it.each([
+  { name: '기사 작성자 차단', articleId: 'medium-brain', responseId: 'brain-bernie', writerId: 'jordan', allowed: false },
+  { name: '내 글의 응답 작성자 차단', articleId: 'example-latest-rates', responseId: 'mock-owner-response', writerId: mockUserB.id, allowed: false },
+  { name: '타인 글의 응답 작성자 차단', articleId: 'medium-brain', responseId: 'brain-bernie', writerId: 'author-bernie', allowed: true },
+])('$name 확정과 응답 조회가 같은 렌더 배치에서 끝나면 현재 가시성에 맞춰 이동과 읽음을 처리한다', async ({ articleId, responseId, writerId, allowed }) => {
+  const pending = deferred<ResponseValue>();
+  const responses = createMockResponseSource({ delayMs: 0 });
+  const notice = notificationFixtures(mockUserA.id).find(item => item.id === 'notice-response')!;
+  const source = createMockNotificationSource({ delayMs: 0, seed: () => [{ ...notice,
+    subject: '검토 대상 응답', target: { kind: 'response', articleId, responseId } }] });
+  const mark = jest.spyOn(source, 'markRead');
+  const useOriginalModeration = moderationContext.useModeration;
+  let observed: ReturnType<typeof useOriginalModeration> | undefined;
+  const probe = jest.spyOn(moderationContext, 'useModeration').mockImplementation(function useObservedModeration() {
+    const value = useOriginalModeration(); observed = value; return value;
+  });
+  try {
+    const { user } = await setup(source, false, undefined, createMockModerationSource({ delay: 0 }),
+      { ...responses, read: () => pending.promise });
+    await user.press(button('Notifications')); await flush();
+    await user.press(button(/Bérnie responded/)); await flush();
+    const value = await responses.read({ userId: mockUserA.id, target: { kind: 'article', id: articleId } });
+    await act(async () => {
+      const store = observed?.store;
+      if (!store) throw new Error('missing-moderation');
+      await store.execute({ operationId: 'block-before-render', action: { kind: 'block', writerId, active: true } });
+      expect(store.getSnapshot().value?.blocked).toContain(writerId);
+      // React의 다음 렌더를 기다리지 않고 같은 배치에서 목적지 조회를 완료한다.
+      pending.resolve(value);
+    });
+    await flush();
+    expect(mark).toHaveBeenCalledTimes(allowed ? 1 : 0);
+    if (allowed) {
+      expect(screen.getByText('알림의 응답을 표시하고 있어요.')).toBeVisible();
+    } else {
+      expect(screen.getByRole('heading', { name: 'Notifications' })).toBeVisible();
+      expect(button('알림 대상 재시도 notice-response')).toBeVisible();
+    }
+  } finally { probe.mockRestore(); }
+});
+
 it.each(['success', 'failure'] as const)('A 조회 중 계정 전환과 늦은 %s·같은 A 재로그인·source 교체는 개인 화면·선택을 격리한다', async outcome => {
   const base = createMockNotificationSource({ delayMs: 0 }); const pending = deferred<InboxResponse>(); const settings = deferred<PreferenceResponse>();
   const read = jest.fn(base.readInbox).mockImplementationOnce(() => pending.promise);

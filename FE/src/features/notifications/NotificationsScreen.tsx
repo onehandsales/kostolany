@@ -56,12 +56,13 @@ function ScopedNotifications({ onBack, onOpen, active, articleSource = previewAr
   if (wasActive !== active) { setWasActive(active); setOpening(null); setErrorId(null); }
   function requirePrivacy() {
     const privacy = latest.current.moderation;
-    if (privacy.store && (!privacy.state?.value || privacy.state.readError)) {
+    const state = privacy.store ? privacy.store.getSnapshot() : privacy.state;
+    if (privacy.store && (!state?.value || state.readError)) {
       // 접근 정책을 읽지 못한 알림은 읽음으로 확정하지 않고 다음 재시도 전에 복구한다.
       void privacy.store.reload();
       throw new Error('Unavailable privacy preferences');
     }
-    return privacy;
+    return { ...privacy, state };
   }
   async function open(item: ReaderNotification) {
     if (pending.current || !latest.current.active) return;

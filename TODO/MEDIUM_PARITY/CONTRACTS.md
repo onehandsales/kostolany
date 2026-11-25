@@ -686,6 +686,8 @@
 
 ## G44 — 알림 목록·Push·Email·Tailored 설정
 
+**2026-11-25 재검토:** [알림 이동·읽음 직전의 확정 정책 검사](../FE_MEDIUM_PARITY_16_20_REVIEW.md). 같은 렌더 배치의 차단/조회 경합을 보완한다. mock 접근 계약 검증이며 원본 읽음·목적지·실패 정책의 미확인을 해소한 것은 아니다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):488 · [당시 결과](<../FE_GOAL_44_RESULT.md>)
 
 - **구현 범위** (원문 492행): 팔로우/기사/목록/응답 등 알림 종류별 이동·Follow 버튼, Push의 Digest/Top stories/Editors/Featured/Applause/Saves, Tailored for you의 작가 새 글/박수/highlight/응답/멘션 설정과 Email/Digest 설정 연결을 구현한다.

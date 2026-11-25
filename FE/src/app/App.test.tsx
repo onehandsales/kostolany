@@ -13,6 +13,15 @@ async function renderApp() {
 const mainMenu = () => within(screen.getByLabelText('주요 메뉴'));
 
 describe('App tab navigation', () => {
+  // 시작 조회와 탭 전환의 지연 갱신을 각 테스트의 제어된 시간 안에서 처리한다.
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(async () => {
+    try {
+      await act(async () => { await jest.runOnlyPendingTimersAsync(); });
+    } finally {
+      jest.useRealTimers();
+    }
+  });
   it('시작 자산과 첫 배치가 준비되기 전에는 홈을 조작할 수 없고 준비 뒤 원래 홈으로 전환한다', async () => {
     await render(<App />);
     expect(screen.getByLabelText('브랜드 시작 화면')).toBeVisible();
