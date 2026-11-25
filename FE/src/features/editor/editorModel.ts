@@ -220,7 +220,10 @@ export function sliceEditor(value: EditorValue, start: number, end: number): Edi
 }
 
 export function mergeEditorSection(value: EditorValue, start: number, end: number, section: EditorValue): EditorValue {
-  const next = replaceText({ ...value, typing: [] }, { start, end }, section.document.body.replace(/\uFFFC/gu, ''));
+  const body = section.document.body.replace(/\uFFFC/gu, '');
+  // 이미지 바로 앞의 빈 입력에 글을 넣으면 사용자 문단과 별개인 이미지 경계를 만든다.
+  const separator = body.length > 0 && start === end && value.document.images.some(image => image.offset === end) ? '\n' : '';
+  const next = replaceText({ ...value, typing: [] }, { start, end }, body + separator);
   const first = next.document.body.slice(0, start).split('\n').length - 1;
   const blocks = [...next.document.blocks]; blocks.splice(first, section.document.blocks.length, ...section.document.blocks);
   const marks = [...next.document.marks, ...section.document.marks.map(mark => ({ ...mark, start: mark.start + start, end: mark.end + start }))];

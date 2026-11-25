@@ -1,5 +1,7 @@
 # Medium Parity 7 — 저장·목록·메모·순서
 
+**2026-11-25 검증 보완:** [통합 검토의 전체 검사·목록 테스트 시간 제어](FE_MEDIUM_PARITY_01_20_REVIEW.md). 전체 검사에서 LibraryInteractions의 VirtualizedList 지연 갱신 act 경고를 확인해 fake timer·pending timer 정리를 보완했다. 목록 제품 정책이나 시각 UI는 변경하지 않았으며 이전 검증·원본/기기 잔여는 보존한다. 과거 TopicProvider/DirectoryScope 경고와는 별개다.
+
 **최신 잔여 판정 — 2026-11-24:** [Parity1~8 잔여 정리·보완·재검토](FE_MEDIUM_PARITY_01_08_REVIEW.md). 아래 수치·미커밋·미착수·시각 차이는 해당 실행 당시 기록이다. 후속 해결과 이번 보완, 원본 근거 부족/기기/제외를 최신 표에서 구분하며 과거 증거를 현재 통과로 사용하지 않는다.
 
 최신 추가 검토는 [묶음7·8 전수 재검토](#additional-review)에 기록한다. 아래 최초 검사·커밋 이력과 구분하며 추가 수정은 기존 `41aebaa`를 amend하지 않은 미커밋 변경이다.

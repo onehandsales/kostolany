@@ -60,7 +60,7 @@
 | 기사 `[Uncaptured paragraphs omitted]`·응답 unavailable 등 | 보관 발췌의 missing 블록·미수록 응답 확장 | 근거 없는 전문 생성 없이 안내 유지. 가시 위치·문단 높이 차이는 원문 대조 시 잔여로 표시 | 묶음10/V13·V20 |
 | [작성 글](../../FE/src/features/editor/WrittenStoryScreen.tsx) `모의 발행`·Unlisted | 로컬 발행 글 표시; Unlisted는 선택값에 의존 | 이번에는 코드 조건 확인. 현재 브라우저 발행·상태별 재촬영은 하지 않음. 실제 발행 효력으로 오인할 안내 삭제 금지 | 묶음9·10 |
 | [공개 작성자 About](../../FE/src/features/community/PublicIdentityScreen.tsx) 웹사이트 줄 | About 탭이며 `identity.website` 존재 | 코드 조건 확인. 원본에 같은 줄이 있는 화면만 원본 항목; 없는 경우 추가 항목으로 기록. 모든 작성자/탭에 있는 것으로 일반화 금지 | 묶음5/V14 |
-| [Rules](../../FE/src/features/responses/ResponsesPanel.tsx) 발췌 안내·현재 정책 링크 | 응답에서 Rules 분기 진입 | 코드 조건 확인. 현재 발췌 화면·기사 도구 연결 결함은 D08에 그대로 남김. 외부 최신 전문을 이번 근거로 확보했다고 쓰지 않음 | 묶음3/D08·V21 |
+| [Rules](../../FE/src/features/responses/ResponsesPanel.tsx) 발췌 안내·현재 정책 링크 | 응답에서 Rules 분기 진입 | Parity2 당시 D08 기사 도구 연결 잔여는 [Parity3](../FE_MEDIUM_PARITY_03_RESULT.md)에서 보완. V21의 전문/버전·서체·간격과 상태별 비교 잔여는 유지하며 외부 최신 전문을 확보했다고 쓰지 않음 | 묶음3/D08 해결·V21 잔여; [통합 현재 판정](../FE_MEDIUM_PARITY_01_20_REVIEW.md) |
 | [듣기](../../FE/src/features/listening/ListeningPlayer.tsx) 작성자 `· Mock` / `Mock preview · no audio` | 플레이어 세션 존재; 미니/확장 상태별 안내 | 이번에는 코드 조건 확인, 실제 재생·네이티브 오디오 미검증. 안내로 늘어난 행·높이는 V18 비교 차이로 유지 | 묶음12/V18·V19; 외부 서비스 Q08 |
 | [멤버십](../../FE/src/features/membership/MembershipSheet.tsx) 모의 가격·선택·성공 안내 | 선택/완료/Welcome 단계별 표시 | A Member→Friend 선택·성공·Welcome까지 실행. 실제 결제 없음. S159 `You can now access the best of Medium.`는 원본 문구이므로 자체 추가로 분류하지 않음 | 묶음19/V31, Q08 |
 | 검색의 한국어 금융 토픽·홈 미수록 기사 placeholder | 현재 fixture의 추가 토픽·미수록 기사 | 이번 S004/S069에서 확인. 전역 fixture에서 삭제하거나 원본 문구로 위장하지 않음 | 묶음17/V01~V05 |

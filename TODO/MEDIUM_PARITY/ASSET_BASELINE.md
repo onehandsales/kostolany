@@ -49,7 +49,7 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
 | 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |
 | 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 원본 Medium 자산과 차이 유지; D10/묶음18, 실제 적용Q07/21 |
-| 시작 화면 | app.json 대응 splash 설정 없음 | assets/splash-icon.png 존재만으로 S043 구현으로 처리 금지; D10 |
+| 시작 화면 | 최초 기준에서는 app.json 대응 splash 설정 없음; 현재는 [Parity18](../FE_MEDIUM_PARITY_18_RESULT.md)의 expo-splash-screen 설정·StartupBoundary 적용 | 설정 미구현 잔여는 후속 해결; Medium 원본 자산과 K 대체의 차이 및 실제 native cold start는18/21에 유지 |
 | 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | [상태별 처리 기준](OWN_UI_POLICY.md); 기준 정리 완료/화면별 적용 잔여 |
 
 근거: [tokens.ts](../../FE/src/shared/theme/tokens.ts), [reader 설정](../../FE/src/features/settings/useReaderTypography.ts), [발행 본문](../../FE/src/features/editor/DocumentReader.tsx), [앱 설정](../../FE/app.json), [아이콘 출처](../../FE/assets/app-icons/SOURCES.md).

@@ -26,6 +26,33 @@ async function setup(drafts = createMockDraftSource({ delayMs: 0 }), directory =
     switchTo: async (id: string) => { await act(async () => { auth.openLogout(); await auth.signOut(); auth.openLogin({ kind: 'write' }); await auth.signIn(id); }); } };
 }
 async function input(text: string) { await fireEvent(screen.getByLabelText('글 본문'), 'focus'); await fireEvent.changeText(screen.getByLabelText('글 본문'), text); }
+it('빈 글에 사진을 먼저 넣은 뒤 앞뒤에 입력해도 자동 저장과 초안 재개 및 발행에서 본문이 잘리지 않는다', async () => {
+  const source = createMockDraftSource({ delayMs: 0 }); const { user, open } = await setup(source); await open();
+  await fireEvent.changeText(screen.getByLabelText('글 제목'), '사진부터 작성');
+  await fireEvent(screen.getByLabelText('글 본문'), 'focus');
+  await user.press(button('이미지 삽입')); await user.press(button('Unsplash 사진 검색')); await flush();
+  await user.press(button('해질녘 풍경 삽입')); await flush();
+  const before = '사진 앞 한글 🙂\n두 번째 문단'; const after = '사진 뒤 문단';
+  await input(before);
+  await fireEvent(screen.getByLabelText('이미지 뒤 본문 1'), 'focus');
+  await fireEvent.changeText(screen.getByLabelText('이미지 뒤 본문 1'), after); await flush();
+  expect(screen.queryByRole('button', { name: '초안 저장 다시 시도' })).toBeNull();
+  const expectedBody = `${before}\n\uFFFC\n${after}`;
+  const saved = await source.list(mockUserA.id, new AbortController().signal);
+  expect(saved).toHaveLength(1); expect(saved[0]?.document.body).toBe(expectedBody);
+  expect(saved[0]?.document.images[0]?.offset).toBe(before.length + 1);
+  await user.press(button('편집기 더보기')); await user.press(button('Drafts'));
+  await user.press(await screen.findByRole('button', { name: '사진부터 작성 초안 재개' })); await flush();
+  expect(screen.getByText('사진 앞 한글 🙂')).toBeVisible(); expect(screen.getByText('두 번째 문단')).toBeVisible();
+  expect(screen.getByText(after)).toBeVisible(); expect(button('해질녘 풍경 이미지 선택')).toBeVisible();
+  await user.press(button('Next')); await user.press(button('Publish now')); await flush();
+  await user.press(await screen.findByRole('button', { name: '사진부터 작성 발행한 글 열기' })); await flush();
+  expect(screen.getByRole('heading', { name: '사진부터 작성' })).toBeVisible();
+  const stories = await source.stories(mockUserA.id, new AbortController().signal);
+  expect(stories).toHaveLength(1); expect(stories[0]?.document.body).toBe(expectedBody);
+  expect(stories[0]?.document.images).toEqual(saved[0]?.document.images);
+  expect(await source.list(mockUserA.id, new AbortController().signal)).toEqual([]);
+}, 30000);
 it('제목·본문·서식·이미지·멘션을 저장하고 실제 초안 재개·토픽 선택·발행까지 같은 문서를 보존한다', async () => {
   const source = createMockDraftSource({ delayMs: 0 }); const { user, open } = await setup(source); await open();
   await fireEvent.changeText(screen.getByLabelText('글 제목'), '이어 쓰는 글'); await input('문단 @samlee'); await flush();

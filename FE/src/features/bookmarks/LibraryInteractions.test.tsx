@@ -15,6 +15,16 @@ import { useBookmarkStore } from './useBookmarks';
 const articleId = 'example-latest-rates';
 const onOpen = jest.fn();
 
+// 목록의 지연 셀 갱신이 테스트 바깥에서 실행되지 않도록 시간을 제어한다.
+beforeEach(() => jest.useFakeTimers());
+afterEach(async () => {
+  try {
+    await act(async () => { await jest.runOnlyPendingTimersAsync(); });
+  } finally {
+    jest.useRealTimers();
+  }
+});
+
 it('원본 카드의 작은 저장 버튼은 선택 시트를 열고 취소는 저장하지 않으며 완료만 반영한다', async () => {
   const mock = createMockBookmarkSource({ delayMs: 0 });
   const write = jest.fn(mock.setArticleSaved);

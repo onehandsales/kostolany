@@ -1,5 +1,7 @@
 # Medium Parity 14 — 인증·온보딩 결과
 
+**후속 해결 연결(2026-11-25 정합성 검토):** 아래 S043 시작 화면/설정 미구현은14 당시 잔여다. [Parity18](FE_MEDIUM_PARITY_18_RESULT.md)이 StartupBoundary와 expo-splash-screen 설정을 추가했다. Medium 자산과 K 대체의 차이·실제 native cold start는18/21 잔여이며, [현재 통합 표](FE_MEDIUM_PARITY_01_20_REVIEW.md)의 D10/V30/V33 판정을 따른다.
+
 **묶음18 S043 인계 갱신:** [시작 자산/구성·현재 웹과 native 경계](FE_MEDIUM_PARITY_18_RESULT.md). 파일/JS 시작 UI/플러그인 구성은18에서 보완했다. Georgia 대체 wordmark와 실제 native cold start는 각각18/Q02·21/Q07 잔여이며14 인증/온보딩 분기는 유지한다. 아래 splash 미구현 기록은14 당시 상태다.
 
 2026-11-24 KST. 시작 HEAD `6bbe3354224341b228c546ba16837c6d1ad78fe0`(`main`), staged/작업 트리 비어 있음. 묶음13 커밋을 실제 이력과 대조했으며 기존8081 PID22023을 보존했다. 이번 범위는 V29/V30 하나이고 묶음9~13의 잔여·소유권을 유지한다. 최초 구현에서는 커밋·push·배포·묶음15를 진행하지 않았다. 후속 사용자 요청의 로컬 커밋 검토는 아래 최신 절을 따른다.
