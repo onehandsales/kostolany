@@ -8,8 +8,8 @@ import type { ArticleDetail } from '../article/types';
 import { articleWriter, publicIdentity } from '../community/data/publicDirectory';
 import { useListening } from './ListeningProvider';
 
-type ListenControlProps = { article: ArticleDetail; disabled?: boolean };
-export function ListenControl({ article, disabled }: ListenControlProps) {
+type ListenControlProps = { article: Pick<ArticleDetail, 'id' | 'title' | 'sourceName' | 'reference'>; disabled?: boolean; authorId?: string };
+export function ListenControl({ article, disabled, authorId }: ListenControlProps) {
   const membership = useMembership();
   const [showMembership, setShowMembership] = useState(false);
   const { store, snapshot } = useListening();
@@ -39,7 +39,7 @@ export function ListenControl({ article, disabled }: ListenControlProps) {
           articleId: article.id,
           title: article.title,
           cover: article.reference?.image,
-          authorId: writer?.id,
+          authorId: authorId ?? writer?.id,
           authorName: (writer ? publicIdentity(writer)?.name : undefined) ?? article.sourceName,
         });
       }}

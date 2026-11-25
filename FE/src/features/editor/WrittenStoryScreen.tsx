@@ -11,7 +11,10 @@ import { ProfileAvatar } from '../profile/ProfileAvatar';
 import { ClapControl } from '../reactions/ClapControl';
 import { ResponseButton } from '../responses/ResponseButton';
 import { useArticleModeration } from '../moderation/articleModeration';
-import { publishedArticleId } from './publishedArticle';
+import { publishedArticleId, toPublishedArticle } from './publishedArticle';
+import { publishedSelectionDocument } from './publishedSelection';
+import { ListenControl } from '../listening/ListenControl';
+import { ListeningMiniPlayer } from '../listening/ListeningPlayer';
 import { WrittenStoryBookmark, WrittenStoryMenu } from './WrittenStoryActions';
 import { useAuth } from '../auth/AuthProvider';
 import { RecordArticleVisit } from '../reading-history/ReadingHistoryProvider';
@@ -19,7 +22,7 @@ import { ArticleDisplayPopover } from '../settings/ArticleDisplayPopover';
 import { useReaderTypography } from '../settings/useReaderTypography';
 import { useDownloads } from '../downloads/DownloadProvider';
 
-type WrittenStoryScreenProps = { storyId: string; ownerId?: string; onBack: () => void; active?: boolean };
+type WrittenStoryScreenProps = { storyId: string; ownerId?: string; onBack: () => void; active?: boolean; highlightId?: string };
 const subscribeEmpty = () => () => {};
 const emptyRevision = () => 0;
 
@@ -29,7 +32,7 @@ export function WrittenStoryScreen(props: WrittenStoryScreenProps) {
   return <WrittenStoryContent key={JSON.stringify([props.storyId, props.ownerId, state.user?.id, state.revision])} {...props} />;
 }
 
-function WrittenStoryContent({ storyId, ownerId, onBack, active = true }: WrittenStoryScreenProps) {
+function WrittenStoryContent({ storyId, ownerId, onBack, active = true, highlightId }: WrittenStoryScreenProps) {
   const { colors } = useTheme(); const context = useWrittenStories(); const source = context?.source;
   const { state: auth } = useAuth();
   const reader = useReaderTypography(18);
@@ -43,6 +46,9 @@ function WrittenStoryContent({ storyId, ownerId, onBack, active = true }: Writte
     ? { ...context.images, resolve: (id: string) => cached.images[id] } : context?.images, [context, cached]);
   const [display, setDisplay] = useState(false);
   const menuButton = useRef<View>(null);
+  const scroll = useRef<ScrollView>(null);
+  const bodyTop = useRef(0);
+  const blockPositions = useRef(new Map<number, number>());
   if (!active && display) setDisplay(false);
   const [attempt, retry] = useState(0); const [result, setResult] = useState<{ source: typeof source; revision: number; attempt: number; story: PublishedStory | null; error: boolean } | null>(null);
   useEffect(() => {
@@ -63,17 +69,25 @@ function WrittenStoryContent({ storyId, ownerId, onBack, active = true }: Writte
     moderation.state?.value?.blocked.includes(current.story.userId) || moderation.blocked(publishedArticleId(storyId)))) setDisplay(false);
   return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}><IconButton icon="back" label="작성 글 뒤로" onPress={onBack} />
     {!current || moderationPending ? <ActivityIndicator accessibilityLabel="작성 글 불러오는 중" /> : current.error || moderation.state?.readError ? <View style={{ padding: 24 }}><Text role="alert" style={{ color: colors.text }}>{offline && !cachedStory ? '오프라인에서 이용할 수 있는 사본이 없어요. 연결 후 다시 시도해 주세요.' : '글을 불러오지 못했어요.'}</Text><Pressable role="button" accessibilityLabel="작성 글 다시 불러오기" onPress={() => { retry(value => value + 1); void moderation.store?.reload(); }} style={{ minHeight: 48, justifyContent: 'center' }}><Text style={{ color: colors.green }}>Try again</Text></Pressable></View> : !current.story || !imageSource || moderation.state?.value?.blocked.includes(current.story.userId) || moderation.blocked(publishedArticleId(storyId)) ? <Text style={{ padding: 24, color: colors.text }}>이 글을 찾을 수 없어요.</Text> :
-      <ScrollView accessibilityLabel="발행 글 본문" contentContainerStyle={{ padding: 24, paddingBottom: 64 }}>
+      <ScrollView ref={scroll} accessibilityLabel="발행 글 본문" contentContainerStyle={{ padding: 24, paddingBottom: 64 }}>
         {offline && <Text style={{ color: colors.secondaryText, marginBottom: 16 }}>Offline · Downloaded copy</Text>}
         <RecordArticleVisit articleId={publishedArticleId(storyId)} active={active} revision={auth.revision} />
         <Text role="heading" style={[{ fontWeight: '700', color: colors.text }, reader.title]}>{current.story.document.title}</Text><WrittenStoryAuthor story={current.story} /><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
+        <ListenControl article={toPublishedArticle(current.story, imageSource)} authorId={current.story.userId} disabled={!active} />
         <ClapControl target={{ kind: 'article', id: publishedArticleId(current.story.id) }} title={current.story.document.title} size={24} />
         <ResponseButton target={{ kind: 'article', id: publishedArticleId(current.story.id) }} title={current.story.document.title} size={22} active={active} />
         <WrittenStoryBookmark active={active} story={current.story} />
         {active && <WrittenStoryMenu story={current.story} showShareButton buttonRef={menuButton} onDisplay={() => setDisplay(true)} />}
-      </View><DocumentReader document={current.story.document} images={imageSource} reading active={active} />
+      </View><View onLayout={event => { bodyTop.current = event.nativeEvent.layout.y; }}>
+        <DocumentReader document={current.story.document} images={imageSource} reading active={active}
+          passages={{ document: publishedSelectionDocument(current.story), authorId: current.story.userId,
+            visibility: current.story.publishing.unlisted ? 'unlisted' : 'public', highlightId,
+            onRevealBlock: index => scroll.current?.scrollTo({ y: bodyTop.current + (blockPositions.current.get(index) ?? 0), animated: true }) }}
+          onBlockLayout={(index, y) => { blockPositions.current.set(index, y); }} />
+      </View>
       {display && <ArticleDisplayPopover onClose={() => { setDisplay(false); requestAnimationFrame(() => menuButton.current?.focus()); }} />}
       </ScrollView>}
+    {active && <ListeningMiniPlayer />}
   </SafeAreaView>;
 }
 

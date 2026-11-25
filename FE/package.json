@@ -17,9 +17,11 @@
     "expo-splash-screen": "57.0.12",
     "expo-status-bar": "57.0.1",
     "expo-system-ui": "~57.0.4",
+    "htmlparser2": "10.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.3",
+    "react-native-enriched-html": "1.2.0",
     "react-native-safe-area-context": "5.7.0",
     "react-native-screens": "4.26.2",
     "react-native-svg": "15.15.4",
@@ -41,8 +43,8 @@
   "scripts": {
     "start": "expo start",
     "web": "expo start --web --localhost --port 8081",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings=0",
     "test": "jest --runInBand",
@@ -52,6 +54,13 @@
     "export:ios": "expo export --platform ios --output-dir dist/ios"
   },
   "private": true,
+  "overrides": {
+    "react-native-enriched-html": {
+      "dompurify": "3.5.0",
+      "@tiptap/extension-bubble-menu": "3.31.3",
+      "@tiptap/extension-floating-menu": "3.31.3"
+    }
+  },
   "engines": {
     "node": ">=24.0.0 <25"
   },

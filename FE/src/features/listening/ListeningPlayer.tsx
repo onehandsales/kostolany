@@ -27,6 +27,7 @@ import { ListeningMenu } from './ListeningMenu';
 import { SharePanel } from '../sharing/ShareSheet';
 import { articleShareTarget } from '../sharing/articleShareTarget';
 import { mediumArticles } from '../feed/data/mediumFixtures';
+import { useCatalogArticles } from '../feed/ArticleCatalog';
 
 export function ListeningMiniPlayer() {
   const { store, snapshot } = useListening();
@@ -99,6 +100,7 @@ export function ListeningPlayer({ onViewStory }: ListeningPlayerProps) {
 
 function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
   const { store, snapshot } = useListening();
+  const articles = useCatalogArticles(mediumArticles);
   const [panel, setPanel] = useState<'menu' | 'share' | 'speed' | 'voice' | 'output' | null>(null);
   const { height, width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
@@ -324,7 +326,7 @@ function ExpandedListeningPlayer({ onViewStory }: ListeningPlayerProps) {
               ) : panel === 'voice' ? (
                 <ListeningVoicePanel onClose={hidePanel} />
               ) : panel === 'share' ? (
-                <SharePanel target={articleShareTarget(mediumArticles.find(article => article.id === story.articleId)
+                <SharePanel target={articleShareTarget(articles.find(article => article.id === story.articleId)
                   ?? { id: story.articleId, title: story.title, summary: '', sourceName: story.authorName,
                     publishedLabel: '', readingMinutes: 0, thumbnail: null })} onClose={hidePanel} />
               ) : (

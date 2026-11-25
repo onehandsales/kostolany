@@ -1,5 +1,11 @@
 # Parity 1~20 잔여 통합 검토·보완
 
+**Git 요청(2026-11-26):** 사용자가 이번 Medium 흐름·RN 리치텍스트·읽기 기능 보완의 커밋과 푸시를 요청했다. 현재 변경을 `main`에 커밋해 `origin/main`으로 푸시하는 범위에 적용한다. 아래 커밋·push 미수행 문구는 구현 당시 기록이며 실제 기기 미검증과 원본 차이 판정은 유지한다.
+
+**최신 구현(2026-11-26):** [Medium 원본 재대조와 연속 리치텍스트 입력](#medium-editor-followup). 아래 11월25일 문단별 입력과 추가 의존성 미도입 기록은 당시 이력이며 최신 구현·검증·제약은 이 후속 항목을 따른다.
+
+**후속 flow 보완(2026-11-25, macOS):** [응답창 이동 오류·발행 글 읽기 기능과 현재 검증](#flow-followup). 홈·Explore 카드 응답창의 경로 이탈 처리를 보완하고 Q11의 발행 Highlight·구절 응답·무음 Listen을 연결한다. 아래 최초 검토의 Q11 미지원 판정과 Windows 환경 기록은 당시 이력이며, native9/11 구현 잔여·Q06·원본 자산 차이는 유지한다.
+
 **후속 Git 요청(2026-11-25):** 사용자가 이 결과의 커밋과 `origin/main` 푸시를 요청했다. 아래 커밋·push 미수행 경계는 최초 보완 작업 당시 기록이다. 기존 검증 결과와 잔여·21/22 미착수 판정은 유지한다.
 
 기준일: 2026-11-25 KST. 시작 HEAD는 `c6898b5`이며 시작 작업 트리는 깨끗했다.
@@ -212,3 +218,152 @@ Q04 사용자 초안 삭제, Q05 이력 Undo, Q06 이미지 경계 연속 선택
 5. 마지막22는 전수 R/T/U/C·원본 차이·기기 결과를 대조한다. 이번 통합 목록 점검을22 완료로 기록하지 않는다.
 
 자기 재검토와 독립 리뷰를 구분하며 이번 독립 리뷰는 수행하지 않는다.
+
+<a id="flow-followup"></a>
+
+## Flow 연결 오류와 발행 글 읽기 도구 보완 — 2026-11-25
+
+홈·Explore 카드의 `Responses → Medium policy → Listen → 플레이어 확장 → 더보기 → View story`에서 새 기사 위에 이전 응답 모달이 남았다. macOS Chrome 개발 웹에서 두 경로를 재현했고 Digest의 같은 경로는 정상임을 구분했다. 시작 HEAD는 `5d767b0`이며 작업 트리는 깨끗했다. 이번 사용자 요청의 로컬 보완 범위에서 수정하고 커밋·push·외부 서비스를 실행하지 않는다.
+
+### 구현과 상태 수명
+
+- [ResponsesPanel](../FE/src/features/responses/ResponsesPanel.tsx)은 실제 navigation context가 있는 경우 소유 화면의 `useIsFocused`와 기존 `active`를 함께 검사한다. 카드가 계속 마운트되어 있어도 화면 이탈 시 패널을 숨기고 소유자의 열림 상태를 닫는다. navigation이 없는 독립 컴포넌트에서는 기존 `active` 계약을 유지한다. 응답 저장소·개수·계정별 데이터의 수명은 변경하지 않는다.
+- [WrittenStoryScreen](../FE/src/features/editor/WrittenStoryScreen.tsx)에 Highlight·구절 응답·선택 구절 공유·무음 Listen·미니 플레이어를 연결했다. 본인/타인 Public와 링크로 접근한 Unlisted에 적용한다. Unlisted 검색·목록 공개 정책은 확대하지 않는다.
+- [publishedSelection](../FE/src/features/editor/publishedSelection.ts)은 실제 reader의 목록 번호·문단·UTF-16 좌표로 선택 문서를 만든다. 이미지와 구분선은 선택 불가 경계이며 그 경계를 넘는 인용은 거절한다. 기존 편집 문서 schemaVersion3와 저장 모델을 바꾸지 않는다.
+- [DocumentReader](../FE/src/features/editor/DocumentReader.tsx)와 공통 강조 renderer는 선택 전후 굵게·기울임·링크·멘션 서식을 보존한다. 개인 강조 안의 링크는 강조 메뉴를 먼저 열고, 강조 제거 후 원래 링크 동작을 복원한다. 선택 입력 안에서는 외부 링크·멘션 이동을 실행하지 않는다.
+- [HighlightProvider](../FE/src/features/highlights/HighlightProvider.tsx)는 저장 확정 직전에 발행 원문 존재·작성자·차단 상태·본문 버전·선택 문자열을 검증한다. 원문이 변경되거나 철회된 요청은 저장하지 않는다. 기존 개인 강조의 제거는 계속 허용한다.
+- Library의 Highlighted에서 발행 글을 열 때 highlight ID를 전달해 위치 복원을 연결했다. 계정 변경·같은 계정 재로그인·화면 이탈에는 선택과 응답 초안을 폐기하고 계정별 확정 강조를 다시 조회한다.
+- 듣기에는 발행 기사 ID와 작성자를 사용한다. `View story`는 현재 WrittenStory를 중복 push하지 않는다. 플레이어 공유는 발행 카탈로그의 제목·작성자·Public/Unlisted 상태를 사용하며, 작성자 차단·접근 조회 실패·원문 철회 때 플레이어를 닫는다. 실제 음성 출력은 추가하지 않는다.
+- 듣기 메뉴의 발행 작성자 음소거/해제는 실제 moderation 저장소를 거쳐 추천 제외 판정에 반영한다. 음소거만으로 원문 접근을 차단하지 않으며 기존 정적 기사 정책도 유지한다.
+
+### 검증 기록
+
+- 수정 전 새 홈·Explore 회귀는 iOS/Android 4건 모두 기존 모달 잔존으로 실패했다. 첫 수정 후 정책 파일 전체 20건이 통과했다.
+- 통합 검사 중 전역 route key를 이용한 초기 접근이 알림 응답 화면의 첫 진입을 닫는 문제를 발견했다. 해당 접근을 제거하고 실제 소유 화면 포커스를 사용했다. 수정 후 정책·알림·발행 읽기·강조 공급부 관련 8 suites/66 tests가 통과했다.
+- 발행 읽기·기존 다운로드·계정별 저장·기존 듣기 관련 8 suites/42 tests가 통과했다. 이후 계정 전환·링크 강조 회귀를 추가했으며 최종 검사는 아래 별도로 기록한다.
+- 전체 실행에서 기존 ReadingParityNavigation의 고정 `.parent` 스타일 검사가 추가된 강조 span 중첩 때문에 실패했다. 본문에서 실제 fontSize를 선언한 조상까지 탐색하도록 바꾸고 글꼴·크기·행간의 기대값은 유지했다. 수정 후 해당 파일의 양 preset 2 suites/10 tests가 통과했다.
+- 첫 전체 `npm run check`는 타입/lint 통과, 326 suites 중323 통과·3 실패, 1814 tests 중1807 통과·7 실패였다. 실패7건은 위 스타일 검사2건, 이전 미지원 계약에 따라 Listen 부재를 기대한4건, 공개 목록의 여러 화면 이동 시나리오에서 기본5초 제한 초과1건이다. Listen 검사는 공급부가 없는 독립 reader에서 비활성 상태를 확인하도록 갱신했고 실제 활성화는 새 navigation 검사로 검증한다. 공개 목록 시나리오만 실행 제한30초를 적용하고 각 이동·삭제의 검증은 유지했다.
+- 마지막 음소거 보완을 포함해 발행 읽기·발행 수명·공개 목록 양 preset 6 suites/44 tests가 통과했다. 같은 최종 코드에서 `npm run typecheck`와 `npm run lint`도 exit0이었다.
+- 최종 전체 Jest 재실행(`npx jest --maxWorkers=2`)은 iOS/Android 326 suites/1816 tests 모두 통과, 실패·skip0, 240.702초, exit0이었다. 기본 `npm test`의 직렬 실행과 워커 수가 다르며 검사 대상은 동일하다. 이 결과 이후 제품 코드·테스트 변경은 없고 결과 문서만 갱신했다.
+- 이 전체 실행에서 iOS `DigestPanel.test.tsx`에 귀속된 `VirtualizedList._updateCellsToRender`의 지연 타이머 `act` 경고1건이 나왔다. 해당 파일은 이번에 수정하지 않았으며 제품 오류 또는 과거 다른 파일의 경고와 같은 원인으로 확정하지 않는다. 테스트는 통과했지만 경고 원인 해결로 처리하지 않고 후속 검증 항목으로 남긴다.
+- 실제 Chrome 웹 390×844에서 홈·Explore의 정책 `View story` 이동 후 응답 모달 0개, 원래 화면 복귀 후 0개를 확인했다. 작성→발행→본문 구절 선택→Highlight→Library→원문 복귀→구절 응답 게시를 실제 앱의 mock 상태로 실행했다. 브라우저 DOM Range로 선택했고 실제 OS 선택 핸들 검증으로 취급하지 않는다.
+- 최종 웹 확인에서는 두 문단을 가로지르는 강조 저장 후 두 문단에 강조가 남고 기존 굵은 부분의 computed fontWeight가700인 것을 확인했다. Listen→Hans 선택/Done→View story→플레이어 공유에서도 발행 제목·본문·작성자가 유지됐다. 이미지 저장이나 OS 공유 발송을 실행했다는 의미는 아니다.
+- F25의 `sc_a8112b7354bb44908f9359e95ba3c288` 원본 PNG를 열어 Highlight·Respond·Share 도구와 본문 내 강조를 확인했다. 발행 글 지원은 이 도구를 확장한 자체 FE 기능이며 원본에 발행 글의 해당 조작이 기록되어 있다고 주장하지 않는다. 전체 200화면 시각 동일성 판정은 하지 않는다.
+
+### 남은 범위
+
+| 항목 | 현재 상태 |
+| --- | --- |
+| Q11 발행 Highlight·구절 인용·Listen | 로컬 구현 추가, 위 검증 범위로 판정; 실제 음성 출력 제외 |
+| F09 native 혼합 인용선·목록 내어쓰기·Android 혼합 구분선 | 기존 구현 잔여 유지; 문단 스타일 native adapter 필요 |
+| F25/F29 native 다중 문단 연속 선택·선택 좌표 기반 메뉴 | 기존 별도 picker와 본문 안 메뉴 유지; 원본과 다른 구현 잔여 |
+| Q06 이미지 경계를 넘는 편집기 선택 | 현재 미지원 유지; 편집기 선택·IME·이미지 offset 계약과 함께 확장 필요 |
+| 원본 콘텐츠·사진·서체·아이콘 | 미수록 내용을 생성하거나 대체 자산을 원본과 동일하다고 판정하지 않음 |
+| 실제 기기 | 이 Mac에는 Command Line Tools만 있고 전체 Xcode·iOS SDK·Android SDK/adb가 없어 native 빌드·선택 핸들·IME 미실행 |
+
+네이티브 어댑터를 검증 없이 추가하고 완료로 처리하지 않았다. 이번 변경은 FE의 기존 기능 경계 안에 한정하며 `medium/flows`, 기존 baseline·codeInputs·evidenceContext, ENV, 의존성은 보존한다. 테스트용 브라우저·로그는 저장소 밖 임시 경로를 사용했다. 이번에 시작한 Chrome과8081 Metro만 종료했고 두 포트의 남은 listener가 없음을 확인했다. 위 결과는 자기 검토이며 독립 리뷰가 아니다.
+
+<a id="rn-only-followup"></a>
+
+## React Native 공통 입력·선택 메뉴 보완 — 2026-11-25
+
+아래 문단별 편집기 방식은 [11월26일 연속 리치텍스트 입력](#medium-editor-followup)으로 대체되었다. 선택 메뉴의 줄 측정 방식은 유지하며 아래 수치는 당시 검증 기록이다.
+
+최신 사용자 지시에 따라 `FE`에서 React Native/TypeScript만 사용했다. Swift·Kotlin·새 native module·WebView·추가 의존성을 도입하지 않았다. [FRONT_AGENT 규칙](../AGENT/SOFTWARE_AGENT/FRONT_AGENT/README.md)의 구조·상태·모바일 UI·검증 기준을 적용하고 기존 미커밋 Flow 보완을 보존했다. 위 표의 native adapter 필요 판정은 확정된 요구가 아니라 이전 기술 검토였으며 이번 방식으로 대체한다.
+
+### 요구 근거와 적용 범위
+
+- [Medium story editor](https://help.medium.com/hc/en-us/articles/215194537-Using-the-story-editor)의 모바일 서식·인용 전환·목록 Return 동작과 [About highlights](https://help.medium.com/hc/en-us/articles/214406358-About-highlights)의 선택→강조·구절 응답을 참고했다. 문서에서 확인되지 않은 이미지 경계 선택을 필수 Medium 동작으로 단정하지 않는다.
+- F09의 `sc_e5826f356093493a86c19716420e8fdf`와 `sc_1b0cd82ee04a4c8c9d52b9a2d088823b` PNG를 열어 인용선과 목록 내어쓰기를 확인했다. F25의 앞선 구절 선택 캡처는 한 문단의 여러 줄 선택을 보여주며 서로 다른 문단까지 이어지는 OS 선택의 증거로 확대하지 않는다.
+- [Apple 메뉴 지침](https://developer.apple.com/design/human-interface-guidelines/menus)은 현재 문맥에 맞는 명확한 동작 이름·관련 명령의 묶음을 참고했다. [Android TextView](https://developer.android.com/reference/android/widget/TextView)의 선택 ActionMode는 플랫폼 동작 비교에 사용했으며 플랫폼별 메뉴 callback을 직접 구현하지 않았다.
+- RN의 [TextInput 선택 이벤트](https://reactnative.dev/docs/textinput#onselectionchange)와 [Text 줄 배치 이벤트](https://reactnative.dev/docs/text#ontextlayout)를 대조했다. 실제 구현 기준은 설치된 RN0.86.3의 타입과 코드다. 선택 이벤트의 UTF-16 시작·끝은 사용할 수 있지만 글자별 선택 사각형은 이 공개 이벤트에 없으므로 아래 메뉴 좌표를 정확한 native 선택 좌표라고 기록하지 않는다.
+
+### 구현과 선택한 제약
+
+- [RichBody](../FE/src/features/editor/RichBody.tsx)는 native에서 문단마다 RN `TextInput`을 배치한다. 일반·인용·목록·가운데 인용·구분선을 섞어도 인용선, 목록 내어쓰기, Android/iOS의 문단별 정렬을 각각 적용한다. 목록 표시는 입력 옆에 두고 실제 문서에는 기존 접두 문자열을 유지한다.
+- 저장 상태의 기준은 기존 schemaVersion3 문서 하나다. 각 입력의 변경을 구간 전체에 합쳐 기존 `changeBody`·이미지 구간 병합·자동 저장을 사용하고 UTF-16 선택 좌표를 변환한다. 새 저장소나 문서 형식을 만들지 않는다.
+- 당시 문단 키 처리(`nativeParagraphs.ts`, 11월26일 연속 입력 전환으로 제거)는 Return·붙여넣기·Backspace 병합 후 커서가 이동한 문단에 기존 입력 인스턴스를 이어 준다. 목록 이어 쓰기·빈 목록 종료·문단 앞 Backspace를 기존 모델과 연결하고, 문단 분할 전의 늦은 선택 이벤트가 새 커서를 덮지 않도록 검사한다.
+- 본문 아래 빈 여백에도 입력 진입 영역을 유지했다. 여백을 누르면 기존 선택을 접고 마지막 문단 끝으로 커서와 포커스를 옮겨 이어 쓸 수 있다. 실제 문단 입력은 그 위에 배치해 여백 동작이 문단의 터치를 가리지 않도록 했다.
+- **입력 구조의 실제 제약:** 기존에는 이미지 없는 구간 하나가 한 입력이어서 그 안의 여러 문단을 OS 선택 손잡이로 잡을 수 있었다. 이번 문단별 입력에서는 OS 선택·복사·잘라내기가 각 문단 안으로 제한된다. 문단 사이를 가로지르는 선택은 이번에 구현하지 않았으며 기존 기능과의 동작 차이다. 필드 사이의 OS undo·키보드 커서 이동과 목록 표시를 포함한 복사도 기존 한 입력과 동일하다고 보장하지 않는다. 서식 혼합 배치를 RN 공개 구성요소로 처리하기 위해 선택한 비용이며 기기 검증·후속 UX 검토 대상이다.
+- 읽기용 [NativePassageText](../FE/src/features/highlights/NativePassageText.tsx)는 선택 입력과 같은 서식의 숨겨진 RN `Text`에서 줄 배치를 측정한다. [selectionLinePosition](../FE/src/features/highlights/selectionLinePosition.ts)은 선택이 걸친 줄들의 영역을 합친다. 문자열·측정값이 맞지 않으면 문단 영역으로 대체하며 글자 폭을 추측해 선택 범위를 만들지 않는다.
+- [SelectionMenuHost](../FE/src/features/highlights/SelectionMenuHost.tsx)는 `HighlightProvider` 아래 화면 층에 메뉴를 표시한다. 본문 사이에 메뉴·Cancel 높이가 끼어들지 않으며 `Modal`로 OS 핸들의 터치를 가리지 않는다. Safe Area와 실측 메뉴 높이로 위치를 제한하고, 선택 모드에서만120ms 간격으로 문단 이동을 측정해 스크롤을 따른다. 선택이 화면 밖이면 메뉴를 숨긴다. 정확한 선택 글자에 밀착하는 좌표 구현과는 구분한다.
+- 범위를 커서로 접어 Highlight 등 행동이 사라져도 Cancel은 유지한다. 화면·계정·원문 버전 변경 시 기존 `PassageReader` 수명으로 입력·메뉴를 제거하고, 뒤로·백그라운드에서도 닫는다. 제거 뒤 늦게 도착한 측정 결과를 버리고 예약·listener를 정리한다.
+- 읽기 화면의 다중 문단 선택은 기존 별도 선택 UI를 유지한다. 이미지 경계를 넘는 편집기 선택은 계속 미지원이다. 이 두 항목을 이번에 구현한 것으로 처리하지 않는다.
+
+### 검증과 자기 검토
+
+- 수정 전 작성 navigation·구절 읽기 baseline은 양 preset4 suites/32 tests가 통과했다. 이는 앞선 전체1816건 이력과 별도 실행이다.
+- 혼합 서식·이모지 UTF-16·목록 Return/종료·Backspace 병합·여러 줄 붙여넣기·늦은 선택·동일 문자열의 입력 키 보존을 검증했다. 실제 `EditorNavigation`은 유지하고 기대 선택 범위만 문단별 입력 계약으로 바꿨다. 따라서 이전 다중 문단 선택 테스트의 통과와 동등한 증거로 취급하지 않는다.
+- 메뉴 테스트는 native 위치 측정만 대역으로 교체해 본문 높이 유지·스크롤 위치 변화·화면 밖 숨김·해제 후 늦은 응답 폐기를 확인한다. 별도 순수 테스트는 한글·이모지·여러 줄·일치하지 않는 배치·잘못된 측정값을 검사한다. 실제 OS 핸들·폰트 엔진은 이 테스트에 포함되지 않는다.
+- 통합 중 반복 interval이 fake timer의 진행 도중 정리되는 실패가 발생했다. 측정 예약을 취소 가능한 재귀 timeout으로 바꾸고 발행 읽기·좌표 관련16 tests를 통과했다. 초안·이미지·읽기 설정24 tests도 통과했다. console 무시나 native 화면/navigation 전체 mock으로 실패를 숨기지 않았다.
+- 첫 전체 검사는 타입·lint 및 양 preset334 suites/1836 tests 통과, 실패·skip·act 경고0,270.933초였다. 이후 자기 검토에서 선택을 접으면 Cancel까지 사라지는 문제를 보완하고 복귀 회귀를 추가했다. 최종 코드의 검사 결과는 아래 별도 기록한다.
+- Cancel 보완 후 `npm run typecheck && npm run lint && npx jest --maxWorkers=2`는334 suites/1838 tests 모두 통과, 실패·skip·act 경고0,277.63초,exit0이었다. 이 실행 뒤 본문 빈 여백의 입력 진입과 포커스 요청 시 이전 선택 대기의 해제를 보완했으며, 마지막 변경은 아래 관련 검사로 구분한다. 전체1838건을 마지막 여백 보완 뒤 실행했다는 뜻은 아니다.
+- 마지막 여백·포커스 보완 후 `npm test -- --runTestsByPath src/features/editor/RichBody.test.tsx src/app/navigation/EditorNavigation.test.tsx src/app/navigation/EditorImagesNavigation.test.tsx src/app/navigation/DraftsNavigation.test.tsx`는 양 preset8 suites/40 tests 통과, 실패·skip·act 경고0,16.035초,exit0이었다. 마지막 두 파일을 포함해 입력→사진 구간→초안 저장·재개→발행의 실제 navigation 회귀를 재실행했다.
+- 같은 최종 제품 코드에서 `npm run typecheck && npm run lint`를 다시 실행해 exit0을 확인했다. 이후에는 결과 문서만 갱신했으며 추가 제품 코드·테스트 변경은 없다. 실행 환경은 macOS·Node24.18.0이며 Jest의 iOS/Android preset은 실제 플랫폼 실행과 구분한다.
+- 실제 Chrome 개발 웹390×844에서 한글·이모지3문단 입력→두 번째 문단 인용→세 번째 문단 목록→Saved→Next→모의 발행→발행 글 읽기를 실행했다. 인용선3px·목록 내어쓰기28px와 저장 후 내용을 DOM 및 실제 발행 화면 캡처로 확인했다. 이 경로는 기존 `RichBody.web.tsx`의 회귀 확인이며 새 native 입력 배치의 화면 검증이 아니다. 원본과 동일한 기기·DPR·서체 조건의 비교도 아니다.
+- 브라우저 자동화 초기에는 headless 문서가 포커스되지 않아 본문 도구가 활성화되지 않았다. CDP의 페이지 포커스를 설정한 뒤 정상 조작했다. 이를 앱 결함으로 수정하지 않았다. 임시 브라우저 스크립트·로그·캡처는 저장소 밖 `/tmp`에 두었다.
+
+### 실제 기기 대기와 보존 범위
+
+현재 Mac은 Command Line Tools만 설치되어 있고 전체 Xcode/iOS SDK·Android SDK/adb가 없다. native 빌드·설치·OS 선택 핸들·한글 IME·문단 분할 중 포커스·스크롤 터치·VoiceOver/TalkBack·큰 글자는 미검증이다. 특히 여러 입력의 연속 타이핑·undo와 숨겨진 Text/실제 TextInput의 폰트 배치 차이를 실제 양 플랫폼에서 확인해야 한다. 자동 검사 성공을 iOS/Android 기기 실행 성공이나 Medium 전체 동일성으로 올리지 않는다.
+
+기존 mock 범위·문서 schema·이미지 offset·계정 수명 계약과 앞선 Flow 보완을 유지했다. 참고 `medium/flows`·ENV·의존성·baseline·기존 증거 파일·Swift/Kotlin 파일은 변경하지 않았다. 커밋·push·배포·외부 서비스 연결은 실행하지 않는다. 위 검토는 자기 검토이며 독립 리뷰가 아니다.
+
+이번 작업에서 시작한8081 Metro와9235 임시 Chrome만 종료하고 두 포트에 남은 listener가 없음을 확인했다. 새 문서 링크·명시적 anchor의 대상 누락0과 `git diff --check` 통과를 확인했다.
+
+
+<a id="medium-editor-followup"></a>
+## Medium 원본 재대조와 연속 리치텍스트 입력 — 2026-11-26
+
+사용자는 `medium/flows`의 관련 흐름까지 확인한 뒤 추천 방향을 판단해 Medium과 동일하게 작업하도록 요청했다. Swift·Kotlin 직접 작성 금지는 유지한다. 앞선 문단별 TextInput 접근은 혼합 배치를 해결하는 대신 문단 사이 OS 선택을 잃었으므로 이번 구현으로 대체했다. 참고 원본과 사용자 변경은 보존하고 커밋·push·배포는 하지 않았다.
+
+### 확인한 원본과 판단
+
+- [Changing text format](../medium/flows/Home/Publishing%20a%20story/Changing%20text%20format/ANALYSIS.md)의 단계·관찰·한계를 읽고 원본 PNG 01~05를 열었다. 키보드가 열린 상태의 회색 소제목, 인용선+기울임, 목록 내어쓰기, 가운데 구분선, 이미지의 초록 선택 테두리와 X가 기준이다. 미리보기에서만 문단 서식을 정확하게 보여 주는 접근은 이 흐름에 충분하지 않다.
+- [Publishing a story](../medium/flows/Home/Publishing%20a%20story/ANALYSIS.md)의 11단계 전환·관찰을 재확인했다. 이 후속 작업에서 발행 전체 11장 각각을 새로 시각 비교했다는 의미는 아니다.
+- [Highlighting a phrase](../medium/flows/Home/Story%20detail/Highlighting%20a%20phrase/ANALYSIS.md)의 선택/완료 원본 02·03을 열었다. 한 문단의 여러 줄을 선택하고 본문 위 Highlight·Respond·Share 메뉴에서 실행한 뒤 강조가 남는다. 서로 다른 문단이나 이미지를 가로지르는 선택을 증명하는 캡처로 확대하지 않는다.
+- [Responding to a phrase](../medium/flows/Home/Story%20detail/Responding%20to%20a%20phrase/ANALYSIS.md)의 관찰과 원본 02~04를 확인했다. 선택 문구가 댓글 입력창에 인용되고, 전송 뒤 자신의 응답에도 인용이 유지된다. 앞선 발행 글·응답 연결은 유지한다.
+- 원본은 Medium iOS 카탈로그 Latest/versionID1419이며 PNG1179×2556, 메타데이터390×844다. 실제 OS/build/DPR 정보는 없으므로 Android나 동일 기기 조건의 증거로 취급하지 않는다.
+- [Medium 편집기 안내](https://help.medium.com/hc/en-us/articles/215194537-Using-the-story-editor), [하이라이트 안내](https://help.medium.com/hc/en-us/articles/214406358-About-highlights), [Expo 리치텍스트 가이드](https://docs.expo.dev/guides/editing-richtext/)를 확인했다. Expo가 안내하는 native 리치텍스트 경로를 선택해 RN 공통 API에서 문단 서식과 연속 선택을 함께 다룬다. 라이브러리 채택 자체가 Medium 구현과 동일하다는 뜻은 아니다.
+
+### 변경과 데이터 경계
+
+- [RichBody](../FE/src/features/editor/RichBody.tsx)는 이미지 사이의 연속 본문을 한 `EnrichedTextInput`에 둔다. 인용선·목록·제목/소제목·가운데 인용·구분선·코드를 native 문단 스타일로 표현하며 굵게·기울임·링크와 기존 툴바를 연결한다. 별도 문단별 입력과 키 처리 파일은 제거했다. 웹 미리보기의 `RichBody.web.tsx`는 유지한다.
+- [nativeEditorHtml](../FE/src/features/editor/nativeEditorHtml.ts)은 입력 경계의 HTML과 기존 문서 모델을 변환한다. 목록 기호를 제외한 native UTF-16 좌표와 저장 문자열 좌표를 양방향 매핑한다. HTML escape·안전한 링크·멘션 ID/이름·빈 문단을 처리하며 자동 인용 기울임과 원래 mark를 구분한다. native가 제한하는 제목 굵게·code 내부 기존 mark는 저장 모델에서 보존한다. 중첩 mark의 직렬화 순서를 고정하고 이름 중간 서식이 멘션을 여러 사람으로 나누지 않도록 했다.
+- 외부 서식 명령의 반영 전 늦은 HTML을 무시하고 반영 후 새 입력을 이전 getHTML 응답이 되돌리지 않게 했다. 화면 이탈·새 문서의 수명을 구분한다. 입력 텍스트와 확정 HTML이 다르면 조합/미확정 상태를 알리고 서식·발행을 잠근다. 실제 IME는 별도 기기 검사 대상이다.
+- 초안/발행은 HTML 저장으로 변경하지 않았다. schemaVersion3, UTF-16 범위, 이미지 lease/source/session, 모의 저장과 실제 작성한 문서의 발행 경로를 유지한다.
+- [RichDocumentBody](../FE/src/features/editor/RichDocumentBody.tsx)에서 자동 포커스 복구가 실패 이미지의 선택을 지워도 삭제가 가능하도록 오류 상태에 삭제 동작을 유지했다. 재시도 시 선택 상태도 복구한다.
+- 읽기용 줄 측정 메뉴는 앞선 구현을 유지한다. 문구 하이라이트·구절 응답의 연결 회귀는 검사하지만 이번 native 편집기 채택으로 읽기 메뉴의 글자별 정확 좌표까지 해결됐다고 표시하지 않는다.
+
+### 의존성과 실행 조건
+
+- `react-native-enriched-html@1.2.0`, `htmlparser2@10.1.0`을 정확한 버전으로 추가했다. 둘 다 MIT다. [라이브러리 호환표](https://docs.swmansion.com/react-native-enriched-html/misc/compatibility/)와 설치된 패키지의 RN>=0.82 peer 범위를 대조했으며 현재 앱 RN0.86.3에서 JS export와 autolinking 검색을 확인한다.
+- 직접 작성한 Swift·Kotlin·WebView는 없다. 다만 선택한 RN 라이브러리는 native 코드를 포함하므로 기존 앱 binary에는 자동으로 추가되지 않는다. [공식 시작 안내](https://docs.swmansion.com/react-native-enriched-html/)에 따라 iOS/Android development build를 새로 만들어야 하며 Expo Go로 이 입력기를 실행할 수 없다.
+- TipTap optional 메뉴 패키지가 설치 시 core3.31.3과 다른 minor로 해석되는 경고와 DOMPurify3.4.16의 신규 low advisory를 확인했다. 이 라이브러리 범위에서만 메뉴3.31.3·DOMPurify3.5.0 override를 적용했다. `npm ls --all`에서 invalid peer가 없고, 재검사 audit은 기존 Expo/fingerprint/minimatch 경로의 moderate3개이며 새 low는 없다. 광범위한 upgrade나 audit force는 실행하지 않았다.
+- `expo install --check`는 기존 Expo 계열 5개 패키지의 patch 업데이트를 권고했다(expo57.0.34, metro-runtime57.0.19, image-manipulator57.0.23, image-picker57.0.22, notifications57.0.26). 새 리치텍스트 도입과 분리하여 기록하고 이번 범위에서 일괄 업데이트하지 않았다.
+
+### 검증과 현재 한계
+
+Jest에서는 native view/명령 경계만 대체하고 라이브러리 JS wrapper, 변환기, 앱 navigation, 초안/발행 source는 실제 코드를 사용한다. 운영체제의 핸들·IME·글꼴·Undo를 Jest가 실행한 것으로 기록하지 않는다.
+
+- 이미지 사이 한 입력 안에서 여러 문단 선택이 가능한 구조로 복구했다. 이미지를 가로지르는 편집기 선택과 읽기 화면의 여러 문단 선택 UX는 기존 제한이 남는다.
+- 읽기 메뉴 위치는 선택이 걸친 줄의 실측 영역이며 glyph별 정확한 선택 사각형은 아니다. Android OS 메뉴와 iOS 메뉴의 형태 차이도 실제 기기에서 확인해야 한다.
+- native HTML이 지원하는 단일 단계 목록과 문단 스타일 범위 안에서 구현한다. 임의 HTML/중첩 목록 전체를 보존하는 범용 HTML 편집기는 아니다. 목록은 native의 순차 번호 매김을 따른다.
+- 이 Mac은 Command Line Tools만 있고 전체 Xcode/iOS SDK 및 Android SDK/adb가 없다. native 빌드·설치·실제 기기 캡처, 한글 IME·Undo/Redo·선택 손잡이·큰 글자·VoiceOver/TalkBack·키보드/스크롤 검증은 미실행이다. 현재 결과를 Medium 전체 동일성이나 iOS/Android 앱 출시 완료로 표시하지 않는다.
+
+
+### 최종 검사 기록
+
+- `npm run typecheck`, `npm run lint`, `git diff --check` 통과. ref의 초기 HTML을 render에서 읽던 부분은 초기 state로 바꿨고 native 경계 mock의 ref prop도 분리해 lint 오류를 수정했다.
+- 전체 Jest 1차는 **334 suites 중333 통과,1853 tests 중1852 통과**였다. 이 실행 도중 마지막 경계 테스트가 추가되어 최종 테스트 총수로 사용하지 않는다. iOS `PublicListsNavigation`의 비공개 전환 복귀 사례 하나가 기존5000ms 제한을 넘었으며 assert 실패는 아니었다. 타임아웃을 늘리거나 테스트를 skip하지 않았다.
+- 최종 코드의 관련·실패 회귀는 `nativeEditorHtml`, `RichBody`, `EditorNavigation`, `EditorImagesNavigation`, `DraftsNavigation`, `PublishingNavigation`, `PublicListsNavigation`, `PublishedReadingNavigation`을 iOS/Android 설정으로 실행하여 **16 suites /94 tests 모두 통과**했다(37.768초). 앞서 시간을 초과한 사례도 양 설정에서 통과했고 이 최종 실행에 act/console 경고·skip은 없다. 전체 검사를 최종 코드에서 다시 모두 실행한 결과와는 구분한다.
+- 검증한 경계는 혼합 문단·문단 간 선택·한글/이모지 UTF-16·목록 Return/종료·중첩 mark 정규화·멘션 중간 서식·미확정 입력 잠금·늦은 HTML/화면 이탈, 실제 navigation을 통한 저장·재개·계정 교체·이미지 실패/복구·발행·읽기 연결이다. HTML/선택 사건과 native 명령 계약을 검사하며 OS 내부 편집기 자체는 대역이다.
+- 최종 `expo export --platform ios --platform android --platform web --max-workers 1` 통과. 양 native JS/Hermes 번들은 약3.9MB이며 web은 약2.1MB다. iOS podspec과 Android package/component descriptor의 autolinking 검색도 성공했다. native 컴파일·실행 성공으로 해석하지 않는다.
+- 설치 전 lockfile과 비교해 추가 패키지는50개이며 기존 패키지 버전 변경·제거는0개다. `npm ls --all`에서 invalid peer가 없고 audit 결과는 위 의존성 절과 같다.
+- Chrome 개발 웹390×844에서 한글·이모지3문단 작성→둘째 문단 인용→셋째 문단 목록→Saved→Next→모의 발행→발행 글 읽기를 실행했다. DOM에서 인용선3px·인용 들여쓰기24px·목록 들여쓰기28px를 확인하고 실제 발행 화면을 캡처해 열었다. 이어 본문 선택→Respond→인용 댓글 게시로 Responses1/자기 인용 응답을 확인했고, 다른 문구 Highlight 후 초록 배경이 남는 것을 확인했다. 최종 export 번들로 새로고침한 뒤에도 작성→인용/목록→발행→읽기를 재확인했다. 원본과 동일한 문구·서체·DPR의 픽셀 비교는 아니다.
+- 웹은 기존 `RichBody.web.tsx`의 회귀이며 새 native 입력기의 실제 화면 검증을 대신하지 않는다. 자동 검사와 구현 방향의 보완까지 완료했고 실제 iOS/Android 기기 검사는 위 환경 제약으로 남는다.
+- 문서 상대 링크와 변경 diff를 확인했다. 참고용 `medium/flows`, ENV, Swift·Kotlin 파일에는 변경이 없으며 새 platform 프로젝트를 생성하지 않았다. 검증용 서버·브라우저는 작업 종료 때 정리한다.
+
+### 커밋·푸시 전 확인 — 2026-11-26
+
+사용자의 후속 요청으로 현재41개 파일을 한 커밋에 포함한다. 원격 `origin/main`을 fetch해 로컬 시작 HEAD `5d767b0`과 차이가 없음을 확인했다. 제품 코드·의존성·테스트 변경은 앞선 최종 검사 대상이며 이번 단계에서는 Git 요청 기록만 갱신했다. 타입/lint·관련94 tests·3플랫폼 export 결과와 전체 검사1건 timeout 후 관련 묶음 재통과를 그대로 구분한다. `git diff --check`와 최종 staged 범위를 확인하고 일반 push로 전달한다. 실제 커밋 해시와 원격 반영 여부는 Git 작업 결과로 보고한다.

@@ -28,7 +28,7 @@ import { createMockBookmarkSource } from '../../features/bookmarks/data/createMo
 import { bookmarkPreviewScenario } from '../../features/bookmarks/data/bookmarkPreview';
 import { bookmarkArticles } from '../../features/bookmarks/data/bookmarkFixtures';
 import { ArticleCatalogProvider, useArticleCatalog } from '../../features/feed/ArticleCatalog';
-import { createPublishedArticleCatalog } from '../../features/editor/publishedArticle';
+import { createPublishedArticleCatalog, writtenStoryId } from '../../features/editor/publishedArticle';
 
 import { useTheme } from '../../shared/theme/ThemeProvider';
 
@@ -264,6 +264,8 @@ function SessionNavigationContent({
   function viewListeningStory(articleId: string) {
     if (!navigationRef.isReady()) return;
     const current = navigationRef.getCurrentRoute();
+    if (current?.name === 'WrittenStory' && current.params && 'storyId' in current.params
+      && current.params.storyId === writtenStoryId(articleId)) return;
     if (
       current?.name === 'Article' && current.params &&
       'articleId' in current.params && current.params.articleId === articleId

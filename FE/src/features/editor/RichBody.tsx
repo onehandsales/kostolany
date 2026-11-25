@@ -1,58 +1,135 @@
-import { useEffect, useRef, useState } from 'react';
-import { Platform, Text, TextInput, View, type TextStyle } from 'react-native';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { EnrichedTextInput, type EnrichedTextInputInstance, type OnChangeStateEvent } from 'react-native-enriched-html';
+
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
-import { changeBody, lines, segments, type EditorValue, type TextSelection, type BlockKind } from './editorModel';
+import { validEditorDocument, type EditorValue, type TextSelection } from './editorModel';
+import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, valueFromNativeHtml } from './nativeEditorHtml';
 
-export type RichBodyProps = { value: EditorValue; onChange: (value: EditorValue) => void; onSelect: (selection: TextSelection) => void;
-  onFocus: () => void; onBlur: () => void; onComposing: (value: boolean) => void; focusRequest: number; dismissRequest: number;
-  label?: string; minHeight?: number; isActive?: boolean };
-export function RichBody({ value, onChange, onSelect, onFocus, onBlur, focusRequest, dismissRequest, label = '글 본문', minHeight = 300, isActive = true }: RichBodyProps) {
-  const input = useRef<TextInput>(null); const previousRequest = useRef(focusRequest);
-  const [contentHeight, setContentHeight] = useState(30); const { colors } = useTheme();
-  const blockLines = lines(value.document);
-  const isQuoteOnly = blockLines.every(line => line.kind === 'quote');
-  const isCenteredOnly = blockLines.every(line => ['pullquote', 'divider'].includes(line.kind));
-  useEffect(() => {
-    if (previousRequest.current !== focusRequest) { previousRequest.current = focusRequest; if (isActive) input.current?.focus(); }
-  }, [focusRequest, isActive]);
-  useEffect(() => { if (dismissRequest) input.current?.blur(); }, [dismissRequest]);
-  function getBlockStyle(kind: BlockKind): TextStyle {
-    return { fontFamily: ['heading', 'subheading'].includes(kind) ? fonts.sans : kind === 'code' ? Platform.OS === 'ios' ? 'Menlo' : 'monospace' : fonts.serif,
-      fontSize: kind === 'heading' ? 28 : 18,
-      lineHeight: kind === 'heading' ? 36 : kind === 'subheading' ? 24 : 30,
-      fontWeight: kind === 'heading' ? '700' : '400',
-      fontStyle: ['quote', 'pullquote'].includes(kind) ? 'italic' : 'normal',
-      // Android의 문단 정렬은 입력 전체에 적용되므로 혼합 문단의 정렬은 iOS에만 전달한다.
-      textAlign: Platform.OS === 'ios' && ['pullquote', 'divider'].includes(kind) ? 'center' : undefined,
-      letterSpacing: kind === 'divider' ? 6 : undefined,
-      backgroundColor: kind === 'code' ? colors.surface : 'transparent',
-      color: ['subheading', 'divider'].includes(kind) ? colors.secondaryText : colors.text };
+export type RichBodyProps = {
+  value: EditorValue; onChange: (value: EditorValue) => void; onSelect: (selection: TextSelection) => void;
+  onFocus: () => void; onBlur: () => void; onComposing: (value: boolean) => void;
+  focusRequest: number; dismissRequest: number; label?: string; minHeight?: number; isActive?: boolean;
+};
+
+// 이미지 사이의 연속 문서를 한 native 입력에 두어 문단 서식과 OS 연속 선택을 함께 유지한다.
+export function RichBody(props: RichBodyProps) {
+  const { colors } = useTheme();
+  const input = useRef<EnrichedTextInputInstance>(null);
+  const latest = useRef(props);
+  const current = useRef(props.value);
+  const mounted = useRef(false);
+  const focused = useRef(false);
+  const nativeText = useRef(nativeEditorText(props.value.document));
+  const nativeRange = useRef<{ text: string; selection: TextSelection } | null>(null);
+  const nativeStyles = useRef<OnChangeStateEvent | null>(null);
+  const requested = useRef(props.focusRequest);
+  const replacing = useRef(false);
+  const replacement = useRef(0);
+  const rendered = useRef(editorHtml(props.value.document));
+  const appearance = useRef(colors.secondaryText);
+  const [initialHtml] = useState(() => editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText }));
+  useLayoutEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; replacement.current += 1; };
+  }, []);
+  useLayoutEffect(() => { latest.current = props; current.current = props.value; });
+
+  function receiveHtml(html: string) {
+    if (!mounted.current) return;
+    const previous = current.current;
+    const selected = nativeRange.current?.text === nativeText.current ? nativeRange.current.selection : undefined;
+    const next = valueFromNativeHtml(html, previous, selected);
+    if (!validEditorDocument(next.document)) return;
+    const canonical = editorHtml(next.document);
+    // setValue의 반영 이벤트를 받기 전까지 이전 입력 이벤트가 새 서식을 되돌리지 못하게 한다.
+    if (replacing.current) {
+      if (canonical !== rendered.current) return;
+      replacing.current = false;
+    }
+    latest.current.onComposing(false);
+    nativeText.current = nativeEditorText(next.document);
+    if (canonical === rendered.current) return;
+    rendered.current = canonical;
+    current.current = next;
+    latest.current.onChange(next);
   }
-  return <View>
-    {/* 인용선은 입력창의 최소 높이가 아니라 실제 본문 높이를 따르며 터치와 접근성 탐색을 가로채지 않는다. */}
-    {isQuoteOnly && <View pointerEvents="none" accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants"
-      style={{ position: 'absolute', top: 0, left: -18, width: 3, height: contentHeight, backgroundColor: colors.text }} />}
-    <TextInput ref={input} multiline accessibilityLabel={label}
-    placeholderTextColor={colors.secondaryText} selection={value.selection} scrollEnabled={false} textAlignVertical="top"
-    underlineColorAndroid="transparent" onFocus={onFocus} onBlur={onBlur}
-    onChangeText={text => onChange(changeBody(value, text))}
-    onSelectionChange={event => onSelect(event.nativeEvent.selection)}
-    onContentSizeChange={event => setContentHeight(Math.max(30, event.nativeEvent.contentSize.height))}
-    // 인용문만 있는 구간의 여백을 바꾸고 입력을 분할하지 않아 기존 선택 범위를 보존한다.
-    style={[
-      { height: Math.max(minHeight, contentHeight), minHeight, fontFamily: fonts.serif, fontSize: 18, lineHeight: 30, padding: 0, color: colors.text },
-      isQuoteOnly && { paddingLeft: 27, marginLeft: -18 },
-      isCenteredOnly && { textAlign: 'center' },
-    ]}>
-    <Text>{blockLines.map(line => <Text key={line.index} style={getBlockStyle(line.kind)}>
-      {segments(value.document, line.start, line.end).map(part => <Text key={part.start} style={{
-        fontWeight: part.formats.some(format => format.kind === 'bold') ? '700' : undefined,
-        fontStyle: part.formats.some(format => format.kind === 'italic') ? 'italic' : undefined,
-        color: part.mention || part.formats.some(format => format.kind === 'link') ? colors.green : undefined,
-        textDecorationLine: part.formats.some(format => format.kind === 'link') ? 'underline' : 'none',
-      }}>{part.text}</Text>)}{line.index < value.document.blocks.length - 1 ? '\n' : ''}
-    </Text>)}</Text>
-    </TextInput>
-  </View>;
+
+  useLayoutEffect(() => {
+    const html = editorHtml(props.value.document);
+    if (html === rendered.current && appearance.current === colors.secondaryText) return;
+    const target = input.current;
+    if (!target) return;
+    const request = ++replacement.current;
+    replacing.current = true;
+    rendered.current = html;
+    appearance.current = colors.secondaryText;
+    nativeText.current = nativeEditorText(props.value.document);
+    nativeRange.current = null;
+    const selection = nativeEditorSelection(props.value.document, props.value.selection);
+    target.setValue(editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText }));
+    target.setSelection(selection.start, selection.end);
+    // 외부 서식 적용 중 큐에 남은 이전 HTML 이벤트는 버리고 명령 뒤의 실제 native 문서를 읽는다.
+    void target.getHTML().then(value => {
+      if (!mounted.current || request !== replacement.current || !replacing.current) return;
+      replacing.current = false;
+      receiveHtml(value);
+    }, () => {
+      if (!mounted.current || request !== replacement.current) return;
+      replacing.current = false;
+    });
+  });
+
+  useEffect(() => {
+    if (requested.current !== props.focusRequest) {
+      requested.current = props.focusRequest;
+      if (props.isActive !== false) {
+        const range = nativeEditorSelection(props.value.document, props.value.selection);
+        input.current?.setSelection(range.start, range.end);
+        input.current?.focus();
+      }
+    }
+  }, [props.focusRequest, props.isActive, props.value.document, props.value.selection]);
+  useEffect(() => { if (props.dismissRequest) input.current?.blur(); }, [props.dismissRequest]);
+  useEffect(() => {
+    if (!focused.current || props.value.selection.start !== props.value.selection.end || replacing.current) return;
+    const state = nativeStyles.current;
+    if (!state) return;
+    const line = props.value.document.body.slice(0, props.value.selection.start).split('\n').length - 1;
+    const implicitItalic = ['quote', 'pullquote'].includes(props.value.document.blocks[line] ?? 'paragraph');
+    const bold = props.value.typing.some(format => format.kind === 'bold');
+    const italic = implicitItalic || props.value.typing.some(format => format.kind === 'italic');
+    if (!state.bold.isBlocking && state.bold.isActive !== bold) input.current?.toggleBold();
+    if (!state.italic.isBlocking && state.italic.isActive !== italic) input.current?.toggleItalic();
+  }, [props.value.typing, props.value.document, props.value.selection]);
+
+  return <EnrichedTextInput ref={input} accessibilityLabel={props.label ?? '글 본문'}
+    defaultValue={initialHtml} scrollEnabled={false} allowFontScaling linkRegex={null}
+    selectionColor={colors.green} placeholderTextColor={colors.secondaryText}
+    style={{ minHeight: props.minHeight ?? 300, fontFamily: fonts.serif, fontSize: 18, lineHeight: 30,
+      color: colors.text, padding: 0 }}
+    htmlStyle={{ h1: { fontSize: 28, bold: true }, h2: { fontSize: 18, bold: false },
+      blockquote: { borderWidth: 3, borderColor: colors.text, gapWidth: 24 },
+      ul: { marginLeft: 0, gapWidth: 22, bulletSize: 4, bulletColor: colors.text },
+      ol: { marginLeft: 0, gapWidth: 8, markerColor: colors.text },
+      a: { color: colors.green, textDecorationLine: 'underline' },
+      mention: { color: colors.green }, codeblock: { backgroundColor: colors.surface, color: colors.text } }}
+    onFocus={() => { focused.current = true; props.onFocus(); }}
+    onBlur={() => { focused.current = false; props.onBlur(); }}
+    onChangeText={event => {
+      if (!mounted.current) return;
+      nativeText.current = event.nativeEvent.value;
+      // 조합 중 HTML 확정이 지연되는 플랫폼에서는 저장 문서와 입력이 일치할 때까지 서식·발행을 막는다.
+      if (!replacing.current) latest.current.onComposing(nativeText.current !== nativeEditorText(current.current.document));
+    }}
+    onChangeHtml={event => receiveHtml(event.nativeEvent.value)}
+    onChangeState={event => { nativeStyles.current = event.nativeEvent; }}
+    onChangeSelection={event => {
+      if (!mounted.current || replacing.current) return;
+      const range = event.nativeEvent;
+      nativeRange.current = { text: nativeText.current, selection: { start: range.start, end: range.end } };
+      const selection = modelEditorSelection(current.current.document, range);
+      if (selection && nativeText.current === nativeEditorText(current.current.document)
+        && nativeText.current.slice(range.start, range.end) === range.text) latest.current.onSelect(selection);
+    }} />;
 }

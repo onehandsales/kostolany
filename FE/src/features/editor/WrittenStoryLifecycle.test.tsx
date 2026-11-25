@@ -62,8 +62,8 @@ it.each([[mockUserA.id, false], [mockUserA.id, true], [mockUserB.id, false], [mo
       <ReadingHistoryProvider userId={mockUserA.id} source={history}><WrittenStoryScreen storyId="story" onBack={() => {}} /></ReadingHistoryProvider>
     </WrittenStoriesProvider></ArticleCatalogProvider></AuthProvider>);
   await screen.findByText('읽기 허용된 본문');
-  // 발행 글의 공개 범위나 소유자가 달라도 현재 Listen 도구를 제공하지 않는다.
-  expect(screen.queryByRole('button', { name: /^Listen/ })).toBeNull();
+  // 듣기 공급부가 없는 독립 reader에서는 도구를 표시하되 재생을 시작하지 않는다.
+  expect(screen.getByRole('button', { name: 'Listen' })).toBeDisabled();
   await waitFor(() => expect(save).toHaveBeenCalled());
   expect((await history.read(mockUserA.id)).visits.map(item => item.articleId)).toEqual([publishedArticleId('story')]);
   await fireEvent.press(screen.getByRole('button', { name: 'Story options, 읽기 허용된 제목' }));

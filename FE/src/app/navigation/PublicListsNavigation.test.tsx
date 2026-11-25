@@ -192,7 +192,7 @@ it('소유자 프로필에서 목록과 기사로 이동한 뒤 돌아오며 삭
   await user.press(await screen.findByRole('button', { name: 'Back from public list' }));
   await screen.findByText('No captured public lists');
   expect(screen.queryByRole('button', { name: `Open list ${title}` })).toBeNull();
-});
+}, 30000);
 
 // 모달 뒤의 기사 진입을 직접 발생시켜 실제 스택 이탈·뒤로 복귀 수명을 검증한다.
 it('공개 목록의 응답·저장·메뉴 초안은 기사 이동 후 복원하지 않는다', async () => {

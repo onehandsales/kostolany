@@ -8,7 +8,7 @@ import { ResponsesPanel } from '../responses/ResponsesPanel';
 import { ShareSheet } from '../sharing/ShareSheet';
 import { articleWriter, publicIdentity } from '../community/data/publicDirectory';
 import { useHighlights } from './HighlightProvider';
-import { HighlightedText } from './HighlightedText';
+import { HighlightedText, type PassageTextContent } from './HighlightedText';
 import { SelectionOverlay } from './SelectionOverlay';
 import { NativePassagePicker } from './NativePassagePicker';
 import { NativePassageText } from './NativePassageText';
@@ -19,14 +19,16 @@ import type { PassageSelection } from './selectionBridge.types';
 import { clearTextSelection, revealPassage, useSelectionBridge } from './useSelectionBridge';
 import { highlightId, highlightOperation, type Highlight, type Passage } from './types';
 
-type TextRenderer = (index: number, style?: StyleProp<TextStyle>, otherHighlight?: string) => ReactNode;
+export type PassageTextRenderer = (index: number, style?: StyleProp<TextStyle>, otherHighlight?: string,
+  options?: { renderContent?: PassageTextContent; role?: 'heading' }) => ReactNode;
 type PassageReaderProps = { document: SelectionDocument; memberOnly?: boolean; active?: boolean; highlightId?: string; onRevealBlock?: (index: number) => void;
-  children: (render: TextRenderer) => ReactNode };
+  authorId?: string; visibility?: 'public' | 'unlisted'; children: (render: PassageTextRenderer) => ReactNode };
 export function PassageReader(props: PassageReaderProps) {
   const { scope } = useHighlights();
   return <PassageReaderContent key={`${scope}:${props.document.articleId}:${props.document.version}:${props.active !== false}`} {...props} />;
 }
-function PassageReaderContent({ document, memberOnly = false, active = true, highlightId: anchorId, onRevealBlock, children }: PassageReaderProps) {
+function PassageReaderContent({ document, memberOnly = false, active = true, highlightId: anchorId, onRevealBlock, children,
+  authorId, visibility = 'public' }: PassageReaderProps) {
   const { state, store } = useHighlights();
   const { colors } = useTheme();
   const auth = useAuth();
@@ -112,18 +114,16 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     onSave={retry => { void save(retry); }} onMore={() => setMore(value => !value)}
     onRespond={() => { if (selection && !requireLogin(true)) { clearTextSelection(); setNativeBlock(null); setQuote(selection.passage); } }}
     onShare={() => { setNativeBlock(null); setSharing(true); }} />;
-  const renderText: TextRenderer = (index, style, otherHighlight) => {
+  const renderText: PassageTextRenderer = (index, style, otherHighlight, options) => {
     const block = document.blocks[index];
     if (!block?.selectable) return null;
     if (active && nativeBlock?.index === index && !quote && !sharing && !auth.state.dialog) {
       return <NativePassageText key={index} document={document} index={index} style={style} menu={selection ? menu : null} onClose={close}
-        highlights={highlights} otherHighlight={otherHighlight} initialHeightDp={nativeBlock.initialHeightDp}
+        highlights={highlights} otherHighlight={otherHighlight} initialHeightDp={nativeBlock.initialHeightDp} renderContent={options?.renderContent}
         initialSelection={{ start: selection ? selection.passage.start - block.start : 0, end: selection ? selection.passage.end - block.start : 0 }}
-        onSelect={passage => updateSelection(passage ? { passage, position: { x: 0, y: 0, width: 0, height: 0 } } : null)}>
-        <Pressable role="button" accessibilityLabel="문구 선택 취소" style={styles.action} onPress={close}><Text style={{ color: colors.green }}>Cancel</Text></Pressable>
-      </NativePassageText>;
+        onSelect={passage => updateSelection(passage ? { passage, position: { x: 0, y: 0, width: 0, height: 0 } } : null)} />;
     }
-    return <HighlightedText key={index} block={block} nativeID={`${id}-block-${index}`} highlights={highlights} otherHighlight={otherHighlight} style={style}
+    return <HighlightedText key={index} block={block} nativeID={`${id}-block-${index}`} highlights={highlights} otherHighlight={otherHighlight} style={style} {...options}
       onLayout={event => { blockHeightsDp.current.set(index, event.nativeEvent.layout.height); }}
       onSelect={Platform.OS !== 'web' && active ? () => selectNativeBlock(index) : undefined}
       onHighlight={(value, y) => { updateSelection({ passage: value, position: { x: 24, y: Number.isFinite(y) ? y : Math.min(240, height / 2), width: width - 48, height: 30 } }); setError(false); }} />;
@@ -139,10 +139,10 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     {active && nativePicker && <NativePassagePicker document={document} onClose={() => setNativePicker(false)} onSelect={passage => { setNativePicker(false); updateSelection({ passage, position: { x: 24, y: 240, width: width - 48, height: 30 } }); }} />}
     {active && selection && !quote && (sharing ? <ShareSheet target={{
           kind: 'quote', id: document.articleId, title: document.title, subtitle: '', authorName: document.author,
-          authorId: articleWriter(document.articleId)?.id,
+          authorId: authorId ?? articleWriter(document.articleId)?.id,
           avatar: publicIdentity(articleWriter(document.articleId) ?? { kind: 'writer', id: '' })?.avatar,
           quote: selection.passage.text, start: selection.passage.start, end: selection.passage.end,
-          visibility: 'public', memberOnly,
+          visibility, memberOnly,
         }} available={resolvePassage(document, selection.passage)} onClose={() => setSharing(false)} /> : nativeBlock === null && <SelectionOverlay onClose={close}>
         <ScrollView keyboardShouldPersistTaps="always" style={[{ position: 'absolute' }, menuPosition]}>
           <View onLayout={event => setMenuHeightDp(event.nativeEvent.layout.height)}>{menu}</View>

@@ -25,7 +25,7 @@ export function ListeningMenu({ onVoice, onOutput, onViewStory }: ListeningMenuP
   }, []);
   if (!snapshot.story) return null;
   const story = snapshot.story;
-  const writer = articleWriter(story.articleId);
+  const writer = articleWriter(story.articleId) ?? (story.authorId ? { kind: 'writer' as const, id: story.authorId } : undefined);
   const muted =
     writer &&
     moderation.state?.value?.muted.some((value) => value.kind === writer.kind && value.id === writer.id);
@@ -76,7 +76,7 @@ export function ListeningMenu({ onVoice, onOutput, onViewStory }: ListeningMenuP
         handOff(() =>
           moderation.open({
             kind: 'report',
-            target: articleReportTarget(story.articleId),
+            target: { ...articleReportTarget(story.articleId), ...(story.authorId ? { writerId: story.authorId } : {}) },
             title: story.title,
           }),
         ),

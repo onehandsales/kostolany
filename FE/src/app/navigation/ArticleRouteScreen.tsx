@@ -33,7 +33,7 @@ type ArticleRouteScreenProps = {
 export function ArticleRouteScreen(props: ArticleRouteScreenProps) {
   if (props.params.articleId === mediumPolicyArticle.id) return <PolicyArticleScreen onBack={props.onBack} active={props.isFocused} />;
   const storyId = writtenStoryId(props.params.articleId);
-  return storyId ? <WrittenStoryScreen storyId={storyId} active={props.isFocused} onBack={props.onBack} /> : <FeedArticleRouteScreen {...props} />;
+  return storyId ? <WrittenStoryScreen storyId={storyId} active={props.isFocused} highlightId={props.params.highlightId} onBack={props.onBack} /> : <FeedArticleRouteScreen {...props} />;
 }
 
 function FeedArticleRouteScreen({

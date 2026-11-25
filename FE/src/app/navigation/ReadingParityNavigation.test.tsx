@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
 
 import { mockUserA } from '../../features/auth/data/mockUsers';
 import { createMockDraftSource } from '../../features/editor/draftSource';
@@ -74,8 +75,10 @@ it.each([false, true])('발행 글 unlisted=%s의 설정·Viewed·이력 재열�
   expect((await history.read(mockUserA.id)).visits.map(item => item.articleId)).toContain(publishedArticleId(story.id));
   await user.press(button(new RegExp(`^${title}\\.`))); await flush();
   expect(screen.getByRole('heading', { name: title })).toHaveStyle({ fontSize: 38.4 });
-  // 본문의 실제 부모 스타일을 확인해 제목만 확대되는 회귀를 막는다.
-  expect(screen.getByText(command.document.body).parent).toHaveStyle({ fontSize: 18 * 1.2, lineHeight: 36, fontFamily: fonts.sans });
+  // 강조 span의 중첩 깊이와 무관하게 본문이 상속하는 실제 글꼴 스타일을 확인한다.
+  let paragraph = screen.getByText(command.document.body);
+  while (paragraph.parent && StyleSheet.flatten(paragraph.props.style)?.fontSize === undefined) paragraph = paragraph.parent;
+  expect(paragraph).toHaveStyle({ fontSize: 18 * 1.2, lineHeight: 36, fontFamily: fonts.sans });
   await user.press(button('작성 글 뒤로')); await user.press(button('Clear history'));
   await user.press(button('Confirm history removal')); await flush();
   expect((await history.read(mockUserA.id)).visits).toEqual([]);

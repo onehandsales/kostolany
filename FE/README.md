@@ -1,5 +1,13 @@
 # Kostolany Mobile
 
+**Git 요청(2026-11-26):** 사용자가 이번 Medium 흐름·RN 리치텍스트·읽기 기능 보완의 커밋과 푸시를 요청했다. 현재 변경을 `main`에 커밋해 `origin/main`으로 푸시하는 범위에 적용한다. 아래 커밋·push 미수행 문구는 구현 당시 기록이며 실제 기기 미검증과 원본 차이 판정은 유지한다.
+
+**현재 편집기 방향(2026-11-26):** [Medium 원본 재대조·연속 리치텍스트 입력·검증](../TODO/FE_MEDIUM_PARITY_01_20_REVIEW.md#medium-editor-followup). 문단별 입력을 `react-native-enriched-html` 기반의 연속 입력으로 교체했다. 이미지 없는 구간 안에서 혼합 문단 서식과 문단 간 OS 선택을 함께 제공하는 구조이며 기존 schemaVersion3·UTF-16·초안/발행 계약은 유지한다. Swift·Kotlin을 직접 작성하지 않았지만 라이브러리에 native 구현이 포함되어 새 development build가 필요하다. Expo Go 지원이나 실제 iOS·Android 실행 완료를 뜻하지 않는다. 읽기 메뉴의 줄 단위 위치와 이미지 경계 선택 등 남은 차이는 연결 문서에 구분한다. 아래 문단별 입력 방식은 이전 이력이다.
+
+**이전 RN 구현 기록(2026-11-25, 아래 방식은 11월26일 교체):** [혼합 문단 입력·본문 선택 메뉴·검증과 제약](../TODO/FE_MEDIUM_PARITY_01_20_REVIEW.md#rn-only-followup). 사용자 지시에 따라 Swift·Kotlin·새 native module 없이 React Native/TypeScript로 구현했다. 문단별 인용선·목록·정렬과 본문을 밀지 않는 선택 메뉴를 추가했으며, 편집기의 문단 간 OS 연속 선택 제한과 실제 기기 미검증을 구분한다. 아래 native adapter 필요 판정은 당시 검토 이력이며 당시 구현 방침을 설명한다.
+
+**Flow 후속 보완(2026-11-25, macOS):** [응답창 이동 오류·발행 글 읽기 도구와 검증](../TODO/FE_MEDIUM_PARITY_01_20_REVIEW.md#flow-followup). 홈·Explore의 남은 응답창을 닫고 발행 글에 Highlight·구절 응답·무음 Listen을 연결했다. 아래 Q11 미지원 기록은 이전 상태이며 native9/11·Q06·자산 차이는 남아 있다. 현재 사용자 요청에 따른 로컬 수정이며 커밋·push는 하지 않는다.
+
 **현재 잔여와 보완(2026-11-25):** [Parity1~20 통합 검토](../TODO/FE_MEDIUM_PARITY_01_20_REVIEW.md). 사진을 먼저 삽입한 글의 앞쪽 입력이 이미지 경계를 깨뜨려 자동 저장에 실패하던 결함을 수정하고 저장→초안 재개→발행 회귀를 추가했다. native 문단 배치/선택 UX·자산/원본·실제 화면/기기 잔여는 유지한다.8081 서버를 보존하며 이번 검증과 한계·후속 순서는 연결 문서를 따른다. 커밋·push·21/22 작업 없음.
 
 **Parity16~20 추가 재검토(2026-11-25):** [발견·수정·이번 검증과 한계](../TODO/FE_MEDIUM_PARITY_16_20_REVIEW.md). 차단 저장과 알림 응답 조회가 같은 렌더 배치에서 완료될 때 이전 정책으로 이동/읽음을 확정하는 결함을 수정했다. 이전 결과와 이번 자동 검사를 구분하며, 이번 브라우저 연결 부재·원본/시각/native 잔여를 유지한다. 사용자 요청 범위는 로컬 커밋까지이며 push·배포·21/22 시작은 제외한다. 아래 기록은 각 당시 결과다.
@@ -139,11 +147,12 @@ React Native 기반 iOS·Android mock 앱이다. Goal14~21에서 Medium 원본�
 | React Navigation / bottom-tabs | 7.5.2 / 7.22.0 |
 | React Navigation native-stack | 7.21.1 |
 | react-native-screens / react-native-svg | 4.26.2 / 15.15.4 |
+| react-native-enriched-html / htmlparser2 | 1.2.0 / 10.1.0 |
 | babel-preset-expo | 57.0.17 |
 
 직접 의존성은 `package.json`에 정확한 버전으로 지정하고, 전체 설치 결과는 `package-lock.json`으로 고정한다. 패키지 관리자는 npm을 사용한다.
 
-2026-11-17 기준 Expo 공식 안내의 SDK 58 전환 기간에는 실기기 Expo Go용으로 SDK 57을 권장한다. 이 기준과 SDK 57의 의존성 검사 결과에 맞췄다. 최신 버전으로 일괄 갱신하지 말고 Expo·React Native·테스트 도구의 호환성을 함께 확인한다.
+SDK57은 기존 프로젝트 기준이다. 2026-11-26 추가한 리치텍스트 라이브러리는 Expo Go에 포함되지 않으므로 현재 앱의 native 실행에는 별도 빌드가 필요하다. 최신 버전으로 일괄 갱신하지 말고 Expo·React Native·테스트 도구의 호환성을 함께 확인한다.
 
 `index.ts`에서 앱을 등록하고 React Navigation의 native-stack 안에 Main 탭과 Article 상세를 둔다. 상세에서는 하단 탭을 숨기고 뒤로 가면 유지된 홈·탐색·읽기 목록으로 복귀한다. Library 탭 안의 별도 stack은 라이브러리와 기본/사용자 목록을 연결한다. 기사 ID·목록 ID·진입 탭·목록 소유자·인증 revision을 전달해 복귀를 구분한다. 로그인 Modal은 공개 화면을 유지하고 사용자 전환은 개인 Library/Profile stack과 시트·초안을 정리하고, 공개 기사 경로를 유지한 채 설명 수준 하위 세션을 현재 계정 기준으로 시작한다. Profile 내부 stack은 프로필·설정·Profile Lists에서 연 목록을 연결한다. Main 내부는 bottom-tabs의 `history` 방식을 사용하며, 홈에서 더 돌아갈 이력이 없으면 OS 기본 뒤로 가기에 맡긴다. Expo Router는 설치하지 않았다. 실제 기기의 뒤로 가기·제스처는 아직 미검증이다. 향후 실제 Google 네이티브 인증을 붙일 때에는 development build와 각 플랫폼 설정을 별도로 확인해야 한다.
 
@@ -163,9 +172,10 @@ npm.cmd start
 
 현재 화면에는 ENV 값이나 Supabase·Google 계정 설정이 필요하지 않다. 기존 사용자 ENV를 새로 만들거나 덮어쓰지 않는다.
 
-- 실기기: 호환되는 Expo Go를 설치하고 PC와 기기를 같은 네트워크에 연결한 뒤 터미널의 QR을 연다.
-- Android 에뮬레이터: Android SDK와 가상 기기를 준비한 뒤 `npm.cmd run android`를 실행한다.
-- iOS 시뮬레이터: macOS와 Xcode가 있는 환경에서 `npm run ios`를 실행한다. Windows에서는 iOS 시뮬레이터를 실행하지 않는다.
+- Android 에뮬레이터: Android SDK와 가상 기기를 준비한 뒤 `npm.cmd run android`로 native 앱을 빌드·설치한다(`expo run:android`).
+- iOS 시뮬레이터: 전체 Xcode/iOS SDK가 있는 macOS에서 `npm run ios`로 native 앱을 빌드·설치한다(`expo run:ios`). Windows에서는 iOS 빌드를 실행하지 않는다.
+- 실기기: 플랫폼 SDK·서명 환경을 준비한 뒤 `npm run ios -- --device` 또는 `npm run android -- --device`로 해당 기기에 빌드한다. Expo Go의 QR 실행은 현재 편집기를 지원하지 않는다.
+- 패키지를 처음 추가하거나 native 의존성을 바꾼 뒤에는 앱을 다시 빌드해야 한다. 위 명령은 Expo가 플랫폼 프로젝트를 생성할 수 있으며 이번 작업 환경에서는 실행하지 않았다.
 - Metro 종료: 실행 중인 터미널에서 `Ctrl+C`를 누른다.
 
 macOS에서는 위 `npm.cmd` 명령을 `npm`으로 실행한다. 서비스 대상은 iOS·Android다. 사용자의 PC 로컬 확인 요청에 따라 `app.json`에 개발용 웹 미리보기도 허용했다.
@@ -284,7 +294,8 @@ src/shared/ui/ContentIllustration.tsx 피드·상세가 공유하는 자체 SVG 
 src/shared/ui/ContentStatus.tsx      로딩·오류·재시도 공통 표시
 src/shared/ui/TabIcon.tsx            자체 SVG 아이콘
 src/app/App.test.tsx                 실제 앱 루트에서 탭 이동 테스트
-test/setup.ts                        Safe Area의 공식 Jest mock
+test/setup.ts                        Safe Area·리치텍스트 native 경계 Jest mock
+test/nativeEditorMock.tsx             native view/명령 대역, 라이브러리 JS·앱은 실제 실행
 jest.config.js                       iOS·Android Jest 설정
 babel.config.js                      Expo Babel 변환
 eslint.config.js                     Expo 기반 lint 설정

@@ -16,6 +16,9 @@ import { createListeningStore, type ListeningStore } from './createListeningStor
 import { createMockListeningSource } from './createMockListeningSource';
 import { idleListening, type ListeningSource } from './types';
 import { createMockListeningOptionsSource, type ListeningOptionsSource } from './listeningOptions';
+import { useCatalogArticles } from '../feed/ArticleCatalog';
+import { mediumArticles } from '../feed/data/mediumFixtures';
+import { writtenStoryId } from '../editor/publishedArticle';
 
 const Context = createContext<{ store: ListeningStore | null; scope: string }>({ store: null, scope: '' });
 type ListeningProviderProps = {
@@ -62,11 +65,14 @@ function ListeningAccessGuard() {
   const membership = useMembership();
   const permitted = !membership || membership.allows('audio');
   const moderation = useArticleModeration();
+  const articles = useCatalogArticles(mediumArticles);
   const isBlocked = snapshot.story ? moderation.blocked(snapshot.story.articleId) : false;
+  const articleId = snapshot.story?.articleId;
+  const revoked = Boolean(articleId && writtenStoryId(articleId) && !articles.some(article => article.id === articleId));
   // 차단 확정 뒤에는 이미 열려 있던 플레이어도 같은 접근 정책을 따른다.
   useLayoutEffect(() => {
-    if (isBlocked || !permitted) store?.close();
-  }, [isBlocked, permitted, store, snapshot.story]);
+    if (isBlocked || !permitted || revoked || moderation.state?.readError) store?.close();
+  }, [isBlocked, permitted, revoked, moderation.state?.readError, store, snapshot.story]);
   return null;
 }
 const subscribeNone = () => () => {};

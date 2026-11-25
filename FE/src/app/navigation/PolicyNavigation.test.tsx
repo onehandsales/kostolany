@@ -17,7 +17,7 @@ afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); AppState.current
 const panel = () => within(screen.getAllByLabelText('Responses 패널').at(-1)!);
 
 async function openResponses(moderationSource = createMockModerationSource({ delay: 0 }),
-  listeningSource = createMockListeningSource({ delayMs: 0 })) {
+  listeningSource = createMockListeningSource({ delayMs: 0 }), card?: 'Home' | 'Explore') {
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await render(<SafeAreaProvider><AppNavigator initialUser={mockUserA}
     moderationSource={moderationSource}
@@ -27,11 +27,35 @@ async function openResponses(moderationSource = createMockModerationSource({ del
       latest: mediumArticles.filter(article => article.id === 'medium-brain'), popular: [], recommended: [],
     } })} articleSource={createMockArticleSource({ delayMs: 0 })} />
   </SafeAreaProvider>);
-  await user.press(await screen.findByRole('button', { name: /^ChatGPT Is Poisoning/ }));
-  await user.press(await screen.findByRole('button', { name: 'Responses' }));
-  await panel().findByRole('heading', { name: 'Responses (7)' });
+  if (card === 'Explore') {
+    await user.press(screen.getByRole('tab', { name: '탐색' }));
+    await user.press(await screen.findByRole('button', { name: 'Responses, How Old Is Your Body? Stand On One Leg and Find Out' }));
+  } else if (card === 'Home') {
+    await user.press(await screen.findByRole('button', { name: 'Responses, ChatGPT Is Poisoning Your Brain...' }));
+  } else {
+    await user.press(await screen.findByRole('button', { name: /^ChatGPT Is Poisoning/ }));
+    await user.press(await screen.findByRole('button', { name: 'Responses' }));
+  }
+  await panel().findByRole('heading', { name: card === 'Explore' ? 'Responses (0)' : 'Responses (7)' });
   return user;
 }
+
+it.each(['Home', 'Explore'] as const)('%s 카드에서 정책 듣기→View story로 이동하면 응답창을 닫고 복귀 후 다시 열 수 있다', async card => {
+  const user = await openResponses(undefined, undefined, card);
+  await user.press(screen.getByRole('button', { name: 'Medium policy' }));
+  await user.press(panel().getByRole('button', { name: 'Listen' }));
+  await panel().findByRole('button', { name: 'Listen 일시정지' });
+  await user.press(panel().getByRole('button', { name: '플레이어 확장: Medium Rules' }));
+  await user.press(screen.getByRole('button', { name: '플레이어 더보기' }));
+  await user.press(screen.getByRole('button', { name: 'View story' }));
+  await waitFor(() => expect(screen.queryByLabelText('Responses 패널', { includeHiddenElements: true })).toBeNull());
+  expect(screen.getByRole('heading', { name: 'Medium Rules' })).toBeVisible();
+  await user.press(screen.getByRole('button', { name: '이전 화면으로 돌아가기' }));
+  expect(screen.queryByLabelText('Responses 패널', { includeHiddenElements: true })).toBeNull();
+  const title = card === 'Home' ? 'ChatGPT Is Poisoning Your Brain...' : 'How Old Is Your Body? Stand On One Leg and Find Out';
+  await user.press(screen.getByRole('button', { name: `Responses, ${title}` }));
+  expect(await panel().findByRole('heading', { name: card === 'Home' ? 'Responses (7)' : 'Responses (0)' })).toBeVisible();
+}, 30000);
 
 it('정책 진입과 중첩 응답 후 원래 초안·정렬·답글 접힘을 보존하고 기사에 복귀한다', async () => {
   const user = await openResponses();

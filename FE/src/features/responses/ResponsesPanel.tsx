@@ -1,5 +1,6 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { NavigationContext, useIsFocused } from '@react-navigation/native';
 import {
   FlatList,
   Keyboard,
@@ -58,6 +59,17 @@ type ResponsesPanelProps = {
 };
 
 export function ResponsesPanel(props: ResponsesPanelProps) {
+  const navigation = useContext(NavigationContext);
+  return navigation ? <FocusedResponsesPanel {...props} /> : <AvailableResponsesPanel {...props} />;
+}
+
+function FocusedResponsesPanel(props: ResponsesPanelProps) {
+  const focused = useIsFocused();
+  // 카드가 계속 마운트되어 있어도 소유 화면이 포커스를 잃으면 응답창을 닫는다.
+  return <AvailableResponsesPanel {...props} active={focused && props.active !== false} />;
+}
+
+function AvailableResponsesPanel(props: ResponsesPanelProps) {
   const scope = useResponseScope();
   const moderation = useArticleModeration();
   const unavailable = props.active === false || (props.target.kind === 'article' && (
