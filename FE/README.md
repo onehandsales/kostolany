@@ -1,6 +1,6 @@
 # Kostolany Mobile
 
-**현재 진행 순서(2026-11-26):** 사용자 확정 [7단계 실행 순서](../TODO/MEDIUM_PARITY/EXECUTION_PLAN.md)에 따라 [Android 개발 실행·사용자 확인](../TODO/FE_MOBILE_EXECUTION_01_RESULT.md)을 거쳐 [2단계 공통 디자인](../TODO/FE_COMMON_DESIGN_02_RESULT.md)을 보정 중이다. 글자 굵기·편집기 아이콘·Saved 중앙·하단 도구 간격을 보완했다. 다음 확인은 기사 글자120%·다크 테마와 남은 원본 대조다. iOS 실행, 실제 휴대폰 종합 검증, 원본 동일성 완료는 각각 미완료로 유지한다.
+**현재 진행 순서(2026-11-26):** 사용자 확정 [7단계 실행 순서](../TODO/MEDIUM_PARITY/EXECUTION_PLAN.md)에 따라 [Android 개발 실행·사용자 확인](../TODO/FE_MOBILE_EXECUTION_01_RESULT.md)을 거쳐 [2단계 공통 디자인](../TODO/FE_COMMON_DESIGN_02_RESULT.md)을 보정 중이다. 글자 굵기·편집기 아이콘·Saved 중앙·하단 도구 간격을 보완했고, 기사 글자120%·다크 테마·기본값 복귀는 사용자 확인을 통과했다. S037 기사 상단과 표지 파일을 대조했으며 다음은 남은 서체·자산·시작 화면과 동일 콘텐츠 비교다. iOS 실행, 실제 휴대폰 종합 검증, 원본 동일성 완료는 각각 미완료로 유지한다.
 
 **Git 요청(2026-11-26):** 사용자가 이번 Medium 흐름·RN 리치텍스트·읽기 기능 보완의 커밋과 푸시를 요청했다. 현재 변경을 `main`에 커밋해 `origin/main`으로 푸시하는 범위에 적용한다. 아래 커밋·push 미수행 문구는 구현 당시 기록이며 실제 기기 미검증과 원본 차이 판정은 유지한다.
 

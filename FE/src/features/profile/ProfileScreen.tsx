@@ -147,10 +147,17 @@ export function ProfileScreen({
               </View>
             </Pressable>
           </View>
-          {onboarding.canResume && <Pressable role="button" accessibilityLabel="온보딩 이어서 하기"
-            style={visual.action} onPress={() => onboarding.session?.open()}>
-            <Text style={visual.caption}>Continue setup</Text>
-          </Pressable>}
+          {onboarding.canResume && (
+            <Pressable
+              role="button"
+              accessibilityLabel="온보딩 이어서 하기"
+              style={({ pressed }) => [visual.setupAction, pressed && visual.pressed]}
+              onPress={() => onboarding.session?.open()}
+            >
+              <Text style={[visual.green, visual.grow]}>Continue setup</Text>
+              <AppIcon name="chevron" size={16} />
+            </Pressable>
+          )}
           <View style={visual.tabs}>
             {(['Stories', 'Lists', 'About'] as const).map((tab) => (
               <Pressable
@@ -286,6 +293,16 @@ const createVisual = (colors: ThemeColors) => StyleSheet.create({
   caption: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
   actions: { marginHorizontal: 24, marginTop: 16, flexDirection: 'row', gap: 8 },
   action: { flex: 1, minHeight: 48, justifyContent: 'center' },
+  setupAction: {
+    marginHorizontal: 24,
+    marginTop: 4,
+    minHeight: 48,
+    paddingVertical: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  pressed: { opacity: 0.6 },
   pill: {
     minHeight: 38,
     borderWidth: 1,

@@ -93,5 +93,16 @@ Set-Location D:\git_repository\kostolany_project\FE\android
 - 사용자가 Windows에서 직접 확인하는 방법을 요청해 자동 검사용 에뮬레이터를 종료하고 창이 보이는 모드로 다시 열었다. 창 제목은 `Android Emulator - Kostolany_API_36:5556`이며 `emulator-5556`으로 접근한다. 설치된 APK는 유지하고 앱 시작 `Status: ok`를 확인했다. Metro는 기존 localhost8081 감시 서버를 유지했다. 앱 재실행 시 mock 메모리는 초기화된다.
 - 실행 준비에는 프로세스 `ANDROID_HOME=D:\Android\Sdk`, `ANDROID_AVD_HOME=D:\git_repository\kostolany_project\FE\.cache\avd`를 사용한다. 창을 표시하는 가상 기기 실행 명령은 `D:\Android\Sdk\emulator\emulator.exe -avd Kostolany_API_36 -port 5556 -no-audio -no-snapshot -no-boot-anim -gpu swiftshader -scale 0.75`다. `-no-window`는 창 없는 자동 검사에만 사용한다. 이미 실행 중이면 중복 실행하지 않는다.
 - Metro는 별도 터미널의 FE에서 `npx.cmd --no-install expo start --localhost --port 8081 --max-workers 2`로 실행한다. `adb -s emulator-5556 reverse tcp:8081 tcp:8081` 후 앱을 연다. Windows 명령 검색 경로에 adb가 없으므로 현재는 `D:\Android\Sdk\platform-tools\adb.exe` 전체 경로를 사용한다.
+- 후속 앱 복귀 검사에서 `Cannot connect to Expo CLI` 경고와 번들 주소 `10.0.2.2:8081`을 확인했다. 기존 Metro/ADB reverse를 유지하고 Android Dev Menu→Change Bundle Location을 `localhost:8081`로 변경했다. 다시 불러온 뒤 기사→Android 홈5초→런처 복귀에서 스크롤 위치가 유지되고 경고가 재발하지 않았다. [프로필 보정과 함께 확인한 결과](FE_COMMON_DESIGN_02_RESULT.md)를 참조한다.
 - Android 개발 실행의 첫 확인은 완료했다. 현재 Windows에서 Android 화면·공통 UI 작업을 진행하고 iOS 실행 검증을 별도 미완료로 유지한다. iOS 빌드·실행과 대표 화면의 동일 fixture 원본 대조가 남아 있어1단계 전체 완료로 판정하지 않는다.
 - 단일 문단 선택 손잡이·강조·응답·목록 저장의 사용자 확인은 위8항목에 반영했다. 한글 IME·Undo/Redo·다중 문단/이미지 경계 선택·사진·공유·접근성·실제 휴대폰 종합 검증과 전체 원본 동일성은 이후 단계에 유지한다. [2단계 공통 디자인 첫 보정](FE_COMMON_DESIGN_02_RESULT.md)은 별도 기록하며2~7단계 종료를 이번 기본 흐름 검사로 대신하지 않는다.
+
+### 한글 입력 환경 보완 — 2026-11-26
+
+사용자가 수동 검사1에서 한글을 입력할 수 없다고 보고했다. 시작 시 Gboard는 English (US)만 등록돼 있었고, Physical keyboard의 Show on-screen keyboard는 꺼져 있었다. Android Settings→On-screen keyboard→Gboard→Languages에서 한국어 두벌식을 추가하고 화면 자판을 활성화했다. Windows 입력기·프로젝트 ENV·OS 표시 언어는 변경하지 않았다.
+
+추가 직후에는 실제 자판으로 입력한 `한글`이 제목·본문뿐 아니라 Android Settings 검색창에서도 `ㅎㅏㄴㄱㅡㄹ`로 분리됐다. 사용자도 설정 검색창에서 직접 클릭한 결과가 같다고 확인했다. Gboard 로그에서 한국어 사전 다운로드가12:14:02에 완료된 것을 확인하고, Kostolany/Metro/에뮬레이터를 유지한 채 Gboard 프로세스만 재시작했다. 이후 본문에서 물리 키 이벤트 `gksrmf`→`한글`, 화면 자판 클릭 `ㄱ+ㅏ`→`가`, 화면 자판 클릭 `ㅎ+ㅏ+ㄴ+ㄱ+ㅡ+ㄹ`→`한글`을 실제로 확인했다. 재시작 전후 결과이며 언어팩 내부 결함의 정확한 원인을 확정한 것은 아니다.
+
+Gboard의 PC 키보드용 Show toolbar는 껐으며, 입력 위치 옆 언어 메뉴의 터치 키보드 표시로 한국어 자판을 펼쳤다. 이 에뮬레이터에서는 떠 있는 자판으로 표시되므로 실제 휴대폰의 키보드 배치 증거와 구분한다. 확인용으로 직접 입력한 제목·본문만 일치 여부를 검사한 뒤 비워 사용자 검사를 다시 시작할 수 있게 했다. 편집기 진단용 임시 변경은 제거했으며 최종 제품 코드 변경은 없다. 앱 테스트를 재실행하지 않았고 문서 diff만 검사한다.
+
+현재 판정은 **한국어 키보드 준비와 짧은 조합 입력의 에이전트 확인 통과**다. 사용자 검사1의 전체 문장, 중간 삽입·삭제·빠른 조합·서식·저장 재개와 나머지7개 검사는 아직 미확인이다. 한글 검사 전체나3단계 완료로 처리하지 않는다.
