@@ -22,6 +22,7 @@ function textFromNodes(nodes: HtmlNode[]): string {
     if (node.type === 'text') return node.data;
     if (node.type !== 'tag') return '';
     if (node.name === 'br') return '\n';
+    if (node.name === 'img') return '\uFFFC';
     const text = textFromNodes(node.children);
     return ['p', 'li', 'h1', 'h2'].includes(node.name) ? `${text}\n` : text;
   }).join('');

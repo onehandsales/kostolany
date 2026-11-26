@@ -8,6 +8,7 @@ import { createMockAuthSource } from '../../features/auth/data/createMockAuthSou
 import { mockUserA, mockUserB } from '../../features/auth/data/mockUsers';
 import { createMockEditorImageSource, type EditorImageSource, type ImageAsset, type ImageLease } from '../../features/editor/imageSource';
 import { SessionNavigation } from './AppNavigator';
+import { createDeviceEditorImageSource } from '../../features/editor/createDeviceEditorImageSource';
 
 beforeEach(() => jest.useFakeTimers()); afterEach(() => jest.useRealTimers());
 const button = (name: string) => screen.getByRole('button', { name });
@@ -29,6 +30,46 @@ async function setup(source: EditorImageSource) {
     await act(async () => { auth.openLogout(); await auth.signOut(); auth.openLogin({ kind: 'write' }); await auth.signIn(id); });
   } };
 }
+
+it('사진 경계 선택 모드의 한 입력에서 앞뒤 선택·교체·Undo를 연결하고 기존 사진 삭제 화면으로 돌아온다', async () => {
+  const base = createMockEditorImageSource({ delayMs: 0 });
+  const { user, open, pick } = await setup({ ...base, resolve: () => ({ uri: 'file:///fixture.jpg' }) });
+  await open(); await fireEvent.changeText(screen.getByLabelText('글 제목'), '연속 선택');
+  await fireEvent.changeText(screen.getByLabelText('글 본문'), '앞 😀');
+  await fireEvent(screen.getByLabelText('글 본문'), 'selectionChange', { nativeEvent: { selection: { start: 4, end: 4 } } });
+  await pick(); await flush();
+  await fireEvent.changeText(screen.getByLabelText('이미지 뒤 본문 1'), '뒤');
+  await user.press(button('편집기 더보기')); await user.press(button('Select across photos')); await flush();
+  expect(screen.queryByLabelText('이미지 뒤 본문 1')).toBeNull();
+  const html = screen.getByTestId('native-editor-글 본문').props.accessibilityValue.text;
+  expect(html).toContain('<img src="file:///fixture.jpg"');
+  await fireEvent(screen.getByLabelText('글 본문'), 'focus');
+  await fireEvent(screen.getByLabelText('글 본문'), 'selectionChange', { nativeEvent: { selection: { start: 0, end: 8 } } });
+  await user.press(button('굵게'));
+  expect(screen.getByTestId('native-editor-글 본문').props.accessibilityValue.text).toContain('<b>뒤</b>');
+  await fireEvent(screen.getByLabelText('글 본문'), 'changeHtml', { nativeEvent: { value: '<p>교체</p>' } });
+  await user.press(button('Undo'));
+  expect(screen.getByTestId('native-editor-글 본문').props.accessibilityValue.text).toContain('<img');
+  await user.press(button('편집기 더보기')); await user.press(button('Finish photo selection')); await flush();
+  expect(screen.getByLabelText('이미지 뒤 본문 1')).toBeVisible();
+  await user.press(button('해질녘 풍경 이미지 선택')); await user.press(button('해질녘 풍경 이미지 삭제'));
+  await user.press(button('Undo')); expect(button('해질녘 풍경 이미지 선택')).toBeVisible();
+}, 30000);
+
+it('삭제한 기기 사진은 미리보기 왕복 뒤에도 Undo로 복원되고 편집 수명이 끝날 때 정리된다', async () => {
+  const release = jest.fn();
+  const source = createDeviceEditorImageSource(async () => ({ image: { id: 'device-photo', uri: 'file:///photo.jpg', width: 800, height: 600 }, release }));
+  const { user, open, view } = await setup(source);
+  await open(); await fireEvent.changeText(screen.getByLabelText('글 제목'), '사진 이력');
+  await fireEvent.changeText(screen.getByLabelText('글 본문'), '앞 문장');
+  await user.press(button('이미지 삽입')); await user.press(button('사진 라이브러리 선택')); await flush();
+  await user.press(button('선택한 사진 이미지 선택')); await user.press(button('선택한 사진 이미지 삭제')); await flush();
+  expect(release).not.toHaveBeenCalled();
+  await user.press(button('Next')); await user.press(button('발행 미리보기 닫기'));
+  await user.press(button('Undo')); expect(button('선택한 사진 이미지 선택')).toBeVisible();
+  expect(source.resolve('device-photo')).toEqual({ uri: 'file:///photo.jpg' });
+  await view.unmount(); await act(async () => {}); expect(release).toHaveBeenCalledTimes(1);
+}, 30000);
 
 it('실제 홈에서 이미지 삽입 실패·재시도와 앞뒤 본문 편집·삭제·저장 후 새 글을 연결한다', async () => {
   const { user, open, pick } = await setup(createMockEditorImageSource({ delayMs: 0, prepareFailures: 1 }));

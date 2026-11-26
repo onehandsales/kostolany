@@ -14,7 +14,7 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator, type NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { StoryEditorScreen, EditorExitDialog } from '../../features/editor/StoryEditorScreen';
 import { createDraftSession } from '../../features/editor/createDraftSession';
 import { createMockDraftSource, type DraftSource } from '../../features/editor/draftSource';
@@ -660,6 +660,13 @@ function EditorSessionRoute({ route, navigation, imageSource, source, draftId }:
   const [stage, setStage] = useState<PublishStage | null>(null);
   const [session] = useState(() => createDraftSession(source, store, { userId: route.params.ownerId, revision: route.params.revision, draftId, isNew: route.params.isNew }));
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot);
+  const historyLease = useRef<(() => void) | undefined>(undefined);
+  useLayoutEffect(() => {
+    // 미리보기 왕복 중에도 이력 사진을 보유하고 새 참조를 확보한 뒤 이전 참조를 해제한다.
+    const release = imageSource.retainHistory?.(snapshot.historyAssetIds);
+    historyLease.current?.(); historyLease.current = release;
+  }, [imageSource, snapshot.historyAssetIds]);
+  useLayoutEffect(() => () => { historyLease.current?.(); historyLease.current = undefined; }, []);
   useEffect(() => session.activate(), [session]);
   const [pending, setPending] = useState<NavigationAction | null>(null);
   const [failedExit, setFailedExit] = useState(false);

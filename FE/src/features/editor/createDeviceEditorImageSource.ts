@@ -59,6 +59,10 @@ export function createDeviceEditorImageSource(pick: LocalImagePicker = pickLocal
       documents = new Set(assetIds);
       sweep();
     },
+    retainHistory(assetIds) {
+      const leases = [...new Set(assetIds)].flatMap(id => { const entry = entries.get(id); return entry ? [retain(entry)] : []; });
+      return () => leases.forEach(lease => lease.release());
+    },
     async pick(origin, signal) {
       const current = generation;
       const lease = await pick(origin, signal, 1600);

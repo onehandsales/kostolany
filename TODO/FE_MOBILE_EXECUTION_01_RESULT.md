@@ -1,5 +1,42 @@
 # 모바일 실행 환경과 비교 조건 — 1단계
 
+<a id="editor-history-20261126"></a>
+
+## Undo/Redo·사진 경계 선택 후속 — 2026-11-26
+
+기존7단계와 사용자 통과29개(대표24개+N1~N5)는 유지한다. 이번 범위는 사용자 지정 순서인 Undo/Redo→사진 경계 연속 선택→서체·배치·자산 검토다. 전체 아이콘 통일, 읽기 화면의 Android 기본 선택 메뉴 제거와 Copy 사용자 재확인은 계속 보류한다. 사용자 후속 요청으로 완료한 변경의 커밋과 `origin/main` Push까지 승인됐다.
+
+### 구현과 지원 범위
+
+- `createDraftSession`의 문서 이력에 제목·본문·서식·사진·선택 범위·입력 서식을 보관한다. 같은 대상의 연속 일반 입력은750ms 안에서 묶고 최대100단계를 보관한다. 새 편집은 Redo를 지우며 발행 옵션 변경은 본문 이력에 섞지 않는다. Undo/Redo와 같은 렌더에서 연달아 들어온 native 입력 모두 현재보다 높은 저장 버전을 사용한다. 본문 조합 입력·사진 준비·발행 잠금 동안 UI 명령을 막는다. 제목의 조합 도중 Undo는 실제 기기 추가 확인 범위다. 이력은 현재 편집 세션 범위이며 초안 재진입/앱 재시작까지 영속 보관하지 않는다.
+- 사진 파일의 이력 참조를 편집 route에서 보유해 삭제→자동 저장→미리보기 왕복→Undo에도 파일이 남도록 했다. 새 참조를 먼저 확보하고 이전 참조를 해제하며 이력 탈락/편집 수명 종료 때 정리한다.
+- 사진이 있는 편집기의 `… → Select across photos`에서 앞 문장·사진·뒤 문장을 한 `EnrichedTextInput`에 표시한다. 원래 사진 ID·assetId·크기·출처·설명과 schemaVersion3/UTF-16 좌표를 유지하며 표시 크기만 본문 폭에 맞춘다. `… → Finish photo selection`으로 범위를 접고 기존 사진 테두리·× 삭제·실패 재시도 UI로 돌아온다. 웹은 기존 구현을 유지한다.
+- 설치된 enriched-html1.2.0의 편집 입력에는 사진 클릭 좌표/사진 전용 선택 이벤트가 없고 `onImagePress`는 읽기 `EnrichedText`에 있다. 기존 사진 조작을 보존하기 위한 명시적 모드이며 Medium의 기본 편집 화면과 완전히 같은 조작이라고 판정하지 않는다. [공식 입력 API](https://docs.swmansion.com/react-native-enriched-html/api-reference/enriched-text-input/)와 설치 패키지 `src/types.ts`/Android `EnrichedParser.java`를 확인했다. Kotlin·Swift·패키지·native 빌드는 변경하지 않았다.
+- Android Cut은 최종 삭제 전에 이미지 span만 빠지고 U+FFFC가 남은 HTML을 보낸다. 실제 실행에서 이 중간 상태가 Undo 이력에 들어가는 결함을 발견했다. 이미지 정보 없는 U+FFFC 문서를 유효하지 않은 것으로 판정해 저장/이력 반영을 막고 재현 테스트를 추가했다. 이미지 행의 줄바꿈만 합쳐도 native 입력에 독립 행을 복원한다. 미등록 외부 이미지 URL을 새 자산으로 저장하지 않는다.
+
+### 실행 확인과 검증
+
+동일 프로젝트용 Android16/API36 AVD,1170×2532·density480에서 에이전트의 별도 검사 초안으로 확인했다. 초기 `Editor change check`에서는 일반 본문 Undo→Redo, 사진 포함 단일 입력 표시, 사진 뒤 `After`의 시작 손잡이를 사진 앞 `Before`까지 드래그해 사진과 앞뒤 텍스트가 함께 선택되는 것을 확인했다. 손잡이를 이미지 경계에서 한 번 더 끌어야 했으며 모든 기기/스크롤 조건의 정밀 이동을 보장한 것은 아니다.
+
+최종 코드의 새 `Editor verification`에서는 `Before.`→사진→`After.`를 입력하고 전체 범위 Cut→빈 본문→Undo로 두 문장과 실제 사진 복원→Redo로 빈 본문→Undo로 재복원했다. 화면과 접근성 본문 `Before.\nU+FFFC\nAfter.`를 함께 확인했다. Android 클립보드 미리보기가 도구 위를 가리는 동안에는 미리보기를 닫은 후 조작했다. 개발용 추적 출력을 제거한 코드로 재실행했으며 임시 로그/캡처 파일은 만들지 않았다. 자동 검사와 후속 저장·재진입 결과는 아래 최종 확인에 기록한다.
+
+**최종 확인:** 사진 선택 모드 종료 후 `Before.`/기존 사진 선택 버튼/`After.`가 복원됐고, 사진× 삭제→Undo로 같은 사진이 다시 나타났다. Next 미리보기에서 표지와 두 문장이 유지됐다. 편집기로 복귀→Close 저장→프로필 Drafts→`Editor verification` 재개 후 제목·두 문장·사진을 확인했다. 새 편집 세션의 Undo/Redo는 비활성 상태로 시작한다. 현재 AVD는 창 없는 자동 검사 상태이며 이 초안을 재개한 상태로 유지했다.
+
+검증: 최종 `npm.cmd run typecheck`, 변경18개 TS/TSX 파일 lint, `git diff --check` 통과. 편집기 전체와 Editor/Drafts/PublishedReading 내비게이션을 iOS/Android Jest 설정으로 실행해42 suites·210 tests 통과(106.737초, 실패/skip0). Cut 중간 HTML·같은 렌더의 낮은 버전·사진 삭제 후 미리보기 왕복/Undo·동일 자산 중복 삽입·이미지 행 정규화 재현을 포함한다. 앞선20 suites·120 tests와 수정 뒤12 suites·94 tests는 중간 실행이며 최종210과 더해서 집계하지 않는다. 문서 로컬 링크506개에서 신규 누락0과 새 anchor2개를 확인했다. iOS Jest 설정 통과는 실제 iOS 실행이 아니다.
+
+### 실행 데이터 보존 실패 기록
+
+코드 변경 전 에이전트가 개발 메뉴에서 `Disable Fast Refresh`를 눌렀을 때 기존 앱 프로세스가 종료됐다.17:36:45 logcat의 `BridgelessReactContext$BridgelessJSModuleInvocationHandler.invoke` NullPointerException, `$Proxy5.disable`, `DevSupportManagerBase.kt:488`이 직접 근거다. 이 앱의 mock 초안·발행·개인 상태는 메모리 전용이므로 기존 실행 중 검사 데이터를 복구하지 못했다. 사용자에게 즉시 알렸으며 기존29개 통과 기록·원본·코드·저장 계약을 삭제/초기화하지 않았다. 기존 데이터 보존 요구를 충족했다고 주장하지 않는다.
+
+이후 기존 에뮬레이터 프로세스도 종료된 것을 확인해 동일 AVD를 `-no-window -no-snapshot`으로 실행했다. 앱 데이터 삭제·재설치·AVD wipe·Metro 재시작은 하지 않았다. 위 별도 초안은 기존 검사 데이터를 복구한 것이 아니다. 개발 메뉴 예외 수정과 mock 데이터 영속화는 이번 RN/TypeScript 기능 범위를 넘어 구현하지 않았다.
+
+### 사용자에게 요청할 변경 부분만
+
+1. 새 글에서 한 문장을 입력한 뒤 아래 왼쪽 굽은 화살표(Undo)→오른쪽 화살표(Redo)를 누른다. 문장이 사라졌다 돌아오는지 확인한다.
+2. `앞 문장→사진→뒤 문장`을 만든 뒤 상단 `… → Select across photos`를 누른다. 뒤 문장을 길게 눌러 시작 손잡이를 사진 앞까지 올린다. 선택 범위를 잘라내고 클립보드 미리보기가 사라진 뒤 Undo를 누르면 사진과 문장이 돌아와야 한다. `… → Finish photo selection`으로 돌아와 사진을 눌러 기존×가 보이는지 확인한다.
+
+기존29개를 다시 요청하지 않는다. 원본 폰트·사진·인용선 위치, 이 모드의 원본 조작 차이, 실제 iOS와 사진을 가로지르는 읽기 화면 선택은 미해결로 유지한다. 공통 디자인 상세는 [이번 보정](FE_COMMON_DESIGN_02_RESULT.md#editor-history-design-20261126)을 따른다.3·4단계 전체 완료나5·6·7단계 완료로 올리지 않는다.
+
 <a id="manual-batch-20261126"></a>
 
 ## 후속 사용자 일괄 검사 — 3·4단계, 2026-11-26

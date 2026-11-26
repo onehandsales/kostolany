@@ -4,12 +4,13 @@ import { EnrichedTextInput, type EnrichedTextInputInstance, type OnChangeStateEv
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
 import { validEditorDocument, type EditorValue, type TextSelection } from './editorModel';
-import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, valueFromNativeHtml } from './nativeEditorHtml';
+import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, valueFromNativeHtml, type EditorImageUris } from './nativeEditorHtml';
 
 export type RichBodyProps = {
   value: EditorValue; onChange: (value: EditorValue) => void; onSelect: (selection: TextSelection) => void;
   onFocus: () => void; onBlur: () => void; onComposing: (value: boolean) => void;
   focusRequest: number; dismissRequest: number; label?: string; minHeight?: number; isActive?: boolean;
+  imageUris?: EditorImageUris; imageWidth?: number;
 };
 
 // 이미지 사이의 연속 문서를 한 native 입력에 두어 문단 서식과 OS 연속 선택을 함께 유지한다.
@@ -27,8 +28,9 @@ export function RichBody(props: RichBodyProps) {
   const replacing = useRef(false);
   const replacement = useRef(0);
   const rendered = useRef(editorHtml(props.value.document));
-  const appearance = useRef(colors.secondaryText);
-  const [initialHtml] = useState(() => editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText }));
+  const appearanceKey = JSON.stringify([colors.secondaryText, props.imageWidth, props.imageUris]);
+  const appearance = useRef(appearanceKey);
+  const [initialHtml] = useState(() => editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText, imageWidth: props.imageWidth }, props.imageUris));
   useLayoutEffect(() => {
     mounted.current = true;
     return () => { mounted.current = false; replacement.current += 1; };
@@ -39,7 +41,7 @@ export function RichBody(props: RichBodyProps) {
     if (!mounted.current) return;
     const previous = current.current;
     const selected = nativeRange.current?.text === nativeText.current ? nativeRange.current.selection : undefined;
-    const next = valueFromNativeHtml(html, previous, selected);
+    const next = valueFromNativeHtml(html, previous, selected, latest.current.imageUris);
     if (!validEditorDocument(next.document)) return;
     const canonical = editorHtml(next.document);
     // setValue의 반영 이벤트를 받기 전까지 이전 입력 이벤트가 새 서식을 되돌리지 못하게 한다.
@@ -48,26 +50,28 @@ export function RichBody(props: RichBodyProps) {
       replacing.current = false;
     }
     latest.current.onComposing(false);
-    nativeText.current = nativeEditorText(next.document);
-    if (canonical === rendered.current) return;
-    rendered.current = canonical;
+    const normalizedText = nativeEditorText(next.document);
+    const needsNormalization = nativeText.current !== normalizedText;
+    nativeText.current = normalizedText;
+    if (canonical === rendered.current && !needsNormalization) return;
+    rendered.current = needsNormalization ? '' : canonical;
     current.current = next;
     latest.current.onChange(next);
   }
 
   useLayoutEffect(() => {
     const html = editorHtml(props.value.document);
-    if (html === rendered.current && appearance.current === colors.secondaryText) return;
+    if (html === rendered.current && appearance.current === appearanceKey) return;
     const target = input.current;
     if (!target) return;
     const request = ++replacement.current;
     replacing.current = true;
     rendered.current = html;
-    appearance.current = colors.secondaryText;
+    appearance.current = appearanceKey;
     nativeText.current = nativeEditorText(props.value.document);
     nativeRange.current = null;
     const selection = nativeEditorSelection(props.value.document, props.value.selection);
-    target.setValue(editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText }));
+    target.setValue(editorHtml(props.value.document, { sans: fonts.sans, secondaryText: colors.secondaryText, imageWidth: props.imageWidth }, props.imageUris));
     target.setSelection(selection.start, selection.end);
     // 외부 서식 적용 중 큐에 남은 이전 HTML 이벤트는 버리고 명령 뒤의 실제 native 문서를 읽는다.
     void target.getHTML().then(value => {

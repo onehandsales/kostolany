@@ -15,6 +15,8 @@ export type AppIconName =
   | 'bell'
   | 'write'
   | 'bold'
+  | 'undo'
+  | 'redo'
   | 'italic'
   | 'link'
   | 'keyboard-dismiss'
@@ -87,6 +89,8 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
         </>
       )}
       {name === 'bold' && <Path d="M6 4h7a4 4 0 0 1 0 8H6Zm0 8h8a4 4 0 0 1 0 8H6Z" strokeWidth={2.5} />}
+      {name === 'undo' && <Path d="M9 4 4 9l5 5M4 9h10a6 6 0 0 1 0 12" strokeWidth={1.75} />}
+      {name === 'redo' && <Path d="m15 4 5 5-5 5m5-5H10a6 6 0 0 0 0 12" strokeWidth={1.75} />}
       {name === 'italic' && <Path d="M11 4h8M5 20h8M15 4 9 20" strokeWidth={2} />}
       {name === 'link' && <Path d="m10 14 4-4M8 12l-2 2a3.5 3.5 0 0 0 5 5l3-3a3.5 3.5 0 0 0 0-5M16 12l2-2a3.5 3.5 0 0 0-5-5l-3 3a3.5 3.5 0 0 0 0 5" strokeWidth={1.75} />}
       {name === 'keyboard-dismiss' && <>

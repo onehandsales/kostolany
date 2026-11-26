@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode, type
 import { ActivityIndicator, Image, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
-import { fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { fonts, fontWeights, type ThemeColors } from '../../shared/theme/tokens';
 import { FormTextInput } from '../../shared/ui/FormTextInput';
 import type { PublishStage } from './PublishPreview';
 import { RichDocumentBody } from './RichDocumentBody';
@@ -55,6 +55,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
   const wasLinkOpen = useRef(false);
   const [error, setError] = useState<string | null>(null);
   const [more, setMore] = useState(false);
+  const [continuousPhotos, setContinuousPhotos] = useState(false);
   useEffect(() => cancelImageFocus, [images]);
   function cancelImageFocus() {
     if (imageFocusFrame.current !== null) cancelAnimationFrame(imageFocusFrame.current);
@@ -82,6 +83,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
   }, [link]);
   const selected = selectedLines(value); const block = selected[0]?.kind ?? 'paragraph';
   const enabled = bodyTarget && !composing;
+  const historyDisabled = composing || Boolean(insertion.pending) || ['pending', 'uncertain', 'done'].includes(snapshot.publishStatus);
   function apply(next: EditorValue) { setValue(next); if (!link) requestFocus(current => current + 1); }
   function cycle(kinds: BlockKind[]) { const index = kinds.indexOf(block); apply(setBlock(value, kinds[index < 0 ? 1 : (index + 1) % kinds.length]!)); }
   function closeLink() { setLink(null); setError(null); }
@@ -126,7 +128,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
           value={value.document.title} onChangeText={title => setValue(current => ({ ...current, document: { ...current.document, title, version: current.document.version + 1 } }))}
           onContentSizeChange={event => setTitleHeight(Math.max(48, event.nativeEvent.contentSize.height))} scrollEnabled={false}
           onFocus={() => { setBodyTarget(false); setFocused(false); }} style={[styles.title, { height: titleHeight }]} />
-        <RichDocumentBody source={images} value={value} onChange={setValue} onSelect={selection => setValue(current => selectText(current, selection))}
+        <RichDocumentBody source={images} continuous={continuousPhotos} value={value} onChange={setValue} onSelect={selection => setValue(current => selectText(current, selection))}
           onFocus={() => { setBodyTarget(true); setFocused(true); }} onBlur={() => setFocused(false)} onComposing={setComposing} focusRequest={focusRequest} dismissRequest={dismissRequest} />
         {insertion.pending && <View style={{ borderWidth: 3, borderColor: colors.green, marginVertical: 24 }}>
           <Image source={images.resolve(insertion.pending.asset.assetId)} accessibilityLabel={insertion.pending.asset.description}
@@ -145,7 +147,10 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         const current = session.getSnapshot().value; const range = mentionQuery(captured);
         if (range && current.document === captured.document && current.selection.start === captured.selection.start && current.selection.end === captured.selection.end) apply(insertMention(current, range, target));
       }} />
-      {bodyTarget && !mentionQuery(value) && (focused || value.selection.start !== value.selection.end) && <View style={styles.inlineTools}>
+      <View style={styles.inlineTools}>
+        <EditorInlineToolButton icon="undo" label="Undo" disabled={historyDisabled || !snapshot.canUndo} onPress={() => session.undo()} />
+        <EditorInlineToolButton icon="redo" label="Redo" disabled={historyDisabled || !snapshot.canRedo} onPress={() => session.redo()} />
+      {bodyTarget && !mentionQuery(value) && (focused || value.selection.start !== value.selection.end) && <>
         <EditorInlineToolButton icon="bold" label="굵게" disabled={!enabled} selected={value.typing.some(format => format.kind === 'bold')}
           onPress={() => apply(toggleFormat(value, { kind: 'bold' }))} />
         <EditorInlineToolButton icon="italic" label="기울임" disabled={!enabled} selected={value.typing.some(format => format.kind === 'italic')}
@@ -154,7 +159,8 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
           onPress={() => { setError(null); setLink({ url: value.typing.find(format => format.kind === 'link')?.url ?? '', value }); }} />
         <EditorInlineToolButton icon="keyboard-dismiss" label="키보드 닫기"
           onPress={() => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); }} />
-      </View>}
+      </>}
+      </View>
       {/* 멘션 입력 중에는 원본처럼 후보 영역이 서식 도구 자리를 사용한다. */}
       {!(bodyTarget && !composing && mentionQuery(value)) && <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
         {tool('헤더 서식', 'Tᴛ', () => cycle(['paragraph', 'heading', 'subheading']), ['heading', 'subheading'].includes(block))}
@@ -183,6 +189,15 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         <Pressable role="button" accessibilityLabel="작성 메뉴 닫기" onPress={() => setMore(false)} style={StyleSheet.absoluteFill} />
         <SafeAreaView pointerEvents="box-none" style={styles.menuAnchor}>
           <View role="dialog" accessibilityLabel="작성 메뉴" style={styles.menu}>
+            {Platform.OS !== 'web' && (value.document.images.length > 0 || continuousPhotos) && <Pressable role="button"
+              accessibilityLabel={continuousPhotos ? 'Finish photo selection' : 'Select across photos'} style={styles.menuItem}
+              disabled={historyDisabled} onPress={() => {
+                setMore(false);
+                if (continuousPhotos) setValue(current => selectText(current, { start: current.selection.end, end: current.selection.end }));
+                setContinuousPhotos(current => !current); setBodyTarget(true); restoreImageFocus(true);
+              }}>
+              <Text style={styles.menuText}>{continuousPhotos ? 'Finish photo selection' : 'Select across photos'}</Text>
+            </Pressable>}
             {['Drafts', 'Submit to publication', 'Add or edit topics', 'Edit story preview'].map(item => <Pressable key={item} role="button" accessibilityLabel={item} style={[styles.menuItem, item === 'Edit story preview' && { borderBottomWidth: 0 }]}
               disabled={Boolean(insertion.pending)} onPress={() => { setMore(false); if (item === 'Drafts') onDrafts(); else onPreview(item === 'Submit to publication' ? 'publication' : item === 'Add or edit topics' ? 'topics' : 'preview'); }}><Text style={styles.menuText}>{item}</Text></Pressable>)}
           </View>
@@ -210,9 +225,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 38, fontWeight: '700', color: colors.text, padding: 0, marginBottom: 11, minHeight: 48, outlineStyle: 'solid', outlineWidth: 0 },
   toolbar: { flexGrow: 0, flexShrink: 0, height: 50, minHeight: 50, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border }, tools: { flexGrow: 1, paddingHorizontal: 9, minHeight: 48, alignItems: 'center', justifyContent: 'space-between' },
   tool: { minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }, toolText: { fontFamily: fonts.sans, fontSize: 20, color: colors.secondaryText }, activeToolText: { color: colors.green }, dim: { opacity: 0.45 },
-  inlineTools: { flexDirection: 'row', flexShrink: 0, justifyContent: 'center', paddingHorizontal: 8, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
+  inlineTools: { flexDirection: 'row', flexShrink: 0, justifyContent: 'space-evenly', paddingHorizontal: 9, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
   backdrop: { flex: 1, backgroundColor: '#00000044', justifyContent: 'center', padding: 24 }, dialogAvoid: { maxHeight: '90%', width: '100%', maxWidth: 480, alignSelf: 'center' },
-  dialog: { padding: 24, backgroundColor: colors.background, gap: 16, borderRadius: 12 }, dialogTitle: { fontFamily: fonts.sans, fontSize: 22, color: colors.text, fontWeight: '600' },
+  dialog: { padding: 24, backgroundColor: colors.background, gap: 16, borderRadius: 12 }, dialogTitle: { fontFamily: fonts.sans, fontSize: 22, color: colors.text, fontWeight: fontWeights.semibold },
   dialogText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text }, action: { minHeight: 48, minWidth: 48, justifyContent: 'center', alignItems: 'center' },
   danger: { color: colors.destructive, fontSize: 16, lineHeight: 24 }, url: { minHeight: 48, padding: 12, fontSize: 16, color: colors.text, borderWidth: 1, borderColor: colors.border }, linkActions: { flexDirection: 'row', justifyContent: 'space-between' },
 });

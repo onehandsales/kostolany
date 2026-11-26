@@ -1,9 +1,11 @@
 import type { AuthStore } from '../auth/createAuthStore';
 import { emptyEditor, validEditorDocument, type EditorValue } from './editorModel';
 import type { DraftSource } from './draftSource';
+import { createEditorHistory } from './editorHistory';
 import { clonePublishOptions, emptyPublishOptions, PublishError, validPublishOptions, type PublishCommand, type PublishedStory, type PublishOptions } from './publishing';
 
 type DraftSessionState = {
+  canUndo: boolean; canRedo: boolean; historyAssetIds: string[];
   value: EditorValue; status: 'loading' | 'ready' | 'error';
   saveStatus: 'idle' | 'pending' | 'saving' | 'saved' | 'error'; dirty: boolean;
   publishing: PublishOptions; publishStatus: 'idle' | 'pending' | 'error' | 'uncertain' | 'done'; published: PublishedStory | null;
@@ -11,7 +13,8 @@ type DraftSessionState = {
 export type DraftSession = ReturnType<typeof createDraftSession>;
 
 export function createDraftSession(source: DraftSource, auth: AuthStore, scope: { userId: string; revision: number; draftId: string; isNew: boolean }) {
-  let state: DraftSessionState = { value: emptyEditor(), status: scope.isNew ? 'ready' : 'loading', saveStatus: 'idle', dirty: false, publishing: emptyPublishOptions(), publishStatus: 'idle', published: null };
+  const history = createEditorHistory();
+  let state: DraftSessionState = { canUndo: false, canRedo: false, historyAssetIds: [], value: emptyEditor(), status: scope.isNew ? 'ready' : 'loading', saveStatus: 'idle', dirty: false, publishing: emptyPublishOptions(), publishStatus: 'idle', published: null };
   const listeners = new Set<() => void>(); let lease = new AbortController(); let active = false;
   let timer: ReturnType<typeof setTimeout> | undefined; let saving: Promise<boolean> | null = null;
   let readSequence = 0; let savedVersion = scope.isNew ? -1 : 0;
@@ -27,7 +30,9 @@ export function createDraftSession(source: DraftSource, auth: AuthStore, scope: 
       if (!valid() || sequence !== readSequence) return;
       if (!record || record.id !== scope.draftId || record.userId !== scope.userId || !validEditorDocument(record.document) || !validPublishOptions(record.publishing)) throw new Error('draft-unavailable');
       savedVersion = record.document.version;
-      publish({ ...state, value: { document: record.document, selection: { start: 0, end: 0 }, typing: [] }, publishing: record.publishing, status: 'ready', saveStatus: 'saved', dirty: false });
+      history.clear();
+      const value: EditorValue = { document: record.document, selection: { start: 0, end: 0 }, typing: [] };
+      publish({ ...state, ...history.snapshot(value), value, publishing: record.publishing, status: 'ready', saveStatus: 'saved', dirty: false });
     } catch { if (valid() && sequence === readSequence) publish({ ...state, status: 'error' }); }
   }
   async function drain(operationLease: AbortController): Promise<boolean> {
@@ -60,14 +65,22 @@ export function createDraftSession(source: DraftSource, auth: AuthStore, scope: 
     }
     return saving;
   }
-  function edit(value: EditorValue, publishing = state.publishing) {
+  function edit(value: EditorValue, publishing = state.publishing, remember = true) {
     if (!valid() || state.status !== 'ready' || ['pending', 'uncertain', 'done'].includes(state.publishStatus)) return;
     const changed = value.document !== state.value.document;
+    if (changed) value = { ...value, document: { ...value.document, version: Math.max(value.document.version, state.value.document.version + 1) } };
+    if (changed && remember) history.record(state.value, value);
+    else if (value.selection.start !== state.value.selection.start || value.selection.end !== state.value.selection.end || JSON.stringify(value.typing) !== JSON.stringify(state.value.typing)) history.breakGroup();
     const hasContent = Boolean(value.document.title.trim() || value.document.body.trim() || value.document.images.length);
     const dirty = value.document.version > savedVersion && (savedVersion >= 0 || hasContent || saving !== null);
     command = null;
-    publish({ ...state, value, publishing, dirty, publishStatus: 'idle', saveStatus: changed ? dirty ? 'pending' : savedVersion < 0 ? 'idle' : 'saved' : state.saveStatus });
+    publish({ ...state, ...(changed ? history.snapshot(value) : {}), value, publishing, dirty, publishStatus: 'idle', saveStatus: changed ? dirty ? 'pending' : savedVersion < 0 ? 'idle' : 'saved' : state.saveStatus });
     if (changed) { cancelTimer(); if (dirty) timer = setTimeout(() => { void flush(); }, 600); }
+  }
+  function restore(direction: 'undo' | 'redo') {
+    if (!valid() || state.status !== 'ready' || ['pending', 'uncertain', 'done'].includes(state.publishStatus)) return;
+    const value = history[direction](state.value);
+    if (value) edit(value, state.publishing, false);
   }
   async function submit(authorName: string, operationLease: AbortController): Promise<PublishedStory | null> {
     const current = () => valid() && lease === operationLease;
@@ -100,10 +113,11 @@ export function createDraftSession(source: DraftSource, auth: AuthStore, scope: 
       if (!scope.isNew) void reload();
       return () => { active = false; lease.abort(); cancelTimer(); readSequence++; unsubscribe(); };
     },
-    edit,
+    edit, undo: () => restore('undo'), redo: () => restore('redo'),
     configure(options: PublishOptions) {
       if (!validPublishOptions(options) || JSON.stringify(options) === JSON.stringify(state.publishing)) return;
-      edit({ ...state.value, document: { ...state.value.document, version: state.value.document.version + 1 } }, clonePublishOptions(options));
+      history.breakGroup();
+      edit({ ...state.value, document: { ...state.value.document, version: state.value.document.version + 1 } }, clonePublishOptions(options), false);
     },
     publish(authorName: string) {
       if (!valid() || state.status !== 'ready') return Promise.resolve(null);

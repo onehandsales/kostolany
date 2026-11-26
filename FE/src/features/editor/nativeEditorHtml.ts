@@ -2,13 +2,14 @@ import { parseDocument } from 'htmlparser2';
 
 import {
   changeBody, formatsAt, lines, safeLink, segments, type BlockKind, type EditorDocument,
-  type EditorValue, type Format, type Mark, type Mention, type TextSelection,
+  type EditorValue, type Format, type Mark, type Mention, type TextSelection, type EditorImage,
 } from './editorModel';
 
 type HtmlNode = ReturnType<typeof parseDocument>['children'][number];
-type Paragraph = { kind: BlockKind; text: string; marks: Mark[]; mentions: Mention[]; number?: number };
-export type NativeEditorContent = { text: string; document: EditorDocument };
-type EditorAppearance = { sans: string; secondaryText: string };
+type Paragraph = { kind: BlockKind; text: string; marks: Mark[]; mentions: Mention[]; images: EditorImage[]; number?: number };
+export type NativeEditorContent = { text: string; document: EditorDocument; positions: number[]; rawDocument: EditorDocument };
+export type EditorImageUris = Readonly<Record<string, string>>;
+type EditorAppearance = { sans: string; secondaryText: string; imageWidth?: number };
 const escapeHtml = (value: string) => value.replace(/&/gu, '&amp;').replace(/</gu, '&lt;')
   .replace(/>/gu, '&gt;').replace(/"/gu, '&quot;').replace(/'/gu, '&#39;');
 
@@ -55,11 +56,19 @@ export function modelEditorSelection(document: EditorDocument, range: TextSelect
   return { start: position(range.start, false), end: position(range.end, true) };
 }
 
-export function editorHtml(document: EditorDocument, appearance?: EditorAppearance): string {
+export function editorHtml(document: EditorDocument, appearance?: EditorAppearance, imageUris: EditorImageUris = {}): string {
   const blocks: string[] = [];
   let list: 'bullet' | 'numbered' | null = null;
   for (const line of lines(document)) {
     if (list && line.kind !== list) { blocks.push(list === 'bullet' ? '</ul>' : '</ol>'); list = null; }
+    const image = document.images.find(image => image.offset === line.start && line.text === '\uFFFC');
+    if (image) {
+      if (list) { blocks.push(list === 'bullet' ? '</ul>' : '</ol>'); list = null; }
+      const width = Math.round(appearance?.imageWidth ?? image.width);
+      const height = Math.max(1, Math.round(width * image.height / image.width));
+      blocks.push(`<p><img src="${escapeHtml(imageUris[image.id] ?? `kostolany-image:${image.id}`)}" width="${width}" height="${height}"/></p>`);
+      continue;
+    }
     const prefix = listPrefix(line.text, line.kind);
     const parts = segments(document, line.start + prefix.length, line.end);
     const inline = (part: (typeof parts)[number]) => {
@@ -103,7 +112,8 @@ export function editorHtml(document: EditorDocument, appearance?: EditorAppearan
   return blocks.join('');
 }
 
-function readInline(nodes: HtmlNode[], paragraph: Paragraph, formats: Format[] = []) {
+type ReadImage = (src: string) => EditorImage | undefined;
+function readInline(nodes: HtmlNode[], paragraph: Paragraph, readImage: ReadImage, formats: Format[] = []) {
   for (const node of nodes) {
     if (node.type === 'text') {
       const start = paragraph.text.length;
@@ -111,7 +121,12 @@ function readInline(nodes: HtmlNode[], paragraph: Paragraph, formats: Format[] =
       for (const format of formats) if (node.data) paragraph.marks.push({ ...format, start, end: paragraph.text.length });
     } else if (node.type === 'tag') {
       const tag = node.name;
-      if (['script', 'style', 'img', 'iframe'].includes(tag)) continue;
+      if (['script', 'style', 'iframe'].includes(tag)) continue;
+      if (tag === 'img') {
+        const image = readImage(node.attribs.src ?? '');
+        if (image) { paragraph.images.push({ ...image, offset: paragraph.text.length }); paragraph.text += '\uFFFC'; }
+        continue;
+      }
       if (tag === 'br') { paragraph.text += '\n'; continue; }
       const next = [...formats];
       if (tag === 'b' || tag === 'strong') next.push({ kind: 'bold' });
@@ -119,7 +134,7 @@ function readInline(nodes: HtmlNode[], paragraph: Paragraph, formats: Format[] =
       const link = tag === 'a' ? safeLink(node.attribs.href ?? '') : null;
       if (link) next.push({ kind: 'link', url: link });
       const start = paragraph.text.length;
-      readInline(node.children, paragraph, next);
+      readInline(node.children, paragraph, readImage, next);
       if (tag === 'mention' && node.attribs['data-user-id'] && node.attribs['data-handle'] && paragraph.text.length > start) {
         paragraph.mentions.push({ start, end: paragraph.text.length, target: {
           id: node.attribs['data-user-id'], handle: node.attribs['data-handle'], name: paragraph.text.slice(start),
@@ -129,17 +144,17 @@ function readInline(nodes: HtmlNode[], paragraph: Paragraph, formats: Format[] =
   }
 }
 
-function readParagraphs(nodes: HtmlNode[], kind: BlockKind = 'paragraph'): Paragraph[] {
+function readParagraphs(nodes: HtmlNode[], readImage: ReadImage, kind: BlockKind = 'paragraph'): Paragraph[] {
   const result: Paragraph[] = [];
   const paragraph = (children: HtmlNode[], nextKind: BlockKind, center = false, number?: number) => {
-    const value: Paragraph = { kind: nextKind, text: '', marks: [], mentions: [], number };
-    readInline(children, value);
+    const value: Paragraph = { kind: nextKind, text: '', marks: [], mentions: [], images: [], number };
+    readInline(children, value, readImage);
     // native가 빈 문단을 br로 표현해도 저장 문서에는 문단 하나만 남긴다.
     if (value.text === '\n') value.text = '';
     if (center && nextKind === 'paragraph') value.kind = value.text === '· · ·' ? 'divider' : 'pullquote';
     let offset = 0;
     for (const text of value.text.split('\n')) {
-      result.push({ ...value, text, marks: value.marks.filter(mark => mark.end > offset && mark.start < offset + text.length)
+      result.push({ ...value, text, images: value.images.filter(image => image.offset >= offset && image.offset < offset + text.length).map(image => ({ ...image, offset: image.offset - offset })), marks: value.marks.filter(mark => mark.end > offset && mark.start < offset + text.length)
         .map(mark => ({ ...mark, start: Math.max(0, mark.start - offset), end: Math.min(text.length, mark.end - offset) })),
       mentions: value.mentions.filter(mention => mention.start >= offset && mention.end <= offset + text.length)
         .map(mention => ({ ...mention, start: mention.start - offset, end: mention.end - offset })) });
@@ -150,7 +165,7 @@ function readParagraphs(nodes: HtmlNode[], kind: BlockKind = 'paragraph'): Parag
     if (node.type === 'text') { if (node.data.trim()) paragraph([node], kind); continue; }
     if (node.type !== 'tag') continue;
     const tag = node.name;
-    if (tag === 'html' || tag === 'body') result.push(...readParagraphs(node.children, kind));
+    if (tag === 'html' || tag === 'body') result.push(...readParagraphs(node.children, readImage, kind));
     else if (tag === 'ul' || tag === 'ol') {
       let number = 1;
       for (const item of node.children) if (item.type === 'tag' && item.name === 'li') {
@@ -159,9 +174,10 @@ function readParagraphs(nodes: HtmlNode[], kind: BlockKind = 'paragraph'): Parag
     } else if (tag === 'blockquote' || tag === 'codeblock' || tag === 'pre') {
       const nextKind = tag === 'blockquote' ? 'quote' : 'code';
       const hasParagraphs = node.children.some(child => child.type === 'tag' && ['p', 'br', 'div'].includes(child.name));
-      if (hasParagraphs) result.push(...readParagraphs(node.children, nextKind));
+      if (hasParagraphs) result.push(...readParagraphs(node.children, readImage, nextKind));
       else paragraph(node.children, nextKind);
     } else if (tag === 'br') paragraph([], kind);
+    else if (tag === 'img') paragraph([node], kind);
     else if (['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li'].includes(tag)) {
       paragraph(node.children, tag === 'h1' ? 'heading' : /^h[2-6]$/u.test(tag) ? 'subheading' : kind,
         /text-align\s*:\s*center/iu.test(node.attribs.style ?? ''));
@@ -171,13 +187,18 @@ function readParagraphs(nodes: HtmlNode[], kind: BlockKind = 'paragraph'): Parag
 }
 
 // HTML은 native 입력 경계에서만 사용하고 초안·발행은 기존 schemaVersion3 문서로 저장한다.
-export function parseEditorHtml(html: string, previous: EditorValue): NativeEditorContent {
-  const paragraphs = readParagraphs(parseDocument(html).children);
-  if (!paragraphs.length) paragraphs.push({ kind: 'paragraph', text: '', marks: [], mentions: [] });
+export function parseEditorHtml(html: string, previous: EditorValue, imageUris: EditorImageUris = {}): NativeEditorContent {
+  const available = [...previous.document.images];
+  const paragraphs = readParagraphs(parseDocument(html).children, src => {
+    const index = available.findIndex(image => src === (imageUris[image.id] ?? `kostolany-image:${image.id}`));
+    return index < 0 ? undefined : available.splice(index, 1)[0];
+  });
+  if (!paragraphs.length) paragraphs.push({ kind: 'paragraph', text: '', marks: [], mentions: [], images: [] });
   const body = paragraphs.map(p => (p.kind === 'bullet' ? '• ' : p.kind === 'numbered' ? `${p.number ?? 1}. ` : '') + p.text).join('\n');
   const rebased = changeBody(previous, body);
   const marks: Mark[] = [];
   const mentions: Mention[] = [];
+  const images: EditorImage[] = [];
   let offset = 0;
   paragraphs.forEach(p => {
     const prefix = p.kind === 'bullet' ? '• ' : p.kind === 'numbered' ? `${p.number ?? 1}. ` : '';
@@ -195,6 +216,7 @@ export function parseEditorHtml(html: string, previous: EditorValue): NativeEdit
       && mark.end > start && mark.start < end && !marks.some(next => next.kind === mark.kind && next.start <= mark.start && next.end >= mark.end))
       .map(mark => ({ ...mark, start: Math.max(start, mark.start), end: Math.min(end, mark.end) })));
     mentions.push(...p.mentions.map(mention => ({ ...mention, start: start + mention.start, end: start + mention.end })));
+    images.push(...p.images.map(image => ({ ...image, offset: start + image.offset })));
     if (p.kind === 'code') mentions.push(...rebased.document.mentions.filter(mention => mention.start >= start && mention.end <= end
       && !mentions.some(next => next.start === mention.start && next.end === mention.end)));
     offset = end + 1;
@@ -206,14 +228,49 @@ export function parseEditorHtml(html: string, previous: EditorValue): NativeEdit
     if (previous) previous.end = Math.max(previous.end, mark.end);
     else normalizedMarks.push({ ...mark });
   }
-  return { text: paragraphs.map(p => p.text).join('\n'), document: {
-    ...previous.document, version: previous.document.version + 1, body, blocks: paragraphs.map(p => p.kind), marks: normalizedMarks, mentions,
-  } };
+  // 같은 사진을 여러 번 삽입한 뒤 일부를 지울 때 선택 범위로 살아남은 이미지 ID를 먼저 복구한다.
+  const identifiedImages = images.map(image => {
+    const retained = rebased.document.images.find(candidate => candidate.offset === image.offset
+      && (imageUris[candidate.id] ?? `kostolany-image:${candidate.id}`) === (imageUris[image.id] ?? `kostolany-image:${image.id}`));
+    return retained ? { ...retained } : image;
+  });
+  const raw = { ...previous.document, version: previous.document.version + 1, body, blocks: paragraphs.map(p => p.kind), marks: normalizedMarks, mentions,
+    images: new Set(identifiedImages.map(image => image.id)).size === identifiedImages.length ? identifiedImages : images };
+  const normalized = normalizeImageLines(raw);
+  return { text: paragraphs.map(p => p.text).join('\n'), document: normalized.document, positions: normalized.positions, rawDocument: raw };
 }
 
-export function valueFromNativeHtml(html: string, previous: EditorValue, selection?: TextSelection): EditorValue {
-  const { document } = parseEditorHtml(html, previous);
+// 이미지 앞뒤 줄바꿈을 지워도 schemaVersion3의 독립 이미지 행과 UTF-16 선택 좌표를 보존한다.
+function normalizeImageLines(document: EditorDocument) {
+  const positions: number[] = []; let body = ''; let line = 0;
+  const blocks: BlockKind[] = [document.blocks[0] ?? 'paragraph'];
+  const offsets = new Set(document.images.map(image => image.offset));
+  const newline = (kind: BlockKind) => { body += '\n'; blocks.push(kind); };
+  for (let index = 0; index < document.body.length; index++) {
+    const char = document.body[index]!;
+    if (offsets.has(index) && body && !body.endsWith('\n')) newline('paragraph');
+    positions[index] = body.length;
+    if (char === '\n') { line++; newline(document.blocks[line] ?? 'paragraph'); }
+    else {
+      body += char;
+      if (offsets.has(index)) {
+        blocks[blocks.length - 1] = 'paragraph';
+        if (document.body[index + 1] !== '\n') newline(document.blocks[line] ?? 'paragraph');
+      }
+    }
+  }
+  positions[document.body.length] = body.length;
+  const range = <T extends TextSelection>(item: T): T => ({ ...item, start: positions[item.start]!, end: positions[item.end]! });
+  return { positions, document: { ...document, body, blocks,
+    images: document.images.map(image => ({ ...image, offset: positions[image.offset]! })),
+    marks: document.marks.map(range), mentions: document.mentions.map(range) } };
+}
+
+export function valueFromNativeHtml(html: string, previous: EditorValue, selection?: TextSelection, imageUris: EditorImageUris = {}): EditorValue {
+  const { document, positions, rawDocument } = parseEditorHtml(html, previous, imageUris);
   const inferred = changeBody(previous, document.body).selection;
-  const range = selection ? modelEditorSelection(document, selection) ?? inferred : inferred;
+  const model = selection ? modelEditorSelection(rawDocument, selection) : null;
+  const mapped = model ? { start: positions[model.start]!, end: positions[model.end]! } : null;
+  const range = mapped ?? inferred;
   return { document, selection: range, typing: formatsAt(document, range) };
 }

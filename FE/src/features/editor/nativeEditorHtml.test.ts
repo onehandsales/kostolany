@@ -1,5 +1,42 @@
-import { changeBody, emptyEditor, selectText, setBlock, toggleFormat } from './editorModel';
+import { changeBody, emptyEditor, insertImage, selectText, setBlock, toggleFormat, validEditorDocument } from './editorModel';
 import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, parseEditorHtml, valueFromNativeHtml } from './nativeEditorHtml';
+
+it('사진을 포함한 연속 HTML 선택과 왕복에서 사진 ID·원본 크기·멘션·UTF-16 좌표를 보존한다', () => {
+  const initial = changeBody(emptyEditor(), '앞 😀\n뒤');
+  const value = insertImage(selectText(initial, { start: 5, end: 5 }), { id: 'photo', assetId: 'asset', source: 'camera', description: '사진', credit: '', width: 1600, height: 900 });
+  const uris = { photo: 'file:///cache/a&b.jpg' };
+  const html = editorHtml(value.document, { sans: 'sans-serif', secondaryText: '#666', imageWidth: 354 }, uris);
+  expect(html).toContain('width="354" height="199"');
+  const next = valueFromNativeHtml(html, value, { start: 0, end: nativeEditorText(value.document).length }, uris);
+  expect({ ...next.document, version: 0 }).toEqual({ ...value.document, version: 0 });
+  expect(next.selection).toEqual({ start: 0, end: value.document.body.length });
+  expect(validEditorDocument(next.document)).toBe(true);
+});
+
+it('사진 앞뒤 줄바꿈을 합친 native 편집도 독립 이미지 행으로 복구하며 삭제와 미등록 외부 이미지를 구분한다', () => {
+  const value = insertImage(emptyEditor(), { id: 'photo', assetId: 'asset', source: 'library', description: '사진', credit: '', width: 20, height: 10 });
+  const uris = { photo: 'file:///a.jpg' };
+  const merged = valueFromNativeHtml('<p>앞<img src="file:///a.jpg"/><b>뒤😀</b></p>', value, { start: 2, end: 5 }, uris);
+  expect(merged.document.body).toBe('앞\n\uFFFC\n뒤😀');
+  expect(merged.document.images[0]?.offset).toBe(2);
+  expect(merged.document.marks).toEqual([{ kind: 'bold', start: 4, end: 7 }]);
+  expect(merged.selection).toEqual({ start: 4, end: 7 });
+  expect(validEditorDocument(merged.document)).toBe(true);
+  const deleted = valueFromNativeHtml('<p>앞뒤</p><img src="https://unknown/image"/>', merged, undefined, uris);
+  expect(deleted.document.images).toEqual([]);
+  expect(deleted.document.body).not.toContain('\uFFFC');
+});
+
+it('같은 자산을 두 번 넣고 앞 사진만 잘라내도 뒤 사진의 저장 ID가 바뀌지 않는다', () => {
+  const asset = { assetId: 'asset', source: 'library' as const, description: '사진', credit: '', width: 20, height: 10 };
+  let value = insertImage(emptyEditor(), { ...asset, id: 'first' });
+  value = insertImage(value, { ...asset, id: 'second' });
+  const first = value.document.images[0]!;
+  value = selectText(value, { start: first.offset, end: first.offset + 2 });
+  const next = valueFromNativeHtml('<p></p><p><img src="file:///same.jpg"/></p><p></p>', value, undefined, { first: 'file:///same.jpg', second: 'file:///same.jpg' });
+  expect(next.document.images.map(image => image.id)).toEqual(['second']);
+  expect(validEditorDocument(next.document)).toBe(true);
+});
 
 it('서로 다른 문단 서식과 링크·멘션·이모지를 native HTML 경계에서 왕복해도 저장 문서가 보존된다', () => {
   const value = changeBody(emptyEditor(), '제목\n인용 😀\n• 목록\n1. 번호\n· · ·\n가운데\n코드\n독자 & 링크');

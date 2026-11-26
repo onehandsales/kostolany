@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Image, Platform, Pressable, Text, View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { RichBody, type RichBodyProps } from './RichBody';
 import { editorSections, mergeEditorSection, removeImage, sliceEditor, type EditorImage } from './editorModel';
 import type { EditorImageSource } from './imageSource';
 
-export function RichDocumentBody(props: RichBodyProps & { source: EditorImageSource }) {
+export function RichDocumentBody(props: RichBodyProps & { source: EditorImageSource; continuous?: boolean }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  if (props.continuous && Platform.OS !== 'web') return <ContinuousImageBody {...props} />;
   const sections = editorSections(props.value.document);
   return <View>{sections.map((section, index) => {
     const image = section.image;
@@ -20,6 +21,19 @@ export function RichDocumentBody(props: RichBodyProps & { source: EditorImageSou
         onDelete={() => { props.onChange(removeImage(props.value, image.id)); setSelectedImage(null); }} />
     </View>;
   })}</View>;
+}
+
+function ContinuousImageBody(props: RichBodyProps & { source: EditorImageSource }) {
+  const window = useWindowDimensions(); const [width, setWidth] = useState(Math.max(1, window.width - 36));
+  const imageUris: Record<string, string> = {};
+  for (const image of props.value.document.images) {
+    const source = props.source.resolve(image.assetId);
+    const uri = source && Image.resolveAssetSource(source)?.uri;
+    if (uri) imageUris[image.id] = uri;
+  }
+  return <View onLayout={event => { if (event.nativeEvent.layout.width > 0) setWidth(event.nativeEvent.layout.width); }}>
+    <RichBody {...props} imageUris={imageUris} imageWidth={width} label="글 본문" />
+  </View>;
 }
 
 function DocumentImage({ image, source, selected, onSelect, onFailure, onDelete }: { image: EditorImage; source: EditorImageSource; selected: boolean; onSelect: () => void; onFailure: () => void; onDelete: () => void }) {

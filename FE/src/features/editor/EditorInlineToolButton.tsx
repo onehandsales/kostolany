@@ -5,7 +5,7 @@ import { sizes, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 
 type EditorInlineToolButtonProps = {
-  icon: 'bold' | 'italic' | 'link' | 'keyboard-dismiss';
+  icon: 'bold' | 'italic' | 'link' | 'keyboard-dismiss' | 'undo' | 'redo';
   label: string;
   onPress: () => void;
   selected?: boolean;

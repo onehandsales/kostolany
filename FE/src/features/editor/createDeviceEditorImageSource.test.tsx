@@ -13,6 +13,19 @@ const lease = (): LocalImageLease => ({
 });
 const signal = () => new AbortController().signal;
 
+it('삭제한 사진도 Undo/Redo 이력에서 보유하는 동안 남고 마지막 이력 해제 뒤 한 번만 정리한다', async () => {
+  const picked = lease(); const images = createDeviceEditorImageSource(async () => picked);
+  const stop = images.activate!(); const selection = await images.pick!('library', signal());
+  const releaseHistory = images.retainHistory!(['selected', 'selected']);
+  selection!.release(); images.retainDocuments!([]);
+  expect(images.resolve('selected')).toEqual({ uri: picked.image.uri });
+  expect(picked.release).not.toHaveBeenCalled();
+  const nextHistory = images.retainHistory!(['selected']); releaseHistory();
+  expect(picked.release).not.toHaveBeenCalled();
+  nextHistory(); nextHistory(); expect(picked.release).toHaveBeenCalledTimes(1);
+  stop(); await Promise.resolve(); expect(picked.release).toHaveBeenCalledTimes(1);
+});
+
 it('확정 초안과 발행 이미지의 수명은 편집 화면보다 길고 마지막 문서와 공급부 종료 때 해제된다', async () => {
   const picked = lease();
   const images = createDeviceEditorImageSource(async () => picked);

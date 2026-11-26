@@ -21,6 +21,7 @@ export function validEditorDocument(document: EditorDocument): boolean {
     document.marks.every(mark => range(mark) && (mark.kind === 'bold' || mark.kind === 'italic' || mark.kind === 'link' && Boolean(safeLink(mark.url ?? '')))) &&
     new Set(document.images.map(image => image.id)).size === document.images.length &&
     new Set(document.images.map(image => image.offset)).size === document.images.length &&
+    (document.body.match(/\uFFFC/gu)?.length ?? 0) === document.images.length &&
     document.images.every(image => image.id && image.assetId && ['camera', 'library', 'unsplash'].includes(image.source) &&
       Number.isSafeInteger(image.offset) && image.offset >= 0 && document.body[image.offset] === '\uFFFC' &&
       (image.offset === 0 || document.body[image.offset - 1] === '\n') && document.body[image.offset + 1] === '\n' &&

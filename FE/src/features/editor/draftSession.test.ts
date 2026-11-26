@@ -3,7 +3,7 @@ import { createMockAuthSource } from '../auth/data/createMockAuthSource';
 import { mockUserA, mockUserB } from '../auth/data/mockUsers';
 import { createDraftSession } from './createDraftSession';
 import { createMockDraftSource, type Draft, type DraftSource, type SaveDraft } from './draftSource';
-import { changeBody, emptyEditor, insertImage } from './editorModel';
+import { changeBody, emptyEditor, insertImage, removeImage, selectText, toggleFormat } from './editorModel';
 import { emptyPublishOptions } from './publishing';
 
 beforeEach(() => jest.useFakeTimers()); afterEach(() => jest.useRealTimers());
@@ -15,6 +15,46 @@ function setup(source: DraftSource) {
   const session = createDraftSession(source, auth, scope); const close = session.activate();
   return { auth, scope, session, close };
 }
+it('Undo/Redo는 한글 입력 묶음·선택 서식·사진을 복원하고 새 편집 뒤 redo를 지운다', () => {
+  const { session, close } = setup(createMockDraftSource({ delayMs: 0 }));
+  session.edit(changeBody(session.getSnapshot().value, 'ㅎ'));
+  session.edit(changeBody(session.getSnapshot().value, '한글 😀'));
+  session.undo(); expect(session.getSnapshot().value.document.body).toBe('');
+  session.redo(); expect(session.getSnapshot().value.document.body).toBe('한글 😀');
+  session.edit(selectText(session.getSnapshot().value, { start: 0, end: 2 }));
+  session.edit(toggleFormat(session.getSnapshot().value, { kind: 'bold' }));
+  const formatted = session.getSnapshot().value;
+  session.edit(insertImage(selectText(formatted, { start: 5, end: 5 }), { id: 'photo', assetId: 'local-sunset', source: 'library', description: 'photo', credit: '', width: 240, height: 168 }));
+  const inserted = session.getSnapshot().value;
+  session.edit(removeImage(inserted, 'photo')); session.undo();
+  expect(session.getSnapshot().value.document.images).toEqual(inserted.document.images);
+  expect(session.getSnapshot().historyAssetIds).toEqual(['local-sunset']);
+  session.undo(); expect(session.getSnapshot().value.document.body).toBe(formatted.document.body);
+  session.undo(); expect(session.getSnapshot().value.document.marks).toEqual([]);
+  expect(session.getSnapshot().value.selection).toEqual({ start: 0, end: 2 });
+  session.edit(changeBody(session.getSnapshot().value, '다른 입력')); expect(session.getSnapshot().canRedo).toBe(false); close();
+});
+it('Undo는 저장 중 이전 성공 응답보다 높은 버전으로 저장하며 발행 설정을 되돌리지 않는다', async () => {
+  const source = createMockDraftSource({ delayMs: 20 }); const { session, scope, close } = setup(source);
+  session.edit(changeBody(session.getSnapshot().value, '처음')); const saving = session.flush();
+  await jest.advanceTimersByTimeAsync(1);
+  session.undo(); const undoneVersion = session.getSnapshot().value.document.version;
+  expect(undoneVersion).toBe(2); expect(await finish(saving)).toBe(true);
+  const record = await finish(source.read(scope.userId, scope.draftId, signal()));
+  expect(record?.document.body).toBe(''); expect(record?.document.version).toBe(undoneVersion);
+  session.redo(); session.configure({ ...emptyPublishOptions(), unlisted: true });
+  session.undo(); expect(session.getSnapshot().publishing.unlisted).toBe(true);
+  const before = session.getSnapshot(); close(); session.redo(); expect(session.getSnapshot()).toBe(before);
+});
+
+it('같은 렌더에서 이어진 native 입력의 낮은 버전도 최신 세션 버전보다 높게 저장한다', async () => {
+  const source = createMockDraftSource({ delayMs: 0 }); const { session, scope, close } = setup(source);
+  const base = session.getSnapshot().value;
+  session.edit(changeBody(base, '한')); session.edit(changeBody(base, '한글'));
+  expect(session.getSnapshot().value.document.version).toBe(2);
+  await finish(session.flush());
+  expect((await finish(source.read(scope.userId, scope.draftId, signal())))?.document.body).toBe('한글'); close();
+});
 it('빈 새 문서는 만들지 않고 입력 지연 뒤 저장하며 빠른 변경과 응답 유실 재시도는 하나의 최신 초안만 남긴다', async () => {
   const source = createMockDraftSource({ delayMs: 5, lostResponses: 1 }); const { session, scope, close } = setup(source);
   expect(await session.flush()).toBe(true); expect(await finish(source.list(scope.userId, signal()))).toEqual([]);

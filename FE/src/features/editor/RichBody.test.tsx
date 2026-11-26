@@ -22,6 +22,27 @@ const changeHtml = (value: string) => fireEvent(input(), 'changeHtml', { nativeE
 const select = (start: number, end = start) =>
   fireEvent(input(), 'selectionChange', { nativeEvent: { selection: { start, end } } });
 
+it('사진 앞 줄바꿈 삭제가 같은 저장 문서로 정규화돼도 native 입력에 독립 이미지 행을 다시 반영한다', async () => {
+  const initial = changeBody(emptyEditor(), 'Before\n\uFFFC\nAfter');
+  initial.document.images = [{ id: 'photo', offset: 7, assetId: 'asset', source: 'library', description: 'photo', credit: '', width: 240, height: 160 }];
+  const editor = setup(initial); await render(editor.node);
+  await changeHtml('<p>Before<img src="kostolany-image:photo" width="240" height="160"/></p><p>After</p>');
+  expect(editor.value().document.body).toBe(initial.document.body);
+  expect(html()).toContain('<p><img');
+  expect(nativeEditorCommands.setValue).toHaveBeenCalledWith(expect.anything(), expect.stringContaining('<p><img'));
+});
+
+it('Android Cut이 먼저 내보내는 이미지 span 없는 중간 HTML을 저장하거나 이력에 추가하지 않는다', async () => {
+  const initial = changeBody(emptyEditor(), 'Before\n\uFFFC\nAfter');
+  initial.document.images = [{ id: 'photo', offset: 7, assetId: 'asset', source: 'library', description: 'photo', credit: '', width: 240, height: 160 }];
+  const editor = setup(initial); await render(editor.node);
+  await changeHtml('<p>Before</p><p>&#65532;</p><p>After</p>');
+  expect(editor.value()).toBe(initial);
+  await changeHtml('<p></p>'); expect(editor.value().document.body).toBe('');
+  await editor.change({ ...initial, document: { ...initial.document, version: editor.value().document.version + 1 } });
+  expect(html()).toContain('<img'); expect(editor.value().document.images[0]?.id).toBe('photo');
+});
+
 it('한 입력 영역에서 일반·인용·목록·구분선을 표시하고 여러 문단을 연속 선택한다', async () => {
   const initial = changeBody(emptyEditor(), '일반\n인용\n• 한글 😀\n· · ·');
   initial.document.blocks = ['paragraph', 'quote', 'bullet', 'divider'];
