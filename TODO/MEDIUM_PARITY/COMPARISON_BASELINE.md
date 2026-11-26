@@ -824,6 +824,7 @@
 ## S036 — 기사 저장 대상 선택
 
 - 최신 실행: [Parity 7](../FE_MEDIUM_PARITY_07_RESULT.md). 상대 시간·메모·회원용 별·초안 수명 보완과 웹 부분 비교. 서체/자산/OS·U/native 잔여, 저장 캡처 없이 recipe-only 유지.
+- 2026-11-26 후속: [실제 Android 제목 보정·선택 표시 확인과 사용자 지정 구분선](../FE_COMMON_DESIGN_02_RESULT.md#s036-save-sheet-followup). 사용자의 최종 지시에 따라 Save to·Create new list 아래 선은 기존 옅은 색으로 유지하고 목록 항목 사이의 선만 제거한다. 원본과 배경 기사·스크롤/초기 선택 상태가 다르고 동일 상태의 PNG 쌍은 저장하지 않았으므로 아래 recipe-only를 유지한다. 다음 판정에서 이번 관찰과 과거 웹 결과를 구분한다.
 
 [원본 PNG](<../../medium/flows/Home/Story detail/Saving a story/screens/02_sc_31edfd53d2874259a6ed5ecbc756d10b.png>) · [원본 분석](<../../medium/flows/Home/Story detail/Saving a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s036>) · `sc_31edfd53d2874259a6ed5ecbc756d10b`
 

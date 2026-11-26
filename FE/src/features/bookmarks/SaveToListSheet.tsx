@@ -119,7 +119,6 @@ export function SaveToListSheet({
               </View>
               <Text style={styles.name}>{list.listId === DEFAULT_LIST_ID ? 'Reading list' : list.name}</Text>
               {list.listId === DEFAULT_LIST_ID && <AppIcon name="lock" size={16} color="#aaaaaa" />}
-              <View pointerEvents="none" style={styles.choiceDivider} />
             </Pressable>
           );
         }}
@@ -160,7 +159,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     alignItems: 'center',
     gap: 12,
   },
-  choiceDivider: { position: 'absolute', left: 30, right: 0, bottom: 0, height: StyleSheet.hairlineWidth, backgroundColor: colors.divider },
   check: {
     width: 18,
     height: 18,

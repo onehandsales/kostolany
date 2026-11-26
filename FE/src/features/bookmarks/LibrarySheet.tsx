@@ -14,7 +14,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useThemeStyles, useTheme } from '../../shared/theme/ThemeProvider';
-import { sizes, fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { sizes, fonts, fontWeights, type ThemeColors } from '../../shared/theme/tokens';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { captureReturnFocus } from '../../shared/ui/returnFocus';
 import { restoreModalFocus } from '../../shared/ui/restoreModalFocus';
@@ -161,7 +161,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     flex: 1,
     fontFamily: fonts.sans, fontSize: 16,
     lineHeight: 22,
-    fontWeight: '600',
+    fontWeight: fontWeights.semibold,
     textAlign: 'center',
     color: colors.text,
   },
