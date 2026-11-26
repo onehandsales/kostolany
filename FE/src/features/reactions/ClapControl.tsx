@@ -23,9 +23,9 @@ export function ClapControl({ target, title, size = 16, baseline }: ClapControlP
     ? articleClapCounts[target.id] ?? 0 : 0);
   return <LoginRequestButton context={target.kind === 'list' ? { kind: 'clap-list', listId: target.id }
     : { kind: 'like', articleId: target.id }}
-    label={`박수, ${title}, 로그인 필요`} style={styles.row}>
+    label={`박수, ${title}, 로그인 필요`} style={[styles.row, size > 20 && styles.toolbarRow]}>
     <AppIcon name="clap" size={size} filled={size <= 16} />
-    <Text style={styles.count}>{formatReactionCount(total)}</Text>
+    <Text style={[styles.count, size > 20 && styles.toolbarCount]}>{formatReactionCount(total)}</Text>
   </LoginRequestButton>;
 }
 
@@ -98,6 +98,7 @@ function SignedInUndo({ store, target, onDone }: { store: ClapStore; target: Cla
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: { position: 'relative' },
   row: { flexDirection: 'row', alignItems: 'center', minHeight: 48, minWidth: 48 },
+  toolbarRow: { gap: 8 },
   target: { minHeight: 48, minWidth: 48, flexDirection: 'row', gap: 2, justifyContent: 'center', alignItems: 'center' },
   count: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, color: colors.secondaryText },
   toolbarCount: { fontSize: 14, lineHeight: 20, color: colors.text },
