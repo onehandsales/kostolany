@@ -71,7 +71,7 @@ export function PublishPreview({ session, images, authorName, stage, onStage, on
 }
 function PublicationPicker({ selected, onSave, onCancel }: { selected: string | null; onSave: (id: string | null) => void; onCancel: () => void }) {
   const { colors } = useTheme(); const [id, setId] = useState(selected);
-  return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}><IconButton icon="back" label="Publication 선택 취소" onPress={onCancel} />
+  return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}><IconButton icon="back" label="Publication 선택 취소" onPress={onCancel} style={{ alignSelf: 'flex-start' }} />
     <ScrollView contentContainerStyle={{ padding: 24, gap: 16 }}><Text role="heading" style={{ fontSize: 26, color: colors.text }}>Publication</Text>
       <Text style={{ color: colors.secondaryText, lineHeight: 24 }}>모의 편집 권한이 있는 publication을 선택해 바로 발행해요. 실제 원고 제출·심사 기능은 연결하지 않아요.</Text>
       {[{ id: null, name: 'No publication' }, ...mockPublications].map(item => <Pressable key={item.id ?? 'none'} role="radio" accessibilityLabel={item.name} accessibilityState={{ checked: id === item.id }} aria-checked={id === item.id} onPress={() => setId(item.id)} style={{ minHeight: 56, justifyContent: 'center' }}><Text style={{ color: colors.text }}>{item.name}{id === item.id ? '　✓' : ''}</Text></Pressable>)}

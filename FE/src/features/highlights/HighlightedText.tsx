@@ -6,6 +6,7 @@ import type { Highlight } from './types';
 import type { ReactNode } from 'react';
 
 export type PassageTextContent = (start: number, end: number, interactive: boolean) => ReactNode;
+export type PassageTextAction = { start: number; end: number; label: string; onPress: () => void };
 
 export function HighlightedText({ block, nativeID, highlights, otherHighlight, style, onHighlight, onLayout, onSelect, renderContent, role }: {
   block: SelectionBlock; nativeID: string; highlights: readonly Highlight[]; otherHighlight?: string;

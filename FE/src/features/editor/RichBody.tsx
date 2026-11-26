@@ -109,7 +109,7 @@ export function RichBody(props: RichBodyProps) {
     style={{ minHeight: props.minHeight ?? 300, fontFamily: fonts.serif, fontSize: 18, lineHeight: 30,
       color: colors.text, padding: 0 }}
     htmlStyle={{ h1: { fontSize: 28, bold: true }, h2: { fontSize: 18, bold: false },
-      blockquote: { borderWidth: 3, borderColor: colors.text, gapWidth: 24 },
+      blockquote: { borderWidth: 4, borderColor: colors.text, gapWidth: 24 },
       ul: { marginLeft: 0, gapWidth: 22, bulletSize: 4, bulletColor: colors.text },
       ol: { marginLeft: 0, gapWidth: 8, markerColor: colors.text },
       a: { color: colors.green, textDecorationLine: 'underline' },

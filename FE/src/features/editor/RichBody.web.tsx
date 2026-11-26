@@ -58,7 +58,7 @@ export function RichBody(props: RichBodyProps) {
         fontWeight: line.kind === 'heading' ? '700' : '400',
         fontStyle: ['quote', 'pullquote'].includes(line.kind) ? 'italic' : 'normal',
         textAlign: ['pullquote', 'divider'].includes(line.kind) ? 'center' : 'left',
-        borderLeft: line.kind === 'quote' ? `3px solid ${colors.text}` : 'none',
+        borderLeft: line.kind === 'quote' ? `4px solid ${colors.text}` : 'none',
         paddingLeft: line.kind === 'quote' ? '24px' : prefix ? `${prefixWidth}px` : '0', marginLeft: line.kind === 'quote' ? '-18px' : '0',
         textIndent: prefix ? `-${prefixWidth}px` : '0', letterSpacing: line.kind === 'divider' ? '6px' : 'normal',
         backgroundColor: line.kind === 'code' ? colors.surface : 'transparent' });

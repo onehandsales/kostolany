@@ -67,7 +67,7 @@ function WrittenStoryContent({ storyId, ownerId, onBack, active = true, highligh
   // 접근권이나 본문 공급부가 바뀐 동안 열린 설정을 복구하지 않는다.
   if (display && (!current?.story || current.error || moderationPending || moderation.state?.readError ||
     moderation.state?.value?.blocked.includes(current.story.userId) || moderation.blocked(publishedArticleId(storyId)))) setDisplay(false);
-  return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}><IconButton icon="back" label="작성 글 뒤로" onPress={onBack} />
+  return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}><IconButton icon="back" label="작성 글 뒤로" onPress={onBack} style={{ alignSelf: 'flex-start' }} />
     {!current || moderationPending ? <ActivityIndicator accessibilityLabel="작성 글 불러오는 중" /> : current.error || moderation.state?.readError ? <View style={{ padding: 24 }}><Text role="alert" style={{ color: colors.text }}>{offline && !cachedStory ? '오프라인에서 이용할 수 있는 사본이 없어요. 연결 후 다시 시도해 주세요.' : '글을 불러오지 못했어요.'}</Text><Pressable role="button" accessibilityLabel="작성 글 다시 불러오기" onPress={() => { retry(value => value + 1); void moderation.store?.reload(); }} style={{ minHeight: 48, justifyContent: 'center' }}><Text style={{ color: colors.green }}>Try again</Text></Pressable></View> : !current.story || !imageSource || moderation.state?.value?.blocked.includes(current.story.userId) || moderation.blocked(publishedArticleId(storyId)) ? <Text style={{ padding: 24, color: colors.text }}>이 글을 찾을 수 없어요.</Text> :
       <ScrollView ref={scroll} accessibilityLabel="발행 글 본문" contentContainerStyle={{ padding: 24, paddingBottom: 64 }}>
         {offline && <Text style={{ color: colors.secondaryText, marginBottom: 16 }}>Offline · Downloaded copy</Text>}

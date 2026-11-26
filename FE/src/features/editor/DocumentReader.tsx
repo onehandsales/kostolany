@@ -1,14 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import { Image, Linking, Pressable, Text, View, type TextStyle } from 'react-native';
+import { useState } from 'react';
+import { Image, Pressable, Text, View, type TextStyle } from 'react-native';
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
 import { useCommunityNavigation } from '../community/CommunityNavigation';
-import { safeLink, type EditorDocument } from './editorModel';
+import type { EditorDocument } from './editorModel';
 import type { EditorImageSource } from './imageSource';
 import { useReaderTypography } from '../settings/useReaderTypography';
 import { PassageReader, type PassageTextRenderer } from '../highlights/PassageReader';
+import type { PassageTextAction } from '../highlights/HighlightedText';
 import type { SelectionDocument } from '../highlights/selectionDocument';
 import { documentReaderBlocks } from './publishedSelection';
+import { useDocumentLink } from './useDocumentLink';
 
 type DocumentReaderProps = {
   document: EditorDocument; images: EditorImageSource; active?: boolean; reading?: boolean;
@@ -20,35 +22,9 @@ type DocumentReaderProps = {
 export function DocumentReader({ document, images, active = true, reading = false, passages, onBlockLayout }: DocumentReaderProps) {
   const { colors } = useTheme(); const navigation = useCommunityNavigation();
   const typography = useReaderTypography(18);
-  // 문서와 공급부가 돌아와도 이전 방문의 링크 요청은 새 방문에 속하지 않는다.
-  const [lifetime, setLifetime] = useState(() => ({ document, images, active }));
-  if (lifetime.document !== document || lifetime.images !== images || lifetime.active !== active) {
-    setLifetime({ document, images, active });
-  }
-  const session = useRef<{ identity: typeof lifetime; alive: boolean } | null>(null);
-  const request = useRef(0);
-  const [failure, setFailure] = useState<{ lifetime: typeof lifetime; url: string } | null>(null);
-  useEffect(() => {
-    const current = { identity: lifetime, alive: true };
-    session.current = current;
-    return () => { current.alive = false; };
-  }, [lifetime]);
-  const failedLink = active && failure?.lifetime === lifetime ? failure.url : null;
+  const { open, failedLink } = useDocumentLink(document, images, active);
   const scale = reading ? typography.body.fontSize / 18 : 1;
   const blocks = documentReaderBlocks(document);
-  async function open(url: string) {
-    const safe = safeLink(url); if (!safe || !active) return;
-    const current = session.current;
-    if (!current?.alive || current.identity !== lifetime) return;
-    const currentRequest = ++request.current;
-    setFailure(null);
-    try {
-      await Linking.openURL(safe);
-      if (current.alive && request.current === currentRequest) setFailure(null);
-    } catch {
-      if (current.alive && request.current === currentRequest) setFailure({ lifetime, url: safe });
-    }
-  }
   function renderBlocks(renderText?: PassageTextRenderer) {
     return blocks.map((block, index) => {
       if (block.type === 'image' && block.image) return <ReaderImage key={block.image.id} assetId={block.image.assetId} description={block.image.description} width={block.image.width} height={block.image.height} images={images} />;
@@ -59,6 +35,16 @@ export function DocumentReader({ document, images, active = true, reading = fals
         lineHeight: (block.type === 'heading' ? 36 : block.type === 'subheading' ? 24 : 30) * scale,
         fontWeight: block.type === 'heading' ? '700' : '400', color: block.type === 'subheading' ? colors.secondaryText : colors.text,
         textAlign: block.type === 'pullquote' ? 'center' : 'left', fontStyle: block.type === 'quote' || block.type === 'pullquote' ? 'italic' : 'normal' };
+      const actions: PassageTextAction[] = [];
+      let actionOffset = block.prefix.length;
+      for (const part of block.content) {
+        const start = actionOffset; actionOffset += part.text.length;
+        const mention = 'mention' in part ? part.mention : undefined;
+        const url = part.formats.find(format => format.kind === 'link')?.url;
+        if (mention) actions.push({ start, end: actionOffset, label: `${part.text} @${mention.handle}`,
+          onPress: () => navigation.openIdentity({ kind: 'writer', id: mention.id }) });
+        else if (url) actions.push({ start, end: actionOffset, label: part.text, onPress: () => { void open(url); } });
+      }
       function renderContent(start: number, end: number, interactive: boolean) {
         let offset = block.prefix.length;
         return <>{block.prefix.slice(start, end)}{block.content.map((part, partIndex) => {
@@ -73,7 +59,7 @@ export function DocumentReader({ document, images, active = true, reading = fals
       }
       return <View key={index} onLayout={event => onBlockLayout?.(index, event.nativeEvent.layout.y)}
         style={{ marginVertical: 8, paddingLeft: block.type === 'quote' ? 20 : 0, borderLeftWidth: block.type === 'quote' ? 3 : 0, borderColor: colors.text, backgroundColor: block.type === 'code' ? colors.surface : undefined }}>
-        {renderText ? renderText(index, style, undefined, { role: heading ? 'heading' : undefined, renderContent })
+        {renderText ? renderText(index, style, undefined, { role: heading ? 'heading' : undefined, renderContent, actions })
           : <Text selectable role={heading ? 'heading' : undefined} style={style}>{renderContent(0, block.text.length, true)}</Text>}
       </View>;
     });

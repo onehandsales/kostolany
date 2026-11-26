@@ -6,9 +6,11 @@ import { useTheme } from '../../shared/theme/ThemeProvider';
 import { useAuth } from '../auth/AuthProvider';
 import { ResponsesPanel } from '../responses/ResponsesPanel';
 import { ShareSheet } from '../sharing/ShareSheet';
+import { useSharing } from '../sharing/SharingProvider';
+import type { ShareAdapter } from '../sharing/types';
 import { articleWriter, publicIdentity } from '../community/data/publicDirectory';
 import { useHighlights } from './HighlightProvider';
-import { HighlightedText, type PassageTextContent } from './HighlightedText';
+import { HighlightedText, type PassageTextAction, type PassageTextContent } from './HighlightedText';
 import { SelectionOverlay } from './SelectionOverlay';
 import { NativePassagePicker } from './NativePassagePicker';
 import { NativePassageText } from './NativePassageText';
@@ -20,7 +22,7 @@ import { clearTextSelection, revealPassage, useSelectionBridge } from './useSele
 import { highlightId, highlightOperation, type Highlight, type Passage } from './types';
 
 export type PassageTextRenderer = (index: number, style?: StyleProp<TextStyle>, otherHighlight?: string,
-  options?: { renderContent?: PassageTextContent; role?: 'heading' }) => ReactNode;
+  options?: { renderContent?: PassageTextContent; actions?: readonly PassageTextAction[]; role?: 'heading' }) => ReactNode;
 type PassageReaderProps = { document: SelectionDocument; memberOnly?: boolean; active?: boolean; highlightId?: string; onRevealBlock?: (index: number) => void;
   authorId?: string; visibility?: 'public' | 'unlisted'; children: (render: PassageTextRenderer) => ReactNode };
 export function PassageReader(props: PassageReaderProps) {
@@ -32,6 +34,7 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const { state, store } = useHighlights();
   const { colors } = useTheme();
   const auth = useAuth();
+  const { adapter: sharingAdapter } = useSharing();
   const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [menuHeightDp, setMenuHeightDp] = useState(48);
@@ -44,6 +47,8 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const [sharing, setSharing] = useState(false);
   const [error, setError] = useState(false);
   const [pending, setPending] = useState(false);
+  const [copyState, setCopyState] = useState<{ adapter: ShareAdapter; pending: boolean; error: boolean } | null>(null);
+  const copyOperation = useRef<AbortController | null>(null);
   const mounted = useRef(true);
   const busy = useRef(false);
   const selectionIntent = useRef(0);
@@ -54,6 +59,7 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const highlights = state?.value?.highlights.filter(value => value.articleId === document.articleId && resolvePassage(document, value)) ?? [];
   const selectedHighlight = selection ? highlights.find(value => value.id === highlightId(selection.passage)) : undefined;
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; clearTextSelection(); }; }, []);
+  useEffect(() => () => { copyOperation.current?.abort(); copyOperation.current = null; }, [sharingAdapter]);
   useEffect(() => {
     if (!active || !anchorId || !state?.value || initialAnchor.current === anchorId) return;
     const anchor = state.value.highlights.find(value => value.id === anchorId);
@@ -66,6 +72,7 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     const previous = currentPassage.current;
     if (previous?.start !== value?.passage.start || previous?.end !== value?.passage.end) {
       selectionIntent.current += 1; setError(false); setMore(false);
+      copyOperation.current?.abort(); copyOperation.current = null; setCopyState(null);
     }
     currentPassage.current = value?.passage ?? null;
     setSelection(current => current?.passage.start === value?.passage.start && current?.passage.end === value?.passage.end
@@ -77,7 +84,27 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     updateSelection(value);
   }
   useSelectionBridge({ id, document, active, selectionColor: colors.highlight, onSelect: choose });
-  function close() { currentPassage.current = null; selectionIntent.current += 1; clearTextSelection(); setSelection(null); setNativeBlock(null); setMore(false); setSharing(false); setError(false); }
+  function close() {
+    currentPassage.current = null; selectionIntent.current += 1;
+    copyOperation.current?.abort(); copyOperation.current = null; setCopyState(null);
+    clearTextSelection(); setSelection(null); setNativeBlock(null); setMore(false); setSharing(false); setError(false);
+  }
+  async function copy() {
+    if (!selection || busy.current || copyOperation.current || !resolvePassage(document, selection.passage)) return;
+    const controller = new AbortController(); const intent = selectionIntent.current;
+    copyOperation.current = controller; setCopyState({ adapter: sharingAdapter, pending: true, error: false });
+    const current = () => mounted.current && !controller.signal.aborted
+      && copyOperation.current === controller && selectionIntent.current === intent;
+    try {
+      await sharingAdapter.copy(selection.passage.text, controller.signal);
+      if (current()) close();
+    } catch {
+      // 이전 범위의 복사 실패는 새 선택 메뉴를 덮지 않는다.
+      if (current()) setCopyState({ adapter: sharingAdapter, pending: false, error: true });
+    } finally {
+      if (copyOperation.current === controller) copyOperation.current = null;
+    }
+  }
   function selectNativeBlock(index: number) {
     if (quote || sharing || nativePicker || auth.state.dialog) return;
     const block = document.blocks[index];
@@ -92,7 +119,7 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
     auth.store.openLogin(forResponse ? { kind: 'response', targetKind: 'article', targetId: document.articleId } : { kind: 'highlight', articleId: document.articleId }); return true;
   }
   async function save(retry = false) {
-    if (!selection || busy.current || requireLogin() || !store) return;
+    if (!selection || busy.current || copyOperation.current || requireLogin() || !store) return;
     const passage = selection.passage;
     if (!resolvePassage(document, passage)) return;
     const previous = attempted.current;
@@ -111,24 +138,35 @@ function PassageReaderContent({ document, memberOnly = false, active = true, hig
   const selectedAnchor = anchorId ? state?.value?.highlights.find(value => value.id === anchorId) : undefined;
   const anchorUnavailable = anchorId && state?.value && (!selectedAnchor || !resolvePassage(document, selectedAnchor));
   const menu = <PassageMenu selected={Boolean(selectedHighlight)} pending={pending} error={error} more={more}
+    copying={copyState?.adapter === sharingAdapter && copyState.pending}
+    copyError={copyState?.adapter === sharingAdapter && copyState.error} onCopy={() => { void copy(); }}
     onSave={retry => { void save(retry); }} onMore={() => setMore(value => !value)}
     onRespond={() => { if (selection && !requireLogin(true)) { clearTextSelection(); setNativeBlock(null); setQuote(selection.passage); } }}
     onShare={() => { setNativeBlock(null); setSharing(true); }} />;
   const renderText: PassageTextRenderer = (index, style, otherHighlight, options) => {
     const block = document.blocks[index];
     if (!block?.selectable) return null;
-    if (active && nativeBlock?.index === index && !quote && !sharing && !auth.state.dialog) {
+    const openHighlight = (value: Highlight, y: number) => {
+      updateSelection({ passage: value, position: { x: 24, y: Number.isFinite(y) ? y : Math.min(240, height / 2), width: width - 48, height: 30 } }); setError(false);
+    };
+    // Android는 길게 누르는 도중 뷰를 교체하지 않아 OS 선택 손잡이의 수명을 유지한다.
+    if (active && (Platform.OS === 'android' || nativeBlock?.index === index) && !quote && !sharing && !auth.state.dialog) {
       return <NativePassageText key={index} document={document} index={index} style={style} menu={selection ? menu : null} onClose={close}
-        highlights={highlights} otherHighlight={otherHighlight} initialHeightDp={nativeBlock.initialHeightDp} renderContent={options?.renderContent}
-        initialSelection={{ start: selection ? selection.passage.start - block.start : 0, end: selection ? selection.passage.end - block.start : 0 }}
-        onSelect={passage => updateSelection(passage ? { passage, position: { x: 0, y: 0, width: 0, height: 0 } } : null)} />;
+        selecting={nativeBlock?.index === index}
+        actions={options?.actions} onHighlight={openHighlight} role={options?.role}
+        highlights={highlights} otherHighlight={otherHighlight} initialHeightDp={nativeBlock?.index === index ? nativeBlock.initialHeightDp : undefined} renderContent={options?.renderContent}
+        initialSelection={{ start: nativeBlock?.index === index && selection ? selection.passage.start - block.start : 0, end: nativeBlock?.index === index && selection ? selection.passage.end - block.start : 0 }}
+        onSelect={passage => {
+          if (passage) { setNativeBlock({ index }); updateSelection({ passage, position: { x: 0, y: 0, width: 0, height: 0 } }); }
+          else if (nativeBlock?.index === index) updateSelection(null);
+        }} />;
     }
     return <HighlightedText key={index} block={block} nativeID={`${id}-block-${index}`} highlights={highlights} otherHighlight={otherHighlight} style={style} {...options}
       onLayout={event => { blockHeightsDp.current.set(index, event.nativeEvent.layout.height); }}
       onSelect={Platform.OS !== 'web' && active ? () => selectNativeBlock(index) : undefined}
-      onHighlight={(value, y) => { updateSelection({ passage: value, position: { x: 24, y: Number.isFinite(y) ? y : Math.min(240, height / 2), width: width - 48, height: 30 } }); setError(false); }} />;
+      onHighlight={openHighlight} />;
   };
-  const menuWidth = Math.min(width - 16, selectedHighlight ? 340 : 280);
+  const menuWidth = Math.min(width - 16, 340);
   const menuPosition = selection ? passageMenuPosition(selection.position,
     { width: menuWidth, height: menuHeightDp }, { width, height, ...insets }) : null;
   return <View nativeID={id}>

@@ -26,7 +26,7 @@ export function PublishTopics({ selected, onSave, onCancel }: { selected: string
   }
   return <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-      <IconButton icon="back" label="토픽 선택 취소" onPress={onCancel} />
+      <IconButton icon="back" label="토픽 선택 취소" onPress={onCancel} style={{ alignSelf: 'flex-start' }} />
       <FlatList data={state.status === 'ready' && query === settled ? items : []}
         keyExtractor={topic => topic.id} keyboardShouldPersistTaps="handled"
         style={{ flex: 1, minHeight: 0 }} contentContainerStyle={{ paddingBottom: 24 }}

@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen, userEvent, waitFor, within } from '@testing-library/react-native';
-import { AppState } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AppNavigator } from './AppNavigator';
@@ -42,7 +42,11 @@ async function setup(unlisted = false, author = mockUserA) {
   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   await screen.findByRole('heading', { name: title }); await flush();
   async function select() {
-    await fireEvent(screen.getByText('한글 😀와 링크'), 'longPress');
+    if (Platform.OS === 'android') {
+      const input = screen.getByLabelText('한글 😀와 링크');
+      await fireEvent(input, 'focus');
+      await fireEvent(input, 'selectionChange', { nativeEvent: { selection: { start: 0, end: 5 } } });
+    } else await fireEvent(screen.getByText('한글 😀와 링크'), 'longPress');
     await fireEvent(screen.getByLabelText('본문 안 문구 선택'), 'selectionChange', { nativeEvent: { selection: { start: 0, end: 5 } } });
   }
   return { user, view, tree, title, story, responses, select, moderation };
@@ -73,7 +77,7 @@ it.each([false, true])('Unlisted=%s 발행 글의 강조를 Library에서 다시
   await fireEvent.press(screen.getByLabelText('내 하이라이트: 한글 😀'), { nativeEvent: { pageY: 300 } });
   await user.press(button('Remove highlight')); await flush();
   expect(screen.queryByLabelText('내 하이라이트: 한글 😀')).toBeNull();
-  await fireEvent(screen.getByText('한글 😀와 링크'), 'longPress');
+  await select();
   await fireEvent(screen.getByLabelText('본문 안 문구 선택'), 'selectionChange', { nativeEvent: { selection: { start: 7, end: 9 } } });
   await user.press(button('Highlight')); await flush();
   expect(screen.queryByRole('link', { name: '링크' })).toBeNull();

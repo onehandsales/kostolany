@@ -959,6 +959,8 @@
 
 ## S042 — 빈 기사 편집기
 
+- 2026-11-26 후속: [Android 빈 편집기의 버튼·커서·서식 도구 부분 대조](../FE_COMMON_DESIGN_02_RESULT.md#s042-empty-editor-followup). 제목/본문 빈값을 확인했고 제품 코드는 수정하지 않았다. 현재 Gboard는 떠 있는 자판으로 원본 하단 iOS 키보드와 상태가 다르며 사용자 지정 균등 도구 간격을 유지한다. 동일 상태 PNG 쌍과 실제 iOS 검증이 없으므로 아래 recipe-only를 유지한다.
+
 [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/02_sc_397cb0f05ba54659adac7376f29512dd.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_02.md#s042>) · `sc_397cb0f05ba54659adac7376f29512dd`
 
 - 담당: V07 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
@@ -4064,6 +4066,8 @@
 <a id="s183"></a>
 
 ## S183 — 인용 서식 적용
+
+- 2026-11-26 후속: [실제 Android 인용문 대조·선 굵기 보정과 잔여](../FE_COMMON_DESIGN_02_RESULT.md#s183-quote-followup). 원본 문단의 인용·기울임·활성 표시를 확인하고 선 굵기를3→4로 보정했다. 원본보다18단위 안쪽인 선 위치·서체/줄바꿈·제목 대소문자·추가 문장·사진과 키보드 상태 차이는 남아 아래 recipe-only를 유지한다.
 
 - Parity9 추가 보완: 전체 quote 입력 구간의 내용 높이 인용선/여백을 보완했다. 혼합 문단별 인용선은 구현 잔여이며 실제 native 줄바꿈/선택/IME는 미검증이다. [근거·검증·종료 조건](../FE_MEDIUM_PARITY_09_RESULT.md#additional-review). 아래 최초 판정은 이력이며 시각 동일성으로 승격하지 않는다.
 
