@@ -1,5 +1,7 @@
 # Kostolany Mobile
 
+**현재 진행 순서(2026-11-26):** 사용자 확정 [7단계 실행 순서](../TODO/MEDIUM_PARITY/EXECUTION_PLAN.md)에 따라 [Android 개발 실행·사용자 확인](../TODO/FE_MOBILE_EXECUTION_01_RESULT.md)을 거쳐 [2단계 공통 디자인](../TODO/FE_COMMON_DESIGN_02_RESULT.md)을 보정 중이다. 글자 굵기·편집기 아이콘·Saved 중앙·하단 도구 간격을 보완했다. 다음 확인은 기사 글자120%·다크 테마와 남은 원본 대조다. iOS 실행, 실제 휴대폰 종합 검증, 원본 동일성 완료는 각각 미완료로 유지한다.
+
 **Git 요청(2026-11-26):** 사용자가 이번 Medium 흐름·RN 리치텍스트·읽기 기능 보완의 커밋과 푸시를 요청했다. 현재 변경을 `main`에 커밋해 `origin/main`으로 푸시하는 범위에 적용한다. 아래 커밋·push 미수행 문구는 구현 당시 기록이며 실제 기기 미검증과 원본 차이 판정은 유지한다.
 
 **현재 편집기 방향(2026-11-26):** [Medium 원본 재대조·연속 리치텍스트 입력·검증](../TODO/FE_MEDIUM_PARITY_01_20_REVIEW.md#medium-editor-followup). 문단별 입력을 `react-native-enriched-html` 기반의 연속 입력으로 교체했다. 이미지 없는 구간 안에서 혼합 문단 서식과 문단 간 OS 선택을 함께 제공하는 구조이며 기존 schemaVersion3·UTF-16·초안/발행 계약은 유지한다. Swift·Kotlin을 직접 작성하지 않았지만 라이브러리에 native 구현이 포함되어 새 development build가 필요하다. Expo Go 지원이나 실제 iOS·Android 실행 완료를 뜻하지 않는다. 읽기 메뉴의 줄 단위 위치와 이미지 경계 선택 등 남은 차이는 연결 문서에 구분한다. 아래 문단별 입력 방식은 이전 이력이다.

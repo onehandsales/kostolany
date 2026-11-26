@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { IconButton } from '../../shared/ui/IconButton';
-import { typography, fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { typography, fonts, fontWeights, type ThemeColors } from '../../shared/theme/tokens';
 
 import { ReadingHistoryList } from '../reading-history/ReadingHistoryList';
 import { SavedLists } from '../public-lists/SavedLists';
@@ -268,7 +268,7 @@ const createStyles = (colors: ThemeColors) =>
       fontFamily: fonts.sans,
       fontSize: 16,
       lineHeight: 21,
-      fontWeight: '600',
+      fontWeight: fontWeights.semibold,
       color: colors.onAccent,
     },
     start: { minHeight: 48, justifyContent: 'center', alignSelf: 'flex-start', zIndex: 1 },

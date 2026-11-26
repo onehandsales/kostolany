@@ -61,9 +61,14 @@ export const fonts = {
   serif: Platform.select({ ios: 'Georgia', android: 'serif', default: 'Georgia, "Times New Roman", serif' }),
 } as const;
 
+// 현재 Android의 명시적 시스템 글꼴은 600을 일반 굵기로 처리하므로 강조에 700을 사용한다.
+export const fontWeights = {
+  semibold: Platform.OS === 'android' ? '700' : '600',
+} as const;
+
 export const typography = {
-  pageTitle: { fontFamily: fonts.sans, fontSize: 24, lineHeight: 32, fontWeight: '600' },
-  sectionTitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: '600' },
+  pageTitle: { fontFamily: fonts.sans, fontSize: 24, lineHeight: 32, fontWeight: fontWeights.semibold },
+  sectionTitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 26, fontWeight: fontWeights.semibold },
   body: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24 },
   caption: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18 },
   storyTitle: { fontFamily: fonts.sans, fontSize: 20, lineHeight: 25, fontWeight: '700', letterSpacing: -0.4 },

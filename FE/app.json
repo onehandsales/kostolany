@@ -47,6 +47,7 @@
       ]
     ],
     "android": {
+      "package": "com.kostolany.mobile",
       "blockedPermissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.READ_MEDIA_IMAGES",

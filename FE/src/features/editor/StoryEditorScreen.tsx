@@ -13,6 +13,7 @@ import { useImageInsertion } from './useImageInsertion';
 import { insertDivider, insertMention, mentionQuery, replaceText, safeLink, selectedLines, selectText, setBlock, toggleFormat, type BlockKind, type EditorValue } from './editorModel';
 import type { DraftSession } from './createDraftSession';
 import { MentionSuggestions } from './MentionSuggestions';
+import { EditorInlineToolButton } from './EditorInlineToolButton';
 
 export function EditorDialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
   const styles = useThemeStyles(createStyles);
@@ -95,7 +96,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
     const selected = bodyTarget ? active : label === '헤더 서식';
     return <Pressable key={label} role="button" accessibilityLabel={label} aria-pressed={selected} accessibilityState={{ selected, disabled }} disabled={disabled}
       onPressIn={event => event.preventDefault()} onPress={onPress} style={styles.tool}>
-      <Text style={[styles.toolText, selected && styles.green, disabled && styles.dim]}>{text}</Text>
+      <Text style={[styles.toolText, selected && styles.activeToolText, disabled && styles.dim]}>{text}</Text>
     </Pressable>;
   };
   if (snapshot.status !== 'ready') return <SafeAreaView style={styles.screen}>
@@ -107,9 +108,11 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
   </SafeAreaView>;
   return <SafeAreaView style={styles.screen}>
     <View style={styles.header}>
-      <Pressable role="button" accessibilityLabel="편집기 닫기" style={styles.headerAction} onPress={onClose}><Text style={styles.headerText}>Close</Text></Pressable>
+      <View style={styles.headerLeft}>
+        <Pressable role="button" accessibilityLabel="편집기 닫기" style={styles.headerAction} onPress={onClose}><Text style={styles.headerText}>Close</Text></Pressable>
+      </View>
       <View style={styles.saveStatus} accessibilityLiveRegion="polite">
-        {snapshot.saveStatus === 'error' ? <Pressable role="button" accessibilityLabel="초안 저장 다시 시도" style={styles.headerAction} onPress={() => { void session.flush(); }}><Text style={styles.statusText}>Save failed · Retry</Text></Pressable> :
+        {snapshot.saveStatus === 'error' ? <Pressable role="button" accessibilityLabel="초안 저장 다시 시도" style={[styles.headerAction, styles.retryStatus]} onPress={() => { void session.flush(); }}><Text style={styles.statusText}>Save failed · Retry</Text></Pressable> :
           <Text style={styles.statusText}>{snapshot.saveStatus === 'saving' || snapshot.saveStatus === 'pending' ? 'Saving…' : snapshot.saveStatus === 'saved' ? 'Saved' : ''}</Text>}
       </View>
       <View style={styles.headerRight}>
@@ -143,10 +146,14 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         if (range && current.document === captured.document && current.selection.start === captured.selection.start && current.selection.end === captured.selection.end) apply(insertMention(current, range, target));
       }} />
       {bodyTarget && !mentionQuery(value) && (focused || value.selection.start !== value.selection.end) && <View style={styles.inlineTools}>
-        {tool('굵게', 'B', () => apply(toggleFormat(value, { kind: 'bold' })), value.typing.some(format => format.kind === 'bold'))}
-        {tool('기울임', 'I', () => apply(toggleFormat(value, { kind: 'italic' })), value.typing.some(format => format.kind === 'italic'))}
-        {tool('링크', '↗', () => { setError(null); setLink({ url: value.typing.find(format => format.kind === 'link')?.url ?? '', value }); }, value.typing.some(format => format.kind === 'link'), !enabled || value.selection.start === value.selection.end)}
-        {tool('키보드 닫기', '⌄', () => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); }, false, false)}
+        <EditorInlineToolButton icon="bold" label="굵게" disabled={!enabled} selected={value.typing.some(format => format.kind === 'bold')}
+          onPress={() => apply(toggleFormat(value, { kind: 'bold' }))} />
+        <EditorInlineToolButton icon="italic" label="기울임" disabled={!enabled} selected={value.typing.some(format => format.kind === 'italic')}
+          onPress={() => apply(toggleFormat(value, { kind: 'italic' }))} />
+        <EditorInlineToolButton icon="link" label="링크" disabled={!enabled || value.selection.start === value.selection.end} selected={value.typing.some(format => format.kind === 'link')}
+          onPress={() => { setError(null); setLink({ url: value.typing.find(format => format.kind === 'link')?.url ?? '', value }); }} />
+        <EditorInlineToolButton icon="keyboard-dismiss" label="키보드 닫기"
+          onPress={() => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); }} />
       </View>}
       {/* 멘션 입력 중에는 원본처럼 후보 영역이 서식 도구 자리를 사용한다. */}
       {!(bodyTarget && !composing && mentionQuery(value)) && <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
@@ -190,17 +197,20 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
 const createStyles = (colors: ThemeColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background }, flex: { flex: 1, minHeight: 0 },
   header: { minHeight: 48, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12, borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
-  headerRight: { flexDirection: 'row' }, headerAction: { minHeight: 48, minWidth: 48, justifyContent: 'center', alignItems: 'center' },
-  saveStatus: { flex: 1, minWidth: 0, paddingHorizontal: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
-  statusText: { fontFamily: fonts.sans, fontSize: 12, color: colors.secondaryText }, menuItem: { minHeight: 48, justifyContent: 'center', borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
+  // 양쪽 조작 영역에 같은 폭을 배정해 저장 상태를 화면 중앙에 둔다.
+  headerLeft: { width: '33.333333%', minWidth: 0, alignItems: 'flex-start', justifyContent: 'center' },
+  headerRight: { width: '33.333333%', minWidth: 0, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end', alignContent: 'center' }, headerAction: { minHeight: 48, minWidth: 48, justifyContent: 'center', alignItems: 'center' },
+  saveStatus: { width: '33.333333%', minWidth: 0, paddingHorizontal: 8, alignItems: 'center', justifyContent: 'center' },
+  retryStatus: { alignSelf: 'stretch' },
+  statusText: { fontFamily: fonts.sans, fontSize: 12, textAlign: 'center', color: colors.secondaryText }, menuItem: { minHeight: 48, justifyContent: 'center', borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
   menuAnchor: { alignItems: 'flex-end', paddingTop: 48, paddingRight: 54 }, menu: { width: 250, maxWidth: '90%', backgroundColor: colors.surface, paddingHorizontal: 16, borderRadius: 12, elevation: 5, boxShadow: '0px 4px 24px #00000018' },
   menuText: { fontFamily: fonts.sans, fontSize: 16, color: colors.text },
   headerText: { fontFamily: fonts.sans, fontSize: 14, color: colors.text }, green: { color: colors.green, fontFamily: fonts.sans, fontSize: 16 },
   content: { paddingHorizontal: 18, paddingTop: 20, paddingBottom: 30 },
   title: { fontFamily: fonts.sans, fontSize: 32, lineHeight: 38, fontWeight: '700', color: colors.text, padding: 0, marginBottom: 11, minHeight: 48, outlineStyle: 'solid', outlineWidth: 0 },
-  toolbar: { flexGrow: 0, flexShrink: 0, height: 50, minHeight: 50, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border }, tools: { paddingHorizontal: 9, minHeight: 48, alignItems: 'center' },
-  tool: { minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }, toolText: { fontFamily: fonts.sans, fontSize: 20, color: colors.secondaryText }, dim: { opacity: 0.45 },
-  inlineTools: { flexDirection: 'row', flexShrink: 0, justifyContent: 'center', borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
+  toolbar: { flexGrow: 0, flexShrink: 0, height: 50, minHeight: 50, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border }, tools: { flexGrow: 1, paddingHorizontal: 9, minHeight: 48, alignItems: 'center', justifyContent: 'space-between' },
+  tool: { minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }, toolText: { fontFamily: fonts.sans, fontSize: 20, color: colors.secondaryText }, activeToolText: { color: colors.green }, dim: { opacity: 0.45 },
+  inlineTools: { flexDirection: 'row', flexShrink: 0, justifyContent: 'center', paddingHorizontal: 8, borderTopWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
   backdrop: { flex: 1, backgroundColor: '#00000044', justifyContent: 'center', padding: 24 }, dialogAvoid: { maxHeight: '90%', width: '100%', maxWidth: 480, alignSelf: 'center' },
   dialog: { padding: 24, backgroundColor: colors.background, gap: 16, borderRadius: 12 }, dialogTitle: { fontFamily: fonts.sans, fontSize: 22, color: colors.text, fontWeight: '600' },
   dialogText: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24, color: colors.text }, action: { minHeight: 48, minWidth: 48, justifyContent: 'center', alignItems: 'center' },

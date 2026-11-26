@@ -14,6 +14,10 @@ export type AppIconName =
   | 'select'
   | 'bell'
   | 'write'
+  | 'bold'
+  | 'italic'
+  | 'link'
+  | 'keyboard-dismiss'
   | 'minus'
   | 'comment'
   | 'share'
@@ -82,6 +86,13 @@ export function AppIcon({ name, size = 24, color: requestedColor, filled = false
           <Path d="M12 5H4v15h15v-8M10 14l1-4L20 1l3 3-9 9ZM18 3l3 3" />
         </>
       )}
+      {name === 'bold' && <Path d="M6 4h7a4 4 0 0 1 0 8H6Zm0 8h8a4 4 0 0 1 0 8H6Z" strokeWidth={2.5} />}
+      {name === 'italic' && <Path d="M11 4h8M5 20h8M15 4 9 20" strokeWidth={2} />}
+      {name === 'link' && <Path d="m10 14 4-4M8 12l-2 2a3.5 3.5 0 0 0 5 5l3-3a3.5 3.5 0 0 0 0-5M16 12l2-2a3.5 3.5 0 0 0-5-5l-3 3a3.5 3.5 0 0 0 0 5" strokeWidth={1.75} />}
+      {name === 'keyboard-dismiss' && <>
+        <Rect x={2} y={3} width={20} height={12} rx={2} />
+        <Path d="M5 6h1m3 0h1m3 0h1m3 0h1M5 9h1m3 0h1m3 0h1m3 0h1M8 12h8m-7 6 3 3 3-3" />
+      </>}
       {name === 'minus' && (
         <>
           <Circle cx={12} cy={12} r={9} />
