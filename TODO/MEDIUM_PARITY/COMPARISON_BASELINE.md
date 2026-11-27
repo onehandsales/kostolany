@@ -1949,7 +1949,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_04.md#s087>) · `sc_785431954ec4405eb0a3b22debce165a`
 
-- 담당: V08 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V08 / 묶음 9. 2026-11-27 현재 상태: **부분 대조·차이 유지**. [Android 원본 사진7개/빈 검색/최상단/Light·키보드 닫힘 비교와 후속 조작](../FE_COMMON_DESIGN_02_RESULT.md#photo-picker-layout-20261127)을 확인했다. 사진11개 중 뒤4개·Back/안내·서체/플랫폼은 다르며 새 PNG 파일은 저장하지 않았다. 아래 CP-WEB-01은 최초 계획 조건이고 이번 실제 실행은390×844dp/density480/OS1.0이다. Dark/OS2.0은 원본 없는 구현 표시 검사다.
 - 실제 FE 진입 절차(정적 확인): Editor → 이미지 메뉴 → Camera/Library/Unsplash → 선택·삽입; 로딩은 지연 source로 제어
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [ImagePickerSheet.tsx](<../../FE/src/features/editor/ImagePickerSheet.tsx>), [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEditorScreen.tsx>)

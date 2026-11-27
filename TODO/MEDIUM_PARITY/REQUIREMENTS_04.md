@@ -412,6 +412,7 @@ FE 조사 경로: [HomeFeedScreen.tsx](<../../FE/src/features/feed/HomeFeedScree
 
 ## S087 — Unsplash 사진 선택
 
+- 2026-11-27 후속: [원본 사진7개가 적용된 상단/검색/카드 배치와 최종 검증](../FE_COMMON_DESIGN_02_RESULT.md#photo-picker-layout-20261127), [별도 Android 실제 실행](../FE_MOBILE_EXECUTION_01_RESULT.md#photo-picker-layout-native-20261127). 제목 중앙·검색 배경/터치·키보드 배치를 보정했고 Back/안내·대체 서체·원본 없는 상태의 차이는 남긴다. 아래 미확보/미실행은 당시 이력이며 전체 동일성 완료로 승격하지 않는다.
 - Parity9: 행 정렬 대신 독립2열과 키보드 회피 보완; 원본 사진/작가 자산은 미확보, 현재 local fixture 유지. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_785431954ec4405eb0a3b22debce165a` · [원본 분석](<../../medium/flows/Home/Publishing a story/ANALYSIS.md>):184 · [원본 PNG](<../../medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png>)
@@ -426,7 +427,7 @@ FE 조사 경로: [StoryEditorScreen.tsx](<../../FE/src/features/editor/StoryEdi
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 로컬4사진 mock 검색과 원본 Unsplash 다열 사진 대조. 서비스/원본 사진 미연결, Back와 로컬 안내는 자체 보완. ([과거 기록](<../FE_GOAL_53_RESULT.md>):281)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정:** 전체 동일성 미완료. 2026-11-27에 앞7개 원본 사진·배치·검색/취소/재진입·삽입을 별도 Android에서 대조했다. 원본과 다른 표시·fixture·플랫폼 범위는 위 최신 결과를 따른다. 아래 표의 코드 경로/미검증 문구는 최초 문서화 당시 판정이며, 최신 부분 대조를 전체 원본 동일성으로 확대하지 않는다.
 
 **원본 컨트롤 관찰 문장:** 사진 항목, Cancel
 

@@ -1,10 +1,9 @@
 import { AccessibleModal as Modal } from '../../shared/ui/AccessibleModal';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useThemeStyles } from '../../shared/theme/ThemeProvider';
+import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View, useWindowDimensions } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTheme, useThemeStyles } from '../../shared/theme/ThemeProvider';
 import { fonts, type ThemeColors } from '../../shared/theme/tokens';
-import { FormTextInput } from '../../shared/ui/FormTextInput';
 import type { EditorImageSource, ImageAsset, ImageOrigin, ImagePermission } from './imageSource';
 import { useDeviceImageSelection } from './useDeviceImageSelection';
 
@@ -14,6 +13,11 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
   source: EditorImageSource; onClose: () => void; onSelect: (asset: ImageAsset, origin: ImageOrigin) => void;
 }) {
   const styles = useThemeStyles(createStyles);
+  const { colors } = useTheme();
+  const { width, fontScale } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const stackedHeader = width / fontScale < 300;
+  const [searchFocused, setSearchFocused] = useState(false);
   const [origin, setOrigin] = useState<ImageOrigin | null>(null);
   const [query, setQuery] = useState(''); const [attempt, setAttempt] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
@@ -43,7 +47,8 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
     }, query ? 180 : 0);
     return () => { clearTimeout(timer); abort.abort(); };
   }, [source, origin, query, attempt, isDevice]);
-  const action = (label: string, text: string, onPress: () => void) => <Pressable role="button" accessibilityLabel={label} onPress={onPress} style={styles.action}><Text style={styles.blue}>{text}</Text></Pressable>;
+  const action = (label: string, text: string, onPress: () => void, header = false) => <Pressable role="button" accessibilityLabel={label} onPress={onPress} style={[styles.action, header && styles.headerAction]}><Text style={styles.blue}>{text}</Text></Pressable>;
+  const title = <Text role="heading" style={styles.title}>{origin === 'unsplash' ? 'Unsplash' : origin === 'camera' ? 'Camera' : 'Library'}</Text>;
   return <Modal transparent animationType="none" onRequestClose={onClose}>
     <SafeAreaView style={styles.backdrop} accessibilityViewIsModal>
       {!origin ? <View role="dialog" accessibilityLabel="이미지 추가" style={styles.menu}>
@@ -53,16 +58,24 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
           {action('Unsplash 사진 검색', 'Search photos on Unsplash', () => choose('unsplash'))}
         </View>
         <View style={styles.menuGroup}>{action('이미지 선택 취소', 'Cancel', onClose)}</View>
-      </View> : <KeyboardAvoidingView role="dialog" accessibilityLabel="사진 선택" style={styles.sheet}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      </View> : <View role="dialog" accessibilityLabel="사진 선택" style={styles.sheet}>
+        {/* 키보드로 내용 높이가 줄어도 바깥 시트의 시작 위치는 유지한다. */}
+        <KeyboardAvoidingView style={styles.sheetContent} keyboardVerticalOffset={insets.top + 24}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        {stackedHeader && <View style={styles.expandedTitle}>{title}</View>}
         <View style={styles.header}>
-          {action('이미지 선택 취소', 'Cancel', onClose)}
-          <Text role="heading" style={styles.title}>{origin === 'unsplash' ? 'Unsplash' : origin === 'camera' ? 'Camera' : 'Library'}</Text>
-          {action('이미지 소스 변경', 'Back', () => { device.cancel(); setOrigin(null); setQuery(''); })}
+          <View style={styles.headerStart}>{action('이미지 선택 취소', 'Cancel', onClose, true)}</View>
+          {!stackedHeader && title}
+          <View style={styles.headerEnd}>{action('이미지 소스 변경', 'Back', () => { device.cancel(); setOrigin(null); setQuery(''); setSearchFocused(false); }, true)}</View>
         </View>
-        {!isDevice && <Text style={styles.note}>로컬 예시 이미지{origin !== 'unsplash' ? ' · 모의 선택기' : ''}</Text>}
-        {origin === 'unsplash' && <FormTextInput accessibilityLabel="사진 검색" value={query} onChangeText={setQuery}
-          placeholder="Search photos" style={styles.search} autoCapitalize="none" returnKeyType="search" />}
+        {origin === 'unsplash' && <View style={styles.searchField}>
+          {/* 검색 배경은 낮게 유지하고 실제 입력은 글자 확대와 최소 터치 높이를 따른다. */}
+          <View pointerEvents="none" style={[styles.searchSurface, searchFocused && styles.searchFocused]} />
+          <TextInput accessibilityLabel="사진 검색" value={query} onChangeText={setQuery}
+            placeholder="Search photos" placeholderTextColor={colors.secondaryText} style={styles.search}
+            onFocus={() => setSearchFocused(true)} onBlur={() => setSearchFocused(false)}
+            autoCapitalize="none" autoCorrect={false} returnKeyType="search" />
+        </View>}
         {isDevice ? device.error ? <View style={styles.space}>
           <Text role="alert" style={styles.text}>{device.error}</Text>
           {action('사진 다시 시도', 'Try again', () => { if (origin) choose(origin); })}
@@ -73,7 +86,7 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
           {current.permission === 'limited' && <Text style={styles.note}>선택한 사진만 접근할 수 있어요.</Text>}
           {current.permission === 'denied' && <View style={styles.space}><Text role="alert" style={styles.text}>사진 접근이 허용되지 않았어요.</Text>{action('사진 권한 다시 확인', 'Try again', () => setAttempt(value => value + 1))}</View>}
           {current.permission === 'cancelled' && <Text style={styles.note}>사진 선택을 취소했어요.</Text>}
-          <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.grid}>
+          <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={[styles.grid, origin === 'unsplash' && styles.searchResults]}>
             {!current.assets.length && (current.permission === 'granted' || current.permission === 'limited') &&
               <Text style={styles.note}>일치하는 사진이 없어요.</Text>}
             {/* 유한한 로컬 사진 목록은 독립된 두 열에서 각 사진의 높이를 유지한다. */}
@@ -89,9 +102,11 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
                 </Pressable>;
               })}
             </View>)}</View>
+            <Text style={styles.note}>로컬 예시 이미지{origin !== 'unsplash' ? ' · 모의 선택기' : ''}</Text>
           </ScrollView>
         </>}
-      </KeyboardAvoidingView>}
+        </KeyboardAvoidingView>
+      </View>}
     </SafeAreaView>
   </Modal>;
 }
@@ -99,11 +114,19 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   backdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: '#00000033' },
   menu: { padding: 8, gap: 8 }, menuGroup: { backgroundColor: colors.background, borderRadius: 12, overflow: 'hidden' },
   action: { minWidth: 48, minHeight: 56, paddingHorizontal: 12, alignItems: 'center', justifyContent: 'center', borderBottomWidth: StyleSheet.hairlineWidth, borderColor: colors.border },
-  blue: { color: colors.background === '#ffffff' ? '#007aff' : '#64aaff', fontFamily: fonts.sans, fontSize: 17 }, sheet: { height: '99%', backgroundColor: colors.background, borderTopLeftRadius: 12, borderTopRightRadius: 12 },
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, title: { color: colors.text, fontFamily: fonts.sans, fontWeight: '700', fontSize: 18 },
+  blue: { color: colors.background === '#ffffff' ? '#007aff' : '#64aaff', fontFamily: fonts.sans, fontSize: 17 }, sheet: { flex: 1, marginTop: 24, backgroundColor: colors.background, borderTopLeftRadius: 12, borderTopRightRadius: 12 },
+  sheetContent: { flex: 1 },
+  header: { flexDirection: 'row', alignItems: 'center' }, title: { color: colors.text, fontFamily: fonts.sans, fontWeight: '700', fontSize: 17, lineHeight: 22, flexShrink: 1 },
+  headerStart: { flex: 1, alignItems: 'flex-start' }, headerEnd: { flex: 1, alignItems: 'flex-end' },
+  headerAction: { minHeight: 50, paddingHorizontal: 16, paddingVertical: 10, borderBottomWidth: 0 },
+  expandedTitle: { alignItems: 'center', paddingHorizontal: 16, paddingTop: 12 },
   note: { color: colors.secondaryText, fontFamily: fonts.sans, fontSize: 13, marginHorizontal: 16, marginVertical: 8 },
-  search: { minHeight: 48, borderRadius: 12, backgroundColor: colors.surface, color: colors.text, padding: 12, margin: 16 },
+  searchField: { marginHorizontal: 16 },
+  searchSurface: { position: 'absolute', top: 6, bottom: 6, left: 0, right: 0, borderRadius: 10, backgroundColor: colors.segment, borderBottomWidth: 2, borderBottomColor: 'transparent' },
+  searchFocused: { borderBottomColor: colors.green },
+  search: { minHeight: 48, fontFamily: fonts.sans, fontSize: 17, lineHeight: 22, color: colors.text, paddingHorizontal: 12, paddingVertical: 13 },
   grid: { padding: 16, paddingBottom: 32 }, row: { flexDirection: 'row', gap: 16, alignItems: 'flex-start' },
+  searchResults: { paddingTop: 28 },
   column: { flex: 1, minWidth: 0 }, photo: { minHeight: 48, marginBottom: 16 },
   image: { width: '100%', height: 'auto', resizeMode: 'cover' }, credit: { position: 'absolute', left: 0, right: 0, bottom: 0, color: '#fff', backgroundColor: '#00000088', padding: 8, fontFamily: fonts.sans, fontSize: 12 },
   space: { padding: 24 }, text: { color: colors.text, fontSize: 16 },
