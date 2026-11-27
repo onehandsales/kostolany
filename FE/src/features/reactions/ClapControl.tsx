@@ -24,7 +24,7 @@ export function ClapControl({ target, title, size = 16, baseline }: ClapControlP
   return <LoginRequestButton context={target.kind === 'list' ? { kind: 'clap-list', listId: target.id }
     : { kind: 'like', articleId: target.id }}
     label={`박수, ${title}, 로그인 필요`} style={[styles.row, size > 20 && styles.toolbarRow]}>
-    <AppIcon name="clap" size={size} filled={size <= 16} />
+    <AppIcon name="clap" size={size} />
     <Text style={[styles.count, size > 20 && styles.toolbarCount]}>{formatReactionCount(total)}</Text>
   </LoginRequestButton>;
 }
@@ -43,7 +43,7 @@ function SignedInClaps({ store, target, title, size }: ClapControlProps & { stor
       <Pressable role="button" accessibilityLabel={`박수 보내기, ${title}`}
         accessibilityHint="누를 때마다 박수 한 번을 보냅니다"
         accessibilityValue={{ min: 0, max: MAX_CLAPS, now: state.mine }}
-        accessibilityState={{ disabled, busy: state.isSaving }} disabled={disabled}
+        accessibilityState={{ disabled, busy: state.isSaving, selected: state.mine > 0 }} disabled={disabled}
         onLongPress={() => setShowReaders(true)}
         onPress={() => {
           store.clap(target);
@@ -51,7 +51,7 @@ function SignedInClaps({ store, target, title, size }: ClapControlProps & { stor
           if (timer.current) clearTimeout(timer.current);
           timer.current = setTimeout(() => setFeedback(null), 1100);
         }} style={styles.target}>
-        <AppIcon name="clap" size={size} filled={state.mine > 0 || (size ?? 16) <= 16}
+        <AppIcon name="clap" size={size} filled={state.mine > 0}
           color={state.mine > 0 ? colors.text : colors.secondaryText} />
         {(size ?? 16) <= 20 && <Text style={styles.count}>{state.total === null ? '—' : formatReactionCount(state.total)}</Text>}
       </Pressable>

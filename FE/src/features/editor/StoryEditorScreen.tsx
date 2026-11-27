@@ -169,7 +169,8 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         {tool('구분선 삽입', '⋯', () => apply(insertDivider(value)))}
         {tool('멘션 삽입', '@', () => { setBodyTarget(true); apply(replaceText(value, value.selection, `${value.selection.start && !/\s/u.test(value.document.body[value.selection.start - 1]!) ? ' ' : ''}@`)); }, false, composing)}
         {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), block === 'code')}
-        {tool('이미지 삽입', '▧', () => { cancelImageFocus(); Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }, false, composing)}
+        <EditorInlineToolButton icon="image" label="이미지 삽입" disabled={composing}
+          onPress={() => { cancelImageFocus(); Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }} />
       </ScrollView>}
     </KeyboardAvoidingView>
     {link && <EditorDialog title="링크" onClose={closeLink}>

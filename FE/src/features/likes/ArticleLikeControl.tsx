@@ -30,7 +30,7 @@ export function ArticleLikeControl(props: ArticleLikeControlProps) {
     >
       {props.compact ? (
         <>
-          <AppIcon name="clap" size={props.iconSize ?? 16} color={colors.secondaryText} filled={(props.iconSize ?? 16) <= 16} />
+          <AppIcon name="clap" size={props.iconSize ?? 16} color={colors.secondaryText} />
           <Text style={[styles.compactCount, (props.iconSize ?? 16) > 20 && styles.toolbarCount]}>
             {formatReactionCount(
               mediumArticles.find((article) => article.id === props.articleId)?.reference?.applause ?? 0,
@@ -95,7 +95,7 @@ function SignedInLikeControl({
             <AppIcon
               name="clap"
               size={iconSize}
-              filled={iconSize <= 16}
+              filled={state.isLiked}
               color={state.isLiked ? colors.green : colors.secondaryText}
             />
           ) : (
