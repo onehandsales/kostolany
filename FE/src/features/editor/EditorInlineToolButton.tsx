@@ -10,9 +10,10 @@ type EditorInlineToolButtonProps = {
   onPress: () => void;
   selected?: boolean;
   disabled?: boolean;
+  muted?: boolean;
 };
 
-export function EditorInlineToolButton({ icon, label, onPress, selected = false, disabled = false }: EditorInlineToolButtonProps) {
+export function EditorInlineToolButton({ icon, label, onPress, selected = false, disabled = false, muted = false }: EditorInlineToolButtonProps) {
   const { colors } = useTheme();
   const styles = useThemeStyles(createStyles);
   const color = selected ? colors.green : colors.secondaryText;
@@ -27,7 +28,7 @@ export function EditorInlineToolButton({ icon, label, onPress, selected = false,
       // 서식을 누를 때 본문의 선택과 입력 포커스를 보존한다.
       onPressIn={event => event.preventDefault()}
       onPress={onPress}
-      style={({ pressed }) => [styles.button, selected && styles.selected, (disabled || pressed) && styles.dim]}
+      style={({ pressed }) => [styles.button, selected && styles.selected, (disabled || muted || pressed) && styles.dim]}
     >
       <AppIcon name={icon} size={20} color={color} />
     </Pressable>

@@ -94,11 +94,13 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
     const withoutOld = old ? toggleFormat(link.value, old) : link.value;
     apply(toggleFormat(withoutOld, { kind: 'link', url })); closeLink();
   }
-  const tool = (label: string, text: string, onPress: () => void, active = false, disabled = !enabled) => {
+  // 삽입 도구는 본문 편집 전에도 누를 수 있으므로 옅은 표시와 비활성 상태를 분리한다.
+  const tool = (label: string, text: string, onPress: () => void, options: { active?: boolean; disabled?: boolean; muted?: boolean } = {}) => {
+    const { active = false, disabled = !enabled, muted = false } = options;
     const selected = bodyTarget ? active : label === '헤더 서식';
     return <Pressable key={label} role="button" accessibilityLabel={label} aria-pressed={selected} accessibilityState={{ selected, disabled }} disabled={disabled}
       onPressIn={event => event.preventDefault()} onPress={onPress} style={styles.tool}>
-      <Text style={[styles.toolText, selected && styles.activeToolText, disabled && styles.dim]}>{text}</Text>
+      <Text style={[styles.toolText, selected && styles.activeToolText, (disabled || muted) && styles.dim]}>{text}</Text>
     </Pressable>;
   };
   if (snapshot.status !== 'ready') return <SafeAreaView style={styles.screen}>
@@ -163,13 +165,13 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
       </View>
       {/* 멘션 입력 중에는 원본처럼 후보 영역이 서식 도구 자리를 사용한다. */}
       {!(bodyTarget && !composing && mentionQuery(value)) && <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
-        {tool('헤더 서식', 'Tᴛ', () => cycle(['paragraph', 'heading', 'subheading']), ['heading', 'subheading'].includes(block))}
-        {tool('인용 서식', '❝', () => cycle(['paragraph', 'quote', 'pullquote']), ['quote', 'pullquote'].includes(block))}
-        {tool('목록 서식', '☷', () => cycle(['paragraph', 'bullet', 'numbered']), ['bullet', 'numbered'].includes(block))}
+        {tool('헤더 서식', 'Tᴛ', () => cycle(['paragraph', 'heading', 'subheading']), { active: ['heading', 'subheading'].includes(block) })}
+        {tool('인용 서식', '❝', () => cycle(['paragraph', 'quote', 'pullquote']), { active: ['quote', 'pullquote'].includes(block) })}
+        {tool('목록 서식', '☷', () => cycle(['paragraph', 'bullet', 'numbered']), { active: ['bullet', 'numbered'].includes(block) })}
         {tool('구분선 삽입', '⋯', () => apply(insertDivider(value)))}
-        {tool('멘션 삽입', '@', () => { setBodyTarget(true); apply(replaceText(value, value.selection, `${value.selection.start && !/\s/u.test(value.document.body[value.selection.start - 1]!) ? ' ' : ''}@`)); }, false, composing)}
-        {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), block === 'code')}
-        <EditorInlineToolButton icon="image" label="이미지 삽입" disabled={composing}
+        {tool('멘션 삽입', '@', () => { setBodyTarget(true); apply(replaceText(value, value.selection, `${value.selection.start && !/\s/u.test(value.document.body[value.selection.start - 1]!) ? ' ' : ''}@`)); }, { disabled: composing, muted: !enabled })}
+        {tool('코드 블록', '{}', () => apply(setBlock(value, block === 'code' ? 'paragraph' : 'code')), { active: block === 'code' })}
+        <EditorInlineToolButton icon="image" label="이미지 삽입" disabled={composing} muted={!enabled}
           onPress={() => { cancelImageFocus(); Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); insertion.cancel(); setImagePicker(true); }} />
       </ScrollView>}
     </KeyboardAvoidingView>
