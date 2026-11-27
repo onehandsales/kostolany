@@ -51,7 +51,10 @@ export function RichBody(props: RichBodyProps) {
     }
     latest.current.onComposing(false);
     const normalizedText = nativeEditorText(next.document);
-    const needsNormalization = nativeText.current !== normalizedText;
+    // native가 마지막 사진 뒤 빈 행만 생략한 경우 같은 문서를 다시 주입하지 않는다.
+    const omittedImageEndLine = `${nativeText.current}\n` === normalizedText
+      && next.document.images.some(image => image.offset === next.document.body.length - 2);
+    const needsNormalization = nativeText.current !== normalizedText && !omittedImageEndLine;
     nativeText.current = normalizedText;
     if (canonical === rendered.current && !needsNormalization) return;
     rendered.current = needsNormalization ? '' : canonical;
@@ -113,7 +116,8 @@ export function RichBody(props: RichBodyProps) {
     style={{ minHeight: props.minHeight ?? 300, fontFamily: fonts.serif, fontSize: 18, lineHeight: 30,
       color: colors.text, padding: 0 }}
     htmlStyle={{ h1: { fontSize: 28, bold: true }, h2: { fontSize: 18, bold: false },
-      blockquote: { borderWidth: 4, borderColor: colors.text, gapWidth: 24 },
+      // 입력 영역의18dp 여백과 선4dp를 포함해 인용 본문을 원본의28dp 시작점에 맞춘다.
+      blockquote: { borderWidth: 4, borderColor: colors.text, gapWidth: 6 },
       ul: { marginLeft: 0, gapWidth: 22, bulletSize: 4, bulletColor: colors.text },
       ol: { marginLeft: 0, gapWidth: 8, markerColor: colors.text },
       a: { color: colors.green, textDecorationLine: 'underline' },

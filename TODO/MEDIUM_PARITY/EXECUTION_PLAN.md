@@ -2,6 +2,8 @@
 
 ## 현재 진행 순서 — 2026-11-26 사용자 확정
 
+**현재 작업 — 인용/사진 간격 후속(2026-11-27):** [native 인용 본문46→28dp·사진 위 여백24→48dp](../FE_COMMON_DESIGN_02_RESULT.md#quote-layout-20261127)를 적용하고, 검증 중 발견한 빈 인용의 줄 증가/마지막 사진 뒤 반복 저장을 수정했다. 최종 타입/lint·8 suites/72 tests와 별도 Android 서식·Undo/Redo·사진 포함 Cut/Undo·저장/재개를 확인했다. 원본 폰트와 인용선18dp 위치는 지원 근거를 남긴 미해결이다. 다음은 다크/큰 글자 시각 대조, 읽기 사진 경계와 혼합 빈 인용 서식/Redo 뒤 선택 접힘의3단계 검토다. [사용자 세션 보존](../FE_MOBILE_EXECUTION_01_RESULT.md#quote-layout-native-20261127)·현재 아이콘 확정·31개 사용자 통과·7단계 순서·Android 기본 메뉴 제거 보류를 유지한다. 같은 검사 묶음을 사용자에게 다시 요청하지 않는다. 아래 다음 작업은 당시 이력이다.
+
 **현재 작업 인계·아이콘 확정(2026-11-27):** [타이포3곳 보정](../FE_COMMON_DESIGN_02_RESULT.md#representative-typography-20261127)에 이어 [사진/멘션16 PNG와 같은 콘텐츠의 인용 비교](../FE_COMMON_DESIGN_02_RESULT.md#editor-reference-assets-20261127)를 진행했다. 타입/lint·관련46 tests와 최종 사진 선택16 tests, 별도 Android 삽입/초안 재개/멘션을 확인했다. [기존 사용자 세션 보존과 별도 실행](../FE_MOBILE_EXECUTION_01_RESULT.md#reference-assets-native-20261127)에 따라 사용자 앱 자동 갱신은 멈춰 있으며 그 세션에 새 자산 반영을 주장하지 않는다. [잔여6개 표](../FE_COMMON_DESIGN_02_RESULT.md#visual-residual-status-20261127)의 다음은 인용선18dp 위치의 지원 범위·서체/줄바꿈·배치 보정이다. 현재 아이콘은 변경 대상에서 제외하며 Undo/Redo·편집기 사진 경계 선택·31개 사용자 통과·7단계 순서·Android 기본 메뉴 제거 보류를 유지한다. 원본 폰트/가려진 사진·읽기 사진 경계·다크/큰 글자·실제 iOS/실기기·전수 판정은 미완료다. 아래 다음 작업/아이콘 보류/추가 확인 문구는 당시 이력이다.
 
 **지정 아이콘2종 후속(2026-11-27):** [박수→빨간 하트·편집기 사진 SVG](../FE_COMMON_DESIGN_02_RESULT.md#heart-photo-icons-20261127)를 사용자 요청으로 구현했다. 타입/lint·관련70 tests와 Android의 하트 반응/취소·사진 선택 창을 직접 확인했다. 전체 아이콘 통일을 재개한 것이 아니며 기존31개 사용자 통과와7단계·원본 차이 정리 방향은 유지한다. 추가 사용자 확인은 변경한 모양 두 곳에 한정한다.

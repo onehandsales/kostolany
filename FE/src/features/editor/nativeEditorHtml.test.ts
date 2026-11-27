@@ -1,6 +1,22 @@
 import { changeBody, emptyEditor, insertImage, selectText, setBlock, toggleFormat, validEditorDocument } from './editorModel';
 import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, parseEditorHtml, valueFromNativeHtml } from './nativeEditorHtml';
 
+it.each([1, 2])('빈 인용문%d개를 일반 문단 사이에서 왕복해도 빈 줄과 선택 범위가 늘어나지 않는다', count => {
+  const body = `인용 😀${'\n'.repeat(count + 1)}일반`;
+  const value = changeBody(emptyEditor(), body);
+  value.document.blocks = ['quote', ...Array.from({ length: count }, () => 'quote' as const), 'paragraph'];
+  const nativeHtml = `<html><blockquote><p><i>인용 😀</i></p>${'<br>'.repeat(count)}</blockquote><p>일반</p></html>`;
+  let next = valueFromNativeHtml(nativeHtml, value, { start: 0, end: body.length });
+  for (let pass = 0; pass < 3; pass++) {
+    const html = editorHtml(next.document);
+    expect(html).toBe(`<blockquote><p><i>인용 😀</i></p></blockquote>${'<blockquote><br></blockquote>'.repeat(count)}<p>일반</p>`);
+    next = valueFromNativeHtml(html, next, { start: 0, end: body.length });
+    expect(next.document.body).toBe(body);
+    expect(next.document.blocks).toEqual(value.document.blocks);
+    expect(next.selection).toEqual({ start: 0, end: body.length });
+  }
+});
+
 it('사진을 포함한 연속 HTML 선택과 왕복에서 사진 ID·원본 크기·멘션·UTF-16 좌표를 보존한다', () => {
   const initial = changeBody(emptyEditor(), '앞 😀\n뒤');
   const value = insertImage(selectText(initial, { start: 5, end: 5 }), { id: 'photo', assetId: 'asset', source: 'camera', description: '사진', credit: '', width: 1600, height: 900 });

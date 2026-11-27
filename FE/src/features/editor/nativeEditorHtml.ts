@@ -102,8 +102,10 @@ export function editorHtml(document: EditorDocument, appearance?: EditorAppearan
     if (line.kind === 'bullet' || line.kind === 'numbered') {
       if (!list) { list = line.kind; blocks.push(list === 'bullet' ? '<ul>' : '<ol>'); }
       blocks.push(`<li>${content}</li>`);
-    } else if (line.kind === 'quote') blocks.push(`<blockquote><p>${content}</p></blockquote>`);
-    else if (line.kind === 'code') blocks.push(`<codeblock><p>${content}</p></codeblock>`);
+    } else if (line.kind === 'quote') {
+      // 빈 인용 안의 빈 p는 Android에서 줄바꿈이 중복되므로 br 하나로 전달한다.
+      blocks.push(line.text ? `<blockquote><p>${content}</p></blockquote>` : '<blockquote><br></blockquote>');
+    } else if (line.kind === 'code') blocks.push(`<codeblock><p>${content}</p></codeblock>`);
     else if (line.kind === 'heading' || line.kind === 'subheading') {
       const tag = line.kind === 'heading' ? 'h1' : 'h2'; blocks.push(`<${tag}>${content}</${tag}>`);
     } else blocks.push(`<p${line.kind === 'pullquote' || line.kind === 'divider' ? ' style="text-align: center"' : ''}>${content}</p>`);

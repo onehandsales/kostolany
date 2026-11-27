@@ -1,5 +1,21 @@
 # 모바일 실행 환경과 비교 조건 — 1단계
 
+<a id="quote-layout-native-20261127"></a>
+
+## 인용/사진 간격과 빈 행의 Android 확인 — 2026-11-27 후속
+
+[구현·최종72 tests·남은 차이](FE_COMMON_DESIGN_02_RESULT.md#quote-layout-20261127). 기존 사용자 `emulator-5556`의 체크포인트 `kostolany_before_quote_layout_20261127`을 저장하고 JS HMR 비활성화를 유지했다. 앱 PID3015·Metro를 재시작하지 않았고 사용자 초안에 검사 내용을 쓰지 않았다. 자동 갱신을 멈춘 사용자 세션에는 이번 코드/앞선 새 자산이 반영되지 않았다.
+
+- 별도 `Kostolany_Asset_Check`/`emulator-5558`을 API36·1170×2532·density480·font_scale1.0·Light로 실행했다. 새 모의 로그인과 `The Silence between Notes` 초안에 원문/산·호수 사진을 넣어 S137/S183을 대조했다. 이 환경은 사용자 세션과 별도이며 실제 iOS/실기기가 아니다.
+- 본문·인용·사진의 같은 콘텐츠에서 시작점/행간/사진 위 여백을 확인했다. 한글/영문 혼합 문단 붙여넣기와 인용→가운데 인용→일반 전환 중 빈 인용 행이 늘어나는 결함을 재현했다. native 입력 HTML을 메모리에서 대조하고 빈 인용의 br 표현으로 수정했다.
+- 수정 후 `Quote before\n\nNormal after`와 사진을 대상으로 전체 선택→굵게→Undo→Redo→저장/재개에서 본문/블록/사진 ID·offset27이 유지됐다. 굵게/Redo 후 선택0 접힘은 별도 잔여로 기록하며 범위 유지 통과를 주장하지 않는다.
+- S183 원문을 복원한 뒤 Select across photos에서 마지막 사진 뒤 빈 행 생략 때문에 Saving/버전 증가가 반복됨을 확인했다. native 텍스트와 저장 모델의 차이는 마지막 `\n`1개였다. 해당 차이의 재주입만 막은 후 version601·Saved가 유지됐다. 원인 확인용 런타임 관찰은 해제했으며 파일 로그/추적 코드는 남기지 않았다.
+- 본문에 포커스→Ctrl+A로 native 범위0~140 선택→Cut에서 본문 빈 문자열/사진0개→Undo로 원문·사진 `image-1-1`/`reference-snow-lake`·1071×1188·offset139 복원→Finish photo selection→Close→Drafts 재개를 확인했다. 재개 후 version605와 원문/사진이 같았다. 재개 시 Undo 이력이 초기화되는 기존 세션 범위는 유지한다.
+
+별도 검증 상태는 `kostolany_quote_layout_checked_20261127` AVD 체크포인트에 저장한 뒤 `emulator-5558`만 종료했다. 기존 사용자 에뮬레이터와 Metro는 유지한다. 이 체크포인트는 로컬 실행 상태이며 앱의 재시작 영속 저장 구현이 아니다.
+
+이번 에이전트 검증을 기존31개 사용자 검사 수에 합산하지 않는다. 아이콘·Android 기본 선택 메뉴·실제 서비스 연결·native 의존성은 변경하지 않았다. 원본 글꼴/선 바깥 위치·선택 모드 사진 여백·실제 iOS/다크/큰 글자는 결과 문서의 잔여를 따른다.
+
 <a id="reference-assets-native-20261127"></a>
 
 ## 사진·멘션 자산의 별도 Android 실행 — 2026-11-27 후속

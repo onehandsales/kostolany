@@ -22,6 +22,24 @@ const changeHtml = (value: string) => fireEvent(input(), 'changeHtml', { nativeE
 const select = (start: number, end = start) =>
   fireEvent(input(), 'selectionChange', { nativeEvent: { selection: { start, end } } });
 
+it('마지막 사진 뒤 빈 행을 생략한 native 이벤트가 반복돼도 재주입이나 자동 저장을 반복하지 않는다', async () => {
+  const initial = changeBody(emptyEditor(), 'Quote\n\uFFFC\n');
+  initial.document.blocks = ['quote', 'paragraph', 'paragraph'];
+  initial.document.images = [{ id: 'photo', offset: 6, assetId: 'asset', source: 'library', description: 'photo', credit: '', width: 240, height: 160 }];
+  const onChange = jest.fn();
+  await render(<RichBody value={initial} onChange={onChange} onSelect={jest.fn()}
+    onFocus={jest.fn()} onBlur={jest.fn()} onComposing={jest.fn()} focusRequest={0} dismissRequest={0} />);
+  const nativeHtml = '<blockquote><p><i>Quote</i></p></blockquote><p><img src="kostolany-image:photo" width="240" height="160"/></p>';
+  await changeHtml(nativeHtml);
+  await changeHtml(nativeHtml);
+  expect(onChange).not.toHaveBeenCalled();
+  expect(nativeEditorCommands.setValue).not.toHaveBeenCalled();
+  await changeHtml(nativeHtml.replace('Quote', 'Quote!'));
+  expect(onChange).toHaveBeenCalledTimes(1);
+  expect(onChange.mock.lastCall?.[0].document.body).toBe('Quote!\n\uFFFC\n');
+  expect(onChange.mock.lastCall?.[0].document.images[0]).toEqual({ ...initial.document.images[0], offset: 7 });
+});
+
 it('사진 앞 줄바꿈 삭제가 같은 저장 문서로 정규화돼도 native 입력에 독립 이미지 행을 다시 반영한다', async () => {
   const initial = changeBody(emptyEditor(), 'Before\n\uFFFC\nAfter');
   initial.document.images = [{ id: 'photo', offset: 7, assetId: 'asset', source: 'library', description: 'photo', credit: '', width: 240, height: 160 }];

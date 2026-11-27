@@ -132,7 +132,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
           onFocus={() => { setBodyTarget(false); setFocused(false); }} style={[styles.title, { height: titleHeight }]} />
         <RichDocumentBody source={images} continuous={continuousPhotos} value={value} onChange={setValue} onSelect={selection => setValue(current => selectText(current, selection))}
           onFocus={() => { setBodyTarget(true); setFocused(true); }} onBlur={() => setFocused(false)} onComposing={setComposing} focusRequest={focusRequest} dismissRequest={dismissRequest} />
-        {insertion.pending && <View style={{ borderWidth: 3, borderColor: colors.green, marginVertical: 24 }}>
+        {insertion.pending && <View style={{ borderWidth: 3, borderColor: colors.green, marginTop: 48, marginBottom: 24 }}>
           <Image source={images.resolve(insertion.pending.asset.assetId)} accessibilityLabel={insertion.pending.asset.description}
             style={{ width: '100%', height: 'auto', aspectRatio: insertion.pending.asset.width / insertion.pending.asset.height }} />
           {insertion.pending.status === 'loading' && <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: '#00000088', alignItems: 'center', justifyContent: 'center' }]}>

@@ -15,7 +15,7 @@ export function RichDocumentBody(props: RichBodyProps & { source: EditorImageSou
       label={index === 0 ? '글 본문' : `이미지 뒤 본문 ${Math.ceil(index / 2)}`}
       onFocus={() => { setSelectedImage(null); props.onFocus(); }} />;
     const selected = selectedImage === image.id;
-    return <View key={section.key} style={{ marginVertical: 24 }}>
+    return <View key={section.key} style={{ marginTop: 48, marginBottom: 24 }}>
       <DocumentImage image={image} source={props.source} selected={selected}
         onSelect={() => setSelectedImage(selected ? null : image.id)} onFailure={() => setSelectedImage(image.id)}
         onDelete={() => { props.onChange(removeImage(props.value, image.id)); setSelectedImage(null); }} />
