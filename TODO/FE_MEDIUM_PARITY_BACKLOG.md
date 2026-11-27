@@ -793,7 +793,7 @@
 - **Parity12 최신:** [근거·검증·잔여](FE_MEDIUM_PARITY_12_RESULT.md#comparison). 연속 배속 증가를 수정하고 Emma→Hans/Done·취소·재진입·늦은 옵션을 검증했다.270/287초는 독립 합성 입력이며 일반280 기본값 유지. WPM 공식/실음성은 미확인·제외로 분리한다.
 
 
-- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 속도·WPM·음성 목록/검색·임시 선택·Done/취소·메뉴 이동. 한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v19).
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 속도·WPM·음성 목록/검색·임시 선택·Done/취소, 기사 이동·추천 줄이기·음소거 확인·신고창 연결. 한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v19).
 
 - 전체 대상: [S003](MEDIUM_PARITY/REQUIREMENTS_01.md#s003), [S016](MEDIUM_PARITY/REQUIREMENTS_01.md#s016), [S046](MEDIUM_PARITY/REQUIREMENTS_02.md#s046), [S088](MEDIUM_PARITY/REQUIREMENTS_04.md#s088), [S131](MEDIUM_PARITY/REQUIREMENTS_06.md#s131), [S154](MEDIUM_PARITY/REQUIREMENTS_07.md#s154)
 

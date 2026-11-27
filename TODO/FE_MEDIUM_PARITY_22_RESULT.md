@@ -2,6 +2,8 @@
 
 2026-11-27 · 검토 코드 기준 `3d73d19` · 문서만 변경.
 
+**후속 검토 정정:** [문서 판정 3건 정정](#review-corrections-20261127)에 OS 사진 선택기 위임 범위, 오디오 메뉴의 실제 기능 분류, 기존 OS 글자 확대 실행 근거를 반영했다. 최초 감사 수치/실행 이력은 아래에 보존하며 이번에도 제품 코드 변경·사용자 재검사·7단계 설계 착수는 없다.
+
 <a id="decision"></a>
 
 ## 최종 판정
@@ -408,12 +410,12 @@ Monthly/Lifetime·Views/Reads·UTC 시계·빈/미집계 표시와 로컬 게시
 
 ### V19 — 오디오 속도·음성 (6화면)
 
-- 실제 구현: 속도·WPM·음성 목록/검색·임시 선택·Done/취소·메뉴 이동.
-- 경계/차이: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 실제 구현: 속도·WPM·음성 목록/검색·임시 선택·Done/취소, 기사 이동·추천 줄이기·음소거 확인·신고창 연결.
+- 경계/차이: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 사용자 근거: 기존 19. [전체 근거와 범위](#evidence).
-- 현재 코드: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>).
+- 현재 코드: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 메뉴/공유 연결: [ListeningMenu](../FE/src/features/listening/ListeningMenu.tsx) · [ListeningPlayer](../FE/src/features/listening/ListeningPlayer.tsx).
 - 기존 검사: [navigation/ListeningNavigation.test.tsx](<../FE/src/app/navigation/ListeningNavigation.test.tsx>). [Parity 12 실행 기록](<../TODO/FE_MEDIUM_PARITY_12_RESULT.md>).
-- 화면: [S003](#s003) · [S016](#s016) · [S046](#s046) · [S088](#s088) · [S131](#s131) · [S154](#s154). 인계: [H08](#h08).
+- 화면: [S003](#s003) · [S016](#s016) · [S046](#s046) · [S088](#s088) · [S131](#s131) · [S154](#s154). 인계: 오디오 [H08](#h08), 메뉴의 기사 이동 [H03](#h03)·추천 [H06](#h06)·음소거/신고 [H05](#h05).
 
 <a id="v20"></a>
 
@@ -612,9 +614,9 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 
 - 원본: `sc_0414c81870534989959d677ecede926c` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/02_sc_0414c81870534989959d677ecede926c.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 9개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_01.md#s003>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S003 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s003>).
-- FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. AirPlay는 미지원. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
-- 전이: [T-F28-02](#t-f28-02). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S003](#u-s003) · [U-F28](#u-f28). 인계 [H08](#h08).
+- FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19). 메뉴/공유 연결: [ListeningMenu](../FE/src/features/listening/ListeningMenu.tsx) · [ListeningPlayer](../FE/src/features/listening/ListeningPlayer.tsx).
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. AirPlay는 미지원. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 전이: [T-F28-02](#t-f28-02). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S003](#u-s003) · [U-F28](#u-f28). 인계: 오디오 [H08](#h08), 기사 이동 [H03](#h03), 추천 [H06](#h06), 음소거/신고 [H05](#h05).
 
 <a id="s004"></a>
 
@@ -632,7 +634,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 
 - 원본: `sc_05df03a16c6b466b8ba91d9d6244c2f5` · [PNG](<../medium/flows/Profile/Editing profile information/Adding pronouns/screens/01_sc_05df03a16c6b466b8ba91d9d6244c2f5.png>) · [분석](<../medium/flows/Profile/Editing profile information/Adding pronouns/ANALYSIS.md>) · [R 5개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_01.md#s005>).
 - 조건: Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save. ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도. 상세 조건은 [S005 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s005>).
-- FE: [editor/WrittenStoryActions.tsx](<../FE/src/features/editor/WrittenStoryActions.tsx>) · [editor/WrittenStoryCardReactions.tsx](<../FE/src/features/editor/WrittenStoryCardReactions.tsx>) · [profile/ProfileEditorSheet.tsx](<../FE/src/features/profile/ProfileEditorSheet.tsx>) · [profile/ProfileScreen.tsx](<../FE/src/features/profile/ProfileScreen.tsx>) · [profile/ProfileStories.tsx](<../FE/src/features/profile/ProfileStories.tsx>) · [profile/PronounsEditor.tsx](<../FE/src/features/profile/PronounsEditor.tsx>) · [profile/useProfilePhotoSelection.ts](<../FE/src/features/profile/useProfilePhotoSelection.ts>). 추가 공통 코드/기존 검사/사용자 근거: [V32 내 프로필·편집](#v32).
+- FE: [editor/WrittenStoryActions.tsx](<../FE/src/features/editor/WrittenStoryActions.tsx>) · [editor/WrittenStoryCardReactions.tsx](<../FE/src/features/editor/WrittenStoryCardReactions.tsx>) · [profile/ProfileEditorSheet.tsx](<../FE/src/features/profile/ProfileEditorSheet.tsx>) · [profile/ProfileScreen.tsx](<../FE/src/features/profile/ProfileScreen.tsx>) · [profile/ProfileStories.tsx](<../FE/src/features/profile/ProfileStories.tsx>) · [profile/PronounsEditor.tsx](<../FE/src/features/profile/PronounsEditor.tsx>) · [profile/useProfilePhotoSelection.ts](<../FE/src/features/profile/useProfilePhotoSelection.ts>). 추가 공통 코드/기존 검사/사용자 근거: [V32 내 프로필·편집](#v32). OS 위임 근거: [profilePhotoPicker](../FE/src/features/profile/profilePhotoPicker.ts) · [pickLocalImage](../FE/src/shared/media/pickLocalImage.ts).
 - 판정: 로컬 화면/상태 연결 확인; V32의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 사진은 로컬 URI/수명 관리, 업로드·서버 프로필 영속 저장 없음. 원본 OS 앨범과 Android picker 모습은 다름.
 - 전이: [T-F56-01](#t-f56-01) · [T-F57-05](#t-f57-05). 계약: [C51](#c51) · [C52](#c52) · [C53](#c53). 미확인: [U-S005](#u-s005) · [U-F56](#u-f56) · [U-F57](#u-f57). 인계 [H09](#h09).
 
@@ -743,7 +745,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_1965b9529b534e1597968039af1415b1` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/02_sc_1965b9529b534e1597968039af1415b1.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>) · [R 5개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_01.md#s016>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S016 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s016>).
 - FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 전이: [T-F27-02](#t-f27-02). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S016](#u-s016) · [U-F27](#u-f27). 인계 [H08](#h08).
 
 <a id="s017"></a>
@@ -1043,7 +1045,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_3b3db04094fe4a189b31e66c28971bcd` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/03_sc_3b3db04094fe4a189b31e66c28971bcd.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 6개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_02.md#s046>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S046 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s046>).
 - FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 전이: [T-F28-03](#t-f28-03). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S046](#u-s046) · [U-F28](#u-f28). 인계 [H08](#h08).
 
 <a id="s047"></a>
@@ -1463,7 +1465,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_78bee192bd2041a98f6721240f2352d5` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/05_sc_78bee192bd2041a98f6721240f2352d5.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 5개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_04.md#s088>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S088 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s088>).
 - FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 전이: [T-F28-05](#t-f28-05). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S088](#u-s088) · [U-F28](#u-f28). 인계 [H08](#h08).
 
 <a id="s089"></a>
@@ -1713,7 +1715,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_9fd133df622e4ddd859bbbeb845ba4da` · [PNG](<../medium/flows/Profile/Editing profile information/screens/04_sc_9fd133df622e4ddd859bbbeb845ba4da.png>) · [분석](<../medium/flows/Profile/Editing profile information/ANALYSIS.md>) · [R 7개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_05.md#s113>).
 - 조건: Main/Profile → Stories/Lists/About 또는 Edit profile → photo/pronouns → 자식 Done → 부모 Save. ProfileSource·ProfilePhotoPicker·DraftSource; 0/1글, he/him, 소개49자, 사진/반응29/1 별도. 상세 조건은 [S113 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s113>).
 - FE: [editor/WrittenStoryActions.tsx](<../FE/src/features/editor/WrittenStoryActions.tsx>) · [editor/WrittenStoryCardReactions.tsx](<../FE/src/features/editor/WrittenStoryCardReactions.tsx>) · [profile/ProfileEditorSheet.tsx](<../FE/src/features/profile/ProfileEditorSheet.tsx>) · [profile/ProfileScreen.tsx](<../FE/src/features/profile/ProfileScreen.tsx>) · [profile/ProfileStories.tsx](<../FE/src/features/profile/ProfileStories.tsx>) · [profile/PronounsEditor.tsx](<../FE/src/features/profile/PronounsEditor.tsx>) · [profile/useProfilePhotoSelection.ts](<../FE/src/features/profile/useProfilePhotoSelection.ts>). 추가 공통 코드/기존 검사/사용자 근거: [V32 내 프로필·편집](#v32).
-- 판정: 로컬 화면/상태 연결 확인; V32의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. iOS 원본 OS 앨범과 Android 기기 선택 화면은 플랫폼 차이. 지원/한계: 사진은 로컬 URI/수명 관리, 업로드·서버 프로필 영속 저장 없음. 원본 OS 앨범과 Android picker 모습은 다름.
+- 판정: 기기 사진 선택 어댑터의 호출/반환 처리는 코드에서 확인했다. Collections·하단 옵션은 OS 제공 UI이며 원본 iOS 컨트롤의 현재 Android 대응/개별 실행 근거는 미확인이다. 이를 FE 자체 컨트롤 구현 완료로 계산하지 않는다. 현재 Android 디자인/조작 수용은 유지하며 사진 업로드·서버 프로필 영속 저장은 미연결이다.
 - 전이: [T-F57-04](#t-f57-04). 계약: [C51](#c51) · [C52](#c52) · [C53](#c53). 미확인: [U-S113](#u-s113) · [U-F57](#u-f57). 인계 [H09](#h09).
 
 <a id="s114"></a>
@@ -1893,7 +1895,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_b6f46f91fdc549b790b4e9c1a434afae` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/screens/03_sc_b6f46f91fdc549b790b4e9c1a434afae.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing playback speed/ANALYSIS.md>) · [R 5개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_06.md#s131>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S131 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s131>).
 - FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 전이: [T-F27-03](#t-f27-03). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S131](#u-s131) · [U-F27](#u-f27). 인계 [H08](#h08).
 
 <a id="s132"></a>
@@ -2123,7 +2125,7 @@ S별 원본/코드/구현 경계와 기존 사용자·자동 검사 근거는 �
 - 원본: `sc_ca2321d6dc9142e5a97e2734260c2b0f` · [PNG](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/screens/04_sc_ca2321d6dc9142e5a97e2734260c2b0f.png>) · [분석](<../medium/flows/Home/Story detail/Listening to a story/Changing voice/ANALYSIS.md>) · [R 5개 원문/개별 판정](<../TODO/MEDIUM_PARITY/REQUIREMENTS_07.md#s154>).
 - 조건: 확장 플레이어 → Speed 또는 더보기 → Select a voice → 언어 스크롤·Hans → Done. ListeningOptionsSource; Emma/Hans, 1x200WPM·2.5x490WPM은 관찰값 fixture. 상세 조건은 [S154 비교 기준](<../TODO/MEDIUM_PARITY/COMPARISON_BASELINE.md#s154>).
 - FE: [listening/ListeningSpeedPanel.tsx](<../FE/src/features/listening/ListeningSpeedPanel.tsx>) · [listening/ListeningVoicePanel.tsx](<../FE/src/features/listening/ListeningVoicePanel.tsx>). 추가 공통 코드/기존 검사/사용자 근거: [V19 오디오 속도·음성](#v19).
-- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
+- 판정: 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 지원/한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값.
 - 전이: [T-F28-04](#t-f28-04). 계약: [C59](#c59) · [C60](#c60) · [C61](#c61). 미확인: [U-S154](#u-s154) · [U-F28](#u-f28). 인계 [H08](#h08).
 
 <a id="s155"></a>
@@ -3840,7 +3842,7 @@ C의 요구 원문·담당 G 링크는 [SCOPE](<../TODO/MEDIUM_PARITY/SCOPE.md>)
 | --- | --- |
 | <a id="c01"></a>**C01** 공통: 글꼴·본문 serif·아이콘·토큰·좌표·행간·줄바꿈·이미지 crop | 현 Android 디자인 수용·2단계 차이 정리 종료. 원본 서체 미확보·인용선/대체 자산 차이 유지; 아이콘 변경 제외. [tokens](<../FE/src/shared/theme/tokens.ts>) · [SOURCES](<../FE/assets/medium/SOURCES.json>) · [자산/근거](#coverage) |
 | <a id="c02"></a>**C02** 공통: Light/Dark/System·OS 추종·시트/입력/카드 테마 | [V16](#v16) · [V33](#v33)의 현재 코드·기존 검사·사용자 수용에 연결. 해당 모의/플랫폼 경계와 미지원·차이를 적용; 원본 미확인/외부 미연결은 완료 아님. |
-| <a id="c03"></a>**C03** 공통: 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | Safe Area/키보드/기사 200%와 기존 사용자 수용 유지. OS 전체 글자 확대·모든 VoiceOver/TalkBack 분기·모든 터치 영역 실측은 근거 부족; iOS/실기기 필수 대기로 삼지 않음. [모바일 결과](<../TODO/FE_MOBILE_EXECUTION_01_RESULT.md>) · [Q07](#q07) |
+| <a id="c03"></a>**C03** 공통: 48×48 터치·큰 글자·Safe Area·키보드·VoiceOver/TalkBack | Safe Area/키보드/기사 200%의 기존 사용자 수용 유지. 별도 Android의 OS font_scale2.0에서 홈/기사·표시 설정, 사진 검색창, 멘션 후보를 확인한 실행 이력도 반영: [홈/표시 설정](FE_MOBILE_EXECUTION_01_RESULT.md#dark-selection-native-20261127) · [기사](FE_MOBILE_EXECUTION_01_RESULT.md#reader-layout-native-20261127) · [사진 검색창](FE_MOBILE_EXECUTION_01_RESULT.md#photo-picker-layout-native-20261127) · [멘션](FE_MOBILE_EXECUTION_01_RESULT.md#mention-layout-native-20261127). 대표7화면 전체 OS확대·모든 VoiceOver/TalkBack 분기·모든 터치 영역 실측은 미확인. 원본 동일성·실제 iOS/휴대폰 검증으로 확대하지 않으며 필수 대기로도 삼지 않음. [Q07](#q07) |
 | <a id="c04"></a>**C04** 홈: For you/Following/Featured·+·알림·Write·하단 탭 | [V01](#v01)의 현재 코드·기존 검사·사용자 수용에 연결. 해당 모의/플랫폼 경계와 미지원·차이를 적용; 원본 미확인/외부 미연결은 완료 아님. |
 | <a id="c05"></a>**C05** 홈: For you 카드 −·더보기·Show less·관심사 편집 | [V11](#v11) · [V01](#v01)의 현재 코드·기존 검사·사용자 수용에 연결. 해당 모의/플랫폼 경계와 미지원·차이를 적용; 원본 미확인/외부 미연결은 완료 아님. |
 | <a id="c06"></a>**C06** 탐색: 토픽 가로 이동·Trending·Staff Picks·Recommended for you·Who to follow | [V02](#v02) · [V03](#v03)의 현재 코드·기존 검사·사용자 수용에 연결. 해당 모의/플랫폼 경계와 미지원·차이를 적용; 원본 미확인/외부 미연결은 완료 아님. |
@@ -3970,7 +3972,7 @@ C의 요구 원문·담당 G 링크는 [SCOPE](<../TODO/MEDIUM_PARITY/SCOPE.md>)
 | <a id="g49"></a>[G49 남은 설정·앱 아이콘·외부 안내](MEDIUM_PARITY/CONTRACTS.md#g49) | [V33](#v33) | 해당 V의 실제 코드/기존 검사·사용자 수용 연결. 모의·외부 미연결·미지원·원본 미확인은 해당 경계를 그대로 적용 |
 | <a id="g50"></a>[G50 검색 추가 결과·홈/탭/진입 경로 마감](MEDIUM_PARITY/CONTRACTS.md#g50) | [V01](#v01) · [V02](#v02) | 해당 V의 실제 코드/기존 검사·사용자 수용 연결. 모의·외부 미연결·미지원·원본 미확인은 해당 경계를 그대로 적용 |
 | <a id="g51"></a>[G51 기능 간 상태·실패·계정 격리 통합 검증](MEDIUM_PARITY/CONTRACTS.md#g51) | [C70](#c70) | 로컬 상태/계정/명령 수명과 기존 검사 근거. 실서버 권한·영속 동기화 미연결 |
-| <a id="g52"></a>[G52 iOS·Android·접근성·성능·native 경계 검증](MEDIUM_PARITY/CONTRACTS.md#g52) | [C03](#c03) · [C71](#c71) · [Q07](#q07) | 사용자 확정 Android 에뮬레이터 기준으로 종료. iOS/휴대폰/모든 접근성·성능 실측은 미실행 이력이며 필수 대기 아님 |
+| <a id="g52"></a>[G52 iOS·Android·접근성·성능·native 경계 검증](MEDIUM_PARITY/CONTRACTS.md#g52) | [C03](#c03) · [C71](#c71) · [Q07](#q07) | 사용자 확정 Android 에뮬레이터 기준으로 종료. 일부 화면 OS2.0 실행 이력은 C03에 연결. 대표7화면 전체 OS확대·전체 접근성/성능·실제 iOS/휴대폰은 미확인 이력이며 필수 대기 아님 |
 | <a id="g53"></a>[G53 63개 흐름 최종 대조·누락 해소·백엔드 인계](MEDIUM_PARITY/CONTRACTS.md#g53) | [C72](#c72) · [Q10](#q10) · [H11](#h11) | 전수 연결·항목별 판정/인계 종료. 원래 200개 현재 캡처/overlay·전수 동일성은 미입증. 7단계 설계 미착수 |
 
 <a id="backlog"></a>
@@ -4024,7 +4026,7 @@ C의 요구 원문·담당 G 링크는 [SCOPE](<../TODO/MEDIUM_PARITY/SCOPE.md>)
 | [V16 읽기 설정](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v16>) | 현 구현/근거 연결·Android 사용자 수용. 앱 테마와 별도 reader 테마·80~200%·서체 선택·타인 강조 설정. 한계: 선택 옵션/80~200 경계는 자체 정책, 원본 실제 서체 파일 0개. 기사 확대와 OS 확대 구분. [코드/검사](#v16) |
 | [V17 본문 선택·하이라이트](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v17>) | 현 구현/근거 연결·Android 사용자 수용. 본문 내 선택 손잡이·Copy/Highlight/Respond/Share·바깥 터치 해제·발행 글 강조. 한계: 다중 문단은 별도 picker; 읽기 사진/구분선 경계는 미지원. Android 기본 선택 메뉴 제거 보류; 정확 앵커 동일성 미확인. [코드/검사](#v17) |
 | [V18 오디오 플레이어](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v18>) | 현 구현/근거 연결·Android 사용자 수용. 일반·정책·발행 글의 무음 Listen·미니/확장·seek·일시정지·닫기. 한계: silent-mock; 실제 TTS/음원·백그라운드/오프라인 재생 없음, 이전/다음 큐 버튼 비활성. [코드/검사](#v18) |
-| [V19 오디오 속도·음성](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v19>) | 현 구현/근거 연결·Android 사용자 수용. 속도·WPM·음성 목록/검색·임시 선택·Done/취소·메뉴 이동. 한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값. [코드/검사](#v19) |
+| [V19 오디오 속도·음성](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v19>) | 현 구현/근거 연결·Android 사용자 수용. 속도·WPM·음성 목록/검색·임시 선택·Done/취소, 기사 이동·추천 줄이기·음소거 확인·신고창 연결. 한계: 속도/음성 선택은 무음 mock 메타데이터; 기사 이동·추천·음소거·신고는 별도 로컬/모의 기능. 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값. [코드/검사](#v19) |
 | [V20 응답·답글](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v20>) | 현 구현/근거 연결·Android 사용자 수용. 응답/인용·답글·수정/삭제·정렬·숨김/닫힘·수명/권한 보호. 한계: source 메모리 저장·자체 깊이/정렬/집계; 실제 타 사용자 조회·서버 소유권 검증·알림 없음. [코드/검사](#v20) |
 | [V21 정책 기사](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v21>) | 현 구현/근거 연결·Android 사용자 수용. 응답→정책 기사·작성자/반응/Listen/공유·원래 화면 복귀. 한계: 보관 발췌·원본 강조 표시·공식 링크만 제공. 전문·현재 정책·실제 집계 미확인; PolicyArticle의 정적 Text에는 개인 구절 선택/Highlight 저장 경로가 없음. [코드/검사](#v21) |
 | [V22 기사 저장](<../TODO/FE_MEDIUM_PARITY_BACKLOG.md#v22>) | 현 구현/근거 연결·Android 사용자 수용. Save to 복수 목록 선택·Done 확정·새 목록·취소/실패 복구. 한계: 사용자 결정대로 목록 사이 구분선만 제거, 헤더/Create new list 구분선 유지; 실제 서버 저장 없음. [코드/검사](#v22) |
@@ -4054,7 +4056,7 @@ C의 요구 원문·담당 G 링크는 [SCOPE](<../TODO/MEDIUM_PARITY/SCOPE.md>)
 - 새 Jest/typecheck/lint·에뮬레이터/네트워크 시험은 실행하지 않는다. 기존 통과 결과의 시점과 실패 이력을 보존한다.
 - 검증 결과와 Git 전달은 아래 확정 기록에 남긴다. 7단계 설계는 미착수다.
 
-### 확정 문서 검사 결과 (2026-11-27)
+### 최초 전수 감사의 문서 검사 결과 — a41fee9 (2026-11-27)
 
 작업 위치는 `D:\git_repository\kostolany_project`다. 임시 파일을 만들지 않는 PowerShell here-string → `python -X utf8 -`로 현재 문서·보관 baseline·`git show HEAD:<path>`를 대조했다.
 
@@ -4070,3 +4072,21 @@ C의 요구 원문·담당 G 링크는 [SCOPE](<../TODO/MEDIUM_PARITY/SCOPE.md>)
 | 기존 제품 검사 | 재실행하지 않음. 위 과거 통과/timeout/후속 관련 검사 기록 보존 |
 
 `git diff --check` 및 커밋 전 `git diff --cached --check`는 공백 오류0으로 통과했다. staged 27개가 모두 Markdown이고 제품 파일 변경·unstaged 변경이 없음을 확인했다. 누락된 과거 직접 캡처10개 및 보관 입력4개는 위 근거 한계로 남기며 새 증거로 계산하지 않는다. 사용자 추가 검사 요청은 없고 7단계 설계는 미착수다. 커밋·Push의 실제 해시는 Git 이력과 작업 완료 응답으로 전달한다.
+
+<a id="review-corrections-20261127"></a>
+
+## 후속 검토 — 문서 판정 3건 정정
+
+최초 감사 커밋 `a41fee9`에 대한 재검토에서 발견한 분류/근거 누락을 정정했다. 원본 관찰·안정 ID·기존 사용자 통과·제품 구현은 보존했다. 아래는 문서 수정이며 새 기능 구현이나 OS 실행 결과가 아니다.
+
+| 정정 대상 | 반영한 판정 | 근거 |
+| --- | --- | --- |
+| S113 OS 사진 선택기 | 사진 선택 어댑터의 호출/반환과 OS 제공 Collections·하단 옵션을 분리했다. 후자의 원본 iOS/현재 Android 대응·개별 실행 근거는 미확인으로 유지 | [S113 세부 요구](MEDIUM_PARITY/REQUIREMENTS_05.md#s113) · [profilePhotoPicker](../FE/src/features/profile/profilePhotoPicker.ts) · [pickLocalImage](../FE/src/shared/media/pickLocalImage.ts) |
+| S003 및 확장 플레이어 메뉴 | View story는 로컬 이동, Show less는 추천 선호, Mute는 음소거 확인, Report는 모의 신고로 구분했다. S055/S141/S160/S192의 공유·더보기 8행도 같은 일괄 분류를 정정했다. 속도/음성 메타데이터·AirPlay 미지원과 섞지 않음 | [S003 세부 요구](MEDIUM_PARITY/REQUIREMENTS_01.md#s003) · [ListeningMenu](../FE/src/features/listening/ListeningMenu.tsx) · [ListeningPlayer](../FE/src/features/listening/ListeningPlayer.tsx) · [기존 메뉴 검사 코드](../FE/src/app/navigation/ListeningNavigation.test.tsx) |
+| C03/G52 큰 글자 | 기존 별도 Android OS font_scale2.0의 홈/기사·표시 설정·사진 검색창·멘션 후보 확인을 연결했다. 기사만200%인 검사와 분리하고, 대표7화면 전체 OS확대·전체 접근성/성능·실제 iOS/휴대폰 미확인은 유지 | [C03의 실행 기록별 연결](#c03) · [G52](#g52) |
+
+R 요구 17행의 현재 판정을 정정했다. 메뉴/사진 선택기의 상태·표시값, 개별 조작, 관련 V19/S003/S113/C03/G52, Backlog와 실행 계획에 같은 의미를 반영했다. 무음 재생·모의 URL/추천/음소거/신고·실제 외부 전송 부재는 여전히 명시한다. OS 위임 항목을 FE 자체 구현 완료로 처리하거나 원본 미확인을 새 통과로 올리지 않는다.
+
+후속 문서 검증은 저장소 루트에서 파일을 만들지 않는 `python -X utf8 -`로 수행했다. 결과 문서 전체와 변경 문서의 추가/변경 링크 7,399건에서 파일/anchor 오류0, S200/F63/T273/R1395/U263/C72/G53 및 D/Q/V59의 누락/중복0을 확인했다. 정정된 R17행의 원본/기존 계약 열과 T 전이·U 질문 원문은 변경0이다. 최초 감사의 15,162건/27문서 검사는 당시 이력이며 이번 7,399건/9문서 검사와 합산하지 않는다.
+
+이번 변경은 TODO의 Markdown9개뿐이며 `git diff --check`를 통과했다. FE 제품 코드/테스트·디자인/아이콘·원본/자산·검사 데이터·실행 환경은 보존했다. 제품 테스트/에뮬레이터를 새로 실행하지 않았고 기존 검증 근거를 연결했다. 사용자 추가 검사 요청과 iOS/실기기 필수 대기는 없으며, 7단계 설계는 계속 미착수다.
