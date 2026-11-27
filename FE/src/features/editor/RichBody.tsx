@@ -3,7 +3,7 @@ import { EnrichedTextInput, type EnrichedTextInputInstance, type OnChangeStateEv
 
 import { useTheme } from '../../shared/theme/ThemeProvider';
 import { fonts } from '../../shared/theme/tokens';
-import { validEditorDocument, type EditorValue, type TextSelection } from './editorModel';
+import { validEditorDocument, type EditorDocument, type EditorValue, type TextSelection } from './editorModel';
 import { editorHtml, modelEditorSelection, nativeEditorSelection, nativeEditorText, valueFromNativeHtml, type EditorImageUris } from './nativeEditorHtml';
 
 export type RichBodyProps = {
@@ -12,6 +12,13 @@ export type RichBodyProps = {
   focusRequest: number; dismissRequest: number; label?: string; minHeight?: number; isActive?: boolean;
   imageUris?: EditorImageUris; imageWidth?: number;
 };
+
+function matchesDocumentText(text: string, document: EditorDocument): boolean {
+  const expected = nativeEditorText(document);
+  // Android가 마지막 사진 뒤의 빈 행만 생략해도 같은 문서로 취급한다.
+  return text === expected || (`${text}\n` === expected
+    && document.images.some(image => image.offset === document.body.length - 2));
+}
 
 // 이미지 사이의 연속 문서를 한 native 입력에 두어 문단 서식과 OS 연속 선택을 함께 유지한다.
 export function RichBody(props: RichBodyProps) {
@@ -51,10 +58,7 @@ export function RichBody(props: RichBodyProps) {
     }
     latest.current.onComposing(false);
     const normalizedText = nativeEditorText(next.document);
-    // native가 마지막 사진 뒤 빈 행만 생략한 경우 같은 문서를 다시 주입하지 않는다.
-    const omittedImageEndLine = `${nativeText.current}\n` === normalizedText
-      && next.document.images.some(image => image.offset === next.document.body.length - 2);
-    const needsNormalization = nativeText.current !== normalizedText && !omittedImageEndLine;
+    const needsNormalization = !matchesDocumentText(nativeText.current, next.document);
     nativeText.current = normalizedText;
     if (canonical === rendered.current && !needsNormalization) return;
     rendered.current = needsNormalization ? '' : canonical;
@@ -92,14 +96,19 @@ export function RichBody(props: RichBodyProps) {
       requested.current = props.focusRequest;
       if (props.isActive !== false) {
         const range = nativeEditorSelection(props.value.document, props.value.selection);
-        input.current?.setSelection(range.start, range.end);
+        // Android focus가 선택을 시작점으로 접으므로 포커스 후 원래 범위를 복원한다.
         input.current?.focus();
+        input.current?.setSelection(range.start, range.end);
       }
     }
   }, [props.focusRequest, props.isActive, props.value.document, props.value.selection]);
   useEffect(() => { if (props.dismissRequest) input.current?.blur(); }, [props.dismissRequest]);
   useEffect(() => {
     if (!focused.current || props.value.selection.start !== props.value.selection.end || replacing.current) return;
+    const range = nativeRange.current;
+    const cursor = nativeEditorSelection(props.value.document, props.value.selection);
+    // 늦은 커서 이벤트로 선택 영역 전체의 서식을 바꾸지 않도록 실제 native 선택과 대조한다.
+    if (!range || range.text !== nativeText.current || range.selection.start !== cursor.start || range.selection.end !== cursor.end) return;
     const state = nativeStyles.current;
     if (!state) return;
     const line = props.value.document.body.slice(0, props.value.selection.start).split('\n').length - 1;
@@ -128,7 +137,7 @@ export function RichBody(props: RichBodyProps) {
       if (!mounted.current) return;
       nativeText.current = event.nativeEvent.value;
       // 조합 중 HTML 확정이 지연되는 플랫폼에서는 저장 문서와 입력이 일치할 때까지 서식·발행을 막는다.
-      if (!replacing.current) latest.current.onComposing(nativeText.current !== nativeEditorText(current.current.document));
+      if (!replacing.current) latest.current.onComposing(!matchesDocumentText(nativeText.current, current.current.document));
     }}
     onChangeHtml={event => receiveHtml(event.nativeEvent.value)}
     onChangeState={event => { nativeStyles.current = event.nativeEvent; }}
@@ -137,7 +146,7 @@ export function RichBody(props: RichBodyProps) {
       const range = event.nativeEvent;
       nativeRange.current = { text: nativeText.current, selection: { start: range.start, end: range.end } };
       const selection = modelEditorSelection(current.current.document, range);
-      if (selection && nativeText.current === nativeEditorText(current.current.document)
+      if (selection && matchesDocumentText(nativeText.current, current.current.document)
         && nativeText.current.slice(range.start, range.end) === range.text) latest.current.onSelect(selection);
     }} />;
 }

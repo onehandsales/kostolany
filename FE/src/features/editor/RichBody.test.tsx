@@ -8,13 +8,18 @@ import { changeBody, emptyEditor, selectText, setBlock, toggleFormat, type Edito
 function setup(initial: EditorValue) {
   let current = initial;
   let update: (next: EditorValue) => void = () => {};
+  let refocus: () => void = () => {};
   function Editor() {
     const [value, setValue] = useState(initial);
+    const [focusRequest, requestFocus] = useState(0);
     current = value; update = setValue;
+    refocus = () => requestFocus(previous => previous + 1);
     return <RichBody value={value} onChange={setValue} onSelect={range => setValue(previous => selectText(previous, range))}
-      onFocus={() => {}} onBlur={() => {}} onComposing={() => {}} focusRequest={0} dismissRequest={0} />;
+      onFocus={() => {}} onBlur={() => {}} onComposing={() => {}} focusRequest={focusRequest} dismissRequest={0} />;
   }
-  return { node: <Editor />, value: () => current, change: (next: EditorValue) => act(() => update(next)) };
+  return { node: <Editor />, value: () => current, change: (next: EditorValue, focus = false) => act(() => {
+    update(next); if (focus) refocus();
+  }) };
 }
 const input = () => screen.getByLabelText('글 본문');
 const html = () => screen.getByTestId('native-editor-글 본문').props.accessibilityValue.text;
@@ -22,18 +27,55 @@ const changeHtml = (value: string) => fireEvent(input(), 'changeHtml', { nativeE
 const select = (start: number, end = start) =>
   fireEvent(input(), 'selectionChange', { nativeEvent: { selection: { start, end } } });
 
+it('서식 적용 후 native focus가 선택을 접어도 인용·빈 행·일반 문단의 선택 범위를 복원한다', async () => {
+  const initial = changeBody(emptyEditor(), 'Quote before\n\nNormal after');
+  initial.document.blocks = ['quote', 'quote', 'paragraph'];
+  const editor = setup(initial); await render(editor.node);
+  const range = { start: 0, end: initial.document.body.length };
+  await select(range.start, range.end);
+  nativeEditorCommands.focus.mockImplementationOnce(target => {
+    target.focus(); target.setSelection(range.start, range.start);
+  });
+  await editor.change(toggleFormat(editor.value(), { kind: 'bold' }), true);
+  expect(input().props.selection).toEqual(range);
+  expect(editor.value().selection).toEqual(range);
+  expect(editor.value().document.body).toBe(initial.document.body);
+  expect(editor.value().document.blocks).toEqual(initial.document.blocks);
+  expect(editor.value().document.marks).toEqual([{ ...range, kind: 'bold' }]);
+});
+
+it('native가 범위를 선택한 동안 늦은 커서 상태로 입력 서식을 동기화하지 않는다', async () => {
+  const initial = changeBody(emptyEditor(), 'Quote before\n\nNormal after');
+  initial.document.blocks = ['quote', 'quote', 'paragraph'];
+  const editor = setup(initial); await render(editor.node);
+  await fireEvent(input(), 'focus');
+  await select(0, initial.document.body.length);
+  await fireEvent(input(), 'changeState', { nativeEvent: {
+    bold: { isActive: false, isBlocking: false }, italic: { isActive: false, isBlocking: false },
+  } });
+  await editor.change(selectText(editor.value(), { start: 0, end: 0 }));
+  expect(nativeEditorCommands.toggleItalic).not.toHaveBeenCalled();
+  expect(nativeEditorCommands.toggleBold).not.toHaveBeenCalled();
+  expect(editor.value().document.marks).toEqual([]);
+});
+
 it('마지막 사진 뒤 빈 행을 생략한 native 이벤트가 반복돼도 재주입이나 자동 저장을 반복하지 않는다', async () => {
   const initial = changeBody(emptyEditor(), 'Quote\n\uFFFC\n');
   initial.document.blocks = ['quote', 'paragraph', 'paragraph'];
   initial.document.images = [{ id: 'photo', offset: 6, assetId: 'asset', source: 'library', description: 'photo', credit: '', width: 240, height: 160 }];
   const onChange = jest.fn();
-  await render(<RichBody value={initial} onChange={onChange} onSelect={jest.fn()}
-    onFocus={jest.fn()} onBlur={jest.fn()} onComposing={jest.fn()} focusRequest={0} dismissRequest={0} />);
+  const onSelect = jest.fn(); const onComposing = jest.fn();
+  await render(<RichBody value={initial} onChange={onChange} onSelect={onSelect}
+    onFocus={jest.fn()} onBlur={jest.fn()} onComposing={onComposing} focusRequest={0} dismissRequest={0} />);
   const nativeHtml = '<blockquote><p><i>Quote</i></p></blockquote><p><img src="kostolany-image:photo" width="240" height="160"/></p>';
   await changeHtml(nativeHtml);
   await changeHtml(nativeHtml);
   expect(onChange).not.toHaveBeenCalled();
   expect(nativeEditorCommands.setValue).not.toHaveBeenCalled();
+  await fireEvent(input(), 'nativeText', { nativeEvent: { value: 'Quote\n\uFFFC' } });
+  expect(onComposing).toHaveBeenLastCalledWith(false);
+  await select(0, 7);
+  expect(onSelect).toHaveBeenLastCalledWith({ start: 0, end: 7 });
   await changeHtml(nativeHtml.replace('Quote', 'Quote!'));
   expect(onChange).toHaveBeenCalledTimes(1);
   expect(onChange.mock.lastCall?.[0].document.body).toBe('Quote!\n\uFFFC\n');
@@ -162,6 +204,7 @@ it('접힌 커서에서 누른 굵게는 native 입력 서식으로 전달하고
   const editor = setup(changeBody(emptyEditor(), '앞'));
   await render(editor.node);
   await fireEvent(input(), 'focus');
+  await select(1);
   await fireEvent(input(), 'changeState', { nativeEvent: {
     bold: { isActive: false, isBlocking: false }, italic: { isActive: false, isBlocking: false },
   } });

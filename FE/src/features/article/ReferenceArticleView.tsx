@@ -73,7 +73,7 @@ export function ReferenceArticleView({
   const community = useCommunityNavigation();
   const recommendations = useRecommendations();
   const styles = useThemeStyles(createStyles);
-  const { colors } = useTheme();
+  const { colors, scheme } = useTheme();
   const scope = preference?.scopeKey ?? 'guest';
   const [ui, setUi] = useState<{
     scope: string;
@@ -169,7 +169,7 @@ export function ReferenceArticleView({
       >
         <View style={styles.body}>
           {reference?.memberOnly && (
-            <View style={styles.memberBadge}>
+            <View style={[styles.memberBadge, scheme === 'dark' && { borderColor: colors.text }]}>
               <AppIcon name="star" size={20} color={colors.gold} />
               <Text style={styles.memberLabel}>Member-only story</Text>
             </View>
