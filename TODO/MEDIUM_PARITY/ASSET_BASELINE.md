@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**2026-11-27 아이콘 확정·자산 잔여:** 사용자가 현재 아이콘 전체를 확정했으므로 교체·통일·원본 벡터 확보를 잔여에서 제외한다. 아래 아이콘 보류 문구는 이전 이력이다. 자산 보완 대상은 원본 서체와 누락 사진/프로필 이미지이며 [현재 잔여6개 표](../FE_COMMON_DESIGN_02_RESULT.md#visual-residual-status-20261127)를 따른다. 현재 로컬 폰트0개·SOURCES.json86개·편집기 사진 fixture4개를 재확인했으며 새 자산 확보/적용은 하지 않았다.
+
 **2026-11-27 지정 아이콘2종:** [사용자 요청과 실제 검증](../FE_COMMON_DESIGN_02_RESULT.md#heart-photo-icons-20261127)에 따라 박수 도안을 저장소의 기존 하트 경로로 교체하고 반응 시 빨간 채움을 적용했다. 사진 삽입 문자는 기존 `react-native-svg`로 사진틀·산·해를 그려 대체했다. 편집기는20dp 표시/최소48dp 터치를 유지한다. 새 라이브러리·원본 벡터·폰트·이미지 자산 확보는 없으며, 제거한 Phosphor 도안 고지만 LICENSE에서 정리했다. 전체 아이콘 통일은 보류다. 아래 Phosphor 도안 적용 기록은 이전 이력이다.
 
 **2026-11-26 편집기 후속:** [도구·서체·사진 보정과 원본 잔여](../FE_COMMON_DESIGN_02_RESULT.md#editor-history-design-20261126). Undo/Redo SVG만 추가하고 전체 아이콘 통일은 보류했다. 기존48dp 터치/20dp 표시, 대화상자 강조 토큰, 연속 선택 모드의 사진 종횡비를 유지한다. S183 원본 재열람 및 로컬 폰트 파일 부재를 확인했으며 원본 서체·숲/산 사진·native 인용선 바깥 위치는 여전히 미해결이다. 독립 원본 자산이나 새로운 이미지 파일 확보로 처리하지 않는다.
@@ -54,9 +56,9 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | 정책 기사 | reader 본문18/30, Medium Policy/Medium 원본 crop2개와 기존 SVG 도구·48px 조작 영역 | S008/V21 서체·정확 간격 잔여;272는 명시적 비교 모드만. crop은 독립 원본 자산/사용권 확보가 아님 |
 | 읽기 설정·이력 | [Parity 4](../FE_MEDIUM_PARITY_04_RESULT.md): 발행 본문18/30에 공통 크기/글꼴/테마 적용, 큰 글자의 하위 메뉴 실제 행 기준 배치, 이력 빈 카드 모서리 보정 | 원본 글꼴 미확보·이력 중간 기사/응답 집계·OS 영역과 정확 간격은 잔여; 새 자산 확보 없음 |
 | 여백·색 | spacing8/16/24/32; light#fff/#242424/green#1a8917, dark#121212 | 임의 픽셀 점수로 통과 금지; 색공간 확인과 화면별 좌표 필요 |
-| 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 원본 vector 파일 미확보; 48×48 조작영역과 보이는24px 토큰을 분리해서 비교 |
+| 아이콘 | shared/ui의 SVG 기반 AppIcon/TabIcon 및 feature별 아이콘 | 사용자 현재 디자인 확정; 원본 벡터 확보·교체·통일을 잔여에서 제외 |
 | 이미지 | 아래 SOURCES.json에 연결된 crop 파일 확보 | crop 위치·리샘플·aspect/cover·렌더 위치는 각 화면에서 별도 비교 |
-| 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 원본 Medium 자산과 차이 유지; D10/묶음18, 실제 적용Q07/21 |
+| 앱 아이콘 | app-icons 8개는 자체 K 기하 도형, SOURCES.md 명시 | 현재 자체 디자인 유지; 원본 Medium 자산으로 교체하는 작업 제외 |
 | 시작 화면 | 최초 기준에서는 app.json 대응 splash 설정 없음; 현재는 [Parity18](../FE_MEDIUM_PARITY_18_RESULT.md)의 expo-splash-screen 설정·StartupBoundary 적용 | 설정 미구현 잔여는 후속 해결; Medium 원본 자산과 K 대체의 차이 및 실제 native cold start는18/21에 유지 |
 | 자체 UI | Continue setup/Drafts/Mock/Reading tools/모의발행·결제·무음안내 | [상태별 처리 기준](OWN_UI_POLICY.md); 기준 정리 완료/화면별 적용 잔여 |
 
