@@ -1,5 +1,8 @@
 # 기존 Goal 1~53의 작업 계약
 
+**2026-11-27 현재 판정 — 6단계 전수 감사 완료:** [Parity22 결과](../FE_MEDIUM_PARITY_22_RESULT.md#decision)의 S200/F63/T273/R1395/U263/C72/G53 및 D/Q/V59 연결과 항목별 판정을 우선한다. Android 현 화면/조작은 사용자 확정 상태이며 같은 검사·iOS/실기기 필수 대기를 만들지 않는다. FE 코드/디자인/아이콘은 유지하고 Android 기본 선택 메뉴 제거는 보류한다. 모의/외부 미연결·미지원·원본 차이/미확인은 완료로 올리지 않았다. **7단계는 인계 입력만 정리했으며 설계 미착수다.** 아래 이전 ‘현재/다음/미착수/기기 대기’와 검사 수치는 당시 이력이다. G01~G53 원문·당시 결과/종료 조건은 보존한다. [C72/G53 현재 경계](../FE_MEDIUM_PARITY_22_RESULT.md#c72): 전수 연결/판정은 종료했지만 200개 현재 FE 캡처/overlay·전체 원본 동일성은 미입증이다. 이 문서 감사에서 과거 제품 전체 check 조건을 수행했다고 기록하지 않는다.
+
+
 **2026-11-25 C40/C41/C42/C45 소비 보완:** [사진 우선 입력→저장→재개→발행 회귀](../FE_MEDIUM_PARITY_01_20_REVIEW.md#editor-image-boundary). 이미지 앞 구간의 구조적 줄바꿈을 보존하고 한글·이모지 UTF-16 범위·서식·다른 이미지·초안/발행 문서를 유지한다. schemaVersion3·단일 구간 편집·mock 수명은 변경하지 않았으며 Q06 연속 선택이나 native IME 지원 확장이 아니다.
 
 **Parity20 현재 결과:** [글 통계·날짜 선택·미집계와 현재 검사](../FE_MEDIUM_PARITY_20_RESULT.md). V34의3화면·15 R/3 T/4 U/15 C를 대조하고 웹 그래프/포커스·부분집계 안내·원형 범례를 보완했다. 실제8081 고정 UTC snapshot 부분 비교·자동 검사·원본/시각/native 잔여를 구분한다.9~19 잔여는 기존 담당에 유지한다. 승인 조건 충족 후20 로컬 커밋으로16~20 연속 작업 종료;21·22/push/배포 제외. 아래는 각 당시 이력이다.
@@ -42,6 +45,8 @@
 
 ## G01 — 프로젝트 초기화와 테스트 환경
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G01](../FE_MEDIUM_PARITY_22_RESULT.md#g01). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):139 · [당시 결과](<../FE_GOAL_01_RESULT.md>)
 
 - **구현** (원문 141행): React Native 초기화, TypeScript strict, lint·테스트 환경, 최소 시작 화면, 설치·실행 안내. Expo·navigation 등은 AGENT에 따라 호환성을 확인해 선택하고 lockfile로 고정한다.
@@ -56,6 +61,8 @@
 
 ## G02 — 공통 스타일과 하단 탭 이동
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G02](../FE_MEDIUM_PARITY_22_RESULT.md#g02). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):146 · [당시 결과](<../FE_GOAL_02_RESULT.md>)
 
 - **구현** (원문 148행): 이번 화면들에 필요한 최소 색상·타이포·간격·공통 컴포넌트, 홈·탐색·라이브러리·프로필 탭. 각 탭 내부는 아직 기능이 없는 임시 화면으로 구분한다.
@@ -67,6 +74,8 @@
 <a id="g03"></a>
 
 ## G03 — 홈 피드와 기사 카드
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G03](../FE_MEDIUM_PARITY_22_RESULT.md#g03). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):152 · [당시 결과](<../FE_GOAL_03_RESULT.md>)
 
@@ -80,6 +89,8 @@
 
 ## G04 — 기사 상세
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G04](../FE_MEDIUM_PARITY_22_RESULT.md#g04). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):158 · [당시 결과](<../FE_GOAL_04_RESULT.md>)
 
 - **구현** (원문 160행): 홈에서 선택한 기사의 제목·출처·시각·이미지·본문과 뒤로 가기. 사실 설명과 AI 해석을 구분하는 fixture를 사용한다.
@@ -91,6 +102,8 @@
 <a id="g05"></a>
 
 ## G05 — 4단계 설명 전환
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G05](../FE_MEDIUM_PARITY_22_RESULT.md#g05). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):164 · [당시 결과](<../FE_GOAL_05_RESULT.md>)
 
@@ -104,6 +117,8 @@
 
 ## G06 — 기사 검색
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G06](../FE_MEDIUM_PARITY_22_RESULT.md#g06). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):170 · [당시 결과](<../FE_GOAL_06_RESULT.md>)
 
 - **구현** (원문 172행): 검색 입력, 임시 기사 데이터의 검색 결과, 결과 없음, 로딩·오류·재시도, 결과에서 상세 진입.
@@ -115,6 +130,8 @@
 <a id="g07"></a>
 
 ## G07 — 좋아요 등록·해제
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G07](../FE_MEDIUM_PARITY_22_RESULT.md#g07). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):176 · [당시 결과](<../FE_GOAL_07_RESULT.md>)
 
@@ -128,6 +145,8 @@
 
 ## G08 — 북마크와 저장 목록
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G08](../FE_MEDIUM_PARITY_22_RESULT.md#g08). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):182 · [당시 결과](<../FE_GOAL_08_RESULT.md>)
 
 - **구현** (원문 184행): 기사 저장·해제, 기본 읽기 목록, 빈 목록, 저장한 기사에서 상세 진입. 사용자별 상태는 mock에서 분리한다.
@@ -139,6 +158,8 @@
 <a id="g09"></a>
 
 ## G09 — 라이브러리 목록 관리
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G09](../FE_MEDIUM_PARITY_22_RESULT.md#g09). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):188 · [당시 결과](<../FE_GOAL_09_RESULT.md>)
 
@@ -152,6 +173,8 @@
 
 ## G10 — 모의 로그인·취소·로그아웃
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G10](../FE_MEDIUM_PARITY_22_RESULT.md#g10). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):194 · [당시 결과](<../FE_GOAL_10_RESULT.md>)
 
 - **구현** (원문 196행): Medium을 참고한 로그인 진입 화면, Google 로그인 버튼의 모의 성공·취소·실패, 원래 화면 복귀, 로그아웃.
@@ -163,6 +186,8 @@
 <a id="g11"></a>
 
 ## G11 — 프로필 조회·수정
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G11](../FE_MEDIUM_PARITY_22_RESULT.md#g11). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):200 · [당시 결과](<../FE_GOAL_11_RESULT.md>)
 
@@ -176,6 +201,8 @@
 
 ## G12 — 설정
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G12](../FE_MEDIUM_PARITY_22_RESULT.md#g12). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_GOALS.md](<../FE_GOALS.md>):206 · [당시 결과](<../FE_GOAL_12_RESULT.md>)
 
 - **구현** (원문 210행): 프로필에서 설정 진입, 기본 설명 수준 변경, 기존 로그아웃 흐름 연결. 해당 기능에 필요한 최소 설정만 구현한다.
@@ -187,6 +214,8 @@
 <a id="g13"></a>
 
 ## G13 — 전체 흐름 검증
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G13](../FE_MEDIUM_PARITY_22_RESULT.md#g13). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_GOALS.md](<../FE_GOALS.md>):214 · [당시 결과](<../FE_GOAL_13_RESULT.md>)
 
@@ -202,6 +231,8 @@
 
 ## G14 — FE 규칙 준수 검토·수정·재검토·커밋
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G14](../FE_MEDIUM_PARITY_22_RESULT.md#g14). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):129 · [당시 결과](<../FE_GOAL_14_RESULT.md>)
 
 - **범위** (원문 131행): `FE/` 전체 코드·설정·테스트를 6개 규칙과 대조한다. 앱 구조·의존성 방향·명명·타입·주석·상태·비동기·모바일 UI·성능·접근성·검증을 검토한다.
@@ -214,6 +245,8 @@
 
 ## G15 — 원본 대응표·클론 기준·공통 시각 요소
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G15](../FE_MEDIUM_PARITY_22_RESULT.md#g15). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):140 · [당시 결과](<../FE_GOAL_15_RESULT.md>)
 
 - **범위** (원문 142행): 전체 대상 화면과 원본 화면/상태를 연결하고 폰트·색상·간격·아이콘·구분선·탭·헤더·버튼·시트 등 필요한 최소 공통 요소를 실제 코드로 정리한다. 모든 화면을 이 Goal에 구현하지 않는다.
@@ -223,6 +256,8 @@
 <a id="g16"></a>
 
 ## G16 — 홈·탐색·검색 클론
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G16](../FE_MEDIUM_PARITY_22_RESULT.md#g16). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):150 · [당시 결과](<../FE_GOAL_16_RESULT.md>)
 
@@ -234,6 +269,8 @@
 
 ## G17 — 기사 상세·반응 바·저장 대상 선택 클론
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G17](../FE_MEDIUM_PARITY_22_RESULT.md#g17). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):159 · [당시 결과](<../FE_GOAL_17_RESULT.md>)
 
 - **범위** (원문 161행): 상세 상단·제목/부제·작가/출처·읽기 정보·커버·본문·스크롤·반응 바·북마크 상태·저장 시트를 원본대로 맞춘다. 원본과 기존 4단계 설명·좋아요의 차이는 Goal 15 대응 방안을 따른다.
@@ -243,6 +280,8 @@
 <a id="g18"></a>
 
 ## G18 — 라이브러리·목록 상세·목록 관리 클론
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G18](../FE_MEDIUM_PARITY_22_RESULT.md#g18). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):168 · [당시 결과](<../FE_GOAL_18_RESULT.md>)
 
@@ -254,6 +293,8 @@
 
 ## G19 — 로그인·로그아웃 클론
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G19](../FE_MEDIUM_PARITY_22_RESULT.md#g19). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):177 · [당시 결과](<../FE_GOAL_19_RESULT.md>)
 
 - **범위** (원문 179행): 원본의 소개·로그인 진입·공급자 버튼·닫기·로그아웃 확인을 재현하고 기존 mock 성공/취소/실패/재시도·A/B 검증 흐름을 연결한다. 검증용 조작 UI와 원본 비교 화면의 관계는 Goal 15에서 정한 기준을 명시한다.
@@ -263,6 +304,8 @@
 <a id="g20"></a>
 
 ## G20 — 프로필·편집·설정 클론
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G20](../FE_MEDIUM_PARITY_22_RESULT.md#g20). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):186 · [당시 결과](<../FE_GOAL_20_RESULT.md>)
 
@@ -274,6 +317,8 @@
 
 ## G21 — 전체 클론 화면·UX 통합 검증
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G21](../FE_MEDIUM_PARITY_22_RESULT.md#g21). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_CLONE_GOALS.md](<../FE_MEDIUM_CLONE_GOALS.md>):195 · [당시 결과](<../FE_GOAL_21_RESULT.md>)
 
 - **범위** (원문 197행): Goal 15의 전체 대응표와 Goal 16~20 결과를 기준으로 대상 화면·상태의 누락 및 남은 차이를 수정한다. 전체 일관성과 연결을 검증한다.
@@ -283,6 +328,8 @@
 <a id="g22"></a>
 
 ## G22 — 원본 전수 대응·현재 코드·비교 환경 기준선
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G22](../FE_MEDIUM_PARITY_22_RESULT.md#g22). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):179 · [당시 결과](<../FE_GOAL_22_RESULT.md>)
 
@@ -302,6 +349,8 @@
 
 ## G23 — 공통 글꼴·아이콘·레이아웃과 기존 화면 보정
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G23](../FE_MEDIUM_PARITY_22_RESULT.md#g23). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):193 · [당시 결과](<../FE_GOAL_23_RESULT.md>)
 
 - **구현 범위** (원문 197행): 홈·탐색·기사·목록·프로필·설정의 공통 헤더/탭/카드/시트/메뉴/입력을 원본에 맞춘다. 확인된 폰트와 아이콘을 적용하고 화면별 크기·행간·굵기·자간·줄바꿈·좌표·여백·색상·선·그림자·이미지 crop을 보정한다.
@@ -319,6 +368,8 @@
 <a id="g24"></a>
 
 ## G24 — 전역 Light·Dark·System과 기사 표시 설정
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G24](../FE_MEDIUM_PARITY_22_RESULT.md#g24). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):207 · [당시 결과](<../FE_GOAL_24_RESULT.md>)
 
@@ -338,6 +389,8 @@
 
 ## G25 — 기사 본문·박수·읽음 표시·상세 메뉴
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G25](../FE_MEDIUM_PARITY_22_RESULT.md#g25). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):221 · [당시 결과](<../FE_GOAL_25_RESULT.md>)
 
 - **구현 범위** (원문 225행): 기사 본문·유료 배지·하단 관련 기사/토픽/작성자 구성을 보정하고 누적 박수와 내 반응을 구현한다. 더보기의 Show less like this/Display/Follow/Mute/Report story 진입 계약, 읽음 이력과 목록의 Viewed/제목 색 상태를 마련한다.
@@ -355,6 +408,8 @@
 <a id="g26"></a>
 
 ## G26 — Responses·댓글·답글·정렬·수정·삭제
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G26](../FE_MEDIUM_PARITY_22_RESULT.md#g26). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):235 · [당시 결과](<../FE_GOAL_26_RESULT.md>)
 
@@ -376,6 +431,8 @@
 
 ## G27 — 문구 선택·Highlight·인용 Responses
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G27](../FE_MEDIUM_PARITY_22_RESULT.md#g27). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):249 · [당시 결과](<../FE_GOAL_27_RESULT.md>)
 
 - **구현 범위** (원문 253행): 본문 선택 핸들/메뉴의 Highlight·Respond·Share·더보기, highlight 표시/해제, 인용 문구를 포함한 댓글, Library Highlighted 진입과 원문 복귀를 구현한다.
@@ -393,6 +450,8 @@
 <a id="g28"></a>
 
 ## G28 — 작성자 프로필·팔로우·팔로잉·이메일 구독
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G28](../FE_MEDIUM_PARITY_22_RESULT.md#g28). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):263 · [당시 결과](<../FE_GOAL_28_RESULT.md>)
 
@@ -412,6 +471,8 @@
 
 ## G29 — Mute·Block·신고·응답 관리
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G29](../FE_MEDIUM_PARITY_22_RESULT.md#g29). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):277 · [당시 결과](<../FE_GOAL_29_RESULT.md>)
 
 - **구현 범위** (원문 281행): 작성자 Mute/Block/Report author와 기사 Report story, 목록 내 기사 메뉴의 동일 대상 처리를 구현한다. 이유 선택·추가 설명·선택적 Also block·권리/정책 링크·성공/취소 상태, 응답 숨김/토론 종료의 확인된 범위를 다룬다.
@@ -429,6 +490,8 @@
 <a id="g30"></a>
 
 ## G30 — 토픽·Publication·큐레이션 탐색
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G30](../FE_MEDIUM_PARITY_22_RESULT.md#g30). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):291 · [당시 결과](<../FE_GOAL_30_RESULT.md>)
 
@@ -448,6 +511,8 @@
 
 ## G31 — 추천 관리·관심사·읽기 이력
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G31](../FE_MEDIUM_PARITY_22_RESULT.md#g31). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):305 · [당시 결과](<../FE_GOAL_31_RESULT.md>)
 
 - **구현 범위** (원문 309행): Refine recommendations의 Following/Reading history/Muted/Suggestions, All/Writers/Publications/Topics 필터, 목록 확장, Show less, 홈 + 관심사, 이력 개별 제거/전체 삭제를 구현한다.
@@ -466,6 +531,8 @@
 
 ## G32 — 공개 목록·Saved lists·목록 반응
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G32](../FE_MEDIUM_PARITY_22_RESULT.md#g32). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):319 · [당시 결과](<../FE_GOAL_32_RESULT.md>)
 
 - **구현 범위** (원문 323행): 다른 사용자의 공개 목록, 전체 목록 Save/해제, Library Saved lists, 목록 박수/응답·작성자 Follow·공유 진입을 구현한다. 개별 기사 북마크와 목록 전체 저장을 분리한다.
@@ -483,6 +550,8 @@
 <a id="g33"></a>
 
 ## G33 — 내 목록 메모·정렬·공개 범위·편집·삭제
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G33](../FE_MEDIUM_PARITY_22_RESULT.md#g33). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 - Parity 7 현재 mock 보완: [확정 updatedAt·메모/순서/Undo·공개 범위·초안/포커스 수명과 검증](../FE_MEDIUM_PARITY_07_RESULT.md). source의 마지막 의미 있는 내용 변경 성공 시각을 사용하며 원본의 상대 시간 의미/Undo 만료 시간은 미확인이다. 아래 문장은 기존 Goal 계약 이력이다.
 
@@ -504,6 +573,8 @@
 
 ## G34 — Digest·날짜 필터·Library 연결
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G34](../FE_MEDIUM_PARITY_22_RESULT.md#g34). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 **현재 Digest 소비자:** [Parity 6](../FE_MEDIUM_PARITY_06_RESULT.md)의 기존/새 호 관계 표시 정책·확정 날짜와 초안 수명·읽기 시간/회원용 별·실제 navigation 검증을 따른다. 아래 Goal34 계약과 이력은 보존하며 Library의 다른 소비자/원본 동일성/native까지 완료한 뜻은 아니다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):347 · [당시 결과](<../FE_GOAL_34_RESULT.md>)
@@ -523,6 +594,8 @@
 <a id="g35"></a>
 
 ## G35 — 목록 다운로드·오프라인 화면 상태
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G35](../FE_MEDIUM_PARITY_22_RESULT.md#g35). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 **Parity 8 현재 mock 계약:** [사본/version/접근권·검증 결과](../FE_MEDIUM_PARITY_08_RESULT.md). 일반 fixture의 오래된 사본 유지와 발행 문서/이미지 version 변경 시 무효화를 구분한다. Public/Unlisted 링크 정책 유지, 삭제/철회·계정/source/작업 수명 검증. 영속 저장·실제 offline 제외. 아래 Goal35 계약/실행은 과거 이력이다.
 
@@ -544,6 +617,8 @@
 
 ## G36 — 글쓰기 편집기·텍스트 서식
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G36](../FE_MEDIUM_PARITY_22_RESULT.md#g36). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):375 · [당시 결과](<../FE_GOAL_36_RESULT.md>)
 
 - **구현 범위** (원문 379행): Write 진입, 제목/본문 입력, 텍스트 선택, 헤더·굵기·기울임·링크·인용·목록·구분선 및 관찰된 코드 도구를 구현한다. 에디터 전체 UI를 원본 키보드/툴바 위치로 맞춘다.
@@ -561,6 +636,8 @@
 <a id="g37"></a>
 
 ## G37 — 글쓰기 이미지·Camera·Library·Unsplash
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G37](../FE_MEDIUM_PARITY_22_RESULT.md#g37). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):389 · [당시 결과](<../FE_GOAL_37_RESULT.md>)
 
@@ -580,6 +657,8 @@
 
 ## G38 — 초안 저장·재개·멘션
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G38](../FE_MEDIUM_PARITY_22_RESULT.md#g38). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):403 · [당시 결과](<../FE_GOAL_38_RESULT.md>)
 
 - **구현 범위** (원문 407행): Drafts 진입/목록/재개·초안 보존, @ 사용자 검색/선택/문서 내 멘션, 작성 메뉴의 확인된 항목을 구현한다. 자동 저장 UI와 로컬 mock 보존 범위를 정한다.
@@ -597,6 +676,8 @@
 <a id="g39"></a>
 
 ## G39 — 토픽 최대 5개·발행 미리보기·Publish
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G39](../FE_MEDIUM_PARITY_22_RESULT.md#g39). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):417 · [당시 결과](<../FE_GOAL_39_RESULT.md>)
 
@@ -616,6 +697,8 @@
 
 ## G40 — 가입·로그인·이메일 코드·세션·로그아웃
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G40](../FE_MEDIUM_PARITY_22_RESULT.md#g40). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):431 · [당시 결과](<../FE_GOAL_40_RESULT.md>)
 
 - **구현 범위** (원문 435행): 가입의 Google/Facebook/Apple/Email 4개, 로그인의 X 포함 5개 경로를 현재 버튼부터 검토한다. 이메일/이름/6자리 코드·재전송·검증·닫기·진입 복귀와 로그아웃 확인/intro 전환을 mock으로 완성한다.
@@ -633,6 +716,8 @@
 <a id="g41"></a>
 
 ## G41 — 온보딩 관심사·추천 팔로우·알림 안내
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G41](../FE_MEDIUM_PARITY_22_RESULT.md#g41). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):445 · [당시 결과](<../FE_GOAL_41_RESULT.md>)
 
@@ -652,6 +737,8 @@
 
 ## G42 — 프로필 사진·대명사·소개·Stories 필터
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G42](../FE_MEDIUM_PARITY_22_RESULT.md#g42). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):459 · [당시 결과](<../FE_GOAL_42_RESULT.md>)
 
 - **구현 범위** (원문 463행): 프로필 사진 Camera/Library·삭제 가능 여부 확인, pronouns 최대 4개 선택/Done→부모 Save, 이름/short bio, About 데스크톱 안내, 내 Stories/Public 필터와 팔로우 진입을 완성한다.
@@ -670,6 +757,8 @@
 
 ## G43 — Story stats·월간·누적·정렬
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G43](../FE_MEDIUM_PARITY_22_RESULT.md#g43). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):473 · [당시 결과](<../FE_GOAL_43_RESULT.md>)
 
 - **구현 범위** (원문 477행): Monthly/Lifetime 통계, 날짜·월 선택·그래프·Views/Reads·Stories별 수치·Latest 메뉴를 구현하고 프로필의 Story stats 진입을 연결한다.
@@ -687,6 +776,8 @@
 <a id="g44"></a>
 
 ## G44 — 알림 목록·Push·Email·Tailored 설정
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G44](../FE_MEDIUM_PARITY_22_RESULT.md#g44). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 **2026-11-25 재검토:** [알림 이동·읽음 직전의 확정 정책 검사](../FE_MEDIUM_PARITY_16_20_REVIEW.md). 같은 렌더 배치의 차단/조회 경합을 보완한다. mock 접근 계약 검증이며 원본 읽음·목적지·실패 정책의 미확인을 해소한 것은 아니다.
 
@@ -708,6 +799,8 @@
 
 ## G45 — Listen·미니/확장 플레이어·재생 제어
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G45](../FE_MEDIUM_PARITY_22_RESULT.md#g45). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):502 · [당시 결과](<../FE_GOAL_45_RESULT.md>)
 
 - **구현 범위** (원문 506행): Listen 로딩, 미니/확장 플레이어, 재생/일시정지/닫기, 진행 시간, 10초 뒤/30초 앞, View story·Share·더보기 진입을 구현한다.
@@ -725,6 +818,8 @@
 <a id="g46"></a>
 
 ## G46 — 재생 속도·음성·검색·AirPlay·큐 상태
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G46](../FE_MEDIUM_PARITY_22_RESULT.md#g46). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):516 · [당시 결과](<../FE_GOAL_46_RESULT.md>)
 
@@ -744,6 +839,8 @@
 
 ## G47 — 기사·인용·작가·토픽·목록 공유와 이미지 저장
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G47](../FE_MEDIUM_PARITY_22_RESULT.md#g47). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):530 · [당시 결과](<../FE_GOAL_47_RESULT.md>)
 
 - **구현 범위** (원문 534행): 대상별 Share 진입, 기사 카드/스타일 페이지, Copy link 토스트, Friend link, Share via OS sheet, Save image와 사진 권한을 구현하고 기존 안내 진입을 연결한다.
@@ -761,6 +858,8 @@
 <a id="g48"></a>
 
 ## G48 — Member·Friend 구독 화면과 mock 권한
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G48](../FE_MEDIUM_PARITY_22_RESULT.md#g48). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):544 · [당시 결과](<../FE_GOAL_48_RESULT.md>)
 
@@ -780,6 +879,8 @@
 
 ## G49 — 남은 설정·앱 아이콘·외부 안내
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G49](../FE_MEDIUM_PARITY_22_RESULT.md#g49). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):558 · [당시 결과](<../FE_GOAL_49_RESULT.md>)
 
 - **구현 범위** (원문 562행): Account/Membership & payment/Email/Facebook 연결·Help/Terms/Privacy/Rate/More controls 등 모든 보이는 설정 행의 목적지를 확인하고 적합한 화면 또는 외부 링크를 연결한다. Custom app icon의 변형·선택·Friend gate를 구현한다. Account의 Blocked users는29의 상태 계약에 연결하며 현재 공식 설명과 보관 캡처의 차이를 먼저 확인한다.
@@ -797,6 +898,8 @@
 <a id="g50"></a>
 
 ## G50 — 검색 추가 결과·홈/탭/진입 경로 마감
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G50](../FE_MEDIUM_PARITY_22_RESULT.md#g50). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):572 · [당시 결과](<../FE_GOAL_50_RESULT.md>)
 
@@ -816,6 +919,8 @@
 
 ## G51 — 기능 간 상태·실패·계정 격리 통합 검증
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G51](../FE_MEDIUM_PARITY_22_RESULT.md#g51). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):586 · [당시 결과](<../FE_GOAL_51_RESULT.md>)
 
 - **구현 범위** (원문 590행): 읽기→박수→응답→highlight→저장→팔로우→추천→알림, 작성→발행→프로필→통계, 공개 목록→저장→비공개, 권한/설정→관련 UI를 묶어 검증하고 결함을 수정한다.
@@ -834,6 +939,8 @@
 
 ## G52 — iOS·Android·접근성·성능·native 경계 검증
 
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G52](../FE_MEDIUM_PARITY_22_RESULT.md#g52). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
+
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):600 · [당시 결과](<../FE_GOAL_52_RESULT.md>)
 
 - **구현 범위** (원문 604행): Safe Area·키보드·뒤로가기·큰 글자·VoiceOver/TalkBack·긴 목록·메모리/리스너/타이머를 확인한다. 카메라/앨범/선택/클립보드/공유/이미지 저장/알림 권한/아이콘/오디오 등 구현한 native adapter를 실제 지원 환경에서 검증한다.
@@ -851,6 +958,8 @@
 <a id="g53"></a>
 
 ## G53 — 63개 흐름 최종 대조·누락 해소·백엔드 인계
+
+현재 지원 범위/기존 검증/미지원·차이: [Parity22 G53](../FE_MEDIUM_PARITY_22_RESULT.md#g53). 아래 원문 완료 조건과 당시 결과는 이력으로 보존하며 현재 전수 동일성 통과로 승격하지 않는다.
 
 출처: [FE_MEDIUM_FULL_CLONE_GOALS.md](<../FE_MEDIUM_FULL_CLONE_GOALS.md>):614 · [당시 결과](<../FE_GOAL_53_RESULT.md>)
 

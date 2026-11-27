@@ -1,5 +1,8 @@
 # 화면별 원본 요구사항
 
+**2026-11-27 현재 판정 — 6단계 전수 감사 완료:** [Parity22 결과](../FE_MEDIUM_PARITY_22_RESULT.md#decision)의 S200/F63/T273/R1395/U263/C72/G53 및 D/Q/V59 연결과 항목별 판정을 우선한다. Android 현 화면/조작은 사용자 확정 상태이며 같은 검사·iOS/실기기 필수 대기를 만들지 않는다. FE 코드/디자인/아이콘은 유지하고 Android 기본 선택 메뉴 제거는 보류한다. 모의/외부 미연결·미지원·원본 차이/미확인은 완료로 올리지 않았다. **7단계는 인계 입력만 정리했으며 설계 미착수다.** 아래 이전 ‘현재/다음/미착수/기기 대기’와 검사 수치는 당시 이력이다. R별 판정은 해당 기능의 구현 연결/수용/모의/미지원을 구분한다. 기존 원본 요구와 Goal 계약 문구는 보존한다.
+
+
 **Parity17 검토(2026-11-24):** [18 S/139 R/31 T/33 U/21 C의 실제 결과·자체 정책·잔여](../FE_MEDIUM_PARITY_17_RESULT.md). 알림 점/빈 Featured·개인 정책 실패·공개 목록 접근/이탈을 대조했다. 원본18 PNG 직접 열람, 실제8081 메모리 비교이며 캡처 파일/도구 생성 없음.33 U·원본/자산/시각/native 및9~16 잔여 유지. 원본 요구·ID·과거 evidence/readiness를 승격하지 않는다.
 
 **Parity14 커밋 전 추가 검토(2026-11-24):** [재검토·현재 검사·커밋 범위](../FE_MEDIUM_PARITY_14_RESULT.md#pre-commit-review). 추가 코드 결함 없이 타입/lint·관련12 suites/82 tests를 새로 통과했고 이번 act 경고0이다. 앞선 전체1722건 이후 코드 변경·552개 codeInputs 해시 불일치0. 사용자 요청에 따라36파일 로컬 커밋 범위를 확정했다. 원본/시각·S043/native 및9~13 잔여는 유지하며 push·배포·15 구현은 하지 않는다. 아래 미커밋 기록은 최초 실행 이력이다.
@@ -31,16 +34,16 @@ FE 조사 경로: [ArticleDisplayPopover.tsx](<../../FE/src/features/settings/Ar
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Highlights off 선택 일치. 기본 앱 theme와 reader theme 독립 유지. ([과거 기록](<../FE_GOAL_53_RESULT.md>):195)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V16의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s001)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 토글
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s001-l"></a>`R-S001-L` | 배치: 다크 설정 팝오버 토글 회색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V16](../FE_MEDIUM_PARITY_BACKLOG.md#v16) |
-| <a id="r-s001-d"></a>`R-S001-D` | 표시값·입력: Highlights from others 꺼짐 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V16](../FE_MEDIUM_PARITY_BACKLOG.md#v16) |
-| <a id="r-s001-s"></a>`R-S001-S` | 상태: 타인 하이라이트 표시 설정 변경 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V16](../FE_MEDIUM_PARITY_BACKLOG.md#v16) |
-| <a id="r-s001-c01"></a>`R-S001-C01` | 컨트롤: 토글 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G24](CONTRACTS.md#g24) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V16](../FE_MEDIUM_PARITY_BACKLOG.md#v16) |
+| <a id="r-s001-l"></a>`R-S001-L` | 배치: 다크 설정 팝오버 토글 회색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s001) · [V16 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v16) |
+| <a id="r-s001-d"></a>`R-S001-D` | 표시값·입력: Highlights from others 꺼짐 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s001) · [V16 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v16) |
+| <a id="r-s001-s"></a>`R-S001-S` | 상태: 타인 하이라이트 표시 설정 변경 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G24](CONTRACTS.md#g24), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s001) · [V16 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v16) |
+| <a id="r-s001-c01"></a>`R-S001-C01` | 컨트롤: 토글 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G24](CONTRACTS.md#g24) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s001) · [V16 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v16) |
 
 
 원본 해석 경계: 타인 하이라이트 표시를 끄는 설정이다. 기존 개인 하이라이트 데이터 삭제로 모델링하지 않는다. 현재 문서의 하이라이트 노출 규칙은 6절에서 따로 대조한다.
@@ -65,16 +68,16 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 확정 메모가 해당 기사 위에 표시되고 재진입 유지. Viewed 실제 상태 및 행 높이·스크롤 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):196)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V25의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s002)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 개별 더보기
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s002-l"></a>`R-S002-L` | 배치: 대상 기사 위 세로선·이탤릭 메모 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s002-d"></a>`R-S002-D` | 표시값·입력: 입력한 메모 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s002-s"></a>`R-S002-S` | 상태: 메모 저장 결과 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s002-c01"></a>`R-S002-C01` | 컨트롤: 개별 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
+| <a id="r-s002-l"></a>`R-S002-L` | 배치: 대상 기사 위 세로선·이탤릭 메모 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s002) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s002-d"></a>`R-S002-D` | 표시값·입력: 입력한 메모 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s002) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s002-s"></a>`R-S002-S` | 상태: 메모 저장 결과 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s002) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s002-c01"></a>`R-S002-C01` | 컨트롤: 개별 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s002) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
 
 
 원본 해석 경계: 메모는 선택한 글 카드 바로 위에 붙는다. 기사의 본문 편집이나 작가에게 보내는 비공개 메시지와 구분해 리스트-기사 연결의 부가 정보 후보로 다룬다.
@@ -99,21 +102,21 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 더보기6행 연결, native blur/실제48px행 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):197)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. AirPlay는 미지원. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s003)을 따른다.
 
 **원본 컨트롤 관찰 문장:** AirPlay, Select a voice, View story, Show less like this, Mute author, Report story
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s003-l"></a>`R-S003-L` | 배치: 재생기 위 6행 팝오버 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-d"></a>`R-S003-D` | 표시값·입력: 현재 1x | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-s"></a>`R-S003-S` | 상태: 음성·출력·콘텐츠 행동 메뉴 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c01"></a>`R-S003-C01` | 컨트롤: AirPlay | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c02"></a>`R-S003-C02` | 컨트롤: Select a voice | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c03"></a>`R-S003-C03` | 컨트롤: View story | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c04"></a>`R-S003-C04` | 컨트롤: Show less like this | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31), [G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c05"></a>`R-S003-C05` | 컨트롤: Mute author | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G29](CONTRACTS.md#g29), [G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s003-c06"></a>`R-S003-C06` | 컨트롤: Report story | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G29](CONTRACTS.md#g29), [G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
+| <a id="r-s003-l"></a>`R-S003-L` | 배치: 재생기 위 6행 팝오버 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-d"></a>`R-S003-D` | 표시값·입력: 현재 1x | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-s"></a>`R-S003-S` | 상태: 음성·출력·콘텐츠 행동 메뉴 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c01"></a>`R-S003-C01` | 컨트롤: AirPlay | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 미지원: AirPlay 전송은 안내만 제공 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c02"></a>`R-S003-C02` | 컨트롤: Select a voice | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c03"></a>`R-S003-C03` | 컨트롤: View story | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c04"></a>`R-S003-C04` | 컨트롤: Show less like this | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31), [G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c05"></a>`R-S003-C05` | 컨트롤: Mute author | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G29](CONTRACTS.md#g29), [G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s003-c06"></a>`R-S003-C06` | 컨트롤: Report story | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G29](CONTRACTS.md#g29), [G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s003) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -136,18 +139,18 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 검색창 blur 후 촬영. 주제16px/첫 간격 수정; 48논리 행과 원본 약44px, 앱 경제 주제 추가는 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):198)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V02의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s004)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 검색, 토픽 행, 뒤로
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s004-l"></a>`R-S004-L` | 배치: 검색창 아래 Explore topics 세로 목록 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s004-d"></a>`R-S004-D` | 표시값·입력: Life·Self Improvement·Work·Technology 등 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s004-s"></a>`R-S004-S` | 상태: 검색어 없는 탐색 화면 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s004-c01"></a>`R-S004-C01` | 컨트롤: 검색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s004-c02"></a>`R-S004-C02` | 컨트롤: 토픽 행 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G30](CONTRACTS.md#g30), [G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s004-c03"></a>`R-S004-C03` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
+| <a id="r-s004-l"></a>`R-S004-L` | 배치: 검색창 아래 Explore topics 세로 목록 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s004-d"></a>`R-S004-D` | 표시값·입력: Life·Self Improvement·Work·Technology 등 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s004-s"></a>`R-S004-S` | 상태: 검색어 없는 탐색 화면 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s004-c01"></a>`R-S004-C01` | 컨트롤: 검색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s004-c02"></a>`R-S004-C02` | 컨트롤: 토픽 행 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G30](CONTRACTS.md#g30), [G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s004-c03"></a>`R-S004-C03` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s004) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -172,17 +175,17 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 부모편집 Updatephoto/50·4·160counter/About안내 대조. fixture사진/필드 높이 미세차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):199)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V32의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s005)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Save, Update photo
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s005-l"></a>`R-S005-L` | 배치: 편집 폼 아바타 변경 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s005-d"></a>`R-S005-D` | 표시값·입력: 이름 유지·대명사와 소개 빈값 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s005-s"></a>`R-S005-S` | 상태: 선택 사진 미리보기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s005-c01"></a>`R-S005-C01` | 컨트롤: Save | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s005-c02"></a>`R-S005-C02` | 컨트롤: Update photo | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
+| <a id="r-s005-l"></a>`R-S005-L` | 배치: 편집 폼 아바타 변경 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s005) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s005-d"></a>`R-S005-D` | 표시값·입력: 이름 유지·대명사와 소개 빈값 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s005) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s005-s"></a>`R-S005-S` | 상태: 선택 사진 미리보기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s005) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s005-c01"></a>`R-S005-C01` | 컨트롤: Save | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s005) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s005-c02"></a>`R-S005-C02` | 컨트롤: Update photo | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s005) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -207,16 +210,16 @@ FE 조사 경로: [OnboardingScreen.tsx](<../../FE/src/features/onboarding/Onboa
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 원본과 동일5관심사 선택/Next 가능. 칩 폰트/간격·스크롤 범위 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):200)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V30의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s006)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Next가 녹색으로 바뀐다.
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s006-l"></a>`R-S006-L` | 배치: 동일 칩 목록에서 선택 항목이 녹색으로 채워진다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V30](../FE_MEDIUM_PARITY_BACKLOG.md#v30) |
-| <a id="r-s006-d"></a>`R-S006-D` | 표시값·입력: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V30](../FE_MEDIUM_PARITY_BACKLOG.md#v30) |
-| <a id="r-s006-s"></a>`R-S006-S` | 상태: 5개 주제 선택과 진행 버튼 변화가 관찰된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V30](../FE_MEDIUM_PARITY_BACKLOG.md#v30) |
-| <a id="r-s006-c01"></a>`R-S006-C01` | 컨트롤: Next가 녹색으로 바뀐다. | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G41](CONTRACTS.md#g41) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V30](../FE_MEDIUM_PARITY_BACKLOG.md#v30) |
+| <a id="r-s006-l"></a>`R-S006-L` | 배치: 동일 칩 목록에서 선택 항목이 녹색으로 채워진다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s006) · [V30 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v30) |
+| <a id="r-s006-d"></a>`R-S006-D` | 표시값·입력: Technology·Self Improvement·Writing·Relationships·Psychology가 선택되어 있다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s006) · [V30 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v30) |
+| <a id="r-s006-s"></a>`R-S006-S` | 상태: 5개 주제 선택과 진행 버튼 변화가 관찰된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G41](CONTRACTS.md#g41), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s006) · [V30 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v30) |
+| <a id="r-s006-c01"></a>`R-S006-C01` | 컨트롤: Next가 녹색으로 바뀐다. | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G41](CONTRACTS.md#g41) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s006) · [V30 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v30) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -241,16 +244,16 @@ FE 조사 경로: [ArticleDetailScreen.tsx](<../../FE/src/features/article/Artic
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 실제16회박수확정/피드백+16. OS길게누르기검증아님; 기존북마크상태/응답수·아이콘차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):201)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V13의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s007)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 검게 채워진 박수 아이콘
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s007-l"></a>`R-S007-L` | 배치: 기사 하단 박수 위 녹색 +16 애니메이션 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V13](../FE_MEDIUM_PARITY_BACKLOG.md#v13) |
-| <a id="r-s007-d"></a>`R-S007-D` | 표시값·입력: 18K 집계, 응답 832 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V13](../FE_MEDIUM_PARITY_BACKLOG.md#v13) |
-| <a id="r-s007-s"></a>`R-S007-S` | 상태: 박수 입력 피드백 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V13](../FE_MEDIUM_PARITY_BACKLOG.md#v13) |
-| <a id="r-s007-c01"></a>`R-S007-C01` | 컨트롤: 검게 채워진 박수 아이콘 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V13](../FE_MEDIUM_PARITY_BACKLOG.md#v13) |
+| <a id="r-s007-l"></a>`R-S007-L` | 배치: 기사 하단 박수 위 녹색 +16 애니메이션 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s007) · [V13 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v13) |
+| <a id="r-s007-d"></a>`R-S007-D` | 표시값·입력: 18K 집계, 응답 832 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s007) · [V13 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v13) |
+| <a id="r-s007-s"></a>`R-S007-S` | 상태: 박수 입력 피드백 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G25](CONTRACTS.md#g25), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s007) · [V13 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v13) |
+| <a id="r-s007-c01"></a>`R-S007-C01` | 컨트롤: 검게 채워진 박수 아이콘 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s007) · [V13 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v13) |
 
 
 원본 해석 경계: 18K는 축약된 집계라 +16 반응 후 숫자가 같아도 미반영으로 판단할 수 없다. +16 애니메이션을 개별 탭 16회의 실행 기록으로 환산하지 않는다.
@@ -279,25 +282,25 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 기존 로컬 정책 발췌+공식원문링크. 원본 전체기사/반응바/작가행과 다른 보완화면으로 동일재현미완료. ([과거 기록](<../FE_GOAL_53_RESULT.md>):202)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V21의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. 정책 발췌는 개인 구절 선택/Highlight 저장 미지원. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s008)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 뒤로, 듣기, 더보기, Follow
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s008-l"></a>`R-S008-L` | 배치: Medium Policy 헤더·문서 제목·작성자·본문 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V21](../FE_MEDIUM_PARITY_BACKLOG.md#v21) |
-| <a id="r-s008-d"></a>`R-S008-D` | 표시값·입력: 문서 표시일 May 26 2021, 11 min read | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V21](../FE_MEDIUM_PARITY_BACKLOG.md#v21) |
-| <a id="r-s008-s"></a>`R-S008-S` | 상태: 응답에서 연결된 정책 읽기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V21](../FE_MEDIUM_PARITY_BACKLOG.md#v21) |
-| <a id="r-s008-c01"></a>`R-S008-C01` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V21](../FE_MEDIUM_PARITY_BACKLOG.md#v21) |
-| <a id="r-s008-c02"></a>`R-S008-C02` | 컨트롤: 듣기 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G45](CONTRACTS.md#g45) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c03"></a>`R-S008-C03` | 컨트롤: 더보기 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c04"></a>`R-S008-C04` | 컨트롤: Medium 작성자 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G28](CONTRACTS.md#g28) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c05"></a>`R-S008-C05` | 컨트롤: Follow | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G28](CONTRACTS.md#g28) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c06"></a>`R-S008-C06` | 컨트롤: 박수 54K | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G25](CONTRACTS.md#g25), [G26](CONTRACTS.md#g26) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c07"></a>`R-S008-C07` | 컨트롤: 응답 272 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c08"></a>`R-S008-C08` | 컨트롤: 저장 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G33](CONTRACTS.md#g33) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-c09"></a>`R-S008-C09` | 컨트롤: 공유 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G47](CONTRACTS.md#g47) | 미구현: 현재 policy 분기는 발췌·외부 링크이며 이 원본 요소 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
-| <a id="r-s008-v"></a>`R-S008-V` | PNG 추가 세부 관찰: 상단 Medium Policy 로고·듣기·더보기, Medium 작성자 아바타·Follow, 첫 문단의 연녹색 강조, 세 번째 문단 시작, 하단 54K 박수·272 응답·빈 북마크·공유가 보인다. 현재 발췌 안내와 외부 링크는 이 원본 화면에 보이지 않는다. | 일부 포함: 공통 시각 계약에 포함되나 이 요소 묶음의 독립 판정 필요<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 차이 확인: policy 분기에 작성자·기사 도구·강조·세 번째 문단 없음<br>[D08](../FE_MEDIUM_PARITY_BACKLOG.md#d08) |
+| <a id="r-s008-l"></a>`R-S008-L` | 배치: Medium Policy 헤더·문서 제목·작성자·본문 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-d"></a>`R-S008-D` | 표시값·입력: 문서 표시일 May 26 2021, 11 min read | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 보관 정책 발췌 표시·모의 반응; 전문/현재 정책/실제 집계 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-s"></a>`R-S008-S` | 상태: 응답에서 연결된 정책 읽기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 보관 정책 발췌 표시·모의 반응; 전문/현재 정책/실제 집계 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c01"></a>`R-S008-C01` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c02"></a>`R-S008-C02` | 컨트롤: 듣기 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G45](CONTRACTS.md#g45) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c03"></a>`R-S008-C03` | 컨트롤: 더보기 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c04"></a>`R-S008-C04` | 컨트롤: Medium 작성자 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G28](CONTRACTS.md#g28) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c05"></a>`R-S008-C05` | 컨트롤: Follow | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G28](CONTRACTS.md#g28) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c06"></a>`R-S008-C06` | 컨트롤: 박수 54K | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G25](CONTRACTS.md#g25), [G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c07"></a>`R-S008-C07` | 컨트롤: 응답 272 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c08"></a>`R-S008-C08` | 컨트롤: 저장 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-c09"></a>`R-S008-C09` | 컨트롤: 공유 | 상세 작업화 필요: 정책 진입/원본 참조와 차이 기록은 있으나 이 요소의 구현·연결·종료 조건은 미완료<br>[G26](CONTRACTS.md#g26), [G47](CONTRACTS.md#g47) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
+| <a id="r-s008-v"></a>`R-S008-V` | PNG 추가 세부 관찰: 상단 Medium Policy 로고·듣기·더보기, Medium 작성자 아바타·Follow, 첫 문단의 연녹색 강조, 세 번째 문단 시작, 하단 54K 박수·272 응답·빈 북마크·공유가 보인다. 현재 발췌 안내와 외부 링크는 이 원본 화면에 보이지 않는다. | 일부 포함: 공통 시각 계약에 포함되나 이 요소 묶음의 독립 판정 필요<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s008) · [V21 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v21) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -322,17 +325,17 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 편집기존값 유지. 원본 Replying to 문구 대신 Editing 사용 자체 명확화. ([과거 기록](<../FE_GOAL_53_RESULT.md>):203)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V20의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s009)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Cancel, 전송
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s009-l"></a>`R-S009-L` | 배치: 기존 응답 회색 강조, 키보드·기존 문장 입력창 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s009-d"></a>`R-S009-D` | 표시값·입력: Replying to Alex Smith 표시, 기존 내용 채움 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s009-s"></a>`R-S009-S` | 상태: 편집 흐름이나 UI 문구는 Replying | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s009-c01"></a>`R-S009-C01` | 컨트롤: Cancel | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s009-c02"></a>`R-S009-C02` | 컨트롤: 전송 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
+| <a id="r-s009-l"></a>`R-S009-L` | 배치: 기존 응답 회색 강조, 키보드·기존 문장 입력창 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s009) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s009-d"></a>`R-S009-D` | 표시값·입력: Replying to Alex Smith 표시, 기존 내용 채움 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s009) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s009-s"></a>`R-S009-S` | 상태: 편집 흐름이나 UI 문구는 Replying | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s009) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s009-c01"></a>`R-S009-C01` | 컨트롤: Cancel | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s009) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s009-c02"></a>`R-S009-C02` | 컨트롤: 전송 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s009) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -357,17 +360,17 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 이모지 편집 초안. 웹키보드와OS키보드 검증 구분. ([과거 기록](<../FE_GOAL_53_RESULT.md>):204)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V20의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s010)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Cancel, 전송
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s010-l"></a>`R-S010-L` | 배치: 같은 입력창·키보드 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s010-d"></a>`R-S010-D` | 표시값·입력: 기존 문장 끝 하트 3개 추가 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s010-s"></a>`R-S010-S` | 상태: 수정 제출 전 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s010-c01"></a>`R-S010-C01` | 컨트롤: Cancel | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s010-c02"></a>`R-S010-C02` | 컨트롤: 전송 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
+| <a id="r-s010-l"></a>`R-S010-L` | 배치: 같은 입력창·키보드 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s010) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s010-d"></a>`R-S010-D` | 표시값·입력: 기존 문장 끝 하트 3개 추가 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s010) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s010-s"></a>`R-S010-S` | 상태: 수정 제출 전 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s010) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s010-c01"></a>`R-S010-C01` | 컨트롤: Cancel | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s010) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s010-c02"></a>`R-S010-C02` | 컨트롤: 전송 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s010) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -392,19 +395,19 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 동일4기사 목록의 첫 두 행·저장·반응 대조. 상대시각 미제공, Viewed/회원표시/제목 줄바꿈 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):205)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V25의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s011)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Add a note, 개별 더보기, 다운로드
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s011-l"></a>`R-S011-L` | 배치: 4개 글 중 상위 2개·각 항목 Add a note | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-d"></a>`R-S011-D` | 표시값·입력: 4 stories, 저장 아이콘 채움 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-s"></a>`R-S011-S` | 상태: 리스트에 글 4개 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-c01"></a>`R-S011-C01` | 컨트롤: Add a note | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-c02"></a>`R-S011-C02` | 컨트롤: 개별 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-c03"></a>`R-S011-C03` | 컨트롤: 다운로드 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33), [G35](CONTRACTS.md#g35) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
-| <a id="r-s011-v"></a>`R-S011-V` | PNG 추가 세부 관찰: 소유자 아래 상대 시간과 글 개수가 6 seconds ago · 4 stories로 함께 표시된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상대 시간 분기와 데이터 필드 없음; 현재 상세는 글 개수만 표시<br>[D13](../FE_MEDIUM_PARITY_BACKLOG.md#d13), [V25](../FE_MEDIUM_PARITY_BACKLOG.md#v25) |
+| <a id="r-s011-l"></a>`R-S011-L` | 배치: 4개 글 중 상위 2개·각 항목 Add a note | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-d"></a>`R-S011-D` | 표시값·입력: 4 stories, 저장 아이콘 채움 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-s"></a>`R-S011-S` | 상태: 리스트에 글 4개 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-c01"></a>`R-S011-C01` | 컨트롤: Add a note | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-c02"></a>`R-S011-C02` | 컨트롤: 개별 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-c03"></a>`R-S011-C03` | 컨트롤: 다운로드 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G33](CONTRACTS.md#g33), [G35](CONTRACTS.md#g35) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
+| <a id="r-s011-v"></a>`R-S011-V` | PNG 추가 세부 관찰: 소유자 아래 상대 시간과 글 개수가 6 seconds ago · 4 stories로 함께 표시된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G33](CONTRACTS.md#g33), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s011) · [V25 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v25) |
 
 
 원본 해석 경계: 빈 리스트 화면의 14 seconds ago 다음에 4개 글이 있는 화면은 6 seconds ago로 표시된다. 기사 추가 과정이 빠져 있고 시각도 역행하므로 끊김 없는 한 세션으로 단정하지 않는다.
@@ -429,22 +432,22 @@ FE 조사 경로: [PassageReader.tsx](<../../FE/src/features/highlights/PassageR
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 같은 구간 Highlight 저장, 원본 기본 highlights와 개인 강조를 구분. ([과거 기록](<../FE_GOAL_53_RESULT.md>):206)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V17의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s012)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 기존 읽기 행동
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s012-l"></a>`R-S012-L` | 배치: 선택 핸들·메뉴 없이 연녹색 강조 유지 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-d"></a>`R-S012-D` | 표시값·입력: 선택했던 구절 강조 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-s"></a>`R-S012-S` | 상태: 하이라이트 적용 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c01"></a>`R-S012-C01` | 컨트롤: 듣기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G45](CONTRACTS.md#g45) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c02"></a>`R-S012-C02` | 컨트롤: 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25), [G27](CONTRACTS.md#g27), [G29](CONTRACTS.md#g29) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c03"></a>`R-S012-C03` | 컨트롤: 박수 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25), [G27](CONTRACTS.md#g27) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c04"></a>`R-S012-C04` | 컨트롤: 응답 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26), [G27](CONTRACTS.md#g27) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c05"></a>`R-S012-C05` | 컨트롤: 저장 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G33](CONTRACTS.md#g33) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-c06"></a>`R-S012-C06` | 컨트롤: 공유 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G47](CONTRACTS.md#g47) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V17](../FE_MEDIUM_PARITY_BACKLOG.md#v17) |
-| <a id="r-s012-v"></a>`R-S012-V` | PNG 추가 세부 관찰: 새로 저장한 구절의 녹색 배경은 주변의 기존 강조보다 진하며 선택 핸들·메뉴 없이 유지된다. | Parity11 원본 재열람으로 보완한 관찰이며 타인 공개 범위·원본 토큰을 확정하지 않음<br>[G27](CONTRACTS.md#g27) | 본문/Library ownHighlight 분리. 실제 렌더 비교 대기<br>[현재 결과](../FE_MEDIUM_PARITY_11_RESULT.md#source-review) |
+| <a id="r-s012-l"></a>`R-S012-L` | 배치: 선택 핸들·메뉴 없이 연녹색 강조 유지 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-d"></a>`R-S012-D` | 표시값·입력: 선택했던 구절 강조 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-s"></a>`R-S012-S` | 상태: 하이라이트 적용 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G27](CONTRACTS.md#g27), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c01"></a>`R-S012-C01` | 컨트롤: 듣기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G45](CONTRACTS.md#g45) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c02"></a>`R-S012-C02` | 컨트롤: 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25), [G27](CONTRACTS.md#g27), [G29](CONTRACTS.md#g29) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c03"></a>`R-S012-C03` | 컨트롤: 박수 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G25](CONTRACTS.md#g25), [G27](CONTRACTS.md#g27) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c04"></a>`R-S012-C04` | 컨트롤: 응답 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26), [G27](CONTRACTS.md#g27) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c05"></a>`R-S012-C05` | 컨트롤: 저장 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-c06"></a>`R-S012-C06` | 컨트롤: 공유 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G27](CONTRACTS.md#g27), [G47](CONTRACTS.md#g47) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
+| <a id="r-s012-v"></a>`R-S012-V` | PNG 추가 세부 관찰: 새로 저장한 구절의 녹색 배경은 주변의 기존 강조보다 진하며 선택 핸들·메뉴 없이 유지된다. | Parity11 원본 재열람으로 보완한 관찰이며 타인 공개 범위·원본 토큰을 확정하지 않음<br>[G27](CONTRACTS.md#g27) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s012) · [V17 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v17) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -469,19 +472,19 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 비어 있는 코드6칸/비활성 Validate. 원본 sign up문구와 해당 signin흐름 불일치를 복제하지 않음; mock안내 추가. ([과거 기록](<../FE_GOAL_53_RESULT.md>):207)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V29의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s013)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Validate는 회색이며 Resend code와 닫기가 있다.
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s013-l"></a>`R-S013-L` | 배치: 닫기 X가 있는 전면 시트에 인증 안내와 여섯 칸 입력란이 배치된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-d"></a>`R-S013-D` | 표시값·입력: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-s"></a>`R-S013-S` | 상태: 코드 미입력 상태다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-c01"></a>`R-S013-C01` | 컨트롤: Validate 회색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-c02"></a>`R-S013-C02` | 컨트롤: Resend code | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-c03"></a>`R-S013-C03` | 컨트롤: 닫기 X | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s013-c04"></a>`R-S013-C04` | 컨트롤: 인증 코드 여섯 칸 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
+| <a id="r-s013-l"></a>`R-S013-L` | 배치: 닫기 X가 있는 전면 시트에 인증 안내와 여섯 칸 입력란이 배치된다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-d"></a>`R-S013-D` | 표시값·입력: 샘플 계정 이메일을 대상으로 빈 코드 여섯 칸이 보인다. 이 화면은 가입과 로그인 흐름에 공통으로 수록되어 있다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-s"></a>`R-S013-S` | 상태: 코드 미입력 상태다. | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-c01"></a>`R-S013-C01` | 컨트롤: Validate 회색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-c02"></a>`R-S013-C02` | 컨트롤: Resend code | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-c03"></a>`R-S013-C03` | 컨트롤: 닫기 X | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s013-c04"></a>`R-S013-C04` | 컨트롤: 인증 코드 여섯 칸 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s013) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
 
 
 원본 해석 경계: 안내 문구는 to sign up이다. Logging in에서도 같은 Screen ID가 재사용되므로 캡처 문구와 흐름 분류가 일치하지 않는 지점을 보존한다.
@@ -504,23 +507,23 @@ FE 조사 경로: [PublicListScreen.tsx](<../../FE/src/features/public-lists/Pub
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 공개 목록 avatar40/제목22/설명15·행 여백·반응 바 수정. 기사5/원본기록8의 데이터 한계와 실저장 반응 수 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):208)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V04의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s014)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 리스트 저장·더보기·개별 저장·박수·응답·공유
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s014-l"></a>`R-S014-L` | 배치: 소유자·날짜·제목·설명·기사 목록·부유 반응 바 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-d"></a>`R-S014-D` | 표시값·입력: 8 stories, 108 saves, Medium Staff | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-s"></a>`R-S014-S` | 상태: 공개 리스트 읽기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c01"></a>`R-S014-C01` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c02"></a>`R-S014-C02` | 컨트롤: 목록 전체 Save | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c03"></a>`R-S014-C03` | 컨트롤: 목록 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c04"></a>`R-S014-C04` | 컨트롤: 개별 기사 저장 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32), [G33](CONTRACTS.md#g33) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c05"></a>`R-S014-C05` | 컨트롤: 목록 박수 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c06"></a>`R-S014-C06` | 컨트롤: 목록 응답 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c07"></a>`R-S014-C07` | 컨트롤: 목록 공유 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32), [G47](CONTRACTS.md#g47) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
-| <a id="r-s014-c08"></a>`R-S014-C08` | 컨트롤: 개별 기사 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V04](../FE_MEDIUM_PARITY_BACKLOG.md#v04) |
+| <a id="r-s014-l"></a>`R-S014-L` | 배치: 소유자·날짜·제목·설명·기사 목록·부유 반응 바 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-d"></a>`R-S014-D` | 표시값·입력: 8 stories, 108 saves, Medium Staff | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-s"></a>`R-S014-S` | 상태: 공개 리스트 읽기 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G32](CONTRACTS.md#g32), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c01"></a>`R-S014-C01` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c02"></a>`R-S014-C02` | 컨트롤: 목록 전체 Save | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c03"></a>`R-S014-C03` | 컨트롤: 목록 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c04"></a>`R-S014-C04` | 컨트롤: 개별 기사 저장 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32), [G33](CONTRACTS.md#g33) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c05"></a>`R-S014-C05` | 컨트롤: 목록 박수 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c06"></a>`R-S014-C06` | 컨트롤: 목록 응답 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c07"></a>`R-S014-C07` | 컨트롤: 목록 공유 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32), [G47](CONTRACTS.md#g47) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
+| <a id="r-s014-c08"></a>`R-S014-C08` | 컨트롤: 개별 기사 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G32](CONTRACTS.md#g32) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s014) · [V04 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v04) |
 
 
 원본 해석 경계: 상단 108 saves는 리스트 저장 수, 하단 고정 98 박수·1 응답은 리스트 반응 영역이다. 개별 기사 행의 저장 버튼과 별도로 제공된다.
@@ -545,7 +548,7 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 선택한 mention ID가 녹색 텍스트로 반영. 원본과 같은 마지막 문단에 다시 입력해 촬영 예정. ([과거 기록](<../FE_GOAL_53_RESULT.md>):209)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V10의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s015)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Next, 서식 도구
 
@@ -553,19 +556,19 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s015-l"></a>`R-S015-L` | 배치: 검색 결과 대신 녹색 Sam Lee 텍스트 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-d"></a>`R-S015-D` | 표시값·입력: 이름 링크처럼 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-s"></a>`R-S015-S` | 상태: 멘션 후보 선택 반영 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c01"></a>`R-S015-C01` | 컨트롤: Close | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c02"></a>`R-S015-C02` | 컨트롤: 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c03"></a>`R-S015-C03` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38), [G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c04"></a>`R-S015-C04` | 컨트롤: 문자 스타일 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c05"></a>`R-S015-C05` | 컨트롤: 인용 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c06"></a>`R-S015-C06` | 컨트롤: 목록 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c07"></a>`R-S015-C07` | 컨트롤: 구분선 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c08"></a>`R-S015-C08` | 컨트롤: 멘션 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c09"></a>`R-S015-C09` | 컨트롤: 코드 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
-| <a id="r-s015-c10"></a>`R-S015-C10` | 컨트롤: 이미지 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G37](CONTRACTS.md#g37), [G38](CONTRACTS.md#g38) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V10](../FE_MEDIUM_PARITY_BACKLOG.md#v10) |
+| <a id="r-s015-l"></a>`R-S015-L` | 배치: 검색 결과 대신 녹색 Sam Lee 텍스트 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-d"></a>`R-S015-D` | 표시값·입력: 이름 링크처럼 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-s"></a>`R-S015-S` | 상태: 멘션 후보 선택 반영 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G38](CONTRACTS.md#g38), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c01"></a>`R-S015-C01` | 컨트롤: Close | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c02"></a>`R-S015-C02` | 컨트롤: 더보기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c03"></a>`R-S015-C03` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38), [G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c04"></a>`R-S015-C04` | 컨트롤: 문자 스타일 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c05"></a>`R-S015-C05` | 컨트롤: 인용 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c06"></a>`R-S015-C06` | 컨트롤: 목록 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c07"></a>`R-S015-C07` | 컨트롤: 구분선 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c08"></a>`R-S015-C08` | 컨트롤: 멘션 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c09"></a>`R-S015-C09` | 컨트롤: 코드 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
+| <a id="r-s015-c10"></a>`R-S015-C10` | 컨트롤: 이미지 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G37](CONTRACTS.md#g37), [G38](CONTRACTS.md#g38) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s015) · [V10 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v10) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -590,17 +593,17 @@ FE 조사 경로: [ListeningSpeedPanel.tsx](<../../FE/src/features/listening/Lis
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 1x200WPM/세로 눈금, 자체 취소X 추가. OS sheet stack 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):210)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V19의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s016)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 세로 슬라이더, Done
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s016-l"></a>`R-S016-L` | 배치: Select Speed 시트, 세로 슬라이더·등급 안내 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s016-d"></a>`R-S016-D` | 표시값·입력: 1x, 200 WPM | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s016-s"></a>`R-S016-S` | 상태: 현재 속도 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s016-c01"></a>`R-S016-C01` | 컨트롤: 세로 슬라이더 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
-| <a id="r-s016-c02"></a>`R-S016-C02` | 컨트롤: Done | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V19](../FE_MEDIUM_PARITY_BACKLOG.md#v19) |
+| <a id="r-s016-l"></a>`R-S016-L` | 배치: Select Speed 시트, 세로 슬라이더·등급 안내 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s016) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s016-d"></a>`R-S016-D` | 표시값·입력: 1x, 200 WPM | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s016) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s016-s"></a>`R-S016-S` | 상태: 현재 속도 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G46](CONTRACTS.md#g46), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s016) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s016-c01"></a>`R-S016-C01` | 컨트롤: 세로 슬라이더 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s016) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
+| <a id="r-s016-c02"></a>`R-S016-C02` | 컨트롤: Done | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G46](CONTRACTS.md#g46) | 무음 mock: 재생 UI·시간/속도/음성 메타데이터; 실제 음성 재생 없음 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s016) · [V19 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v19) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -627,18 +630,18 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 구분선 뒤 이미지 선택까지 촬영하도록 보강. 이전 캡처는 이미지 선택을 빠뜨렸음. ([과거 기록](<../FE_GOAL_53_RESULT.md>):211)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V07의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s017)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 구분선 도구, 사진 삭제 X, Next
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s017-l"></a>`R-S017-L` | 배치: 목록 아래 점 3개 구분선, 이미지 녹색 테두리 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s017-d"></a>`R-S017-D` | 표시값·입력: 사진 블록 선택 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s017-s"></a>`R-S017-S` | 상태: 블록 구분선 노출 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s017-c01"></a>`R-S017-C01` | 컨트롤: 구분선 도구 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s017-c02"></a>`R-S017-C02` | 컨트롤: 사진 삭제 X | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G37](CONTRACTS.md#g37) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s017-c03"></a>`R-S017-C03` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
+| <a id="r-s017-l"></a>`R-S017-L` | 배치: 목록 아래 점 3개 구분선, 이미지 녹색 테두리 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s017-d"></a>`R-S017-D` | 표시값·입력: 사진 블록 선택 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s017-s"></a>`R-S017-S` | 상태: 블록 구분선 노출 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s017-c01"></a>`R-S017-C01` | 컨트롤: 구분선 도구 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s017-c02"></a>`R-S017-C02` | 컨트롤: 사진 삭제 X | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G37](CONTRACTS.md#g37) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s017-c03"></a>`R-S017-C03` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s017) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -665,17 +668,17 @@ FE 조사 경로: [RichDocumentBody.tsx](<../../FE/src/features/editor/RichDocum
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. bullet·들여쓰기·선택 상태 실제 적용. 원본 줄바꿈은 글꼴/키보드 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):212)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V07의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s018)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 목록 도구, Next
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s018-l"></a>`R-S018-L` | 배치: 단락 앞 점과 들여쓰기, 목록 도구 녹색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s018-d"></a>`R-S018-D` | 표시값·입력: 단일 목록 항목 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s018-s"></a>`R-S018-S` | 상태: 글머리 목록 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s018-c01"></a>`R-S018-C01` | 컨트롤: 목록 도구 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
-| <a id="r-s018-c02"></a>`R-S018-C02` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V07](../FE_MEDIUM_PARITY_BACKLOG.md#v07) |
+| <a id="r-s018-l"></a>`R-S018-L` | 배치: 단락 앞 점과 들여쓰기, 목록 도구 녹색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s018) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s018-d"></a>`R-S018-D` | 표시값·입력: 단일 목록 항목 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s018) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s018-s"></a>`R-S018-S` | 상태: 글머리 목록 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G36](CONTRACTS.md#g36), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s018) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s018-c01"></a>`R-S018-C01` | 컨트롤: 목록 도구 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s018) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
+| <a id="r-s018-c02"></a>`R-S018-C02` | 컨트롤: Next | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s018) · [V07 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v07) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -700,16 +703,16 @@ FE 조사 경로: [ResponsesPanel.tsx](<../../FE/src/features/responses/Response
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 인용과 입력 보존/활성 제출. 웹 focus outline/키보드 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):213)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V20의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s019)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 전송 활성
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s019-l"></a>`R-S019-L` | 배치: 인용 카드 아래 문장 입력 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s019-d"></a>`R-S019-D` | 표시값·입력: Can't agree more! | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s019-s"></a>`R-S019-S` | 상태: 인용 응답 제출 준비 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
-| <a id="r-s019-c01"></a>`R-S019-C01` | 컨트롤: 전송 활성 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V20](../FE_MEDIUM_PARITY_BACKLOG.md#v20) |
+| <a id="r-s019-l"></a>`R-S019-L` | 배치: 인용 카드 아래 문장 입력 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s019) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s019-d"></a>`R-S019-D` | 표시값·입력: Can't agree more! | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s019) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s019-s"></a>`R-S019-S` | 상태: 인용 응답 제출 준비 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G26](CONTRACTS.md#g26), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s019) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
+| <a id="r-s019-c01"></a>`R-S019-C01` | 컨트롤: 전송 활성 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G26](CONTRACTS.md#g26) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s019) · [V20 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v20) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -734,19 +737,19 @@ FE 조사 경로: [ProfileScreen.tsx](<../../FE/src/features/profile/ProfileScre
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 빈 프로필/편집/통계/Stories 대조. 실제미완료온보딩 Continue setup·Drafts 자체추가,following0vs원본1 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):214)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V32의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s020)을 따른다.
 
 **원본 컨트롤 관찰 문장:** View stats, Edit your profile, Get started, 설정
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s020-l"></a>`R-S020-L` | 배치: 프로필·통계·편집·탭·Public 필터·빈 안내 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-d"></a>`R-S020-D` | 표시값·입력: Alex Smith, 0 followers·1 following | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-s"></a>`R-S020-S` | 상태: 발행 글 없음 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-c01"></a>`R-S020-C01` | 컨트롤: View stats | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42), [G43](CONTRACTS.md#g43) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-c02"></a>`R-S020-C02` | 컨트롤: Edit your profile | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-c03"></a>`R-S020-C03` | 컨트롤: Get started | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
-| <a id="r-s020-c04"></a>`R-S020-C04` | 컨트롤: 설정 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V32](../FE_MEDIUM_PARITY_BACKLOG.md#v32) |
+| <a id="r-s020-l"></a>`R-S020-L` | 배치: 프로필·통계·편집·탭·Public 필터·빈 안내 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-d"></a>`R-S020-D` | 표시값·입력: Alex Smith, 0 followers·1 following | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-s"></a>`R-S020-S` | 상태: 발행 글 없음 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G42](CONTRACTS.md#g42), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-c01"></a>`R-S020-C01` | 컨트롤: View stats | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42), [G43](CONTRACTS.md#g43) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-c02"></a>`R-S020-C02` | 컨트롤: Edit your profile | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-c03"></a>`R-S020-C03` | 컨트롤: Get started | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
+| <a id="r-s020-c04"></a>`R-S020-C04` | 컨트롤: 설정 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G42](CONTRACTS.md#g42) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s020) · [V32 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v32) |
 
 
 원본 해석 경계: Stories의 Public 필터가 표시된다. 필터 선택지 전체·초안·Unlisted 목록은 수록되지 않아 프로필에 나타난 글 수를 계정 전체 글 수로 보지 않는다.
@@ -769,19 +772,19 @@ FE 조사 경로: [SearchScreen.tsx](<../../FE/src/features/search/SearchScreen.
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Trending byline 한 줄/큰 글자 줄바꿈 수정. 배지/제목/번호/검색 진입 대조. ([과거 기록](<../FE_GOAL_53_RESULT.md>):215)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V02의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s021)을 따른다.
 
 **원본 컨트롤 관찰 문장:** 검색, 토픽, 인기 기사, 작성
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s021-l"></a>`R-S021-L` | 배치: 검색창·가로 토픽 칩·번호 매긴 Trending | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-d"></a>`R-S021-D` | 표시값·입력: Search Medium 빈값 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-s"></a>`R-S021-S` | 상태: 발견 탐색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-c01"></a>`R-S021-C01` | 컨트롤: 검색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-c02"></a>`R-S021-C02` | 컨트롤: 토픽 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G30](CONTRACTS.md#g30), [G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-c03"></a>`R-S021-C03` | 컨트롤: 인기 기사 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
-| <a id="r-s021-c04"></a>`R-S021-C04` | 컨트롤: 작성 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G50](CONTRACTS.md#g50) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V02](../FE_MEDIUM_PARITY_BACKLOG.md#v02) |
+| <a id="r-s021-l"></a>`R-S021-L` | 배치: 검색창·가로 토픽 칩·번호 매긴 Trending | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-d"></a>`R-S021-D` | 표시값·입력: Search Medium 빈값 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-s"></a>`R-S021-S` | 상태: 발견 탐색 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G50](CONTRACTS.md#g50), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-c01"></a>`R-S021-C01` | 컨트롤: 검색 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-c02"></a>`R-S021-C02` | 컨트롤: 토픽 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G30](CONTRACTS.md#g30), [G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-c03"></a>`R-S021-C03` | 컨트롤: 인기 기사 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
+| <a id="r-s021-c04"></a>`R-S021-C04` | 컨트롤: 작성 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G36](CONTRACTS.md#g36), [G50](CONTRACTS.md#g50) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s021) · [V02 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v02) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -804,17 +807,17 @@ FE 조사 경로: [RefineRecommendationsScreen.tsx](<../../FE/src/features/recom
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. FollowingAll의 Writers/Topics 그룹·수/Seeall누락수정 후재촬영. 관계는동일ID, 소개줄바꿈/Followpill차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):216)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V11의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s022)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Following 드롭다운, See all
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s022-l"></a>`R-S022-L` | 배치: Writers·Topics 섹션과 개수 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V11](../FE_MEDIUM_PARITY_BACKLOG.md#v11) |
-| <a id="r-s022-d"></a>`R-S022-D` | 표시값·입력: Writers 1, Topics 3 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V11](../FE_MEDIUM_PARITY_BACKLOG.md#v11) |
-| <a id="r-s022-s"></a>`R-S022-S` | 상태: 작가·토픽 팔로우 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V11](../FE_MEDIUM_PARITY_BACKLOG.md#v11) |
-| <a id="r-s022-c01"></a>`R-S022-C01` | 컨트롤: Following 드롭다운 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V11](../FE_MEDIUM_PARITY_BACKLOG.md#v11) |
-| <a id="r-s022-c02"></a>`R-S022-C02` | 컨트롤: See all | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V11](../FE_MEDIUM_PARITY_BACKLOG.md#v11) |
+| <a id="r-s022-l"></a>`R-S022-L` | 배치: Writers·Topics 섹션과 개수 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s022) · [V11 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v11) |
+| <a id="r-s022-d"></a>`R-S022-D` | 표시값·입력: Writers 1, Topics 3 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s022) · [V11 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v11) |
+| <a id="r-s022-s"></a>`R-S022-S` | 상태: 작가·토픽 팔로우 표시 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G31](CONTRACTS.md#g31), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s022) · [V11 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v11) |
+| <a id="r-s022-c01"></a>`R-S022-C01` | 컨트롤: Following 드롭다운 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s022) · [V11 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v11) |
+| <a id="r-s022-c02"></a>`R-S022-C02` | 컨트롤: See all | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G31](CONTRACTS.md#g31) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s022) · [V11 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v11) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -839,20 +842,20 @@ FE 조사 경로: [PublishTopics.tsx](<../../FE/src/features/editor/PublishTopic
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 발행 preview 상단/카드/행 대조. 배경·문구·여백·카드 제목·설정행 크기 수정. 이름/사진은 검증 계정과 로컬 자산. ([과거 기록](<../FE_GOAL_53_RESULT.md>):217)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V06의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s023)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Edit, Topics, Publication, Publish now, 닫기
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s023-l"></a>`R-S023-L` | 배치: 예상 기사 카드와 Topics·Publication 행, 하단 Publish now | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-d"></a>`R-S023-D` | 표시값·입력: No topics added, No publication selected, Unlisted 꺼짐 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-s"></a>`R-S023-S` | 상태: 공개 전 설정 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-c01"></a>`R-S023-C01` | 컨트롤: Edit | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-c02"></a>`R-S023-C02` | 컨트롤: Topics | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-c03"></a>`R-S023-C03` | 컨트롤: Publication | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-c04"></a>`R-S023-C04` | 컨트롤: Publish now | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
-| <a id="r-s023-c05"></a>`R-S023-C05` | 컨트롤: 닫기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V06](../FE_MEDIUM_PARITY_BACKLOG.md#v06) |
+| <a id="r-s023-l"></a>`R-S023-L` | 배치: 예상 기사 카드와 Topics·Publication 행, 하단 Publish now | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-d"></a>`R-S023-D` | 표시값·입력: No topics added, No publication selected, Unlisted 꺼짐 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-s"></a>`R-S023-S` | 상태: 공개 전 설정 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G39](CONTRACTS.md#g39), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-c01"></a>`R-S023-C01` | 컨트롤: Edit | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-c02"></a>`R-S023-C02` | 컨트롤: Topics | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-c03"></a>`R-S023-C03` | 컨트롤: Publication | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-c04"></a>`R-S023-C04` | 컨트롤: Publish now | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
+| <a id="r-s023-c05"></a>`R-S023-C05` | 컨트롤: 닫기 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G39](CONTRACTS.md#g39) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s023) · [V06 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v06) |
 
 
 원본 해석 경계: 미리보기 안내는 홈페이지·구독자 받은편지함 등 공개 영역에서의 노출 형태를 설명한다. 토픽·Publication 미지정 상태에서도 Publish now는 어두운 활성형으로 보이지만 실제 제출 허용 여부는 미검증이다.
@@ -877,17 +880,17 @@ FE 조사 경로: [AuthDialogs.tsx](<../../FE/src/features/auth/AuthDialogs.tsx>
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. 유효 mock Email과Continue 가능. 개인정보 원본 대신 reserved주소·서체/모의 계정선택 차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):218)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V29의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s024)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Continue, 뒤로
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s024-l"></a>`R-S024-L` | 배치: 동일 로그인 폼 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s024-d"></a>`R-S024-D` | 표시값·입력: 샘플 계정 이메일 입력 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s024-s"></a>`R-S024-S` | 상태: 로그인 요청 전 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s024-c01"></a>`R-S024-C01` | 컨트롤: Continue | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
-| <a id="r-s024-c02"></a>`R-S024-C02` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V29](../FE_MEDIUM_PARITY_BACKLOG.md#v29) |
+| <a id="r-s024-l"></a>`R-S024-L` | 배치: 동일 로그인 폼 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s024) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s024-d"></a>`R-S024-D` | 표시값·입력: 샘플 계정 이메일 입력 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s024) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s024-s"></a>`R-S024-S` | 상태: 로그인 요청 전 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G40](CONTRACTS.md#g40), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s024) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s024-c01"></a>`R-S024-C01` | 컨트롤: Continue | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s024) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
+| <a id="r-s024-c02"></a>`R-S024-C02` | 컨트롤: 뒤로 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G40](CONTRACTS.md#g40) | 인증 UI/mock: 실제 OAuth·이메일/코드 발송·영속 세션 미연결 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s024) · [V29 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v29) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.
@@ -910,16 +913,16 @@ FE 조사 경로: [PublicIdentityScreen.tsx](<../../FE/src/features/community/Pu
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Following확정·메뉴닫기. 실제상태동기화/표시, 원본반응수와카드높이차이. ([과거 기록](<../FE_GOAL_53_RESULT.md>):219)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정(Parity22):** 로컬 화면/상태 연결 확인; V14의 모의·플랫폼 경계를 적용. Android 현 디자인/조작 수용, 원본 이 상태의 픽셀·값·정확 전이 동일성은 미확인. [현재 코드·기존 검사·차이·미확인](../FE_MEDIUM_PARITY_22_RESULT.md#s025)을 따른다.
 
 **원본 컨트롤 관찰 문장:** Following 드롭다운
 
 | 요구 ID | 원본 요구 | 기존 TODO 판정·구체 계약 | FE 판정 / 후속 작업 |
 | --- | --- | --- | --- |
-| <a id="r-s025-l"></a>`R-S025-L` | 배치: Following 버튼·Stories 목록 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V14](../FE_MEDIUM_PARITY_BACKLOG.md#v14) |
-| <a id="r-s025-d"></a>`R-S025-D` | 표시값·입력: 팔로우 상태 활성 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V14](../FE_MEDIUM_PARITY_BACKLOG.md#v14) |
-| <a id="r-s025-s"></a>`R-S025-S` | 상태: 관계 설정 메뉴 닫힘 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V14](../FE_MEDIUM_PARITY_BACKLOG.md#v14) |
-| <a id="r-s025-c01"></a>`R-S025-C01` | 컨트롤: Following 드롭다운 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G28](CONTRACTS.md#g28) | 화면 코드 경로 확인 / 개별 요구의 현재 렌더·조작 동일성 미검증<br>[V14](../FE_MEDIUM_PARITY_BACKLOG.md#v14) |
+| <a id="r-s025-l"></a>`R-S025-L` | 배치: Following 버튼·Stories 목록 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | Android 시각 수용·차이 기록; 원본 픽셀 동일성 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s025) · [V14 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v14) |
+| <a id="r-s025-d"></a>`R-S025-D` | 표시값·입력: 팔로우 상태 활성 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 표시/입력 경로 연결; fixture·현재 계정 값과 원본 관찰값의 일치 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s025) · [V14 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v14) |
+| <a id="r-s025-s"></a>`R-S025-S` | 상태: 관계 설정 메뉴 닫힘 | 일부 포함: 원본·시각 비교 계약은 있으나 이 상태의 개별 수용 조건은 분산됨<br>[G28](CONTRACTS.md#g28), [G23](CONTRACTS.md#g23), [G53](CONTRACTS.md#g53) | 상태 분기 연결; 모의/외부 경계 적용·원본 전이 의미 미확인 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s025) · [V14 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v14) |
+| <a id="r-s025-c01"></a>`R-S025-C01` | 컨트롤: Following 드롭다운 | 기능 범위 포함: 담당 Goal에 상위 계약 있음; 이 조작점의 상세 수용 조건은 아래 원본 기준으로 보완<br>[G28](CONTRACTS.md#g28) | 조작 연결 확인; 현재 로컬/모의 지원 범위 적용 · [S별 근거](../FE_MEDIUM_PARITY_22_RESULT.md#s025) · [V14 지원/한계](../FE_MEDIUM_PARITY_22_RESULT.md#v14) |
 
 
 원본 해석 경계: 조작 결과와 미수록 동작을 구분한다.

@@ -1,5 +1,8 @@
 # FE 계약 인계 — Goal 53
 
+**2026-11-27 인계 입력 갱신 — 설계 미착수:** [Parity22 전수 판정](FE_MEDIUM_PARITY_22_RESULT.md#decision)과 [H01~H11 질문/입력](FE_MEDIUM_PARITY_22_RESULT.md#handoff)을 먼저 읽는다. 현재 FE 계약과 공식 기능의 미확인/자체 정책을 구분했고, 이번에 요구사항 확정안·DB/DDL·API 설계를 시작하지 않았다. 기존 표는 로컬 FE 계약이며 실서버 계약이 아니다. 발행 글 Highlight·인용 응답·무음 Listen, 명시적 편집기 사진 경계 선택, 발행 문서/사진의 메모리 다운로드가 구현되어 있다. 정책 발췌 개인 선택·읽기 사진 경계·초안 사용자 삭제·이력 Undo는 미지원이다. 실제 Clipboard/Share/사진 선택·저장/알림 권한/아이콘 어댑터와 모의 URL/인증/발행/구독·외부 미연결을 구분한다. Android 현 상태는 사용자 확정이며 iOS/실기기 필수 대기·아이콘 변경 과제를 추가하지 않는다.
+
+
 2026-11-21. [Goal53 후속 보완](FE_GOAL_53_FOLLOWUP_RESULT.md)의 발행 ID/반응/저장·순서 편집·링크 수명 계약을 반영했다. Goal53의 실제 TypeScript 공급부·저장소·navigation을 기준으로 작성했다. **현재 구현은 메모리 fixture/mock이며 HTTP API, 서버, DB, DDL, OAuth, 업로드, 결제 검증, Push/Email 발송은 구현하지 않았다.** 아래 조회/명령은 FE 경계 이름이다. URL·테이블·트랜잭션·인증 방식의 서버 설계 확정안이 아니다. 시각/native 잔여는 [Goal53 결과](FE_GOAL_53_RESULT.md), 개별 원본 동작의 확인 범위는 [대응표](FE_MEDIUM_FULL_CLONE_MAP.md)를 따른다.
 
 ## 공통 식별자와 수명

@@ -1,5 +1,8 @@
 # Medium 원본 동일 재현을 위한 보완 작업
 
+**2026-11-27 현재 판정 — 6단계 전수 감사 완료:** [Parity22 결과](FE_MEDIUM_PARITY_22_RESULT.md#decision)의 S200/F63/T273/R1395/U263/C72/G53 및 D/Q/V59 연결과 항목별 판정을 우선한다. Android 현 화면/조작은 사용자 확정 상태이며 같은 검사·iOS/실기기 필수 대기를 만들지 않는다. FE 코드/디자인/아이콘은 유지하고 Android 기본 선택 메뉴 제거는 보류한다. 모의/외부 미연결·미지원·원본 차이/미확인은 완료로 올리지 않았다. **7단계는 인계 입력만 정리했으며 설계 미착수다.** 아래 이전 ‘현재/다음/미착수/기기 대기’와 검사 수치는 당시 이력이다. 아래 재현/최초 작업 정의는 감사 이력으로 유지하며 최신 상태는 각 D/Q/V의 판정 행이다. 초안 사용자 삭제·이력 Undo·읽기 사진 경계 등 미지원은 여전히 남고, 현재 아이콘은 잔여에서 제외한다.
+
+
 **최신 잔여표(2026-11-25):** [59개 대상의 상태·담당·종료 조건](FE_MEDIUM_PARITY_01_20_REVIEW.md). V08/V09 사진 우선 입력의 이미지 문단 경계와 저장 결함을 수정했다. D09/V17·V07 native 차이는 구현 잔여이며 Q04/Q05/Q06/Q11의 근거·범위 판정과 Q02 자산·화면 차이를 유지한다. 후속에서 해결된 D08·D10 등의 과거 문구는 현재 판정 링크와 함께 읽는다.21/22와 실제 외부 서비스는 이번 범위가 아니다.
 
 **Parity16~20 추가 재검토(2026-11-25):** [발견·수정·이번 검증과 한계](FE_MEDIUM_PARITY_16_20_REVIEW.md). 차단 저장과 알림 응답 조회가 같은 렌더 배치에서 완료될 때 이전 정책으로 이동/읽음을 확정하는 결함을 수정했다. 이전 결과와 이번 자동 검사를 구분하며, 이번 브라우저 연결 부재·원본/시각/native 잔여를 유지한다. 사용자 요청 범위는 로컬 커밋까지이며 push·배포·21/22 시작은 제외한다. 아래 기록은 각 당시 결과다.
@@ -78,7 +81,7 @@
 
 - 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 문서/공급부/포커스 수명과 최신 요청 순번 보호·현재 오류 재시도를 보완했다. 아래 재현 기록은 수정 전 근거다.
 
-- 판정: **수정 필요 / 이전 재현 A01 + 현재 코드 확인**. 기존 담당 Goal 36·39·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: DocumentReader의 문서/공급부/포커스·최신 요청 수명 보호. Parity4 및 읽기 회귀 근거; 과거 늦은 실패 재현은 수정 전 이력. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d01).
 
 - 원본 맥락: [F08](MEDIUM_PARITY/FLOWS.md#f08), [F16](MEDIUM_PARITY/FLOWS.md#f16)
 
@@ -86,9 +89,9 @@
 
 - 근거: 첫 링크 요청 대기 → 두 번째 성공 → 첫 번째 실패에서 이미 성공한 화면에 오류가 다시 뜬다. 작성자 웹사이트/정책 외부 링크의 후속 수정은 이 경로를 포함하지 않는다.
 
-- 작업: 현재 문서·화면 수명·최신 요청에만 성공/실패를 반영한다. 문서 교체와 unmount 때 이전 결과를 무효화한다.
+- 최초 작업 정의(이력): 현재 문서·화면 수명·최신 요청에만 성공/실패를 반영한다. 문서 교체와 unmount 때 이전 결과를 무효화한다.
 
-- 완료·검증 조건: 성공→이전 실패, 실패→최신 성공, 문서 A→B→A, 이탈 후 완료를 검증한다. 최신 요청이 실제 실패할 때의 오류/재시도는 유지한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 성공→이전 실패, 실패→최신 성공, 문서 A→B→A, 이탈 후 완료를 검증한다. 최신 요청이 실제 실패할 때의 오류/재시도는 유지한다.
 
 - 증거 구분: A01: browser-results.json, stale-body-link-error.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -98,7 +101,7 @@
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). 기존/새 호 원본 ID 배열은 보존하고 표시 시 현재 사용자 Mute/Block을 적용하는 자체 mock 정책으로 연결했다. Unmute는 원본에 있는 글을 다시 표시한다. 원본의 과거 호 정책은 미확인이다. 아래 근거·판정은 수정 전 이력이다.
 
-- 판정: **정책 판정·연결 필요 / 이전 재현 A02 + 현재 코드 확인**. 기존 담당 Goal 29·34·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 기존/새 Digest 조회에 최신 Mute/Block 정책 적용. 실제 발송/원본 캐시 정책은 미확인. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d02).
 
 - 원본 맥락: [F22](MEDIUM_PARITY/FLOWS.md#f22), [F43](MEDIUM_PARITY/FLOWS.md#f43)
 
@@ -106,9 +109,9 @@
 
 - 근거: Home에서는 작가 글이 제외되나 날짜 변경 후 Digest 재조회에도 남는다. 코드는 blocked만 검사한다. 원본에는 mute 이후 Digest 화면이 없으므로 기존 호까지 무조건 숨기라고 단정할 수 없다.
 
-- 작업: 보관 SOURCES의 음소거 설명과 화면 관찰을 나누어 기존 발행분/다음 발행분/Unmute의 적용 시점을 명시한다. 해당 정책을 Digest 조회/필터 및 관계 상태와 연결한다.
+- 최초 작업 정의(이력): 보관 SOURCES의 음소거 설명과 화면 관찰을 나누어 기존 발행분/다음 발행분/Unmute의 적용 시점을 명시한다. 해당 정책을 Digest 조회/필터 및 관계 상태와 연결한다.
 
-- 완료·검증 조건: Mute·Unmute, 날짜 왕복, 늦은 조회, A/B 전환을 검사한다. Home와 Digest의 차이가 의도적이면 이유와 적용 시점을 표시하고 최종 범위 판정을 남긴다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): Mute·Unmute, 날짜 왕복, 늦은 조회, A/B 전환을 검사한다. Home와 Digest의 차이가 의도적이면 이유와 적용 시점을 표시하고 최종 범위 판정을 남긴다.
 
 - 증거 구분: A02: browser-results.json, digest-muted-refetched.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -118,7 +121,7 @@
 
 - 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 공통 카탈로그/이력·카드 Viewed·직접/Article 경유 reader 설정을 연결했다. 아래 수정 전 근거는 보존하고 native/원본 동일성은 별도 잔여다.
 
-- 판정: **적용 범위 판정·연결 필요 / 이전 재현 A03 + 현재 코드 확인**. 기존 담당 Goal 24·25·31·39·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 발행 글 이력·Viewed·표시 설정 연결. Q11 후속에서 Highlight·인용 응답·무음 Listen도 연결. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d03).
 
 - 원본 맥락: [F08](MEDIUM_PARITY/FLOWS.md#f08), [F14](MEDIUM_PARITY/FLOWS.md#f14), [F24](MEDIUM_PARITY/FLOWS.md#f24), [F41](MEDIUM_PARITY/FLOWS.md#f41), [F55](MEDIUM_PARITY/FLOWS.md#f55), [F62](MEDIUM_PARITY/FLOWS.md#f62)
 
@@ -126,9 +129,9 @@
 
 - 근거: 발행 글은 일반 기사 방문 처리를 우회한다. 읽은 뒤 이력은 비어 있고, 120%/Sans 설정 후에도 본문은 별도 18px serif다. 반응·저장 연결 완료를 이력/설정 완료로 확대할 수 없다.
 
-- 작업: 본인/타인·Public/Unlisted별 방문/Viewed/글자 크기·글꼴·테마 적용 범위를 확정하고 공통 계약에 연결한다. D05의 ID 해석도 함께 해결한다.
+- 최초 작업 정의(이력): 본인/타인·Public/Unlisted별 방문/Viewed/글자 크기·글꼴·테마 적용 범위를 확정하고 공통 계약에 연결한다. D05의 ID 해석도 함께 해결한다.
 
-- 완료·검증 조건: 발행→읽기→이력→재열기, 이력 삭제 후 Viewed, 설정 변경/재진입, 권한 철회·계정 전환을 확인한다. 작성 편집 화면 설정과 읽기 설정을 혼동하지 않는다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 발행→읽기→이력→재열기, 이력 삭제 후 Viewed, 설정 변경/재진입, 권한 철회·계정 전환을 확인한다. 작성 편집 화면 설정과 읽기 설정을 혼동하지 않는다.
 
 - 증거 구분: A03: browser-results.json, browser-notes-font-results.json, written-history.png, written-font-settings.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -142,7 +145,7 @@
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). Digest의 0·누락 읽기 시간을 숨기고 확인된 양수만 표시했다. 날짜 재조회·기사 복귀 후 동일하다. 메모 소비자는 묶음7 잔여이며 항목 전체 완료가 아니다. 아래 근거·판정은 수정 전 이력이다.
 
-- 판정: **수정 필요 / 이전 재현 A05 + 현재 코드 확인**. 기존 담당 Goal 33·34·50.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 읽기 시간 0을 미확인 값으로 구분해 표시. 전문이 없는 글의 실제 읽기 시간은 미확인. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d04).
 
 - 원본 맥락: [F41](MEDIUM_PARITY/FLOWS.md#f41), [F43](MEDIUM_PARITY/FLOWS.md#f43), [F45](MEDIUM_PARITY/FLOWS.md#f45)
 
@@ -150,9 +153,9 @@
 
 - 근거: fixture의 0은 미확인값인데 Digest와 Add a note의 미리보기에 0 min read가 표시된다.
 
-- 작업: 미확인 시간을 숨기거나 확인된 공통 미확인 표현으로 처리한다. 같은 필드의 카드/검색/탐색 소비자도 확인한다. 임의 시간을 채우지 않는다.
+- 최초 작업 정의(이력): 미확인 시간을 숨기거나 확인된 공통 미확인 표현으로 처리한다. 같은 필드의 카드/검색/탐색 소비자도 확인한다. 임의 시간을 채우지 않는다.
 
-- 완료·검증 조건: 0·확인된 양수·누락값을 분리해 검증하고, 메모 작성/취소 및 Digest 날짜 전환 후에도 가짜 시간이 생기지 않음을 확인한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 0·확인된 양수·누락값을 분리해 검증하고, 메모 작성/취소 및 Digest 날짜 전환 후에도 가짜 시간이 생기지 않음을 확인한다.
 
 - 증거 구분: A05: browser-notes-font-results.json, zero-minute-note.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -162,7 +165,7 @@
 
 - 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 일반 fixture·발행·정책 기사를 reactive 카탈로그로 해석하고 unavailable/차단/실패 재시도를 구분했다. 아래 기록은 수정 전 근거다.
 
-- 판정: **수정 필요 / 이전 재현 A07 + 현재 코드 확인**. 기존 담당 Goal 25·31·44·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 일반/정책/발행 기사 ID를 카탈로그에서 해석해 읽기 이력과 연결. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d05).
 
 - 원본 맥락: [F06](MEDIUM_PARITY/FLOWS.md#f06), [F14](MEDIUM_PARITY/FLOWS.md#f14), [F41](MEDIUM_PARITY/FLOWS.md#f41)
 
@@ -170,9 +173,9 @@
 
 - 근거: 알림으로 열 수 있는 example-latest-rates 기사가 이력에서는 Story unavailable이다. 조회가 mediumArticles에 한정된다. 작성 글과 별개인 기존 일반 기사 결함이다.
 
-- 작업: 이력의 기사 식별자를 실제 읽기 화면이 지원하는 카탈로그/발행 글 조회와 일치시킨다. 실제 삭제·차단·접근 불가 상태와 구분한다.
+- 최초 작업 정의(이력): 이력의 기사 식별자를 실제 읽기 화면이 지원하는 카탈로그/발행 글 조회와 일치시킨다. 실제 삭제·차단·접근 불가 상태와 구분한다.
 
-- 완료·검증 조건: 알림→기사→이력→재열기 및 일반 Medium 기사를 대조한다. 삭제/차단/Unlisted 접근 철회와 실제 unavailable 복구/삭제도 확인한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 알림→기사→이력→재열기 및 일반 Medium 기사를 대조한다. 삭제/차단/Unlisted 접근 철회와 실제 unavailable 복구/삭제도 확인한다.
 
 - 증거 구분: A07: browser-additional-results.json, browser-reference-results.json, ordinary-fixture-history.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -182,7 +185,7 @@
 
 - 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). D06 mock 연결 완료: 공통 카탈로그로 검색·공개 프로필·Following/Muted/Blocked를 연결하고 이름 변경·계정 전환·각 해제를 검증했다. 아래 판정은 수정 전/당시 기록이다.
 
-- 판정: **수정 필요 / 이전 재현 A08 + 현재 코드 확인**. 기존 담당 Goal 28·29·31·42·50·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 동적 mock A/B 사용자 관계 관리 연결. 실제 사용자/서버 관계는 미연결. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d06).
 
 - 원본 맥락: [F02](MEDIUM_PARITY/FLOWS.md#f02), [F12](MEDIUM_PARITY/FLOWS.md#f12), [F19](MEDIUM_PARITY/FLOWS.md#f19), [F21](MEDIUM_PARITY/FLOWS.md#f21), [F22](MEDIUM_PARITY/FLOWS.md#f22), [F55](MEDIUM_PARITY/FLOWS.md#f55)
 
@@ -190,9 +193,9 @@
 
 - 근거: 검색에서 예시 독자 B를 Follow/Mute하면 내 프로필은 1 following이지만 My following/Refine Following/Muted에 B가 없다. 검색은 동적 사용자를 지원하고 관리 목록은 정적 directory/topics만 열거한다.
 
-- 작업: 관계·음소거 ID를 검색/공개 프로필과 같은 사용자 카탈로그로 해석한다. 관리 목록에서 실제 해제까지 연결한다.
+- 최초 작업 정의(이력): 관계·음소거 ID를 검색/공개 프로필과 같은 사용자 카탈로그로 해석한다. 관리 목록에서 실제 해제까지 연결한다.
 
-- 완료·검증 조건: A가 B 검색→Follow/Mute→세 관리 목록 확인→해제, B 이름 변경, 로그아웃/A↔B 전환을 검증한다. 숫자만 고치는 것으로 닫지 않는다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): A가 B 검색→Follow/Mute→세 관리 목록 확인→해제, B 이름 변경, 로그아웃/A↔B 전환을 검증한다. 숫자만 고치는 것으로 닫지 않는다.
 
 - 증거 구분: A08: browser-connections-results.json, mock-user-own-following.png, mock-user-refine-following.png, mock-user-refine-muted.png; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -204,7 +207,7 @@
 
 - 최신 Parity 8: [일반/발행 혼합 사본·version/권한·진행/완료 표시 및 실제 검사](FE_MEDIUM_PARITY_08_RESULT.md). 기능/mock 구현·두 검토/웹·타입/lint·전체302 suites/1578 tests·export 통과. 메모리 사본만 지원하며 원본 시각/U·native 대기는 유지한다. 아래는 기존 감사 이력이다.
 
-- 판정: **기록된 구현 잔여 / 후속 결과에 명시**. 기존 담당 Goal 35·39·51.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 발행 문서·사진을 포함한 목록의 메모리 다운로드 지원. 파일 다운로드/재시작 복원은 미지원. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d07).
 
 - 원본 맥락: [F08](MEDIUM_PARITY/FLOWS.md#f08), [F41](MEDIUM_PARITY/FLOWS.md#f41), [F48](MEDIUM_PARITY/FLOWS.md#f48)
 
@@ -212,9 +215,9 @@
 
 - 근거: 기존 mock 다운로드는 발행 본문을 제공하지 않아 해당 글이 들어간 목록에서 본문 조회 실패/재시도 경로가 된다. 실제 영속 오프라인 여부와 별개다.
 
-- 작업: 발행 문서/이미지를 현재 다운로드 사본 계약에 공급하고 접근 권한·삭제·버전 정책을 연결한다. 실제 디스크 영속화는 Q08의 별도 범위다.
+- 최초 작업 정의(이력): 발행 문서/이미지를 현재 다운로드 사본 계약에 공급하고 접근 권한·삭제·버전 정책을 연결한다. 실제 디스크 영속화는 Q08의 별도 범위다.
 
-- 완료·검증 조건: 일반/발행 혼합 목록의 다운로드 진행·완료·취소·실패 복구, 본문 열기, 원본 수정/삭제·권한 변경을 확인한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 일반/발행 혼합 목록의 다운로드 진행·완료·취소·실패 복구, 본문 열기, 원본 수정/삭제·권한 변경을 확인한다.
 
 - 증거 구분: FE_GOAL_53_FOLLOWUP_RESULT.md 115행; 이번 새 다운로드 실행 아님; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -224,7 +227,7 @@
 
 - **Parity 3 현재 판정:** [이번 결과](FE_MEDIUM_PARITY_03_RESULT.md)의 범위에서 헤더/작성자/강조/도구와 기존 mock 상태·복귀 연결 완료. 실제 Medium 도구 결과·전문은 미확인, 원본 자산/서체/응답272는 V21 잔여다. 아래는 감사 당시 근거/요구를 보존한 것이다.
 
-- 판정: **상위 범위·차이 기록 있음 / 상세 작업화·구현 잔여**. 기존 담당 Goal 26 + 25·28·33·45·47.
+- 판정: **Parity22 현재 판정.** 연결 보완 확인: 정책 발췌·작성자·반응/응답·저장/공유·무음 Listen. 전문/현재 정책 미확인, 개인 본문 선택/Highlight 저장은 미지원. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d08).
 
 - 원본 맥락: [F34](MEDIUM_PARITY/FLOWS.md#f34)
 
@@ -232,9 +235,9 @@
 
 - 근거: S008 원본에는 Medium Policy 로고, 듣기/더보기, Medium 아바타·작성자·Follow, 첫 문단 강조·세 번째 문단 시작, 하단 54K 박수·272 응답·북마크·공유가 보인다. Goal26에는 정책 진입과 원본 참조 계약이 있고 Goal53 S008/후속 결과도 기사 화면과의 차이를 이미 기록했다. 현재 분기는 두 발췌문과 안내·공식 링크다. 이 항목은 기존에 알려진 차이의 요소별 작업화이며 완전히 새 원본 누락은 아니다.
 
-- 작업: S008의 보이는 영역과 도구를 개별 구현 대상으로 명시한다. 정책 문서 식별자를 일반 기사 반응/관계/저장/듣기/공유 계약에 연결할 범위를 정한다. 원본에 없는 버튼 실행 결과나 정책 전문은 생성하지 않는다.
+- 최초 작업 정의(이력): S008의 보이는 영역과 도구를 개별 구현 대상으로 명시한다. 정책 문서 식별자를 일반 기사 반응/관계/저장/듣기/공유 계약에 연결할 범위를 정한다. 원본에 없는 버튼 실행 결과나 정책 전문은 생성하지 않는다.
 
-- 완료·검증 조건: S008 비교 fixture의 헤더·본문·하단 도구, Responses→Rules→복귀를 검증한다. 추가 동작의 원본 미수록 여부·mock 정책·연결 결과를 각각 기록한다. 공식 외부 링크의 오류 보호는 별도 유지한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): S008 비교 fixture의 헤더·본문·하단 도구, Responses→Rules→복귀를 검증한다. 추가 동작의 원본 미수록 여부·mock 정책·연결 결과를 각각 기록한다. 공식 외부 링크의 오류 보호는 별도 유지한다.
 
 - 증거 구분: 이번 원본 PNG 재열람 + ResponsesPanel.tsx 246~286행 정적 확인. 새 앱 실행 결과 아님; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -244,7 +247,7 @@
 
 - **Parity11 최신:** 한 문단 inline 선택과 메뉴/저장/인용 보완. 다중 문단은 별도 picker, 선택 중 rich 표현/좌표 보정은 알려진 구현 잔여다. [근거·담당·종료 조건](FE_MEDIUM_PARITY_11_RESULT.md#unknowns). 아래 별도 화면 설명은 이전 상태이며 Q07만 남았다는 뜻이 아니다.
 
-- 판정: **확인된 구현 차이 / 기기 검증 대기와 별개**. 기존 담당 Goal 27·52.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 본문 내 선택 손잡이·Copy/Highlight/Respond/Share·바깥 해제. 다중 문단 picker/읽기 사진 경계 제한, Android 기본 메뉴 제거 보류. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d09).
 
 - 원본 맥락: [F25](MEDIUM_PARITY/FLOWS.md#f25), [F29](MEDIUM_PARITY/FLOWS.md#f29)
 
@@ -252,9 +255,9 @@
 
 - 근거: S122는 읽는 본문 위 선택 핸들/메뉴다. native는 별도 Select a passage 화면과 Done을 사용한다.
 
-- 작업: 원본의 본문 안 선택·핸들·Highlight/Respond/Share 메뉴 흐름에 맞는 native 선택 구현을 설계/연결한다. web의 선택 통과로 native를 닫지 않는다.
+- 최초 작업 정의(이력): 원본의 본문 안 선택·핸들·Highlight/Respond/Share 메뉴 흐름에 맞는 native 선택 구현을 설계/연결한다. web의 선택 통과로 native를 닫지 않는다.
 
-- 완료·검증 조건: 선택 범위·스크롤·한글/다중 문단·취소·기존 강조·인용 응답, 메뉴 위치와 복귀를 검사한다. 실제 기기 검증은 Q07에 별도로 남긴다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 선택 범위·스크롤·한글/다중 문단·취소·기존 강조·인용 응답, 메뉴 위치와 복귀를 검사한다. 실제 기기 검증은 Q07에 별도로 남긴다.
 
 - 증거 구분: S122 PNG, NativePassagePicker.tsx, FE_GOAL_53_FOLLOWUP_RESULT.md 27행; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -262,7 +265,9 @@
 
 ## D10 — 브랜드 시작 화면과 앱 자산 차이
 
-- 상태: 묶음18 mock 보완·현재 검사/실제 웹 부분 비교. 원본 독립 자산/정확 시각·native21/Q07 잔여; [결과](FE_MEDIUM_PARITY_18_RESULT.md). 기존 담당 Goal23·41·49·52.
+- 판정: **Parity22 현재 판정.** 대체 자산 및 시작 UI 적용·사용자 수용으로 보정 종료. Medium 원본 시작 자산과 동일하지 않음; 실제 iOS 미실행은 필수 대기 아님. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d10).
+
+- 과거 묶음18 상태: mock 보완·당시 검사/실제 웹 부분 비교. 당시 원본 독립 자산/정확 시각·native21/Q07 잔여; [결과](FE_MEDIUM_PARITY_18_RESULT.md). 현재 기기 완료 기준은 위 Parity22 판정을 따른다. 기존 담당 Goal23·41·49·52.
 
 - 원본 맥락: [F53](MEDIUM_PARITY/FLOWS.md#f53), [F60](MEDIUM_PARITY/FLOWS.md#f60)
 
@@ -270,9 +275,9 @@
 
 - 근거: S043은 검은 화면 중앙 Medium 워드마크다. 현재 app.json에는 대응 splash 설정이 없고 앱 아이콘은 자체 K 도형이라고 SOURCES에 명시한다. Goal53의 웹 Home 캡처는 브랜드 시작 화면 증거가 아니다.
 
-- 작업: 원본 동일 재현용 브랜드 시작/아이콘 자산과 적용 설정을 확정한다. 자체 K 자산은 동일 자산으로 세지 않는다. 파일 존재, 앱 선택 UI, 실제 런처/시작 적용을 각각 확인한다.
+- 최초 작업 정의(이력): 원본 동일 재현용 브랜드 시작/아이콘 자산과 적용 설정을 확정한다. 자체 K 자산은 동일 자산으로 세지 않는다. 파일 존재, 앱 선택 UI, 실제 런처/시작 적용을 각각 확인한다.
 
-- 완료·검증 조건: 원본 S043/S075의 크기·위치·색·선택 상태를 비교하고 cold start/아이콘 변경 결과는 Q07의 실제 플랫폼 실행에서 판정한다.
+- 최초 완료·검증 조건(현재 적용은 위 판정): 원본 S043/S075의 크기·위치·색·선택 상태를 비교하고 cold start/아이콘 변경 결과는 Q07의 실제 플랫폼 실행에서 판정한다.
 
 - 증거 구분: 이번 app.json·아이콘 SOURCES 확인 + 과거 Goal53 S043 비동등 판정; [증거 위치·시점](FE_MEDIUM_PARITY_AUDIT.md#evidence).
 
@@ -286,10 +291,10 @@
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). Digest에서 memberOnly=true에만 금색 별표를 표시하고 false/미확인은 생략한다. 내 목록 카드 소비자는 묶음7 잔여이며 항목 전체 완료가 아니다. 아래 근거·판정은 수정 전 이력이다.
 
-- 판정: **기존 시각 잔여를 구체 작업으로 분리 / 현재 코드에 표시 분기 없음**. 기존 담당 Goal23·25·33·34·53. 새로운 전체 기능 누락으로 집계하지 않는다.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: Digest·내 목록 카드의 회원용 글 표시. 실제 구독 자격/서버 paywall은 미연결. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d11).
 - 원본: [S116](MEDIUM_PARITY/REQUIREMENTS_05.md#s116)의 `2 min read` 앞, [S132](MEDIUM_PARITY/REQUIREMENTS_06.md#s132)의 `3 min read` 앞에 금색 별표가 보인다. Goal53의 S132에도 “회원 표시 차이”가 기록되어 있었다.
 - 코드: [DigestPanel.tsx](../FE/src/features/digest/DigestPanel.tsx) 86~104행의 `DigestStory`는 읽기 시간·박수·응답·저장·더보기를 렌더하지만 `memberOnly` 별표 분기가 없다. [mediumFixtures.ts](../FE/src/features/feed/data/mediumFixtures.ts)의 `medium-love`는 이미 `memberOnly: true`다. [IdentityLink.tsx](../FE/src/features/community/IdentityLink.tsx)의 작성자 인증 배지는 다른 의미다.
-- 작업: 원본과 같은 카드 위치·색·크기의 회원용 글 표시를 해당 기사 메타데이터에 연결한다. 현재 계정의 멤버십 등급, 작성자의 인증 배지, 프로필의 Friend 배지와 구분한다. S116 원본 기사와 현재 해당 날짜 fixture가 다른 문제는 Q01/V27에서 따로 맞춘다.
+- 최초 작업 정의(이력): 원본과 같은 카드 위치·색·크기의 회원용 글 표시를 해당 기사 메타데이터에 연결한다. 현재 계정의 멤버십 등급, 작성자의 인증 배지, 프로필의 Friend 배지와 구분한다. S116 원본 기사와 현재 해당 날짜 fixture가 다른 문제는 Q01/V27에서 따로 맞춘다.
 - 완료 조건: `memberOnly`가 참인 글과 거짓/미확인인 글을 나누어 표시 조건을 확인하고, 원본 읽기 시간·반응 행과 비교한다. 날짜 전환·320/393폭·Light/Dark에서 빠지거나 반응/저장 버튼을 밀어 겹치지 않는지 확인한다. 새 UI 실행 증거 없이 완료로 닫지 않는다.
 - 이번 근거: 원본 S116/S132 PNG 재열람, 현재 JSX와 fixture의 정적 대조. 새 FE 캡처·브라우저 재현 결과는 아니다.
 
@@ -302,10 +307,10 @@
 
 - **Parity15 현재 판정:** [결과·검증·잔여](FE_MEDIUM_PARITY_15_RESULT.md). 실제 publishedAt의 Just now/m ago/h ago/기존 날짜와 미래값 방어를 보완하고 새 조회/체류·복귀 시계를 검증했다. 분/시간/일 경계는 자체 계약이며 native background는 대기. 아래 최초 조사 문장은 당시 코드의 이력이다.
 
-- 판정: **현재 코드와 원본의 표시 계약 차이 / 데이터 차이와 별도**. 기존 담당 Goal23·39·42·53.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 발행 카드에 현재 발행 시각의 상대 시간 적용. 원본의 전체 시간·시차 정책은 미확인. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d12).
 - 원본: [S169](MEDIUM_PARITY/REQUIREMENTS_07.md#s169)은 `23h ago`, [S178](MEDIUM_PARITY/REQUIREMENTS_08.md#s178)은 `Just now`다. 반응 수의 차이와 게시 경과 시간 표기를 독립 비교한다.
 - 코드: [ProfileStories.tsx](../FE/src/features/profile/ProfileStories.tsx) 29행은 1분 미만이면 `Just now`, 그 밖에는 `new Date(item.publishedAt).toLocaleDateString()`을 출력한다. 원본과 게시 시각을 맞춰도23시간 경과를 `23h ago`로 렌더할 분기가 없다. 기존 기록의 날짜/fixture 차이만으로 닫을 수 없다.
-- 작업: 발행 글 카드의 관찰된 상대 시간 표현을 지원하고 동일 카드 재진입·시간 경과 시 갱신한다. 원본에 없는 분/시간/일 경계와 반올림 규칙은 자체 계약으로 명시하며 실제 Medium 정책으로 단정하지 않는다.
+- 최초 작업 정의(이력): 발행 글 카드의 관찰된 상대 시간 표현을 지원하고 동일 카드 재진입·시간 경과 시 갱신한다. 원본에 없는 분/시간/일 경계와 반올림 규칙은 자체 계약으로 명시하며 실제 Medium 정책으로 단정하지 않는다.
 - 완료 조건: 게시 시각과 현재 시각을 고정한 `Just now`/`23h ago` 상태, 시간이 흐른 뒤 갱신, 화면 이탈/복귀, 미래/잘못된 시각의 처리까지 검증한다. 통계의 UTC 기간이나 초안 Edited 시각과 같은 포맷으로 강제 통합하지 않는다.
 - 이번 근거: 원본 S169/S178 PNG와 JSX 조건의 정적 대조. 새 앱 실행·회귀 테스트 결과는 아니다.
 
@@ -315,10 +320,10 @@
 
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
-- 판정: **기존 차이 기록의 구체 작업화 부족 / 현재 표시·데이터 계약 미구현**. 기존 담당 Goal23·33·53. Goal53 S011의 “상대시각 미제공”, S106의 “원본 상대시각 대신 실제 개수 표시”가 이미 있었으므로 처음 발견한 전체 기능 누락으로 집계하지 않는다.
+- 판정: **Parity22 현재 판정.** 보완 구현 확인: 내 목록 상대 시간·글 수 표시. 빈 상세와 Library 빈 카드를 구분; 원본 전체 시간 정책 미확인. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#d13).
 - 원본: [S106](MEDIUM_PARITY/REQUIREMENTS_05.md#s106)은 소유자 아래 `14 seconds ago`이고 `No stories`는 없다. [S011](MEDIUM_PARITY/REQUIREMENTS_01.md#s011)은 `6 seconds ago · 4 stories`, [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077)은 `1 second ago · 4 stories`다. Library 카드의 `No stories`와 상세 화면의 빈 목록 메타데이터는 다른 상태다.
 - 코드: [ReadingListScreen.tsx](../FE/src/features/bookmarks/ReadingListScreen.tsx)의 소유자 아래에는 글 개수 또는 `No stories`만 있다. [listTypes.ts](../FE/src/features/bookmarks/listTypes.ts)의 `UserListContent`/`UserList`에는 시간 필드가 없다. [createUserListStore.ts](../FE/src/features/bookmarks/createUserListStore.ts)의 `Date.now()`는 명령 범위·ID 생성용이며 화면 시간의 근거로 사용하면 안 된다.
-- 작업: 목록 상대 시간의 표시와 데이터 공급을 연결하고 빈 목록/채워진 목록의 메타데이터 조합을 나눈다. 생성·내용 변경·재정렬 중 어떤 시각을 표시하는지는 원본만으로 확정되지 않으므로 mock 계약을 명시한다. 상대 시간을 단순 고정 문자열로 넣거나 ID에서 추정하지 않는다. S106→S011은 기사 추가가 미수록이고14초→6초로 역행하므로 하나의 연속 성공 시나리오로 만들지 않는다.
+- 최초 작업 정의(이력): 목록 상대 시간의 표시와 데이터 공급을 연결하고 빈 목록/채워진 목록의 메타데이터 조합을 나눈다. 생성·내용 변경·재정렬 중 어떤 시각을 표시하는지는 원본만으로 확정되지 않으므로 mock 계약을 명시한다. 상대 시간을 단순 고정 문자열로 넣거나 ID에서 추정하지 않는다. S106→S011은 기사 추가가 미수록이고14초→6초로 역행하므로 하나의 연속 성공 시나리오로 만들지 않는다.
 - 완료 조건: 시각을 고정한 세 독립 비교 조건에서 원본 문구와 구분점·개수 표시를 확인한다. 자체 계약에 따라 재정렬 확정/취소·실패·재진입 시 시간과 내용이 일치하는지 검증하고, 계정 전환 시 다른 목록의 시각이 섞이지 않도록 한다. 초/분 등의 미수록 경계는 실제 Medium 규칙으로 단정하지 않는다. 기본 Reading list 및 공개 목록의 적용 범위도 별도로 판정한다.
 - 이번 근거: 원본 PNG3장과 현재 JSX·타입·store 정적 대조. FE 실행·수정·회귀 테스트는 이번에 수행하지 않았다.
 
@@ -326,11 +331,11 @@
 
 ## Q01 — 동일 비교 조건 고정
 
-- 판정: **필수 선행 / 미완료**. 기존 담당 Goal 22·23·53.
+- 판정: **Parity22 현재 판정.** 기준 정리 완료: 원본 ID/조건/콘텐츠/수명과 기존 비교 기록 연결. 현재 200개 FE 상태의 신규 동일 조건 캡처는 없으며 원본과 1:1 픽셀 일치 판정 아님. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q01).
 
-- 작업: 원본 1179×2556 PNG, MCP 390×844 메타데이터, 과거 비교용 393×852 정규화/앱 영역 crop을 서로 구분한다. 실제 기기/DPR를 역산해 확정하지 않는다. 화면별 계정·권한·데이터·시간·스크롤·키보드·테마·크기·플랫폼을 고정하고 OS 영역 포함/제외를 기록한다.
+- 최초 작업 정의(이력): 원본 1179×2556 PNG, MCP 390×844 메타데이터, 과거 비교용 393×852 정규화/앱 영역 crop을 서로 구분한다. 실제 기기/DPR를 역산해 확정하지 않는다. 화면별 계정·권한·데이터·시간·스크롤·키보드·테마·크기·플랫폼을 고정하고 OS 영역 포함/제외를 기록한다.
 
-- 종료 조건: 원본200장에 대해 비교 가능한 fixture와 실제 FE 경로가 정리되어야 한다. 원본 데이터 fixture는 운영 숫자를 강제로 고정하는 수단이 아니다.
+- 최초 종료 조건(현재 적용은 위 판정): 원본200장에 대해 비교 가능한 fixture와 실제 FE 경로가 정리되어야 한다. 원본 데이터 fixture는 운영 숫자를 강제로 고정하는 수단이 아니다.
 
 <a id="q02"></a>
 
@@ -338,21 +343,21 @@
 
 - Parity 2: [공통 보정·실행·재검토](FE_MEDIUM_PARITY_02_RESULT.md) 완료. 원본 폰트/vector 미확보와 각 V의 서체·간격·색·아이콘/crop 차이는 계속 미완료. 묶음2 결과를 화면 전체 완료로 전파하지 않는다.
 
-- 판정: **구현/시각 잔여**. 기존 담당 Goal 23·24·49·53.
+- 판정: **Parity22 현재 판정.** 2단계 보정·차이 정리 종료 및 Android 사용자 수용 유지. 원본 서체 0개·102 crop 자산·인용선/미수록 자산 차이 기록. 아이콘은 확정되어 잔여에서 제외. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q02).
 
-- 작업: System/Georgia/Times 등 대체 폰트, 원본과 다른 아이콘·아바타·표지·앱 자산을 목록화하고 확보/대체/미확인을 나눈다. 글꼴 크기·행간·굵기·자간·줄바꿈·색·좌표·crop을 비교한다. 48×48 터치 영역과 보이는 아이콘 크기를 분리한다.
+- 최초 작업 정의(이력): System/Georgia/Times 등 대체 폰트, 원본과 다른 아이콘·아바타·표지·앱 자산을 목록화하고 확보/대체/미확인을 나눈다. 글꼴 크기·행간·굵기·자간·줄바꿈·색·좌표·crop을 비교한다. 48×48 터치 영역과 보이는 아이콘 크기를 분리한다.
 
-- 종료 조건: 각 V 작업에서 원본과 다른 이유/남은 자산을 기록한다. 허용치가 정해지지 않은 상태에서 유사도를 임의 완료 기준으로 삼지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): 각 V 작업에서 원본과 다른 이유/남은 자산을 기록한다. 허용치가 정해지지 않은 상태에서 유사도를 임의 완료 기준으로 삼지 않는다.
 
 <a id="q03"></a>
 
 ## Q03 — 원본 미확인 263개 묶음의 개별 종료 판정
 
-- 판정: **계속 관리 / 동일성 미확정**. 기존 담당 Goal 22·해당 기능 Goal·51·52.
+- 판정: **Parity22 현재 판정.** 263개 U 질문 묶음 모두 재분류·연결 완료. 남은 원본 정책 질문은 미확인 유지; 현재 mock 정책/자동 검사로 원본의 답을 확정하지 않음. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q03).
 
-- 작업: UNKNOWN.md의 화면200+흐름63개 묶음을 각각 확인 근거/자체 mock 보완/명시적 제외/추가 근거 대기로 판정한다. 한 문장 안의 여러 질문을 모두 처리한다. 원본 미수록과 수집 누락을 혼동하지 않는다.
+- 최초 작업 정의(이력): UNKNOWN.md의 화면200+흐름63개 묶음을 각각 확인 근거/자체 mock 보완/명시적 제외/추가 근거 대기로 판정한다. 한 문장 안의 여러 질문을 모두 처리한다. 원본 미수록과 수집 누락을 혼동하지 않는다.
 
-- 종료 조건: 목록을 빈칸 없이 만들었다는 이유로 완료하지 않는다. 원본이 없으면 동일 여부는 미확인으로 남긴다. 공식 설명과 구현 후보는 SCOPE.md의 경계를 따른다.
+- 최초 종료 조건(현재 적용은 위 판정): 목록을 빈칸 없이 만들었다는 이유로 완료하지 않는다. 원본이 없으면 동일 여부는 미확인으로 남긴다. 공식 설명과 구현 후보는 SCOPE.md의 경계를 따른다.
 
 <a id="q04"></a>
 
@@ -360,11 +365,11 @@
 
 - Parity9: [F10 재확인·판정](FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 삭제 실행 근거/명령이 없으며 발행 후 초안 제거와 구분했다. 임의 삭제 UI 추가 없음, 자료 또는 제품 결정 대기 유지.
 
-- 판정: **이번 판정: 원본 근거 확인 대기**. 기존 담당 Goal 38.
+- 판정: **Parity22 현재 판정.** 미지원 유지: 초안 사용자 삭제 명령/버튼 없음. 발행 후 자동 초안 제거와 구분. 원본 삭제 동작 미확인, 7단계 범위 결정 입력. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q04).
 
-- 작업: F10의 삭제 질문은 보관 PNG에 실행이 없다. DraftSource/초안 목록에 삭제 명령은 없으며 발행 때 초안 제거는 다르다. 정확 재현 우선 기준으로 삭제 UI를 임의 추가하지 않는다. 자료 확인 후 구현 대상 또는 명시적 제외로 갱신한다.
+- 최초 작업 정의(이력): F10의 삭제 질문은 보관 PNG에 실행이 없다. DraftSource/초안 목록에 삭제 명령은 없으며 발행 때 초안 제거는 다르다. 정확 재현 우선 기준으로 삭제 UI를 임의 추가하지 않는다. 자료 확인 후 구현 대상 또는 명시적 제외로 갱신한다.
 
-- 종료 조건: 현재 결론은 기능 구현 완료가 아니라 자료 대기다. 사용자 삭제가 필요해지면 삭제/취소/실패/계정 격리 계약과 별도 검증을 작업으로 추가한다.
+- 최초 종료 조건(현재 적용은 위 판정): 현재 결론은 기능 구현 완료가 아니라 자료 대기다. 사용자 삭제가 필요해지면 삭제/취소/실패/계정 격리 계약과 별도 검증을 작업으로 추가한다.
 
 <a id="q05"></a>
 
@@ -372,11 +377,11 @@
 
 - 최신 판정: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)의 F14/F15 대조에서도 Undo는 미확인이다. 확인/취소는 자체 mock 정책이며 다른 기능 Undo를 근거로 사용하지 않는다. 근거 대기는 완료가 아니다.
 
-- 판정: **이번 판정: 원본 근거 확인 대기**. 기존 담당 Goal 31.
+- 판정: **Parity22 현재 판정.** 미지원 유지: 읽기 이력 삭제 후 Undo 없음. 확인/취소만 지원; 원본 Undo 근거 미확인. 편집기 Undo와 목록 Remove Undo는 별개. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q05).
 
-- 작업: F14의 Undo 질문과 현재 삭제 전 확인/취소를 구분한다. 원본 이력 Undo 실행은 미수록이며 Show less/목록 글 제거 Undo를 근거로 재사용하지 않는다.
+- 최초 작업 정의(이력): F14의 Undo 질문과 현재 삭제 전 확인/취소를 구분한다. 원본 이력 Undo 실행은 미수록이며 Show less/목록 글 제거 Undo를 근거로 재사용하지 않는다.
 
-- 종료 조건: 자료 확인 전에는 삭제 후 Undo를 원본 필수 기능/완료로 세지 않는다. 채택 시 삭제한 이력과 Viewed 복구·동시 변경·계정 경계를 검증한다.
+- 최초 종료 조건(현재 적용은 위 판정): 자료 확인 전에는 삭제 후 Undo를 원본 필수 기능/완료로 세지 않는다. 채택 시 삭제한 이력과 Viewed 복구·동시 변경·계정 경계를 검증한다.
 
 <a id="q06"></a>
 
@@ -384,31 +389,31 @@
 
 - Parity9: [현행 모델과 영향](FE_MEDIUM_PARITY_09_RESULT.md#unknowns). 이미지 앞뒤 독립 입력의 연속 선택 미지원 확인. 원본 실행 미수록과 native IME 대기는 별개이며 모델 전체 확장 안 함.
 
-- 판정: **명시적 구현 잔여 / 원본 근거 대기**. 기존 담당 Goal 36·37·52.
+- 판정: **Parity22 현재 판정.** 편집기 구현·사용자 통과: 명시적 Select across photos 모드. 일반 모드와 동일 조작은 아니며 읽기의 사진/구분선 경계 선택은 미지원. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q06).
 
-- 작업: 현재 이미지 앞뒤가 별도 입력 구간이라 하나의 연속 선택을 지원하지 않는다. 보관본은 이미지 삽입/삭제를 보여 주지만 경계를 넘는 선택은 미수록이다. 지원 여부와 native IME 검증을 별개로 기록한다.
+- 최초 작업 정의(이력): 현재 이미지 앞뒤가 별도 입력 구간이라 하나의 연속 선택을 지원하지 않는다. 보관본은 이미지 삽입/삭제를 보여 주지만 경계를 넘는 선택은 미수록이다. 지원 여부와 native IME 검증을 별개로 기록한다.
 
-- 종료 조건: 원본 근거 또는 명시적 제품 범위 결정 후 편집 모델 확장 여부를 결정한다. 현재 지원한다고 표기하지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): 원본 근거 또는 명시적 제품 범위 결정 후 편집 모델 확장 여부를 결정한다. 현재 지원한다고 표기하지 않는다.
 
 <a id="q07"></a>
 
 ## Q07 — 실제 iOS/Android 기기 검증
 
-- 판정: **사용자 후속 진행 대기**. 기존 담당 Goal 52·각 기능 Goal.
+- 판정: **Parity22 현재 판정.** 사용자 확정 Android 에뮬레이터 기준으로 종료. 실제 iOS/휴대폰 미실행 이력만 유지하고 필수 대기/반복 검사에서 제외. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q07).
 
-- 작업: OS picker/권한/공유/사진 저장/앱 아이콘/알림 권한, Safe Area·키보드·Dynamic Type·VoiceOver/TalkBack·native drag/selection을 실제 빌드에서 검증한다. JS export/Jest/web 결과와 구분한다.
+- 최초 작업 정의(이력): OS picker/권한/공유/사진 저장/앱 아이콘/알림 권한, Safe Area·키보드·Dynamic Type·VoiceOver/TalkBack·native drag/selection을 실제 빌드에서 검증한다. JS export/Jest/web 결과와 구분한다.
 
-- 종료 조건: D09의 구현 차이를 기기 미검증으로 축소하지 않는다. 이번 문서 작업에서 빌드/기기 실행을 시작하지 않으며 이미 구현된 adapter도 실제 기기 통과로 기록하지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): D09의 구현 차이를 기기 미검증으로 축소하지 않는다. 이번 문서 작업에서 빌드/기기 실행을 시작하지 않으며 이미 구현된 adapter도 실제 기기 통과로 기록하지 않는다.
 
 <a id="q08"></a>
 
 ## Q08 — 실제 외부 서비스와 mock 경계
 
-- 판정: **기존 구현 범위 밖 유지 / 완전 서비스 동일성 미완료**. 기존 담당 Goal 35·40·44·45·46·47·48·52.
+- 판정: **Parity22 현재 판정.** 실제 구현·모의·외부 미연결 경계 기록 완료. 서버/DB/OAuth/발송/업로드/결제/TTS/영속 캐시는 미구현; 실제 OS 어댑터와 구분. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q08).
 
-- 작업: 실제 OAuth/메일/서버 저장·발행/결제/신고 처리/Push·Digest 발송/추천 알고리즘/링크 발급/TTS·AirPlay·백그라운드 재생/영속 오프라인을 mock 결과와 구분한다. 현재 UI 동일 재현 검토가 새 서비스 구축 승인은 아니다.
+- 최초 작업 정의(이력): 실제 OAuth/메일/서버 저장·발행/결제/신고 처리/Push·Digest 발송/추천 알고리즘/링크 발급/TTS·AirPlay·백그라운드 재생/영속 오프라인을 mock 결과와 구분한다. 현재 UI 동일 재현 검토가 새 서비스 구축 승인은 아니다.
 
-- 종료 조건: mock UI·상태의 완료와 실제 외부 효력의 완료를 별도 판정한다. 이를 제외하고 제품 전체가 완전히 동일하다고 결론 내리지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): mock UI·상태의 완료와 실제 외부 효력의 완료를 별도 판정한다. 이를 제외하고 제품 전체가 완전히 동일하다고 결론 내리지 않는다.
 
 <a id="q09"></a>
 
@@ -416,21 +421,21 @@
 
 - **2026-11-24 잔여 판정:** 과거 완료 문구 판정과 실제 시각 보정은 별도다.7/8 추가 수정은59602be에 포함되었고 tools/evidence 경로는 현재 실행 입력이 아니다. [현재 결과](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
-- 판정: **이번 최신 문서 판정 완료 / 시각 차이는 잔여**. 기존 담당 Goal 53.
+- 판정: **Parity22 현재 판정.** 기존 Goal53 중간 증거 문구의 최종 판정 연결 완료. 과거 실행·현재 코드·현존하지 않는 캡처를 구분하고 오래된 증거를 새 실행으로 승격하지 않음. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q09).
 
-- 작업: S015/S068/S125의 기존 PNG와 당시 해시를 대조한 기록을 요약 문서에 보존한다. 세 항목은 차이 잔여이며 S068의 정확 참조 fixture는 미검증이다. 촬영 예정 등의 과거 문장을 새 실행 기록으로 바꾸지 않는다.
+- 최초 작업 정의(이력): S015/S068/S125의 기존 PNG와 당시 해시를 대조한 기록을 요약 문서에 보존한다. 세 항목은 차이 잔여이며 S068의 정확 참조 fixture는 미검증이다. 촬영 예정 등의 과거 문장을 새 실행 기록으로 바꾸지 않는다.
 
-- 종료 조건: 이번 문서의 증거 표를 현재 해석으로 읽는다. 실제 시각 수정/재촬영은 V10/V05/V16에서 별도로 수행한다.
+- 최초 종료 조건(현재 적용은 위 판정): 이번 문서의 증거 표를 현재 해석으로 읽는다. 실제 시각 수정/재촬영은 V10/V05/V16에서 별도로 수행한다.
 
 <a id="q10"></a>
 
 ## Q10 — 보완 구현 뒤 전수 종료 판정
 
-- 판정: **최종 작업 / 미착수**. 기존 담당 Goal 50·51·53.
+- 판정: **Parity22 현재 판정.** 6단계 전수 판정 작업 완료: S200/F63/T273/R1395/U263/C72/G53 및 D/Q/V59 모두 연결. 미지원/차이/미확인 잔존을 포함한 감사 종료이며 전체 동일성 통과 아님. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q10).
 
-- 작업: 각 R 요구,273개 T 맥락,263개 U 질문,72개 기존 C 작업을 다시 역대조한다. 하나의 대표 캡처나 테스트 통과를 다른 상태의 완료로 전파하지 않는다.
+- 최초 작업 정의(이력): 각 R 요구,273개 T 맥락,263개 U 질문,72개 기존 C 작업을 다시 역대조한다. 하나의 대표 캡처나 테스트 통과를 다른 상태의 완료로 전파하지 않는다.
 
-- 종료 조건: 200화면 각각의 원본/현재 비교·세부 차이·실행 조건과 주요 조작/연결 검증을 남긴다. 미확인·차이 잔여·플랫폼 대기가 있으면 전체 동일 완료를 선언하지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): 200화면 각각의 원본/현재 비교·세부 차이·실행 조건과 주요 조작/연결 검증을 남긴다. 미확인·차이 잔여·플랫폼 대기가 있으면 전체 동일 완료를 선언하지 않는다.
 
 <a id="q11"></a>
 
@@ -444,11 +449,11 @@
 
 - 최신 부분 판정: [Parity 4 도구별 지원표](FE_MEDIUM_PARITY_04_RESULT.md)에서 이력/표시 설정과 미지원 Highlight·인용·Listen을 구분했다. 묶음 4의 판정만 반영하며 묶음 11/12의 채택·구현·검증은 미완료다.
 
-- 판정: **후속 기록에 남은 별도 연결 범위 / 미확정**. 기존 담당 Goal 25·27·39·45·46·51.
+- 판정: **Parity22 현재 판정.** 일반·발행 글의 표시 설정/이력/반응/저장·Highlight/인용 응답/무음 Listen 연결. 정책 발췌 개인 선택과 읽기 사진 경계는 미지원, 실제 음성은 없음. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q11).
 
-- 작업: WrittenStoryScreen은 별도 제목/작성자/반응·저장·본문 경로다. 기존 후속 보완은 설명 수준·Highlight·오디오까지 동일 도메인으로 확장하지 않았다고 명시한다. 이력/표시(D03),다운로드(D07) 외에 읽기 도구의 적용 대상을 각각 명시한다.
+- 최초 작업 정의(이력): WrittenStoryScreen은 별도 제목/작성자/반응·저장·본문 경로다. 기존 후속 보완은 설명 수준·Highlight·오디오까지 동일 도메인으로 확장하지 않았다고 명시한다. 이력/표시(D03),다운로드(D07) 외에 읽기 도구의 적용 대상을 각각 명시한다.
 
-- 종료 조건: 본인/타인·Public/Unlisted별로 Highlight/인용/Listen/관련 본문 도구를 지원·미지원·자료 대기로 판정한다. 게시 후 모든 읽기 기능이 연결됐다고 묶어서 완료하지 않는다. 원본에 없는 자체 동작은 구분한다.
+- 최초 종료 조건(현재 적용은 위 판정): 본인/타인·Public/Unlisted별로 Highlight/인용/Listen/관련 본문 도구를 지원·미지원·자료 대기로 판정한다. 게시 후 모든 읽기 기능이 연결됐다고 묶어서 완료하지 않는다. 원본에 없는 자체 동작은 구분한다.
 
 <a id="q12"></a>
 
@@ -456,19 +461,19 @@
 
 - Parity 2: [상태별 기준](MEDIUM_PARITY/OWN_UI_POLICY.md)·[실행 결과](FE_MEDIUM_PARITY_02_RESULT.md)를 추가했다. A/B·탭·펼침·모달 단계에 따른 노출을 구분하고 기능 접근/mock 고지를 유지한다. 작성 글·About·Rules·듣기의 이번 확인은 코드 조건이며 각 담당 묶음의 실제 배치 검증은 남았다.
 
-- 판정: **기존 결과에 흩어져 있던 차이의 작업화 보완 / 구현 결정·시각 보정 미완료**. 기존 담당 Goal23·25·39·41·42·45·48·49·53.
+- 판정: **Parity22 현재 판정.** 자체 UI·사용자 지정 차이 기록 완료 및 현 Android 수용. 하트/사진/도구 아이콘·Save to 목록 선 제거·모의 안내/추가 진입 유지; 원본과 동일하다고 주장하지 않음. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#q12).
 - 근거: [ProfileScreen.tsx](../FE/src/features/profile/ProfileScreen.tsx)의 `Continue setup`/`Drafts`/모의 계정 안내, [SettingsScreen.tsx](../FE/src/features/settings/SettingsScreen.tsx)의 `Mock:`·`Reading tools · local example`, [ReferenceArticleView.tsx](../FE/src/features/article/ReferenceArticleView.tsx)의 Reading tools, [WrittenStoryScreen.tsx](../FE/src/features/editor/WrittenStoryScreen.tsx)의 `모의 발행` 등은 보관 원본과 다른 현재 UI다. 작성자 About의 추가 웹사이트 줄과 정책 발췌 안내도 기존 후속 결과에 차이로 기록되어 있다.
 - 4차 범위 보강: [ListeningPlayer.tsx](../FE/src/features/listening/ListeningPlayer.tsx)의 작성자 옆 `· Mock`/확장 화면 `Mock preview · no audio`, [MembershipSheet.tsx](../FE/src/features/membership/MembershipSheet.tsx)의 모의 결제 안내/성공 문구도 각각 V18/V31에 연결한다. 이 기능들의 외부 서비스 미연동(Q08)과 자체 안내가 배치에 미치는 영향(Q12)은 별도 판정이다. S159의 `You can now access the best of Medium.`는 원본에도 있으므로 자체 추가 문구로 분류하지 않는다.
 - 노출 판정: `Continue setup`은 온보딩 재개 가능 상태에 의존하고 Reading tools 내용도 펼침 상태에 의존한다. 코드에 요소가 있다는 사실을 모든 원본 상태에서 항상 노출된다는 뜻으로 일반화하지 않는다. 비교 fixture의 실제 노출 조건부터 맞춘다.
-- 작업: 원본에 있는 요소를 추가하는 검사와 함께, 현재 앱에만 있는 요소·추가 진입점·문구를 화면별로 목록화한다. 각 요소의 필요성·노출 조건·배치·원본 화면에 미치는 영향을 정하고 원본 재현 경로에서 어떻게 처리할지 기록한다. 문서에서 이름만 언급한 채 원본 동일 완료로 처리하지 않는다.
-- 종료 조건: V13/V14/V18/V21/V31/V32/V33과 발행 글 상세에서 자체 요소가 원본 제목/필터/본문/카드/스크롤 위치를 바꾸는지 비교한다. 이 목록 외 화면도 같은 기준을 적용한다. 별도 배치나 노출 조건 변경 후에도 초안·온보딩·설명 기능의 접근 경로가 끊기지 않음을 확인한다. 모의/실제 서비스의 차이를 숨기거나 실제 계정·결제·발행이 완료된 것처럼 표시하지 않는다.
+- 최초 작업 정의(이력): 원본에 있는 요소를 추가하는 검사와 함께, 현재 앱에만 있는 요소·추가 진입점·문구를 화면별로 목록화한다. 각 요소의 필요성·노출 조건·배치·원본 화면에 미치는 영향을 정하고 원본 재현 경로에서 어떻게 처리할지 기록한다. 문서에서 이름만 언급한 채 원본 동일 완료로 처리하지 않는다.
+- 최초 종료 조건(현재 적용은 위 판정): V13/V14/V18/V21/V31/V32/V33과 발행 글 상세에서 자체 요소가 원본 제목/필터/본문/카드/스크롤 위치를 바꾸는지 비교한다. 이 목록 외 화면도 같은 기준을 적용한다. 별도 배치나 노출 조건 변경 후에도 초안·온보딩·설명 기능의 접근 경로가 끊기지 않음을 확인한다. 모의/실제 서비스의 차이를 숨기거나 실제 계정·결제·발행이 완료된 것처럼 표시하지 않는다.
 - 경계: 이번 작업은 검토 문서 보완이다. 기존 기능 삭제나 원본에 없는 새 화면 설계는 아직 실행하지 않았다. 유지하기로 한 자체 UI는 명시적인 원본 차이로 남는다.
 
 <a id="v01"></a>
 
 ## V01 — 홈
 
-- 상태: 묶음17 mock 결함 보완·실제 웹/자동 검증 수행. [현재 결과·남은 차이](FE_MEDIUM_PARITY_17_RESULT.md). 원본 동일성·native 전체 완료 아님.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 피드 탭·빈 Featured·알림 점·기사/작성/추천 이동이 로컬 카탈로그와 연결됨. 한계: 추천·개인화·페이지 데이터는 fixture; 원본 시점별 기사·집계·스크롤과 현재 상태의 일치는 별도 미확인. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v01).
 
 - 전체 대상: [S026](MEDIUM_PARITY/REQUIREMENTS_02.md#s026), [S061](MEDIUM_PARITY/REQUIREMENTS_03.md#s061), [S069](MEDIUM_PARITY/REQUIREMENTS_03.md#s069), [S086](MEDIUM_PARITY/REQUIREMENTS_04.md#s086), [S176](MEDIUM_PARITY/REQUIREMENTS_08.md#s176)
 
@@ -484,7 +489,7 @@
 
 ## V02 — 탐색·검색
 
-- 상태: 묶음17 mock 결함 보완·실제 웹/자동 검증 수행. [현재 결과·남은 차이](FE_MEDIUM_PARITY_17_RESULT.md). 원본 동일성·native 전체 완료 아님.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Stories/People/Publications/Topics/Lists 검색과 빈 결과·유형별 목적지 연결. 한계: 검색 정렬·카테고리 계층은 자체 정책; 일부만 캡처된 Staff Pick은 안내로 처리하고 본문을 생성하지 않음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v02).
 
 - 전체 대상: [S004](MEDIUM_PARITY/REQUIREMENTS_01.md#s004), [S021](MEDIUM_PARITY/REQUIREMENTS_01.md#s021), [S053](MEDIUM_PARITY/REQUIREMENTS_03.md#s053), [S070](MEDIUM_PARITY/REQUIREMENTS_03.md#s070), [S079](MEDIUM_PARITY/REQUIREMENTS_04.md#s079), [S098](MEDIUM_PARITY/REQUIREMENTS_04.md#s098), [S174](MEDIUM_PARITY/REQUIREMENTS_07.md#s174), [S185](MEDIUM_PARITY/REQUIREMENTS_08.md#s185)
 
@@ -500,7 +505,7 @@
 
 ## V03 — 토픽·큐레이션 미리보기
 
-- 상태: 묶음17 mock 결함 보완·실제 웹/자동 검증 수행. [현재 결과·남은 차이](FE_MEDIUM_PARITY_17_RESULT.md). 원본 동일성·native 전체 완료 아님.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 토픽 Follow/해제·관련 칩·추천 기사·curated list 이동. 한계: 토픽 집계·연관·추천은 보관 fixture/자체 정책, 실제 추천 서비스 미연결. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v03).
 
 - 전체 대상: [S057](MEDIUM_PARITY/REQUIREMENTS_03.md#s057), [S091](MEDIUM_PARITY/REQUIREMENTS_04.md#s091), [S107](MEDIUM_PARITY/REQUIREMENTS_05.md#s107)
 
@@ -516,7 +521,7 @@
 
 ## V04 — 공개 목록
 
-- 상태: 묶음17 mock 결함 보완·실제 웹/자동 검증 수행. [현재 결과·남은 차이](FE_MEDIUM_PARITY_17_RESULT.md). 원본 동일성·native 전체 완료 아님.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 공개 목록 저장·반응·응답·소유자/글 이동·비공개/삭제 접근 철회. 한계: 목록/기사 저장과 반응은 서로 다른 메모리 자원; 타 계정 서버 권한·업데이트 알림 미연결. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v04).
 
 - 전체 대상: [S014](MEDIUM_PARITY/REQUIREMENTS_01.md#s014), [S135](MEDIUM_PARITY/REQUIREMENTS_06.md#s135)
 
@@ -532,7 +537,7 @@
 
 ## V05 — 알림
 
-- 상태: 묶음16 mock 결함 수정·자동/실제 웹 검증. 원본 자산·시각·미확인·native 잔여 유지. [현재 결과](FE_MEDIUM_PARITY_16_RESULT.md).
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 알림 대상 해석·읽음·Follow·닫힌/차단된 대상 오류·복귀. 한계: 알림 목록은 fixture; 녹색선의 원본 의미·실제 이벤트 전달 미확인. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v05).
 
 - 전체 대상: [S068](MEDIUM_PARITY/REQUIREMENTS_03.md#s068)
 
@@ -550,7 +555,7 @@
 
 - Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). 설명/검색/선택 칩 스크롤 보정, 0개 Save·선택/취소·발행/초안 제거의 navigation 검증. 웹 새 렌더·원본 이미지/서체/정확 간격은 잔여이며 전체 동일성 완료 아님.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 39, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Topics 최대 5개·취소/Save·Publication 선택·Unlisted·미리보기·모의 발행. 한계: 실제 Publication 심사/제출·공개 URL·서버 발행 없음; 유효성·멱등성은 현재 mock 계약. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v06).
 
 - 전체 대상: [S023](MEDIUM_PARITY/REQUIREMENTS_01.md#s023), [S029](MEDIUM_PARITY/REQUIREMENTS_02.md#s029), [S044](MEDIUM_PARITY/REQUIREMENTS_02.md#s044), [S065](MEDIUM_PARITY/REQUIREMENTS_03.md#s065), [S115](MEDIUM_PARITY/REQUIREMENTS_05.md#s115), [S118](MEDIUM_PARITY/REQUIREMENTS_05.md#s118), [S146](MEDIUM_PARITY/REQUIREMENTS_06.md#s146)
 
@@ -570,7 +575,7 @@
 
 - Parity9: [결과·알려진 native 차이](FE_MEDIUM_PARITY_09_RESULT.md#review). 기존 서식/선택/링크/문서 보존 자동 검증, 코드 실행 원본 미확인 유지. native 인용선/목록 들여쓰기/구분선 배치는 구현 잔여, 실제 입력/IME는 별도 기기 대기.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 36, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 리치텍스트·한글 조합·서식·커서·Undo/Redo·명시적 사진 연속 선택 모드. 한계: 인용선 18dp·사진 선택 모드 여백/모드 전환 재선택 차이; 원본의 사진 경계 선택 방식은 미수록. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v07).
 
 - 전체 대상: [S017](MEDIUM_PARITY/REQUIREMENTS_01.md#s017), [S018](MEDIUM_PARITY/REQUIREMENTS_01.md#s018), [S031](MEDIUM_PARITY/REQUIREMENTS_02.md#s031), [S042](MEDIUM_PARITY/REQUIREMENTS_02.md#s042), [S060](MEDIUM_PARITY/REQUIREMENTS_03.md#s060), [S137](MEDIUM_PARITY/REQUIREMENTS_06.md#s137), [S183](MEDIUM_PARITY/REQUIREMENTS_08.md#s183)
 
@@ -588,7 +593,7 @@
 
 - Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). 로컬 사진 독립2열/키보드 회피와 취소/성공 후 입력 복귀 보정, 검색/실패/재시도/삽입/삭제/늦은 응답과 계정 격리 검증. 원본 사진/credit·실제 렌더/키보드는 잔여; pending 중간 위치는 확인된 자체 정책이며 원본 미수록/제품 판정으로 분리한다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 37, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Camera/Library 기기 선택·로컬 이미지 수명, Unsplash 형식 fixture 검색/삽입/삭제. 한계: 서버 업로드/Unsplash API 없음; 보관 이미지 7개+기존 예시 4개, 가려진 원본 2카드 미확보. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v08).
 
 - 전체 대상: [S087](MEDIUM_PARITY/REQUIREMENTS_04.md#s087), [S126](MEDIUM_PARITY/REQUIREMENTS_06.md#s126), [S148](MEDIUM_PARITY/REQUIREMENTS_06.md#s148)
 
@@ -606,7 +611,7 @@
 
 - Parity9: [결과·추가 재검토](FE_MEDIUM_PARITY_09_RESULT.md#review). 실제 Drafts 재개→발행 연결, 네 메뉴/자동 저장/실패 보존 검증. 열린 목록의 Edited 시간 갱신 누락 수정, 재조회/재저장 없이 타이머 정리 회귀 통과. 서버 영속성 증거 아님, 실제 시트 렌더 대기.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 38, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 자동 저장·재시도·Close·초안 목록/재개·모의 발행 후 초안 제거. 한계: 메모리 source 수명; 프로세스 재실행 복원·동기화 없음. 사용자가 기존 초안을 삭제하는 명령은 미지원(Q04). [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v09).
 
 - 전체 대상: [S030](MEDIUM_PARITY/REQUIREMENTS_02.md#s030), [S139](MEDIUM_PARITY/REQUIREMENTS_06.md#s139)
 
@@ -624,7 +629,7 @@
 
 - Parity9: [결과](FE_MEDIUM_PARITY_09_RESULT.md). @ 안내/후보가 툴바 자리를 차지하고 선택 후 복원하도록 수정. 제공된 avatar 표시와 target 저장 분리, 동명이인/커서/초안·발행 보존 검증. 원본 후보2명 사진과 실제 렌더/키보드는 잔여, 알림 제외.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 38, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. @ 검색·동명이인 핸들·대상 ID 삽입·멘션 프로필 이동. 한계: 후보는 fixture; 실제 사용자 검색·알림 전송 없음. 멘션 삽입 중 Undo/Redo 숨김/복귀 보정. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v10).
 
 - 전체 대상: [S015](MEDIUM_PARITY/REQUIREMENTS_01.md#s015), [S180](MEDIUM_PARITY/REQUIREMENTS_08.md#s180), [S196](MEDIUM_PARITY/REQUIREMENTS_08.md#s196)
 
@@ -642,7 +647,7 @@
 
 - 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 추천 행 소개 폭·동적 사용자 목록을 보완하고 탭/필터/빈 상태/See all·See more·해제를 확인했다. 원본 서체·정확 배치/추가 데이터는 잔여다. 아래 판정은 수정 전/당시 기록이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 31, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Suggestions/Following/Muted/Reading history·필터·동적 A/B 사용자 관리 연결. 한계: 추천 알고리즘·개인화 영속성 없음. 별도 원본 시점의 계정 상태를 한 세션 결과로 합치지 않음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v11).
 
 - 전체 대상: [S022](MEDIUM_PARITY/REQUIREMENTS_01.md#s022), [S033](MEDIUM_PARITY/REQUIREMENTS_02.md#s033), [S099](MEDIUM_PARITY/REQUIREMENTS_04.md#s099), [S104](MEDIUM_PARITY/REQUIREMENTS_05.md#s104), [S151](MEDIUM_PARITY/REQUIREMENTS_07.md#s151), [S194](MEDIUM_PARITY/REQUIREMENTS_08.md#s194)
 
@@ -660,7 +665,7 @@
 
 - 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 S190/S052/S045 웹 촬영과 삭제·재열기·Explore를 확인했다. 부분 노출 원본 카드/집계·원본 서체·OS 영역·정확 스크롤 차이는 남아 동일 재현 완료가 아니다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 31, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 일반·발행·정책 글 이력/Viewed·개별/전체 삭제·확인/취소. 한계: 이력 삭제 후 Undo는 미지원이며 원본 실행 근거도 없음(Q05); 보존 기간/기기 동기화 미정. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v12).
 
 - 전체 대상: [S045](MEDIUM_PARITY/REQUIREMENTS_02.md#s045), [S052](MEDIUM_PARITY/REQUIREMENTS_03.md#s052), [S190](MEDIUM_PARITY/REQUIREMENTS_08.md#s190)
 
@@ -680,7 +685,7 @@
 
 - 1~8 잔여 검토 인계: Goodbye Notion을 열면 빈 발행일 뒤 구분자가 남는다. 원본 미확인이 아닌 `ReferenceArticleView`의 알려진 UI 잔여이며 묶음10에서 존재하는 메타데이터만 연결해 수정·검증한다. [현재 판정](FE_MEDIUM_PARITY_01_08_REVIEW.md).
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 25, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 본문·반응·작성자·관련글·응답 미리보기·공유·읽기 도구 연결. 한계: 일부 기사는 전체 본문 미수록 안내만 제공. 누적 반응 모델은 유지하고 하트 모양은 사용자 확정; 서버 집계 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v13).
 
 - 전체 대상: [S007](MEDIUM_PARITY/REQUIREMENTS_01.md#s007), [S037](MEDIUM_PARITY/REQUIREMENTS_02.md#s037), [S102](MEDIUM_PARITY/REQUIREMENTS_05.md#s102), [S140](MEDIUM_PARITY/REQUIREMENTS_06.md#s140), [S147](MEDIUM_PARITY/REQUIREMENTS_06.md#s147), [S164](MEDIUM_PARITY/REQUIREMENTS_07.md#s164), [S175](MEDIUM_PARITY/REQUIREMENTS_07.md#s175), [S179](MEDIUM_PARITY/REQUIREMENTS_08.md#s179), [S187](MEDIUM_PARITY/REQUIREMENTS_08.md#s187), [S189](MEDIUM_PARITY/REQUIREMENTS_08.md#s189)
 
@@ -698,7 +703,7 @@
 
 - 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 공개 프로필·관계 목록·follow/email과 이름 반영을 검증하고 메뉴 수명·행 배치를 보완했다. S093 별도 snapshot·원본 반응 수/서체·About 자체 website 차이는 남는다. 아래 판정은 수정 전/당시 기록이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 28, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 공개 프로필·Follow/Unfollow·이메일 옵션·관계 목록. 한계: 원본 미수록 followers 명단·집계/배지 정책은 자체 범위; 실제 이메일 구독·서버 관계 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v14).
 
 - 전체 대상: [S025](MEDIUM_PARITY/REQUIREMENTS_01.md#s025), [S038](MEDIUM_PARITY/REQUIREMENTS_02.md#s038), [S048](MEDIUM_PARITY/REQUIREMENTS_02.md#s048), [S049](MEDIUM_PARITY/REQUIREMENTS_02.md#s049), [S083](MEDIUM_PARITY/REQUIREMENTS_04.md#s083), [S090](MEDIUM_PARITY/REQUIREMENTS_04.md#s090), [S103](MEDIUM_PARITY/REQUIREMENTS_05.md#s103), [S130](MEDIUM_PARITY/REQUIREMENTS_06.md#s130)
 
@@ -716,7 +721,7 @@
 
 - 최신 실행: [Parity 5](FE_MEDIUM_PARITY_05_RESULT.md). 메뉴·확인/취소·신고 선택/실패/재시도/초안 수명을 검증했다. 원본에서 미확인한 차단 효과·실제 신고 효력을 완료로 판정하지 않는다. 아래 판정은 수정 전/당시 기록이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 29, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Mute/Block/Report·해제·차단 대상 접근 제한·신고 실패/중복 보호. 한계: 앱 메모리 정책만 적용; 원본 차단 캡처의 글 잔존과 구현 접근 제한 차이, 실제 신고 접수/제재 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v15).
 
 - 전체 대상: [S093](MEDIUM_PARITY/REQUIREMENTS_04.md#s093), [S127](MEDIUM_PARITY/REQUIREMENTS_06.md#s127), [S143](MEDIUM_PARITY/REQUIREMENTS_06.md#s143), [S152](MEDIUM_PARITY/REQUIREMENTS_07.md#s152), [S161](MEDIUM_PARITY/REQUIREMENTS_07.md#s161), [S170](MEDIUM_PARITY/REQUIREMENTS_07.md#s170), [S199](MEDIUM_PARITY/REQUIREMENTS_08.md#s199)
 
@@ -734,7 +739,7 @@
 
 - 최신 실행: [Parity 4](FE_MEDIUM_PARITY_04_RESULT.md)에서 S001/S063/S119/S125/S168/S198과 일반/발행/정책 소비를 대조하고 큰 글자의 하위 메뉴 위치를 보완했다. 원본 서체·세부 간격·실제 OS/native 검증은 잔여다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 24, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 앱 테마와 별도 reader 테마·80~200%·서체 선택·타인 강조 설정. 한계: 선택 옵션/80~200 경계는 자체 정책, 원본 실제 서체 파일 0개. 기사 확대와 OS 확대 구분. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v16).
 
 - 전체 대상: [S001](MEDIUM_PARITY/REQUIREMENTS_01.md#s001), [S063](MEDIUM_PARITY/REQUIREMENTS_03.md#s063), [S119](MEDIUM_PARITY/REQUIREMENTS_05.md#s119), [S125](MEDIUM_PARITY/REQUIREMENTS_05.md#s125), [S168](MEDIUM_PARITY/REQUIREMENTS_07.md#s168), [S198](MEDIUM_PARITY/REQUIREMENTS_08.md#s198)
 
@@ -752,7 +757,7 @@
 
 - **Parity11 최신:** [직접2화면·3T·4U·18R 판정](FE_MEDIUM_PARITY_11_RESULT.md#requirements). S012 색상 구분 관찰을 R-S012-V로 추가했다. 기능 보완/자동 검증은 수행했으나 실제 렌더·OS 핸들 미검증과 D09 구현 잔여로 전체 동일성 미완료.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 27, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 본문 내 선택 손잡이·Copy/Highlight/Respond/Share·바깥 터치 해제·발행 글 강조. 한계: 다중 문단은 별도 picker; 읽기 사진/구분선 경계는 미지원. Android 기본 선택 메뉴 제거 보류; 정확 앵커 동일성 미확인. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v17).
 
 - 전체 대상: [S012](MEDIUM_PARITY/REQUIREMENTS_01.md#s012), [S122](MEDIUM_PARITY/REQUIREMENTS_05.md#s122)
 
@@ -770,7 +775,7 @@
 - **Parity12 최신:** [근거·검증·잔여](FE_MEDIUM_PARITY_12_RESULT.md#changes). 빠른 상대 이동/play 입력 손실과 compact/Safe Area를 보완했다. 준비·미니/확장·시계·권한/계정/이탈 회귀는 통과, 자산/시각·실제 웹/기기는 잔여다.
 
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 45, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 일반·정책·발행 글의 무음 Listen·미니/확장·seek·일시정지·닫기. 한계: silent-mock; 실제 TTS/음원·백그라운드/오프라인 재생 없음, 이전/다음 큐 버튼 비활성. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v18).
 
 - 전체 대상: [S050](MEDIUM_PARITY/REQUIREMENTS_02.md#s050), [S055](MEDIUM_PARITY/REQUIREMENTS_03.md#s055), [S128](MEDIUM_PARITY/REQUIREMENTS_06.md#s128), [S141](MEDIUM_PARITY/REQUIREMENTS_06.md#s141), [S160](MEDIUM_PARITY/REQUIREMENTS_07.md#s160), [S192](MEDIUM_PARITY/REQUIREMENTS_08.md#s192)
 
@@ -788,7 +793,7 @@
 - **Parity12 최신:** [근거·검증·잔여](FE_MEDIUM_PARITY_12_RESULT.md#comparison). 연속 배속 증가를 수정하고 Emma→Hans/Done·취소·재진입·늦은 옵션을 검증했다.270/287초는 독립 합성 입력이며 일반280 기본값 유지. WPM 공식/실음성은 미확인·제외로 분리한다.
 
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 46, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 속도·WPM·음성 목록/검색·임시 선택·Done/취소·메뉴 이동. 한계: 메타데이터만 변경; 실제 발화/번역·AirPlay·재생 큐 미지원, WPM 산식은 자체 비교값. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v19).
 
 - 전체 대상: [S003](MEDIUM_PARITY/REQUIREMENTS_01.md#s003), [S016](MEDIUM_PARITY/REQUIREMENTS_01.md#s016), [S046](MEDIUM_PARITY/REQUIREMENTS_02.md#s046), [S088](MEDIUM_PARITY/REQUIREMENTS_04.md#s088), [S131](MEDIUM_PARITY/REQUIREMENTS_06.md#s131), [S154](MEDIUM_PARITY/REQUIREMENTS_07.md#s154)
 
@@ -808,7 +813,7 @@
 
 - **최신 Parity10:** 시간/배지/스레드·포커스·편집/삭제 경합·부모 권한 보완. 추가4답글/원본 정책·실제 렌더는 잔여. [현재 결과](FE_MEDIUM_PARITY_10_RESULT.md). 아래 최초 조사/이전 잔여 기록과 구분하며 전체 동일성 완료가 아니다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 26, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 응답/인용·답글·수정/삭제·정렬·숨김/닫힘·수명/권한 보호. 한계: source 메모리 저장·자체 깊이/정렬/집계; 실제 타 사용자 조회·서버 소유권 검증·알림 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v20).
 
 - 전체 대상: [S009](MEDIUM_PARITY/REQUIREMENTS_01.md#s009), [S010](MEDIUM_PARITY/REQUIREMENTS_01.md#s010), [S019](MEDIUM_PARITY/REQUIREMENTS_01.md#s019), [S032](MEDIUM_PARITY/REQUIREMENTS_02.md#s032), [S062](MEDIUM_PARITY/REQUIREMENTS_03.md#s062), [S071](MEDIUM_PARITY/REQUIREMENTS_03.md#s071), [S072](MEDIUM_PARITY/REQUIREMENTS_03.md#s072), [S092](MEDIUM_PARITY/REQUIREMENTS_04.md#s092), [S097](MEDIUM_PARITY/REQUIREMENTS_04.md#s097), [S100](MEDIUM_PARITY/REQUIREMENTS_04.md#s100), [S111](MEDIUM_PARITY/REQUIREMENTS_05.md#s111), [S112](MEDIUM_PARITY/REQUIREMENTS_05.md#s112), [S124](MEDIUM_PARITY/REQUIREMENTS_05.md#s124), [S142](MEDIUM_PARITY/REQUIREMENTS_06.md#s142), [S158](MEDIUM_PARITY/REQUIREMENTS_07.md#s158), [S181](MEDIUM_PARITY/REQUIREMENTS_08.md#s181), [S197](MEDIUM_PARITY/REQUIREMENTS_08.md#s197)
 
@@ -828,7 +833,7 @@
 
 - **Parity 3 현재 판정:** [S008 구조·도구·F34 연결과 전후 캡처](FE_MEDIUM_PARITY_03_RESULT.md)를 확보했다. 로고/아바타 M 대체, 원본 서체/정확 간격/아이콘·수치 크기, 272→실제 mock 0/1 차이가 남아 전체 완료가 아니다. 잔여는 묶음3 소유로 유지하고 최종22에서 재대조한다. 아래 원본 수용 조건은 유지한다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 26, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 응답→정책 기사·작성자/반응/Listen/공유·원래 화면 복귀. 한계: 보관 발췌·원본 강조 표시·공식 링크만 제공. 전문·현재 정책·실제 집계 미확인; PolicyArticle의 정적 Text에는 개인 구절 선택/Highlight 저장 경로가 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v21).
 
 - 전체 대상: [S008](MEDIUM_PARITY/REQUIREMENTS_01.md#s008)
 
@@ -846,7 +851,7 @@
 
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 33, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Save to 복수 목록 선택·Done 확정·새 목록·취소/실패 복구. 한계: 사용자 결정대로 목록 사이 구분선만 제거, 헤더/Create new list 구분선 유지; 실제 서버 저장 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v22).
 
 - 전체 대상: [S036](MEDIUM_PARITY/REQUIREMENTS_02.md#s036), [S172](MEDIUM_PARITY/REQUIREMENTS_07.md#s172)
 
@@ -864,7 +869,7 @@
 
 - 최신 실행: [Parity13](FE_MEDIUM_PARITY_13_RESULT.md). 공유 연결·권한·web 복사와 현재 검사/실제 웹 부분 비교 수행. 원본 자산·6 U·OS/실제 파일 저장 잔여는13/Q02/Q03 및 Q07/21 소유로 유지한다. 아래 기존 조건 정의는 이력이며 동일성 완료 판정이 아니다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 47, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 실제 Clipboard·OS Share 호출·카드 PNG capture·사진 보관함 저장 adapter. 한계: OS 복귀 returned는 전달 완료 증거가 아님. 공유 URL은 kostolany.invalid 모의 주소이며 Friend 링크도 실제 발급하지 않음. 파일 이미지 저장과 목록 메모리 다운로드는 다름. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v23).
 
 - 전체 대상: [S028](MEDIUM_PARITY/REQUIREMENTS_02.md#s028), [S051](MEDIUM_PARITY/REQUIREMENTS_03.md#s051), [S073](MEDIUM_PARITY/REQUIREMENTS_03.md#s073), [S163](MEDIUM_PARITY/REQUIREMENTS_07.md#s163)
 
@@ -882,7 +887,7 @@
 
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 34, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Your/Saved lists·Digest·Highlighted·Reading history·빈/저장/다크 카드. 한계: 목록/강조/다운로드는 메모리 상태; 원본 계정·집계·콘텐츠 snapshot과 현재 사용자 데이터는 다름. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v24).
 
 - 전체 대상: [S039](MEDIUM_PARITY/REQUIREMENTS_02.md#s039), [S058](MEDIUM_PARITY/REQUIREMENTS_03.md#s058), [S066](MEDIUM_PARITY/REQUIREMENTS_03.md#s066), [S085](MEDIUM_PARITY/REQUIREMENTS_04.md#s085), [S095](MEDIUM_PARITY/REQUIREMENTS_04.md#s095), [S108](MEDIUM_PARITY/REQUIREMENTS_05.md#s108), [S145](MEDIUM_PARITY/REQUIREMENTS_06.md#s145)
 
@@ -900,7 +905,7 @@
 
 - 최신 실행: [Parity 7](FE_MEDIUM_PARITY_07_RESULT.md). 배정 소비자/연결 보완, 자체 정책·현재 검사·원본 차이/U/native는 결과 문서로 분리한다. 아래 판정은 수정 전 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 33, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 목록 생성/편집/메모·드래그/접근성 순서 이동·취소/Done·비공개·삭제·Remove/Undo. 한계: 자체 소유권/충돌/시간 정책; 기본 Reading list 삭제 제한. 실제 공유/다른 기기 정합성 미연결. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v25).
 
 - 전체 대상: [S002](MEDIUM_PARITY/REQUIREMENTS_01.md#s002), [S011](MEDIUM_PARITY/REQUIREMENTS_01.md#s011), [S056](MEDIUM_PARITY/REQUIREMENTS_03.md#s056), [S076](MEDIUM_PARITY/REQUIREMENTS_04.md#s076), [S077](MEDIUM_PARITY/REQUIREMENTS_04.md#s077), [S078](MEDIUM_PARITY/REQUIREMENTS_04.md#s078), [S081](MEDIUM_PARITY/REQUIREMENTS_04.md#s081), [S101](MEDIUM_PARITY/REQUIREMENTS_05.md#s101), [S105](MEDIUM_PARITY/REQUIREMENTS_05.md#s105), [S106](MEDIUM_PARITY/REQUIREMENTS_05.md#s106), [S109](MEDIUM_PARITY/REQUIREMENTS_05.md#s109), [S114](MEDIUM_PARITY/REQUIREMENTS_05.md#s114), [S121](MEDIUM_PARITY/REQUIREMENTS_05.md#s121), [S155](MEDIUM_PARITY/REQUIREMENTS_07.md#s155), [S157](MEDIUM_PARITY/REQUIREMENTS_07.md#s157), [S177](MEDIUM_PARITY/REQUIREMENTS_08.md#s177), [S191](MEDIUM_PARITY/REQUIREMENTS_08.md#s191), [S195](MEDIUM_PARITY/REQUIREMENTS_08.md#s195), [S200](MEDIUM_PARITY/REQUIREMENTS_08.md#s200)
 
@@ -918,7 +923,7 @@
 
 - 최신 Parity 8: [일반/발행 혼합 사본·version/권한·진행/완료 표시 및 실제 검사](FE_MEDIUM_PARITY_08_RESULT.md). 기능/mock 구현·두 검토/웹·타입/lint·전체302 suites/1578 tests·export 통과. 메모리 사본만 지원하며 원본 시각/U·native 대기는 유지한다. 아래는 기존 감사 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 35, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 일반+발행 문서/사진의 메모리 사본·진행/완료/취소/실패·철회·제거. 한계: 파일 Downloads 저장·디스크 영속화·실제 네트워크 단절 보장 없음. 앱 재시작 보존도 미지원. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v26).
 
 - 전체 대상: [S089](MEDIUM_PARITY/REQUIREMENTS_04.md#s089), [S165](MEDIUM_PARITY/REQUIREMENTS_07.md#s165)
 
@@ -938,7 +943,7 @@
 
 - 최신 실행: [Parity 6](FE_MEDIUM_PARITY_06_RESULT.md). June12/June8 기사 구성·최근10발행분·임시 선택/Done·취소·이탈/계정 수명·관련 행동을 보완했다. S116 사진/아바타, 반응 수·서체·OS 영역 차이는 남아 전체 시각 동일성은 미완료다. 아래 근거·판정은 수정 전 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 34, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 최근 10호 날짜 초안/Done·기사/작성자/반응·설정 이동·Mute 필터. 한계: fixture 호/날짜·자체 필터 정책; 실제 배포/이메일 Digest 생성·전송 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v27).
 
 - 전체 대상: [S096](MEDIUM_PARITY/REQUIREMENTS_04.md#s096), [S116](MEDIUM_PARITY/REQUIREMENTS_05.md#s116), [S132](MEDIUM_PARITY/REQUIREMENTS_06.md#s132), [S193](MEDIUM_PARITY/REQUIREMENTS_08.md#s193)
 
@@ -954,7 +959,7 @@
 
 ## V28 — Digest·Push 설정
 
-- 상태: 묶음16 mock 결함 수정·자동/실제 웹 검증. 원본 자산·시각·미확인·native 잔여 유지. [현재 결과](FE_MEDIUM_PARITY_16_RESULT.md).
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Push/Email/Digest 선호·옵션 저장/복원·OS 알림 권한 adapter. 한계: OS 권한과 원격 토큰 등록/푸시 전송은 별개; 실제 메일/Push 미연결, 원본 잘린 하단 항목 미확인. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v28).
 
 - 전체 대상: [S040](MEDIUM_PARITY/REQUIREMENTS_02.md#s040), [S162](MEDIUM_PARITY/REQUIREMENTS_07.md#s162), [S186](MEDIUM_PARITY/REQUIREMENTS_08.md#s186)
 
@@ -972,7 +977,7 @@
 
 - Parity14: [실행 결과](FE_MEDIUM_PARITY_14_RESULT.md#screens). mock 기능 보완·실제 웹 부분 검증. 원본 자산/정확 시각/native 및 U 미확인 잔여 유지; 기존 상태 문장은 이력.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 40, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 소셜 모의 로그인 A/B·이메일/코드·오류/재전송·로그아웃/취소/계정 격리. 한계: 실제 OAuth·메일 발송/소유권 확인·Supabase 세션·프로세스 재시작 복원 없음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v29).
 
 - 전체 대상: [S013](MEDIUM_PARITY/REQUIREMENTS_01.md#s013), [S024](MEDIUM_PARITY/REQUIREMENTS_01.md#s024), [S034](MEDIUM_PARITY/REQUIREMENTS_02.md#s034), [S054](MEDIUM_PARITY/REQUIREMENTS_03.md#s054), [S064](MEDIUM_PARITY/REQUIREMENTS_03.md#s064), [S117](MEDIUM_PARITY/REQUIREMENTS_05.md#s117), [S134](MEDIUM_PARITY/REQUIREMENTS_06.md#s134), [S166](MEDIUM_PARITY/REQUIREMENTS_07.md#s166), [S171](MEDIUM_PARITY/REQUIREMENTS_07.md#s171), [S182](MEDIUM_PARITY/REQUIREMENTS_08.md#s182)
 
@@ -990,7 +995,7 @@
 
 - Parity14: [실행 결과](FE_MEDIUM_PARITY_14_RESULT.md#screens). mock 기능 보완·실제 웹 부분 검증. 원본 자산/정확 시각/native 및 U 미확인 잔여 유지; 기존 상태 문장은 이력.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 41, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 시작 자산/StartupBoundary·가입·관심사 최소 3개·추천 Follow·Skip/OS 권한·온보딩 재개. 한계: 시작은 대체 워드마크, 온보딩 저장은 mock; 캡처를 신규 가입 전용으로 단정하지 않음. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v30).
 
 - 전체 대상: [S006](MEDIUM_PARITY/REQUIREMENTS_01.md#s006), [S035](MEDIUM_PARITY/REQUIREMENTS_02.md#s035), [S041](MEDIUM_PARITY/REQUIREMENTS_02.md#s041), [S043](MEDIUM_PARITY/REQUIREMENTS_02.md#s043), [S067](MEDIUM_PARITY/REQUIREMENTS_03.md#s067), [S184](MEDIUM_PARITY/REQUIREMENTS_08.md#s184)
 
@@ -1006,7 +1011,9 @@
 
 ## V31 — 멤버십
 
-- 현재19 상태: mock 확정/수명/포커스 보완·자동 검사/실제 웹 부분 비교, 원본/native 잔여. [결과](FE_MEDIUM_PARITY_19_RESULT.md).
+- 판정: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. Member/Friend·월/연 선택·모의 확정/실패·혜택 자격·Welcome. 한계: 실제 스토어 구매/영수증/복원/갱신/해지 없음. 사용자 20번은 기간 선택/닫기이며 구매 Select 성공 증거가 아님. [개별 근거](FE_MEDIUM_PARITY_22_RESULT.md#v31).
+
+- 과거 묶음19 상태: mock 확정/수명/포커스 보완·자동 검사/실제 웹 부분 비교, 당시 원본/native 잔여. [결과](FE_MEDIUM_PARITY_19_RESULT.md). 현재 판정은 위 Parity22를 따른다.
 - 이전 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 48, 공통 Goal23/50/51/53.
 
 - 전체 대상: [S059](MEDIUM_PARITY/REQUIREMENTS_03.md#s059), [S084](MEDIUM_PARITY/REQUIREMENTS_04.md#s084), [S129](MEDIUM_PARITY/REQUIREMENTS_06.md#s129), [S133](MEDIUM_PARITY/REQUIREMENTS_06.md#s133), [S159](MEDIUM_PARITY/REQUIREMENTS_07.md#s159)
@@ -1025,7 +1032,7 @@
 
 - **Parity15 현재 판정:** [결과·검증·잔여](FE_MEDIUM_PARITY_15_RESULT.md). 이전 Save 성공이 새 사진/Pronouns 편집을 닫는 결함을 수정했다. 프로필/사진/부모 초안·계정·연결 회귀와 웹 부분 대조를 수행했으며 원본 fixture/시각·OS picker 대기는 유지. 아래 최초 조사 문장은 당시 코드의 이력이다.
 
-- 상태: 개별 원본 조건 정의 완료 / 현재 동일성 완료 아님. 주 담당 Goal 42, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 프로필 이름/bio·사진 기기 선택·대명사 최대 4개·부모 Save/Cancel·Stories/Lists/About. 한계: 사진은 로컬 URI/수명 관리, 업로드·서버 프로필 영속 저장 없음. 원본 OS 앨범과 Android picker 모습은 다름. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v32).
 
 - 전체 대상: [S005](MEDIUM_PARITY/REQUIREMENTS_01.md#s005), [S020](MEDIUM_PARITY/REQUIREMENTS_01.md#s020), [S027](MEDIUM_PARITY/REQUIREMENTS_02.md#s027), [S047](MEDIUM_PARITY/REQUIREMENTS_02.md#s047), [S074](MEDIUM_PARITY/REQUIREMENTS_03.md#s074), [S080](MEDIUM_PARITY/REQUIREMENTS_04.md#s080), [S082](MEDIUM_PARITY/REQUIREMENTS_04.md#s082), [S094](MEDIUM_PARITY/REQUIREMENTS_04.md#s094), [S113](MEDIUM_PARITY/REQUIREMENTS_05.md#s113), [S120](MEDIUM_PARITY/REQUIREMENTS_05.md#s120), [S123](MEDIUM_PARITY/REQUIREMENTS_05.md#s123), [S136](MEDIUM_PARITY/REQUIREMENTS_06.md#s136), [S138](MEDIUM_PARITY/REQUIREMENTS_06.md#s138), [S144](MEDIUM_PARITY/REQUIREMENTS_06.md#s144), [S156](MEDIUM_PARITY/REQUIREMENTS_07.md#s156), [S167](MEDIUM_PARITY/REQUIREMENTS_07.md#s167), [S169](MEDIUM_PARITY/REQUIREMENTS_07.md#s169), [S178](MEDIUM_PARITY/REQUIREMENTS_08.md#s178)
 
@@ -1041,7 +1048,7 @@
 
 ## V33 — 설정·앱 아이콘
 
-- 상태: 묶음18 mock 보완·현재 검사/실제 웹 부분 비교. 원본 독립 자산/정확 시각·native21/Q07 잔여; [결과](FE_MEDIUM_PARITY_18_RESULT.md). 기존 주 담당 Goal49, 공통 Goal23/50/51/53.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 설정 목적지·외부 링크·앱 테마·아이콘 선택과 native adapter. 한계: 계정/Facebook은 mock; 앱 아이콘 어댑터는 모듈 가용성에 따름. 현재 아이콘 모양 확정으로 수정 대상 아님. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v33).
 
 - 전체 대상: [S075](MEDIUM_PARITY/REQUIREMENTS_03.md#s075), [S110](MEDIUM_PARITY/REQUIREMENTS_05.md#s110), [S149](MEDIUM_PARITY/REQUIREMENTS_06.md#s149), [S173](MEDIUM_PARITY/REQUIREMENTS_07.md#s173)
 
@@ -1057,7 +1064,7 @@
 
 ## V34 — 글 통계
 
-- 상태: [Parity20 보완·두 검토·현재 검사](FE_MEDIUM_PARITY_20_RESULT.md). 웹 그래프·포커스·미집계/범례 보완, 독립 snapshot 부분 비교.4 U·서체/정확 배치·native는 잔여; 전체 동일성 완료 아님. 기존 Goal43/공통 이력 보존.
+- 상태: **Parity22 현재 판정.** 현 구현/근거 연결·Android 사용자 수용. 월간/일자 그래프·Lifetime·Latest/Views/Reads·빈/미집계·글 이동. 한계: 통계 fixture/자체 UTC 정책; 실제 이벤트 수집·분석/정산 없음, 과거 11/2와 현재 0/미집계 차이 유지. [코드/기존 검사/차이](FE_MEDIUM_PARITY_22_RESULT.md#v34).
 
 - 전체 대상: [S150](MEDIUM_PARITY/REQUIREMENTS_06.md#s150), [S153](MEDIUM_PARITY/REQUIREMENTS_07.md#s153), [S188](MEDIUM_PARITY/REQUIREMENTS_08.md#s188)
 
