@@ -29,9 +29,9 @@ it('발행일이 없는 Goodbye Notion에는 구분자를 남기지 않고 날�
   const goodbye = articleFixtures.find((item) => item.id === 'medium-goodbye-notion')!;
   const view = await render(<ReferenceArticleView article={goodbye} onBack={() => {}} backLabel="Back" />);
   expect(screen.getByText('2 min read', { exact: true })).toBeVisible();
-  expect(screen.queryByText(/2 min read ·/)).toBeNull();
+  expect(screen.queryByText(/2 min read\s+·/)).toBeNull();
   await view.rerender(<ReferenceArticleView article={article} onBack={() => {}} backLabel="Back" />);
-  expect(screen.getByText('5 min read · Apr 30, 2025', { exact: true })).toBeVisible();
+  expect(screen.getByText('5 min read  ·  Apr 30, 2025', { exact: true })).toBeVisible();
 });
 
 it('접은 읽기 도구의 임시 선택은 유지하고 새 인증 범위에서는 개인 UI를 닫는다', async () => {

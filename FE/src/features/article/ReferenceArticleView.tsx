@@ -180,9 +180,9 @@ export function ReferenceArticleView({
           {Boolean(article.subtitle) && (
             <Text style={[styles.subtitle, reader.subtitle]}>{article.subtitle}</Text>
           )}
-          <Text style={styles.metadata}>
+          <Text style={[styles.metadata, scheme === 'dark' && styles.darkMetadata]}>
             {[article.readingMinutes > 0 ? `${article.readingMinutes} min read` : '',
-              content?.publishedLabel ?? article.publishedLabel].filter(Boolean).join(' · ')}
+              content?.publishedLabel ?? article.publishedLabel].filter(Boolean).join('  ·  ')}
           </Text>
           <View style={styles.author}>
             {reference?.avatar && (
@@ -193,7 +193,7 @@ export function ReferenceArticleView({
             ) : (
               <Text style={styles.authorName}>{article.sourceName}</Text>
             )}
-            {writer && <FollowControl active={active} target={writer} name={identity?.name ?? article.sourceName} />}
+            {writer && <FollowControl active={active} target={writer} name={identity?.name ?? article.sourceName} presentation="reader" />}
           </View>
           {reference?.image && (
             <AspectImage
@@ -204,7 +204,7 @@ export function ReferenceArticleView({
               resizeMode="cover"
             />
           )}
-          {content && <Text style={styles.caption}>{content.caption}</Text>}
+          {content && <Text style={[styles.caption, styles.coverCaption, scheme === 'dark' && styles.darkCoverCaption]}>{content.caption}</Text>}
           <View
             onLayout={(event) => {
               paragraphTop.current = event.nativeEvent.layout.y;
@@ -539,13 +539,14 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.secondaryText,
       marginTop: 24,
     },
+    darkMetadata: { color: '#808080' },
     author: {
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'center',
       gap: 12,
       minHeight: 48,
-      marginTop: 6,
+      marginTop: 12,
     },
     authorAvatar: { width: 32, height: 32, borderRadius: 16 },
     authorName: {
@@ -581,6 +582,9 @@ const createStyles = (colors: ThemeColors) =>
       marginTop: 16,
     },
     inlineCaption: { fontSize: 18, lineHeight: 26 },
+    // 표지 설명의 크기와 색은 원본 기사 상단 기준이며 본문 안의 설명은 별도로 유지한다.
+    coverCaption: { fontSize: 13, lineHeight: 20, color: '#757575' },
+    darkCoverCaption: { color: '#e6e7e6' },
     paragraphs: { gap: 28, marginTop: 32 },
     paragraph: { ...typography.storyBody, fontSize: 18, color: colors.text },
     bold: { fontWeight: '700' },

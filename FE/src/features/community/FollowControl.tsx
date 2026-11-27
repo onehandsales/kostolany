@@ -23,7 +23,7 @@ type Props = {
   wide?: boolean;
   active?: boolean;
   topicStyle?: boolean;
-  presentation?: 'pill' | 'menu';
+  presentation?: 'pill' | 'menu' | 'reader';
   onMessage?: (message: string) => void;
 };
 export function FollowControl(props: Props) {
@@ -44,7 +44,7 @@ function ScopedFollow({ target, name, active = true, wide = false, topicStyle = 
   const blocked = target.kind === 'writer' && Boolean(moderation.state?.value?.blocked.includes(target.id));
   const auth = useAuth();
   const styles = useThemeStyles(createStyles);
-  const { colors } = useTheme();
+  const { colors, scheme } = useTheme();
   const { width, height } = useWindowDimensions();
   const [menu, setMenu] = useState<{ top: number; right: number } | null>(null);
   const button = useRef<View>(null);
@@ -160,6 +160,8 @@ function ScopedFollow({ target, name, active = true, wide = false, topicStyle = 
         <View
           style={[
             styles.pill,
+            presentation === 'reader' && styles.readerPill,
+            presentation === 'reader' && scheme === 'dark' && !relationship.following && styles.readerDarkPill,
             topicStyle && styles.topicPill,
             topicStyle && !relationship.following && styles.filled,
             wide && styles.widePill,
@@ -300,6 +302,9 @@ const createStyles = (colors: ThemeColors) =>
       gap: 12,
     },
     topicPill: { minHeight: 38 },
+    // 기사 상단의 작은 윤곽만 보정하고 바깥 조작 영역은 유지한다.
+    readerPill: { alignSelf: 'flex-start', paddingHorizontal: 12 },
+    readerDarkPill: { borderColor: '#212121' },
     widePill: { width: '100%', minHeight: 38 },
     followed: { borderColor: colors.border },
     filled: { backgroundColor: colors.text },
