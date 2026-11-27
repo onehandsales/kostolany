@@ -859,5 +859,165 @@
       168,
       807
     ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-wietse-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      579,
+      564,
+      924
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-wietse.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      579,
+      564,
+      843
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-marek-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      613,
+      579,
+      1129,
+      888
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-marek.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      613,
+      579,
+      1129,
+      807
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-philipp-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      972,
+      564,
+      1317
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-philipp.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      972,
+      564,
+      1236
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-ingmar-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      613,
+      936,
+      1129,
+      1710
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-ingmar.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      613,
+      936,
+      1129,
+      1629
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-dextar-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      1365,
+      564,
+      2010
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-dextar.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      1365,
+      564,
+      1929
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-ahmet-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      613,
+      1758,
+      1129,
+      2448
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-snow-lake.png",
+    "source": "medium/flows/Home/Publishing a story/screens/07_sc_bed3857c8edc4a02b07af1e095ad7fba.png",
+    "cropPhysicalPixels": [
+      54,
+      1134,
+      1125,
+      2322
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-karsten-preview.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      2058,
+      564,
+      2349
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/editor-karsten.png",
+    "source": "medium/flows/Home/Publishing a story/screens/05_sc_785431954ec4405eb0a3b22debce165a.png",
+    "cropPhysicalPixels": [
+      48,
+      2058,
+      564,
+      2268
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mention-samlee-hk.png",
+    "source": "medium/flows/Home/Publishing a story/Mentioning a user/screens/03_sc_fbca217fbc1346d09deb4c0d09dac86e.png",
+    "cropPhysicalPixels": [
+      30,
+      1422,
+      126,
+      1518
+    ]
+  },
+  {
+    "asset": "FE/assets/medium/mention-sam-lee.png",
+    "source": "medium/flows/Home/Publishing a story/Mentioning a user/screens/03_sc_fbca217fbc1346d09deb4c0d09dac86e.png",
+    "cropPhysicalPixels": [
+      30,
+      1566,
+      126,
+      1662
+    ]
   }
 ]

@@ -261,8 +261,8 @@ for (const identity of [
 // 보관 화면의 멘션 이름과 핸들은 유지하고 미수록 프로필 내용은 비워 둔다.
 for (const identity of [
   { id: 'mention-samlee', name: 'Sam Lee', handle: 'samlee' },
-  { id: 'mention-samlee-hk', name: 'LI Sam', handle: 'samlee-hk' },
-  { id: 'mention-sam-lee', name: 'Sam Lee', handle: 'sam.lee' },
+  { id: 'mention-samlee-hk', name: 'LI Sam', handle: 'samlee-hk', avatar: require('../../../../assets/medium/mention-samlee-hk.png') },
+  { id: 'mention-sam-lee', name: 'Sam Lee', handle: 'sam.lee', avatar: require('../../../../assets/medium/mention-sam-lee.png') },
 ]) identities.set(`writer:${identity.id}`, { ...identity, kind: 'writer', stories: [], pinned: [], lists: [] });
 export const publicDirectory: PublicDirectory = {
   identities: [...identities.values()],

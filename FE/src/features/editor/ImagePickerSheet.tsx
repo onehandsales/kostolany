@@ -78,13 +78,16 @@ export function ImagePickerSheet({ source, onClose, onSelect }: {
               <Text style={styles.note}>일치하는 사진이 없어요.</Text>}
             {/* 유한한 로컬 사진 목록은 독립된 두 열에서 각 사진의 높이를 유지한다. */}
             <View style={styles.row}>{[0, 1].map(column => <View key={column} style={styles.column}>
-              {current.assets.filter((_, index) => index % 2 === column).map(item =>
-                <Pressable key={item.assetId} role="button" accessibilityLabel={`${item.description} 삽입`}
+              {current.assets.filter((_, index) => index % 2 === column).map(item => {
+                const preview = source.preview?.(item.assetId);
+                return <Pressable key={item.assetId} role="button" accessibilityLabel={`${item.description} 삽입`}
+                  accessibilityHint={item.credit ? `Photo by ${item.credit}` : undefined}
                   style={styles.photo} onPress={() => onSelect(item, origin)}>
-                  <Image source={source.resolve(item.assetId)} accessibilityLabel={item.description}
-                    style={[styles.image, { aspectRatio: item.width / item.height }]} />
-                  <Text style={styles.credit}>{item.credit}</Text>
-                </Pressable>)}
+                  <Image source={preview?.image ?? source.resolve(item.assetId)} accessibilityLabel={item.description}
+                    style={[styles.image, { aspectRatio: preview ? preview.width / preview.height : item.width / item.height }]} />
+                  {!preview?.includesCredit && <Text style={styles.credit}>{item.credit}</Text>}
+                </Pressable>;
+              })}
             </View>)}</View>
           </ScrollView>
         </>}

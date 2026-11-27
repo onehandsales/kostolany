@@ -5,6 +5,7 @@ export type ImageOrigin = EditorImage['source'];
 export type ImageAsset = Omit<EditorImage, 'id' | 'offset' | 'source'>;
 export type ImageLease = { asset: ImageAsset; release: () => void };
 export type ImagePermission = 'granted' | 'limited' | 'denied' | 'cancelled';
+export type ImagePreview = { image: ImageSourcePropType; width: number; height: number; includesCredit: boolean };
 export type EditorImageSource = {
   pick?: (origin: 'camera' | 'library', signal: AbortSignal) => Promise<ImageLease | null>;
   activate?: () => () => void;
@@ -14,9 +15,46 @@ export type EditorImageSource = {
   requestAccess: (origin: 'camera' | 'library', signal: AbortSignal) => Promise<ImagePermission>;
   prepare: (assetId: string, signal: AbortSignal) => Promise<ImageLease>;
   resolve: (assetId: string) => ImageSourcePropType | undefined;
+  preview?: (assetId: string) => ImagePreview | undefined;
 };
 
-const fixtures: { asset: ImageAsset; image: ImageSourcePropType; keywords: string }[] = [
+// 목록의 작가명 포함 캡처와 본문용 사진 영역을 분리해 글 안에 목록 UI가 들어가지 않게 한다.
+const fixtures: { asset: ImageAsset; image: ImageSourcePropType; keywords: string; preview?: ImagePreview }[] = [
+  {
+    asset: { assetId: 'reference-wietse', description: 'Snowy mountain valley', credit: 'Wietse Jongsma', width: 516, height: 264 },
+    image: require('../../../assets/medium/editor-wietse.png'), keywords: 'mountain snow nature wietse jongsma 산 눈 자연',
+    preview: { image: require('../../../assets/medium/editor-wietse-preview.png'), width: 516, height: 345, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-marek', description: 'Mountain at sunset', credit: 'Marek Piwnicki', width: 516, height: 228 },
+    image: require('../../../assets/medium/editor-marek.png'), keywords: 'mountain sunset nature marek piwnicki 산 일몰 자연',
+    preview: { image: require('../../../assets/medium/editor-marek-preview.png'), width: 516, height: 309, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-philipp', description: 'Sunrise over a snowy lake', credit: 'Philipp', width: 516, height: 264 },
+    image: require('../../../assets/medium/editor-philipp.png'), keywords: 'sunrise snow lake nature philipp 일출 눈 호수 자연',
+    preview: { image: require('../../../assets/medium/editor-philipp-preview.png'), width: 516, height: 345, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-ingmar', description: 'Palm leaves', credit: 'Ingmar', width: 516, height: 693 },
+    image: require('../../../assets/medium/editor-ingmar.png'), keywords: 'palm leaves nature ingmar 야자수 자연',
+    preview: { image: require('../../../assets/medium/editor-ingmar-preview.png'), width: 516, height: 774, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-dextar', description: 'Stacked red sculpture', credit: 'Dextar Vision', width: 516, height: 564 },
+    image: require('../../../assets/medium/editor-dextar.png'), keywords: 'sculpture architecture dextar vision 조각 건축',
+    preview: { image: require('../../../assets/medium/editor-dextar-preview.png'), width: 516, height: 645, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-snow-lake', description: 'Snowy forest and lake', credit: 'Ahmet Yüksek', width: 1071, height: 1188 },
+    image: require('../../../assets/medium/editor-snow-lake.png'), keywords: 'snow forest mountain lake nature ahmet yuksek yüksek 눈 숲 산 호수 자연',
+    preview: { image: require('../../../assets/medium/editor-ahmet-preview.png'), width: 516, height: 690, includesCredit: true },
+  },
+  {
+    asset: { assetId: 'reference-karsten', description: 'Snow-covered ridges', credit: 'Karsten Winegeart', width: 516, height: 210 },
+    image: require('../../../assets/medium/editor-karsten.png'), keywords: 'snow mountain nature karsten winegeart 눈 산 자연',
+    preview: { image: require('../../../assets/medium/editor-karsten-preview.png'), width: 516, height: 291, includesCredit: true },
+  },
   { asset: { assetId: 'local-sunset', description: '해질녘 풍경', credit: 'Local fixture', width: 240, height: 168 }, image: require('../../../assets/medium/sunset.png'), keywords: 'sunset nature 노을 자연' },
   { asset: { assetId: 'local-vinyl', description: '음악과 레코드', credit: 'Local fixture', width: 240, height: 160 }, image: require('../../../assets/medium/vinyl.png'), keywords: 'music record 음악 레코드' },
   { asset: { assetId: 'local-life', description: '지구 모양의 아이스크림 그림', credit: 'Local fixture', width: 1035, height: 486 }, image: require('../../../assets/medium/topic-life.png'), keywords: 'life nature 일상 자연' },
@@ -53,5 +91,6 @@ export function createMockEditorImageSource(options: { delayMs?: number; permiss
       return { asset: { ...fixture.asset }, release: () => undefined };
     },
     resolve: assetId => fixtures.find(item => item.asset.assetId === assetId)?.image,
+    preview: assetId => fixtures.find(item => item.asset.assetId === assetId)?.preview,
   };
 }

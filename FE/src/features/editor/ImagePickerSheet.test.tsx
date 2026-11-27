@@ -7,6 +7,22 @@ const button = (name: string) => screen.getByRole('button', { name });
 const asset: ImageAsset = { assetId: 'local-sunset', description: '노을', credit: 'Local fixture', width: 240, height: 168 };
 const flush = () => act(async () => { jest.advanceTimersByTime(1000); });
 
+it('작가명이 포함된 목록 미리보기는 중복 표기를 숨기고 본문용 사진의 크기와 식별자로 선택한다', async () => {
+  const preview = { image: { uri: 'file:///picker-with-credit.png' }, width: 516, height: 690, includesCredit: true };
+  const bodyImage = { uri: 'file:///body-without-picker-text.png' };
+  const bodyAsset: ImageAsset = { assetId: 'reference-snow-lake', description: 'Snowy forest and lake', credit: 'Ahmet Yüksek', width: 1071, height: 1188 };
+  const source = { ...createMockEditorImageSource(), search: async () => [bodyAsset], resolve: () => bodyImage, preview: () => preview };
+  const select = jest.fn(); const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  await render(<ImagePickerSheet source={source} onClose={jest.fn()} onSelect={select} />);
+  await user.press(button('Unsplash 사진 검색')); await flush();
+  expect(screen.getByLabelText(bodyAsset.description)).toHaveProp('source', preview.image);
+  expect(screen.getByLabelText(bodyAsset.description)).toHaveStyle({ aspectRatio: 516 / 690 });
+  expect(screen.queryByText(bodyAsset.credit)).toBeNull();
+  expect(button('Snowy forest and lake 삽입')).toHaveProp('accessibilityHint', 'Photo by Ahmet Yüksek');
+  await user.press(button('Snowy forest and lake 삽입'));
+  expect(select).toHaveBeenCalledWith(bodyAsset, 'unsplash');
+});
+
 it('검색어가 바뀌면 이전 결과를 즉시 숨기고 응답 역전과 실패 뒤 같은 검색어 재시도를 처리한다', async () => {
   const requests: { query: string; resolve: (assets: ImageAsset[]) => void; reject: () => void }[] = [];
   const source = { ...createMockEditorImageSource({ delayMs: 0 }), search: (query: string) => new Promise<ImageAsset[]>((resolve, reject) => requests.push({ query, resolve, reject: () => reject(new Error('failure')) })) };
