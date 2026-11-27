@@ -100,7 +100,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   link: { paddingHorizontal: 24, paddingTop: 24, gap: 12 },
   owner: { flexDirection: 'row', gap: 10, alignItems: 'center' },
   avatar: { width: 20, height: 20, borderRadius: 10, backgroundColor: colors.input },
-  ownerName: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },
+  ownerName: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.secondaryText },
   title: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 22, fontWeight: '700', color: colors.text },
   count: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 18, color: colors.secondaryText },
   actions: {

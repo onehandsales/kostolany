@@ -5,7 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useThemeStyles } from '../../shared/theme/ThemeProvider';
-import { fonts, type ThemeColors } from '../../shared/theme/tokens';
+import { fonts, fontWeights, type ThemeColors } from '../../shared/theme/tokens';
 import { IconButton } from '../../shared/ui/IconButton';
 import { AppIcon } from '../../shared/ui/AppIcon';
 import { ReferenceNotice } from '../../shared/ui/ReferenceNotice';
@@ -287,7 +287,7 @@ const createVisual = (colors: ThemeColors) => StyleSheet.create({
   },
   grow: { flex: 1 },
   nameRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'baseline', gap: 8 },
-  name: { flexShrink: 1, maxWidth: '100%', fontFamily: fonts.sans, fontSize: 24, lineHeight: 30, fontWeight: '600', color: colors.text },
+  name: { flexShrink: 1, maxWidth: '100%', fontFamily: fonts.sans, fontSize: 24, lineHeight: 30, fontWeight: fontWeights.semibold, color: colors.text },
   relationships: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', columnGap: 4 },
   followers: { minHeight: 48, minWidth: 48, justifyContent: 'center', marginVertical: -8 },
   caption: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, color: colors.text },

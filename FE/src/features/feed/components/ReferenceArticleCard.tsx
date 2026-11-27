@@ -234,7 +234,8 @@ const createStyles = (colors: ThemeColors) =>
     },
     copy: { flex: 1 },
     stackedCopy: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto', width: '100%' },
-    title: { ...typography.storyTitle, flexShrink: 1, color: colors.text },
+    // Android 대체 글꼴의 자간을 압축하지 않아 원본 카드 제목의 줄바꿈에 가깝게 표시한다.
+    title: { ...typography.storyTitle, letterSpacing: Platform.OS === 'android' ? 0 : typography.storyTitle.letterSpacing, flexShrink: 1, color: colors.text },
     image: { width: 80, height: 54, borderRadius: 2 },
     stacked: { flexDirection: 'column' },
     stackedTitle: {

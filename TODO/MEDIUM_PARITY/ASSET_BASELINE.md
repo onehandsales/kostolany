@@ -1,5 +1,7 @@
 # Q02 — 공통 자산과 레이아웃 기준
 
+**2026-11-27 대표 화면 보정:** [7개 원본의 비교 조건·3곳 수정·실제 실행](../FE_COMMON_DESIGN_02_RESULT.md#representative-typography-20261127). 원본 폰트 파일0개와 기존 편집기 사진 fixture4개를 재확인했다. Android 피드 카드 제목 자간만0으로 보정하고 프로필 이름을 기존 강조 토큰, 목록 작성자를 기존 보조색에 연결했다. 공통 storyTitle 토큰의 -0.4는 유지한다. 신규 폰트/사진 확보와 전체 동일성 완료가 아니며 S087/S137/S183/S196의 누락 사진/프로필은 다음 자산 작업이다. 현재 아이콘은 사용자 확정으로 변경 대상에서 제외한다.
+
 **2026-11-27 아이콘 확정·자산 잔여:** 사용자가 현재 아이콘 전체를 확정했으므로 교체·통일·원본 벡터 확보를 잔여에서 제외한다. 아래 아이콘 보류 문구는 이전 이력이다. 자산 보완 대상은 원본 서체와 누락 사진/프로필 이미지이며 [현재 잔여6개 표](../FE_COMMON_DESIGN_02_RESULT.md#visual-residual-status-20261127)를 따른다. 현재 로컬 폰트0개·SOURCES.json86개·편집기 사진 fixture4개를 재확인했으며 새 자산 확보/적용은 하지 않았다.
 
 **2026-11-27 지정 아이콘2종:** [사용자 요청과 실제 검증](../FE_COMMON_DESIGN_02_RESULT.md#heart-photo-icons-20261127)에 따라 박수 도안을 저장소의 기존 하트 경로로 교체하고 반응 시 빨간 채움을 적용했다. 사진 삽입 문자는 기존 `react-native-svg`로 사진틀·산·해를 그려 대체했다. 편집기는20dp 표시/최소48dp 터치를 유지한다. 새 라이브러리·원본 벡터·폰트·이미지 자산 확보는 없으며, 제거한 Phosphor 도안 고지만 LICENSE에서 정리했다. 전체 아이콘 통일은 보류다. 아래 Phosphor 도안 적용 기록은 이전 이력이다.
@@ -51,7 +53,7 @@ Parity 1에서 자산을 조사했고 [Parity 2](../FE_MEDIUM_PARITY_02_RESULT.m
 | 영역 | 실제 코드/확보 상태 | 남은 차이·담당 |
 | --- | --- | --- |
 | 서체 | `tokens.ts`: iOS System/Georgia/TimesNewRomanPS-BoldMT, Android sans-serif/serif, web Helvetica/Arial/Georgia/Times 대체. Parity 2 CDP에서 영어 제목 Arial Bold, 설정 Arial, 한국어 프로필 Malgun Gothic Bold 확인 | 원본 font 파일·weight mapping 미확보; 각 V의 서체/줄바꿈 잔여 |
-| 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30 | 근사 토큰; 원본 공식 토큰 아님; 100/120%와 폰트·너비별 독립 비교 |
+| 타입 크기 | pageTitle24/32, body16/24, storyTitle20/25/-0.4, storyBody20/30. ReferenceArticleCard의 Android 제목만 자간0 | 근사 토큰; 원본 공식 토큰 아님; 대표 홈2개 제목 줄바꿈 부분 확인과 전체 서체 동일성을 구분; 100/120%와 폰트·너비별 독립 비교 |
 | 작성 글 | DocumentReader의 기본 본문18/30과 공통 reader 설정 소비는 [Parity4](../FE_MEDIUM_PARITY_04_RESULT.md)에서 연결 | D03 연결은 해결; 작성/발행 원본 전체 대조는9/10, 원본 글꼴은 미확보 |
 | 정책 기사 | reader 본문18/30, Medium Policy/Medium 원본 crop2개와 기존 SVG 도구·48px 조작 영역 | S008/V21 서체·정확 간격 잔여;272는 명시적 비교 모드만. crop은 독립 원본 자산/사용권 확보가 아님 |
 | 읽기 설정·이력 | [Parity 4](../FE_MEDIUM_PARITY_04_RESULT.md): 발행 본문18/30에 공통 크기/글꼴/테마 적용, 큰 글자의 하위 메뉴 실제 행 기준 배치, 이력 빈 카드 모서리 보정 | 원본 글꼴 미확보·이력 중간 기사/응답 집계·OS 영역과 정확 간격은 잔여; 새 자산 확보 없음 |
