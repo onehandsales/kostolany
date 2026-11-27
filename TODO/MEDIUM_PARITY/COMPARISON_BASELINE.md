@@ -4361,7 +4361,7 @@
 
 [원본 PNG](<../../medium/flows/Home/Publishing a story/Mentioning a user/screens/03_sc_fbca217fbc1346d09deb4c0d09dac86e.png>) · [원본 분석](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>) · [R 수용 조건](<REQUIREMENTS_08.md#s196>) · `sc_fbca217fbc1346d09deb4c0d09dac86e`
 
-- 담당: V10 / 묶음 9. 상태: **recipe-only**. 동일 데이터·상태의 실행과 PNG 쌍 미검증; 아래 조건을 구현 담당 묶음에서 재현·기록해야 함.
+- 담당: V10 / 묶음 9. 2026-11-27 현재 상태: **부분 대조·차이 유지**. [Android390×844dp/density480/Light/OS1.0·samlee3후보/두 사진·패널 배치](../FE_COMMON_DESIGN_02_RESULT.md#mention-layout-20261127)를 확인했다. 전체 편집기 스크롤/OS 키보드·서체는 동일하지 않으며 새 PNG 파일을 저장하지 않았다. Dark/OS2.0은 원본 없는 구현 표시 확인이다. 아래 CP-WEB-01은 최초 계획 조건이며 최신 실제 실행과 구분한다.
 - 실제 FE 진입 절차(정적 확인): Editor 본문 @ → samlee → 후보 선택 → Sam Lee 삽입
 - Parity 1 당시 증거: 없음; 정적 절차만 연결. 캡처의 실제 계정은 guest이며 아래 A 비교 기본안과 구분한다.
 - 코드: [DocumentReader.tsx](<../../FE/src/features/editor/DocumentReader.tsx>), [MentionSuggestions.tsx](<../../FE/src/features/editor/MentionSuggestions.tsx>)

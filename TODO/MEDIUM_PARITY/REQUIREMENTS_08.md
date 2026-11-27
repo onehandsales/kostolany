@@ -766,6 +766,7 @@ FE 조사 경로: [ReadingListScreen.tsx](<../../FE/src/features/bookmarks/Readi
 
 ## S196 — 멘션 검색 후보
 
+- 2026-11-27 후속: [두 사진을 유지한 이름/핸들·구분선·키보드 위 후보와 선택 후 도구 복귀](../FE_COMMON_DESIGN_02_RESULT.md#mention-layout-20261127), [실제 Android 동명인 선택/Undo·Dark/OS2.0·저장 재개](../FE_MOBILE_EXECUTION_01_RESULT.md#mention-layout-native-20261127)를 확인했다. 대체 서체/OS 영역·외부 검색/알림 미연결은 유지한다. 아래 미확보/미실행은 당시 이력이다.
 - Parity9: 후보가 서식 도구 자리를 대체하고 제공된avatar를 표시하도록 보완; 사진2개 자산/실제 렌더 잔여. [모든 R의 현재 판정·검증](../FE_MEDIUM_PARITY_09_RESULT.md). 과거 관찰/계약은 보존하며 시각 동일성 완료로 승격하지 않는다.
 
 안정 원본 ID: `sc_fbca217fbc1346d09deb4c0d09dac86e` · [원본 분석](<../../medium/flows/Home/Publishing a story/Mentioning a user/ANALYSIS.md>):115 · [원본 PNG](<../../medium/flows/Home/Publishing a story/Mentioning a user/screens/03_sc_fbca217fbc1346d09deb4c0d09dac86e.png>)
@@ -780,7 +781,7 @@ FE 조사 경로: [MentionSuggestions.tsx](<../../FE/src/features/editor/Mention
 
 **과거 Goal53 화면 판정:** **부분 대조 · 차이/플랫폼 잔여**. Sam Lee 동명이인 handle·canonical ID 검색. 원본 프로필 사진 대신 로컬 initials이며 외부 계정 조회 아님. ([과거 기록](<../FE_GOAL_53_RESULT.md>):390)
 
-**현재 판정:** 전체 동일성 미완료. 위 과거 판정과 코드 경로를 확인했으며, 이번 문서 작업에서 해당 화면을 새로 실행·재촬영하지 않았다.
+**현재 판정:** 원본과 부분 대조·차이 유지. 2026-11-27에 후보3행과 키보드 위 배치·선택/도구 복귀를 별도 Android에서 확인했다. 아래 표의 코드 경로/미검증 문구는 최초 문서화 당시 판정이며, 공통 디자인 단계의 종료를 원본 전체 동일성 완료로 확대하지 않는다.
 
 **원본 컨트롤 관찰 문장:** 후보 Sam Lee 등
 

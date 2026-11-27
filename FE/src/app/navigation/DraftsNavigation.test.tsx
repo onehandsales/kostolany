@@ -114,9 +114,12 @@ it('멘션 검색 실패·재시도·동명이인·빈 결과와 커서 이동 �
   expect(screen.queryByRole('button', { name: '굵게' })).toBeNull(); await fireEvent(screen.getByLabelText('글 본문'), 'blur');
   expect(screen.queryByRole('button', { name: '이미지 삽입' })).toBeNull();
   expect(screen.queryByRole('button', { name: '헤더 서식' })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Undo' })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Redo' })).toBeNull();
   expect(screen.queryByRole('button', { name: '굵게' })).toBeNull(); expect(button('Sam Lee @sam.lee 멘션')).toBeVisible();
   await user.press(button('Sam Lee @sam.lee 멘션')); expect(screen.getByText('Sam Lee')).toBeVisible();
   expect(button('이미지 삽입')).toBeVisible(); expect(button('헤더 서식')).toBeVisible();
+  expect(button('Undo')).toBeVisible(); expect(button('Redo')).toBeVisible();
   expect(screen.getByLabelText('글 본문')).toHaveProp('selection', { start: 8, end: 8 });
   await input('@없는사용자'); await flush(); expect(screen.getByText('No users found')).toBeVisible();
   let resolve!: (value: typeof publicDirectory) => void; const pending = () => new Promise<typeof publicDirectory>(done => { resolve = done; });

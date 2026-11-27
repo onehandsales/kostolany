@@ -149,7 +149,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         const current = session.getSnapshot().value; const range = mentionQuery(captured);
         if (range && current.document === captured.document && current.selection.start === captured.selection.start && current.selection.end === captured.selection.end) apply(insertMention(current, range, target));
       }} />
-      <View style={styles.inlineTools}>
+      {!(bodyTarget && !composing && mentionQuery(value)) && <View style={styles.inlineTools}>
         <EditorInlineToolButton icon="undo" label="Undo" disabled={historyDisabled || !snapshot.canUndo} onPress={() => session.undo()} />
         <EditorInlineToolButton icon="redo" label="Redo" disabled={historyDisabled || !snapshot.canRedo} onPress={() => session.redo()} />
       {bodyTarget && !mentionQuery(value) && (focused || value.selection.start !== value.selection.end) && <>
@@ -162,7 +162,7 @@ export function StoryEditorScreen({ onClose, onDrafts, onPreview, session, image
         <EditorInlineToolButton icon="keyboard-dismiss" label="키보드 닫기"
           onPress={() => { Keyboard.dismiss(); requestDismiss(current => current + 1); setFocused(false); }} />
       </>}
-      </View>
+      </View>}
       {/* 멘션 입력 중에는 원본처럼 후보 영역이 서식 도구 자리를 사용한다. */}
       {!(bodyTarget && !composing && mentionQuery(value)) && <ScrollView horizontal keyboardShouldPersistTaps="always" showsHorizontalScrollIndicator={false} style={styles.toolbar} contentContainerStyle={styles.tools}>
         {tool('헤더 서식', 'Tᴛ', () => cycle(['paragraph', 'heading', 'subheading']), { active: ['heading', 'subheading'].includes(block) })}
